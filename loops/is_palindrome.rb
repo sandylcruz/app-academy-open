@@ -53,6 +53,10 @@ def is_palindrome(word)
   end
 end
 
+def is_palindrome(word)
+  (word.size/2).times.all? { |i| word[i] == word[-i-1]}
+end
+
 puts is_palindrome('racecar')
 puts is_palindrome('kayak')
 puts is_palindrome('bootcamp')
