@@ -6,13 +6,12 @@ reverse order. The min and max should be excluded from the array
 =end
 
 def reverse_range(min, max)
-  number_array = min...max
+  number_array = (min + 1) ...max
   array = []
+  i = 0
   number_array.each do |number|
-    if number > 1
-      array.unshift(number)
-    end
+    array.unshift(number)
   end
   return array
 end
-puts reverse_range(1, 10)
+puts reverse_range(12, 30)
