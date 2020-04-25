@@ -4,12 +4,11 @@ the method should return the element that appears earlier in the array.
 =end
 
 def first_in_array(arr, el1, el2)
-  first_in = ''
-  i = 0
-  if el1[i] > el2
-    first_in << el1[i]
+  if el1 > el2
+    el1
+  else
+    el2
   end
-  i += 1
 end
 
 puts first_in_array(["a", "b", "c", "d"], "d", "b"); # => "b"
