@@ -4,7 +4,14 @@ array and returns the sum of all elements in the array.
 =end
 
 def two_d_sum(arr)
+  total = 0
 
+  arr.each do |subArray|
+    subArray.each do |num|
+      total += num
+    end
+  end
+  return total
 end
 
 array_1 = [
