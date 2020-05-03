@@ -9,7 +9,7 @@ def retrieve_values(hash1, hash2, key)
   value1 = hash1[key]
   value2 = hash2[key]
 
-  value1 + value2
+  value_array = [value1, value2]
 end
 
 
