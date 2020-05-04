@@ -26,3 +26,16 @@ array_2 = [
   [2, 5]
 ]
 puts two_d_sum(array_2)    # => 15
+
+def two_d_sum(arr)
+  total = 0
+
+  arr.each do |subArray|
+    subArray.each do |num|
+      total += num
+    end
+  end
+
+  return total
+
+end

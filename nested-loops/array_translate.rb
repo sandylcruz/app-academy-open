@@ -19,6 +19,21 @@ def array_translate(array)
   end
   new_string
 end
+#
+# def array_translate(array)
+#   new_string = ""
+# 
+#   array.each_with_index do |element, index|
+#     index_number = index + 1
+#     return index_number
+#
+#     num = array[index + 1]
+#     num.times { new_string += element }
+#
+#     i += 2
+#   end
+#   new_string
+# end
 
 print array_translate(["Cat", 2, "Dog", 3, "Mouse", 1]); # => "CatCatDogDogDogMouse"
 puts

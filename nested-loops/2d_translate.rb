@@ -35,3 +35,15 @@ arr_2 = [
 
 print two_d_translate(arr_2) # => [ 'red', 'blue', 'blue', 'blue', 'blue' ]
 puts
+
+def two_d_translate(arr)
+  new_array = []
+  arr.each do |subArray|
+    element= arr[0]
+    num = arr[1]
+
+    num.times { new_array << element }
+    end
+  end
+  new_array
+end
