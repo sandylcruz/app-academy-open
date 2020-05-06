@@ -6,14 +6,27 @@ A prime number is only divisible by 1 and itself.
 =end
 
 def prime?(num)
+  if num < 2
+    return false
+  end
 
-  if num <= 1
-    false
-  else
-    if (2...num).any? { |i| num % i == 0}
-      false
-    else
-      true
+  (2...num).each do |factor|
+    if num % factor == 0
+      return false
+    end
+  end
+  true
+end
+
+def prime?(num)
+  range_num = num / 2
+  if num > 1
+    for 2..range_num
+      if num % i == 0
+        false
+      else
+        true
+      end
     end
   end
 end
