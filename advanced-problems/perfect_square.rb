@@ -8,8 +8,7 @@ square because 5  5 = 25.
 =end
 
 def perfect_square?(num)
-  
-
+  Math.sqrt(num) % 1 == 0
 end
 
 puts perfect_square?(5)   #=> false
