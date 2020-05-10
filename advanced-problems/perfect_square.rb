@@ -8,6 +8,15 @@ square because 5  5 = 25.
 =end
 
 def perfect_square?(num)
+   (1..num).each do |factor|
+     if factor * factor == num
+       return true
+     end
+   end
+   return false
+end
+
+def perfect_square?(num)
   Math.sqrt(num) % 1 == 0
 end
 
