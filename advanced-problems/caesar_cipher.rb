@@ -6,13 +6,25 @@ in the alphabet.
 =end
 
 def caesar_cipher(str, num)
-alphabet = "abcdefghijklmnopqrstuvwxyz"
-
 
 ascii = str.chars.map { |char| char.ord }
 shifted = ascii.map { |char| char + num }
 shifted.map { |char| char.chr }.join
 
+end
+
+def caesar_cipher(str, num)
+  alphabet = "abcdefghijklmnopqrstuvwxyz"
+  new_str = ""
+
+  str.each_char do |char|
+    old_idx = alphabet.index(char)
+    new_indx = old_idx + num
+    new_char = alphabet[new_idx % 26]
+    new_str += new_char
+  end
+
+  new_str
 end
 
 puts caesar_cipher("apple", 1)    #=> "bqqmf"
