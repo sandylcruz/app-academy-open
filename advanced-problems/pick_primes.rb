@@ -18,7 +18,6 @@ def prime?(num)
 end
 
 def pick_primes(numbers)
-  prime_array = []
 
   numbers.select { |number| prime?(number) }
 end
