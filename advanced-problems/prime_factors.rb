@@ -20,7 +20,7 @@ end
 def prime_factors(num)
   factors = []
 
-  (1..num).each do |i|
+  (2..num).each do |i|
     if num % i == 0 && prime?(i)
       factors << i
     end
@@ -28,34 +28,6 @@ def prime_factors(num)
   return factors
 end
 print prime_factors(24)
-
-  # factors = (2..num).select { |number| num % number == 0 }
-
-
-
-  # while i <= (num / 2)
-  #   if num % i == 0
-  #     divisors << num
-  #   end
-  #   i += 1
-  # end
-  # return divisors
-
-
-
-# def prime_factors(num)
-#   prime_factors = []
-#
-#   factor = 2
-#
-#   while factor < num
-#     if num % factor == 0
-#       prime_factors.push(num)
-#     end
-#     factor += 1
-#   end
-#   prime_factors
-# end
 #
 print prime_factors(24) #=> [2, 3]
 puts
