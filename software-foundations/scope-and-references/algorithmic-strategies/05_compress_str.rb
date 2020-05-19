@@ -7,16 +7,23 @@ For example "aaabbc" is compressed to "3a2bc".
 
 def compress_str(str)
   compressed = ""
-  counter = 0
+  i = 0
 
-  str.each do |char|
-    if char == last_char
+  while i < str.length 
+    char = str[i]
+    count = 0
+
+    while char == str[i]
       count += 1
+      i += 1
+    end
+    
+    if count > 1
+      compressed += (count.to_s + char)
     else
-      compressed << counter
+        compressed += char
     end
   end
-
   compressed
 end
 
