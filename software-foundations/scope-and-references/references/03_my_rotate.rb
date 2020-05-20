@@ -31,6 +31,22 @@ def my_rotate!(array, amt)
 
 end
 
+def my_rotate!(array, amt)
+  
+  if amt > 0
+    amt.times do 
+      
+      ele = array.shift
+      array << ele
+    end
+  else
+    (-amt).times do
+      ele = array.pop
+      array.unshift(ele)
+    end
+  end
+  array
+end
 
 array_1 = ["a", "b", "c", "d"]
 p array_1.object_id                 # => 70354216023780
