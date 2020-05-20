@@ -21,6 +21,9 @@ def scalar_multiple!(array, multiplier)
  array
 end
 
+def scalar_multiple!(array, multiplier)
+  array.map! { |el| el * multiplier }
+ end
 
 array_1 = [7, 0, 4]
 p array_1.object_id                             # => 60
