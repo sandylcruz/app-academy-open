@@ -19,6 +19,10 @@ def replace_char_at!(str, char, idx)
   str
 end
 
+def replace_char_at!(str, char, idx)
+  str[idx] = char
+  str
+end
 
 str_1 = "hello"
 p str_1.object_id                       # => 70120944788380
