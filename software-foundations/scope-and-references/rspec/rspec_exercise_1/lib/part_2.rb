@@ -19,17 +19,47 @@ def vowel_counts(string)
   vowels
 end
 
-def caesar_cipher(string, num)
-  # alphabet = "abcdefghijklmnopqrstuvwxyz"
-  # caesar_string = ""
-  # no_change = ""
+def vowel_counts(string)
+  counts = Hash.new(0)
+  vowels = "aeiou"
+
+  string.each_char do |char|
+    if vowels.include?(char.downcase)
+      counts[char.downcase] += 1
+    end
+  end
+  counts
+end
+
+def is_in_range?(num)
+  if (num >= 97 && num <= 122) || (num >= 65 && num <= 90)
+    true
+  else
+    false
+  end
+end
+
+def caesar_cipher(string,num)
   
+  char_array = string.chars.map do |char|
+    ascii_num = char.ord
 
-  # string.split("").each do |char|
-  #   if char.contain?(alphabet)
+    is_in_range = is_in_range?(ascii_num)
 
-  #   else
-  #     no_change << char
-  #   end
-  # end
+    if is_in_range
+      lowercase_char_offset = 97
+      original_char_index = ascii_num - lowercase_char_offset
+      raw_char_index = original_char_index + num
+      wrapped_char_index = raw_char_index % 26
+
+      new_num = wrapped_char_index + lowercase_char_offset
+  
+      new_num.chr
+    else
+      ascii_num.chr
+    end
+  end
+
+  char_array.join("")
+  
 end
