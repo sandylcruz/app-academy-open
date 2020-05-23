@@ -48,11 +48,17 @@ def caesar_cipher(string,num)
 
     if is_in_range
       lowercase_char_offset = 97
-      original_char_index = ascii_num - lowercase_char_offset
+      uppercase_char_offset = 65
+
+      is_uppercase = ascii_num <= 90
+
+      char_offset = is_uppercase ? uppercase_char_offset : lowercase_char_offset
+
+      original_char_index = ascii_num - char_offset
       raw_char_index = original_char_index + num
       wrapped_char_index = raw_char_index % 26
 
-      new_num = wrapped_char_index + lowercase_char_offset
+      new_num = wrapped_char_index + char_offset
   
       new_num.chr
     else

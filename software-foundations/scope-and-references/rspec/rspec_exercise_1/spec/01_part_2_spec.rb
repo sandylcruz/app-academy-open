@@ -44,6 +44,10 @@ describe "Part 2:" do
       expect(caesar_cipher("whoa", 52)).to eq("whoa")
     end
 
+    it "handles capital letters" do
+      expect(caesar_cipher("ZEBRA", 4)).to eq("DIFVE")
+    end
+
     it "should not modify non-alphabetic characters" do
       expect(caesar_cipher("123 _-!?@%", 3)).to eq("123 _-!?@%")
       expect(caesar_cipher("hello world!", 1)).to eq("ifmmp xpsme!")
