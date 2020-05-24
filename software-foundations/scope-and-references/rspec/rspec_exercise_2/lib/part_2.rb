@@ -17,14 +17,14 @@ def palindrome?(word)
   end
 end
 
-def palindrome?(word)
-  string.each_char.with_index do |char, i|
-    if string[i] != string[-i - 1]
-      return false
-    end
-  end
-  true
-end
+# def palindrome?(word)
+#   string.each_char.with_index do |char, i|
+#     if string[i] != string[-i - 1]
+#       return false
+#     end
+#   end
+#   true
+# end
 
 def substrings(string)
   substring_array = []
@@ -54,22 +54,6 @@ def substrings(string)
   substring_array
 end
 
-def palindrome_substrings(word)
-  # palindrome_sub_array = []
-
-  if substrings(word).length > 1
-    return substrings(word)
-  end
-
- 
-  
-  # word.each_char do |char|
-  #   if word.length > 1
-  #     if palindrome?(word)
-  #     palindrome_sub_array << substrings(word)
-  #     end
-  #   end
-  # end
-  
-  # palindrome_sub_array
+def palindrome_substrings(string)
+  substrings(string).select { |substring| palindrome?(substring) && substring.length > 1}
 end
