@@ -1,7 +1,18 @@
-def partition(array, num)
-  # 2d_array = []
+def partition(array, partition_num)
+ first_half = []
+ second_half = []
+ final_array = []
 
-  # 2d_array
+ 
+  array.each do |number|
+    if number < partition_num 
+      first_half << number
+    else
+      second_half << number
+    end
+  end
+  final_array << first_half
+  final_array << second_half
 
 end
 
@@ -22,6 +33,7 @@ def censor(sentence, curse_words)
   end
   new_words.join(" ")
 end
+
 def star_vowels(string)
   vowels = "aeiou"
   new_string = ""
