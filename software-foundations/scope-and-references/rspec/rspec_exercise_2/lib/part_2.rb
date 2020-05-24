@@ -17,15 +17,6 @@ def palindrome?(word)
   end
 end
 
-# def palindrome?(word)
-#   string.each_char.with_index do |char, i|
-#     if string[i] != string[-i - 1]
-#       return false
-#     end
-#   end
-#   true
-# end
-
 def substrings(string)
   substring_array = []
   char = string.split("")
