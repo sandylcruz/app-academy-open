@@ -9,15 +9,6 @@ def reverse_word(word)
   return reverse_array.join
 end
 
-def reverse_word(word)
-  string.each_char.with_index do |char, i|
-    if string[i] != string[-i - 1]
-      return false
-    end
-  end
-  true
-end
-
 def palindrome?(word)
   if word == reverse_word(word)
     true
@@ -26,17 +17,25 @@ def palindrome?(word)
   end
 end
 
+def palindrome?(word)
+  string.each_char.with_index do |char, i|
+    if string[i] != string[-i - 1]
+      return false
+    end
+  end
+  true
+end
+
 def substrings(string)
   substring_array = []
   char = string.split("")
 
-  (0...string.length).each do |i|
-    (i...string.length).each do |j|
-      substring_array << string[i..j]
+  (0...string.length).each do |start_index|
+    (start_index...string.length).each do |end_index|
+      substring_array << string[start_index...end_index]
     end
   end
   substring_array
-
 end
 
 def substrings(string)
