@@ -7,12 +7,15 @@
 require "byebug"
 
 def half_and_double(array)
-  new_array = array.map do |num|
+  
+  new_array = []
+  
+  array.map do |num|
     if num % 2 == 0
-      return num / 2
+      new_array << (num / 2)
     else
-      return num * 2
+      new_array << (num * 2)
     end
   end
-    new_array
+  new_array
 end
