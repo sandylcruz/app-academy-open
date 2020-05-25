@@ -14,11 +14,10 @@ def num_vowels(word)
 end
 
 def many_vowel_words(sentence)
-   words = sentence.split("")
+  words = sentence.split(" ")
 
   new_words = words.select do |word|
-    num_vowels(word)
-      num_vowels >= 2
+    num_vowels(word) >= 2
   end
 
   new_words.join(" ")
