@@ -6,10 +6,11 @@
 
 require "byebug"
 
-little_words = [ "and", "the", "over", "a", "on", "of" ]
+
 
 def titleize(title)
   words = title.split(" ")
+  little_words = [ "and", "the", "over", "a", "on", "of" ]
 
   titleized_words = words.map.with_index do |i, word|
     if i == 0 || !little_words.include?(word)
