@@ -10,13 +10,14 @@ require "byebug"
 
 def titleize(title)
   words = title.split(" ")
+
   little_words = [ "and", "the", "over", "a", "on", "of" ]
 
-  titleized_words = words.map.with_index do |i, word|
-    if i == 0 || !little_words.include?(word)
-      word.capitalize
-    else
+  titleized_words = words.map.with_index do |word, index|
+    if little_words.include?(word) && index > 0
       word.downcase
+    else
+      word.capitalize
     end
   end
 
