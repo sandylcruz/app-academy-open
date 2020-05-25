@@ -5,6 +5,14 @@
 
 require "byebug"
 
+def num_vowels(word)
+  count = 0
+  word.each_char do |char|
+      count += 1 if "aeiou".include?(char)
+  end
+  count
+end
+
 def many_vowel_words(sentence)
     words = sentence.split("")
 
@@ -16,10 +24,3 @@ def many_vowel_words(sentence)
     new_words.join(" ")
 end
 
-def num_vowels(word)
-    count = 0
-    word.each_char do |char|
-        count += 1 if "aeiou".include?(char)
-    end
-    count
-end
