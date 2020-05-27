@@ -23,7 +23,6 @@ def largest_prime_factor(num)
 end
 
 def unique_chars?(word)
-  i = 0
   char_array = word.split("")
   unique_array = []
  
@@ -39,8 +38,18 @@ def unique_chars?(word)
 end
 
 def unique_chars?(word)
-  
+  unique_hash = {}
+  char_array = word.split("")
 
+  
+  char_array.each do |char|
+    if unique_hash.has_key?(char)
+      return false
+    else
+      unique_hash[char] = true
+    end
+  end
+  return true
 end
 
 
