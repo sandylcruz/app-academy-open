@@ -22,13 +22,28 @@ def largest_prime_factor(num)
   return factor_array.reverse[0]
 end
 
-
-
-
+def unique_chars?(word)
+  i = 0
+  char_array = word.split("")
+  unique_array = []
+ 
+  char_array.each do |element|
+    unique_array << element if not unique_array.include?(element)
+  end
+  
+  if unique_array.length == char_array.length
+    true
+  else
+    false 
+  end
+end
 
 def unique_chars?(word)
+  
 
 end
+
+
 
 def dupe_indices(array)
 
