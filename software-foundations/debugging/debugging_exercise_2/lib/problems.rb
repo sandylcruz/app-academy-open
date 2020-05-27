@@ -41,7 +41,6 @@ def unique_chars?(word)
   unique_hash = {}
   char_array = word.split("")
 
-  
   char_array.each do |char|
     if unique_hash.has_key?(char)
       return false
@@ -52,12 +51,33 @@ def unique_chars?(word)
   return true
 end
 
-
-
 def dupe_indices(array)
+  repeat_hash = {}
+  counter = 0
 
+  array.each do |element|
+    if repeat_hash.has_key?(element)
+      counter += 1
+    else
+      repeat_hash[element] += 1
+    end
+  end
+  return counter
+  return repeat_hash
+end
+
+def ele_counter(arr)
+  count = Hash.new(0)
+
+  arr.each { |ele| count[ele] += 1 }
+  
+  count
 end
 
 def ana_array(array1, array2)
+  count_1 = ele_counter(array1)
+  count_2 = ele_counter(array2)
+
+  count_1 == count_2
 
 end
