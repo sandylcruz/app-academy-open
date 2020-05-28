@@ -51,26 +51,17 @@ def unique_chars?(word)
   return true
 end
 
-def dupe_indices(array)
-  repeat_hash = {}
-  counter = 0
-
-  array.each do |element|
-    if repeat_hash.has_key?(element)
-      counter += 1
-    else
-      repeat_hash[element] += 1
-    end
+def dupe_indices(arr)
+  indices = Hash.new { |h, k| h[k] = [] }
+  arr.each_with_index do |ele, index| 
+    indices[ele] << index
   end
-  return counter
-  return repeat_hash
+  indices.select { |ele, arr| arr.length > 1 }
 end
 
 def ele_counter(arr)
   count = Hash.new(0)
-
   arr.each { |ele| count[ele] += 1 }
-  
   count
 end
 
@@ -79,5 +70,4 @@ def ana_array(array1, array2)
   count_2 = ele_counter(array2)
 
   count_1 == count_2
-
 end
