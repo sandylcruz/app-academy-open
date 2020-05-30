@@ -7,45 +7,34 @@ def reject_puppies(arr)
 end
 
 def count_positive_subarrays(arr)
-  array.count { |subarr| subarr.sum > 0}
+  arr.count { |subarray| subarray.sum > 0 }
 end
 
-def count_positive_subarrays(arr)
-  count = 0
+# def count_positive_subarrays(arr)
+#   count = 0
 
-  sub_arrays = arr.map { |sub_array| sub_array.sum }
-  sub_arrays.each do |number|
-    if number > 0
-      count += 1
-    end
-  end
-  
-  count
-end
+#   sub_arrays = arr.map { |sub_array| sub_array.sum }
+#   sub_arrays.each do |number|
+#     if number > 0
+#       count += 1
+#     end
+#   end
 
-def is_vowel?(char)
-  if ["a", "e", "i", "o", "u"].include?(char)
-    return true
-  else
-    return false
-  end
-end
+#   count
+# end
 
 def aba_translate(word)
-  chars = word.split("")
-  new_word_array = []
+  new_word = ""
+  vowels = "aeiou"
 
-  chars = word.split("").each_with_index do |char, index|
-    if is_vowel?(char)
-
-      new_word_array << "2"
+  word.each_char do |char|
+    if vowels.include?(char)
+      new_word << char + "b" + char
     else
-      new_word_array << char
+      new_word << char
     end
-    i += 1
   end
-
-  return new_word_array
+  new_word
 end
 
 def aba_array(arr)
