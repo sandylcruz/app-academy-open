@@ -1,6 +1,5 @@
 def select_even_nums(arr)
-  even_nums = arr.select { |num| num.even? }
-  even_nums
+  arr.select { |num| num.even? }
 end
 
 def reject_puppies(arr)
@@ -9,8 +8,17 @@ end
 
 def count_positive_subarrays(arr)
   count = 0
-  sums = arr.each.count 
-  sums
+
+  sub_arrays = arr.map { |sub_array| sub_array.sum }
+
+  sub_arrays.each do |number|
+    if number > 0
+      count += 1
+    end
+  end
+
+  count
+
 end
 
 def is_vowel?(char)
@@ -23,17 +31,18 @@ end
 
 def aba_translate(word)
   chars = word.split("")
-  i = 0
   new_word_array = []
 
-  while i < word.length
-    if is_vowel?(chars)
+  chars = word.split("").each_with_index do |char, index|
+    if is_vowel?(char)
+
       new_word_array << "2"
     else
-      new_word_array << chars
+      new_word_array << char
     end
     i += 1
   end
+
   return new_word_array
 end
 
