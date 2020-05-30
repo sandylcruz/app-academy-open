@@ -7,18 +7,20 @@ def reject_puppies(arr)
 end
 
 def count_positive_subarrays(arr)
+  array.count { |subarr| subarr.sum > 0}
+end
+
+def count_positive_subarrays(arr)
   count = 0
 
   sub_arrays = arr.map { |sub_array| sub_array.sum }
-
   sub_arrays.each do |number|
     if number > 0
       count += 1
     end
   end
-
+  
   count
-
 end
 
 def is_vowel?(char)
