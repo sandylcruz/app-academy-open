@@ -37,6 +37,10 @@ def aba_translate(word)
   new_word
 end
 
+# def aba_translate(word)
+#   word.each_char { |char| new_word << (vowels.include?(char) ? char + 'b' + char : char) }
+# end
+
 def aba_array(arr)
   arr.map { |word| aba_translate(word) }
 end
