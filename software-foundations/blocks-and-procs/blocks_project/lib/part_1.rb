@@ -38,5 +38,5 @@ def aba_translate(word)
 end
 
 def aba_array(arr)
-  arr.map
+  arr.map { |word| aba_translate(word) }
 end
