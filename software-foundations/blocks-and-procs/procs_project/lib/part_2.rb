@@ -1,4 +1,15 @@
 def reverser(string, &prc)
+  letter_string = ""
+
+  alphabet = "abcdefghijklmnopqrstuvwxyz"
+
+  string.each_char do |char|
+    if alphabet.include?(char) 
+      letter_string << char
+    end
+  end
+  reversed = letter_string.reverse
+  prc.call(reversed)
 end
 
 def word_changer(string, &prc)
