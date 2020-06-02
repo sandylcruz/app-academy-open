@@ -30,8 +30,6 @@ def my_count(array, &prc)
 end
 
 def my_any?(array, &prc)
-  any_true = 0
-
   array.each do |ele|
     if prc.call(ele) == true
       return true
@@ -41,6 +39,12 @@ def my_any?(array, &prc)
 end
 
 def my_all?(array, &prc)
+  array.each do |ele|
+    if prc.call(ele) == false
+      return false
+    end
+  end
+  return true
 end
 
 def my_none?(array, &prc)
