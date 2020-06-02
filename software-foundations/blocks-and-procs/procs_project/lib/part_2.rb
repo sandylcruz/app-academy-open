@@ -44,4 +44,13 @@ def and_selector(array, proc1, proc2)
 end
 
 def alternating_mapper(array, proc1, proc2)
+  new_array = []
+  array.each_with_index do |num, index|
+    if index.even?
+      new_array << proc1.call(num)
+    else
+      new_array << proc2.call(num)
+    end
+  end
+  new_array
 end
