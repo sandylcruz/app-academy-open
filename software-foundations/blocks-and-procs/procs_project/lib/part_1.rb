@@ -13,7 +13,7 @@ def my_select(array, &prc)
       selected << ele
     end
   end
-  
+
   selected
 end
 
@@ -30,6 +30,14 @@ def my_count(array, &prc)
 end
 
 def my_any?(array, &prc)
+  any_true = 0
+
+  array.each do |ele|
+    if prc.call(ele) == true
+      return true
+    end
+  end
+  return false
 end
 
 def my_all?(array, &prc)
