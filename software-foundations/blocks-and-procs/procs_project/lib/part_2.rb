@@ -33,6 +33,14 @@ def greater_proc_value(num, proc1, proc2)
 end
 
 def and_selector(array, proc1, proc2)
+  selected = []
+
+  array.each do |num|
+    if proc1.call(num) == true && proc2.call(num) == true
+      selected << num
+    end
+  end
+  selected
 end
 
 def alternating_mapper(array, proc1, proc2)
