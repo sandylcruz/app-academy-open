@@ -21,7 +21,15 @@ def word_changer(string, &prc)
   shouted.join(" ")
 end
 
-def greater_proc_value(number, proc1, proc2)
+def greater_proc_value(num, proc1, proc2)
+  value_1 = proc1.call(num)
+  value_2 = proc2.call(num)
+
+  if value_1 > value_2
+    value_1
+  else
+    value_2
+  end
 end
 
 def and_selector(array, proc1, proc2)
