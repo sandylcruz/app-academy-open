@@ -1,7 +1,7 @@
-def reverser(string, block)
+def reverser(string, &prc)
 end
 
-def word_changer(string, block)
+def word_changer(string, &prc)
 end
 
 def greater_proc_value(number, proc1, proc2)
