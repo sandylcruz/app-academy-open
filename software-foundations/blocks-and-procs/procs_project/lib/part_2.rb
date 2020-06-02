@@ -13,6 +13,12 @@ def reverser(string, &prc)
 end
 
 def word_changer(string, &prc)
+  shouted = []
+  words = string.split(" ")
+  words.each do |word|
+    shouted << prc.call(word)
+  end
+  shouted.join(" ")
 end
 
 def greater_proc_value(number, proc1, proc2)
