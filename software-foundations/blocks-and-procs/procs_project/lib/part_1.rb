@@ -8,15 +8,25 @@ end
 def my_select(array, &prc)
   selected = []
 
-  array.each do |el| 
-    if prc.call(el) == true
-      selected << el 
+  array.each do |ele| 
+    if prc.call(ele) == true
+      selected << ele
     end
   end
+  
   selected
 end
 
 def my_count(array, &prc)
+  true_count = 0
+
+  array.each do |ele|
+    if prc.call(ele) == true
+      true_count += 1
+    end
+  end
+
+  true_count
 end
 
 def my_any?(array, &prc)
