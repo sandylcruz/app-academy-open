@@ -33,7 +33,7 @@ class Bootcamp
     if @students.length < @student_capacity
       students << student
       return true
-    elsif number = @student_capacity
+    else
       return false
     end
   end
@@ -47,11 +47,16 @@ class Bootcamp
   end
 
   def student_to_teacher_ratio
-    student_capacity / 1
+    @students.length / @teachers.length
   end
 
   def add_grade(student, grade)
-    
+    if @students.include?(student)
+      @grades[student] << grade
+      return true
+    else
+      return false
+    end
   end
 
   def num_grades(student)
