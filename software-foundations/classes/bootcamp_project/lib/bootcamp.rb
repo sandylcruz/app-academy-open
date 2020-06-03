@@ -9,44 +9,44 @@ class Bootcamp
     @grades = Hash.new { |h, k| h[k] = [] }
   end
 
-#   def name
-#     @name
-#   end
+  def name
+    @name
+  end
 
-#   def slogan
-#     @slogan
-#   end
+  def slogan
+    @slogan
+  end
 
-#   def teachers
-#     @teachers
-#   end
+  def teachers
+    @teachers
+  end
 
-#   def students
-#     @students
-#   end
+  def students
+    @students
+  end
 
-#   def hire(teacher)
-#     teachers << teacher
-#   end
+  def hire(teacher)
+    teachers << teacher
+  end
 
-#   def enroll(student)
-#     student_capacity
-#   end
+  def enroll(student)
+    student_capacity
+  end
 
-#   def student_to_teacher_ratio
-#   end
+  def student_to_teacher_ratio
+  end
 
-#   def add_grade(student, grade)
+  def add_grade(student, grade)
     
-#   end
+  end
 
-#   def num_grades(student)
-#   end
+  def num_grades(student)
+  end
 
-#   def average_grade(student)
-#     average = 0
+  def average_grade(student)
+    average = 0
 
-#   end
+  end
 
 
 
