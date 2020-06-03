@@ -60,6 +60,7 @@ class Bootcamp
   end
 
   def num_grades(student)
+    @grades[student].length
   end
 
   def average_grade(student)
