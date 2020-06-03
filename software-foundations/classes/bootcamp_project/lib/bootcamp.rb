@@ -30,10 +30,16 @@ class Bootcamp
   end
 
   def enroll(student)
-    student_capacity
+    if @students.length < @student_capacity
+      students << student
+      return true
+    elsif number = @student_capacity
+      return false
+    end
   end
 
   def student_to_teacher_ratio
+    student_capacity / 1
   end
 
   def add_grade(student, grade)
