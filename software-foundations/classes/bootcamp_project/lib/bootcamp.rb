@@ -38,6 +38,14 @@ class Bootcamp
     end
   end
 
+  def enrolled?(student)
+    if @students.include?(student)
+      return true
+    else
+      return false
+    end
+  end
+
   def student_to_teacher_ratio
     student_capacity / 1
   end
