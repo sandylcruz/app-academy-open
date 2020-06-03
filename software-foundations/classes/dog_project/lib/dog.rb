@@ -33,7 +33,7 @@ class Dog
   end
 
   def favorite_foods
-    @fav_foods
+    @favorite_foods
   end
 
   def favorite_food?(food)
