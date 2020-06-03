@@ -37,7 +37,12 @@ class Dog
   end
 
   def favorite_food?(food)
-
+    downcase_food = food.capitalize
+    if @favorite_foods.include?(downcase_food)
+      return true
+    else
+      return false
+    end
   end
 
 end
