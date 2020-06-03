@@ -64,10 +64,11 @@ class Bootcamp
   end
 
   def average_grade(student)
-    average = 0
-
+    if @grades.include?(student)
+      @grades[student].sum / @grades[student].length
+    else
+      return nil
+    end
   end
-
-
 
 end
