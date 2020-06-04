@@ -28,7 +28,7 @@ class GuessingGame
   end
 
   def ask_user
-    print 'Enter a number '
+    print 'Enter a number: '
     answer = gets.chomp
     integer = answer.to_i
     check_num(integer)
