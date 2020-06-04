@@ -55,8 +55,13 @@ class Array
     return nil
   end
 
-  def my_uniq(value)
+  def my_uniq
     unique_array = []
+    self.each do |ele|
+      unless unique_array.include?(ele)
+        unique_array << ele
+      end
+    end
 
     unique_array
   end
