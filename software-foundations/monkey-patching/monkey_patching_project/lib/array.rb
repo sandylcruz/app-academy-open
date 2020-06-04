@@ -32,14 +32,21 @@ class Array
     self.each do |letter|
       result_hash[letter] += 1
     end
-    return result_hash
+    result_hash
   end
 
-  def my_count
+  def my_count(arg)
+    count = 0
 
+    self.each do |ele|
+      if ele == arg 
+        count += 1
+      end
+    end
+    count
   end
 
-  def my_index
+  def my_index(value)
     array.each_with_index do |ele, index|
       if array.include?(arg)
         return index
@@ -48,11 +55,13 @@ class Array
     
   end
 
-  def my_uniq
-    
+  def my_uniq(value)
+    unique_array = []
+
+    unique_array
   end
 
-  def my_transpose
+  def my_transpose(value)
   end
 
 end
