@@ -15,19 +15,20 @@ class GuessingGame
 
   def check_num(num)
     @num_attempts += 1
-    if num == @secret_num
-      puts "you win"
-      @game_over == true
-    elsif num > @secret_num
-      puts "too big"
+   
+    if num > @secret_num
+      puts "Too big"
       return false
-    else
-      puts "too small"
+    elsif num < @secret_num
+      puts "Too small"
+    elsif num == @secret_num
+      puts "You win!"
+      @game_over = true
     end
   end
 
   def ask_user
-    print 'enter a number'
+    print 'Enter a number '
     answer = gets.chomp
     integer = answer.to_i
     check_num(integer)
