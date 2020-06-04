@@ -5,11 +5,11 @@ class Array
     return nil if self.empty?
     ascending_order = self.sort
     difference = ascending_order[-1] - ascending_order[0]
-    return difference
   end
 
   def average
     return nil if self.empty?
+    (self.sum * 1.0) / self.length * 1.0
   end
 
   def median
