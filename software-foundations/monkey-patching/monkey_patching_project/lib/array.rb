@@ -27,23 +27,32 @@ class Array
     end
   end
 
-  def my_count(value)
+  def counts
+    result_hash = Hash.new(0)
+    self.each do |letter|
+      result_hash[letter] += 1
+    end
+    return result_hash
   end
 
-  # def my_index(array, arg)
-  #   array.each_with_index do |ele, index|
-  #     if array.include?(arg)
-  #       return index
-  #     end
-  #   end
-    
-  # end
+  def my_count
 
-  def my_uniq(array)
+  end
+
+  def my_index
+    array.each_with_index do |ele, index|
+      if array.include?(arg)
+        return index
+      end
+    end
     
   end
 
-  def my_transpose(array)
+  def my_uniq
+    
+  end
+
+  def my_transpose
   end
 
 end
