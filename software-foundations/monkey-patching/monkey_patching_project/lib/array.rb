@@ -46,13 +46,13 @@ class Array
     count
   end
 
-  def my_index(value)
-    array.each_with_index do |ele, index|
-      if array.include?(arg)
+  def my_index(arg)
+    self.each_with_index do |ele, index|
+      if ele == arg
         return index
       end
     end
-    
+    return nil
   end
 
   def my_uniq(value)
