@@ -14,20 +14,30 @@ class Array
 
   def median
     return nil if self.empty?
+    sorted = self.sort
 
+    if sorted.length.odd?
+      mid_index = (sorted.length) / 2
+      return sorted[mid_index]
+    else
+      mid_index = self.length / 2
+      first_ele = sorted[mid_index]
+      second_ele = sorted[mid_index - 1]
+      return (first_ele + second_ele) / 2.0
+    end
   end
 
   def my_count(value)
   end
 
-  def my_index(array, arg)
-    array.each_with_index do |ele, index|
-      if array.include?(arg)
-        return index
-      end
-    end
+  # def my_index(array, arg)
+  #   array.each_with_index do |ele, index|
+  #     if array.include?(arg)
+  #       return index
+  #     end
+  #   end
     
-  end
+  # end
 
   def my_uniq(array)
     
