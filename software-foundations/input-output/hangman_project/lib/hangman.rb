@@ -67,8 +67,11 @@ class Hangman
   def ask_user_for_guess
     print "Enter a char: "
     char_answer = gets.chomp
+    return char_answer
 
-    if @try_guess.include?(char)
+    if @guess_word == @secret_word
+      print "WIN"
+      return true
     end
   end
 
@@ -82,7 +85,7 @@ class Hangman
   end
 
   def lose?
-    if @remaining_incorrect_guesses = 0
+    if @remaining_incorrect_guesses == 0
       print "LOSE"
       return true
     else
@@ -90,14 +93,14 @@ class Hangman
     end
   end
 
-  # def game_over?
-  #   if @win? == true
-  #     print @secret_word
-  #     return true
-  #   elsif @lose? == false
-  #     return false
-  #   end
-  # end
+  def game_over?
+    if @win == true
+      print @secret_word
+      return true
+    elsif @lose == false
+      return false
+    end
+  end
 
 
 
