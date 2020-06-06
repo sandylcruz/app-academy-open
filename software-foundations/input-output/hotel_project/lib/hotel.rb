@@ -24,11 +24,19 @@ class Hotel
   end
 
   def check_in(person, room)
-    unless self.room_exists?(room)
-      print "Sorry, room does not exist"
+    if room_exists?(room)
+      @add_occupant << person
+      print "Check in succesful"
+    else
+      print "Sorry room does not exist"
     end
+  end
+
+  def has_vacancy?
 
   end
 
-
+  def list_rooms
+    
+  end
 end
