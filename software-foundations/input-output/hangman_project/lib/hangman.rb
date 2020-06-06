@@ -91,15 +91,11 @@ class Hangman
   end
 
   def game_over?
-    if @win == true
+    if self.win? || self.lose?
       print @secret_word
       return true
-    elsif @lose == false
+    else
       return false
     end
   end
-
-
-
-
 end
