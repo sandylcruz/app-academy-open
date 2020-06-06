@@ -22,7 +22,6 @@ class Hangman
 
   def remaining_incorrect_guesses
     @remaining_incorrect_guesses
-    @remaining_incorrect_guesses -= 1
   end
 
   def already_attempted?(char)
@@ -74,7 +73,6 @@ class Hangman
   end
 
   def win?
-
     if @guess_word.join("") == @secret_word
       print "WIN"
       return true
