@@ -14,7 +14,8 @@ class Room
   end
 
   def full?
-    if @occupants < @capacity
+    num_occupants = @occupants.length
+    if num_occupants < @capacity
       return false
     else
       return true
