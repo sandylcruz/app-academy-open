@@ -46,21 +46,21 @@ class Hangman
 
   def fill_indices(char, indices)
     indices.each do |index|
-      
+      @guess_word[index] = char
     end
-    
   end
 
   # def try_guess(char)
-  #   if @already_attempted.include?(char)
+  #   if self.already_attempted?(char)
   #     print "That has already been attempted"
   #     return false
-  #   elsif !@already_attempted.include?(char)
+  #   end
+
+  #   elsif !self.already_attempted?(char)
   #     @already_attempted << char
   #     return true
   #   else 
   #     @remaining_incorrect_guesses -= 1
-      
   #   end
   # end
 
@@ -69,6 +69,7 @@ class Hangman
     char_answer = gets.chomp
     return char_answer
 
+    @try_guess
     if @guess_word == @secret_word
       print "WIN"
       return true
