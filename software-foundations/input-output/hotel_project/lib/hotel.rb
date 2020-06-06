@@ -7,7 +7,8 @@ class Hotel
   end
 
   def name
-    cap_names = @name.titleize  
+    cap_names = @name.split(" ").map { |word| word.capitalize }
+    cap_names.join(" ")
   end
 
   def rooms 
@@ -22,12 +23,12 @@ class Hotel
     end
   end
 
-  # def check_in(person_ room_name)
-  #   unless self.room_exists?(room_name)
-  #     print "Sorry, room does not exist"
-  #   end
+  def check_in(person, room)
+    unless self.room_exists?(room)
+      print "Sorry, room does not exist"
+    end
 
-  # end
+  end
 
 
 end
