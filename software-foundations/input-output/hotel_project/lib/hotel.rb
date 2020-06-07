@@ -36,10 +36,10 @@ class Hotel
   
 
   def has_vacancy?
-
+    @rooms.values.any? { |room| room.available_space > 0 }
   end
 
   def list_rooms
-
+    puts @rooms.available_space
   end
 end
