@@ -19,11 +19,7 @@ class Hotel
   end
 
   def room_exists?(name)
-    if @rooms.has_key?(name)
-      return true
-    else
-      return false
-    end
+    @rooms.has_key?(name)
   end
 
   def check_in(person, room)
