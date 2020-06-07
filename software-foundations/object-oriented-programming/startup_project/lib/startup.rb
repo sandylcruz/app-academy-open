@@ -1,28 +1,13 @@
 require "employee"
 
 class Startup
+  attr_reader :name,  :funding, :salaries,  :employees
 
   def initialize(name, funding, salaries)
     @name = name
     @funding = funding
     @salaries = salaries
     @employees = []
-  end
-
-  def name
-    @name
-  end
-
-  def funding
-    @funding
-  end
-
-  def salaries
-    @salaries
-  end
-
-  def employees
-    @employees
   end
 
   def valid_title?(title)
@@ -33,9 +18,43 @@ class Startup
     end
   end
 
-   def >(startup)
-    self.funding > startup.funding
-   end
+  def >(other_startup)
+    funding > other_startup.funding
+  end
+
+  def hire(employee_name, title)
+    if self.valid_title?
+      @employees.new(employee_name)
+    else
+    end
+  end
+
+  def size
+    puts @employees
+  end
+
+  def pay_employee(employee)
+  
+  end
+
+  def payday
+    
+  end
+
+  def average_salary
+
+  end
+
+  def close
+    @employees = []
+    @funding = 0
+  end
+
+  def acquire(other_startup)
+    @funding.other_startup += @funding
+
+    both_salaries = @salaries.other_startup + @salaries
 
 
+  end
 end
