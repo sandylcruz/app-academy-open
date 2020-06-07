@@ -11,16 +11,15 @@ class Hotel
   end
 
   def name
-    cap_names = @name.split(" ").map { |word| word.capitalize }
-    cap_names.join(" ")
+    @name.split(" ").map(&:capitalize).join(" ")
   end
 
   def rooms 
     @rooms
   end
 
-  def room_exists?(room_name)
-    if self.rooms.include?(room_name)
+  def room_exists?(name)
+    if @rooms.has_key?(name)
       return true
     else
       return false
@@ -29,13 +28,16 @@ class Hotel
 
   def check_in(person, room)
     if self.room_exists?(room)
-      @add_occupant << person
-      print "Check in succesful"
-    else
-      print "Sorry, room is full"
+      if @rooms[room].add_occupant(person)
+        puts "Check in succesful"
+      else
+        puts "Sorry, room is full"
+      end
+    else 
+      puts "Sorry room does not exist"
     end
-    
   end
+  
 
   def has_vacancy?
 
