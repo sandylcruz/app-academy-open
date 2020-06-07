@@ -31,8 +31,11 @@ class Startup
     else
       return false
     end
-
   end
+
+   def >(startup)
+    self.funding > startup.funding
+   end
 
 
 end
