@@ -25,7 +25,14 @@ class Startup
     @employees
   end
 
-  
+  def valid_title?(title)
+    if @salaries.include?(title)
+      return true
+    else
+      return false
+    end
+
+  end
 
 
 end
