@@ -19,13 +19,14 @@ class Startup
   end
 
   def >(other_startup)
-    funding > other_startup.funding
+    self.funding > other_startup.funding
   end
 
   def hire(employee_name, title)
-    if self.valid_title?
-      @employees.new(employee_name)
+    if self.valid_title?(title)
+      @employees << Employee.new(employee_name, title)
     else
+      raise "title is invalid"
     end
   end
 
