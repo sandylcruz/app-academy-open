@@ -31,19 +31,20 @@ class Startup
   end
 
   def size
-    puts @employees
+    @employees.length
   end
 
   def pay_employee(employee)
-  
+    @salaries[employee.title]
   end
 
   def payday
-    
+    money_owed = (@salaries.values.inject(:+)) / @size
   end
 
   def average_salary
-
+    puts(@salaries.values.inject(:+)) / @size
+ 
   end
 
   def close
