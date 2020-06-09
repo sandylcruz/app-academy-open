@@ -2,7 +2,6 @@ require "employee"
 
 class Startup
   attr_reader :name,  :funding, :salaries,  :employees
-
   def initialize(name, funding, salaries)
     @name = name
     @funding = funding
@@ -39,7 +38,9 @@ class Startup
   end
 
   def payday
-    money_owed = (@salaries.values.inject(:+)) / @size
+    @employees.each do |employee|
+      self.pay_employee(employee)
+    end
   end
 
   def average_salary
@@ -53,9 +54,9 @@ class Startup
   end
 
   def acquire(other_startup)
-    @funding.other_startup += @funding
+    return other_startup.funding + self.funding
 
-    both_salaries = @salaries.other_startup + @salaries
+    # both_salaries = other_startup.funding + @salaries
 
 
   end
