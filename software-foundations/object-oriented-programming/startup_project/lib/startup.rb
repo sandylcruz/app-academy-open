@@ -54,7 +54,7 @@ class Startup
     @employees.each do |employee|
       sum += @salaries[employee.title]
     end
-    sum
+    sum / @employees.length
   end
 
   def close
@@ -65,7 +65,10 @@ class Startup
   def acquire(startup)
     @funding += startup.funding
 
-    # both_salaries = other_startup.funding + @salaries
+    @salaries += startup.salaries
+    @employees += startup.employees
+
+    # both_salaries = startup.funding + @salaries
 
 
   end
