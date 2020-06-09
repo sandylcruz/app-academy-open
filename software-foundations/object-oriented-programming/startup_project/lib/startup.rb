@@ -34,7 +34,13 @@ class Startup
   end
 
   def pay_employee(employee)
-    @salaries[employee.title]
+    money_owed = @salaries[employee.title]
+    if @funding >= money_owed
+      employee.pay(money_owed)
+      @funding -= money_owed
+    else
+      raise "not enough funding"
+    end
   end
 
   def payday
@@ -44,8 +50,11 @@ class Startup
   end
 
   def average_salary
-    puts(@salaries.values.inject(:+)) / @size
- 
+    sum = 0
+    @employees.each do |employee|
+      sum += @salaries[employee.title]
+    end
+    sum
   end
 
   def close
@@ -53,8 +62,8 @@ class Startup
     @funding = 0
   end
 
-  def acquire(other_startup)
-    return other_startup.funding + self.funding
+  def acquire(startup)
+    @funding += startup.funding
 
     # both_salaries = other_startup.funding + @salaries
 
