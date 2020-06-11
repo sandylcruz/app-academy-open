@@ -10,34 +10,44 @@ class Code
     chars.all? { |char| POSSIBLE_PEGS.has_key?(char.upcase) }
   end
 
-  def initialize(chars)
+  def initialize(pegs_array)
+    if Code.valid_pegs?(pegs_array)
+      @pegs = pegs_array.map do |peg|
+        peg.upcase
+      end
+    else
+      raise "error, peg invalid"
+    end
   end
 
   def pegs
-    # @pegs = pegs
+    @pegs
   end
 
-  def random
+  def self.random(num)
+    random_array = []
+    
+    return POSSIBLE_PEGS.rand(num)
   end
 
-  def from_string
+  def self.from_string
   end
 
-  def [](position)
-    @line[position]
+  def [](index)
+    @pegs[index]
   end
 
   def length
     @pegs.length
   end
   
-  def num_exact_matches
+  def num_exact_matches(guess)
   end
 
-  def num_near_matches
+  def num_near_matches(guess)
   end
 
-  def ==
+  def ==(arg)
   end
 
 

@@ -1,8 +1,9 @@
 require_relative "code"
 
 class Mastermind
+
   def initialize(length)
-    @secret_code.sample
+    @secret_code.random(array)
   end
 
   def print_matches
@@ -12,6 +13,5 @@ class Mastermind
     print "Enter a code "
     answer = gets.chomp
   end
-
-
+ 
 end
