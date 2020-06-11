@@ -6,6 +6,8 @@ class Code
     "Y" => :yellow
   }
 
+  attr_reader :pegs
+
   def self.valid_pegs?(chars) #class method
     chars.all? { |char| POSSIBLE_PEGS.has_key?(char.upcase) }
   end
@@ -16,10 +18,6 @@ class Code
     else
       raise "error, peg invalid"
     end
-  end
-
-  def pegs
-    @pegs
   end
 
   def self.random(num) #return instance of class initialized by pegs array
