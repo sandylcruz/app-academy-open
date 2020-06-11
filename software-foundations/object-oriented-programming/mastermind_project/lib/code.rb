@@ -24,10 +24,19 @@ class Code
     @pegs
   end
 
-  def self.random(num)
+  def self.random(num) #return instance of class initialized by pegs array
     random_array = []
     
-    return POSSIBLE_PEGS.rand(num)
+    keys = POSSIBLE_PEGS.keys #array of keys that happen to be strings
+    
+    
+    num.times do 
+      random_key = keys.sample #array of strings
+      random_array << random_key
+    end
+
+    Code.new(random_array)
+
   end
 
   def self.from_string(pegs_string)
