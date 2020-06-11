@@ -6,14 +6,14 @@ class Code
     "Y" => :yellow
   }
 
-  def self.valid_pegs?(chars)
+  def self.valid_pegs?(chars) #class method
     chars.all? { |char| POSSIBLE_PEGS.has_key?(char.upcase) }
   end
 
-  def initialize(pegs_array)
-    if Code.valid_pegs?(pegs_array)
-      @pegs = pegs_array.map do |peg|
-        peg.upcase
+  def initialize(chars)
+    if Code.valid_pegs?(chars)
+      @pegs = chars.map do |char|
+        char.upcase
       end
     else
       raise "error, peg invalid"
@@ -29,14 +29,12 @@ class Code
     
     keys = POSSIBLE_PEGS.keys #array of keys that happen to be strings
     
-    
     num.times do 
       random_key = keys.sample #array of strings
       random_array << random_key
     end
 
     Code.new(random_array)
-
   end
 
   def self.from_string(pegs_string)
