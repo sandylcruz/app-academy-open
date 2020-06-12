@@ -67,9 +67,4 @@ class Code
     end
   end
 
-
-
-
-
-
 end

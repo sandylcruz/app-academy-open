@@ -3,7 +3,7 @@ require_relative "code"
 class Mastermind
 
   def initialize(length)
-    self.random(secret_array)
+    @secret_code = Code.random(length)
   end
 
   def print_matches
