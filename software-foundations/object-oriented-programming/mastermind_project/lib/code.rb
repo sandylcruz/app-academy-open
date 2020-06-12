@@ -30,7 +30,6 @@ class Code
 
   def self.from_string(string) #class method
     Code.new(string.split(""))
-
   end
 
   def [](index)
@@ -40,8 +39,13 @@ class Code
   def length
     @pegs.length
   end
-  
+
   def num_exact_matches(guess)
+    count = 0
+    (0...guess.length).each do |i| 
+      count += 1 if self[i] == guess[i]
+    end
+    count
   end
 
   def num_near_matches(guess)
@@ -54,7 +58,6 @@ class Code
       return false
     end
   end
-
 
 
 
