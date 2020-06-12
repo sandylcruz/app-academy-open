@@ -59,13 +59,13 @@ class Code
     count
   end
 
-  # def ==(arg)
-  #   if arg == self
-  #     return true
-  #   else
-  #     return false
-  #   end
-  # end
+  def ==(other_code)
+    if other_code.pegs == self.pegs
+      return true
+    else
+      return false
+    end
+  end
 
 
 
