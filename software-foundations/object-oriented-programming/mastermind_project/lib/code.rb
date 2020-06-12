@@ -43,7 +43,7 @@ class Code
   def num_exact_matches(guess)
     count = 0
     (0...guess.length).each do |i| 
-      count += 1 if self[i] == guess[i]
+      count += 1 if self.pegs[i] == guess[i]
     end
     count
   end
@@ -51,7 +51,7 @@ class Code
   def num_near_matches(guess)
     count = 0
     (0..guess.length).each do |i|
-      if guess[i] != self[i] && self[i] == guess[i + 1] || self[i] == guess[i - 1]
+      if guess[i] != self.pegs[i] && self.pegs[i] == guess[i + 1] || self.pegs[i] == guess[i - 1]
         count +=1
       end
     end
@@ -59,13 +59,13 @@ class Code
     count
   end
 
-  def ==(arg)
-    if arg = self
-      return true
-    else
-      return false
-    end
-  end
+  # def ==(arg)
+  #   if arg == self
+  #     return true
+  #   else
+  #     return false
+  #   end
+  # end
 
 
 
