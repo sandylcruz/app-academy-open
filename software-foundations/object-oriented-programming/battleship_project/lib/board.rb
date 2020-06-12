@@ -23,7 +23,24 @@ class Board
     Board.[]=
   end
 
+  def place_random_ships
+  end
 
+  def hidden_ships_grid
+    ship_array = []
+    ships_array
+  end
+
+  def self.print_grid(array)
+  end
+
+  def cheat
+    Board.print_grid(@grid)
+  end
+
+  def print
+    Board.print_grid(hidden_ships_grid)
+  end
 
 
 end
