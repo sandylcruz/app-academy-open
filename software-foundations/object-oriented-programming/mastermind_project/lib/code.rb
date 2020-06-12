@@ -51,7 +51,7 @@ class Code
   def num_near_matches(guess)
     count = 0
     (0..guess.length).each do |i|
-      if guess[i] != self.pegs[i] && self.pegs[i] == guess[i + 1] || self.pegs[i] == guess[i - 1]
+      if guess[i] != self.pegs[i] && self.pegs.include?(guess[i])
         count +=1
       end
     end

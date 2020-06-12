@@ -6,12 +6,20 @@ class Mastermind
     @secret_code = Code.random(length)
   end
 
-  def print_matches
+  def print_matches(guess)
+    puts "Exact matches: #{@secret_code.num_exact_matches(guess)} "
+    puts "Near matches: #{@secret_code.num_near_matches(guess)}"
   end
 
   def ask_user_for_guess
     print "Enter a code "
-    answer = gets.chomp
+    guess = Code.from_string(gets.chomp)
+    self.print_matches(guess)
+    if guess == @secret_code
+      true
+    else
+      false
+    end
   end
  
 end
