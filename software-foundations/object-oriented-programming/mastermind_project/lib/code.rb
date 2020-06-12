@@ -49,6 +49,14 @@ class Code
   end
 
   def num_near_matches(guess)
+    count = 0
+    (0..guess.length).each do |i|
+      if guess[i] != self[i] && self[i] == guess[i + 1] || self[i] == guess[i - 1]
+        count +=1
+      end
+    end
+
+    count
   end
 
   def ==(arg)
