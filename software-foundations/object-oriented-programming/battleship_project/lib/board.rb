@@ -3,7 +3,7 @@ class Board
   attr_reader :size
 
   def initialize(n)
-    @grid = Array.new(n) { Array.new (n, :N) }
+    @grid = Array.new(n) { Array.new(n, :N) }
     @size = n * n
   end
 
@@ -18,12 +18,20 @@ class Board
   end
 
   def num_ships
-    @grid.flatten.count { |ele| ele == : :S }
+    @grid.flatten.count { |ele| ele == :S }
   end
 
   def attack(position)
-    Board.[]
-    Board.[]=
+   
+    if self[position] == :S
+      puts "you sunk my battleship"
+      self[position] = :H
+      return true
+    else
+      self[position] = :X
+      return false
+    end
+
   end
 
   def place_random_ships
