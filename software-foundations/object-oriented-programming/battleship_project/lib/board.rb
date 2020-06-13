@@ -70,7 +70,7 @@ class Board
     end
   end
 
-  def self.print_grid(array)
+  def self.print_grid(array) #::print_grid
     array.each do |row|
       puts row.join(" ")
     end
