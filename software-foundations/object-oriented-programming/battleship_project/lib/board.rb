@@ -33,9 +33,9 @@ class Board
   end
 
   def generate_pair
-    random_i = rand(0...@n)
-    random_j = rand(0...@n)
-    random_coordinate_pair = [random_i, random_j] 
+    random_row = rand(0...@n)
+    random_col = rand(0...@n)
+    random_coordinate_pair = [random_row, random_col] 
     random_coordinate_pair
   end
 
