@@ -1,5 +1,4 @@
 class Board
-  
   attr_reader :size
 
   def initialize(n)
@@ -46,9 +45,9 @@ class Board
   end
 
   def place_random_ships
-    num = (0.25 * @size)
+    num = (0.25 * @size).to_i
 
-    num.to_i.times do
+    num.times do
       coordinate_pair = generate_pair
       while is_ship?(coordinate_pair)
         coordinate_pair = generate_pair
@@ -56,15 +55,25 @@ class Board
       self[coordinate_pair] = :S
     end
 
-
+    num
   end
 
   def hidden_ships_grid
-    ship_array = []
-    ships_array
+    @grid.map do |row|
+      row.map do |ele|
+        if ele == :S
+          :N
+        else
+          ele
+        end
+      end
+    end
   end
 
   def self.print_grid(array)
+    array.each do |row|
+      puts row.join(" ")
+    end
   end
 
   def cheat
@@ -74,7 +83,6 @@ class Board
   def print
     Board.print_grid(hidden_ships_grid)
   end
-
 
 end
 
@@ -123,4 +131,27 @@ end
   #     end
   #   end
   #   count
+  # end
+
+    # def hidden_ships_grid
+  #   ship_array = []
+
+  #   @grid.each do |row|
+  #     new_row = []
+  #     row.each do |ele|
+  #       if ele == :S
+  #         new_row << :N
+  #       else
+  #         new_row << ele
+  #       end 
+  #     end
+  #     ship_array << new_row
+  #   end
+  #   ship_array
+  # end
+
+  # def self.print_grid(array)
+  #   array.each do |row|
+  #     print row.join(" ")
+  #   end
   # end

@@ -1,13 +1,9 @@
 class Player
   def get_move
-   positions_array = []
-    puts "Enter a position with coordinates separated with a space like '4 7' "
-    positions = gets.chomp.to_i
-    positions_array << positions
-    # positions.split(" ").map do |position|
-    positions_array
+    puts 'enter a position'
+    input = gets.chomp.split(' ')
+    position_one = input[0].to_i
+    position_two = input[1].to_i
+    [position_one, position_two]
   end
-
-   
-  
 end
