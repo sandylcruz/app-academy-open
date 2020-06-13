@@ -20,12 +20,17 @@ class Board
     @size = n * n
   end
 
-  def [](array)
-    @grid[i]
+  def [](coordinate_pair) #1D array
+    row_index = coordinate_pair[0]
+    column_index = coordinate_pair[1]
+    @grid[row_index][column_index]
   end
 
-  def []=(position)
-    @grid[i] == grid[position]
+  def []=(coordinate_pair, new_value)
+    row_index = coordinate_pair[0]
+    column_index = coordinate_pair[1]
+
+    @grid[row_index][column_index] = new_value
   end
 
   def num_ships
