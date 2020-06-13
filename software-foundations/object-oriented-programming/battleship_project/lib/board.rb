@@ -2,8 +2,21 @@ class Board
   
   attr_reader :size
 
+  def self.create_grid(n)
+    outer_array = []
+
+    n.times do
+      inner_array = []
+      n.times do
+        inner_array << :N
+      end
+      outer_array << inner_array
+    end
+    outer_array
+  end
+
   def initialize(n)
-    @grid = [[:N]]
+    @grid = Board::create_grid(n)
     @size = n * n
   end
 

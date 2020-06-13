@@ -10,11 +10,12 @@ class Battleship
     Board.new(n)
     @board = Board.new(n * n)
     @remaining_misses = 0.5 
+    @grid = Array.new(n) { Array.new(n) } 
   end
 
   def start_game
 
-    print @board
+    
   end
 
   def lose?
@@ -25,4 +26,22 @@ class Battleship
       return false
     end
   end
+
+  def win?
+    if Board.num_ships = 0
+      print "you win"
+      return true
+    else
+      return false
+    end
+  end
+
+  def game_over?
+    Battleship.lose? || Battleship.win?
+  end
+
+  def turn
+
+  end
+
 end
