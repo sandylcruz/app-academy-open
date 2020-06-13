@@ -5,6 +5,7 @@ class Board
   def initialize(n)
     @grid = Array.new(n) { Array.new(n, :N) }
     @size = n * n
+    @n = n
   end
 
   def [](position)
@@ -22,7 +23,6 @@ class Board
   end
 
   def attack(position)
-   
     if self[position] == :S
       puts "you sunk my battleship"
       self[position] = :H
@@ -31,10 +31,32 @@ class Board
       self[position] = :X
       return false
     end
+  end
 
+  def generate_pair
+    random_i = rand(0...@n)
+    random_j = rand(0...@n)
+    random_coordinate_pair = [random_i, random_j] 
+    random_coordinate_pair
+  end
+
+  def is_ship?(coordinate_pair)
+    ele = self[coordinate_pair]
+    ele == :S
   end
 
   def place_random_ships
+    num = (0.25 * @size)
+
+    num.to_i.times do
+      coordinate_pair = generate_pair
+      while is_ship?(coordinate_pair)
+        coordinate_pair = generate_pair
+      end
+      self[coordinate_pair] = :S
+    end
+
+
   end
 
   def hidden_ships_grid
