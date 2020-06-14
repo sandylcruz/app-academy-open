@@ -16,7 +16,6 @@ def pow(base, exponent)
   pow(base, (exponent - 1)) * base
 end
 
-
 # Write a method, lucas_number(n), that takes in a number.
 # The method should return the n-th number of the Lucas Sequence.
 # The 0-th number of the Lucas Sequence is 2.
@@ -36,7 +35,14 @@ end
 # lucas_number(5)   # =>    11
 # lucas_number(9)   # =>    76
 def lucas_number(n)
+  if n == 0
+    return 2
+  elsif n == 1
+    return 1
+  end
 
+  lucas_number(n - 1) + lucas_number(n - 2) 
+  
 end
 
 
