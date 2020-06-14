@@ -42,7 +42,6 @@ def lucas_number(n)
   end
 
   lucas_number(n - 1) + lucas_number(n - 2) 
-  
 end
 
 
@@ -58,7 +57,11 @@ end
 # sum_array([5, 2])         # => 7
 # sum_array([4, 10, -1, 2]) # => 15
 def sum_array(array)
+  if array.length == 0
+    return 0
+  end
 
+  array[0] + sum_array(array[1..-1])
 end
 
 
