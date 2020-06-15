@@ -13,7 +13,7 @@
 # pow(4, 3) # => 64
 def pow(base, exponent)
   return 1 if exponent == 0
-  pow(base, (exponent - 1)) * base
+  base * pow(base, (exponent - 1))
 end
 
 # Write a method, lucas_number(n), that takes in a number.
@@ -35,11 +35,8 @@ end
 # lucas_number(5)   # =>    11
 # lucas_number(9)   # =>    76
 def lucas_number(n)
-  if n == 0
-    return 2
-  elsif n == 1
-    return 1
-  end
+  return 2 if n == 0
+  return 1 if n == 1
 
   lucas_number(n - 1) + lucas_number(n - 2) 
 end
