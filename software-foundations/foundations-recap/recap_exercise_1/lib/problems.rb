@@ -33,6 +33,15 @@ def composite?(num)
   return false
 end
 
+def composite?(num)
+  (2...num).each do |factor|
+    if num % factor == 0
+      return true
+    end
+  end
+  return false
+end
+
 
 # A bigram is a string containing two letters.
 # Write a method, find_bigrams, that takes in a string and an array of bigrams.
