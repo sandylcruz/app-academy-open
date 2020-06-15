@@ -6,7 +6,12 @@
 #
 # all_vowel_pairs(["goat", "action", "tear", "impromptu", "tired", "europe"])   # => ["action europe", "tear impromptu"]
 def all_vowel_pairs(words)
-
+  vowels = "aeiou"
+  words.each do |word|
+    if word.all? { |word| word.include?(vowels)}
+      return word
+    end
+  end
 end
 
 
@@ -18,7 +23,14 @@ end
 # composite?(9)     # => true
 # composite?(13)    # => false
 def composite?(num)
-
+  i = 2
+  while i < num
+    if num % i == 0
+      return true
+    end
+    i += 1
+  end
+  return false
 end
 
 
