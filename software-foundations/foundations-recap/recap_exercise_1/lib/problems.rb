@@ -5,14 +5,19 @@
 # Example:
 #
 # all_vowel_pairs(["goat", "action", "tear", "impromptu", "tired", "europe"])   # => ["action europe", "tear impromptu"]
-def all_vowel_pairs(words)
-  vowels = "aeiou"
-  words.each do |word|
-    if word.all? { |word| word.include?(vowels)}
-      return word
-    end
-  end
-end
+# def all_vowel_pairs(words)
+#   vowels = "aeiou"
+#   all_vowels = []
+
+#   words.each do |word|
+#     word.each do |word|
+
+#       end
+#     end
+#   end
+
+#   all_vowels
+# end
 
 
 # Write a method, composite?, that takes in a number and returns a boolean indicating if the number
@@ -53,7 +58,8 @@ end
 # find_bigrams("the theater is empty", ["cy", "em", "ty", "ea", "oo"])  # => ["em", "ty", "ea"]
 # find_bigrams("to the moon and back", ["ck", "oo", "ha", "at"])        # => ["ck", "oo"]
 def find_bigrams(str, bigrams)
-
+  
+  bigrams.select { |bigrams| str.include?(bigrams) }
 end
 
 class Hash
