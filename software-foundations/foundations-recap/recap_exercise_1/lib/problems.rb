@@ -5,19 +5,13 @@
 # Example:
 #
 # all_vowel_pairs(["goat", "action", "tear", "impromptu", "tired", "europe"])   # => ["action europe", "tear impromptu"]
-# def all_vowel_pairs(words)
-#   vowels = "aeiou"
-#   all_vowels = []
-
-#   words.each do |word|
-#     word.each do |word|
-
-#       end
-#     end
-#   end
-
-#   all_vowels
-# end
+def all_vowel_pairs(words)
+  vowels = "aeiou"
+  
+  words.each do |word|
+    word.select { |word| word.include?(vowels) }
+  end
+end
 
 
 # Write a method, composite?, that takes in a number and returns a boolean indicating if the number
@@ -58,7 +52,6 @@ end
 # find_bigrams("the theater is empty", ["cy", "em", "ty", "ea", "oo"])  # => ["em", "ty", "ea"]
 # find_bigrams("to the moon and back", ["ck", "oo", "ha", "at"])        # => ["ck", "oo"]
 def find_bigrams(str, bigrams)
-  
   bigrams.select { |bigrams| str.include?(bigrams) }
 end
 
@@ -77,8 +70,21 @@ class Hash
     # hash_2.my_select { |k, v| k + 1 == v }      # => {10=>11, 5=>6, 7=>8})
     # hash_2.my_select                            # => {4=>4}
     def my_select(&prc)
-
+      key_value_hash = {}
+      self.each do |key, val|
+        if prc
+          if prc.call(key, val)
+            key_value_hash[key] = val
+          end
+        else
+          if key == val
+            key_value_hash[key] = val
+          end
+        end
+      end
+      key_value_hash
     end
+
 end
 
 class String
@@ -91,6 +97,10 @@ class String
     # "cats".substrings     # => ["c", "ca", "cat", "cats", "a", "at", "ats", "t", "ts", "s"]
     # "cats".substrings(2)  # => ["ca", "at", "ts"]
     def substrings(length = nil)
+      # if self.to_s.length.empty?
+      #   print 
+      # end
+      puts self.split("").slice[0..-1]
 
     end
 
@@ -104,7 +114,19 @@ class String
     # "apple".caesar_cipher(1)    #=> "bqqmf"
     # "bootcamp".caesar_cipher(2) #=> "dqqvecor"
     # "zebra".caesar_cipher(4)    #=> "difve"
+
     def caesar_cipher(num)
+      new_str = ""
+
+      self.each_char do |char|
+      end
+     
+
+      
+
 
     end
+
+ 
+
 end
