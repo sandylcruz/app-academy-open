@@ -5,40 +5,41 @@
 # Example:
 #
 # all_vowel_pairs(["goat", "action", "tear", "impromptu", "tired", "europe"])   # => ["action europe", "tear impromptu"]
-# def all_vowel_pairs(words)
-#   vowels = "aeiou"
-#   i = 0
-#   j = 1
-#   word_pairs = []
-
-#   while i < (words.length - 1) do
-#     while j < words.length do 
-#       word_pairs << words[i] + " " + words[j]
-#       j += 1
-#     end
-#     i += 1
-#   end
-#   word_pairs
-# end
 
 def all_vowel_pairs(words)
-  pairs = []
   vowels = ["a", "e", "i", "o", "u"]
+  i = 0
+  j = 1
+  word_pair_array = []
+  final_pairs = []
 
-  words.each_with_index do |word1, idx1|
-    words.each_with_index do |word2, idx2|
-      if idx2 > idx1
-        word_pairs = word1 + " " + word2
-        pairs << word_pairs if vowels.all? { |vowel| word_pairs.include?(vowel) } 
-      end
+  while i < (words.length - 1) do
+    while j < words.length do 
+      word_pairs = words[i] + " " + words[j]
+      word_pair_array << word_pairs
+      j += 1
     end
+    i += 1
+    j = i + 1
   end
-  
-  pairs
 
+  word_pair_array
 end
 
+# def all_vowel_pairs(words)
+#   pairs = []
+#   vowels = ["a", "e", "i", "o", "u"]
 
+#   words.each_with_index do |word1, idx1|
+#     words.each_with_index do |word2, idx2|
+#       if idx2 > idx1
+#         word_pairs = word1 + " " + word2
+#         pairs << word_pairs if vowels.all? { |vowel| word_pairs.include?(vowel) } 
+#       end
+#     end
+#   end
+#   pairs
+# end
 
 # Write a method, composite?, that takes in a number and returns a boolean indicating if the number
 # has factors besides 1 and itself
@@ -66,7 +67,6 @@ def composite?(num)
   end
   return false
 end
-
 
 # A bigram is a string containing two letters.
 # Write a method, find_bigrams, that takes in a string and an array of bigrams.
@@ -123,12 +123,11 @@ class String
     # "cats".substrings     # => ["c", "ca", "cat", "cats", "a", "at", "ats", "t", "ts", "s"]
     # "cats".substrings(2)  # => ["ca", "at", "ts"]
     def substrings(length = nil)
-      # if self.to_s.length.empty?
-      #   print 
-      # end
+    
+
       chars = self.split("")
       puts chars
-      # puts self.split("").slice[0..-1]
+
 
     end
 
