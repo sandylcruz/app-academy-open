@@ -116,17 +116,14 @@ class String
     # "zebra".caesar_cipher(4)    #=> "difve"
 
     def caesar_cipher(num)
-      new_str = ""
+      new_string = ""
 
-      self.each_char do |char|
+      ascii = self.chars.map do |char|
+        old_idx = char.ord 
+        new_idx = (old_idx + num).chr
+        new_string << new_idx
       end
-     
-
-      
-
-
+      new_string
     end
-
- 
-
+    
 end
