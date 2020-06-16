@@ -5,13 +5,39 @@
 # Example:
 #
 # all_vowel_pairs(["goat", "action", "tear", "impromptu", "tired", "europe"])   # => ["action europe", "tear impromptu"]
+# def all_vowel_pairs(words)
+#   vowels = "aeiou"
+#   i = 0
+#   j = 1
+#   word_pairs = []
+
+#   while i < (words.length - 1) do
+#     while j < words.length do 
+#       word_pairs << words[i] + " " + words[j]
+#       j += 1
+#     end
+#     i += 1
+#   end
+#   word_pairs
+# end
+
 def all_vowel_pairs(words)
-  vowels = "aeiou"
-  
-  words.each do |word|
-    word.select { |word| word.include?(vowels) }
+  pairs = []
+  vowels = ["a", "e", "i", "o", "u"]
+
+  words.each_with_index do |word1, idx1|
+    words.each_with_index do |word2, idx2|
+      if idx2 > idx1
+        word_pairs = word1 + " " + word2
+        pairs << word_pairs if vowels.all? { |vowel| word_pairs.include?(vowel) } 
+      end
+    end
   end
+  
+  pairs
+
 end
+
 
 
 # Write a method, composite?, that takes in a number and returns a boolean indicating if the number
@@ -100,7 +126,9 @@ class String
       # if self.to_s.length.empty?
       #   print 
       # end
-      puts self.split("").slice[0..-1]
+      chars = self.split("")
+      puts chars
+      # puts self.split("").slice[0..-1]
 
     end
 
