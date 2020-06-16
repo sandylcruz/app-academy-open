@@ -26,20 +26,20 @@ def all_vowel_pairs(words)
   word_pair_array
 end
 
-# def all_vowel_pairs(words)
-#   pairs = []
-#   vowels = ["a", "e", "i", "o", "u"]
+def all_vowel_pairs(words)
+  pairs = []
+  vowels = ["a", "e", "i", "o", "u"]
 
-#   words.each_with_index do |word1, idx1|
-#     words.each_with_index do |word2, idx2|
-#       if idx2 > idx1
-#         word_pairs = word1 + " " + word2
-#         pairs << word_pairs if vowels.all? { |vowel| word_pairs.include?(vowel) } 
-#       end
-#     end
-#   end
-#   pairs
-# end
+  words.each_with_index do |word1, idx1|
+    words.each_with_index do |word2, idx2|
+      if idx2 > idx1
+        word_pairs = word1 + " " + word2
+        pairs << word_pairs if vowels.all? { |vowel| word_pairs.include?(vowel) } 
+      end
+    end
+  end
+  pairs
+end
 
 # Write a method, composite?, that takes in a number and returns a boolean indicating if the number
 # has factors besides 1 and itself
@@ -123,12 +123,18 @@ class String
     # "cats".substrings     # => ["c", "ca", "cat", "cats", "a", "at", "ats", "t", "ts", "s"]
     # "cats".substrings(2)  # => ["ca", "at", "ts"]
     def substrings(length = nil)
-    
-
-      chars = self.split("")
-      puts chars
-
-
+      subs = []
+      (0...self.length).each do |start_idx|
+        (start_idx...self.length).each do |end_idx|
+          sub = self[start_idx..end_idx]
+          subs << sub
+        end
+      end
+      if length.nil?
+        subs
+      else
+         subs.select { |str| str.length == length }
+      end
     end
 
 
