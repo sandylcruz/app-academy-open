@@ -1,7 +1,27 @@
 # Write a method, least_common_multiple, that takes in two numbers and returns the smallest number that is a mutiple
 # of both of the given numbers
-def least_common_multiple(num_1, num_2)
 
+def is_prime?(num)
+  (2...num).each do |factor|
+    if num % factor == 0
+      return false
+    else
+      return true
+    end
+  end
+end
+
+def least_common_multiple(num_1, num_2)
+  factors = []
+  factor_array_1 = []
+  factor_array_2 = []
+
+  (2..num_1).each do |factor|
+    if num_1 % factor == 0
+      factor_array_1 << factor
+    end
+  end
+  return factor_array_1
 end
 
 
@@ -15,6 +35,11 @@ end
 class Hash
     # Write a method, Hash#inverse, that returns a new hash where the key-value pairs are swapped
     def inverse
+
+      # self.each do |key, val|
+
+
+      # end
 
     end
 end
@@ -40,6 +65,19 @@ class Array
     #
     # This should remind you of the spaceship operator! Convenient :)
     def bubble_sort(&prc)
-
+      
+      
+      # if prc
+      
+      # else 
+      #   self.map do |num|
+      #     if self[i] > self[i + 1]
+      #       self[i], self[i + 1] = self[i + 1], self[i]
+      #     end
+      #   end
     end
+    
+
+
+
 end
