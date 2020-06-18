@@ -76,8 +76,5 @@ class Array
       end
       self
     end
-
-
-
 end
 
