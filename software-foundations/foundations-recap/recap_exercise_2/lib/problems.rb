@@ -1,27 +1,11 @@
 # Write a method, least_common_multiple, that takes in two numbers and returns the smallest number that is a mutiple
 # of both of the given numbers
 
-def is_prime?(num)
-  (2...num).each do |factor|
-    if num % factor == 0
-      return false
-    else
-      return true
-    end
-  end
-end
 
 def least_common_multiple(num_1, num_2)
-  factors = []
-  factor_array_1 = []
-  factor_array_2 = []
-
-  (2..num_1).each do |factor|
-    if num_1 % factor == 0
-      factor_array_1 << factor
-    end
+  (1..num_1 * num_2).each do |i|
+    return i if i % num_1 == 0 && i % num_2 == 0
   end
-  return factor_array_1
 end
 
 
@@ -65,19 +49,29 @@ class Array
     #
     # This should remind you of the spaceship operator! Convenient :)
     def bubble_sort(&prc)
+      sorted = true
+      length = (self.length - 1)
+
+      if prc
+        prc.call(self)
       
-      
-      # if prc
-      
-      # else 
-      #   self.map do |num|
-      #     if self[i] > self[i + 1]
-      #       self[i], self[i + 1] = self[i + 1], self[i]
-      #     end
-      #   end
+      else
+        p "prc not called"
+        # while sorted
+        #   sorted = false
+        #     0..length do |i|
+        #       if self[i] > self[i + 1]
+        #         self[i], self[i + 1] = self[i + 1], self[i]
+        #         sorted = true
+        #       end
+        #     end
+        #   end
+        #   self
+        end
+        p self
     end
-    
 
 
 
 end
+
