@@ -38,6 +38,20 @@ def no_consecutive_repeats?(arr)
   return true
 end
 
+def no_consecutive_repeats?(arr)
+  i = 0
+  while i < (arr.length - 1)
+    a = arr[i]
+    b = arr[i + 1]
+
+    if a == b
+      return false
+    end
+    i += 1
+  end
+  return true
+end
+
 p no_consecutive_repeats?(['cat', 'dog', 'mouse', 'dog']) == true
 p no_consecutive_repeats?(['cat', 'dog', 'dog', 'mouse']) == false
 p no_consecutive_repeats?([10, 42, 3, 7, 10, 3]) == true
@@ -55,20 +69,20 @@ be an array containing the indices where that
 character is found.
 =end
 
-# def char_indices(str)
-#   indices = {}
+def char_indices(str)
+  indices = {}
 
-#   str.split("").each_with_index do |char, idx|
-#     if indices[char] 
-#       index_array = indices[char]
-#       index_array.push(idx)
-#     else
-#       index_array = [idx]
-#       indices[char] = index_array
-#     end
-#   end
-#   indices
-# end
+  str.split("").each_with_index do |char, idx|
+    if indices[char] 
+      index_array = indices[char]
+      index_array.push(idx)
+    else
+      index_array = [idx]
+      indices[char] = index_array
+    end
+  end
+  indices
+end
 
 def char_indices(str)
   indices = Hash.new { |hash, key| hash[key] = [] }
