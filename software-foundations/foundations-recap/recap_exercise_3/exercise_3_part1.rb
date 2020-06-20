@@ -59,11 +59,17 @@ def char_indices(str)
   indices = {}
 
   str.split("").each_with_index do |char, idx|
-    indices[char] = idx
+    if indices[char] 
+      index_array = indices[char]
+      index_array.push(idx)
+    else
+      index_array = [idx]
+      indices[char] = index_array
+    end
   end
-
   indices
 end
+
 p char_indices('mississippi') == {"m"=>[0], "i"=>[1, 4, 7, 10], "s"=>[2, 3, 5, 6], "p"=>[8, 9]}
 p char_indices('classroom') == {"c"=>[0], "l"=>[1], "a"=>[2], "s"=>[3, 4], "r"=>[5], "o"=>[6, 7], "m"=>[8]}
 puts
