@@ -15,6 +15,7 @@ For Example:
 
 def is_prime?(num)
   return false if num < 2
+
   (2...num).each do |factor|
     if num % factor == 0
       return false
@@ -24,22 +25,18 @@ def is_prime?(num)
   end
 end
 
+def prime_factors(num)
+  (2...num).select { |factor| num % factor == 0 && is_prime?(factor)}
+end
+
 def bi_prime?(num)
-  factors = []
-
-  (2...num).each do |factor|
-    if num % factor == 0
-      factors << factor
-    end
+  prime_factors = prime_factors(num)
+  if prime_factors(num)
+    return true
+  else
+    return false
   end
 
-  factors.each do |factor|
-    if is_prime?(factor)
-      return true
-    else
-      return false
-    end
-  end
 end
 
 p bi_prime?(14) 
