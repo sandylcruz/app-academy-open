@@ -12,7 +12,6 @@ def no_dupes?(arr)
   arr.each do |ele|
     count[ele] += 1
   end
-
   count.keys.select { |ele| count[ele] == 1}
 end
 
@@ -89,10 +88,8 @@ def char_indices(str)
   
   str.split("").each_with_index do |char, idx|
     index_array = indices[char]
-    
     index_array.push(idx)
   end
-
   indices
 end
 
@@ -110,8 +107,23 @@ the streak that occurs later in the string.
 =end
 
 def longest_streak(str)
+  current = ""
+  longest = ""
 
+  (0...str.length).each do |i|
+    if str[i] == str[i - 1] || i == 0
+      current += str[i]
+    else
+      current = str[i]
+    end
+
+    if current.length >= longest.length
+      longest = current
+    end
+  end
+  longest
 end
+
 p longest_streak('a') == 'a'
 p longest_streak('accccbbb') == 'cccc'
 p longest_streak('aaaxyyyyyzz') == 'yyyyy'

@@ -13,7 +13,7 @@ For Example:
 24 is not a bi-prime because no two prime numbers have a product of 24
 =end
 
-def bi_prime(num)
+def bi_prime?(num)
 end
 
 p bi_prime?(14) == true
@@ -83,10 +83,14 @@ Do not use the built-in Array#map or Array#map! in your
 solution.
 =end
 
-class string
+class String
  
-  def select
-
+  def select(&prc)
+    if prc
+      prc.call(string)
+    else
+      return ""
+    end
   end
 
   p "app academy".select { |ch| !"aeiou".include?(ch) } == "pp cdmy"
