@@ -31,26 +31,19 @@ end
 
 def bi_prime?(num)
   prime_factors = prime_factors(num)
-  if prime_factors(num)
-    return true
-  else
-    return false
+  prime_factors.any? do |a|
+    b = num / a
+    prime_factors.include?(b)
   end
 
 end
 
-p bi_prime?(14) 
-# == true
-p bi_prime?(22) 
-# == true
-p bi_prime?(25) 
-# == true
-p bi_prime?(94) 
-# == true
-p bi_prime?(24) 
-# == false
-p bi_prime?(64) 
-# == false
+p bi_prime?(14) == true
+p bi_prime?(22) == true
+p bi_prime?(25) == true
+p bi_prime?(94) == true
+p bi_prime?(24) == false
+p bi_prime?(64) == false
 puts
 puts
 
