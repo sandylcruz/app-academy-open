@@ -13,15 +13,49 @@ For Example:
 24 is not a bi-prime because no two prime numbers have a product of 24
 =end
 
-def bi_prime?(num)
+def is_prime?(num)
+  return false if num < 2
+  (2...num).each do |factor|
+    if num % factor == 0
+      return false
+    else
+      return true
+    end
+  end
 end
 
-p bi_prime?(14) == true
-p bi_prime?(22) == true
-p bi_prime?(25) == true
-p bi_prime?(94) == true
-p bi_prime?(24) == false
-p bi_prime?(64) == false
+def bi_prime?(num)
+  factors = []
+
+  (2...num).each do |factor|
+    if num % factor == 0
+      factors << factor
+    end
+  end
+
+  factors.each do |factor|
+    if is_prime?(factor)
+      return true
+    else
+      return false
+    end
+  end
+end
+
+p bi_prime?(14) 
+# == true
+p bi_prime?(22) 
+# == true
+p bi_prime?(25) 
+# == true
+p bi_prime?(94) 
+# == true
+p bi_prime?(24) 
+# == false
+p bi_prime?(64) 
+# == false
+puts
+puts
 
 =begin
 A Caesar cipher takes a word and encrypts it by offsetting 
@@ -45,7 +79,8 @@ alphabetic characters.
 def vigenere_cipher(word, num)
 
 end
-
+puts
+puts
 
 
 =begin
@@ -64,6 +99,8 @@ p vowel_rotate('oranges') == "erongas"
 p vowel_rotate('headphones') == "heedphanos"
 p vowel_rotate('bootcamp') == "baotcomp"
 p vowel_rotate('awesome') == "ewasemo"
+puts
+puts
 
 =begin
 Extend the string class by defining a String#select method 
