@@ -35,7 +35,6 @@ def bi_prime?(num)
     b = num / a
     prime_factors.include?(b)
   end
-
 end
 
 p bi_prime?(14) == true
@@ -66,9 +65,22 @@ message. Assume that the message consists of only lowercase
 alphabetic characters.
 =end
 
-def vigenere_cipher(word, num)
+def vigenere_cipher(message, keys)
+  message.each_char do |char|
+    old_char = char.ord
+    return old_char
 
+    if keys.length < 1
+
+    end
+  end
 end
+
+p vigenere_cipher("toerrishuman", [1])        # => "upfssjtivnbo"
+p vigenere_cipher("toerrishuman", [1, 2])     # => "uqftsktjvobp"
+p vigenere_cipher("toerrishuman", [1, 2, 3])  # => "uqhstltjxncq"
+p vigenere_cipher("zebra", [3, 0])            # => "ceerd"
+p vigenere_cipher("yawn", [5, 1])             # => "dbbo"
 puts
 puts
 
@@ -82,8 +94,30 @@ the last vowel.
 =end
 
 def vowel_rotate(str)
+  rotated_word = []
+  vowels = [ "a", "e", "i", "o", "u" ]
+  vowel_array = []
+  chars = str.split("")
+  
+  chars.each do |char|
+    if vowels.include?(char)
+      vowel_array << char
+    end
+  end
+  rotated_vowels = vowel_array.rotate(-1)
 
+  chars.each_with_index do |char, i|
+    if vowels.include?(char)
+      vowel_to_inject = rotated_vowels.shift
+      rotated_word << vowel_to_inject
+    else
+      rotated_word << char
+    end
+  end
+  rotated_word.join("")
 end
+
+
 p vowel_rotate('computer') == "cempotur"
 p vowel_rotate('oranges') == "erongas"
 p vowel_rotate('headphones') == "heedphanos"
@@ -105,7 +139,7 @@ Array#select in your solution.
 Extend the string class by defining a String#map! method that 
 accepts a block. The method should modify the existing string 
 by replacing every character with the result of calling 
-the block, passing in the original character and it's index. 
+the block, passing in the original character and its index. 
 Do not use the built-in Array#map or Array#map! in your 
 solution.
 =end
@@ -114,17 +148,23 @@ class String
  
   def select(&prc)
     if prc
-      prc.call(string)
+      chars = self.split("")
+      chars.each do |char|
+        prc.call(char)
+      end
     else
       return ""
     end
   end
-
+# passing the block determines whether given character should be copied over
   p "app academy".select { |ch| !"aeiou".include?(ch) } == "pp cdmy"
   p "HELLOworld".select { |ch| ch == ch.upcase } == "HELLO"
   p "HELLOworld".select == ""
 
-  def map!
+  def map!(&prc)
+    self.map.with_index do |char, index|
+      prc.call(char)
+    end
   end
 
 end
