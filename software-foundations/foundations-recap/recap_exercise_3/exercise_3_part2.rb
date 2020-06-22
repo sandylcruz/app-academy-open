@@ -117,7 +117,6 @@ def vowel_rotate(str)
   rotated_word.join("")
 end
 
-
 p vowel_rotate('computer') == "cempotur"
 p vowel_rotate('oranges') == "erongas"
 p vowel_rotate('headphones') == "heedphanos"
