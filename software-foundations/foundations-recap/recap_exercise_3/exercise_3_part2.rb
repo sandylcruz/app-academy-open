@@ -106,9 +106,9 @@ def vigenere_cipher(message, keys)
       encrypted << new_char
     end
   end
+
   encrypted
 end
-
 
 p vigenere_cipher("toerrishuman", [1]) == "upfssjtivnbo"
 p vigenere_cipher("toerrishuman", [1, 2]) == "uqftsktjvobp"
@@ -117,7 +117,6 @@ p vigenere_cipher("zebra", [3, 0]) == "ceerd"
 p vigenere_cipher("yawn", [5, 1]) == "dbbo"
 puts
 puts
-
 
 =begin
 Write a method vowel_rotate(str) that accepts a string as an a
@@ -177,22 +176,22 @@ Do not use the built-in Array#map or Array#map! in your
 solution.
 =end
 
-# class String
+class String
  
-#   def select(&prc)
-#     if prc
-#       chars = self.split("")
-#       chars.each do |char|
-#         prc.call(char)
-#       end
-#     else
-#       return ""
-#     end
-#   end
-# # passing the block determines whether given character should be copied over
-#   p "app academy".select { |ch| !"aeiou".include?(ch) } == "pp cdmy"
-#   p "HELLOworld".select { |ch| ch == ch.upcase } == "HELLO"
-#   p "HELLOworld".select == ""
+  def select(&prc)
+    new_str = ""
+    return "" if prc.nil?
+
+    self.each_char do |char|
+      new_str += char if prc.call(char)
+    end
+    new_str
+  end
+  
+# passing the block determines whether given character should be copied over
+  p "app academy".select { |ch| !"aeiou".include?(ch) } == "pp cdmy"
+  p "HELLOworld".select { |ch| ch == ch.upcase } == "HELLO"
+  p "HELLOworld".select == ""
 
 #   def map!(&prc)
 #     self.map!.with_index do |char, index|
@@ -222,4 +221,4 @@ solution.
 #   end
 #   p word_2        # => "DiJkStRa"
 
-# end
+end
