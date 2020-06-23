@@ -65,26 +65,30 @@ message. Assume that the message consists of only lowercase
 alphabetic characters.
 =end
 
-# def vigenere_cipher(message, keys)
-#   new_word = ""
-#   i = 0
-#   k = 0
-#   chars = message.split("")
+def vigenere_cipher(message, keys)
+  encrypted = ""
+  i = 0
+  chars = message.split("")
 
-#   while i < chars.length
-#     char = chars[i]
-#     old_idx = char.ord
-   
+  while i < chars.length
+    char = chars[i]
+    key = keys[i % keys.length]
+    old_char_code = char.ord
+    new_char_code = old_char_code + key
+    new_char = new_char_code.chr
     
-    
-#     puts new_idx
+    overflow_char = (new_char_code) - 26
 
-#     k += 1
-#     i += 1
-#   end
+    if (new_char_code > 122 || new_char_code < 97)
+      encrypted << overflow_char.chr
+    else
+      encrypted << new_char
+    end
+    i += 1
+  end
 
-#   new_word
-# end
+  encrypted
+end
 
 def vigenere_cipher(message, keys)
   encrypted = ""
