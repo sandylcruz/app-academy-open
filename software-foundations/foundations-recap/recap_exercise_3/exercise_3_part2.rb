@@ -65,22 +65,52 @@ message. Assume that the message consists of only lowercase
 alphabetic characters.
 =end
 
+# def vigenere_cipher(message, keys)
+#   new_word = ""
+#   i = 0
+#   k = 0
+#   chars = message.split("")
+
+#   while i < chars.length
+#     char = chars[i]
+#     old_idx = char.ord
+   
+    
+    
+#     puts new_idx
+
+#     k += 1
+#     i += 1
+#   end
+
+#   new_word
+# end
+
 def vigenere_cipher(message, keys)
-  message.each_char do |char|
-    old_char = char.ord
-    return old_char
+  encrypted = ""
 
-    if keys.length < 1
+  message.each_char.with_index do |char, i|
+    key = keys[i % keys.length]
+    old_char_code = char.ord
+    new_char_code = old_char_code + key
+    new_char = new_char_code.chr
+    overflow_char = (new_char_code) - 26
 
+    if (new_char_code > 122 || new_char_code < 97)
+      encrypted << overflow_char.chr
+    else
+      encrypted << new_char
     end
   end
+  encrypted
 end
 
-p vigenere_cipher("toerrishuman", [1])        # => "upfssjtivnbo"
-p vigenere_cipher("toerrishuman", [1, 2])     # => "uqftsktjvobp"
-p vigenere_cipher("toerrishuman", [1, 2, 3])  # => "uqhstltjxncq"
-p vigenere_cipher("zebra", [3, 0])            # => "ceerd"
-p vigenere_cipher("yawn", [5, 1])             # => "dbbo"
+
+p vigenere_cipher("toerrishuman", [1]) == "upfssjtivnbo"
+p vigenere_cipher("toerrishuman", [1, 2]) == "uqftsktjvobp"
+p vigenere_cipher("toerrishuman", [1, 2, 3]) == "uqhstltjxncq"
+p vigenere_cipher("zebra", [3, 0]) == "ceerd"
+p vigenere_cipher("yawn", [5, 1]) == "dbbo"
 puts
 puts
 
@@ -143,49 +173,49 @@ Do not use the built-in Array#map or Array#map! in your
 solution.
 =end
 
-class String
+# class String
  
-  def select(&prc)
-    if prc
-      chars = self.split("")
-      chars.each do |char|
-        prc.call(char)
-      end
-    else
-      return ""
-    end
-  end
-# passing the block determines whether given character should be copied over
-  p "app academy".select { |ch| !"aeiou".include?(ch) } == "pp cdmy"
-  p "HELLOworld".select { |ch| ch == ch.upcase } == "HELLO"
-  p "HELLOworld".select == ""
+#   def select(&prc)
+#     if prc
+#       chars = self.split("")
+#       chars.each do |char|
+#         prc.call(char)
+#       end
+#     else
+#       return ""
+#     end
+#   end
+# # passing the block determines whether given character should be copied over
+#   p "app academy".select { |ch| !"aeiou".include?(ch) } == "pp cdmy"
+#   p "HELLOworld".select { |ch| ch == ch.upcase } == "HELLO"
+#   p "HELLOworld".select == ""
 
-  def map!(&prc)
-    self.map.with_index do |char, index|
-      prc.call(char)
-    end
-  end
+#   def map!(&prc)
+#     self.map!.with_index do |char, index|
+#       prc.call(char)
+#     end
+#   end
 
-  word_1 = "Lovelace"
-word_1.map! do |ch| 
-    if ch == 'e'
-        '3'
-    elsif ch == 'a'
-        '4'
-    else
-        ch
-    end
-end
-p word_1        # => "Lov3l4c3"
+#   word_1 = "Lovelace"
+#   word_1.map! do |ch| 
+#       if ch == 'e'
+#           '3'
+#       elsif ch == 'a'
+#           '4'
+#       else
+#           ch
+#       end
+#   end
+# p word_1        # => "Lov3l4c3"
 
-word_2 = "Dijkstra"
-word_2.map! do |ch, i|
-    if i.even?
-        ch.upcase
-    else
-        ch.downcase
-    end
-end
-p word_2        # => "DiJkStRa"
+#   word_2 = "Dijkstra"
+#   word_2.map! do |ch, i|
+#       if i.even?
+#           ch.upcase
+#       else
+#           ch.downcase
+#       end
+#   end
+#   p word_2        # => "DiJkStRa"
 
-end
+# end
