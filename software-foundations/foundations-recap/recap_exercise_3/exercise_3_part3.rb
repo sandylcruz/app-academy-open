@@ -62,7 +62,6 @@ def lucas_sequence(num)
   next_ele = seq[-1] + seq[-2]
   seq << next_ele
   seq
-
 end
 
 p lucas_sequence(0) == []
@@ -84,13 +83,32 @@ The array returned should contain numbers in ascending order.
 Do this recursively.
 =end
 
-# def prime_factorization(num)
+def is_prime?(num)
+  return false if num < 2
+  
+  (2..num).each do |factor|
+    if num % factor == 0
+      return false
+    else
+      return true
+    end
+  end
+end
 
-# end
-# p prime_factorization(12) == [2, 2, 3]
-# p prime_factorization(24) == [2, 2, 2, 3]
-# p prime_factorization(25) == [5, 5]
-# p prime_factorization(60) == [2, 2, 3, 5]
-# p prime_factorization(7) == [7]
-# p prime_factorization(11) == [11]
-# p prime_factorization(2017) == [2017]
+def prime_factorization(num)
+  prime_array = []
+
+
+
+
+
+  prime_array
+end
+
+p prime_factorization(12) == [2, 2, 3]
+p prime_factorization(24) == [2, 2, 2, 3]
+p prime_factorization(25) == [5, 5]
+p prime_factorization(60) == [2, 2, 3, 5]
+p prime_factorization(7) == [7]
+p prime_factorization(11) == [11]
+p prime_factorization(2017) == [2017]
