@@ -47,19 +47,21 @@ is 1. To generate the next number of the sequence, we add up
 the previous two numbers. For example, the first six numbers 
 of the sequence are: 2, 1, 3, 4, 7, 11, ...
 
-Write a method lucasSequence that accepts a number 
+Write a method lucas_sequence that accepts a number 
 representing a length as an arg. The method should return 
 an array containing the Lucas Sequence up to the given length. 
 Solve this recursively.
 =end
 
 def lucas_sequence(num)
-    if num == 0
-      return 2
-    elsif num == 1
-      return
-    end
+  return [] if num == 0
+  return [2] if num == 1
+  return [2, 1] if num == 2
 
+  seq = lucas_sequence(num - 1)
+  next_ele = seq[-1] + seq[-2]
+  seq << next_ele
+  seq
 
 end
 
