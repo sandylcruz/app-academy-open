@@ -83,26 +83,15 @@ The array returned should contain numbers in ascending order.
 Do this recursively.
 =end
 
-def is_prime?(num)
-  return false if num < 2
-  
-  (2..num).each do |factor|
+def prime_factorization(num)
+  (2...num).each do |factor|
     if num % factor == 0
-      return false
-    else
-      return true
+      other_fact = num / factor
+      return [ *prime_factorization(factor), 
+      *prime_factorization(other_fact)]
     end
   end
-end
-
-def prime_factorization(num)
-  prime_array = []
-
-
-
-
-
-  prime_array
+  [ num ]
 end
 
 p prime_factorization(12) == [2, 2, 3]
