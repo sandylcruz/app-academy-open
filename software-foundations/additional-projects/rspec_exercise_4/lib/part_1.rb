@@ -1,4 +1,11 @@
 def my_reject(array, &prc)
+  rejects = []
+  array.each do |num|
+    if prc.call(num) == false
+      rejects << num
+    end
+  end
+  rejects
 end
 
 def my_one?(array, &prc)
