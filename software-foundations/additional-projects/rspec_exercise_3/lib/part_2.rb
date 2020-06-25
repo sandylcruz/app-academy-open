@@ -21,7 +21,6 @@ def element_count(array)
 end
 
 def char_replace!(string, hash)
-  
   string.each_char.with_index do |char, index|
     if hash.key?(char)
       string[index] = hash[char]
@@ -31,7 +30,8 @@ def char_replace!(string, hash)
 end
 
 def product_inject(array)
-  array.inject
+  product = 1
+  array.inject { |product, n | n * product }
 end
 
 # cats = [{ age: 2, name: 'a' }, { age: 3, name: 'b'}]
