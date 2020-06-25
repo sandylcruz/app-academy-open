@@ -28,11 +28,11 @@ end
 
 def prime_range(min, max)
   prime_array = []
-  (min...max).each do |factor|
-    if max % factor == 0 && is_prime?(factor)
-      prime_array << factor
+
+  (min..max).each do |num|
+    if is_prime?(num)
+      prime_array << num
     end
   end
   prime_array
-
 end
