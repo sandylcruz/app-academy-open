@@ -36,3 +36,7 @@ def prime_range(min, max)
   end
   prime_array
 end
+
+def prime_range(min, max)
+  (min..max).select { |num| is_prime?(num) }
+end
