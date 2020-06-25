@@ -12,13 +12,18 @@ def is_prime?(num)
 end
 
 def nth_prime(n)
-  i = 2
-  while i < n
-    if is_prime?(n)
-      return n
+  current_count = 1
+  current_prime_num = 2
+  i = current_prime_num
+
+  while current_count <= n
+    if is_prime?(i)
+      current_count += 1
+      current_prime_num = i
     end
     i += 1
   end
+  current_prime_num
 end
 
 def prime_range(min, max)
