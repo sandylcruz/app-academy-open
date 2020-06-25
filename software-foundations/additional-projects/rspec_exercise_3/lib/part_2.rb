@@ -1,12 +1,12 @@
-# def element_count(array)
-#   array.each_with_object(Hash.new) do |ele, count_hash|
-#     if count_hash[ele]
-#       count_hash[ele] += 1
-#     else
-#       count_hash[ele] = 1
-#     end
-#   end
-# end
+def element_count(array)
+  array.each_with_object(Hash.new) do |ele, count_hash|
+    if count_hash[ele]
+      count_hash[ele] += 1
+    else
+      count_hash[ele] = 1
+    end
+  end
+end
 
 def element_count(array)
   count_hash = {}
@@ -20,12 +20,19 @@ def element_count(array)
   count_hash
 end
 
-# def char_replace!(string, hash)
+def char_replace!(string, hash)
+  
+  string.each_char.with_index do |char, index|
+    if hash.key?(char)
+      string[index] = hash[char]
+    end
+  end
+  string
+end
 
-# end
-
-# def product_inject(array)
-# end
+def product_inject(array)
+  array.inject
+end
 
 # cats = [{ age: 2, name: 'a' }, { age: 3, name: 'b'}]
 
