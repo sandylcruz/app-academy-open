@@ -9,6 +9,19 @@ def my_reject(array, &prc)
 end
 
 def my_one?(array, &prc)
+  count = 0
+  
+  array.each do |num|
+    if prc.call(num) == true
+      count += 1
+    end
+  end
+
+  if count == 1
+    return true
+  else
+    return false
+  end
 end
 
 def hash_select(hash, &prc)
