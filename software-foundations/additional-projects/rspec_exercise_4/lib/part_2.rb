@@ -8,23 +8,20 @@ def proper_factors(num)
   factors
 end
 
-# def aliquot_sum(num)
-#   sum = 0
-#   factors = proper_factors(num)
+def aliquot_sum(num)
+  sum = 0
+  factors = proper_factors(num)
 
-#   factors.each do |num|
-#     sum += num
-#   end
-#   sum
-# end
+  factors.each do |num|
+    sum += num
+  end
+  sum
+end
 
 def aliquot_sum(num)
   factors = proper_factors(num)
-  factors.each do |num|
-    num.each_with_object(0) 
-    accumulator + num
-  end
-  
+  factors.reduce { |sum, num| sum + num}
+
 end
 
 def perfect_number?(num)
