@@ -25,10 +25,19 @@ def my_one?(array, &prc)
 end
 
 def hash_select(hash, &prc)
+  true_hash = {}
+
+  hash.each do |k, v|
+    if prc.call(k, v) == true
+      true_hash[k] = v
+    end
+  end
+
+  true_hash
 end
 
-def xor_select(array)
-end
+# def xor_select(array, &even, &positive)
+# end
 
 def proc_count(value, array)
 end
