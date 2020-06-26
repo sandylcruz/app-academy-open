@@ -36,9 +36,27 @@ def hash_select(hash, &prc)
   true_hash
 end
 
-# def xor_select(array, &even, &positive)
-# end
+def xor_select(array, proc1, proc2)
+  true_array = []
+
+  array.each do |ele|
+    if proc1.call(ele) == true && proc2.call(ele != true)
+      true_array << ele
+    elsif proc2.call(ele) == true && proc1.call(ele) != true
+      true_array << ele
+    end
+  end
+  true_array
+end
 
 def proc_count(value, array)
+  count = 0
+
+  array.each do |proc|
+    if proc.call(value) == true
+      count += 1
+    end
+  end
+  count
 end
 
