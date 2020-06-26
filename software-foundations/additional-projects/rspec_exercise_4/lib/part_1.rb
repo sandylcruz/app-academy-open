@@ -40,7 +40,7 @@ def xor_select(array, proc1, proc2)
   true_array = []
 
   array.each do |ele|
-    if proc1.call(ele) == true && proc2.call(ele != true)
+    if proc1.call(ele) == true && proc2.call(ele) != true
       true_array << ele
     elsif proc2.call(ele) == true && proc1.call(ele) != true
       true_array << ele
