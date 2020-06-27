@@ -1,7 +1,39 @@
-def zip(*array)
-end
+# def zip(*array)
+#   pairs = []
+#   i = 0
+#   j = 0
+
+#   array.each_with_index do |sub_array, ix1|
+#     sub_array.each do |ele, ix2|
+#       pairs << ele[ix2]
+#       j += 1
+#     end
+#     pairs << ele[ix1]
+#     i += 1
+#   end
+#   pairs
+# end
+
+# def zip(*array)
+#   i = 0
+#   pairs = []
+#   array.each_with_index do |sub_array, i|
+#     pairs << sub_array[i]
+#     i += 1
+#   end
+#   pairs
+# end
 
 def prizz_proc(array, proc1, proc2)
+  true_array = []
+  array.each do |ele|
+    if proc1.call(ele) == true && proc2.call(ele) == false
+      true_array << ele
+    elsif proc2.call(ele) == true && proc1.call(ele) == false
+      true_array << ele
+    end
+  end
+  true_array
 end
 
 def zany_zip(*array)
@@ -18,3 +50,4 @@ end
 
 def silly_syllables(sentence)
 end
+
