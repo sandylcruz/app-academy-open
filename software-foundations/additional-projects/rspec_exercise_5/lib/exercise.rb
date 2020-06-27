@@ -1,28 +1,22 @@
-# def zip(*array)
-#   pairs = []
-#   i = 0
-#   j = 0
+def zip(*arrays)
+  final_array = []  
+  array_length = arrays[0].length
+  i = 0
 
-#   array.each_with_index do |sub_array, ix1|
-#     sub_array.each do |ele, ix2|
-#       pairs << ele[ix2]
-#       j += 1
-#     end
-#     pairs << ele[ix1]
-#     i += 1
-#   end
-#   pairs
-# end
+  while i < array_length
+    bucket = []
 
-# def zip(*array)
-#   i = 0
-#   pairs = []
-#   array.each_with_index do |sub_array, i|
-#     pairs << sub_array[i]
-#     i += 1
-#   end
-#   pairs
-# end
+    arrays.each do |array|
+      target_element = array[i]
+      bucket << target_element
+
+    end
+    final_array << bucket
+    i += 1
+  end
+
+  final_array
+end
 
 def prizz_proc(array, proc1, proc2)
   true_array = []
@@ -37,6 +31,11 @@ def prizz_proc(array, proc1, proc2)
 end
 
 def zany_zip(*array)
+  if array.length == array.length
+    zip(array)
+  end
+  
+
 end
 
 def maximum(array, &prc)
@@ -98,6 +97,9 @@ def silly_syllables(sentence)
   vowels = ["a", "e", "i", "o", "u"]
   new_sentence = ""
   words = sentence.split(" ")
+  before_first_vowel = []
+
+  after_last_vowel = []
   
   words.each_char do |char|
     puts char
