@@ -56,6 +56,17 @@ def maximum(array, &prc)
 end
 
 def my_group_by(array, &prc)
+  grouped_hash = {}
+
+  array.each do |ele|
+    keys = prc.call(ele)
+    if grouped_hash[keys]
+      grouped_hash[keys] += [ele]
+    else
+    grouped_hash[keys] = [ele]
+    end
+  end
+  grouped_hash
 end
 
 def max_tie_breaker(array, proc1, proc2)
