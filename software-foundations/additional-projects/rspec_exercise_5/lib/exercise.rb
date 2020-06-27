@@ -40,6 +40,19 @@ def zany_zip(*array)
 end
 
 def maximum(array, &prc)
+  return nil if array.empty?
+
+  current_highest = 0
+  biggest_ele = ""
+
+  array.each do |ele|
+    answer = prc.call(ele)
+    if answer >= current_highest
+      current_highest = answer
+      biggest_ele = ele
+    end
+  end
+  biggest_ele
 end
 
 def my_group_by(array, &prc)
