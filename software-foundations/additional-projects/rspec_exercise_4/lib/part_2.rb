@@ -21,10 +21,14 @@ end
 def aliquot_sum(num)
   factors = proper_factors(num)
   factors.reduce { |sum, num| sum + num}
-
 end
 
 def perfect_number?(num)
+  if num == aliquot_sum(num)
+    return true
+  else
+    return false
+  end
 end
 
 def ideal_numbers(n)
