@@ -63,15 +63,52 @@ def my_group_by(array, &prc)
     if grouped_hash[keys]
       grouped_hash[keys] += [ele]
     else
-    grouped_hash[keys] = [ele]
+      grouped_hash[keys] = [ele]
     end
   end
   grouped_hash
 end
 
-def max_tie_breaker(array, proc1, proc2)
+def max_tie_breaker(array, proc1, &proc2)
+  return nil if array.empty?
+
+  biggest_num = 0
+  biggest_word = ""
+  
+  array.each do |word|
+    result2 = proc2.call(word)
+    maximum_value = result2
+
+    if maximum_value > biggest_num
+      biggest_num = maximum_value
+      biggest_word = word
+    elsif maximum_value == biggest_num
+      result1 = proc1.call(word)
+      other_result = proc1.call(biggest_word)
+
+      if result1 > other_result
+        biggest_word = word
+      end
+    end
+  end
+  biggest_word
 end
 
 def silly_syllables(sentence)
+  vowels = ["a", "e", "i", "o", "u"]
+  new_sentence = ""
+  words = sentence.split(" ")
+  
+  words.each_char do |char|
+    puts char
+    # if !new_sentence.include?(vowels)
+
+    if !new_sentence.include?(vowels) && vowels.include?(char)
+      new_sentence << char
+
+    i += 1
+    end
+  end
+  new_sentence
 end
 

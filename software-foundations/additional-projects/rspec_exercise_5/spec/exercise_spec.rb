@@ -182,7 +182,7 @@ end
 
 describe "max_tie_breaker" do
     let(:array_1) { ['potato', 'swimming', 'cat'] }
-    let(:array_2) { ['cat', 'bootcamp', 'swimming', 'ooooo'] }
+    let(:array_2) { ['cat', 'swimming', 'bootcamp', 'ooooo'] }
     let(:array_3) { ['photo','bottle', 'bother'] }
     let(:length) { Proc.new { |s| s.length } }
     let(:o_count) { Proc.new { |s| s.count('o') } }
@@ -194,6 +194,12 @@ describe "max_tie_breaker" do
     it "should return the element that has the largest result when passed into the block" do
         expect(max_tie_breaker(array_1, o_count, &length)).to eq('swimming')
         expect(max_tie_breaker(array_2, length, &o_count)).to eq('ooooo')
+
+    end
+
+    it "should return the element that has the largest result when passed into the block" do
+      expect(max_tie_breaker(array_1, o_count, &length)).to eq('swimming')
+      expect(max_tie_breaker(array_2, length, &o_count)).to eq('ooooo')
 
     end
 
