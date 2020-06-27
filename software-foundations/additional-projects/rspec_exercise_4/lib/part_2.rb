@@ -32,5 +32,15 @@ def perfect_number?(num)
 end
 
 def ideal_numbers(n)
+  perfect_nums = []
+  current_num = 0
+
+  while perfect_nums.length < n
+    if perfect_number?(current_num)
+      perfect_nums << current_num
+    end
+    current_num += 1
+  end
+  perfect_nums
 end
 
