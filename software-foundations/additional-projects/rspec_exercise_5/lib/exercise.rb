@@ -53,7 +53,6 @@ def zany_zip(*arrays)
   end
 
   final_array
-
 end
 
 def maximum(array, &prc)
@@ -111,24 +110,39 @@ def max_tie_breaker(array, proc1, &proc2)
   biggest_word
 end
 
-def silly_syllables(sentence)
-  vowels = ["a", "e", "i", "o", "u"]
-  new_sentence = ""
-  words = sentence.split(" ")
-  before_first_vowel = []
+def is_vowel?(char)
+  if char == "a" || char == "e" || char == "i" || char == "o" || char == "u"
+    return true
+  else
+    return false
+  end
+end
 
-  after_last_vowel = []
-  
-  words.each_char do |char|
-    puts char
-    # if !new_sentence.include?(vowels)
-
-    if !new_sentence.include?(vowels) && vowels.include?(char)
-      new_sentence << char
-
-    i += 1
+def vowel_indices(word)
+  indices = []
+  word.each_char.with_index do |char, index|
+    if is_vowel?(char)
+      indices << index
     end
   end
-  new_sentence
+  indices
+end
+
+def change_word(word)
+  indices = vowel_indices(word)
+  word[indices.first..indices.last]
+end
+
+def silly_syllables(sentence)
+  words = sentence.split(" ")
+  new_words = sentence.map do |words|
+    num_vowels = vowel_indices(word)
+    if num_vowels < 2
+      word
+    else
+      change_word(word)
+    end
+  end
+  new_words
 end
 
