@@ -54,7 +54,16 @@ as a key of the hash, then it should remain unchanged.
 =end
 
 def rampant_repeats(string, hash)
+  repeat_string = ""
 
+  string.each_char do |char|
+    if hash.has_key?(char)
+      repeat_string << (char * hash[char])
+    else
+      repeat_string << char
+    end
+  end
+  repeat_string
 end
 p rampant_repeats('taco', {'a'=>3, 'c'=>2})             # 'taaacco'
 p rampant_repeats('feverish', {'e'=>2, 'f'=>4, 's'=>3}) # 'ffffeeveerisssh'
@@ -73,7 +82,7 @@ squares; 35 is not a perfect square.
 =end
 
 def perfect_square?(num)
-  (Math.sqrt(num) % 1).zero?
+  Math.sqrt(num) % 1 == 0
 end
 
 p perfect_square?(1) == true
