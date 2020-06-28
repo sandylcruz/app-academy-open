@@ -30,11 +30,29 @@ def prizz_proc(array, proc1, proc2)
   true_array
 end
 
-def zany_zip(*array)
-  if array.length == array.length
-    zip(array)
+def zany_zip(*arrays)
+  final_array = []  
+  longest_length = arrays.length
+  i = 0
+
+  arrays.each do |array|
+    if array.length > longest_length 
+      longest_length = array.length
+    end
   end
-  
+
+  while i < longest_length
+    bucket = []
+
+    arrays.each do |array|
+      target_element = array[i]
+      bucket << target_element
+    end
+    final_array << bucket
+    i += 1
+  end
+
+  final_array
 
 end
 
