@@ -112,9 +112,9 @@ end
 
 def is_vowel?(char)
   if char == "a" || char == "e" || char == "i" || char == "o" || char == "u"
-    true
+    return true
   else
-    false
+    return false
   end
 end
 
@@ -135,14 +135,16 @@ end
 
 def silly_syllables(sentence)
   words = sentence.split(" ")
-  new_words = sentence.map do |words|
-    num_vowels = vowel_indices(word)
+
+  new_words = words.map do |word|
+    num_vowels = vowel_indices(word).length
+
     if num_vowels < 2
       word
     else
       change_word(word)
     end
   end
-  new_words
+  new_words.join(" ")
 end
 
