@@ -148,3 +148,20 @@ def silly_syllables(sentence)
   new_words.join(" ")
 end
 
+def silly_syllables(sentence)
+  words = sentence.split(' ').reduce([]) do |accumulator, word|
+    first_vowel_index = word.index(/[aeiou]/)
+    last_vowel_index = word.rindex(/[aeiou]/)
+
+    if first_vowel_index && last_vowel_index != first_vowel_index
+      accumulator << word[first_vowel_index..last_vowel_index]
+    else
+      accumulator << word
+    end
+  
+    accumulator
+  end
+
+  words.join(' ')
+end
+
