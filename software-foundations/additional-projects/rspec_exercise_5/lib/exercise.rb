@@ -112,9 +112,9 @@ end
 
 def is_vowel?(char)
   if char == "a" || char == "e" || char == "i" || char == "o" || char == "u"
-    return true
+    true
   else
-    return false
+    false
   end
 end
 
