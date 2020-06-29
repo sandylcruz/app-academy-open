@@ -5,12 +5,13 @@ distinct pairs of elements that have a sum of zero. You may
 assume that the input array contains unique elements.
 =end
 
-def strange_sums(array)
-  count = 0
-  return 0 if array.length <= 1
-  array.each do |num|
 
-  end
+def strange_sums(array)
+  return 0 if array.length <= 1
+  count = 0
+  
+
+
 
   count
 end
@@ -21,6 +22,7 @@ p strange_sums([-5, 5])               # 1
 p strange_sums([19, 6, -3, -20])      # 0
 p strange_sums([9])                   # 0
 puts puts
+
 =begin
 Write a method pair_product that accepts an array of numbers 
 and a product as arguments. The method should return a 
@@ -32,17 +34,15 @@ contains unique elements.
 =end
 
 def pair_product(array, product)
-  array.each do |num|
-    
-  end
+  array.combination(2).any? { |a, b| a * b == product }
 end
-p pair_product([4, 2, 5, 8], 16)    # true
-p pair_product([8, 1, 9, 3], 8)     # true
-p pair_product([3, 4], 12)          # true
-p pair_product([3, 4, 6, 2, 5], 12) # true
-p pair_product([4, 2, 5, 7], 16)    # false
-p pair_product([8, 4, 9, 3], 8)     # false
-p pair_product([3], 12)             # false
+p pair_product([4, 2, 5, 8], 16) == true
+p pair_product([8, 1, 9, 3], 8) == true
+p pair_product([3, 4], 12) == true
+p pair_product([3, 4, 6, 2, 5], 12) == true
+p pair_product([4, 2, 5, 7], 16) == false
+p pair_product([8, 4, 9, 3], 8)  == false
+p pair_product([3], 12) == false
 puts puts
 
 =begin
@@ -65,10 +65,10 @@ def rampant_repeats(string, hash)
   end
   repeat_string
 end
-p rampant_repeats('taco', {'a'=>3, 'c'=>2})             # 'taaacco'
-p rampant_repeats('feverish', {'e'=>2, 'f'=>4, 's'=>3}) # 'ffffeeveerisssh'
-p rampant_repeats('misispi', {'s'=>2, 'p'=>2})          # 'mississppi'
-p rampant_repeats('faarm', {'e'=>3, 'a'=>2})            # 'faaaarm'
+p rampant_repeats('taco', {'a'=>3, 'c'=>2}) ==  'taaacco'
+p rampant_repeats('feverish', {'e'=>2, 'f'=>4, 's'=>3}) == 'ffffeeveerisssh'
+p rampant_repeats('misispi', {'s'=>2, 'p'=>2}) == 'mississppi'
+p rampant_repeats('faarm', {'e'=>3, 'a'=>2}) == 'faaaarm'
 puts puts
 
 =begin
