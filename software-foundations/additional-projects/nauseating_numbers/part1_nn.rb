@@ -41,8 +41,26 @@ contains unique elements.
 =end
 
 def pair_product(array, product)
+  i = 0
+  j = 0
+
+  while i < (array.length - 1)
+    while j < array.length
+      if array[i] * array[j] == product
+        return true
+      end
+      j += 1
+    end
+    i += 1
+    j = i + 1
+  end
+  return false
+end
+
+def pair_product(array, product)
   array.combination(2).any? { |a, b| a * b == product }
 end
+
 p pair_product([4, 2, 5, 8], 16) == true
 p pair_product([8, 1, 9, 3], 8) == true
 p pair_product([3, 4], 12) == true
