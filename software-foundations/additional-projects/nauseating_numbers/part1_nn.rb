@@ -5,22 +5,29 @@ distinct pairs of elements that have a sum of zero. You may
 assume that the input array contains unique elements.
 =end
 
-
 def strange_sums(array)
-  return 0 if array.length <= 1
+  i = 0
+  j = 1
   count = 0
-  
 
-
-
+  while i < (array.length - 1)
+    while j < array.length
+      if array[i] + array[j] == 0
+        count += 1
+      end
+      j += 1
+    end
+    i += 1
+    j = i + 1
+  end
   count
 end
 
-p strange_sums([2, -3, 3, 4, -2])     # 2
-p strange_sums([42, 3, -1, -42])      # 1
-p strange_sums([-5, 5])               # 1
-p strange_sums([19, 6, -3, -20])      # 0
-p strange_sums([9])                   # 0
+p strange_sums([2, -3, 3, 4, -2]) == 2
+p strange_sums([42, 3, -1, -42]) == 1
+p strange_sums([-5, 5]) == 1
+p strange_sums([19, 6, -3, -20]) == 0
+p strange_sums([9])== 0
 puts puts
 
 =begin
