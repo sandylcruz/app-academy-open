@@ -17,16 +17,6 @@ def num_divisors(num)
   factor_count
 end
 
-# def most_divisors_under_num(num)
-#   (2...num).each do |factor|
-#     if num_divisors(factor) < num_divisors(num)
-#       return false
-#     else
-#       retun true
-#     end
-#   end
-# end
-
 def anti_prime?(num)
   (2...num).each do |factor|
     if num_divisors(factor) > num_divisors(num)
@@ -36,16 +26,16 @@ def anti_prime?(num)
   return true
 end
 
-p anti_prime?(24)   # true
-p anti_prime?(36)   # true
-p anti_prime?(48)   # true
-p anti_prime?(360)  # true
-p anti_prime?(1260) # true
-p anti_prime?(27)   # false
-p anti_prime?(5)    # false
-p anti_prime?(100)  # false
-p anti_prime?(136)  # false
-p anti_prime?(1024) # false
+p anti_prime?(24) == true
+p anti_prime?(36) == true
+p anti_prime?(48) == true
+p anti_prime?(360) == true
+p anti_prime?(1260) == true
+p anti_prime?(27) == false
+p anti_prime?(5) == false
+p anti_prime?(100) == false
+p anti_prime?(136) == false
+p anti_prime?(1024) == false
 puts puts
 
 =begin
@@ -59,6 +49,7 @@ positions.
 =end
 
 def matrix_addition(matrix1, matrix2)
+  matrix_sum = []
 end
 
 matrix_a = [[2,5], [4,7]]
@@ -82,7 +73,27 @@ arguments. For example, the common divisors of 50 and
 arguments are positive integers.
 =end
 
-def mutual_factors(*args)
+def factors_of_num(num)
+  divisors = []
+
+  (1..num).each do |factor|
+    if num % factor == 0
+      divisors << factor
+    end
+  end
+  divisors
+end
+
+def mutual_factors(*number_args)
+  common_divisors = []
+
+
+  number_args.each do |number|
+    if factors_of_num(number).include?(number)
+
+    end
+
+  end
 end
 
 p mutual_factors(50, 30)            # [1, 2, 5, 10]
@@ -111,6 +122,19 @@ tribonacci sequence.
 =end
 
 def tribonacci_number(n)
+  # first_num = 1
+  # second_num = 1
+  # third_num = 2
+
+  return 1 if n == 1
+  return 1 if n == 2
+
+  if n > 2
+    n.times do |num|
+      first_num, second_num, third_num = second_num, first_num + second_num
+    end
+    puts first_num
+  end
 end
 p tribonacci_number(1)  # 1
 p tribonacci_number(2)  # 1
