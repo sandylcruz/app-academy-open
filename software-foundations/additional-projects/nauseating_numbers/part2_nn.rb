@@ -7,9 +7,28 @@ anti-prime because it has more divisors than any positive
 number less than 24. Math Fact: Numbers that meet 
 this criteria are also known as highly composite numbers.
 =end
+def num_divisors(num)
+  factor_count = 0
+  (1..num).each do |factor|
+    if num % factor == 0
+      factor_count += 1
+    end
+  end
+  factor_count
+end
 
 def anti_prime?(num)
+  number_of_factors = num_divisors(num)
+  one_less_than_num = (num - 1)
 
+  puts number_of_factors
+  puts one_less_than_num
+
+  if number_of_factors > one_less_than_num
+    return true
+  else
+    return false
+  end
 end
 
 p anti_prime?(24)   # true
