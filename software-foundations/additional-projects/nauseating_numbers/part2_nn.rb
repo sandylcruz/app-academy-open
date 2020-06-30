@@ -17,18 +17,23 @@ def num_divisors(num)
   factor_count
 end
 
+# def most_divisors_under_num(num)
+#   (2...num).each do |factor|
+#     if num_divisors(factor) < num_divisors(num)
+#       return false
+#     else
+#       retun true
+#     end
+#   end
+# end
+
 def anti_prime?(num)
-  number_of_factors = num_divisors(num)
-  one_less_than_num = (num - 1)
-
-  puts number_of_factors
-  puts one_less_than_num
-
-  if number_of_factors > one_less_than_num
-    return true
-  else
-    return false
+  (2...num).each do |factor|
+    if num_divisors(factor) > num_divisors(num)
+      return false
+    end
   end
+  return true
 end
 
 p anti_prime?(24)   # true
