@@ -28,7 +28,7 @@ end
 
 def anti_prime?(num)
   amount = num_divisors(num)
-  (1...num).all? { |i| amount > num_factors(i) }
+  (1...num).all? { |i| amount > num_divisors(i) }
 end
 
 p anti_prime?(24) == true
@@ -53,22 +53,48 @@ To add matrices, we simply add the values at the same
 positions.
 =end
 
+# def matrix_addition(m1, m2)
+  
+#   final_array = []
+
+#   while i < matrix1.length
+#     while j < matrix2.length
+      
+#       j += 1
+#     end
+#     final_array << 
+#     i += 1
+#     j -= 1
+#   end
+
+#   final_array
+# end
+
+# def matrix_addition(m1, m2)
+#   height = m1.length
+#   width = m1[0].length
+#   result = Array.new(height) { Array.new(width) }
+
+#   (0...height).each do |row|
+#     (0...width).each do |col|
+#       result[row][col] = m1[row][col] + m2[row][col]
+#     end
+#   end
+#   result
+# end
+
 def matrix_addition(m1, m2)
   height = m1.length
   width = m1[0].length
-  final_array = []
+  result = Array.new(height) { Array.new(width) }
 
-  while i < matrix1.length
-    while j < matrix2.length
-      
-      j += 1
+  (0...height).each do |row|
+    (0...width).each do |col|
+      result[row][col] = m1[row][col] + m2[row][col]
     end
-    final_array << 
-    i += 1
-    j -= 1
   end
 
-  final_array
+  result
 end
 
 matrix_a = [[2,5], [4,7]]
@@ -92,7 +118,7 @@ arguments. For example, the common divisors of 50 and
 arguments are positive integers.
 =end
 
-def factors_of_num(num)
+def factors(num)
   divisors = []
 
   (1..num).each do |factor|
@@ -103,29 +129,31 @@ def factors_of_num(num)
   divisors
 end
 
-def mutual_factors(*number_args)
-  common_divisors = []
+# def mutual_factors(*numbers)
+#   common_divisors = []
 
+#   numbers.each do |num|
+#     all_factors = factors(num)
+#     all_factors.each do |factor|
+#       if all_factors.include?(factor > 1)
+#         common_divisors << factor
+#       end
+#     end
+#   end
+#   common_divisors
+# end
 
-  number_args.each do |number|
-    if factors_of_num(number).include?(number)
-
-    end
-
-  end
-end
-
-p mutual_factors(50, 30)            # [1, 2, 5, 10]
-p mutual_factors(50, 30, 45, 105)   # [1, 5]
-p mutual_factors(8, 4)              # [1, 2, 4]
-p mutual_factors(8, 4, 10)          # [1, 2]
-p mutual_factors(12, 24)            # [1, 2, 3, 4, 6, 12]
-p mutual_factors(12, 24, 64)        # [1, 2, 4]
-p mutual_factors(22, 44)            # [1, 2, 11, 22]
-p mutual_factors(22, 44, 11)        # [1, 11]
-p mutual_factors(7)                 # [1, 7]
-p mutual_factors(7, 9)              # [1]
-puts puts
+# p mutual_factors(50, 30)            # [1, 2, 5, 10]
+# p mutual_factors(50, 30, 45, 105)   # [1, 5]
+# p mutual_factors(8, 4)              # [1, 2, 4]
+# p mutual_factors(8, 4, 10)          # [1, 2]
+# p mutual_factors(12, 24)            # [1, 2, 3, 4, 6, 12]
+# p mutual_factors(12, 24, 64)        # [1, 2, 4]
+# p mutual_factors(22, 44)            # [1, 2, 11, 22]
+# p mutual_factors(22, 44, 11)        # [1, 11]
+# p mutual_factors(7)                 # [1, 7]
+# p mutual_factors(7, 9)              # [1]
+# puts puts
 
 =begin
 The tribonacci sequence is similar to that of Fibonacci. 
@@ -140,21 +168,21 @@ argument, n, and returns the n-th number of the
 tribonacci sequence.
 =end
 
-def tribonacci_number(n)
-  sequence = [1, 1, 2]
+# def tribonacci_number(n)
+#   sequence = [1, 1, 2]
 
-  if n > 2
-    n.times do |num|
-      first_num, second_num, third_num = second_num, first_num + second_num
-    end
-    puts first_num
-  end
-end
-p tribonacci_number(1)  # 1
-p tribonacci_number(2)  # 1
-p tribonacci_number(3)  # 2
-p tribonacci_number(4)  # 4
-p tribonacci_number(5)  # 7
-p tribonacci_number(6)  # 13
-p tribonacci_number(7)  # 24
-p tribonacci_number(11) # 274
+#   if n > 2
+#     n.times do |num|
+#       first_num, second_num, third_num = second_num, first_num + second_num
+#     end
+#     puts first_num
+#   end
+# end
+# p tribonacci_number(1)  # 1
+# p tribonacci_number(2)  # 1
+# p tribonacci_number(3)  # 2
+# p tribonacci_number(4)  # 4
+# p tribonacci_number(5)  # 7
+# p tribonacci_number(6)  # 13
+# p tribonacci_number(7)  # 24
+# p tribonacci_number(11) # 274
