@@ -26,6 +26,11 @@ def anti_prime?(num)
   return true
 end
 
+def anti_prime?(num)
+  amount = num_divisors(num)
+  (1...num).all? { |i| amount > num_factors(i) }
+end
+
 p anti_prime?(24) == true
 p anti_prime?(36) == true
 p anti_prime?(48) == true
