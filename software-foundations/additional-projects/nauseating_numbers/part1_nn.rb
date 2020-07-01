@@ -70,6 +70,17 @@ def pair_product(array, product)
 end
 
 def pair_product(array, product)
+  array.each_with_index do |num1, idx1|
+    array.each_with_index do |num2, idx2|
+      if idx2 > idx1 && (num1 * num2) == 0
+        return true
+      end
+    end
+  end
+  false
+end
+
+def pair_product(array, product)
   array.combination(2).any? { |a, b| a * b == product }
 end
 
