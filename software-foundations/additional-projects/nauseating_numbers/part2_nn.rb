@@ -48,8 +48,22 @@ To add matrices, we simply add the values at the same
 positions.
 =end
 
-def matrix_addition(matrix1, matrix2)
-  matrix_sum = []
+def matrix_addition(m1, m2)
+  height = m1.length
+  width = m1[0].length
+  final_array = []
+
+  while i < matrix1.length
+    while j < matrix2.length
+      
+      j += 1
+    end
+    final_array << 
+    i += 1
+    j -= 1
+  end
+
+  final_array
 end
 
 matrix_a = [[2,5], [4,7]]
@@ -122,12 +136,7 @@ tribonacci sequence.
 =end
 
 def tribonacci_number(n)
-  # first_num = 1
-  # second_num = 1
-  # third_num = 2
-
-  return 1 if n == 1
-  return 1 if n == 2
+  sequence = [1, 1, 2]
 
   if n > 2
     n.times do |num|

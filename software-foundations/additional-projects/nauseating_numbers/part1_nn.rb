@@ -23,6 +23,18 @@ def strange_sums(array)
   count
 end
 
+def strange_sums(numbers)
+  count = 0
+  numbers.each_with_index do |ele1, idx1|
+    numbers.each_with_index do |ele2, idx2|
+      if idx2 > idx1 && (ele1 + ele2) == 0
+        count += 1
+      end
+    end
+  end
+  count
+end
+
 p strange_sums([2, -3, 3, 4, -2]) == 2
 p strange_sums([42, 3, -1, -42]) == 1
 p strange_sums([-5, 5]) == 1
