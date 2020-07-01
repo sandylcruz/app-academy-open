@@ -133,6 +133,10 @@ def perfect_square?(num)
   Math.sqrt(num) % 1 == 0
 end
 
+def perfect_square?(num)
+  (1..n).any? { |i| i * i == n }
+end
+
 p perfect_square?(1) == true
 p perfect_square?(4) == true
 p perfect_square?(64) == true
