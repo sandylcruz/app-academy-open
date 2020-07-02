@@ -53,36 +53,6 @@ To add matrices, we simply add the values at the same
 positions.
 =end
 
-# def matrix_addition(m1, m2)
-  
-#   final_array = []
-
-#   while i < matrix1.length
-#     while j < matrix2.length
-      
-#       j += 1
-#     end
-#     final_array << 
-#     i += 1
-#     j -= 1
-#   end
-
-#   final_array
-# end
-
-# def matrix_addition(m1, m2)
-#   height = m1.length
-#   width = m1[0].length
-#   result = Array.new(height) { Array.new(width) }
-
-#   (0...height).each do |row|
-#     (0...width).each do |col|
-#       result[row][col] = m1[row][col] + m2[row][col]
-#     end
-#   end
-#   result
-# end
-
 def matrix_addition(m1, m2)
   height = m1.length
   width = m1[0].length
@@ -103,10 +73,10 @@ matrix_c = [[-1,0], [0,-1]]
 matrix_d = [[2, -5], [7, 10], [0, 1]]
 matrix_e = [[0 , 0], [12, 4], [6,  3]]
 
-p matrix_addition(matrix_a, matrix_b) # [[11, 6], [7, 7]]
-p matrix_addition(matrix_a, matrix_c) # [[1, 5], [4, 6]]
-p matrix_addition(matrix_b, matrix_c) # [[8, 1], [3, -1]]
-p matrix_addition(matrix_d, matrix_e) # [[2, -5], [19, 14], [6, 4]]
+p matrix_addition(matrix_a, matrix_b) == [[11, 6], [7, 7]]
+p matrix_addition(matrix_a, matrix_c) == [[1, 5], [4, 6]]
+p matrix_addition(matrix_b, matrix_c) == [[8, 1], [3, -1]]
+p matrix_addition(matrix_d, matrix_e) == [[2, -5], [19, 14], [6, 4]]
 puts puts
 
 =begin
@@ -129,19 +99,19 @@ def factors(num)
   divisors
 end
 
-# def mutual_factors(*numbers)
-#   common_divisors = []
+def mutual_factors(*numbers)
+  common_divisors = []
+  factors_hash = {}
+  num_factors = factors(number)
 
-#   numbers.each do |num|
-#     all_factors = factors(num)
-#     all_factors.each do |factor|
-#       if all_factors.include?(factor > 1)
-#         common_divisors << factor
-#       end
-#     end
-#   end
-#   common_divisors
-# end
+  numbers.each do |number|
+    factors_hash[number] = true
+  end
+   
+   
+
+  factors_hash
+end
 
 # p mutual_factors(50, 30)            # [1, 2, 5, 10]
 # p mutual_factors(50, 30, 45, 105)   # [1, 5]
@@ -167,22 +137,28 @@ Write a method tribonacci_number that accepts a number
 argument, n, and returns the n-th number of the 
 tribonacci sequence.
 =end
-
 # def tribonacci_number(n)
-#   sequence = [1, 1, 2]
-
-#   if n > 2
-#     n.times do |num|
-#       first_num, second_num, third_num = second_num, first_num + second_num
-#     end
-#     puts first_num
+#   seq = [1, 1, 2]
+#   while seq.length <= n
+#       seq << seq[-3] + seq[-2] + seq[-1]
 #   end
+#   seq[n - 1]
 # end
-# p tribonacci_number(1)  # 1
-# p tribonacci_number(2)  # 1
-# p tribonacci_number(3)  # 2
-# p tribonacci_number(4)  # 4
-# p tribonacci_number(5)  # 7
-# p tribonacci_number(6)  # 13
-# p tribonacci_number(7)  # 24
-# p tribonacci_number(11) # 274
+
+def tribonacci_number(n)
+  seq = [1, 1, 2]
+
+  while seq.length <= n
+      seq << seq[-3] + seq[-2] + seq[-1]
+  end
+
+  seq[n - 1]
+end
+p tribonacci_number(1)  # 1
+p tribonacci_number(2)  # 1
+p tribonacci_number(3)  # 2
+p tribonacci_number(4)  # 4
+p tribonacci_number(5)  # 7
+p tribonacci_number(6)  # 13
+p tribonacci_number(7)  # 24
+p tribonacci_number(11) # 274
