@@ -58,10 +58,8 @@ def matrix_addition(m1, m2)
   width = m1[0].length
   result = Array.new(height) { Array.new(width) }
 
-  (0...height).each do |row|
-    (0...width).each do |col|
-      result[row][col] = m1[row][col] + m2[row][col]
-    end
+  if m1.length != m2.length
+    return nil
   end
 
   result
@@ -73,10 +71,14 @@ matrix_c = [[-1,0], [0,-1]]
 matrix_d = [[2, -5], [7, 10], [0, 1]]
 matrix_e = [[0 , 0], [12, 4], [6,  3]]
 
-p matrix_addition(matrix_a, matrix_b) == [[11, 6], [7, 7]]
-p matrix_addition(matrix_a, matrix_c) == [[1, 5], [4, 6]]
-p matrix_addition(matrix_b, matrix_c) == [[8, 1], [3, -1]]
-p matrix_addition(matrix_d, matrix_e) == [[2, -5], [19, 14], [6, 4]]
+p matrix_addition(matrix_a, matrix_b) 
+# == [[11, 6], [7, 7]]
+p matrix_addition(matrix_a, matrix_c) 
+# == [[1, 5], [4, 6]]
+p matrix_addition(matrix_b, matrix_c) 
+# == [[8, 1], [3, -1]]
+p matrix_addition(matrix_d, matrix_e) 
+# == [[2, -5], [19, 14], [6, 4]]
 puts puts
 
 =begin
@@ -99,14 +101,18 @@ def factors(num)
   divisors
 end
 
+def intersect(array1, array2)
+end
+
 def mutual_factors(*numbers)
 
   numbers.map { |n| factors(n) }
-  numbers.inject(:&)
+ 
 
   # common_divisors = []
   # factors_hash = {}
-  # num_factors = factors(number)
+  num_factors = factors(numbers)
+  num_factors.union
 
   # numbers.each do |number|
   #   factors_hash[number] = true

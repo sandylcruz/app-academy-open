@@ -7,7 +7,24 @@ the given matrices do not have the same "height" and "width",
 then return nil.
 =end
 
-def matrix_addition_reloaded(*matrixes)
+def matrix_addition_reloaded(*matrices)
+  matrix = matrices.first
+  
+
+  # height = matrices.length
+  # width = matrix[0].length
+  # result = Array.new(height) { Array.new(width) }
+
+  matrix.each do |m1, m2|
+    puts m1
+    puts m2
+    # if m1.length != m2.length
+    #   return nil
+    # end
+  end
+ 
+
+  # result
 end
 
 matrix_a = [[2,5], [4,7]]
@@ -33,7 +50,8 @@ array has "square" dimensions, meaning it's height is the
 same as it's width.
 =end
 
-def squraocol?(2d_array)
+def squraocol?(grid)
+  
 end
 
 p squarocol?([
@@ -42,32 +60,32 @@ p squarocol?([
     [:c, :x , :f],
 ]) # true
 
-p squarocol?([
-    [:x, :y, :x],
-    [:x, :z, :x],
-    [:o, :o, :o],
-]) # true
+# p squarocol?([
+#     [:x, :y, :x],
+#     [:x, :z, :x],
+#     [:o, :o, :o],
+# ]) # true
 
-p squarocol?([
-    [:o, :x , :o],
-    [:x, :o , :x],
-    [:o, :x , :o],
-]) # false
+# p squarocol?([
+#     [:o, :x , :o],
+#     [:x, :o , :x],
+#     [:o, :x , :o],
+# ]) # false
 
-p squarocol?([
-    [1, 2, 2, 7],
-    [1, 6, 6, 7],
-    [0, 5, 2, 7],
-    [4, 2, 9, 7],
-]) # true
+# p squarocol?([
+#     [1, 2, 2, 7],
+#     [1, 6, 6, 7],
+#     [0, 5, 2, 7],
+#     [4, 2, 9, 7],
+# ]) # true
 
-p squarocol?([
-    [1, 2, 2, 7],
-    [1, 6, 6, 0],
-    [0, 5, 2, 7],
-    [4, 2, 9, 7],
-]) # false
-puts puts
+# p squarocol?([
+#     [1, 2, 2, 7],
+#     [1, 6, 6, 0],
+#     [0, 5, 2, 7],
+#     [4, 2, 9, 7],
+# ]) # false
+# puts puts
 
 =begin
 Write a method squaragonal? that accepts 2-dimensional array 
@@ -78,42 +96,51 @@ across either of its diagonals. You may assume that the
 its height is the same as its width.
 =end
 
-def squaragonal?(2d_array)
+# def squaragonal?(2d_array)
+# end
+
+# p squaragonal?([
+#     [:x, :y, :o],
+#     [:x, :x, :x],
+#     [:o, :o, :x],
+# ]) # true
+
+# p squaragonal?([
+#     [:x, :y, :o],
+#     [:x, :o, :x],
+#     [:o, :o, :x],
+# ]) # true
+
+# p squaragonal?([
+#     [1, 2, 2, 7],
+#     [1, 1, 6, 7],
+#     [0, 5, 1, 7],
+#     [4, 2, 9, 1],
+# ]) # true
+
+# p squaragonal?([
+#     [1, 2, 2, 5],
+#     [1, 6, 5, 0],
+#     [0, 2, 2, 7],
+#     [5, 2, 9, 7],
+# ]) # false
+
+# puts puts
+
+# =begin
+# Write a method pascals_triangle that accepts a positive number, 
+# n, as an argument and returns a 2-dimensional array 
+# representing the first n levels of pascal's triangle.
+# =end
+
+def adjacent_sums(array)
+  sums = 0
+  (0...array.length).each do |i|
+    sums << array[i] + array[i + 1]
+  end
+  sums
 end
 
-p squaragonal?([
-    [:x, :y, :o],
-    [:x, :x, :x],
-    [:o, :o, :x],
-]) # true
-
-p squaragonal?([
-    [:x, :y, :o],
-    [:x, :o, :x],
-    [:o, :o, :x],
-]) # true
-
-p squaragonal?([
-    [1, 2, 2, 7],
-    [1, 1, 6, 7],
-    [0, 5, 1, 7],
-    [4, 2, 9, 1],
-]) # true
-
-p squaragonal?([
-    [1, 2, 2, 5],
-    [1, 6, 5, 0],
-    [0, 2, 2, 7],
-    [5, 2, 9, 7],
-]) # false
-
-puts puts
-
-=begin
-Write a method pascals_triangle that accepts a positive number, 
-n, as an argument and returns a 2-dimensional array 
-representing the first n levels of pascal's triangle.
-=end
 def pascals_triangle(n)
 end
 
@@ -126,13 +153,13 @@ p pascals_triangle(5)
 #     [1, 4, 6, 4, 1]
 # ]
 
-p pascals_triangle(7)
-# [
-#     [1],
-#     [1, 1],
-#     [1, 2, 1],
-#     [1, 3, 3, 1],
-#     [1, 4, 6, 4, 1],
-#     [1, 5, 10, 10, 5, 1],
-#     [1, 6, 15, 20, 15, 6, 1]
-# ]
+# p pascals_triangle(7)
+# # [
+# #     [1],
+# #     [1, 1],
+# #     [1, 2, 1],
+# #     [1, 3, 3, 1],
+# #     [1, 4, 6, 4, 1],
+# #     [1, 5, 10, 10, 5, 1],
+# #     [1, 6, 15, 20, 15, 6, 1]
+# # ]
