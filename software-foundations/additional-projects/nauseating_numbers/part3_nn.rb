@@ -51,18 +51,24 @@ same as it's width.
 =end
 
 
-def is_array_uniform?(array)
-  i = 1
-  first_element = array[0]
+# def is_array_uniform?(array)
+#   i = 1
+#   first_element = array[0]
 
-  while i < array.length
-    current_element = array[i]
-    if current_element != first_element
-      return false
-    end
-    i += 1 
-  end
-  return true
+#   while i < array.length
+#     current_element = array[i]
+#     if current_element != first_element
+#       return false
+#     end
+#     i += 1 
+#   end
+#   return true
+# end
+
+def is_array_uniform?(array)
+  return true if array.length == 1
+  first_element = array[0]
+  array[1..-1].all? { |element| element == first_element }
 end
 
 def squarocol?(grid)
