@@ -7,39 +7,39 @@ the given matrices do not have the same "height" and "width",
 then return nil.
 =end
 
-def matrix_addition_reloaded(*matrices)
-  matrix = matrices.first
+# def matrix_addition_reloaded(*matrices)
+#   matrix = matrices.first
   
 
-  # height = matrices.length
-  # width = matrix[0].length
-  # result = Array.new(height) { Array.new(width) }
+#   # height = matrices.length
+#   # width = matrix[0].length
+#   # result = Array.new(height) { Array.new(width) }
 
-  matrix.each do |m1, m2|
-    puts m1
-    puts m2
-    # if m1.length != m2.length
-    #   return nil
-    # end
-  end
+#   matrix.each do |m1, m2|
+#     puts m1
+#     puts m2
+#     # if m1.length != m2.length
+#     #   return nil
+#     # end
+#   end
  
 
-  # result
-end
+#   # result
+# end
 
-matrix_a = [[2,5], [4,7]]
-matrix_b = [[9,1], [3,0]]
-matrix_c = [[-1,0], [0,-1]]
-matrix_d = [[2, -5], [7, 10], [0, 1]]
-matrix_e = [[0 , 0], [12, 4], [6,  3]]
+# matrix_a = [[2,5], [4,7]]
+# matrix_b = [[9,1], [3,0]]
+# matrix_c = [[-1,0], [0,-1]]
+# matrix_d = [[2, -5], [7, 10], [0, 1]]
+# matrix_e = [[0 , 0], [12, 4], [6,  3]]
 
-p matrix_addition_reloaded(matrix_a, matrix_b)              # [[11, 6], [7, 7]]
-p matrix_addition_reloaded(matrix_a, matrix_b, matrix_c)    # [[10, 6], [7, 6]]
-p matrix_addition_reloaded(matrix_e)                        # [[0, 0], [12, 4], [6, 3]]
-p matrix_addition_reloaded(matrix_d, matrix_e)              # [[2, -5], [19, 14], [6, 4]]
-p matrix_addition_reloaded(matrix_a, matrix_b, matrix_e)    # nil
-p matrix_addition_reloaded(matrix_d, matrix_e, matrix_c)    # nil
-puts puts
+# p matrix_addition_reloaded(matrix_a, matrix_b)              # [[11, 6], [7, 7]]
+# p matrix_addition_reloaded(matrix_a, matrix_b, matrix_c)    # [[10, 6], [7, 6]]
+# p matrix_addition_reloaded(matrix_e)                        # [[0, 0], [12, 4], [6, 3]]
+# p matrix_addition_reloaded(matrix_d, matrix_e)              # [[2, -5], [19, 14], [6, 4]]
+# p matrix_addition_reloaded(matrix_a, matrix_b, matrix_e)    # nil
+# p matrix_addition_reloaded(matrix_d, matrix_e, matrix_c)    # nil
+# puts puts
 
 =begin
 Write a method squarocol? that accepts a 2-dimensional array as 
@@ -149,34 +149,58 @@ across either of its diagonals. You may assume that the
 its height is the same as its width.
 =end
 
-# def squaragonal?(2d_array)
-# end
+def squaragonal?(grid)
+  diagonal_1 = []
+  i = 0
 
-# p squaragonal?([
-#     [:x, :y, :o],
-#     [:x, :x, :x],
-#     [:o, :o, :x],
-# ]) # true
+  while i < grid.length #diagonal_1
+    element = grid[i][i]
+    diagonal_1 << element
+    i += 1
+  end
 
-# p squaragonal?([
-#     [:x, :y, :o],
-#     [:x, :o, :x],
-#     [:o, :o, :x],
-# ]) # true
+  return true if is_array_uniform?(diagonal_1)
+  
+  diagonal_2 = []
 
-# p squaragonal?([
-#     [1, 2, 2, 7],
-#     [1, 1, 6, 7],
-#     [0, 5, 1, 7],
-#     [4, 2, 9, 1],
-# ]) # true
+  i = 0
+  while i < grid.length
+    first_index = (grid.length - 1) - i
+    second_index = i
+    element = grid[first_index][second_index]
 
-# p squaragonal?([
-#     [1, 2, 2, 5],
-#     [1, 6, 5, 0],
-#     [0, 2, 2, 7],
-#     [5, 2, 9, 7],
-# ]) # false
+    diagonal_2 << element
+    i += 1
+  end
+
+  return is_array_uniform?(diagonal_2)
+end
+
+p squaragonal?([
+    [:x, :y, :o],
+    [:x, :x, :x],
+    [:o, :o, :x],
+]) == true
+
+p squaragonal?([
+    [:x, :y, :o],
+    [:x, :o, :x],
+    [:o, :o, :x],
+]) == true
+
+p squaragonal?([
+    [1, 2, 2, 7],
+    [1, 1, 6, 7],
+    [0, 5, 1, 7],
+    [4, 2, 9, 1],
+]) == true
+
+p squaragonal?([
+    [1, 2, 2, 5],
+    [1, 6, 5, 0],
+    [0, 2, 2, 7],
+    [5, 2, 9, 7],
+]) == false
 
 # puts puts
 
