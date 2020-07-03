@@ -51,10 +51,9 @@ same as it's width.
 =end
 
 
-def is_row_same?(array)
+def is_array_uniform?(array)
   i = 1
   first_element = array[0]
-
 
   while i < array.length
     current_element = array[i]
@@ -69,48 +68,71 @@ end
 def squarocol?(grid)
   height = grid.length
   width = grid[0].length
+  i = 0
   
-
-  (0...height).each do |row|
-    (0...width).each do |col|
-
+  while i < height
+    current_row = grid[i]
+    if is_array_uniform?(current_row)
+      return true
     end
+
+    i += 1
   end
 
+  j = 0
+
+  while j < width
+    current_column = []
+    i = 0
+  
+    while i < height
+      element = grid[i][j]
+      current_column << element
+      i += 1
+    end
+
+    if is_array_uniform?(current_column)
+      return true
+    end
+
+    j += 1
+  end
+
+  return false
 end
 
 p squarocol?([
     [:a, :x , :d],
     [:b, :x , :e],
     [:c, :x , :f],
-]) # true
+]) == true
 
-# p squarocol?([
-#     [:x, :y, :x],
-#     [:x, :z, :x],
-#     [:o, :o, :o],
-# ]) # true
+p squarocol?([
+    [:x, :y, :x],
+    [:x, :z, :x],
+    [:o, :o, :o],
+]) == true
 
-# p squarocol?([
-#     [:o, :x , :o],
-#     [:x, :o , :x],
-#     [:o, :x , :o],
-# ]) # false
+p squarocol?([
+    [:o, :x , :o],
+    [:x, :o , :x],
+    [:o, :x , :o],
+]) == false
 
-# p squarocol?([
-#     [1, 2, 2, 7],
-#     [1, 6, 6, 7],
-#     [0, 5, 2, 7],
-#     [4, 2, 9, 7],
-# ]) # true
+p squarocol?([
+    [1, 2, 2, 7],
+    [1, 6, 6, 7],
+    [0, 5, 2, 7],
+    [4, 2, 9, 7],
+]) == true
 
-# p squarocol?([
-#     [1, 2, 2, 7],
-#     [1, 6, 6, 0],
-#     [0, 5, 2, 7],
-#     [4, 2, 9, 7],
-# ]) # false
-# puts puts
+p squarocol?([
+    [1, 2, 2, 7],
+    [1, 6, 6, 0],
+    [0, 5, 2, 7],
+    [4, 2, 9, 7],
+]) == false
+puts puts
 
 =begin
 Write a method squaragonal? that accepts 2-dimensional array 
