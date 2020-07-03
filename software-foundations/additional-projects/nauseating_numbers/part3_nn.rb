@@ -50,8 +50,33 @@ array has "square" dimensions, meaning it's height is the
 same as it's width.
 =end
 
-def squraocol?(grid)
+
+def is_row_same?(array)
+  i = 1
+  first_element = array[0]
+
+
+  while i < array.length
+    current_element = array[i]
+    if current_element != first_element
+      return false
+    end
+    i += 1 
+  end
+  return true
+end
+
+def squarocol?(grid)
+  height = grid.length
+  width = grid[0].length
   
+
+  (0...height).each do |row|
+    (0...width).each do |col|
+
+    end
+  end
+
 end
 
 p squarocol?([

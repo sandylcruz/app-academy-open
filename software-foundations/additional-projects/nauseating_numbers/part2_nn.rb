@@ -58,8 +58,10 @@ def matrix_addition(m1, m2)
   width = m1[0].length
   result = Array.new(height) { Array.new(width) }
 
-  if m1.length != m2.length
-    return nil
+  (0...height).each do |row|
+    (0...width).each do |col|
+        result[row][col] = m1[row][col] + m2[row][col]
+    end
   end
 
   result
