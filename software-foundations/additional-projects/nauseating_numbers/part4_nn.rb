@@ -41,11 +41,11 @@ def mersenne_prime(n)
   mersenne_num
 end
 
-p mersenne_prime(1) # 3
-p mersenne_prime(2) # 7
-p mersenne_prime(3) # 31
-p mersenne_prime(4) # 127
-p mersenne_prime(6) # 131071
+p mersenne_prime(1) == 3
+p mersenne_prime(2) == 7
+p mersenne_prime(3) == 31
+p mersenne_prime(4) == 127
+p mersenne_prime(6) == 131071
 puts puts
 
 =begin
@@ -71,19 +71,23 @@ end
 def triangular_word?(word)
   alpha = ('a'..'z').to_a
 
-  word.split("").map { |char| alpha.index(char) + 1}.sum
-
+  value = word.split("").map { |char| alpha.index(char) + 1}.sum
+  if triangular_sequence(value).include?(value)
+    return true
+  else
+    return false
+  end
 end
 
-# p triangular_word?('abc')       # true
-# p triangular_word?('ba')        # true
-# p triangular_word?('lovely')    # true
-# p triangular_word?('question')  # true
-# p triangular_word?('aa')        # false
-# p triangular_word?('cd')        # false
-# p triangular_word?('cat')       # false
-# p triangular_word?('sink')      # false
-# puts puts
+p triangular_word?('abc') == true
+p triangular_word?('ba') == true
+p triangular_word?('lovely') == true
+p triangular_word?('question') == true
+p triangular_word?('aa') == false
+p triangular_word?('cd') == false
+p triangular_word?('cat') == false
+p triangular_word?('sink') == false
+puts puts
 
 =begin
 Write a method consecutive_collapse that accepts an 
