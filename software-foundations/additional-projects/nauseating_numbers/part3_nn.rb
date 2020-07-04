@@ -9,11 +9,10 @@ then return nil.
 
 # def matrix_addition_reloaded(*matrices)
 #   matrix = matrices.first
-  
+#   height = matrices.length
+#   width = matrix[0].length
 
-#   # height = matrices.length
-#   # width = matrix[0].length
-#   # result = Array.new(height) { Array.new(width) }
+#   result = Array.new(height) { Array.new(width) }
 
 #   matrix.each do |m1, m2|
 #     puts m1
@@ -51,19 +50,19 @@ same as it's width.
 =end
 
 
-# def is_array_uniform?(array)
-#   i = 1
-#   first_element = array[0]
+def is_array_uniform?(array)
+  i = 1
+  first_element = array[0]
 
-#   while i < array.length
-#     current_element = array[i]
-#     if current_element != first_element
-#       return false
-#     end
-#     i += 1 
-#   end
-#   return true
-# end
+  while i < array.length
+    current_element = array[i]
+    if current_element != first_element
+      return false
+    end
+    i += 1 
+  end
+  return true
+end
 
 def is_array_uniform?(array)
   return true if array.length == 1
@@ -160,7 +159,7 @@ def squaragonal?(grid)
   end
 
   return true if is_array_uniform?(diagonal_1)
-  
+
   diagonal_2 = []
 
   i = 0
@@ -202,7 +201,7 @@ p squaragonal?([
     [5, 2, 9, 7],
 ]) == false
 
-# puts puts
+puts puts
 
 # =begin
 # Write a method pascals_triangle that accepts a positive number, 
@@ -219,24 +218,50 @@ def adjacent_sums(array)
 end
 
 def pascals_triangle(n)
+  triangle = []
+  i = 0
+
+  while i < n #row
+    j = 0
+    current_row = []
+
+    while j <= i #column
+      if i == j || j == 0
+        current_row << 1
+      else
+        previous_row = triangle[i - 1]
+        left = previous_row[j - 1]
+        right = previous_row[j]
+        next_element = right + left
+        current_row << next_element
+      end
+      j += 1
+    end
+
+    triangle << current_row
+    i += 1
+  end
+
+  triangle
+
 end
 
-p pascals_triangle(5)
-# [
-#     [1],
-#     [1, 1],
-#     [1, 2, 1],
-#     [1, 3, 3, 1],
-#     [1, 4, 6, 4, 1]
-# ]
+p pascals_triangle(5) == 
+[
+    [1],
+    [1, 1],
+    [1, 2, 1],
+    [1, 3, 3, 1],
+    [1, 4, 6, 4, 1]
+]
 
-# p pascals_triangle(7)
-# # [
-# #     [1],
-# #     [1, 1],
-# #     [1, 2, 1],
-# #     [1, 3, 3, 1],
-# #     [1, 4, 6, 4, 1],
-# #     [1, 5, 10, 10, 5, 1],
-# #     [1, 6, 15, 20, 15, 6, 1]
-# # ]
+p pascals_triangle(7) == 
+[
+    [1],
+    [1, 1],
+    [1, 2, 1],
+    [1, 3, 3, 1],
+    [1, 4, 6, 4, 1],
+    [1, 5, 10, 10, 5, 1],
+    [1, 6, 15, 20, 15, 6, 1]
+]
