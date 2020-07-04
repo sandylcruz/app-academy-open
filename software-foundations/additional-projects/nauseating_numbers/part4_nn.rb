@@ -6,7 +6,7 @@ Mersenne prime.
 =end
 def is_prime?(num)
   square_num = Math.sqrt(num)
-  (2...square_num).each do |factor|
+  (2..square_num).each do |factor|
     if num % factor == 0
       return false
     end
@@ -46,7 +46,7 @@ p mersenne_prime(2) # 7
 p mersenne_prime(3) # 31
 p mersenne_prime(4) # 127
 p mersenne_prime(6) # 131071
-# puts puts
+puts puts
 
 =begin
 Write a method triangular_word? that accepts a 
@@ -55,8 +55,25 @@ indicating whether or not that word's number
 encoding is a triangular number. You can assume 
 that the argument contains lowercase letters.
 =end
-# def triangular_word?(word)
-# end
+
+def triangular_sequence(num)
+  sequence = []
+  i = 1
+  
+  while i <= num
+    sequence << (i *(i + 1))/ 2
+    i += 1
+  end
+  sequence
+end
+
+
+def triangular_word?(word)
+  alpha = ('a'..'z').to_a
+
+  word.split("").map { |char| alpha.index(char) + 1}.sum
+
+end
 
 # p triangular_word?('abc')       # true
 # p triangular_word?('ba')        # true
