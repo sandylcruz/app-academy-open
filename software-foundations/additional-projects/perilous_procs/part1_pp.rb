@@ -40,11 +40,9 @@ def exactly?(array, n, &prc)
     end
   end
 
-  if count == n
-    return true
-  else
-    return false
-  end
+  return true if count == n
+  return false  
+  
 end
 
 p exactly?(['A', 'b', 'C'], 2) { |el| el == el.upcase } == true
