@@ -23,14 +23,14 @@ p some?(['squash', 'corn', 'kale', 'potato']) { |str| str[0] == 'p' } == true
 p some?(['parsnip', 'lettuce', 'pea']) { |str| str[0] == 'p' } == true
 puts puts
 
-# =begin
-# Write a method exactly? that accepts an array, a 
-# number (n), and a block as arguments. The method 
-# should return a boolean indicating 
-# whether or not there are exactly n elements that 
-# return true when given to the block. Solve this 
-# using Array#each.
-# =end
+=begin
+Write a method exactly? that accepts an array, a 
+number (n), and a block as arguments. The method 
+should return a boolean indicating 
+whether or not there are exactly n elements that 
+return true when given to the block. Solve this 
+using Array#each.
+=end
 def exactly?(array, n, &prc)
   count = 0
 
@@ -56,12 +56,12 @@ p exactly?([4, 5, 2], 3) { |n| n > 0 } == true
 p exactly?([42, -9, 7, -3, -6], 2) { |n| n > 0 } == true     
 puts puts 
 
-# =begin
-# Write a method filter_out that accepts an array and a block as 
-# arguments. The method should return a new array where elements
-# of the original array are removed if they return true when 
-# given to the block. Solve this using Array#each.
-# =end
+=begin
+Write a method filter_out that accepts an array and a block as 
+arguments. The method should return a new array where elements
+of the original array are removed if they return true when 
+given to the block. Solve this using Array#each.
+=end
 def filter_out(array, &prc)
   filtered_array = []
   array.each do |ele|
@@ -78,37 +78,39 @@ p filter_out([10, 6, 3, 2, 5 ]) { |x| x.even? } == [3, 5]
 p filter_out([1, 7, 3, 5 ]) { |x| x.even? } == [1, 7, 3, 5]
 puts puts 
 
-# =begin
-# Write a method at_least? that accepts an array, a number (n), 
-# and a block as an arguments. The method should return a boolean 
-# indicating whether or not at least n elements of the array 
-# return true when given to the block. Solve this using Array#each.
-# =end
+=begin
+Write a method at_least? that accepts an array, a number (n), 
+and a block as an arguments. The method should return a boolean 
+indicating whether or not at least n elements of the array 
+return true when given to the block. Solve this using Array#each.
+=end
 
-# def at_least?(array, n, &prc)
-# end
+def at_least?(array, n, &prc)
+  count = 0
 
-# p at_least?(['sad', 'quick', 'timid', 'final'], 2) { |s| s.end_with?('ly') }
-# # false
-# p at_least?(['sad', 'quickly', 'timid', 'final'], 2) { |s| s.end_with?('ly') }
-# # false
-# p at_least?(['sad', 'quickly', 'timidly', 'final'], 2) { |s| s.end_with?('ly') }
-# # true
-# p at_least?(['sad', 'quickly', 'timidly', 'finally'], 2) { |s| s.end_with?('ly') }
-# # true
-# p at_least?(['sad', 'quickly', 'timid', 'final'], 1) { |s| s.end_with?('ly') }
-# # true
-# p at_least?(['sad', 'quick', 'timid', 'final'], 1) { |s| s.end_with?('ly') }
-# # false
-# p at_least?([false, false, false], 3) { |bool| bool }
-# # false
-# p at_least?([false, true, true], 3) { |bool| bool }
-# # false
-# p at_least?([true, true, true], 3) { |bool| bool }
-# # true
-# p at_least?([true, true, true, true], 3) { |bool| bool }
-# # true
-# puts puts
+  array.each do |ele|
+    if prc.call(ele) == true
+      count += 1
+    end
+  end
+
+  if count > n || count == n
+    return true
+  end
+  return false
+end
+
+p at_least?(['sad', 'quick', 'timid', 'final'], 2) { |s| s.end_with?('ly') } == false
+p at_least?(['sad', 'quickly', 'timid', 'final'], 2) { |s| s.end_with?('ly') } == false
+p at_least?(['sad', 'quickly', 'timidly', 'final'], 2) { |s| s.end_with?('ly') } == true
+p at_least?(['sad', 'quickly', 'timidly', 'finally'], 2) { |s| s.end_with?('ly') } == true
+p at_least?(['sad', 'quickly', 'timid', 'final'], 1) { |s| s.end_with?('ly') } == true
+p at_least?(['sad', 'quick', 'timid', 'final'], 1) { |s| s.end_with?('ly') } == false
+p at_least?([false, false, false], 3) { |bool| bool } == false
+p at_least?([false, true, true], 3) { |bool| bool } == false
+p at_least?([true, true, true], 3) { |bool| bool } == true
+p at_least?([true, true, true, true], 3) { |bool| bool } == true
+puts puts
 
 # =begin
 # Write a method every? that accepts an array and a block as 
