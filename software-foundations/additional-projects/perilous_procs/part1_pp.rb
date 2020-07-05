@@ -150,18 +150,30 @@ puts puts
 # true when given to the block. Solve this using Array#each.
 # =end
 
-# def at_most?(array, n, &prc)
-# end
+def at_most?(array, n, &prc)
+  count = 0
+  array.each do |ele|
+    if prc.call(ele) == true
+      count += 1
+    end
+  end
 
-# p at_most?([-4, 100, -3], 1) { |el| el > 0 }                         # true
-# p at_most?([-4, -100, -3], 1) { |el| el > 0 }                        # true
-# p at_most?([4, 100, -3], 1) { |el| el > 0 }                          # false
-# p at_most?([4, 100, 3], 1) { |el| el > 0 }                           # false
-# p at_most?(['r', 'q', 'e', 'z'], 2) { |el| 'aeiou'.include?(el) }    # true
-# p at_most?(['r', 'i', 'e', 'z'], 2) { |el| 'aeiou'.include?(el) }    # true
-# p at_most?(['r', 'i', 'e', 'o'], 2) { |el| 'aeiou'.include?(el) }    # false
-# first_index
-# puts puts
+  if count > n
+    return false
+  else
+    return true
+  end
+end
+
+p at_most?([-4, 100, -3], 1) { |el| el > 0 } == true
+p at_most?([-4, -100, -3], 1) { |el| el > 0 } == true
+p at_most?([4, 100, -3], 1) { |el| el > 0 } == false
+p at_most?([4, 100, 3], 1) { |el| el > 0 } == false
+p at_most?(['r', 'q', 'e', 'z'], 2) { |el| 'aeiou'.include?(el) } == true
+p at_most?(['r', 'i', 'e', 'z'], 2) { |el| 'aeiou'.include?(el) } == true
+p at_most?(['r', 'i', 'e', 'o'], 2) { |el| 'aeiou'.include?(el) } == false
+
+puts puts
 
 # =begin
 # Write a method first_index that accepts an array and a block 
