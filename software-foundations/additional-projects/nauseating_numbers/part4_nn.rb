@@ -165,6 +165,14 @@ element
 =end
 
 def pretentious_primes(array, n)
+  return nil if n > 2
+
+  array.each do |num|
+    if num > 0
+    else 
+    end
+  end
+
 end
 
 p pretentious_primes([4, 15, 7], 1)           # [5, 17, 11]
