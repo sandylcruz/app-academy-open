@@ -21,10 +21,10 @@ is_even = Proc.new { |n| n % 2 == 0 }
 is_odd = Proc.new { |n| n % 2 != 0 }
 is_positive = Proc.new { |n| n > 0 }
 
-p xnor_select([8, 3, -4, -5], is_even, is_positive)         # [8, -5]
-p xnor_select([-7, -13, 12, 5, -10], is_even, is_positive)  # [-7, -13, 12]
-p xnor_select([-7, -13, 12, 5, -10], is_odd, is_positive)   # [5, -10]
-puts puts 
+# p xnor_select([8, 3, -4, -5], is_even, is_positive) == [8, -5]
+# p xnor_select([-7, -13, 12, 5, -10], is_even, is_positive) == [-7, -13, 12]
+# p xnor_select([-7, -13, 12, 5, -10], is_odd, is_positive) == [5, -10]
+# puts puts 
 
 =begin
 Rewrite your previous filter_out method to mutate the input 
@@ -35,25 +35,41 @@ return true when given to the block. Solve this without
 using Array.reject!.
 =end
 
-# def filter_out!(array)
+# def filter_out!(array, &prc)
+#   delete_indices = []
+#   array.map.with_index do |ele, index|
+#     if prc.call(ele[index]) == true
+#       delete_indices << index
+#     end
+#   end
+
+#   return delete_indices
 # end
 
-# arr_1 = [10, 6, 3, 2, 5 ]
-# filter_out!(arr_1) { |x| x.odd? }
-# p arr_1     # [10, 6, 2]
+def filter_out!(array, &prc)
+  array.uniq.each do |ele|
+    if prc.call(ele)
+      array.delete(ele)
+    end
+  end
+end
 
-# arr_2 = [1, 7, 3, 5 ]
-# filter_out!(arr_2) { |x| x.odd? }
-# p arr_2     # []
+arr_1 = [10, 6, 3, 2, 5 ]
+filter_out!(arr_1) { |x| x.odd? }
+p arr_1 # [10, 6, 2]
 
-# arr_3 = [10, 6, 3, 2, 5 ]
-# filter_out!(arr_3) { |x| x.even? }
-# p arr_3     # [3, 5]
+arr_2 = [1, 7, 3, 5 ]
+filter_out!(arr_2) { |x| x.odd? }
+p arr_2 # []
 
-# arr_4 = [1, 7, 3, 5 ]
-# filter_out!([1, 7, 3, 5 ]) { |x| x.even? }
-# p arr_4 # [1, 7, 3, 5]
-# puts puts
+arr_3 = [10, 6, 3, 2, 5 ]
+filter_out!(arr_3) { |x| x.even? }
+p arr_3 # [3, 5]
+
+arr_4 = [1, 7, 3, 5 ]
+filter_out!([1, 7, 3, 5 ]) { |x| x.even? }
+p arr_4 # [1, 7, 3, 5]
+puts puts
 
 =begin
 Write a method multi_map that accepts an array, an optional 
