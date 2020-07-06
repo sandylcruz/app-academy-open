@@ -35,23 +35,30 @@ return true when given to the block. Solve this without
 using Array.reject!.
 =end
 
+
 # def filter_out!(array, &prc)
-#   delete_indices = []
-#   array.map.with_index do |ele, index|
-#     if prc.call(ele[index]) == true
-#       delete_indices << index
+#   array.uniq.each do |ele|
+#     if prc.call(ele)
+#       array.delete(ele)
 #     end
 #   end
-
-#   return delete_indices
 # end
 
 def filter_out!(array, &prc)
-  array.uniq.each do |ele|
-    if prc.call(ele)
-      array.delete(ele)
+  i = 0
+  indices = []
+
+  while i < array.length
+    element = array[i]
+    if prc.call(element)
+      indices.unshift(i)
     end
+    i += 1
   end
+  indices.each do |index|
+    array.delete_at(index)
+  end
+  array
 end
 
 arr_1 = [10, 6, 3, 2, 5 ]
@@ -80,16 +87,22 @@ number argument is not passed in, then the the elements
 should be run through the block once.
 =end
 
-# def multi_map(array, *n, &prc)
-# end
+def multi_map(array, *args, &prc)
+  new_array = []
+  array.each do |ele|
+    call_on_ele = prc.call(ele)
+    new_array << (call_on_ele * n)
+  end
+  new_array
+end
 
-# p multi_map(['pretty', 'cool', 'huh?']) { |s| s + '!'}      # ["pretty!", "cool!", "huh?!"]
-# p multi_map(['pretty', 'cool', 'huh?'], 1) { |s| s + '!'}   # ["pretty!", "cool!", "huh?!"]
-# p multi_map(['pretty', 'cool', 'huh?'], 3) { |s| s + '!'}   # ["pretty!!!", "cool!!!", "huh?!!!"]
-# p multi_map([4, 3, 2, 7], 1) { |num| num * 10 }             # [40, 30, 20, 70]
-# p multi_map([4, 3, 2, 7], 2) { |num| num * 10 }             # [400, 300, 200, 700]
-# p multi_map([4, 3, 2, 7], 4) { |num| num * 10 }             # [40000, 30000, 20000, 70000]
-# puts puts
+p multi_map(['pretty', 'cool', 'huh?']) { |s| s + '!'}      # ["pretty!", "cool!", "huh?!"]
+p multi_map(['pretty', 'cool', 'huh?'], 1) { |s| s + '!'}   # ["pretty!", "cool!", "huh?!"]
+p multi_map(['pretty', 'cool', 'huh?'], 3) { |s| s + '!'}   # ["pretty!!!", "cool!!!", "huh?!!!"]
+p multi_map([4, 3, 2, 7], 1) { |num| num * 10 }             # [40, 30, 20, 70]
+p multi_map([4, 3, 2, 7], 2) { |num| num * 10 }             # [400, 300, 200, 700]
+p multi_map([4, 3, 2, 7], 4) { |num| num * 10 }             # [40000, 30000, 20000, 70000]
+puts puts
 
 =begin
 Write a method proctition that accepts an array and a block 
