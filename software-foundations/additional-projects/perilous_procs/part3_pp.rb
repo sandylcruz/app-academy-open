@@ -8,35 +8,32 @@ second proc. This method should mutate the
 input array and return nil.
 =end
 
-# def selected_map!(array, proc1, proc2)
-#   i = 0
-#   while i < array.length
-#     array.each do |ele|
-#       if proc1.call(ele) == true
-#       end
-#     end
-#     i += 1
-#   end
-#   array
-# end
+def selected_map!(array, selector_proc, mapper_proc)
+  i = 0
 
-# is_even = Proc.new { |n| n.even? }
-# is_positive = Proc.new { |n| n > 0 }
-# square = Proc.new { |n| n * n }
-# flip_sign = Proc.new { |n| -n }
+  array.each_with_index do |ele, i|
+    array[i] = mapper_proc.call(ele) if selector_proc.call(ele)
+  end
+  nil
+end
 
-# arr_1 = [8, 5, 10, 4]
-# p selected_map!(arr_1, is_even, square)     # nil
-# p arr_1                                     # [64, 5, 100, 16]
+is_even = Proc.new { |n| n.even? }
+is_positive = Proc.new { |n| n > 0 }
+square = Proc.new { |n| n * n }
+flip_sign = Proc.new { |n| -n }
 
-# arr_2 = [-10, 4, 7, 6, -2, -9]
-# p selected_map!(arr_2, is_even, flip_sign)  # nil
-# p arr_2                                     # [10, -4, 7, -6, 2, -9]
+arr_1 = [8, 5, 10, 4]
+p selected_map!(arr_1, is_even, square) == nil
+p arr_1 == [64, 5, 100, 16]
 
-# arr_3 = [-10, 4, 7, 6, -2, -9]
-# p selected_map!(arr_3, is_positive, square) # nil
-# p arr_3                                     # [-10, 16, 49, 36, -2, -9]
-# puts puts 
+arr_2 = [-10, 4, 7, 6, -2, -9]
+p selected_map!(arr_2, is_even, flip_sign) == nil
+p arr_2 == [10, -4, 7, -6, 2, -9]
+
+arr_3 = [-10, 4, 7, 6, -2, -9]
+p selected_map!(arr_3, is_positive, square) == nil
+p arr_3 == [-10, 16, 49, 36, -2, -9]
+puts puts 
 
 =begin
 Write a method that accepts any value and an 
