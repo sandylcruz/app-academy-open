@@ -87,17 +87,30 @@ should be appended in the order that they
 appear in the input hash.
 =end
 
-# def proc_suffix(sentence, hash)
-# end
+def proc_suffix(sentence, suffixes)
+  new_sentence = []
+  words = sentence.split(" ")
 
-# contains_a = Proc.new { |w| w.include?('a') }
-# three_letters = Proc.new { |w| w.length == 3 }
-# four_letters = Proc.new { |w| w.length == 4 }
+  words.each do |word|
+    new_word = word
+    suffixes.each do |prc, suffix|
+      if prc.call(new_word)
+        new_word += suffix
+        new_sentence << new_word
+      end
+    end
+  end
+  new_sentence.join(" ")
+end
 
-# p proc_suffix('dog cat',
-#     contains_a => 'ly',
-#     three_letters => 'o'
-# )   # "dogo catlyo"
+contains_a = Proc.new { |w| w.include?('a') }
+three_letters = Proc.new { |w| w.length == 3 }
+four_letters = Proc.new { |w| w.length == 4 }
+
+p proc_suffix('dog cat',
+    contains_a => 'ly',
+    three_letters => 'o'
+)   # "dogo catlyo"
 
 # p proc_suffix('dog cat',
 #     three_letters => 'o',
@@ -165,6 +178,18 @@ in the hash.
 =end
 
 # def procipher(sentence, hash)
+#   words = sentence.split(" ")
+#   new_sentence = []
+
+#   words.each do |word|
+#     new_word = []
+#     hash.each do |checker, changer|
+#       if checker.call(word)
+#         changer.call(word)
+#       end
+#     end
+#   end
+#   new_sentence.join(" ")
 # end
 
 # is_yelled = Proc.new { |s| s[-1] == '!' }
@@ -176,8 +201,8 @@ in the hash.
 
 # p procipher('he said what!',
 #     is_yelled => make_question,
-#     contains_a => reverse
-# ) # "he dias ???!tahw"
+#     contains_a => reverse)
+     # "he dias ???!tahw"
 
 # p procipher('he said what!',
 #     contains_a => reverse,
