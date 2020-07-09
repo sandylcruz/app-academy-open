@@ -112,23 +112,23 @@ p proc_suffix('dog cat',
     three_letters => 'o'
 )   # "dogo catlyo"
 
-# p proc_suffix('dog cat',
-#     three_letters => 'o',
-#     contains_a => 'ly'
-# )   # "dogo catoly"
+p proc_suffix('dog cat',
+    three_letters => 'o',
+    contains_a => 'ly'
+)   # "dogo catoly"
 
-# p proc_suffix('wrong glad cat',
-#     contains_a => 'ly',
-#     three_letters => 'o',
-#     four_letters => 'ing'
-# )   # "wrong gladlying catlyo"
+p proc_suffix('wrong glad cat',
+    contains_a => 'ly',
+    three_letters => 'o',
+    four_letters => 'ing'
+)   # "wrong gladlying catlyo"
 
-# p proc_suffix('food glad rant dog cat',
-#     four_letters => 'ing',
-#     contains_a => 'ly',
-#     three_letters => 'o'
-# )   # "fooding gladingly rantingly dogo catlyo"
-# puts puts 
+p proc_suffix('food glad rant dog cat',
+    four_letters => 'ing',
+    contains_a => 'ly',
+    three_letters => 'o'
+)   # "fooding gladingly rantingly dogo catlyo"
+puts puts 
 
 =begin
 Write a method proctition_platinum that accepts an array 
