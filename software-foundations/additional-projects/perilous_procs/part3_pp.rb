@@ -1,77 +1,77 @@
-# =begin
-# Write a method selected_map! that accepts an 
-# array and two procs as arguments. The method 
-# should replace the elements that return true 
-# when passed into the first proc with their 
-# return values when they are passed into the 
-# second proc. This method should mutate the 
-# input array and return nil.
-# =end
+=begin
+Write a method selected_map! that accepts an 
+array and two procs as arguments. The method 
+should replace the elements that return true 
+when passed into the first proc with their 
+return values when they are passed into the 
+second proc. This method should mutate the 
+input array and return nil.
+=end
 
-# def selected_map!(array, selector_proc, mapper_proc)
-#   i = 0
+def selected_map!(array, selector_proc, mapper_proc)
+  i = 0
 
-#   array.each_with_index do |ele, i|
-#     array[i] = mapper_proc.call(ele) if selector_proc.call(ele)
-#   end
-#   nil
-# end
+  array.each_with_index do |ele, i|
+    array[i] = mapper_proc.call(ele) if selector_proc.call(ele)
+  end
+  nil
+end
 
-# is_even = Proc.new { |n| n.even? }
-# is_positive = Proc.new { |n| n > 0 }
-# square = Proc.new { |n| n * n }
-# flip_sign = Proc.new { |n| -n }
+is_even = Proc.new { |n| n.even? }
+is_positive = Proc.new { |n| n > 0 }
+square = Proc.new { |n| n * n }
+flip_sign = Proc.new { |n| -n }
 
-# arr_1 = [8, 5, 10, 4]
-# p selected_map!(arr_1, is_even, square) == nil
-# p arr_1 == [64, 5, 100, 16]
+arr_1 = [8, 5, 10, 4]
+p selected_map!(arr_1, is_even, square) == nil
+p arr_1 == [64, 5, 100, 16]
 
-# arr_2 = [-10, 4, 7, 6, -2, -9]
-# p selected_map!(arr_2, is_even, flip_sign) == nil
-# p arr_2 == [10, -4, 7, -6, 2, -9]
+arr_2 = [-10, 4, 7, 6, -2, -9]
+p selected_map!(arr_2, is_even, flip_sign) == nil
+p arr_2 == [10, -4, 7, -6, 2, -9]
 
-# arr_3 = [-10, 4, 7, 6, -2, -9]
-# p selected_map!(arr_3, is_positive, square) == nil
-# p arr_3 == [-10, 16, 49, 36, -2, -9]
-# puts puts 
+arr_3 = [-10, 4, 7, 6, -2, -9]
+p selected_map!(arr_3, is_positive, square) == nil
+p arr_3 == [-10, 16, 49, 36, -2, -9]
+puts puts 
 
-# =begin
-# Write a method that accepts any value and an 
-# array of procs as an argument. The method 
-# should return the final result of feeding the 
-# value through all of the procs. For example, 
-# if the array contains three procs, then:
+=begin
+Write a method that accepts any value and an 
+array of procs as an argument. The method 
+should return the final result of feeding the 
+value through all of the procs. For example, 
+if the array contains three procs, then:
 
-# * the value is given to the first proc
-# * the result of the first proc is given to the 
-#   second proc
-# * the result of the second proc is given to 
-#   the third proc
-# * the result of third proc is the final result
-# =end
+* the value is given to the first proc
+* the result of the first proc is given to the 
+  second proc
+* the result of the second proc is given to 
+  the third proc
+* the result of third proc is the final result
+=end
 
-# def chain_map(value, proc_array)
-#   i = 0
-#   current_value = value
+def chain_map(value, proc_array)
+  i = 0
+  current_value = value
 
-#   while i < proc_array.length
-#     current_proc = proc_array[i]
-#     current_value = current_proc.call(current_value)
-#     i += 1
-#   end
-#   current_value
-# end
+  while i < proc_array.length
+    current_proc = proc_array[i]
+    current_value = current_proc.call(current_value)
+    i += 1
+  end
+  current_value
+end
 
-# add_5 = Proc.new { |n| n + 5 }
-# half = Proc.new { |n| n / 2.0 }
-# square = Proc.new { |n| n * n }
+add_5 = Proc.new { |n| n + 5 }
+half = Proc.new { |n| n / 2.0 }
+square = Proc.new { |n| n * n }
 
-# p chain_map(25, [add_5, half]) == 15.0
-# p chain_map(25, [half, add_5]) == 17.5
-# p chain_map(25, [add_5, half, square]) == 225
-# p chain_map(4, [square, half]) == 8
-# p chain_map(4, [half, square]) == 4
-# puts puts 
+p chain_map(25, [add_5, half]) == 15.0
+p chain_map(25, [half, add_5]) == 17.5
+p chain_map(25, [add_5, half, square]) == 225
+p chain_map(4, [square, half]) == 8
+p chain_map(4, [half, square]) == 4
+puts puts 
 
 =begin
 Write a method proc_suffix that accepts a 
@@ -87,48 +87,48 @@ should be appended in the order that they
 appear in the input hash.
 =end
 
-# def proc_suffix(sentence, suffixes)
-#   new_sentence = []
-#   words = sentence.split(" ")
+def proc_suffix(sentence, suffixes)
+  new_sentence = []
+  words = sentence.split(" ")
 
-#   words.each do |word|
-#     new_word = word
-#     suffixes.each do |prc, suffix|
-#       if prc.call(new_word)
-#         new_word += suffix
-#         new_sentence << new_word
-#       end
-#     end
-#   end
-#   new_sentence.join(" ")
-# end 
+  words.each do |word|
+    new_word = word
+    suffixes.each do |prc, suffix|
+      if prc.call(word)
+        new_word += suffix
+      end
+    end
+    new_sentence << new_word
+  end
+  new_sentence.join(" ")
+end 
 
-# contains_a = Proc.new { |w| w.include?('a') }
-# three_letters = Proc.new { |w| w.length == 3 }
-# four_letters = Proc.new { |w| w.length == 4 }
+contains_a = Proc.new { |w| w.include?('a') }
+three_letters = Proc.new { |w| w.length == 3 }
+four_letters = Proc.new { |w| w.length == 4 }
 
-# p proc_suffix('dog cat',
-#     contains_a => 'ly',
-#     three_letters => 'o'
-# )   # "dogo catlyo"
+p proc_suffix('dog cat',
+    contains_a => 'ly',
+    three_letters => 'o'
+)   # "dogo catlyo"
 
-# p proc_suffix('dog cat',
-#     three_letters => 'o',
-#     contains_a => 'ly'
-# )   # "dogo catoly"
+p proc_suffix('dog cat',
+    three_letters => 'o',
+    contains_a => 'ly'
+)   # "dogo catoly"
 
-# p proc_suffix('wrong glad cat',
-#     contains_a => 'ly',
-#     three_letters => 'o',
-#     four_letters => 'ing'
-# )   # "wrong gladlying catlyo"
+p proc_suffix('wrong glad cat',
+    contains_a => 'ly',
+    three_letters => 'o',
+    four_letters => 'ing'
+)   # "wrong gladlying catlyo"
 
-# p proc_suffix('food glad rant dog cat',
-#     four_letters => 'ing',
-#     contains_a => 'ly',
-#     three_letters => 'o'
-# )   # "fooding gladingly rantingly dogo catlyo"
-# puts puts 
+p proc_suffix('food glad rant dog cat',
+    four_letters => 'ing',
+    contains_a => 'ly',
+    three_letters => 'o'
+)   # "fooding gladingly rantingly dogo catlyo"
+puts puts 
 
 =begin
 Write a method proctition_platinum that accepts an array 
@@ -145,24 +145,24 @@ should only be placed into the array that corresponds to
 the proc that appears first in the arguments.
 =end
 
-def proctition_platinum(array, *args)
-  array.each do |ele|
-    args.each do |prc1, prc2|
-      first_time = prc1.call(ele)
-      second_time = prc2.call(first_time)
+# def proctition_platinum(array, *prcs)
+#   array.each do |ele|
+#     prcs.each do |prc1, prc2|
+#       first_time = prc1.call(ele)
+     
       
       
-    end
-  end
+#     end
+#   end
   
-end
+# end
 
-is_yelled = Proc.new { |s| s[-1] == '!' }
-is_upcase = Proc.new { |s| s.upcase == s }
-contains_a = Proc.new { |s| s.downcase.include?('a') }
-begins_w = Proc.new { |s| s.downcase[0] == 'w' }
+# is_yelled = Proc.new { |s| s[-1] == '!' }
+# is_upcase = Proc.new { |s| s.upcase == s }
+# contains_a = Proc.new { |s| s.downcase.include?('a') }
+# begins_w = Proc.new { |s| s.downcase[0] == 'w' }
 
-p proctition_platinum(['WHO', 'what', 'when!', 'WHERE!', 'how', 'WHY'], is_yelled, contains_a)
+# p proctition_platinum(['WHO', 'what', 'when!', 'WHERE!', 'how', 'WHY'], is_yelled, contains_a)
 # {1=>["when!", "WHERE!"], 2=>["what"]}
 
 # p proctition_platinum(['WHO', 'what', 'when!', 'WHERE!', 'how', 'WHY'], is_yelled, is_upcase, contains_a)
