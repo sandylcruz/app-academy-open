@@ -91,14 +91,14 @@ def hash_mapped(hash, prc, &blk)
   new_hash
 end
 
-# double = Proc.new { |n| n * 2 }
-# p hash_mapped({'a'=>4, 'x'=>7, 'c'=>-3}, double) { |k| k.upcase + '!!' }
-# # {"A!!"=>8, "X!!"=>14, "C!!"=>-6}
+double = Proc.new { |n| n * 2 }
+p hash_mapped({'a'=>4, 'x'=>7, 'c'=>-3}, double) { |k| k.upcase + '!!' }
+# {"A!!"=>8, "X!!"=>14, "C!!"=>-6}
 
-# first = Proc.new { |a| a[0] }
-# p hash_mapped({-5=>['q', 'r', 's'], 6=>['w', 'x']}, first) { |n| n * n }
-# # {25=>"q", 36=>"w"}
-# puts puts
+first = Proc.new { |a| a[0] }
+p hash_mapped({-5=>['q', 'r', 's'], 6=>['w', 'x']}, first) { |n| n * n }
+# {25=>"q", 36=>"w"}
+puts puts
 
 =begin
 Write a method counted_characters that accepts a 
@@ -124,7 +124,7 @@ p counted_characters("that's alright folks") == ["t"]
 p counted_characters("mississippi") == ["i", "s"]
 p counted_characters("hot potato soup please") == ["o", "t", " ", "p"]
 p counted_characters("runtime") == []
-# puts puts
+puts puts
 
 =begin
 Write a method triplet_true? that accepts a string 
@@ -133,15 +133,24 @@ whether or not the string contains three of the
 same character consecutively.
 =end
 
-# def triplet_true?(string)
-# end
+def triplet_true?(string)
+  i = 0
 
-# p triplet_true?('caaabb')        # true
-# p triplet_true?('terrrrrible')   # true
-# p triplet_true?('runninggg')     # true
-# p triplet_true?('bootcamp')      # false
-# p triplet_true?('e')             # false
-# puts puts 
+  while i < string.length
+    if string[i] == string[i + 1] && string[i + 1] == string[i + 2]
+      return true
+    end
+    i += 1
+  end
+  return false
+end
+
+p triplet_true?('caaabb') == true
+p triplet_true?('terrrrrible') == true
+p triplet_true?('runninggg') == true
+p triplet_true?('bootcamp') == false
+p triplet_true?('e') == false
+puts puts 
 
 =begin
 Write a method energetic_encoding that accepts a 
