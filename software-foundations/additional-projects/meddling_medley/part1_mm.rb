@@ -91,14 +91,14 @@ def hash_mapped(hash, prc, &blk)
   new_hash
 end
 
-double = Proc.new { |n| n * 2 }
-p hash_mapped({'a'=>4, 'x'=>7, 'c'=>-3}, double) { |k| k.upcase + '!!' }
-# {"A!!"=>8, "X!!"=>14, "C!!"=>-6}
+# double = Proc.new { |n| n * 2 }
+# p hash_mapped({'a'=>4, 'x'=>7, 'c'=>-3}, double) { |k| k.upcase + '!!' }
+# # {"A!!"=>8, "X!!"=>14, "C!!"=>-6}
 
-first = Proc.new { |a| a[0] }
-p hash_mapped({-5=>['q', 'r', 's'], 6=>['w', 'x']}, first) { |n| n * n }
-# {25=>"q", 36=>"w"}
-puts puts
+# first = Proc.new { |a| a[0] }
+# p hash_mapped({-5=>['q', 'r', 's'], 6=>['w', 'x']}, first) { |n| n * n }
+# # {25=>"q", 36=>"w"}
+# puts puts
 
 =begin
 Write a method counted_characters that accepts a 
@@ -109,13 +109,21 @@ the output array should appear in the same order
 they occur in the input string.
 =end
 
-# def counted_characters(sentence)
-# end
+def counted_characters(sentence)
+  chars_more_than_twice = []
+  counts = Hash.new(0)
 
-# p counted_characters("that's alright folks") # ["t"]
-# p counted_characters("mississippi") # ["i", "s"]
-# p counted_characters("hot potato soup please") # ["o", "t", " ", "p"]
-# p counted_characters("runtime") # []
+  sentence.each_char do |char|
+    counts[char] += 1
+  end
+
+  counts.select { |char, count| count > 2 }.keys
+end
+
+p counted_characters("that's alright folks") == ["t"]
+p counted_characters("mississippi") == ["i", "s"]
+p counted_characters("hot potato soup please") == ["o", "t", " ", "p"]
+p counted_characters("runtime") == []
 # puts puts
 
 =begin
