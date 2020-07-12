@@ -5,15 +5,15 @@ times the same character appears consecutively
 in the given string.
 =end
 
-# def duos(word)
-#   count = 0
-#   (0..(word.length - 1)).each do |i|
-#     if word[i] == word[i + 1]
-#       count += 1
-#     end
-#   end
-#   count
-# end
+def duos(word)
+  count = 0
+  (0..(word.length - 1)).each do |i|
+    if word[i] == word[i + 1]
+      count += 1
+    end
+  end
+  count
+end
 
 def duos(word)
   count = 0 
@@ -191,8 +191,8 @@ p energetic_encoding('hello world',
     'o'=>'i', 'l'=>'r', 'e'=>'a'
 ) == '?arri ?i?r?'
 
-# p energetic_encoding('bike', {}) # '????'
-# puts puts 
+p energetic_encoding('bike', {}) == '????'
+puts puts 
 
 =begin
 Write a method uncompress that accepts a string 
@@ -204,9 +204,19 @@ times given based on the number that appears
 directly after the letter.
 =end
 
-# def uncompress(string)
-# end
+def uncompress(string)
+  new_string = ""
+  i = 0
 
-# uncompress('a2b4c1') # 'aabbbbc'
-# uncompress('b1o2t1') # 'boot'
-# uncompress('x3y1x2z4') # 'xxxyxxzzzz'
+  (0...string.length - 1).each do |i|
+    char = string[i]
+    number = (string[i + 1]).to_i
+    new_string += (char * number)
+  end
+
+  new_string
+end
+
+puts uncompress('a2b4c1') == 'aabbbbc'
+puts uncompress('b1o2t1') == 'boot'
+puts uncompress('x3y1x2z4') == 'xxxyxxzzzz'
