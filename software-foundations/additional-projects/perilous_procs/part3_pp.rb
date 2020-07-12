@@ -110,24 +110,24 @@ four_letters = Proc.new { |w| w.length == 4 }
 p proc_suffix('dog cat',
     contains_a => 'ly',
     three_letters => 'o'
-)   # "dogo catlyo"
+)   == "dogo catlyo"
 
 p proc_suffix('dog cat',
     three_letters => 'o',
     contains_a => 'ly'
-)   # "dogo catoly"
+)   == "dogo catoly"
 
 p proc_suffix('wrong glad cat',
     contains_a => 'ly',
     three_letters => 'o',
     four_letters => 'ing'
-)   # "wrong gladlying catlyo"
+)   == "wrong gladlying catlyo"
 
 p proc_suffix('food glad rant dog cat',
     four_letters => 'ing',
     contains_a => 'ly',
     three_letters => 'o'
-)   # "fooding gladingly rantingly dogo catlyo"
+)   == "fooding gladingly rantingly dogo catlyo"
 puts puts 
 
 =begin
@@ -145,24 +145,27 @@ should only be placed into the array that corresponds to
 the proc that appears first in the arguments.
 =end
 
-# def proctition_platinum(array, *prcs)
-#   array.each do |ele|
-#     prcs.each do |prc1, prc2|
-#       first_time = prc1.call(ele)
-     
-      
-      
-#     end
-#   end
+def proctition_platinum(array, *prcs)
+  partition = {}
+
+  prcs.each_index { |i| prc[i], prc[i + 1]}
   
-# end
 
-# is_yelled = Proc.new { |s| s[-1] == '!' }
-# is_upcase = Proc.new { |s| s.upcase == s }
-# contains_a = Proc.new { |s| s.downcase.include?('a') }
-# begins_w = Proc.new { |s| s.downcase[0] == 'w' }
+  array.each do |ele|
+    prcs.each_with_index do |prc, i|
+      prc.call(ele)
+    end
 
-# p proctition_platinum(['WHO', 'what', 'when!', 'WHERE!', 'how', 'WHY'], is_yelled, contains_a)
+  end
+  
+end
+
+is_yelled = Proc.new { |s| s[-1] == '!' }
+is_upcase = Proc.new { |s| s.upcase == s }
+contains_a = Proc.new { |s| s.downcase.include?('a') }
+begins_w = Proc.new { |s| s.downcase[0] == 'w' }
+
+p proctition_platinum(['WHO', 'what', 'when!', 'WHERE!', 'how', 'WHY'], is_yelled, contains_a)
 # {1=>["when!", "WHERE!"], 2=>["what"]}
 
 # p proctition_platinum(['WHO', 'what', 'when!', 'WHERE!', 'how', 'WHY'], is_yelled, is_upcase, contains_a)
@@ -194,10 +197,12 @@ in the hash.
 #     new_word = []
 #     hash.each do |checker, changer|
 #       if checker.call(word)
-#         changer.call(word)
+#         new_word = changer.call(word)
 #       end
 #     end
+#     new_sentence << new_word
 #   end
+  
 #   new_sentence.join(" ")
 # end
 
@@ -211,7 +216,7 @@ in the hash.
 # p procipher('he said what!',
 #     is_yelled => make_question,
 #     contains_a => reverse)
-     # "he dias ???!tahw"
+#      # "he dias ???!tahw"
 
 # p procipher('he said what!',
 #     contains_a => reverse,
