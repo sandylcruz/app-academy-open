@@ -28,37 +28,48 @@ def duos(word)
   count
 end
 
-p duos('bootcamp')      # 1
-p duos('wxxyzz')        # 2
-p duos('hoooraay')      # 3
-p duos('dinosaurs')     # 0
-p duos('e')             # 0
+p duos('bootcamp') == 1
+p duos('wxxyzz') == 2
+p duos('hoooraay') == 3
+p duos('dinosaurs') == 0
+p duos('e') == 0
 puts puts
 
 =begin
 Write a method sentence_swap that accepts a 
 sentence and a hash as arguments. The method 
 should return a new sentence where every word 
-is replaced with it's corresponding value in 
+is replaced with its corresponding value in 
 the hash. If a word does not exist as a key of 
 the hash, then it should remain unchanged.
 =end
 
-# def sentence_swap(sentence, hash)
-# end
+def sentence_swap(sentence, hash)
+  new_words = []
+  words = sentence.split(" ")
 
-# p sentence_swap('anything you can do I can do',
-#   'anything'=>'nothing', 'do'=>'drink', 'can'=>'shall'
-# ) # 'nothing you shall drink I shall drink'
+  words.each do |word|
+    if hash.has_key?(word)
+      new_words << hash[word]
+    else
+      new_words << word
+    end
+  end
+  new_words.join(" ")
+end
 
-# p sentence_swap('what a sad ad',
-#   'cat'=>'dog', 'sad'=>'happy', 'what'=>'make'
-# ) # 'make a happy ad'
+p sentence_swap('anything you can do I can do',
+  'anything'=>'nothing', 'do'=>'drink', 'can'=>'shall'
+) == 'nothing you shall drink I shall drink'
 
-# p sentence_swap('keep coding okay',
-#   'coding'=>'running', 'kay'=>'pen'
-# ) # 'keep running okay'
-# puts puts
+p sentence_swap('what a sad ad',
+  'cat'=>'dog', 'sad'=>'happy', 'what'=>'make'
+) == 'make a happy ad'
+
+p sentence_swap('keep coding okay',
+  'coding'=>'running', 'kay'=>'pen'
+) == 'keep running okay'
+puts puts
 
 =begin
 Write a method hash_mapped that accepts a hash, 
