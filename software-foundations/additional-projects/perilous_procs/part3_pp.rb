@@ -189,22 +189,22 @@ proc changes should be applied in the order that they appear
 in the hash.
 =end
 
-# def procipher(sentence, hash)
-#   words = sentence.split(" ")
-#   new_sentence = []
+def procipher(sentence, hash)
+  words = sentence.split(" ")
+  new_sentence = []
 
-#   words.each do |word|
-#     new_word = []
-#     hash.each do |checker, changer|
-#       if checker.call(word)
-#         new_word = changer.call(word)
-#       end
-#     end
-#     new_sentence << new_word
-#   end
+  words.each do |word|
+    new_word = []
+    hash.each do |checker, changer|
+      if checker.call(word)
+        new_word = changer.call(word)
+      end
+    end
+    new_sentence << new_word
+  end
   
-#   new_sentence.join(" ")
-# end
+  new_sentence.join(" ")
+end
 
 # is_yelled = Proc.new { |s| s[-1] == '!' }
 # is_upcase = Proc.new { |s| s.upcase == s }
