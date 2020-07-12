@@ -163,20 +163,33 @@ replaced with a question mark ('?'). Space
 characters (' ') should remain unchanged.
 =end
 
-# def energetic_encoding(string, hash)
-# end
+def energetic_encoding(string, hash)
+  new_string = []
 
-# p energetic_encoding('sent sea',
-#     'e'=>'i', 's'=>'z', 'n'=>'m', 't'=>'p', 'a'=>'u'
-# ) # 'zimp ziu'
+  string.each_char do |char|
+    if char == " "
+      new_string << " "
+    elsif hash.has_key?(char)
+      new_string << hash[char]
+    else
+      new_string << "?"
+    end
+  end
 
-# p energetic_encoding('cat',
-#     'a'=>'o', 'c'=>'k'
-# ) # 'ko?'
+  new_string.join("")
+end
 
-# p energetic_encoding('hello world',
-#     'o'=>'i', 'l'=>'r', 'e'=>'a'
-# ) # '?arri ?i?r?'
+p energetic_encoding('sent sea',
+    'e'=>'i', 's'=>'z', 'n'=>'m', 't'=>'p', 'a'=>'u'
+) == 'zimp ziu'
+
+p energetic_encoding('cat',
+    'a'=>'o', 'c'=>'k'
+) == 'ko?'
+
+p energetic_encoding('hello world',
+    'o'=>'i', 'l'=>'r', 'e'=>'a'
+) == '?arri ?i?r?'
 
 # p energetic_encoding('bike', {}) # '????'
 # puts puts 
