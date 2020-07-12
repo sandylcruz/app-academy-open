@@ -4,11 +4,32 @@ argument and returns the count of the number of
 times the same character appears consecutively 
 in the given string.
 =end
-
 def duos(word)
-  count = 0 
-
+  count = 0
+  (0..(word.length - 1)).each do |i|
+    if word[i] == word[i + 1]
+      count += 1
+    end
+  end
+  count
 end
+
+# def duos(word)
+#   count = 0 
+#   chars = word.split("")
+#   i = 0
+
+#   while i < word.length
+#     chars.each do |char|
+#       if char[i] == char[i + 1]
+#         count += 1
+#       end
+#       i += 1
+#     end
+#   end
+
+#   count
+# end
 
 p duos('bootcamp')      # 1
 p duos('wxxyzz')        # 2
@@ -26,21 +47,21 @@ the hash. If a word does not exist as a key of
 the hash, then it should remain unchanged.
 =end
 
-def sentence_swap(sentence, hash)
-end
+# def sentence_swap(sentence, hash)
+# end
 
-p sentence_swap('anything you can do I can do',
-  'anything'=>'nothing', 'do'=>'drink', 'can'=>'shall'
-) # 'nothing you shall drink I shall drink'
+# p sentence_swap('anything you can do I can do',
+#   'anything'=>'nothing', 'do'=>'drink', 'can'=>'shall'
+# ) # 'nothing you shall drink I shall drink'
 
-p sentence_swap('what a sad ad',
-  'cat'=>'dog', 'sad'=>'happy', 'what'=>'make'
-) # 'make a happy ad'
+# p sentence_swap('what a sad ad',
+#   'cat'=>'dog', 'sad'=>'happy', 'what'=>'make'
+# ) # 'make a happy ad'
 
-p sentence_swap('keep coding okay',
-  'coding'=>'running', 'kay'=>'pen'
-) # 'keep running okay'
-puts puts
+# p sentence_swap('keep coding okay',
+#   'coding'=>'running', 'kay'=>'pen'
+# ) # 'keep running okay'
+# puts puts
 
 =begin
 Write a method hash_mapped that accepts a hash, 
@@ -72,14 +93,14 @@ the output array should appear in the same order
 they occur in the input string.
 =end
 
-def counted_characters(sentence)
-end
+# def counted_characters(sentence)
+# end
 
-p counted_characters("that's alright folks") # ["t"]
-p counted_characters("mississippi") # ["i", "s"]
-p counted_characters("hot potato soup please") # ["o", "t", " ", "p"]
-p counted_characters("runtime") # []
-puts puts
+# p counted_characters("that's alright folks") # ["t"]
+# p counted_characters("mississippi") # ["i", "s"]
+# p counted_characters("hot potato soup please") # ["o", "t", " ", "p"]
+# p counted_characters("runtime") # []
+# puts puts
 
 =begin
 Write a method triplet_true? that accepts a string 
@@ -88,15 +109,15 @@ whether or not the string contains three of the
 same character consecutively.
 =end
 
-def triplet_true?(string)
-end
+# def triplet_true?(string)
+# end
 
-p triplet_true?('caaabb')        # true
-p triplet_true?('terrrrrible')   # true
-p triplet_true?('runninggg')     # true
-p triplet_true?('bootcamp')      # false
-p triplet_true?('e')             # false
-puts puts 
+# p triplet_true?('caaabb')        # true
+# p triplet_true?('terrrrrible')   # true
+# p triplet_true?('runninggg')     # true
+# p triplet_true?('bootcamp')      # false
+# p triplet_true?('e')             # false
+# puts puts 
 
 =begin
 Write a method energetic_encoding that accepts a 
@@ -109,23 +130,23 @@ replaced with a question mark ('?'). Space
 characters (' ') should remain unchanged.
 =end
 
-def energetic_encoding(string, hash)
-end
+# def energetic_encoding(string, hash)
+# end
 
-p energetic_encoding('sent sea',
-    'e'=>'i', 's'=>'z', 'n'=>'m', 't'=>'p', 'a'=>'u'
-) # 'zimp ziu'
+# p energetic_encoding('sent sea',
+#     'e'=>'i', 's'=>'z', 'n'=>'m', 't'=>'p', 'a'=>'u'
+# ) # 'zimp ziu'
 
-p energetic_encoding('cat',
-    'a'=>'o', 'c'=>'k'
-) # 'ko?'
+# p energetic_encoding('cat',
+#     'a'=>'o', 'c'=>'k'
+# ) # 'ko?'
 
-p energetic_encoding('hello world',
-    'o'=>'i', 'l'=>'r', 'e'=>'a'
-) # '?arri ?i?r?'
+# p energetic_encoding('hello world',
+#     'o'=>'i', 'l'=>'r', 'e'=>'a'
+# ) # '?arri ?i?r?'
 
-p energetic_encoding('bike', {}) # '????'
-puts puts 
+# p energetic_encoding('bike', {}) # '????'
+# puts puts 
 
 =begin
 Write a method uncompress that accepts a string 
