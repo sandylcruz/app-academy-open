@@ -4,32 +4,29 @@ argument and returns the count of the number of
 times the same character appears consecutively 
 in the given string.
 =end
+
+# def duos(word)
+#   count = 0
+#   (0..(word.length - 1)).each do |i|
+#     if word[i] == word[i + 1]
+#       count += 1
+#     end
+#   end
+#   count
+# end
+
 def duos(word)
-  count = 0
-  (0..(word.length - 1)).each do |i|
+  count = 0 
+  i = 0
+
+  while i < word.length
     if word[i] == word[i + 1]
       count += 1
     end
+    i += 1
   end
   count
 end
-
-# def duos(word)
-#   count = 0 
-#   chars = word.split("")
-#   i = 0
-
-#   while i < word.length
-#     chars.each do |char|
-#       if char[i] == char[i + 1]
-#         count += 1
-#       end
-#       i += 1
-#     end
-#   end
-
-#   count
-# end
 
 p duos('bootcamp')      # 1
 p duos('wxxyzz')        # 2
