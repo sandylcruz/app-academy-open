@@ -6,6 +6,22 @@ return true when passed into all of the given procs.
 =end
 
 def conjunct_select(array, *prcs)
+  new_array = []
+
+  array.each do |ele|
+    is_false = false
+    prcs.each do |prc|
+      if prc.call(ele) == false
+        is_false = true
+        break
+      end
+    end
+    if !is_false 
+      new_array << ele
+    end
+  end
+
+  new_array
 end
 
 is_positive = Proc.new { |n| n > 0 }
@@ -32,16 +48,16 @@ sentence according to the following rules:
     word and add 'ay' (example: 'trash'->'ashtray')
 =end
 
-def convert_pig_latin(sentence)
+# def convert_pig_latin(sentence)
 
-end
+# end
 
-p convert_pig_latin('We like to eat bananas') # "We ikelay to eatyay ananasbay"
-p convert_pig_latin('I cannot find the trash') # "I annotcay indfay ethay ashtray"
-p convert_pig_latin('What an interesting problem') # "Atwhay an interestingyay oblempray"
-p convert_pig_latin('Her family flew to France') # "Erhay amilyfay ewflay to Ancefray"
-p convert_pig_latin('Our family flew to France') # "Ouryay amilyfay ewflay to Ancefray"
-puts puts
+# p convert_pig_latin('We like to eat bananas') # "We ikelay to eatyay ananasbay"
+# p convert_pig_latin('I cannot find the trash') # "I annotcay indfay ethay ashtray"
+# p convert_pig_latin('What an interesting problem') # "Atwhay an interestingyay oblempray"
+# p convert_pig_latin('Her family flew to France') # "Erhay amilyfay ewflay to Ancefray"
+# p convert_pig_latin('Our family flew to France') # "Ouryay amilyfay ewflay to Ancefray"
+# puts puts
 
 =begin
 Write a method reverberate that accepts a sentence as an 
@@ -58,14 +74,14 @@ to the following rules:
     last vowel itself (example: 'trash'->'trashash')
 =end
 
-def reverberate(sentence)
-end
+# def reverberate(sentence)
+# end
 
-p reverberate('We like to go running fast') # "We likelike to go runninging fastast"
-p reverberate('He cannot find the trash') # "He cannotot findind thethe trashash"
-p reverberate('Pasta is my favorite dish') # "Pastapasta is my favoritefavorite dishish"
-p reverberate('Her family flew to France') # "Herer familyily flewew to Francefrance"
-puts puts
+# p reverberate('We like to go running fast') # "We likelike to go runninging fastast"
+# p reverberate('He cannot find the trash') # "He cannotot findind thethe trashash"
+# p reverberate('Pasta is my favorite dish') # "Pastapasta is my favoritefavorite dishish"
+# p reverberate('Her family flew to France') # "Herer familyily flewew to Francefrance"
+# puts puts
 
 =begin
 Write a method disjunct_select that accepts an array and one 
@@ -74,28 +90,28 @@ array containing the elements that return true when passed
 into at least one of the given procs.
 =end
 
-def disjunct_select(array, *prc)
-end
+# def disjunct_select(array, *prc)
+# end
 
-longer_four = Proc.new { |s| s.length > 4 }
-contains_o = Proc.new { |s| s.include?('o') }
-starts_a = Proc.new { |s| s[0] == 'a' }
+# longer_four = Proc.new { |s| s.length > 4 }
+# contains_o = Proc.new { |s| s.include?('o') }
+# starts_a = Proc.new { |s| s[0] == 'a' }
 
-p disjunct_select(['ace', 'dog', 'apple', 'teeming', 'boot', 'zip'],
-    longer_four,
-) # ["apple", "teeming"]
+# p disjunct_select(['ace', 'dog', 'apple', 'teeming', 'boot', 'zip'],
+#     longer_four,
+# ) # ["apple", "teeming"]
 
-p disjunct_select(['ace', 'dog', 'apple', 'teeming', 'boot', 'zip'],
-    longer_four,
-    contains_o
-) # ["dog", "apple", "teeming", "boot"]
+# p disjunct_select(['ace', 'dog', 'apple', 'teeming', 'boot', 'zip'],
+#     longer_four,
+#     contains_o
+# ) # ["dog", "apple", "teeming", "boot"]
 
-p disjunct_select(['ace', 'dog', 'apple', 'teeming', 'boot', 'zip'],
-    longer_four,
-    contains_o,
-    starts_a
-) # ["ace", "dog", "apple", "teeming", "boot"]
-puts puts 
+# p disjunct_select(['ace', 'dog', 'apple', 'teeming', 'boot', 'zip'],
+#     longer_four,
+#     contains_o,
+#     starts_a
+# ) # ["ace", "dog", "apple", "teeming", "boot"]
+# puts puts 
 
 =begin
 Write a method alternating_vowel that accepts a sentence as an 
@@ -109,14 +125,14 @@ removed. For example:
   ... and so on
 =end
 
-def alternating_vowel(sentence)
-end
+# def alternating_vowel(sentence)
+# end
 
-p alternating_vowel('panthers are great animals') # "pnthers ar grat animls"
-p alternating_vowel('running panthers are epic') # "rnning panthrs re epc"
-p alternating_vowel('code properly please') # "cde proprly plase"
-p alternating_vowel('my forecast predicts rain today') # "my forecst prdicts ran tday"
-puts puts 
+# p alternating_vowel('panthers are great animals') # "pnthers ar grat animls"
+# p alternating_vowel('running panthers are epic') # "rnning panthrs re epc"
+# p alternating_vowel('code properly please') # "cde proprly plase"
+# p alternating_vowel('my forecast predicts rain today') # "my forecst prdicts ran tday"
+# puts puts 
 
 =begin
 Write a method silly_talk that accepts a sentence as an 
@@ -129,14 +145,14 @@ sentence according to the following rules:
     (example: 'siren'->'sibireben')
 =end
 
-def silly_talk(sentence)
+# def silly_talk(sentence)
 
-end
-p silly_talk('Kids like cats and dogs') # "Kibids likee cabats aband dobogs"
-p silly_talk('Stop that scooter') # "Stobop thabat scobooboteber"
-p silly_talk('They can code') # "Thebey caban codee"
-p silly_talk('He flew to Italy') # "Hee flebew too Ibitabaly"
-puts puts 
+# end
+# p silly_talk('Kids like cats and dogs') # "Kibids likee cabats aband dobogs"
+# p silly_talk('Stop that scooter') # "Stobop thabat scobooboteber"
+# p silly_talk('They can code') # "Thebey caban codee"
+# p silly_talk('He flew to Italy') # "Hee flebew too Ibitabaly"
+# puts puts 
 
 =begin
 Write a method compress that accepts a string as an argument. 
@@ -148,8 +164,8 @@ streak (meaning that it appears alone), then do not add
 a number after it.
 =end
 
-def compress(string)
-end
-p compress('aabbbbc')   # "a2b4c"
-p compress('boot')      # "bo2t"
-p compress('xxxyxxzzzz')# "x3yx2z4"
+# def compress(string)
+# end
+# p compress('aabbbbc')   # "a2b4c"
+# p compress('boot')      # "bo2t"
+# p compress('xxxyxxzzzz')# "x3yx2z4"
