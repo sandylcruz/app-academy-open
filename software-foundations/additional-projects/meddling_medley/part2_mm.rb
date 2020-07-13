@@ -116,15 +116,40 @@ to the following rules:
     that come after the word's last vowel, including the 
     last vowel itself (example: 'trash'->'trashash')
 =end
+def convert_reverberate_word(word)
+  last_word = word[-1]
+  vowels = "aeiou"
 
-# def reverberate(sentence)
-# end
+  if vowels.include?(last_word.downcase)
+    return word + word
+  else
+    last_vowel_index = word.index(/[aeiou]/)
+    letters_after_last_vowel = word[last_vowel_index..-1]
+    return word + letters_after_last_vowel
+  end
 
-# p reverberate('We like to go running fast') # "We likelike to go runninging fastast"
-# p reverberate('He cannot find the trash') # "He cannotot findind thethe trashash"
-# p reverberate('Pasta is my favorite dish') # "Pastapasta is my favoritefavorite dishish"
-# p reverberate('Her family flew to France') # "Herer familyily flewew to Francefrance"
-# puts puts
+end 
+
+def reverberate(sentence)
+  words = sentence.split(" ")
+  new_sentence = []
+
+  words.each do |word|
+    if word.length >= 3
+      new_word = convert_reverberate_word(word)
+      new_sentence << new_word
+    else
+      new_sentence << word
+    end
+  end
+  new_sentence.join(" ")
+end
+
+p reverberate('We like to go running fast') # "We likelike to go runninging fastast"
+p reverberate('He cannot find the trash') # "He cannotot findind thethe trashash"
+p reverberate('Pasta is my favorite dish') # "Pastapasta is my favoritefavorite dishish"
+p reverberate('Her family flew to France') # "Herer familyily flewew to Francefrance"
+puts puts
 
 =begin
 Write a method disjunct_select that accepts an array and one 
