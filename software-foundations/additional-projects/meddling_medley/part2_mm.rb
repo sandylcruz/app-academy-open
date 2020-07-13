@@ -24,13 +24,26 @@ def conjunct_select(array, *prcs)
   new_array
 end
 
+# def conjunct_select(array, *prcs)
+#   new_array = []
+#   i = 0
+
+#   while i < prcs.length
+#     array.any? do |ele|
+#       prcs.call(ele)
+#     end
+#   end
+
+#   new_array
+# end
+
 is_positive = Proc.new { |n| n > 0 }
 is_odd = Proc.new { |n| n.odd? }
 less_than_ten = Proc.new { |n| n < 10 }
 
-p conjunct_select([4, 8, -2, 11, 7, -3, 13], is_positive) # [4, 8, 11, 7, 13]
-p conjunct_select([4, 8, -2, 11, 7, -3, 13], is_positive, is_odd) # [11, 7, 13]
-p conjunct_select([4, 8, -2, 11, 7, -3, 13], is_positive, is_odd, less_than_ten) # [7]
+p conjunct_select([4, 8, -2, 11, 7, -3, 13], is_positive) == [4, 8, 11, 7, 13]
+p conjunct_select([4, 8, -2, 11, 7, -3, 13], is_positive, is_odd) == [11, 7, 13]
+p conjunct_select([4, 8, -2, 11, 7, -3, 13], is_positive, is_odd, less_than_ten) == [7]
 puts puts 
 
 =begin
@@ -48,8 +61,26 @@ sentence according to the following rules:
     word and add 'ay' (example: 'trash'->'ashtray')
 =end
 
-# def convert_pig_latin(sentence)
+def convert_word(word)
+  vowels = "aeiou"
 
+  word.each_char.with_index do |char, i|
+    if vowels.include?(char)
+      return word[(i)..-1] + word[0...i] + "ay" 
+    end
+  end
+end
+puts convert_word("cat")
+
+# def convert_pig_latin(sentence)
+  
+#   new_sentence = []
+ 
+#   if word.length >= 3
+#     convert_word(word)
+#   end
+
+#   new_sentence.join(" ")
 # end
 
 # p convert_pig_latin('We like to eat bananas') # "We ikelay to eatyay ananasbay"
