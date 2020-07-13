@@ -63,32 +63,44 @@ sentence according to the following rules:
 
 def convert_word(word)
   vowels = "aeiou"
+  first_letter = word[0]
 
-  word.each_char.with_index do |char, i|
-    if vowels.include?(char)
-      return word[(i)..-1] + word[0...i] + "ay" 
+  if vowels.include?(first_letter.downcase)
+    return word + "yay"
+  else
+    first_vowel_index = word.index(/[aeiou]/)
+    is_first_letter_capitalized = first_letter.upcase == first_letter
+
+    if is_first_letter_capitalized
+      return word[first_vowel_index..-1].capitalize + word[0...first_vowel_index].downcase + "ay"
     end
+
+    return word[first_vowel_index..-1] + word[0...first_vowel_index] + "ay"
   end
 end
-puts convert_word("cat")
 
-# def convert_pig_latin(sentence)
-  
-#   new_sentence = []
- 
-#   if word.length >= 3
-#     convert_word(word)
-#   end
+def convert_pig_latin(sentence)
+  new_sentence = []
+  words = sentence.split(" ")
+  vowels = ["a", "e", "i", "o", "u"]
 
-#   new_sentence.join(" ")
-# end
+  words.each do |word|
+    if word.length >= 3
+      new_sentence << convert_word(word)
+    else
+      new_sentence << word
+    end
+  end
 
-# p convert_pig_latin('We like to eat bananas') # "We ikelay to eatyay ananasbay"
-# p convert_pig_latin('I cannot find the trash') # "I annotcay indfay ethay ashtray"
-# p convert_pig_latin('What an interesting problem') # "Atwhay an interestingyay oblempray"
-# p convert_pig_latin('Her family flew to France') # "Erhay amilyfay ewflay to Ancefray"
-# p convert_pig_latin('Our family flew to France') # "Ouryay amilyfay ewflay to Ancefray"
-# puts puts
+  new_sentence.join(" ")
+end
+
+p convert_pig_latin('We like to eat bananas') == "We ikelay to eatyay ananasbay"
+p convert_pig_latin('I cannot find the trash') == "I annotcay indfay ethay ashtray"
+p convert_pig_latin('What an interesting problem') == "Atwhay an interestingyay oblempray"
+p convert_pig_latin('Her family flew to France') == "Erhay amilyfay ewflay to Ancefray"
+p convert_pig_latin('Our family flew to France') == "Ouryay amilyfay ewflay to Ancefray"
+puts puts
 
 =begin
 Write a method reverberate that accepts a sentence as an 
