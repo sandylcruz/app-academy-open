@@ -116,40 +116,42 @@ to the following rules:
     that come after the word's last vowel, including the 
     last vowel itself (example: 'trash'->'trashash')
 =end
-def convert_reverberate_word(word)
-  last_word = word[-1]
-  vowels = "aeiou"
 
-  if vowels.include?(last_word.downcase)
-    return word + word
-  else
-    last_vowel_index = word.index(/[aeiou]/)
-    letters_after_last_vowel = word[last_vowel_index..-1]
-    return word + letters_after_last_vowel
-  end
 
-end 
+# def convert_reverberate_word(word)
+#   last_word = word[-1]
+#   vowels = "aeiou"
 
-def reverberate(sentence)
-  words = sentence.split(" ")
-  new_sentence = []
+#   if vowels.include?(last_word.downcase)
+#     return word + word
+#   else
+#     last_vowel_index = word.index(/[aeiou]/)
+#     letters_after_last_vowel = word[last_vowel_index..-1]
+#     return word + letters_after_last_vowel
+#   end
 
-  words.each do |word|
-    if word.length >= 3
-      new_word = convert_reverberate_word(word)
-      new_sentence << new_word
-    else
-      new_sentence << word
-    end
-  end
-  new_sentence.join(" ")
-end
+# end 
 
-p reverberate('We like to go running fast') # "We likelike to go runninging fastast"
-p reverberate('He cannot find the trash') # "He cannotot findind thethe trashash"
-p reverberate('Pasta is my favorite dish') # "Pastapasta is my favoritefavorite dishish"
-p reverberate('Her family flew to France') # "Herer familyily flewew to Francefrance"
-puts puts
+# def reverberate(sentence)
+#   words = sentence.split(" ")
+#   new_sentence = []
+
+#   words.each do |word|
+#     if word.length >= 3
+#       new_word = convert_reverberate_word(word)
+#       new_sentence << new_word
+#     else
+#       new_sentence << word
+#     end
+#   end
+#   new_sentence.join(" ")
+# end
+
+# p reverberate('We like to go running fast') # "We likelike to go runninging fastast"
+# p reverberate('He cannot find the trash') # "He cannotot findind thethe trashash"
+# p reverberate('Pasta is my favorite dish') # "Pastapasta is my favoritefavorite dishish"
+# p reverberate('Her family flew to France') # "Herer familyily flewew to Francefrance"
+# puts puts
 
 =begin
 Write a method disjunct_select that accepts an array and one 
@@ -160,11 +162,12 @@ into at least one of the given procs.
 
 def disjunct_select(array, *prcs)
   new_array = []
+  
+
   array.each do |ele|
-    prcs.each do |prc|
-      if prc.call(ele) == true
-        new_array << ele
-      end
+    is_any_proc_true = prcs.any? { |prc| prc.call(ele) }
+    if is_any_proc_true
+      new_array << ele
     end
   end
   new_array
@@ -202,7 +205,56 @@ removed. For example:
   ... and so on
 =end
 
+# def first_vowel_index(word)
+#   vowels = "aeiou"
+#   i = 0
+#   indices = []
+  
+#   while i < word.length
+#     if vowels.include?(word[i])
+#       return i
+#     end
+#     i += 1
+#   end
+# end
+
+# def last_vowel_index(word)
+#   vowels = "aeiou"
+#   i = 0
+#   indices = []
+
+#   while i < word.length
+#     if vowels.include?(word[i])
+#       indices << i
+#     end
+#     i += 1
+#   end
+#   indices.last
+# end
+# puts last_vowel_index("callie")
+
+# def remove_first_vowel(word)
+#   vowels = "aeiou"
+  
+#   first_vowel_index(word)
+  
+# end
+# puts remove_first_vowel("phoenix")
+
 # def alternating_vowel(sentence)
+#   words = sentence.split(" ")
+#   new_sentence = []
+
+#   words.each do |word|
+#     if word[0]
+
+#     elsif
+#     end
+
+#   end
+
+
+#   new_sentence.join(" ")
 # end
 
 # p alternating_vowel('panthers are great animals') # "pnthers ar grat animls"
@@ -222,9 +274,17 @@ sentence according to the following rules:
     (example: 'siren'->'sibireben')
 =end
 
-# def silly_talk(sentence)
+def silly_word(word)
 
-# end
+end
+
+def silly_talk(sentence)
+  words = sentence.split(" ")
+
+  
+end
+
+
 # p silly_talk('Kids like cats and dogs') # "Kibids likee cabats aband dobogs"
 # p silly_talk('Stop that scooter') # "Stobop thabat scobooboteber"
 # p silly_talk('They can code') # "Thebey caban codee"
@@ -243,6 +303,7 @@ a number after it.
 
 # def compress(string)
 # end
+
 # p compress('aabbbbc')   # "a2b4c"
 # p compress('boot')      # "bo2t"
 # p compress('xxxyxxzzzz')# "x3yx2z4"
