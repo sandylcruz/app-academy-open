@@ -245,10 +245,12 @@ end
 def remove_first_vowel(word)
   vowels = "aeiou"
   new_word = []
+  
   first_vowel_index = first_vowel_index(word)
+  after_vowel_start = first_vowel_index + 1
 
   before_vowel = word[0...first_vowel_index]
-  after_vowel = word[(first_vowel_index + 1)..-1]
+  after_vowel = word[after_vowel_start..-1]
   new_word << before_vowel + after_vowel
 
   new_word.join("")  
@@ -257,6 +259,7 @@ end
 def remove_last_vowel(word)
   vowels = "aeiou"
   new_word = []
+
   last_vowel_index = last_vowel_index(word)
 
   before_vowel = word[0...last_vowel_index]
@@ -269,10 +272,13 @@ end
 def alternating_vowel(sentence)
   words = sentence.split(" ")
   new_sentence = []
+  vowels = "aeiou"
 
-  words.each_with_index do |word, index|
+  words.each.with_index do |word, index|
     if index % 2 == 0
       new_sentence << remove_first_vowel(word)
+    elsif index == nil
+      new_sentence << word
     else
       new_sentence << remove_last_vowel(word)
     end
@@ -281,10 +287,10 @@ def alternating_vowel(sentence)
   new_sentence.join(" ")
 end
 
-p alternating_vowel('panthers are great animals') == "pnthers ar grat animls"
-p alternating_vowel('running panthers are epic') == "rnning panthrs re epc"
-p alternating_vowel('code properly please') == "cde proprly plase"
-# p alternating_vowel('my forecast predicts rain today') == "my forecst prdicts ran tday"
+p alternating_vowel('panthers are great animals') # "pnthers ar grat animls"
+p alternating_vowel('running panthers are epic') # "rnning panthrs re epc"
+p alternating_vowel('code properly please') # "cde proprly plase"
+# p alternating_vowel('my forecast predicts rain today') # "my forecst prdicts ran tday"
 # puts puts 
 
 =begin
@@ -298,9 +304,22 @@ sentence according to the following rules:
     (example: 'siren'->'sibireben')
 =end
 
-# def silly_word(word)
+def ends_with_vowel?(word)
+  vowels = "aeiou"
+  last_char = word[-1]
 
+  if vowels.include?(last_char)
+    return true
+  else
+    return false
+  end
+end
+puts ends_with_vowel?("banan")
+
+# def silly_word(word)
+# 
 # end
+# puts silly_word("banana")
 
 # def silly_talk(sentence)
 #   words = sentence.split(" ")
