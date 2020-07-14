@@ -326,9 +326,9 @@ def change_ends_with_consonant(word)
 
   word.each_char do |char|
     if vowels.include?(char)
-      new_word += char + "b" + char.downcase
+      new_word << char + "b" + char.downcase
     else
-      new_word += char
+      new_word << char
     end
   end
 
@@ -366,9 +366,41 @@ streak (meaning that it appears alone), then do not add
 a number after it.
 =end
 
-# def compress(string)
-# end
+def is_letter?(char)
+  alphabet = ('a'..'z')
+  if alphabet.include?(char)
+    return true
+  else
+    return false
+  end
+end
 
-# p compress('aabbbbc')   # "a2b4c"
-# p compress('boot')      # "bo2t"
-# p compress('xxxyxxzzzz')# "x3yx2z4"
+def compress(string)
+  new_string = []
+  count = 0
+  i = 0
+
+  while i < string.length
+    char = string[i]
+    count = 1
+    i += 1
+
+    while char == string[i]
+      count += 1
+      i += 1
+    end
+
+    if count < 2
+      new_string << char
+    else
+      new_string << char + count.to_s
+    end
+    new_string.join("")
+  end
+
+  new_string.join("")
+end
+
+p compress('aabbbbc') == "a2b4c"
+p compress('boot') == "bo2t"
+p compress('xxxyxxzzzz') == "x3yx2z4"
