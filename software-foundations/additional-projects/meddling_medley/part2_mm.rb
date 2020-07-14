@@ -247,6 +247,7 @@ def remove_first_vowel(word)
   new_word = []
   
   first_vowel_index = first_vowel_index(word)
+  return word if first_vowel_index == nil
   after_vowel_start = first_vowel_index + 1
 
   before_vowel = word[0...first_vowel_index]
@@ -261,6 +262,7 @@ def remove_last_vowel(word)
   new_word = []
 
   last_vowel_index = last_vowel_index(word)
+  return word if last_vowel_index == nil
 
   before_vowel = word[0...last_vowel_index]
   after_vowel = word[(last_vowel_index + 1)..-1]
@@ -277,8 +279,6 @@ def alternating_vowel(sentence)
   words.each.with_index do |word, index|
     if index % 2 == 0
       new_sentence << remove_first_vowel(word)
-    elsif index == nil
-      new_sentence << word
     else
       new_sentence << remove_last_vowel(word)
     end
@@ -287,11 +287,11 @@ def alternating_vowel(sentence)
   new_sentence.join(" ")
 end
 
-p alternating_vowel('panthers are great animals') # "pnthers ar grat animls"
-p alternating_vowel('running panthers are epic') # "rnning panthrs re epc"
-p alternating_vowel('code properly please') # "cde proprly plase"
-# p alternating_vowel('my forecast predicts rain today') # "my forecst prdicts ran tday"
-# puts puts 
+p alternating_vowel('panthers are great animals') == "pnthers ar grat animls"
+p alternating_vowel('running panthers are epic') == "rnning panthrs re epc"
+p alternating_vowel('code properly please') == "cde proprly plase"
+p alternating_vowel('my forecast predicts rain today') == "my forecst prdicts ran tday"
+puts puts 
 
 =begin
 Write a method silly_talk that accepts a sentence as an 
@@ -305,7 +305,7 @@ sentence according to the following rules:
 =end
 
 def ends_with_vowel?(word)
-  vowels = "aeiou"
+  vowels = "aeiouAEIOU"
   last_char = word[-1]
 
   if vowels.include?(last_char)
@@ -314,23 +314,50 @@ def ends_with_vowel?(word)
     return false
   end
 end
-puts ends_with_vowel?("banan")
 
-# def silly_word(word)
-# 
-# end
-# puts silly_word("banana")
+def change_ends_with_vowel(word)
+  new_word = []
+  new_word << word + word[-1]
+end
+
+def change_ends_with_consonant(word)
+  vowels = "aeiouAEIOU"
+  new_word = []
+  i = 0
+
+  while i < word.length
+    
+    if vowels.include?(word[i])
+      before_vowel = word[0...i]
+      new_word << before_vowel + word[i] + "b" + word[i..-1]
+    else
+      word[i]
+    end
+    i += 1
+  end
+
+  new_word.join("")
+end
+# puts change_ends_with_consonant("scooter") # scobooboteber
 
 # def silly_talk(sentence)
 #   words = sentence.split(" ")
+#   new_sentence = []
 
-  
+#   words.each do |word|
+#     if ends_with_vowel?(word)
+#       new_sentence << change_ends_with_vowel(word)
+#     else
+#       new_sentence << change_ends_with_consonant(word)
+#     end
+#   end
+
+#   new_sentence.join(" ")
 # end
 
-
-# p silly_talk('Kids like cats and dogs') # "Kibids likee cabats aband dobogs"
+# puts silly_talk('Kids like cats and dogs') == "Kibids likee cabats aband dobogs"
 # p silly_talk('Stop that scooter') # "Stobop thabat scobooboteber"
-# p silly_talk('They can code') # "Thebey caban codee"
+# # p silly_talk('They can code') == "Thebey caban codee"
 # p silly_talk('He flew to Italy') # "Hee flebew too Ibitabaly"
 # puts puts 
 
