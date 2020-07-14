@@ -24,19 +24,16 @@ class Flight
   end
 
   def list_passengers
-    
+    @passengers.map(&:name)
   end
 
   def [](index)
-    @passeners[index]
+    @passengers[index]
   end
 
   def <<(passenger)
     board_passenger(passenger)
   end
-
-
-
 end
 
  
