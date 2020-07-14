@@ -9,8 +9,8 @@ class Passenger
     @name
   end
 
-  def has_flight?(num)
-    if @flight_numbers.include?(num)
+  def has_flight?(flight_num)
+    if @flight_numbers.include?(flight_num.upcase)
       return true
     else
       return false
