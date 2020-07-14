@@ -116,20 +116,31 @@ to the following rules:
     that come after the word's last vowel, including the 
     last vowel itself (example: 'trash'->'trashash')
 =end
+def last_vowel_index(word)
+  vowels = "aeiou"
+  i = 0
+  indices = []
 
+  while i < word.length
+    if vowels.include?(word[i])
+      indices << i
+    end
+    i += 1
+  end
+  indices.last
+end
 
 def convert_reverberate_word(word)
-  last_word = word[-1]
+  last_char = word[-1]
   vowels = "aeiou"
 
-  if vowels.include?(last_word.downcase)
-    return word + word
+  if vowels.include?(last_char.downcase)
+    return word + word.downcase
   else
-    last_vowel_index = word.index(/[aeiou]/)
+    last_vowel_index = last_vowel_index(word)
     letters_after_last_vowel = word[last_vowel_index..-1]
     return word + letters_after_last_vowel
   end
-
 end 
 
 def reverberate(sentence)
@@ -147,10 +158,10 @@ def reverberate(sentence)
   new_sentence.join(" ")
 end
 
-p reverberate('We like to go running fast') # "We likelike to go runninging fastast"
-p reverberate('He cannot find the trash') # "He cannotot findind thethe trashash"
-p reverberate('Pasta is my favorite dish') # "Pastapasta is my favoritefavorite dishish"
-p reverberate('Her family flew to France') # "Herer familyily flewew to Francefrance"
+p reverberate('We like to go running fast') == "We likelike to go runninging fastast"
+p reverberate('He cannot find the trash') == "He cannotot findind thethe trashash"
+p reverberate('Pasta is my favorite dish') == "Pastapasta is my favoritefavorite dishish"
+p reverberate('Her family flew to France') == "Herer familyily flewew to Francefrance"
 puts puts
 
 =begin
@@ -236,7 +247,6 @@ def remove_first_vowel(word)
   new_word = []
   first_vowel_index = first_vowel_index(word)
 
-
   before_vowel = word[0...first_vowel_index]
   after_vowel = word[(first_vowel_index + 1)..-1]
   new_word << before_vowel + after_vowel
@@ -249,7 +259,6 @@ def remove_last_vowel(word)
   new_word = []
   last_vowel_index = last_vowel_index(word)
 
-
   before_vowel = word[0...last_vowel_index]
   after_vowel = word[(last_vowel_index + 1)..-1]
   new_word << before_vowel + after_vowel
@@ -257,28 +266,25 @@ def remove_last_vowel(word)
   new_word.join("")  
 end
 
+def alternating_vowel(sentence)
+  words = sentence.split(" ")
+  new_sentence = []
 
+  words.each_with_index do |word, index|
+    if index % 2 == 0
+      new_sentence << remove_first_vowel(word)
+    else
+      new_sentence << remove_last_vowel(word)
+    end
+  end
 
+  new_sentence.join(" ")
+end
 
-# def alternating_vowel(sentence)
-#   words = sentence.split(" ")
-#   new_sentence = []
-
-#   words.each_with_index do |word, index|
-#     if index % 2 == 0
-#       new_sentence << 
-#     elsif
-#     end
-#   end
-
-
-#   new_sentence.join(" ")
-# end
-
-# p alternating_vowel('panthers are great animals') # "pnthers ar grat animls"
-# p alternating_vowel('running panthers are epic') # "rnning panthrs re epc"
-# p alternating_vowel('code properly please') # "cde proprly plase"
-# p alternating_vowel('my forecast predicts rain today') # "my forecst prdicts ran tday"
+p alternating_vowel('panthers are great animals') == "pnthers ar grat animls"
+p alternating_vowel('running panthers are epic') == "rnning panthrs re epc"
+p alternating_vowel('code properly please') == "cde proprly plase"
+# p alternating_vowel('my forecast predicts rain today') == "my forecst prdicts ran tday"
 # puts puts 
 
 =begin
