@@ -17,6 +17,10 @@ class Passenger
     end
   end
 
-
+  def add_flight(num)
+    if has_flight?(num) == false
+      @flight_numbers << num.upcase
+    end
+  end
 
 end
