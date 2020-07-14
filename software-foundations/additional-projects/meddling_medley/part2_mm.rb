@@ -118,40 +118,40 @@ to the following rules:
 =end
 
 
-# def convert_reverberate_word(word)
-#   last_word = word[-1]
-#   vowels = "aeiou"
+def convert_reverberate_word(word)
+  last_word = word[-1]
+  vowels = "aeiou"
 
-#   if vowels.include?(last_word.downcase)
-#     return word + word
-#   else
-#     last_vowel_index = word.index(/[aeiou]/)
-#     letters_after_last_vowel = word[last_vowel_index..-1]
-#     return word + letters_after_last_vowel
-#   end
+  if vowels.include?(last_word.downcase)
+    return word + word
+  else
+    last_vowel_index = word.index(/[aeiou]/)
+    letters_after_last_vowel = word[last_vowel_index..-1]
+    return word + letters_after_last_vowel
+  end
 
-# end 
+end 
 
-# def reverberate(sentence)
-#   words = sentence.split(" ")
-#   new_sentence = []
+def reverberate(sentence)
+  words = sentence.split(" ")
+  new_sentence = []
 
-#   words.each do |word|
-#     if word.length >= 3
-#       new_word = convert_reverberate_word(word)
-#       new_sentence << new_word
-#     else
-#       new_sentence << word
-#     end
-#   end
-#   new_sentence.join(" ")
-# end
+  words.each do |word|
+    if word.length >= 3
+      new_word = convert_reverberate_word(word)
+      new_sentence << new_word
+    else
+      new_sentence << word
+    end
+  end
+  new_sentence.join(" ")
+end
 
-# p reverberate('We like to go running fast') # "We likelike to go runninging fastast"
-# p reverberate('He cannot find the trash') # "He cannotot findind thethe trashash"
-# p reverberate('Pasta is my favorite dish') # "Pastapasta is my favoritefavorite dishish"
-# p reverberate('Her family flew to France') # "Herer familyily flewew to Francefrance"
-# puts puts
+p reverberate('We like to go running fast') # "We likelike to go runninging fastast"
+p reverberate('He cannot find the trash') # "He cannotot findind thethe trashash"
+p reverberate('Pasta is my favorite dish') # "Pastapasta is my favoritefavorite dishish"
+p reverberate('Her family flew to France') # "Herer familyily flewew to Francefrance"
+puts puts
 
 =begin
 Write a method disjunct_select that accepts an array and one 
@@ -163,7 +163,6 @@ into at least one of the given procs.
 def disjunct_select(array, *prcs)
   new_array = []
   
-
   array.each do |ele|
     is_any_proc_true = prcs.any? { |prc| prc.call(ele) }
     if is_any_proc_true
@@ -205,52 +204,71 @@ removed. For example:
   ... and so on
 =end
 
-# def first_vowel_index(word)
-#   vowels = "aeiou"
-#   i = 0
-#   indices = []
+def first_vowel_index(word)
+  vowels = "aeiou"
+  i = 0
+  indices = []
   
-#   while i < word.length
-#     if vowels.include?(word[i])
-#       return i
-#     end
-#     i += 1
-#   end
-# end
+  while i < word.length
+    if vowels.include?(word[i])
+      return i
+    end
+    i += 1
+  end
+end
 
-# def last_vowel_index(word)
-#   vowels = "aeiou"
-#   i = 0
-#   indices = []
+def last_vowel_index(word)
+  vowels = "aeiou"
+  i = 0
+  indices = []
 
-#   while i < word.length
-#     if vowels.include?(word[i])
-#       indices << i
-#     end
-#     i += 1
-#   end
-#   indices.last
-# end
-# puts last_vowel_index("callie")
+  while i < word.length
+    if vowels.include?(word[i])
+      indices << i
+    end
+    i += 1
+  end
+  indices.last
+end
 
-# def remove_first_vowel(word)
-#   vowels = "aeiou"
-  
-#   first_vowel_index(word)
-  
-# end
-# puts remove_first_vowel("phoenix")
+def remove_first_vowel(word)
+  vowels = "aeiou"
+  new_word = []
+  first_vowel_index = first_vowel_index(word)
+
+
+  before_vowel = word[0...first_vowel_index]
+  after_vowel = word[(first_vowel_index + 1)..-1]
+  new_word << before_vowel + after_vowel
+
+  new_word.join("")  
+end
+
+def remove_last_vowel(word)
+  vowels = "aeiou"
+  new_word = []
+  last_vowel_index = last_vowel_index(word)
+
+
+  before_vowel = word[0...last_vowel_index]
+  after_vowel = word[(last_vowel_index + 1)..-1]
+  new_word << before_vowel + after_vowel
+
+  new_word.join("")  
+end
+
+
+
 
 # def alternating_vowel(sentence)
 #   words = sentence.split(" ")
 #   new_sentence = []
 
-#   words.each do |word|
-#     if word[0]
-
+#   words.each_with_index do |word, index|
+#     if index % 2 == 0
+#       new_sentence << 
 #     elsif
 #     end
-
 #   end
 
 
@@ -274,15 +292,15 @@ sentence according to the following rules:
     (example: 'siren'->'sibireben')
 =end
 
-def silly_word(word)
+# def silly_word(word)
 
-end
+# end
 
-def silly_talk(sentence)
-  words = sentence.split(" ")
+# def silly_talk(sentence)
+#   words = sentence.split(" ")
 
   
-end
+# end
 
 
 # p silly_talk('Kids like cats and dogs') # "Kibids likee cabats aband dobogs"
