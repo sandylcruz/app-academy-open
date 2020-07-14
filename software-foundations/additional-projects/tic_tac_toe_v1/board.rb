@@ -20,16 +20,15 @@ class Board
   def empty?(position)
     row = position[0]
     column = position[1]
+    value = grid[row][column]
 
-    
-    
+    value == "_"
   end
 
   def place_mark(position, mark)
     if valid?(position) && empty?(position)
-
+      grid[row][column] = mark
     end
-
   end
 
 
