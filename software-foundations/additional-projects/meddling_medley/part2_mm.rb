@@ -322,44 +322,39 @@ end
 
 def change_ends_with_consonant(word)
   vowels = "aeiouAEIOU"
-  new_word = []
-  i = 0
+  new_word = ""
 
-  while i < word.length
-    
-    if vowels.include?(word[i])
-      before_vowel = word[0...i]
-      new_word << before_vowel + word[i] + "b" + word[i..-1]
+  word.each_char do |char|
+    if vowels.include?(char)
+      new_word += char + "b" + char.downcase
     else
-      word[i]
+      new_word += char
     end
-    i += 1
   end
 
-  new_word.join("")
+  new_word
 end
-# puts change_ends_with_consonant("scooter") # scobooboteber
 
-# def silly_talk(sentence)
-#   words = sentence.split(" ")
-#   new_sentence = []
+def silly_talk(sentence)
+  words = sentence.split(" ")
+  new_sentence = []
 
-#   words.each do |word|
-#     if ends_with_vowel?(word)
-#       new_sentence << change_ends_with_vowel(word)
-#     else
-#       new_sentence << change_ends_with_consonant(word)
-#     end
-#   end
+  words.each do |word|
+    if ends_with_vowel?(word)
+      new_sentence << change_ends_with_vowel(word)
+    else
+      new_sentence << change_ends_with_consonant(word)
+    end
+  end
 
-#   new_sentence.join(" ")
-# end
+  new_sentence.join(" ")
+end
 
-# puts silly_talk('Kids like cats and dogs') == "Kibids likee cabats aband dobogs"
-# p silly_talk('Stop that scooter') # "Stobop thabat scobooboteber"
-# # p silly_talk('They can code') == "Thebey caban codee"
-# p silly_talk('He flew to Italy') # "Hee flebew too Ibitabaly"
-# puts puts 
+puts silly_talk('Kids like cats and dogs') == "Kibids likee cabats aband dobogs"
+p silly_talk('Stop that scooter') == "Stobop thabat scobooboteber"
+p silly_talk('They can code') == "Thebey caban codee"
+p silly_talk('He flew to Italy') == "Hee flebew too Ibitabaly"
+puts puts 
 
 =begin
 Write a method compress that accepts a string as an argument. 
