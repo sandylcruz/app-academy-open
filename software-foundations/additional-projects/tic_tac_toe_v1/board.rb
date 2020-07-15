@@ -39,9 +39,6 @@ class Board
   end
 
   def place_mark(position, mark)
-    puts valid?(position)
-    puts empty?(position)
-
     raise 'invalid mark' if !valid?(position) || !empty?(position)
     self[position] = mark
   end
@@ -53,28 +50,35 @@ class Board
   end
 
   def win_row?(mark)
-    if @grid[row].all?(mark)
-      return true
-    else
-      return false
+    @grid.any? do |row|
+      row.all?(mark)
     end
   end
 
-  def win_col?(mark)
-  end
+  # def win_col?(mark)
+  # end
 
-  def win_diagonal?(mark)
-  end
+  # def win_diagonal?(mark)
+  # end
 
-  def win?(mark)
-    if win_row?(mark) || win_col?(mark) || win_diagonal?(mark)
-      return true
-    else
-      return false
-    end
-  end
+  # def win?(mark)
+  #   if win_row?(mark) || win_col?(mark) || win_diagonal?(mark)
+  #     return true
+  #   else
+  #     return false
+  #   end
+  # end
 
-  def empty_positions?
-  end
+  # def empty_positions?
+  # end
 
 end
+
+b = Board.new
+
+b.place_mark([1, 0], :X)
+b.place_mark([1, 1], :X)
+b.place_mark([1, 2], :X)
+puts b.print
+
+puts b.win_row?(:X)
