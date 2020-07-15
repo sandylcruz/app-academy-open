@@ -46,6 +46,35 @@ class Board
     self[position] = mark
   end
 
+  def print
+    @grid.each do |row|
+      puts row.join(" ")
+    end
+  end
 
+  def win_row?(mark)
+    if @grid[row].all?(mark)
+      return true
+    else
+      return false
+    end
+  end
+
+  def win_col?(mark)
+  end
+
+  def win_diagonal?(mark)
+  end
+
+  def win?(mark)
+    if win_row?(mark) || win_col?(mark) || win_diagonal?(mark)
+      return true
+    else
+      return false
+    end
+  end
+
+  def empty_positions?
+  end
 
 end
