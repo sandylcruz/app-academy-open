@@ -51,15 +51,36 @@ class Board
 
   def win_row?(mark)
     @grid.any? do |row|
-      row.all?(mark)
+      row.all? { |ele| ele == mark }
     end
   end
 
-  # def win_col?(mark)
-  # end
+  def win_col?(mark)
+    height = @grid.length
+    width = @grid[0].length
+    i = 0
+    j = 0
 
-  # def win_diagonal?(mark)
-  # end
+    while i < width
+      column = []
+      
+      while j < height
+        value = @grid[i][j]
+        column << value
+        j += 1
+      end
+
+      is_win = column.all? { |ele| ele == mark }
+      return true if is_win 
+      i += 1
+    end
+    
+    return false
+  end
+
+  def win_diagonal?(mark)
+    
+  end
 
   # def win?(mark)
   #   if win_row?(mark) || win_col?(mark) || win_diagonal?(mark)
@@ -80,5 +101,5 @@ b.place_mark([1, 0], :X)
 b.place_mark([1, 1], :X)
 b.place_mark([1, 2], :X)
 puts b.print
-
 puts b.win_row?(:X)
+puts b.win_col?(:X)
