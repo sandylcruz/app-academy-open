@@ -80,15 +80,19 @@ class Board
 
   def win_diagonal?(mark)
     width = @grid.length
+    first_diagonal = []
     i = 0
 
     while i < width
-      
-      diagonal_1 = [i][i]
-      diagonal_2 = [i][2 - i]
-
+      diagonal_ele = @grid[i][i]
+      first_diagonal << diagonal_ele
       i += 1
     end
+
+    first_diagonal.all? { |ele| ele == mark }
+
+    
+    
   end
 
   # def win?(mark)
