@@ -74,12 +74,21 @@ class Board
       return true if is_win 
       i += 1
     end
-    
+
     return false
   end
 
   def win_diagonal?(mark)
-    
+    width = @grid.length
+    i = 0
+
+    while i < width
+      
+      diagonal_1 = [i][i]
+      diagonal_2 = [i][2 - i]
+
+      i += 1
+    end
   end
 
   # def win?(mark)
@@ -97,9 +106,9 @@ end
 
 b = Board.new
 
-b.place_mark([1, 0], :X)
+b.place_mark([0, 0], :X)
 b.place_mark([1, 1], :X)
-b.place_mark([1, 2], :X)
+b.place_mark([2, 2], :X)
 puts b.print
-puts b.win_row?(:X)
+
 puts b.win_col?(:X)
