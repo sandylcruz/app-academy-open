@@ -59,16 +59,15 @@ class Board
     height = @grid.length
     width = @grid[0].length
     i = 0
-    j = 0
 
     while i < width
       column = []
+      j = 0
       while j < height
-        value = @grid[i][j]
+        value = @grid[j][i]
         column << value
         j += 1
       end
-
       return true if column.all? { |ele| ele == mark }
       i += 1
     end
@@ -100,8 +99,6 @@ class Board
   end
 
   def win?(mark)
-    
-    puts win_col?(mark)
     if win_row?(mark) || win_col?(mark) || win_diagonal?(mark)
       return true
     else
@@ -110,7 +107,7 @@ class Board
   end
 
   def empty_positions?
-    (0..@grid.length).any? { |position| position.include?()}
+    # (0..@grid.length).any? { |position| position.include?()}
   end
 
 end
@@ -121,9 +118,9 @@ b.place_mark([0, 2], :X)
 b.place_mark([1, 0], :X)
 b.place_mark([2, 0], :X)
 
-# b.place_mark([0, 2], :X)
-# b.place_mark([1, 1], :X)
+# b.place_mark([0, 0], :X)
+# b.place_mark([1, 0], :X)
 # b.place_mark([2, 0], :X)
 
 puts b.win_col?(:X)
-# puts b.win?(:X)
+puts b.win?(:X)
