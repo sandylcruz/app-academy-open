@@ -81,6 +81,7 @@ class Board
   def win_diagonal?(mark)
     width = @grid.length
     first_diagonal = []
+    second_diagonal = []
     i = 0
 
     while i < width
@@ -88,11 +89,15 @@ class Board
       first_diagonal << diagonal_ele
       i += 1
     end
-
     first_diagonal.all? { |ele| ele == mark }
 
-    
-    
+    while i < width
+      diagonal_ele = grid[i][2 - i]
+      second_diagonal << diagonal_ele
+      i += 1
+    end
+
+    second_diagonal.all? { |ele| ele == mark }
   end
 
   # def win?(mark)
@@ -110,9 +115,9 @@ end
 
 b = Board.new
 
-b.place_mark([0, 0], :X)
+b.place_mark([0, 2], :X)
 b.place_mark([1, 1], :X)
-b.place_mark([2, 2], :X)
+b.place_mark([2, 0], :X)
 puts b.print
 
-puts b.win_col?(:X)
+puts b.win_diagonal?(:X)
