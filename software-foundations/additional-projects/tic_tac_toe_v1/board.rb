@@ -63,7 +63,6 @@ class Board
 
     while i < width
       column = []
-      
       while j < height
         value = @grid[i][j]
         column << value
@@ -110,10 +109,9 @@ class Board
     end
   end
 
-
-
-  # def empty_positions?
-  # end
+  def empty_positions?
+    (0..@grid.length).any? { |position| position.include?()}
+  end
 
 end
 
@@ -127,5 +125,5 @@ b.place_mark([2, 0], :X)
 # b.place_mark([1, 1], :X)
 # b.place_mark([2, 0], :X)
 
-# puts b.win_diagonal?(:X)
-puts b.win?(:X)
+puts b.win_col?(:X)
+# puts b.win?(:X)
