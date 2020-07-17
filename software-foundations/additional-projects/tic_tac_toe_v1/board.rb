@@ -107,17 +107,29 @@ class Board
   end
 
   def empty_positions?
-    indices = (0..@grid.length).to_a
-    positions = indices.product(indices)
-    positions.any? { |position| empty?(position) }
+    row = @grid.length
+    column = @grid[0].length
+
+    @grid.any? do |row|
+      row.any? do |ele|
+        ele == "_"
+      end
+    end
   end
+
 end
 
 b = Board.new
 
+b.place_mark([0, 0], :X)
+b.place_mark([0, 1], :X)
 b.place_mark([0, 2], :X)
 b.place_mark([1, 0], :X)
+b.place_mark([1, 1], :X)
+b.place_mark([1, 2], :X)
 b.place_mark([2, 0], :X)
+b.place_mark([2, 1], :X)
+b.place_mark([2, 2], :X)
 
 # b.place_mark([0, 0], :X)
 # b.place_mark([1, 0], :X)
@@ -125,4 +137,6 @@ b.place_mark([2, 0], :X)
 
 # puts b.win_col?(:X)
 # puts b.win?(:X)
+
 puts b.empty_positions?
+# b.print
