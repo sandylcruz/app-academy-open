@@ -1,21 +1,25 @@
-require './board.rb'
-require './human_player.rb'
+class Game
 
-def initialize(mark_1, mark_2)
-  player_1 = Human_player.new(mark_1)
-  player_2 = Human_player.new(mark_2)
-  @board = Board.new
-  @current_player = player_1
-end
+  require './board.rb'
+  require './human_player.rb'
 
-def switch_turn
-  if @current_player == player_1
-    @current_player == player_2
-  else
-    @current_player == player_1
+  def initialize(mark_1, mark_2)
+    player_1 = Human_player.new(mark_1)
+    player_2 = Human_player.new(mark_2)
+    @board = Board.new
+    @current_player = player_1
   end
-end
 
-def play
+  def switch_turn
+    if @current_player == player_1
+      @current_player == player_2
+    else
+      @current_player == player_1
+    end
+  end
+
+  def play
+  end
+  
 end
 
