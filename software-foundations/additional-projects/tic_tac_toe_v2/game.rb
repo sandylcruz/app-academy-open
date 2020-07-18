@@ -3,11 +3,12 @@ require './human_player.rb'
 require './invalid_position_error.rb'
 
 class Game
-  def initialize(mark_1, mark_2)
+  def initialize(size, mark_1, mark_2)
     @player_1 = HumanPlayer.new(mark_1)
     @player_2 = HumanPlayer.new(mark_2)
     @current_player = @player_1
-    @board = Board.new
+    @board = Board.new(size)
+    @size = size
   end
 
   def switch_turn
@@ -33,13 +34,13 @@ class Game
       end
       if @board.win?(@current_player.mark)
         @board.print
-        return "You won"
+        return "You won =^. .^="
       else
         switch_turn
       end
     end
     @board.print
-    puts "Game over"
+    puts "Game over =v. .v="
     puts "DRAW"
   end
 end

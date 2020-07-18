@@ -1,8 +1,8 @@
 require './invalid_position_error.rb'
 
 class Board
-  def initialize(n)
-    @grid = Array.new(n) { Array.new(n, "_") }
+  def initialize(size)
+    @grid = Array.new(size) { Array.new(size, "_") }
   end
 
   def valid?(position)
@@ -44,19 +44,19 @@ class Board
     self[position] = mark
   end
 
-  def print(n)
+  def print
     @grid.each do |row|
       puts row.join(" ")
     end
   end
 
-  def win_row?(mark, n)
+  def win_row?(mark)
     @grid.any? do |row|
       row.all? { |ele| ele == mark }
     end
   end
 
-  def win_col?(mark, n)
+  def win_col?(mark)
     height = @grid.length
     width = @grid[0].length
     i = 0
@@ -76,7 +76,7 @@ class Board
     return false
   end
 
-  def win_diagonal?(mark, n)
+  def win_diagonal?(mark)
     width = @grid.length
     first_diagonal = []
     second_diagonal = []
@@ -99,7 +99,7 @@ class Board
     second_diagonal.all? { |ele| ele == mark }
   end
 
-  def win?(mark, n)
+  def win?(mark)
     if win_row?(mark) || win_col?(mark) || win_diagonal?(mark)
       return true
     else
@@ -107,7 +107,7 @@ class Board
     end
   end
 
-  def empty_positions?(n)
+  def empty_positions?
     row = @grid.length
     column = @grid[0].length
 
@@ -117,27 +117,4 @@ class Board
       end
     end
   end
-
 end
-
-# b = Board.new
-
-# b.place_mark([0, 0], :X)
-# b.place_mark([0, 1], :X)
-# b.place_mark([0, 2], :X)
-# b.place_mark([1, 0], :X)
-# b.place_mark([1, 1], :X)
-# b.place_mark([1, 2], :X)
-# b.place_mark([2, 0], :X)
-# b.place_mark([2, 1], :X)
-# b.place_mark([2, 2], :X)
-
-# b.place_mark([0, 0], :X)
-# b.place_mark([1, 0], :X)
-# b.place_mark([2, 0], :X)
-
-# puts b.win_col?(:X)
-# puts b.win?(:X)
-
-# puts b.empty_positions?
-# b.print
