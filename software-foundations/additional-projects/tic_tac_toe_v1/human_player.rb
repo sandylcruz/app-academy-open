@@ -7,17 +7,11 @@ class HumanPlayer
 
   def get_position
     puts "Enter a position as two numbers with a space between them:"
-    position = gets.chomp.split(" ")
+    position = gets.chomp.split(" ").map(&:to_i)
     
     if position.length != 2
       raise "Invalid position"
     end
-
-    print position.map!(&:to_i)
-    
+    position
   end
 end
-
-player_1 = HumanPlayer.new(:X)
-puts player_1.mark
-player_1.get_position

@@ -1,3 +1,5 @@
+require './invalid_position_error.rb'
+
 class Board
 
   def initialize
@@ -39,7 +41,7 @@ class Board
   end
 
   def place_mark(position, mark)
-    raise 'invalid mark' if !valid?(position) || !empty?(position)
+    raise InvalidPositionError if !valid?(position) || !empty?(position)
     self[position] = mark
   end
 
@@ -119,17 +121,17 @@ class Board
 
 end
 
-b = Board.new
+# b = Board.new
 
-b.place_mark([0, 0], :X)
-b.place_mark([0, 1], :X)
-b.place_mark([0, 2], :X)
-b.place_mark([1, 0], :X)
-b.place_mark([1, 1], :X)
-b.place_mark([1, 2], :X)
-b.place_mark([2, 0], :X)
-b.place_mark([2, 1], :X)
-b.place_mark([2, 2], :X)
+# b.place_mark([0, 0], :X)
+# b.place_mark([0, 1], :X)
+# b.place_mark([0, 2], :X)
+# b.place_mark([1, 0], :X)
+# b.place_mark([1, 1], :X)
+# b.place_mark([1, 2], :X)
+# b.place_mark([2, 0], :X)
+# b.place_mark([2, 1], :X)
+# b.place_mark([2, 2], :X)
 
 # b.place_mark([0, 0], :X)
 # b.place_mark([1, 0], :X)
@@ -138,5 +140,5 @@ b.place_mark([2, 2], :X)
 # puts b.win_col?(:X)
 # puts b.win?(:X)
 
-puts b.empty_positions?
+# puts b.empty_positions?
 # b.print
