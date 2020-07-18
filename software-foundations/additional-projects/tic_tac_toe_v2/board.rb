@@ -1,16 +1,15 @@
 require './invalid_position_error.rb'
 
 class Board
-
-  def initialize
-    @grid = Array.new(3) { Array.new(3, "_") }
+  def initialize(n)
+    @grid = Array.new(n) { Array.new(n, "_") }
   end
 
   def valid?(position)
     row = position[0]
     column = position[1]
-    maximum_row = 3
-    maximum_column = 3
+    maximum_row = @grid.length
+    maximum_column = @grid.length
 
     if row < maximum_row && row >= 0 && column < maximum_column && column >= 0
       return true
@@ -45,19 +44,19 @@ class Board
     self[position] = mark
   end
 
-  def print
+  def print(n)
     @grid.each do |row|
       puts row.join(" ")
     end
   end
 
-  def win_row?(mark)
+  def win_row?(mark, n)
     @grid.any? do |row|
       row.all? { |ele| ele == mark }
     end
   end
 
-  def win_col?(mark)
+  def win_col?(mark, n)
     height = @grid.length
     width = @grid[0].length
     i = 0
@@ -77,7 +76,7 @@ class Board
     return false
   end
 
-  def win_diagonal?(mark)
+  def win_diagonal?(mark, n)
     width = @grid.length
     first_diagonal = []
     second_diagonal = []
@@ -100,7 +99,7 @@ class Board
     second_diagonal.all? { |ele| ele == mark }
   end
 
-  def win?(mark)
+  def win?(mark, n)
     if win_row?(mark) || win_col?(mark) || win_diagonal?(mark)
       return true
     else
@@ -108,7 +107,7 @@ class Board
     end
   end
 
-  def empty_positions?
+  def empty_positions?(n)
     row = @grid.length
     column = @grid[0].length
 
