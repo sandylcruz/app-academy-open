@@ -3,10 +3,9 @@ require './human_player.rb'
 require './invalid_position_error.rb'
 
 class Game
-  def initialize(size, mark_1, mark_2)
-    @player_1 = HumanPlayer.new(mark_1)
-    @player_2 = HumanPlayer.new(mark_2)
-    @current_player = @player_1
+  def initialize(size, *marks)
+    @players = marks.map { |mark| HumanPlayer.new(mark) }
+    @current_player = @players.first
     @board = Board.new(size)
     @size = size
   end
