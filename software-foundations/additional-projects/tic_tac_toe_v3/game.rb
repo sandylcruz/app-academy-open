@@ -1,10 +1,17 @@
 require './board.rb'
 require './human_player.rb'
+require './computer_player.rb'
 require './invalid_position_error.rb'
 
 class Game
-  def initialize(size, *marks)
-    @players = marks.map { |mark| HumanPlayer.new(mark) }
+  def initialize(size, players)
+    @players = players.map do |mark, is_computer| 
+      if is_computer
+        ComputerPlayer.new(mark)
+      else
+        HumanPlayer.new(mark) 
+      end
+    end
     @current_player = @players.first
     @board = Board.new(size)
     @size = size
@@ -17,9 +24,11 @@ class Game
   def play
     while @board.empty_positions?
       @board.print
+      choices = @board.legal_positions
       while true
         begin
-          position = @current_player.get_position
+          position = @current_player.get_position(choices)
+          @current_player.mark
           @board.place_mark(position, @current_player.mark)
           break
         rescue InvalidPositionError
