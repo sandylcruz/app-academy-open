@@ -6,8 +6,10 @@ class ComputerPlayer
 
   def get_position(legal_positions)
     positions = legal_positions
-    positions.sample
+    choice = positions.sample
+    puts "The computer chose position #{choice}"
+    choice
   end
-
+  
 
 end
