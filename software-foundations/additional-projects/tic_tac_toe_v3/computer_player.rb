@@ -5,6 +5,8 @@ class ComputerPlayer
   end
 
   def get_position(legal_positions)
+    positions = legal_positions
+    positions.sample
   end
 
 

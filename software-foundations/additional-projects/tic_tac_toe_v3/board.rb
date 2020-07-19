@@ -119,8 +119,9 @@ class Board
   end
 
   def legal_positions
-    indices = (0..@grid.length).to_a
+    indices = (0...@grid.length).to_a
     positions = indices.product(indices)
     positions.select { |position| empty?(position) }
   end
+  
 end
