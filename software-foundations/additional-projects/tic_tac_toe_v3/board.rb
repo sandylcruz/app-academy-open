@@ -124,5 +124,3 @@ class Board
     positions.select { |position| empty?(position) }
   end
 end
-
-puts legal_positions
