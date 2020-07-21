@@ -56,7 +56,7 @@ class List
     puts "------------------------------------------"
     puts @label.upcase
     puts "------------------------------------------"
-    puts "Index | Item |l. Deadline"
+    puts "Index | Item | Deadline"
     puts "------------------------------------------"
 
     @items.each.with_index do |item, index|
@@ -78,7 +78,6 @@ class List
       index -= 1
     end
     return true
-    self.print
   end
 
   def down(index, amount = 1)
@@ -90,6 +89,10 @@ class List
       index += 1
     end
     return true
+  end
+
+  def sort_by_date!
+    @items.sort_by! { |item| item.deadline }
   end
 
 end
