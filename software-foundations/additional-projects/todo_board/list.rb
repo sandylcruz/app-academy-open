@@ -56,7 +56,7 @@ class List
     puts "------------------------------------------"
     puts @label.upcase
     puts "------------------------------------------"
-    puts "Index | Item  Deadline"
+    puts "Index | Item |l. Deadline"
     puts "------------------------------------------"
 
     @items.each.with_index do |item, index|
@@ -78,18 +78,18 @@ class List
       index -= 1
     end
     return true
+    self.print
   end
 
   def down(index, amount = 1)
     return false if !valid_index?(index)
   
-    while amount > 0 && index != 0
+    while amount > 0 && index != (size - 1)
       swap(index, index + 1)
       amount += 1
       index += 1
     end
     return true
   end
-
 
 end
