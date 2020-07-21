@@ -42,4 +42,33 @@ class List
   def priority
     @items[0]
   end
+
+  def print_full_item(index)
+    item = @items[index]
+    print "#{item.title} #{item.description} #{item.deadline}"
+  end
+
+  def print
+    puts "------------------------------------------"
+    puts @label.upcase
+    puts "------------------------------------------"
+    puts "Index | Item | Deadline"
+    puts "------------------------------------------"
+
+    @items.each.with_index do |item, index|
+      puts "#{index} | #{item.title} | #{item.deadline} "
+    end
+    puts "------------------------------------------"
+  end
+
+  def print_priority
+  end
+
+  def up(index, amount)
+  end
+
+  def down(index, amount)
+  end
+
+
 end

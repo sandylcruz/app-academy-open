@@ -1,7 +1,5 @@
 class Item
-
-  attr_reader :deadline
-  attr_writer  :title, :description
+  attr_accessor :deadline, :title, :description
 
   def self.valid_date?(date_string)
     split_date = date_string.split("-")
