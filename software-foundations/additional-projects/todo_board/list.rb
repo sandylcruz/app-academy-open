@@ -45,26 +45,43 @@ class List
 
   def print_full_item(index)
     item = @items[index]
-    print "#{item.title} #{item.description} #{item.deadline}"
+    return nil if index.nil?
+
+    puts "------------------------------------------"
+    puts "#{item.title} #{item.description} #{item.deadline}"
+    puts "------------------------------------------"
   end
 
   def print
     puts "------------------------------------------"
     puts @label.upcase
     puts "------------------------------------------"
-    puts "Index | Item | Deadline"
+    puts "Index | Item  Deadline"
     puts "------------------------------------------"
 
     @items.each.with_index do |item, index|
-      puts "#{index} | #{item.title} | #{item.deadline} "
+      puts "#{index} | #{item.title} | #{item.deadline}"
     end
     puts "------------------------------------------"
   end
 
   def print_priority
+    puts "------------------------------------------"
+    print_full_item(0)
+    puts "------------------------------------------"
   end
 
   def up(index, amount)
+    if !valid_index?(index)
+      return false
+    else
+      i = 0
+      num = amount
+      num.times do |index, item|
+        index[i - 1], index[i] = index[i], index[i - 1]
+        i += 1
+      end
+    end
   end
 
   def down(index, amount)
