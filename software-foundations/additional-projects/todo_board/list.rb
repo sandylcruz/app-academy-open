@@ -1,4 +1,4 @@
-require ./item.rb
+require "./item.rb"
 
 class List
   attr_accessor :label
@@ -8,9 +8,10 @@ class List
     @items = []
   end
 
-  def add_item(title, deadline, description)
+  def add_item(title, deadline, description = "")
     return false if !Item.valid_date?(deadline)
     @items << Item.new(title, deadline, description)
+    return true
   end
 
   def size
@@ -28,14 +29,18 @@ class List
   end
 
   def swap(index_1, index_2)
+    return false if !valid_index?(index_1) || !valid_index?(index_2)
+   
+    @items[index_1], @items[index_2] = @items[index_2], @items[index_1]
+    return true
+    end
   end
 
   def [](index)
+    @items[index]
   end
 
   def priority
+    @items[0]
   end
-
-
-
 end
