@@ -66,25 +66,29 @@ class List
   end
 
   def print_priority
-    puts "------------------------------------------"
     print_full_item(0)
-    puts "------------------------------------------"
   end
 
-  def up(index, amount)
-    if !valid_index?(index)
-      return false
-    else
-      i = 0
-      num = amount
-      num.times do |index, item|
-        index[i - 1], index[i] = index[i], index[i - 1]
-        i += 1
-      end
+  def up(index, amount = 1)
+    return false if !valid_index?(index)
+  
+    while amount > 0 && index != 0
+      swap(index, index - 1)
+      amount -= 1
+      index -= 1
     end
+    return true
   end
 
-  def down(index, amount)
+  def down(index, amount = 1)
+    return false if !valid_index?(index)
+  
+    while amount > 0 && index != 0
+      swap(index, index + 1)
+      amount += 1
+      index += 1
+    end
+    return true
   end
 
 
