@@ -19,7 +19,7 @@ class List
   end
 
   def valid_index?(index)
-    index_range = (0...List.length)
+    index_range = (0...@items.length)
 
     if !index_range.include?(index)
       return false
@@ -33,7 +33,6 @@ class List
    
     @items[index_1], @items[index_2] = @items[index_2], @items[index_1]
     return true
-    end
   end
 
   def [](index)
