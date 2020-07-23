@@ -13,15 +13,20 @@ class TodoBoard
     when "mktodo"
       @list.add_item(*args)
     when "up"
+      index = args[0]
       @list.up(index, amount = 1)
     when "down"
+      index = args[0]
       @list.down(index, amount = 1)
     when "swap"
-      @list.s    f5wap(index_1, index_2)
+      first = args[0].to_i
+      second = args[1].to_i
+      @list.swap(first, second)
     when "sort"
       @list.sort_by_date!
     when "priority"
-      @list.print_priority(index)
+      index = @list[0]
+       @list.print_priority(index)
     when "print"
       @list.print
     when  "quit"
@@ -32,7 +37,6 @@ class TodoBoard
     true
   end
  
-
   def run
     loop do
       commandvalue = get_command

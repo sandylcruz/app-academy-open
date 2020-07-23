@@ -34,6 +34,11 @@ class List
     @items[index_1], @items[index_2] = @items[index_2], @items[index_1]
     return true
   end
+  # my_list = List.new('Groceries')
+  # my_list.add_item('cheese', '2019-10-25', 'Get American and Feta for good measure.')
+  # my_list.add_item('toothpaste', '2019-10-25')
+  # my_list.add_item('shampoo', '2019-10-24')
+  # puts swap(0, 1)
 
   def [](index)
     @items[index]
