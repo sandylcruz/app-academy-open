@@ -13,10 +13,10 @@ class TodoBoard
     when "mktodo"
       @list.add_item(*args)
     when "up"
-      index = args[0]
+      index = args[0].to_i
       @list.up(index, amount = 1)
     when "down"
-      index = args[0]
+      index = args[0].to_i
       @list.down(index, amount = 1)
     when "swap"
       first = args[0].to_i
