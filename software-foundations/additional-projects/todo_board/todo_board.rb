@@ -27,7 +27,12 @@ class TodoBoard
     when "priority"
        @list.print_priority
     when "print"
-      @list.print
+      if args.empty?
+        @list.print
+      else
+        index = args[0]
+        @list.print_full_item(index.to_i)
+      end
     when  "quit"
       return false
     else
