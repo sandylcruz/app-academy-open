@@ -48,7 +48,7 @@ class List
     return nil if index.nil?
 
     puts "------------------------------------------"
-    puts "#{item.title} #{item.description} #{item.deadline}"
+    puts "#{item.title} #{item.description} #{item.deadline} | #{item.done}"
     puts "------------------------------------------"
   end
 
@@ -56,11 +56,11 @@ class List
     puts "------------------------------------------"
     puts @label.upcase
     puts "------------------------------------------"
-    puts "Index | Item | Deadline"
+    puts "Index | Item | Deadline | Done"
     puts "------------------------------------------"
 
     @items.each.with_index do |item, index|
-      puts "#{index} | #{item.title} | #{item.deadline}"
+      puts "#{index} | #{item.title} | #{item.deadline} | #{item.done} "
     end
     puts "------------------------------------------"
   end
@@ -95,4 +95,14 @@ class List
     @items.sort_by! { |item| item.deadline }
   end
 
+  def remove_item(index)
+    return false if !valid_index(index?)
+  end
+
+  def toggle_item(index)
+    @items[index].toggle
+  end
+
+  def purge
+  end
 end

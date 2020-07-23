@@ -1,6 +1,4 @@
 class Item
-  attr_accessor :deadline, :title, :description
-
   def self.valid_date?(date_string)
     split_date = date_string.split("-")
     year = split_date[0]
@@ -14,14 +12,19 @@ class Item
   end
   
   def initialize(title, deadline, description)
+    raise "deadline is not valid" if !Item.valid_date?(deadline)
     @title = title
     @deadline = deadline
     @description = description
-    raise "deadline is not valid" if !Item.valid_date?(deadline)
+    @done = false
   end
 
   def deadline=(new_deadline)
     raise 'deadline is not valid' if !Item.valid_date?(new_deadline)
     @deadline = new_deadline
+  end
+
+  def toggle
+   @done = !@done
   end
 end

@@ -33,6 +33,8 @@ class TodoBoard
         index = args[0]
         @list.print_full_item(index.to_i)
       end
+    when "toggle"
+      @list.toggle
     when  "quit"
       return false
     else
@@ -42,7 +44,7 @@ class TodoBoard
   end
  
   def run
-    loop do
+    loop do 
       commandvalue = get_command
       break if commandvalue == false
     end
