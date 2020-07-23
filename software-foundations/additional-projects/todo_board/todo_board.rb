@@ -25,8 +25,7 @@ class TodoBoard
     when "sort"
       @list.sort_by_date!
     when "priority"
-      index = @list[0]
-       @list.print_priority(index)
+       @list.print_priority
     when "print"
       @list.print
     when  "quit"
