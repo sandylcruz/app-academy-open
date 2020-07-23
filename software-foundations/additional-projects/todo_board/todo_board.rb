@@ -47,8 +47,4 @@ class TodoBoard
       break if commandvalue == false
     end
   end
-
-
-
-
 end
