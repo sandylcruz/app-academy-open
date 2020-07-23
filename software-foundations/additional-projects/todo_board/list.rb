@@ -97,6 +97,7 @@ class List
 
   def remove_item(index)
     return false if !valid_index(index?)
+    @items.delete(index)
   end
 
   def toggle_item(index)
@@ -104,5 +105,8 @@ class List
   end
 
   def purge
+    if @done
+      
+    end
   end
 end

@@ -10,13 +10,16 @@ class Item
     return false if day.to_i > 31 || day.to_i < 1
     return true
   end
+
+  attr_reader :deadline, :done
+  attr_accessor :title, :description
   
   def initialize(title, deadline, description)
-    raise "deadline is not valid" if !Item.valid_date?(deadline)
     @title = title
     @deadline = deadline
     @description = description
     @done = false
+    raise "deadline is not valid" if !Item.valid_date?(deadline)
   end
 
   def deadline=(new_deadline)
@@ -25,6 +28,6 @@ class Item
   end
 
   def toggle
-   @done = !@done
+    @done = !@done
   end
 end

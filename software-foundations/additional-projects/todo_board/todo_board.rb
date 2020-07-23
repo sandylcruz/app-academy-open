@@ -34,7 +34,11 @@ class TodoBoard
         @list.print_full_item(index.to_i)
       end
     when "toggle"
-      @list.toggle
+      index = args[0].to_i
+      @list.toggle_item(index)
+    when "rm"
+      index = args[0].to_i
+      @list.remove_item(index)
     when  "quit"
       return false
     else
