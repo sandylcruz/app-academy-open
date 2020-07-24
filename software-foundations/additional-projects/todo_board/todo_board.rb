@@ -41,6 +41,8 @@ class TodoBoard
       @list.remove_item(index)
     when  "quit"
       return false
+    when "purge"
+      @list.purge
     else
       puts "invalid command"
     end

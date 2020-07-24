@@ -1,4 +1,5 @@
 require "./item.rb"
+CHECKMARK = "\u2713".force_encoding('utf-8')
 
 class List
   attr_accessor :label
@@ -43,15 +44,6 @@ class List
     @items[0]
   end
 
-  def print_full_item(index)
-    item = @items[index]
-    return nil if index.nil?
-
-    puts "------------------------------------------"
-    puts "#{item.title} #{item.description} #{item.deadline} | #{item.done}"
-    puts "------------------------------------------"
-  end
-
   def print
     puts "------------------------------------------"
     puts @label.upcase
@@ -60,8 +52,19 @@ class List
     puts "------------------------------------------"
 
     @items.each.with_index do |item, index|
-      puts "#{index} | #{item.title} | #{item.deadline} | #{item.done} "
+      status = item.done ? CHECKMARK : ' '
+      puts "#{index} | #{item.title} | #{item.deadline} | [#{status}] "
     end
+    puts "------------------------------------------"
+  end
+
+  def print_full_item(index)
+    item = @items[index]
+    return nil if index.nil?
+    status = item.done ? CHECKMARK : [' ']
+
+    puts "------------------------------------------"
+    puts "#{item.title} #{item.description} #{item.deadline} | [#{status}]"
     puts "------------------------------------------"
   end
 
@@ -96,8 +99,8 @@ class List
   end
 
   def remove_item(index)
-    return false if !valid_index(index?)
-    @items.delete(index)
+    return false if !valid_index?(index)
+    @items.delete_at(index)
   end
 
   def toggle_item(index)
@@ -105,8 +108,6 @@ class List
   end
 
   def purge
-    if @done
-      
-    end
+    @items.delete_if { |item| item.done }
   end
 end
