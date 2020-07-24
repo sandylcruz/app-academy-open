@@ -17,12 +17,12 @@ Enumerable's each method.
     self 
   end
 
-  return_value = [1, 2, 3].my_each do |num|
-    puts num
-  end.my_each do |num|
-    puts num
-  end
- 
+  # return_value = [1, 2, 3].my_each do |num|
+  #   puts num
+  # end.my_each do |num|
+  #   puts num
+  # end
+  # print return_value == [ 1, 2, 3]
 
   # =begin
   # Now extend the Array class to include my_select that takes 
@@ -30,11 +30,25 @@ Enumerable's each method.
   # that satisfy the block. Use your my_each method!
   # =end
 
+  def my_select(&prc)
+    true_array = []
+    i = 0
 
-  # a = [1, 2, 3]
-  # a.my_select { |num| num > 1 } # => [2, 3]
-  # a.my_select { |num| num == 4 } # => []
-  # puts puts
+    while i < self.length
+      current_num = self[i]
+      if prc.call(current_num) == true
+        true_array << self[i]
+      end
+      i += 1
+    end
+
+    true_array
+  end
+
+  a = [1, 2, 3]
+  print a.my_select { |num| num > 1 } # => [2, 3]
+  print a.my_select { |num| num == 4 } # => []
+  puts puts
 
   # =begin
   # Write my_reject to take a block and return a new array 
@@ -52,10 +66,11 @@ Enumerable's each method.
     rejected_array
   end
 
-  a = [1, 2, 3]
-  print a.my_reject { |num| num > 1 } # => [1]
-  print a.my_reject { |num| num == 4 } # => [1, 2, 3]
-  puts puts
+  # a = [1, 2, 3]
+  # print a.my_reject { |num| num > 1 } == [1]
+  # puts
+  # print a.my_reject { |num| num == 4 } == [1, 2, 3]
+  # puts puts
 
   # =begin
   # Write my_any? to return true if any elements of the array 
