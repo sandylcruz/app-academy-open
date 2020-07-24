@@ -7,20 +7,22 @@ Enumerable's each method.
 =end
 
   def my_each(&prc)
-    array = []
     i = 0
+
     while i < self.length
-      current = self[i]
-      array << current
+      prc.call(self[i])
       i += 1
     end
-    array 
+
+    self 
   end
-  a = [1, 2, 3]
-  puts return_value = [-1, -2, -3].my_each do |num|
+
+  return_value = [1, 2, 3].my_each do |num|
+    puts num
+  end.my_each do |num|
     puts num
   end
-  puts puts 
+ 
 
   # =begin
   # Now extend the Array class to include my_select that takes 
@@ -39,21 +41,21 @@ Enumerable's each method.
   # excluding elements that satisfy the block.
   # =end
 
-  # def my_reject(&prc)
-  #   rejected_array = []
+  def my_reject(&prc)
+    rejected_array = []
 
-  #   self.each do |ele|
-  #     if !prc.call(ele)
-  #       rejected_array << ele
-  #     end
-  #   end
-  #   rejected_array
-  # end
+    self.my_each do |ele|
+      if !prc.call(ele)
+        rejected_array << ele
+      end
+    end
+    rejected_array
+  end
 
-  # a = [1, 2, 3]
-  # print a.my_reject { |num| num > 1 } # => [1]
-  # print a.my_reject { |num| num == 4 } # => [1, 2, 3]
-  # puts puts
+  a = [1, 2, 3]
+  print a.my_reject { |num| num > 1 } # => [1]
+  print a.my_reject { |num| num == 4 } # => [1, 2, 3]
+  puts puts
 
   # =begin
   # Write my_any? to return true if any elements of the array 
