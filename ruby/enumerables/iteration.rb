@@ -17,13 +17,6 @@ Enumerable's each method.
     self 
   end
 
-  # return_value = [1, 2, 3].my_each do |num|
-  #   puts num
-  # end.my_each do |num|
-  #   puts num
-  # end
-  # print return_value == [ 1, 2, 3]
-
   # =begin
   # Now extend the Array class to include my_select that takes 
   # a block and returns a new array containing only elements 
@@ -45,11 +38,6 @@ Enumerable's each method.
     true_array
   end
 
-  a = [1, 2, 3]
-  print a.my_select { |num| num > 1 } # => [2, 3]
-  print a.my_select { |num| num == 4 } # => []
-  puts puts
-
   # =begin
   # Write my_reject to take a block and return a new array 
   # excluding elements that satisfy the block.
@@ -66,24 +54,66 @@ Enumerable's each method.
     rejected_array
   end
 
-  # a = [1, 2, 3]
-  # print a.my_reject { |num| num > 1 } == [1]
-  # puts
-  # print a.my_reject { |num| num == 4 } == [1, 2, 3]
-  # puts puts
-
   # =begin
   # Write my_any? to return true if any elements of the array 
-  # satisfy the block and my_all? to return true only if all 
-  # elements satisfy the block.
+  # satisfy the block.
   # =end
 
-  # def my_any?(&prc)
-  # end
+  def my_any?(&prc)
+    i = 0
 
-  # a = [1, 2, 3]
-  # a.my_any? { |num| num > 1 } # => true
-  # a.my_any? { |num| num == 4 } # => false
-  # a.my_all? { |num| num > 1 } # => false
-  # a.my_all? { |num| num < 4 } # => true
+    while i < self.length
+      if prc.call(self[i]) == true
+        return true
+      end
+      i += 1
+    end
+    return false
+  end
+
+  # =begin
+  # Write my_all? to return true only if all elements satisfy block
+  # =end 
+
+  def my_all?(&prc)
+    i = 0
+
+    while i < self.length
+      if prc.call(self[i]) != true
+        return false
+      end
+      i += 1
+    end
+
+    return true 
+  end
+
 end
+
+# puts "my each test"
+# return_value = [1, 2, 3].my_each do |num|
+#   # puts num
+# end.my_each do |num|
+#   # puts num
+# end
+# puts return_value == [ 1, 2, 3]
+
+# puts "my select test"
+# a = [1, 2, 3]
+# puts a.my_select { |num| num > 1 } == [2, 3]
+# puts a.my_select { |num| num == 4 } == []
+
+# puts "my reject test"
+# a = [1, 2, 3]
+# puts a.my_reject { |num| num > 1 } == [1]
+# puts a.my_reject { |num| num == 4 } == [1, 2, 3]
+
+# puts "my any test"
+# a = [1, 2, 3]
+# puts a.my_any? { |num| num > 1 } == true
+# puts a.my_any? { |num| num == 4 } == false
+
+# puts "my all test"
+# a = [1, 2, 3]
+# puts a.my_all? { |num| num > 1 } == false
+# puts a.my_all? { |num| num < 4 } == true
