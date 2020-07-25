@@ -2,13 +2,25 @@ class Array
   # my_flatten should return all elements of the array into a 
   # new, one-dimensional array. Hint: use recursion!
 
-  # def my_flatten
-  #   flattened_array = []
+  def my_flatten
+    flattened_array = []
 
-  #   flattened_array
-  # end
-  # [1, 2, 3, [4, [5, 6]], [[[7]], 8]].my_flatten # => [1, 2, 3, 4, 5, 6, 7, 8]
-  # puts
+    self.each do |element|
+      is_array = element.kind_of?(Array)
+      if !is_array
+        flattened_array.push(element)
+      else
+        flattened_element = element.my_flatten
+        flattened_element.each do |sub_element|
+          flattened_array.push(sub_element)
+        end
+      end
+    end
+
+    flattened_array
+  end
+  print [1, 2, 3, [4, [5, 6]], [[[7]], 8]].my_flatten == [1, 2, 3, 4, 5, 6, 7, 8]
+  puts
 
   # Write my_zip to take any number of arguments. It should 
   # return a new array containing self.length elements. 
@@ -42,22 +54,29 @@ class Array
   # negative value is given, the array is rotated in the opposite
   # direction.
 
-  # def my_rotate(num = 1)
-  #   rotated_array = []
+  def my_rotate(num = 1)
+    rotated = []
+    i = 0
     
-  #   rotated_array
-  # end
+    num.times do 
+      rotated.unshift(self[i])
+      i += 1
+    end
+    
+    rotated
+  end
 
   # a = [ "a", "b", "c", "d" ]
-  # a.my_rotate         #=> ["b", "c", "d", "a"]
-  # a.my_rotate(2)      #=> ["c", "d", "a", "b"]
-  # a.my_rotate(-3)     #=> ["b", "c", "d", "a"]
-  # a.my_rotate(15)     #=> ["d", "a", "b", "c"]
-  # puts
+  # puts a.my_rotate         #=> ["b", "c", "d", "a"]
+  # puts a.my_rotate(2)      #=> ["c", "d", "a", "b"]
+  # puts a.my_rotate(-3)     #=> ["b", "c", "d", "a"]
+  # puts a.my_rotate(15)     #=> ["d", "a", "b", "c"]
+  puts
 
   # my_join returns a single string containing all the elements 
   # of the array, separated by the given string separator. If no 
   # separator is given, an empty string is used.
+
   # def my_join
   #   return "" if self.empty?
   # end
@@ -80,6 +99,6 @@ class Array
     reversed
   end
 
-  puts [ "a", "b", "c" ].my_reverse == ["c", "b", "a"]
-  puts [ 1 ].my_reverse == [1]
+  # puts [ "a", "b", "c" ].my_reverse == ["c", "b", "a"]
+  # puts [ 1 ].my_reverse == [1]
 end
