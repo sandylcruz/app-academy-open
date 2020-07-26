@@ -29,33 +29,33 @@ class Array
   # elements at that index. If the size of any argument is 
   # less than self, nil is returned for that location.
 
-  def my_zip(*arrays)
-    i = 0
-    zipped_array = Array.new(self.length) { Array.new(0) }
+  # def my_zip(*arrays)
+  #   i = 0
+  #   zipped_array = Array.new(self.length) { Array.new(0) }
 
-    while i < (self.length)
-      zipped_array[i] << self[i]
-      arrays.each do |array|
-        zipped_array[i] << array[i]
-      end
-      i += 1
-    end
+  #   while i < (self.length)
+  #     zipped_array[i] << self[i]
+  #     arrays.each do |array|
+  #       zipped_array[i] << array[i]
+  #     end
+  #     i += 1
+  #   end
 
-    zipped_array
-  end
-  
-  a = [ 4, 5, 6 ]
-  b = [ 7, 8, 9 ]
-  c = [10, 11, 12]
-  d = [13, 14, 15]
-  print [1, 2, 3].my_zip(a, b) == [[1, 4, 7], [2, 5, 8], [3, 6, 9]]
-  puts 
-  print  a.my_zip([1,2], [8]) == [[4, 1, 8], [5, 2, nil], [6, nil, nil]]
-  puts 
-  print [1, 2].my_zip(a, b) == [[1, 4, 7], [2, 5, 8]]
-  puts
-  print [1, 2].my_zip(a, b, c, d) == [[1, 4, 7, 10, 13], [2, 5, 8, 11, 14]]
-  puts
+  #   zipped_array
+  # end
+
+  # a = [ 4, 5, 6 ]
+  # b = [ 7, 8, 9 ]
+  # c = [10, 11, 12]
+  # d = [13, 14, 15]
+  # print [1, 2, 3].my_zip(a, b) == [[1, 4, 7], [2, 5, 8], [3, 6, 9]]
+  # puts 
+  # print  a.my_zip([1,2], [8]) == [[4, 1, 8], [5, 2, nil], [6, nil, nil]]
+  # puts 
+  # print [1, 2].my_zip(a, b) == [[1, 4, 7], [2, 5, 8]]
+  # puts
+  # print [1, 2].my_zip(a, b, c, d) == [[1, 4, 7, 10, 13], [2, 5, 8, 11, 14]]
+  # puts
 
   # Write a method my_rotate that returns a new array containing 
   # all the elements of the original array in a rotated order. 
@@ -63,23 +63,30 @@ class Array
   # negative value is given, the array is rotated in the opposite
   # direction.
 
-  # def my_rotate(num = 1)
-  #   rotated = []
-  #   i = 0
-    
-  #   num.times do 
-  #     rotated.unshift(self[i])
-  #     i += 1
-  #   end
-    
-  #   rotated
-  # end
+  def my_rotate(num = 1)
+    rotated = []
 
+    self.each do |element|
+      rotated.push(element)
+    end
+
+    number_of_rotations = num % self.length
+
+    number_of_rotations.times do
+      element_to_move = rotated.shift
+      rotated.push(element_to_move)
+    end
+    
+    rotated
+  end
+
+  # a.my_rotate(1) == a.my_rotate(5) == a.my_rotate(9)...
   # a = [ "a", "b", "c", "d" ]
-  # puts a.my_rotate         #=> ["b", "c", "d", "a"]
-  # puts a.my_rotate(2)      #=> ["c", "d", "a", "b"]
-  # puts a.my_rotate(-3)     #=> ["b", "c", "d", "a"]
-  # puts a.my_rotate(15)     #=> ["d", "a", "b", "c"]
+  # puts a.my_rotate == ["b", "c", "d", "a"]
+  # puts a.my_rotate() == ["b", "c", "d", "a"]
+  # puts a.my_rotate(2) == ["c", "d", "a", "b"]
+  # puts a.my_rotate(-3) == ["b", "c", "d", "a"]
+  # puts a.my_rotate(15000003) == ["d", "a", "b", "c"]
   # puts
 
   # my_join returns a single string containing all the elements 
