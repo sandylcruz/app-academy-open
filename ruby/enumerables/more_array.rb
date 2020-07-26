@@ -2,25 +2,25 @@ class Array
   # my_flatten should return all elements of the array into a 
   # new, one-dimensional array. Hint: use recursion!
 
-  def my_flatten
-    flattened_array = []
+  # def my_flatten
+  #   flattened_array = []
 
-    self.each do |element|
-      is_array = element.kind_of?(Array)
-      if !is_array
-        flattened_array.push(element)
-      else
-        flattened_element = element.my_flatten
-        flattened_element.each do |sub_element|
-          flattened_array.push(sub_element)
-        end
-      end
-    end
+  #   self.each do |element|
+  #     is_array = element.kind_of?(Array)
+  #     if !is_array
+  #       flattened_array.push(element)
+  #     else
+  #       flattened_element = element.my_flatten
+  #       flattened_element.each do |sub_element|
+  #         flattened_array.push(sub_element)
+  #       end
+  #     end
+  #   end
 
-    flattened_array
-  end
-  print [1, 2, 3, [4, [5, 6]], [[[7]], 8]].my_flatten == [1, 2, 3, 4, 5, 6, 7, 8]
-  puts
+  #   flattened_array
+  # end
+  # print [1, 2, 3, [4, [5, 6]], [[[7]], 8]].my_flatten == [1, 2, 3, 4, 5, 6, 7, 8]
+  # puts
 
   # Write my_zip to take any number of arguments. It should 
   # return a new array containing self.length elements. 
@@ -29,24 +29,33 @@ class Array
   # elements at that index. If the size of any argument is 
   # less than self, nil is returned for that location.
 
-  # def my_zip(*args)
-  #   args.each do |arg|
-  #     return nil if arg <= 1
-  #   end
-  #   zipped_array = []
+  def my_zip(*arrays)
+    i = 0
+    zipped_array = Array.new(self.length) { Array.new(0) }
 
-  #   zipped_array
-  # end
-  # a = [ 4, 5, 6 ]
-  # b = [ 7, 8, 9 ]
-  # [1, 2, 3].my_zip(a, b) # => [[1, 4, 7], [2, 5, 8], [3, 6, 9]]
-  # a.my_zip([1,2], [8])   # => [[4, 1, 8], [5, 2, nil], [6, nil, nil]]
-  # [1, 2].my_zip(a, b)    # => [[1, 4, 7], [2, 5, 8]]
+    while i < (self.length)
+      zipped_array[i] << self[i]
+      arrays.each do |array|
+        zipped_array[i] << array[i]
+      end
+      i += 1
+    end
 
-  # c = [10, 11, 12]
-  # d = [13, 14, 15]
-  # [1, 2].my_zip(a, b, c, d)    # => [[1, 4, 7, 10, 13], [2, 5, 8, 11, 14]]
-  # puts
+    zipped_array
+  end
+  
+  a = [ 4, 5, 6 ]
+  b = [ 7, 8, 9 ]
+  c = [10, 11, 12]
+  d = [13, 14, 15]
+  print [1, 2, 3].my_zip(a, b) == [[1, 4, 7], [2, 5, 8], [3, 6, 9]]
+  puts 
+  print  a.my_zip([1,2], [8]) == [[4, 1, 8], [5, 2, nil], [6, nil, nil]]
+  puts 
+  print [1, 2].my_zip(a, b) == [[1, 4, 7], [2, 5, 8]]
+  puts
+  print [1, 2].my_zip(a, b, c, d) == [[1, 4, 7, 10, 13], [2, 5, 8, 11, 14]]
+  puts
 
   # Write a method my_rotate that returns a new array containing 
   # all the elements of the original array in a rotated order. 
@@ -54,24 +63,24 @@ class Array
   # negative value is given, the array is rotated in the opposite
   # direction.
 
-  def my_rotate(num = 1)
-    rotated = []
-    i = 0
+  # def my_rotate(num = 1)
+  #   rotated = []
+  #   i = 0
     
-    num.times do 
-      rotated.unshift(self[i])
-      i += 1
-    end
+  #   num.times do 
+  #     rotated.unshift(self[i])
+  #     i += 1
+  #   end
     
-    rotated
-  end
+  #   rotated
+  # end
 
   # a = [ "a", "b", "c", "d" ]
   # puts a.my_rotate         #=> ["b", "c", "d", "a"]
   # puts a.my_rotate(2)      #=> ["c", "d", "a", "b"]
   # puts a.my_rotate(-3)     #=> ["b", "c", "d", "a"]
   # puts a.my_rotate(15)     #=> ["d", "a", "b", "c"]
-  puts
+  # puts
 
   # my_join returns a single string containing all the elements 
   # of the array, separated by the given string separator. If no 
@@ -88,16 +97,16 @@ class Array
 
   # Write a method that returns a new array containing all the 
   # elements of the original array in reverse order.
-  def my_reverse
-    reversed = []
-    i = 0
+  # def my_reverse
+  #   reversed = []
+  #   i = 0
 
-    while i < self.length
-      reversed.unshift(self[i])
-      i += 1
-    end
-    reversed
-  end
+  #   while i < self.length
+  #     reversed.unshift(self[i])
+  #     i += 1
+  #   end
+  #   reversed
+  # end
 
   # puts [ "a", "b", "c" ].my_reverse == ["c", "b", "a"]
   # puts [ 1 ].my_reverse == [1]
