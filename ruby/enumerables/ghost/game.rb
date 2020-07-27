@@ -1,4 +1,5 @@
 require_relative "./player.rb"
+require_relative "./aiplayer.rb"
 require 'set'
 
 class Game
@@ -53,10 +54,16 @@ class Game
   def take_turn(player)
     letter = nil
 
-    loop do 
-      letter = player.guess
-      break if valid_play?(letter)
-      player.alert_invalid_guess(letter)
+    if player.instance_of?(AiPlayer)
+      letter = player.ai_guess(@dictionary, @fragment) do |letter|
+        valid_play?(letter) 
+      end
+    else
+      loop do 
+        letter = player.guess
+        break if valid_play?(letter)
+        player.alert_invalid_guess(letter)
+      end
     end
 
     @fragment += letter
@@ -128,6 +135,7 @@ end
 
 player_one = Player.new("Louis")
 player_two = Player.new("Sandy")
-players = [player_one, player_two]
+player_three = AiPlayer.new("computer")
+players = [player_one, player_two, player_three]
 game = Game.new(players)
 game.run
