@@ -1,5 +1,5 @@
 class Board
-
+nb0
   def initialize
   end
 
