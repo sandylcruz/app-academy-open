@@ -1,14 +1,23 @@
 class Card
-  def hide
+
+  def initialize(value, revealed)
+    @value = value
+    @revealed = false
   end
 
-  def reveal
+  def hide
   end
 
   def to_s
   end
 
-  def ==
+  def reveal
+  end
+
+  def revealed?
+  end
+
+  def ==(object)
   end
 
 

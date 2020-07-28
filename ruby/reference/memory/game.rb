@@ -1,8 +1,24 @@
 class Game
 
+  def initialize
+  end
+
+  def compare_guess
+  end
+
+  def get_player_input
+  end
   
+  def make_guess(position)
+  end
+
+  def match?(position1, position2)
+  end
 
   def play
+  end
+
+  def valid_position?(position)
   end
 
   def over
@@ -12,9 +28,6 @@ class Game
   end
 
   def prompt
-  end
-
-  def make_guess
   end
 
   def guessed_pos
@@ -34,3 +47,4 @@ class Game
 
   def n
   end
+end
