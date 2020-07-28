@@ -59,8 +59,12 @@ the same but doesn't modify the original. Do this in two
 lines using `dup`.
 =end
 
-def bubble_sort(&prc)
+def bubble_sort(array)
+  new_array = array.dup
+  bubble_sort!(new_array)
 end
+puts "Bubble Sort:"
+puts bubble_sort([5, 4, 7, 5, 3]) == [3, 4, 5, 5, 7]
 
 =begin
 Write a method, `substrings`, that will take a `String` 
