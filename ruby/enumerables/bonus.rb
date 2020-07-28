@@ -4,18 +4,18 @@ Write a method `factors(num)` that returns an array containing
 all the factors of a given number.
 =end
 
-# def factors(num)
-#   factors_array = []
-#   (1..num).each do |factor|
-#     if num % factor == 0
-#       factors_array << factor
-#     end
-#   end
-#   factors_array
-# end
-# puts "Factors Method:"
-# puts factors(10) == [1, 2, 5, 10]
-# puts factors(13) == [1, 13]
+def factors(num)
+  factors_array = []
+  (1..num).each do |factor|
+    if num % factor == 0
+      factors_array << factor
+    end
+  end
+  factors_array
+end
+puts "Factors Method:"
+puts factors(10) == [1, 2, 5, 10]
+puts factors(13) == [1, 13]
 
 =begin
 # Implement Bubble sort in a method, `Array#bubble_sort!`. 
@@ -30,31 +30,28 @@ using `>` and `<` to compare elements, it takes a block to perform the
 comparison
 =end
 
-def bubble_sort!(*args)
+def bubble_sort!(array)
   return [] if array.length == 0
   return array if array.length == 1
-  swapped = false
+  is_sorted = false
 
-  if args.length == 2
-
-  end
-  
-  until swapped == true
-    swapped = false
+  until is_sorted == true
+    is_sorted = true
     (array.length - 1).times do |index|
       if array[index] > array[index + 1]
         array[index], array[index + 1] = array[index + 1], array[index]
-        swapped = true
+        is_sorted = false
       end
     end
   end
   array
 end
-# sorted = array.bubble_sort! do |num1, num2|
+puts "Bubble_sort! Method:"
 puts bubble_sort!([3, 2, 5, 6]) == [2, 3, 5, 6]
 puts bubble_sort!([]) == []
 puts bubble_sort!([1]) ==  [1]
-print bubble_sort!([5, 4, 3, 2, 1], sorted) #== 
+print bubble_sort!([3, -1, 50, 0, 2, 5, 6]) == [-1, 0, 2, 3, 5, 6, 50]
+
 
 =begin
 After writing `bubble_sort!`, write a `bubble_sort` that does 
@@ -72,9 +69,22 @@ Don't repeat substrings. Example output: `substrings("cat") =>
 ["c", "ca", "cat", "a", "at", "t"]`.
 =end
 
-# def substrings(string)
-# end
-# puts substrings("cat") #== ["c", "ca", "cat", "a", "at", "t"]
+def substrings(string)
+  substring_array = []
+  i = 0
+  
+  while i < string.length
+    j = i
+    while j < string.length 
+      substring_array << string[i..j]
+      j += 1
+    end
+    i += 1
+  end
+  substring_array
+end
+puts "Substrings method: "
+puts substrings("cat") == ["c", "ca", "cat", "a", "at", "t"]
 
 =begin
 Your `substrings` method returns many strings that are not 
@@ -84,11 +94,23 @@ valid words. To do this, `subwords` will accept both a string
 and a dictionary (an array of words).
 =end
 
-# def subwords(word, dictionary)
-# end
-# puts subwords("asdfcatqwer", ["cat", "car"]) #== ["cat"]
-# puts subwords("batcabtarbrat", ["cat", "car"]) #== []
+def subwords(word, dictionary)
+  all_known_substrings = substrings(word)
+  actual_substrings = []
+  i = 0
 
-# dictionary = ["bears", "ear", "a", "army"]
-# puts subwords("erbearsweatmyajs", dictionary) #== []
+  all_known_substrings.each do |substring|
+    if dictionary.include?(substring) && !actual_substrings.include?(substring)
+      actual_substrings << substring
+    end
+  end
+  actual_substrings
+end
+puts "Subwords method:"
+puts subwords("cats", ["cat"]) == ["cat"]
+puts subwords("asdfcatqwer", ["cat", "car"]) == ["cat"]
+puts subwords("batcabtarbrat", ["cat", "car"]) == []
+
+dictionary = ["bears", "ear", "a", "army"]
+puts subwords("erbearsweatmyajs", dictionary) == ["bears", "ear","a"]
 
