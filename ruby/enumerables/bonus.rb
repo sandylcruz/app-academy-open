@@ -59,8 +59,8 @@ the same but doesn't modify the original. Do this in two
 lines using `dup`.
 =end
 
-# def bubble_sort(&prc)
-# end
+def bubble_sort(&prc)
+end
 
 =begin
 Write a method, `substrings`, that will take a `String` 
