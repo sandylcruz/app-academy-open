@@ -1,21 +1,31 @@
 class Board
-nb0
-  def initialize
+  def initialize(num)
+    @grid = Array.new(num) { Array.new(num, " ")}
+  end
+
+  def update_cards
+    puts "Updating the cards..."
   end
 
   def [](position)
+    row = position[0]
+    column = position[1]
+    @grid[row][column]
   end
 
   def []=(position, value)
-  end
-
-  def hide(position)
+    row = position[0]
+    column = position[1]
+    @grid[row][column] = value
   end
 
   def reveal(position)
   end
 
-  def guessed_pos
+  def print
+    @grid.each do |row|
+      puts row.join(" ")
+    end
   end
 
   def populate
@@ -24,10 +34,9 @@ nb0
   def render
   end
 
-  def revealed?(position)
-  end
-
   def won?
   end
 
 end
+# board = Board.new
+# board.update_cards
