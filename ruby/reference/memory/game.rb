@@ -1,8 +1,11 @@
-require_relative  "board.rb", "card.rb"
+require_relative  "board.rb"
+require_relative  "card.rb"
+
 class Game
 
   def initialize
-    @board = Board.new
+    @board = board
+    @previous_guesses = []
   end
 
   def position
@@ -28,6 +31,9 @@ class Game
   end
 
   def play
+    until game.over
+      
+    end
   end
 
   def valid_position?(position)
@@ -47,6 +53,7 @@ class Game
   end
 
   def render
+
   end
 
   def prompt
@@ -56,6 +63,7 @@ class Game
   end
 
   def previous_guess
+    @previous_guess 
   end
 
   def system(clear)
