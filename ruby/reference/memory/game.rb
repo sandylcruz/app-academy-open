@@ -1,3 +1,4 @@
+require_relative  "board.rb", "card.rb"
 class Game
 
   def initialize

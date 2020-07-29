@@ -1,3 +1,5 @@
+require_relative  "card.rb", "game.rb"
+
 class Board
   def initialize(num)
     @grid = Array.new(num) { Array.new(num, " ")}
@@ -20,6 +22,7 @@ class Board
   end
 
   def reveal(position)
+    
   end
 
   def print
