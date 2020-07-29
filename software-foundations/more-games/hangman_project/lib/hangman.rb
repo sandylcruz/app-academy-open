@@ -2,6 +2,7 @@ class Hangman
   DICTIONARY = ["cat", "dog", "bootcamp", "pizza"]
 
   attr_reader :guess_word, :attempted_chars, :remaining_incorrect_guesses
+  
   def self.random_word
     DICTIONARY.sample
   end
@@ -39,22 +40,26 @@ class Hangman
     end
   end 
 
-  # def try_guess(char)
-  #   if Hangman.already_attempted?(char)
-  #     puts "That has already been attempted"
-  #     return false
-  #   elsif @guess_word.include?(char)
-  #     @already_attempted_chars << char
-  #   else
-  #     @remaining_incorrect_guesses -= 1
-  #   end
-  # end
+  def try_guess(char)
+    if self.already_attempted?(char)
+      puts "That has already been attempted"
+      return false
+    end
+
+    @attempted_chars << char
+
+    matches = self.get_matching_indices(char)
+    self.fill_indices(char, matches)
+    
+    @remaining_incorrect_guesses -= 1 if matches.empty?
+
+    return true
+  end
 
   def ask_user_for_guess
     puts "Enter a char: "
     answer = gets.chomp
-    return hangman.try_guess(char)
-
+    return self.try_guess(char)
   end
 
   def win?
