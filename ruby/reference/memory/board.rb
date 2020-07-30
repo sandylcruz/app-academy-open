@@ -1,13 +1,8 @@
-# require_relative  "card.rb"
-# require_relative  "game.rb"
+require_relative  "card"
 
 class Board
   def initialize
     @grid = generate_grid
-  end
-
-  def update_cards
-    puts "Updating the cards..."
   end
 
   def [](position)
@@ -29,7 +24,11 @@ class Board
   end
 
   def reveal(position)
-    
+    if revealed?(position)
+      puts "is revealed"
+    else
+      puts "is not revealed"
+    end
   end
 
   def render
@@ -52,18 +51,23 @@ class Board
   # for each coordinate, pop off or shift one element from shuffled pairs array and place it in grid at coordinate. 
   # return grid
 
-  def generate_grid 
+  def shuffled_pairs(number_of_pairs)
     number_of_pairs = 8
-    values = ("A".."Z").shuffle
+    cards = []
+    values = ("A".."Z").to_a
     letter_pairs = []
 
-    letters.each do |letter|
+    values.each do |letter|
       letter_pairs << letter * 2
-      
+      letter_pairs
     end
     letter_pairs
+  end
+
+  def generate_grid 
+
   
-    grid = Array.new(4) { Array.new(4, " ")}
+    # grid = Array.new(4) { Array.new(4, " ")}
 
     # grid.each_with_index do |row, index|
     #   pairs = []
