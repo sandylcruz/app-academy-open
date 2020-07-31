@@ -51,17 +51,17 @@ class Board
   # for each coordinate, pop off or shift one element from shuffled pairs array and place it in grid at coordinate. 
   # return grid
 
-  def shuffled_pairs(number_of_pairs)
+  def shuffled_pairs
     number_of_pairs = 8
     cards = []
     values = ("A".."Z").to_a
+    puts values
     letter_pairs = []
 
-    values.each do |letter|
-      letter_pairs << letter * 2
-      letter_pairs
+    while number_of_pairs < letter_pairs.length
+      letter_pairs = values + values
     end
-    letter_pairs
+    print letter_pairs
   end
 
   def generate_grid 

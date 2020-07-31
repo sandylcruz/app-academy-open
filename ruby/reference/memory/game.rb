@@ -1,10 +1,11 @@
-require_relative  "board.rb"
-require_relative  "card.rb"
+require_relative  "./board.rb"
+require_relative  "./card.rb"
 
 class Game
 
   def initialize
     @board = board
+    @player = player
     @previous_guesses = []
   end
 
@@ -17,6 +18,7 @@ class Game
     position = gets.chomp
     first_num = position[0]
     second_num = position[1]
+    first_card
   end
 
   def match?(position1, position2)

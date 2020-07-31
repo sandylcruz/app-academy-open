@@ -1,44 +1,31 @@
-# require_relative  "board.rb"
-# require_relative  "game.rb"
+# require_relative  "./board.rb"
+# require_relative  "./game.rb"
 
 class Card
-  def initialize(value, revealed = false)
-    @value = value
-    @revealed = revealed
+  def initialize(face_value = 0, face_up = false)
+    @face_value = face_value
+    @face_up = face_up
   end
 
-  def display_card_information
-    if @revealed == true?
-      return @value
-    else
-
-    end
+  def hide
+    @face_up = false
   end
 
-  def hide(position)
-    @revealed = false
-  end
-
-  def reveal(position)
-    @revealed = true
+  def reveal
+    @face_up = true
   end
 
   def revealed?
-    @revealed
+    @face_up == true
   end
 
-  # possible not needed
   def to_s
-    display_card_information
+    
   end
 
-  def ==(object)
+  def ==(another_card)
+    @face_value == another_card.face_value
   end
-
-  def flip
-    @face_up
-  end
-
 
 
 end
