@@ -2,7 +2,7 @@ require_relative  "card"
 
 class Board
   def initialize
-    @grid = generate_grid
+    @grid = Array.new(4) { Array.new(4, " ")}
   end
 
   def [](position)
@@ -64,11 +64,12 @@ class Board
     print letter_pairs
   end
 
-  def generate_grid 
-
-  
-    # grid = Array.new(4) { Array.new(4, " ")}
-
+  def generate_pair
+    random_row = rand(0...4)
+    random_column = rand(0...4)
+    random_coordinate_pair = [random_row, random_column]
+    random_coordinate_pair
+    
     # grid.each_with_index do |row, index|
     #   pairs = []
     #   shuffled_pairs.pop
