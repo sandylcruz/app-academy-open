@@ -1,6 +1,3 @@
-# require_relative  "./board.rb"
-# require_relative  "./game.rb"
-
 class Card
   attr_reader :face_value
 

@@ -1,13 +1,11 @@
-require_relative  "./board.rb"
-require_relative  "./card.rb"
-
 class Game
-  def initialize
+  def initialize(player = nil)
     @board = Board.new
     @previous_guess = nil
+    @player = play
   end
   
-  def make_guess(position)
+  def make_guess(position)   
     if @previous_guess.nil?
       @board.reveal(position)
       @previous_guess = position
@@ -40,6 +38,19 @@ class Game
     puts "You won (u dont suk)"
   end
 
+  def prompt
+    puts "Enter a position: (x y)"
+    
+    answer = gets.chomp
+
+    until valid_position?(answer)
+      puts "Invalid position, try again"
+      answer = gets.chomp
+    end
+
+    answer.split(" ").map(&:to_i)
+  end
+
   def valid_position?(position)
     string_array = position.split(" ")
 
@@ -67,18 +78,7 @@ class Game
     @board.render
   end
 
-  def prompt
-    puts "Enter a position: (x y)"
-    
-    answer = gets.chomp
-
-    until valid_position?(answer)
-      puts "Invalid position, try again"
-      answer = gets.chomp
-    end
-
-    answer.split(" ").map(&:to_i)
-  end
+  
 end
 
 game = Game.new
