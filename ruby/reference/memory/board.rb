@@ -27,36 +27,39 @@ class Board
   end
 
   def hide(position)
-
+    card = self[position]
+    card.hide
   end
 
   def revealed?(position)
+    card = self[position]
+    card.revealed?
   end
 
   def reveal(position)
-    if revealed?(position)
-      puts "is revealed"
-    else
-      puts "is not revealed"
-    end
+    card = self[position]
+    card.reveal
   end
 
   def won?
-    
+    @grid.all? do |row|
+      row.all? do |card|
+        card.revealed?
+      end
+    end
   end
 
   private 
 
   def generate_letter_pairs
-    number_of_pairs = 8
-    cards = []
-    values = ("A".."Z").to_a
+    letters = []
 
-    8.times do
-      random_letter = values.sample
-      cards << random_letter + random_letter
+    ("A".."H").each do |letter|
+      letters << letter
+      letters << letter
     end
-    cards.map(&:chars).flatten.shuffle
+
+    letters.shuffle
   end
 
   def initialize_grid
@@ -66,13 +69,12 @@ class Board
     grid.each_with_index do |row, i|
       row.each_with_index do |element, j|
         letter = letters.pop
-        grid[i][j] = letter
+        grid[i][j] = Card.new(letter)
       end
     end
+
+    print grid
       
     grid
   end
-
 end
-board = Board.new
-board.render

@@ -2,81 +2,85 @@ require_relative  "./board.rb"
 require_relative  "./card.rb"
 
 class Game
-
   def initialize
-    @board = board
-    @player = player
-    @previous_guesses = []
-  end
-
-  def position
-    
+    @board = Board.new
+    @previous_guess = nil
   end
   
   def make_guess(position)
-    puts "Please enter the position of the cards you'd like to flip, (e.g. '2, 3')"
-    position = gets.chomp
-    first_num = position[0]
-    second_num = position[1]
-    first_card
-  end
-
-  def match?(position1, position2)
-    card1 = card.reveal(position1)
-    card2 = card.reveal(position2)
-
-    if card1 == card2
-      puts "It's a match!"
+    if @previous_guess.nil?
+      @board.reveal(position)
+      @previous_guess = position
     else
-      puts "Not a match. Try again"
+      @board.reveal(position)
+      system("clear")
+      @board.render
+      sleep(1)
+      
+      card_one = @board[@previous_guess]
+      card_two = @board[position]
+
+      unless card_one == card_two
+        card_one.hide
+        card_two.hide
+      end
+
+      @previous_guess = nil
     end
   end
 
   def play
-    until game.over
-      
+    until over?
+      system("clear")
+      render
+      position = prompt
+      make_guess(position)
     end
+
+    puts "You won (u dont suk)"
   end
 
   def valid_position?(position)
-    row = position[0]
-    column = position[1]
-    max_row = 4
-    max_col = 4
+    string_array = position.split(" ")
 
-    if row < maximum_row && row >= 0 && column < maximum_column && column >= 0
-      retunr true
-    else
+    return false unless string_array.length == 2
+    return false unless string_array.all? { |element| element.to_i.to_s == element }
+    
+    row = string_array[0].to_i
+    column = string_array[1].to_i
+
+    maximum_row = 4
+    maximum_column = 4
+
+    unless row < maximum_row && row >= 0 && column < maximum_column && column >= 0
       return false
     end
+
+    !@board.revealed?([row, column])
   end
 
-  def over
+  def over?
+    @board.won?
   end
 
   def render
-
+    @board.render
   end
 
   def prompt
-  end
+    puts "Enter a position: (x y)"
+    
+    answer = gets.chomp
 
-  def guessed_position
-  end
+    until valid_position?(answer)
+      puts "Invalid position, try again"
+      answer = gets.chomp
+    end
 
-  def previous_guess
-    @previous_guess 
-  end
-
-  def system(clear)
-  end
-
-  def render
-  end
-
-  def sleep(n)
-  end
-
-  def n
+    answer.split(" ").map(&:to_i)
   end
 end
+
+game = Game.new
+
+game.play

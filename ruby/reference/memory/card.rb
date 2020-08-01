@@ -2,9 +2,11 @@
 # require_relative  "./game.rb"
 
 class Card
-  def initialize(face_value = 0, face_up = false)
+  attr_reader :face_value
+
+  def initialize(face_value)
     @face_value = face_value
-    @face_up = face_up
+    @face_up = false
   end
 
   def hide
@@ -20,12 +22,14 @@ class Card
   end
 
   def to_s
-    
+    if revealed?
+      @face_value
+    else
+      " "
+    end
   end
 
   def ==(another_card)
     @face_value == another_card.face_value
   end
-
-
 end
