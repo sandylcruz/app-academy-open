@@ -38,19 +38,20 @@ class ComputerPlayer
   end
 
   def receive_revealed_card(position, card)
-    if !@known_cards[card.face_value]
-      @known_cards[card.face_value] = [position]
-    else
-      pairs = @known_cards[card.face_value]
-      unless pairs.include?(position)
-        pairs.push(position)
-      end
-    end
+    known_card[position] = value
   end
 
   def receive_match(position1, position2)
-    @matched_cards.add(position1)
-    @matched_cards.add(position2)
+    @matched_cards[position1] = true
+    @matched_cards[position2] = true
+  end
+
+  def get_input
+    if previous_guess
+      second_guess
+    else
+      first_guess
+    end
   end
 
   def to_s
