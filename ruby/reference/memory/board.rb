@@ -72,8 +72,6 @@ class Board
         grid[i][j] = Card.new(letter)
       end
     end
-
-    print grid
       
     grid
   end

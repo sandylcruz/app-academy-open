@@ -7,6 +7,7 @@ class Game
     @board = Board.new
     @previous_guess = nil
     @player = player
+    @computer_player = ComputerPlayer.new
   end
   
   def make_guess(position)   
@@ -15,14 +16,15 @@ class Game
       @previous_guess = position
     else
       @board.reveal(position)
-      system("clear")
-      @board.render
+      # system("clear")
+      render
       sleep(1)
       
       card_one = @board[@previous_guess]
       card_two = @board[position]
 
       unless card_one == card_two
+        @computer_player.receive_match(@previous_guess, position)
         card_one.hide
         card_two.hide
       end
@@ -31,25 +33,44 @@ class Game
     end
   end
 
-  def play
-    until over?
-      system("clear")
-      render
-      answer = @player.prompt
-  
-      until valid_position?(answer)
-        puts "Invalid position, try again"
-        answer = @player.prompt
-      end
-  
-      parsed_answer = answer.split(" ").map(&:to_i)
-      make_guess(parsed_answer)
-    end
+  def take_turn(player)
+    puts "#{player} is playing"
 
-    puts "You won (u dont suk)"
+    2.times do |guess_number|
+      # system("clear")
+      render
+      puts "Here's the guess number:"
+      puts guess_number
+      answer = player.prompt(guess_number)
+
+      if @player == player
+        until valid_position?(answer)
+          puts "Invalid position, try again"
+          answer = player.prompt(guess_number)
+        end
+        parsed_answer = answer.split(" ").map(&:to_i)
+        make_guess(parsed_answer)
+        card = @board[parsed_answer]
+        @computer_player.receive_revealed_card(parsed_answer, card)
+      else
+        make_guess(answer)
+        card = @board[answer]
+        @computer_player.receive_revealed_card(answer, card)
+      end
+    end
   end
 
- 
+  def play
+    current_player = @player
+
+    until over?
+      take_turn(current_player)
+      current_player = current_player == @player ? @computer_player : @player
+    end
+
+    winner = current_player == @player ? @computer_player : @player
+    puts "#{winner} won"
+  end
 
   def valid_position?(position)
     string_array = position.split(" ")
@@ -76,6 +97,7 @@ class Game
 
   def render
     @board.render
+    puts @computer_player.known_cards
   end
 
   
