@@ -1,8 +1,12 @@
+require_relative "human_player.rb"
+require_relative "board.rb"
+require_relative "computer_player.rb"
+
 class Game
-  def initialize(player = nil)
+  def initialize(player)
     @board = Board.new
     @previous_guess = nil
-    @player = play
+    @player = player
   end
   
   def make_guess(position)   
@@ -31,25 +35,21 @@ class Game
     until over?
       system("clear")
       render
-      position = prompt
-      make_guess(position)
+      answer = @player.prompt
+  
+      until valid_position?(answer)
+        puts "Invalid position, try again"
+        answer = @player.prompt
+      end
+  
+      parsed_answer = answer.split(" ").map(&:to_i)
+      make_guess(parsed_answer)
     end
 
     puts "You won (u dont suk)"
   end
 
-  def prompt
-    puts "Enter a position: (x y)"
-    
-    answer = gets.chomp
-
-    until valid_position?(answer)
-      puts "Invalid position, try again"
-      answer = gets.chomp
-    end
-
-    answer.split(" ").map(&:to_i)
-  end
+ 
 
   def valid_position?(position)
     string_array = position.split(" ")
@@ -81,6 +81,7 @@ class Game
   
 end
 
-game = Game.new
+player = HumanPlayer.new
+game = Game.new(player)
 
 game.play

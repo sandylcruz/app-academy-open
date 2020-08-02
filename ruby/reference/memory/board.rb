@@ -1,3 +1,5 @@
+require_relative "card.rb"
+
 class Board
   attr_reader :grid
 
