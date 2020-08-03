@@ -82,7 +82,14 @@ class Board
     @cursor_position = [i + 1, j]
   end
 
+  def row
+  end
 
+  def column
+  end
+
+  def square
+  end
 
 
   def row_solved?
