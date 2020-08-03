@@ -82,18 +82,6 @@ class Board
     @cursor_position = [i + 1, j]
   end
 
-  def row(row_number)
-    @grid[row_number]
-  end
-  
-
-  def column
-  end
-
-  def square
-  end
-
-
   def row_solved?(row_number)
     number_range = [1, 2, 3, 4, 5, 6, 7, 8, 9]
     row = @grid[row_number] #array of tiles
@@ -106,7 +94,15 @@ class Board
   end
 
   def column_solved?(column_number)
-    number_range = (1..9)
+    number_range = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    column = @grid.map { |row| row[column_number]}
+    puts column
+    
+    number_array = column.map do |tile|
+      tile.value
+    end
+    
+    number_array.sort == number_range.sort
   end
 
   def square_solved?(square_number)
@@ -118,4 +114,4 @@ class Board
 
 end
 board = Board.from_file
-puts board.row_solved?(1)
+puts board.column_solved?(0)
