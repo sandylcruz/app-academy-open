@@ -63,16 +63,16 @@ whether or not the shop offers their favorite flavor.
 =end
 
 def ice_cream_shop(flavors, favorite)
-  return false if flavors.length == 0
-  return true if flavors.length == 1
+  return false if flavors.empty?
+  return true if flavors.last == favorite
 
-  ice_cream_shop(flavors[0], favorite)
+  ice_cream_shop(flavors[0...-1], favorite)
 end
 puts "Ice cream shop tests:"
-puts ice_cream_shop(['vanilla', 'strawberry'], 'blue moon')  # => returns false
-puts ice_cream_shop(['pistachio', 'green tea', 'chocolate', 'mint chip'], 'green tea')  # => returns true
-puts ice_cream_shop(['cookies n cream', 'blue moon', 'superman', 'honey lavender', 'sea salt caramel'], 'pistachio')  # => returns false
-puts ice_cream_shop(['moose tracks'], 'moose tracks')  # => returns true
+puts ice_cream_shop(['vanilla', 'strawberry'], 'blue moon') == false
+puts ice_cream_shop(['pistachio', 'green tea', 'chocolate', 'mint chip'], 'green tea') == true
+puts ice_cream_shop(['cookies n cream', 'blue moon', 'superman', 'honey lavender', 'sea salt caramel'], 'pistachio') == false
+puts ice_cream_shop(['moose tracks'], 'moose tracks') == true
 puts ice_cream_shop([], 'honey lavender') ==  false
 puts
 
