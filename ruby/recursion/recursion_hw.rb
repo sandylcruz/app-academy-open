@@ -1,14 +1,4 @@
 =begin
-Here's how you should approach each problem: 
-1. Read the problem statement to make sure 
-you fully understand the problem 
-2. Identify the base case(s) 
-3. Determine the inductive step 
-4. Write the function 
-5. Run the provided test cases 
-=end
-
-=begin
 Write a function sum_to(n) that uses recursion 
 to calculate the sum from 1 to n (inclusive 
 of n).
@@ -16,14 +6,15 @@ of n).
 
 def sum_to(number)
   return 1 if number == 1
-  return "nil" if number < 0
-  number + sum_to(number - 1)
+  return nil if number <= 0
+
+  sum_to(number - 1) + number
 end
 puts "Sum text tests:"
-puts sum_to(5)  # => returns 15
-puts sum_to(1)  # => returns 1
-puts sum_to(9)  # => returns 45
-puts sum_to(-8)  # => returns nil
+puts sum_to(5) ==  15
+puts sum_to(1) == 1
+puts sum_to(9)  == 45
+puts sum_to(-8) == nil
 puts 
 =begin
 Write a function add_numbers(nums_array) that 
@@ -33,15 +24,17 @@ recursively.
 =end
 
 def add_numbers(number_array)
-  return number_array if number_array.length == 1
   return nil if number_array.length == 0
-
+  return number_array[0] if number_array.length == 1
+  # puts number_array[0]
+  # puts number_array[1..-1]
+  number_array[0] + add_numbers(number_array[1..-1])
 end
 puts "Add numbers tests:"
-print add_numbers([1,2,3,4]) # => returns 10
-print add_numbers([3]) # => returns 3
-print add_numbers([-80,34,7]) # => returns -39
-print add_numbers([]) # => returns nil
+puts add_numbers([1,2,3,4]) == 10
+puts add_numbers([3]) == 3
+puts add_numbers([-80,34,7]) == -39
+puts add_numbers([]) == nil
 puts 
 =begin
 Let's write a method that will solve Gamma 
@@ -50,13 +43,14 @@ defined Γ(n) = (n-1)!.
 =end
 
 def gamma_fnc(number)
-
+  return nil if number == 0
+  return 1 if number == 1
 end
-puts "Gamme function tests:"
-print gamma_fnc(0)  # => returns nil
-print gamma_fnc(1)  # => returns 1
-print gamma_fnc(4)  # => returns 6
-print gamma_fnc(8)  # => returns 5040
+puts "Gamma function tests:"
+puts gamma_fnc(0) == nil
+puts gamma_fnc(1) == 1
+puts gamma_fnc(4)  # => returns 6
+puts gamma_fnc(8)  # => returns 5040
 puts
 
 =begin
@@ -71,11 +65,11 @@ def ice_cream_shop(flavors, favorite)
   return false if flavors.length == 0
 end
 puts "Ice cream shop tests:"
-print ice_cream_shop(['vanilla', 'strawberry'], 'blue moon')  # => returns false
-print ice_cream_shop(['pistachio', 'green tea', 'chocolate', 'mint chip'], 'green tea')  # => returns true
-print ice_cream_shop(['cookies n cream', 'blue moon', 'superman', 'honey lavender', 'sea salt caramel'], 'pistachio')  # => returns false
-print ice_cream_shop(['moose tracks'], 'moose tracks')  # => returns true
-print ice_cream_shop([], 'honey lavender')  # => returns false
+puts ice_cream_shop(['vanilla', 'strawberry'], 'blue moon')  # => returns false
+puts ice_cream_shop(['pistachio', 'green tea', 'chocolate', 'mint chip'], 'green tea')  # => returns true
+puts ice_cream_shop(['cookies n cream', 'blue moon', 'superman', 'honey lavender', 'sea salt caramel'], 'pistachio')  # => returns false
+puts ice_cream_shop(['moose tracks'], 'moose tracks')  # => returns true
+puts ice_cream_shop([], 'honey lavender')  # => returns false
 puts
 
 =begin
@@ -88,9 +82,9 @@ def reverse(string)
   return string if string.length == 1
 end
 puts "Reverse tests:"
-print reverse("house") # => "esuoh"
-print reverse("dog") # => "god"
-print reverse("atom") # => "mota"
-print reverse("q") # => "q"
-print reverse("id") # => "di"
-print reverse("") # => ""
+puts reverse("house") # => "esuoh"
+puts reverse("dog") # => "god"
+puts reverse("atom") # => "mota"
+puts reverse("q") # => "q"
+puts reverse("id") # => "di"
+puts reverse("") # => ""
