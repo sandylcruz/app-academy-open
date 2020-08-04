@@ -28,15 +28,13 @@ class Game
   end
 
   def solved
+    @board.all_solved?
   end
 
   def get_input
     input = STDIN.getch
     exit(0) if input == "\u0003"
     input
-  end
-  
-  def validate_input
   end
 end
 

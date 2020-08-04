@@ -96,22 +96,51 @@ class Board
   def column_solved?(column_number)
     number_range = [1, 2, 3, 4, 5, 6, 7, 8, 9]
     column = @grid.map { |row| row[column_number]}
-    puts column
-    
+  
     number_array = column.map do |tile|
       tile.value
     end
     
     number_array.sort == number_range.sort
   end
-
-  def square_solved?(square_number)
-    number_range = (1..9)
+  
+  def row
+    @grid
   end
 
-  def solved?
+  def columns
+    @grid.transpose
+  end
+
+  def square(index1, index2)
+    tiles = []
+    x = (index1 / 3) * 3
+    y = (index2 / 3) * 3
+    starting_position = [x, y]
+
+    (x...x + 3).each do |i|
+      (y...y + 3).each do |j|
+        tiles << [[i, j]]
+      end
+    end
+    tiles
+  end
+
+  def square_solved?(index1, index2)
+    number_range = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    numbers_in_square = square(index1, index2)
+    numbers_in_square.sort == number_range.sort
+  end
+
+  def all_solved?
+    rows.all? { |row| row_solved?(row) } &&
+    columns.all? { |col| column_solved?(col) } &&
+    squares.all? { |square| square_solved?(square) }
   end
 
 end
 board = Board.from_file
-puts board.column_solved?(0)
+board.render
+# puts board.column_solved?(0)
+# puts board.square(1, 1)
+puts board.square(1, 1)
