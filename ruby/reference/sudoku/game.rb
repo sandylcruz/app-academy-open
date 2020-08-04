@@ -14,6 +14,14 @@ class Game
     end
   end
 
+  def is_number?(input)
+    if input !~ /\D/
+      return true
+    else
+      return false
+    end
+  end
+
   def make_move(keyboard_input) 
     case keyboard_input
     when "a"
@@ -24,6 +32,12 @@ class Game
       @board.move_right!
     when "s"
       @board.move_down!
+    end
+
+    if is_number?(keyboard_input)
+      @board.mark_number(keyboard_input)
+    else
+      puts "Invalid input"
     end
   end
 
@@ -36,6 +50,7 @@ class Game
     exit(0) if input == "\u0003"
     input
   end
+
 end
 
 game = Game.new

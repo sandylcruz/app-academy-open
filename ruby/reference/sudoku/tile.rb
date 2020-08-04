@@ -42,4 +42,10 @@ class Tile
       end
     end
   end
+
+  def mark_number(number)
+    unless @given
+      @value = number
+    end
+  end
 end

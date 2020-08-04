@@ -113,34 +113,44 @@ class Board
   end
 
   def square(index1, index2)
-    tiles = []
-    x = (index1 / 3) * 3
-    y = (index2 / 3) * 3
-    starting_position = [x, y]
+    numbers = []
 
-    (x...x + 3).each do |i|
-      (y...y + 3).each do |j|
-        tiles << [[i, j]]
+    (index1...index1 + 3).each do |i|
+      (index2...index2 + 3).each do |j|
+        tile = @grid[i][j]
+        numbers << tile.value
       end
     end
-    tiles
+    numbers
   end
 
-  def square_solved?(index1, index2)
+  def square_solved?(coordinate_pair)
+    index1 = coordinate_pair[0]
+    index2 = coordinate_pair[1]
     number_range = [1, 2, 3, 4, 5, 6, 7, 8, 9]
     numbers_in_square = square(index1, index2)
-    numbers_in_square.sort == number_range.sort
+    numbers_in_square.sort == number_range
+  end
+
+  def square_starting_positions 
+
+    #return array of array of numbers
+    #return top left corner of each one
   end
 
   def all_solved?
-    rows.all? { |row| row_solved?(row) } &&
-    columns.all? { |col| column_solved?(col) } &&
-    squares.all? { |square| square_solved?(square) }
+    (0..8).all? { |row_number| row_solved?(row_number) } &&
+    (0..8).all? { |column_number| column_solved?(column_number) } &&
+    square_starting_positions.all? { |coordinate_pair| square_solved?(coordinate_pair)}
+  end
+
+  def mark_number(coordinate_pair)
+    index1 = coordinate_pair[0].to_i
+    index2 = coordinate_pair[1].to_i
+    tile = @grid[index1][index2]
+    tile.mark_number(index1, index2)
   end
 
 end
 board = Board.from_file
-board.render
-# puts board.column_solved?(0)
-# puts board.square(1, 1)
-puts board.square(1, 1)
+
