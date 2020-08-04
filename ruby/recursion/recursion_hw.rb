@@ -15,13 +15,15 @@ of n).
 =end
 
 def sum_to(number)
+  return 1 if number == 1
+  return nil if number <= 0
   puts number
 end
 puts "Sum text tests:"
 print sum_to(5)  # => returns 15
 print sum_to(1)  # => returns 1
 print sum_to(9)  # => returns 45
-print sum_to(-8)  # => returns nil
+puts sum_to(-8)  # => returns nil
 puts 
 =begin
 Write a function add_numbers(nums_array) that 
@@ -31,6 +33,8 @@ recursively.
 =end
 
 def add_numbers(number_array)
+  return number_array if number_array.length == 1
+  return nil if number_array.length <= 0
   puts number_array
 end
 puts "Add numbers tests:"
@@ -64,7 +68,7 @@ whether or not the shop offers their favorite flavor.
 =end
 
 def ice_cream_shop(flavors, favorite)
-  puts flavors
+  return false if flavors.lnegth == 0
 end
 puts "Ice cream shop tests:"
 print ice_cream_shop(['vanilla', 'strawberry'], 'blue moon')  # => returns false
@@ -80,7 +84,8 @@ string and returns it reversed.
 =end
 
 def reverse(string)
-  puts string
+  return "" if string.length == 0
+  return string if string.length == 1
 end
 puts "Reverse tests:"
 print reverse("house") # => "esuoh"
