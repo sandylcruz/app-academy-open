@@ -45,13 +45,13 @@ def gamma_fnc(number)
   return nil if number == 0
   return 1 if number == 1
 
-  number * gamma_fnc(number - 1)
+  (number - 1) * gamma_fnc(number - 1)
 end
 puts "Gamma function tests:"
 puts gamma_fnc(0) == nil
 puts gamma_fnc(1) == 1
-puts gamma_fnc(4)  # => returns 6
-puts gamma_fnc(8)  # => returns 5040
+puts gamma_fnc(4)  == 6
+puts gamma_fnc(8)  == 5040
 puts
 
 =begin
@@ -62,16 +62,19 @@ favorite ice cream flavor. Recursively find out
 whether or not the shop offers their favorite flavor.
 =end
 
-# def ice_cream_shop(flavors, favorite)
-#   return false if flavors.length == 0
-# end
-# puts "Ice cream shop tests:"
-# puts ice_cream_shop(['vanilla', 'strawberry'], 'blue moon')  # => returns false
-# puts ice_cream_shop(['pistachio', 'green tea', 'chocolate', 'mint chip'], 'green tea')  # => returns true
-# puts ice_cream_shop(['cookies n cream', 'blue moon', 'superman', 'honey lavender', 'sea salt caramel'], 'pistachio')  # => returns false
-# puts ice_cream_shop(['moose tracks'], 'moose tracks')  # => returns true
-# puts ice_cream_shop([], 'honey lavender')  # => returns false
-# puts
+def ice_cream_shop(flavors, favorite)
+  return false if flavors.length == 0
+  return true if flavors.length == 1
+
+  ice_cream_shop(flavors[0], favorite)
+end
+puts "Ice cream shop tests:"
+puts ice_cream_shop(['vanilla', 'strawberry'], 'blue moon')  # => returns false
+puts ice_cream_shop(['pistachio', 'green tea', 'chocolate', 'mint chip'], 'green tea')  # => returns true
+puts ice_cream_shop(['cookies n cream', 'blue moon', 'superman', 'honey lavender', 'sea salt caramel'], 'pistachio')  # => returns false
+puts ice_cream_shop(['moose tracks'], 'moose tracks')  # => returns true
+puts ice_cream_shop([], 'honey lavender') ==  false
+puts
 
 =begin
 Write a function reverse(string) that takes in a 
@@ -80,10 +83,9 @@ string and returns it reversed.
 
 def reverse(string)
   return string if string.length <= 1
-
   string[-1] + reverse(string[0..-2])
-
 end
+
 puts "Reverse tests:"
 puts reverse("house") == "esuoh"
 puts reverse("dog") == "god"
