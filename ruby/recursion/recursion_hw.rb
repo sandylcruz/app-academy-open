@@ -16,13 +16,13 @@ of n).
 
 def sum_to(number)
   return 1 if number == 1
-  return nil if number <= 0
-  puts number
+  return "nil" if number < 0
+  number + sum_to(number - 1)
 end
 puts "Sum text tests:"
-print sum_to(5)  # => returns 15
-print sum_to(1)  # => returns 1
-print sum_to(9)  # => returns 45
+puts sum_to(5)  # => returns 15
+puts sum_to(1)  # => returns 1
+puts sum_to(9)  # => returns 45
 puts sum_to(-8)  # => returns nil
 puts 
 =begin
@@ -34,8 +34,8 @@ recursively.
 
 def add_numbers(number_array)
   return number_array if number_array.length == 1
-  return nil if number_array.length <= 0
-  puts number_array
+  return nil if number_array.length == 0
+
 end
 puts "Add numbers tests:"
 print add_numbers([1,2,3,4]) # => returns 10
@@ -50,7 +50,7 @@ defined Γ(n) = (n-1)!.
 =end
 
 def gamma_fnc(number)
-  puts number
+
 end
 puts "Gamme function tests:"
 print gamma_fnc(0)  # => returns nil
@@ -68,7 +68,7 @@ whether or not the shop offers their favorite flavor.
 =end
 
 def ice_cream_shop(flavors, favorite)
-  return false if flavors.lnegth == 0
+  return false if flavors.length == 0
 end
 puts "Ice cream shop tests:"
 print ice_cream_shop(['vanilla', 'strawberry'], 'blue moon')  # => returns false
