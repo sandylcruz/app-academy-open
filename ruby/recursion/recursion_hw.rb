@@ -26,8 +26,7 @@ recursively.
 def add_numbers(number_array)
   return nil if number_array.length == 0
   return number_array[0] if number_array.length == 1
-  # puts number_array[0]
-  # puts number_array[1..-1]
+
   number_array[0] + add_numbers(number_array[1..-1])
 end
 puts "Add numbers tests:"
@@ -45,6 +44,8 @@ defined Γ(n) = (n-1)!.
 def gamma_fnc(number)
   return nil if number == 0
   return 1 if number == 1
+
+  number * gamma_fnc(number - 1)
 end
 puts "Gamma function tests:"
 puts gamma_fnc(0) == nil
@@ -61,16 +62,16 @@ favorite ice cream flavor. Recursively find out
 whether or not the shop offers their favorite flavor.
 =end
 
-def ice_cream_shop(flavors, favorite)
-  return false if flavors.length == 0
-end
-puts "Ice cream shop tests:"
-puts ice_cream_shop(['vanilla', 'strawberry'], 'blue moon')  # => returns false
-puts ice_cream_shop(['pistachio', 'green tea', 'chocolate', 'mint chip'], 'green tea')  # => returns true
-puts ice_cream_shop(['cookies n cream', 'blue moon', 'superman', 'honey lavender', 'sea salt caramel'], 'pistachio')  # => returns false
-puts ice_cream_shop(['moose tracks'], 'moose tracks')  # => returns true
-puts ice_cream_shop([], 'honey lavender')  # => returns false
-puts
+# def ice_cream_shop(flavors, favorite)
+#   return false if flavors.length == 0
+# end
+# puts "Ice cream shop tests:"
+# puts ice_cream_shop(['vanilla', 'strawberry'], 'blue moon')  # => returns false
+# puts ice_cream_shop(['pistachio', 'green tea', 'chocolate', 'mint chip'], 'green tea')  # => returns true
+# puts ice_cream_shop(['cookies n cream', 'blue moon', 'superman', 'honey lavender', 'sea salt caramel'], 'pistachio')  # => returns false
+# puts ice_cream_shop(['moose tracks'], 'moose tracks')  # => returns true
+# puts ice_cream_shop([], 'honey lavender')  # => returns false
+# puts
 
 =begin
 Write a function reverse(string) that takes in a 
@@ -78,13 +79,15 @@ string and returns it reversed.
 =end
 
 def reverse(string)
-  return "" if string.length == 0
-  return string if string.length == 1
+  return string if string.length <= 1
+
+  string[-1] + reverse(string[0..-2])
+
 end
 puts "Reverse tests:"
-puts reverse("house") # => "esuoh"
-puts reverse("dog") # => "god"
-puts reverse("atom") # => "mota"
-puts reverse("q") # => "q"
-puts reverse("id") # => "di"
-puts reverse("") # => ""
+puts reverse("house") == "esuoh"
+puts reverse("dog") == "god"
+puts reverse("atom") == "mota"
+puts reverse("q") == "q"
+puts reverse("id") == "di"
+puts reverse("") ==  ""
