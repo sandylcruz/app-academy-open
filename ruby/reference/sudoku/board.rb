@@ -5,9 +5,8 @@ class Board
     @grid = grid
     @cursor_position = [5, 3]
   end
-  #read file
-  #take contents, map contents into 2d grid of tile instances
-  def self.from_file #factory method. class method that will return instance of own class
+
+  def self.from_file
     file = File.open("./puzzles/sudoku1.txt")
     lines = file.readlines.map(&:chomp)
     grid = []
@@ -90,7 +89,7 @@ class Board
       tile.value
     end
     
-    number_array.sort == number_range.sort
+    number_array.sort == number_range
   end
 
   def column_solved?(column_number)
@@ -101,7 +100,7 @@ class Board
       tile.value
     end
     
-    number_array.sort == number_range.sort
+    number_array.sort == number_range
   end
   
   def row
@@ -132,23 +131,17 @@ class Board
     numbers_in_square.sort == number_range
   end
 
-  def square_starting_positions 
-
-    #return array of array of numbers
-    #return top left corner of each one
-  end
-
   def all_solved?
     (0..8).all? { |row_number| row_solved?(row_number) } &&
-    (0..8).all? { |column_number| column_solved?(column_number) } &&
-    square_starting_positions.all? { |coordinate_pair| square_solved?(coordinate_pair)}
+    (0..8).all? { |column_number| column_solved?(column_number) } 
+    render
   end
 
-  def mark_number(coordinate_pair)
-    index1 = coordinate_pair[0].to_i
-    index2 = coordinate_pair[1].to_i
+  def mark_number(number)
+    index1 = @cursor_position[0]
+    index2 = @cursor_position[1]
     tile = @grid[index1][index2]
-    tile.mark_number(index1, index2)
+    tile.mark_number(number)
   end
 
 end

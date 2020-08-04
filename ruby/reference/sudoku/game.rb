@@ -41,8 +41,10 @@ class Game
     end
   end
 
-  def solved
-    @board.all_solved?
+  def solved?
+    if @board.all_solved?
+      puts "You won"
+    end
   end
 
   def get_input
@@ -54,4 +56,4 @@ class Game
 end
 
 game = Game.new
-game.play
+game.solved?
