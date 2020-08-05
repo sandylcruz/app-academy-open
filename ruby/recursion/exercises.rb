@@ -137,16 +137,38 @@ element position is returned), or until the entire array
 has been searched (and "not found" is returned).
 =end
 
-# def binary_search(array, target)
-# end
+def binary_search(array, target)
+  middle_index = array.length / 2
+  middle_element = array[middle_index]
+  first_half = array[0...middle_index]
+  second_half = array[(middle_index + 1)..-1]
 
-# binary_search([1, 2, 3], 1) # => 0
-# binary_search([2, 3, 4, 5], 3) # => 1
-# binary_search([2, 4, 6, 8, 10], 6) # => 2
-# binary_search([1, 3, 4, 5, 9], 5) # => 3
-# binary_search([1, 2, 3, 4, 5, 6], 6) # => 5
-# binary_search([1, 2, 3, 4, 5, 6], 0) # => nil
-# binary_search([1, 2, 3, 4, 5, 7], 6) # => nil
+  return middle_index if target == middle_element
+  return nil if array.length == 0
+ 
+  if target < middle_element
+    result = binary_search(first_half, target)
+  elsif target > middle_element
+    offset = first_half.length + 1
+    result = binary_search(second_half, target)
+    if result == nil
+      return nil
+    else
+      return result + offset
+    end
+  else
+    return nil
+  end
+
+end
+puts "Binary search tests:"
+puts binary_search([1, 2, 3, 4], 2) == 1
+puts binary_search([2, 3, 4, 5], 3) == 1
+puts binary_search([2, 4, 6, 8, 10], 6) == 2
+puts binary_search([1, 3, 4, 5, 9], 5) == 3
+puts binary_search([1, 2, 3, 4, 5, 6], 6) == 5
+puts binary_search([1, 2, 3, 4, 5, 6], 0) == nil
+puts binary_search([1, 2, 3, 4, 5, 7], 6) == nil
 
 =begin
 The base cases are for arrays of length zero or one. 
