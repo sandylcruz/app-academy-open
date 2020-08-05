@@ -9,11 +9,12 @@ def range(num1, num2)
 
   [num1] + range((num1 + 1), num2)
 end
-# puts range(1, 5) == [1, 2, 3, 4, 5]
-# puts range(5, 5) == [5]
-# puts range(0, 10) == [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-# puts range(11, 15) == [11, 12, 13, 14, 15]
-
+puts "Range tests:"
+puts range(1, 5) == [1, 2, 3, 4, 5]
+puts range(5, 5) == [5]
+puts range(0, 10) == [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+puts range(11, 15) == [11, 12, 13, 14, 15]
+puts 
 =begin
 Write both a recursive and iterative version of sum of an array.
 =end
@@ -21,8 +22,10 @@ def sum_array_recursively(array)
   return array[0] if array.length == 1
   array[0] + sum_array_recursively(array[1..-1])
 end
-# puts sum_array_recursively([1, 2, 3])
-# puts sum_array_recursively([10, 20, 30, 40, 50])
+puts "Sum array tests:"
+puts sum_array_recursively([1, 2, 3]) == 6
+puts sum_array_recursively([10, 20, 30, 40, 50]) == 150
+puts sum_array_recursively([10, 10, 10, 10, 10]) == 50
 
 def sum_array_iteratively(array)
   i = 0
@@ -34,8 +37,10 @@ def sum_array_iteratively(array)
   end
   sum_array
 end
-# puts sum_array_iteratively([1, 2, 3])
-# puts sum_array_iteratively([10, 20, 30, 40, 50])
+puts sum_array_iteratively([1, 2, 3]) == 6
+puts sum_array_iteratively([10, 20, 30, 40, 50]) == 150
+puts sum_array_iteratively([10, 10, 10, 10, 10]) == 50
+puts 
 
 =begin
 Write two versions of exponent that use two different 
@@ -75,11 +80,44 @@ you should be able to do this just passing a single
 argument for the number of Fibonacci numbers requested.
 =end
 
-def recurisve_fib(n)
-end
+def recursive_fib(n)
+  return 0 if n == 1
+  return 1 if n == 2
+  x = n - 1
+  y = n - 2
 
-def iterative_fib(n)
+  return recursive_fib(x) + recursive_fib(y)
 end
+puts "Recursive fibonacci tests: "
+puts recursive_fib(1) #== 0
+puts recursive_fib(2) #== 1
+puts recursive_fib(3) #== 1
+puts recursive_fib(4) #== 2
+puts recursive_fib(5) #== 3
+puts recursive_fib(6) #== 5
+puts recursive_fib(7) #== 8
+
+# def iterative_fib(n)
+#   return 0 if n == 1
+  
+#   sequence = [0, 1]
+
+#   if n > 1
+#     sum = sequence[n - 1] + sequence[n - 2]
+#     sequence << sum 
+#   end
+#   sequence
+
+  
+# end
+# puts "Iterative fibonacci tests: "
+# puts iterative_fib(1) #== 0
+# puts iterative_fib(2) #== 1
+# puts iterative_fib(3) #== 1
+# puts iterative_fib(4) #== 2
+# puts iterative_fib(5) #== 3
+# puts iterative_fib(6) #== 5
+# puts iterative_fib(7) #== 8
 
 =begin
 The binary search algorithm begins by comparing the target 
