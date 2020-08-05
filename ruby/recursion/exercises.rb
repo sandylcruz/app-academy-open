@@ -9,19 +9,33 @@ def range(num1, num2)
 
   [num1] + range((num1 + 1), num2)
 end
-puts range(1, 5) == [1, 2, 3, 4, 5]
-puts range(5, 5) == [5]
-puts range(0, 10) == [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-puts range(11, 15) == [11, 12, 13, 14, 15]
+# puts range(1, 5) == [1, 2, 3, 4, 5]
+# puts range(5, 5) == [5]
+# puts range(0, 10) == [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+# puts range(11, 15) == [11, 12, 13, 14, 15]
 
 =begin
 Write both a recursive and iterative version of sum of an array.
 =end
 def sum_array_recursively(array)
+  return array[0] if array.length == 1
+  array[0] + sum_array_recursively(array[1..-1])
 end
+# puts sum_array_recursively([1, 2, 3])
+# puts sum_array_recursively([10, 20, 30, 40, 50])
 
 def sum_array_iteratively(array)
+  i = 0
+  sum_array = 0
+
+  while i < (array.length)
+    sum_array += array[i]
+    i += 1
+  end
+  sum_array
 end
+# puts sum_array_iteratively([1, 2, 3])
+# puts sum_array_iteratively([10, 20, 30, 40, 50])
 
 =begin
 Write two versions of exponent that use two different 
