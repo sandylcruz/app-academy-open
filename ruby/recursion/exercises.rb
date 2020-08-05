@@ -89,35 +89,36 @@ def recursive_fib(n)
   return recursive_fib(x) + recursive_fib(y)
 end
 puts "Recursive fibonacci tests: "
-puts recursive_fib(1) #== 0
-puts recursive_fib(2) #== 1
-puts recursive_fib(3) #== 1
-puts recursive_fib(4) #== 2
-puts recursive_fib(5) #== 3
-puts recursive_fib(6) #== 5
-puts recursive_fib(7) #== 8
+puts recursive_fib(1) == 0
+puts recursive_fib(2) == 1
+puts recursive_fib(3) == 1
+puts recursive_fib(4) == 2
+puts recursive_fib(5) == 3
+puts recursive_fib(6) == 5
+puts recursive_fib(7) == 8
 
-# def iterative_fib(n)
-#   return 0 if n == 1
-  
-#   sequence = [0, 1]
+def iterative_fib(n)
+  fib_array = [0]
 
-#   if n > 1
-#     sum = sequence[n - 1] + sequence[n - 2]
-#     sequence << sum 
-#   end
-#   sequence
-
-  
-# end
-# puts "Iterative fibonacci tests: "
-# puts iterative_fib(1) #== 0
-# puts iterative_fib(2) #== 1
-# puts iterative_fib(3) #== 1
-# puts iterative_fib(4) #== 2
-# puts iterative_fib(5) #== 3
-# puts iterative_fib(6) #== 5
-# puts iterative_fib(7) #== 8
+  n.times do |i|
+    if i == 0
+      fib_array[i] = 0
+    elsif i == 1
+      fib_array[i] = 1
+    else
+      fib_array[i] = fib_array[i - 1] + fib_array[i - 2]
+    end
+  end
+  return fib_array[n - 1]
+end
+puts "Iterative fibonacci tests: "
+puts iterative_fib(1) == 0
+puts iterative_fib(2) == 1
+puts iterative_fib(3) == 1
+puts iterative_fib(4) == 2
+puts iterative_fib(5) == 3
+puts iterative_fib(6) == 5
+puts iterative_fib(7) == 8
 
 =begin
 The binary search algorithm begins by comparing the target 
