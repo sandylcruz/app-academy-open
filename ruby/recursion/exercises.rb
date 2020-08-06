@@ -9,12 +9,12 @@ def range(num1, num2)
 
   [num1] + range((num1 + 1), num2)
 end
-puts "Range tests:"
-puts range(1, 5) == [1, 2, 3, 4, 5]
-puts range(5, 5) == [5]
-puts range(0, 10) == [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-puts range(11, 15) == [11, 12, 13, 14, 15]
-puts 
+# puts "Range tests:"
+# puts range(1, 5) == [1, 2, 3, 4, 5]
+# puts range(5, 5) == [5]
+# puts range(0, 10) == [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+# puts range(11, 15) == [11, 12, 13, 14, 15]
+# puts 
 =begin
 Write both a recursive and iterative version of sum of an array.
 =end
@@ -22,10 +22,10 @@ def sum_array_recursively(array)
   return array[0] if array.length == 1
   array[0] + sum_array_recursively(array[1..-1])
 end
-puts "Sum array tests:"
-puts sum_array_recursively([1, 2, 3]) == 6
-puts sum_array_recursively([10, 20, 30, 40, 50]) == 150
-puts sum_array_recursively([10, 10, 10, 10, 10]) == 50
+# puts "Sum array tests:"
+# puts sum_array_recursively([1, 2, 3]) == 6
+# puts sum_array_recursively([10, 20, 30, 40, 50]) == 150
+# puts sum_array_recursively([10, 10, 10, 10, 10]) == 50
 
 def sum_array_iteratively(array)
   i = 0
@@ -37,10 +37,10 @@ def sum_array_iteratively(array)
   end
   sum_array
 end
-puts sum_array_iteratively([1, 2, 3]) == 6
-puts sum_array_iteratively([10, 20, 30, 40, 50]) == 150
-puts sum_array_iteratively([10, 10, 10, 10, 10]) == 50
-puts 
+# puts sum_array_iteratively([1, 2, 3]) == 6
+# puts sum_array_iteratively([10, 20, 30, 40, 50]) == 150
+# puts sum_array_iteratively([10, 10, 10, 10, 10]) == 50
+# puts 
 
 =begin
 Write two versions of exponent that use two different 
@@ -60,17 +60,19 @@ def exponentiation_1(base, power)
   return 1 if power == 0
   base * exponentiation_1(base, (power - 1))
 end
-puts "Exponentiation 1 tests:"
-puts exponentiation_1(0, 1) == 0
-puts exponentiation_1(1, 1) == 1
-puts exponentiation_1(2, 2) == 4
-puts exponentiation_1(7, 2) == 49
-puts exponentiation_1(8, 4) == 4096
-puts exponentiation_1(10, 4) ==10000
+# puts "Exponentiation 1 tests:"
+# puts exponentiation_1(0, 1) == 0
+# puts exponentiation_1(1, 1) == 1
+# puts exponentiation_1(2, 2) == 4
+# puts exponentiation_1(7, 2) == 49
+# puts exponentiation_1(8, 4) == 4096
+# puts exponentiation_1(10, 4) ==10000
+# puts 
 
 def exponentiation_2(base, power)
   return 1 if power == 0
   return base if power == 1
+
   smaller_element = power - 1
   base_to_smaller_exponent = exponentiation_2(base, smaller_element)
 
@@ -80,21 +82,38 @@ def exponentiation_2(base, power)
     base * base_to_smaller_exponent
   end
 end
-puts "Exponentiation 2 tests:"
-puts exponentiation_2(0, 1) == 0
-puts exponentiation_2(1, 1) == 1
-puts exponentiation_2(2, 2) == 4
-puts exponentiation_2(7, 5) == 16807
-puts exponentiation_2(8, 4) == 4096
-puts exponentiation_2(10, 4) ==10000
+# puts "Exponentiation 2 tests:"
+# puts exponentiation_2(0, 1) == 0
+# puts exponentiation_2(1, 1) == 1
+# puts exponentiation_2(2, 2) == 4
+# puts exponentiation_2(7, 5) == 16807
+# puts exponentiation_2(8, 4) == 4096
+# puts exponentiation_2(10, 4) ==10000
+# puts 
 
 =begin
 Write method that will perform a "deep" duplication of the 
 interior arrays
 =end
 
-def deep_dup
+def deep_dup(array)
+  dup_array = []
+
+  array.each do |element|
+    if element.is_a?(Array)
+      dup_array << deep_dup(element)
+    else
+      dup_array << element
+    end
+  end
+  dup_array
 end
+
+# puts "Deep dup tests:"
+# print deep_dup([1, 2, 3])
+# print deep_dup([1, [2, 3]])
+
+
 
 =begin
 Write a recursive and an iterative Fibonacci method. 
@@ -205,7 +224,40 @@ You'll want to write a merge helper method to merge the
 sorted halves.
 =end
 
-# def merge_sort(array)
+# def merge(left_array, right_array)
+#   sorted_array = []
+#   print left_array
+#   print right_array
+#   sorted right_array if left_array.empty? 
+ 
+
+#   until left_array.empty? || right_array.empty? do
+#     if left_array[0] < right_array[0]
+#       sorted_array << left_array.shift
+#     else
+#       sorted_array << right_array.shift
+#     end
+#   end
+
+#   if right_array.empty?
+#     sorted_array << left_array
+#   else
+#     sorted_array << right_array
+#   end
+#   sorted_array
+# end
+# puts "Merge tests:"
+# puts merge([3, 2, 1], [4, 5, 6])
+
+# def merge_sort(unsorted_array)
+#   return unsorted_array if unsorted_array.length <= 1 
+ 
+#   half_array = unsorted_array.size / 2
+
+#   left_array = unsorted_array.take(half_array)
+#   right_array = unsorted_array.drop(half_array)
+
+#   sorted_array = merge(left_array, right_array)
 # end
 
 # def merge_halves
@@ -216,8 +268,15 @@ Write a method subsets that will return all subsets of an
 array.
 =end
 
-# def subsets
+# def subsets(array)
+#   return [] if array.empty?
 # end
+# puts "Subsets test"
+# puts subsets([]) #== [[]]
+# subsets([1]) # => [[], [1]]
+# subsets([1, 2]) # => [[], [1], [2], [1, 2]]
+# subsets([1, 2, 3])
+# => [[], [1], [2], [1, 2], [3], [1, 3], [2, 3], [1, 2, 3]]
 
 =begin
 Calculate all the permutations of the given array. For an 
