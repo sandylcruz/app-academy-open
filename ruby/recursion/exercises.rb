@@ -56,12 +56,22 @@ exp(b, n) = exp(b, n / 2) ** 2             [for even n]
 exp(b, n) = b * (exp(b, (n - 1) / 2) ** 2) [for odd n]
 =end
 
-def exponentiation_1
+def exponentiation_1(base, power_of)
+  return 1 if power_of == 0
+  base * exponentiation_1(base, (power_of - 1))
 end
+puts "Exponentiation 1 tests:"
+puts exponentiation_1(0, 1) == 0
+puts exponentiation_1(1, 1) == 1
+puts exponentiation_1(2, 2) == 4
+puts exponentiation_1(7, 2) == 49
+puts exponentiation_1(8, 4) == 4096
+puts exponentiation_1(10, 4) ==10000
 
 def exponentiation_2
+  return 1 if power_of == 0
 end
-
+puts "Exponentiation 2 tests:"
 =begin
 Write method that will perform a "deep" duplication of the 
 interior arrays
@@ -88,14 +98,14 @@ def recursive_fib(n)
 
   return recursive_fib(x) + recursive_fib(y)
 end
-puts "Recursive fibonacci tests: "
-puts recursive_fib(1) == 0
-puts recursive_fib(2) == 1
-puts recursive_fib(3) == 1
-puts recursive_fib(4) == 2
-puts recursive_fib(5) == 3
-puts recursive_fib(6) == 5
-puts recursive_fib(7) == 8
+# puts "Recursive fibonacci tests: "
+# puts recursive_fib(1) == 0
+# puts recursive_fib(2) == 1
+# puts recursive_fib(3) == 1
+# puts recursive_fib(4) == 2
+# puts recursive_fib(5) == 3
+# puts recursive_fib(6) == 5
+# puts recursive_fib(7) == 8
 
 def iterative_fib(n)
   fib_array = [0]
@@ -111,14 +121,14 @@ def iterative_fib(n)
   end
   return fib_array[n - 1]
 end
-puts "Iterative fibonacci tests: "
-puts iterative_fib(1) == 0
-puts iterative_fib(2) == 1
-puts iterative_fib(3) == 1
-puts iterative_fib(4) == 2
-puts iterative_fib(5) == 3
-puts iterative_fib(6) == 5
-puts iterative_fib(7) == 8
+# puts "Iterative fibonacci tests: "
+# puts iterative_fib(1) == 0
+# puts iterative_fib(2) == 1
+# puts iterative_fib(3) == 1
+# puts iterative_fib(4) == 2
+# puts iterative_fib(5) == 3
+# puts iterative_fib(6) == 5
+# puts iterative_fib(7) == 8
 
 =begin
 The binary search algorithm begins by comparing the target 
@@ -161,14 +171,14 @@ def binary_search(array, target)
   end
 
 end
-puts "Binary search tests:"
-puts binary_search([1, 2, 3, 4], 2) == 1
-puts binary_search([2, 3, 4, 5], 3) == 1
-puts binary_search([2, 4, 6, 8, 10], 6) == 2
-puts binary_search([1, 3, 4, 5, 9], 5) == 3
-puts binary_search([1, 2, 3, 4, 5, 6], 6) == 5
-puts binary_search([1, 2, 3, 4, 5, 6], 0) == nil
-puts binary_search([1, 2, 3, 4, 5, 7], 6) == nil
+# puts "Binary search tests:"
+# puts binary_search([1, 2, 3, 4], 2) == 1
+# puts binary_search([2, 3, 4, 5], 3) == 1
+# puts binary_search([2, 4, 6, 8, 10], 6) == 2
+# puts binary_search([1, 3, 4, 5, 9], 5) == 3
+# puts binary_search([1, 2, 3, 4, 5, 6], 6) == 5
+# puts binary_search([1, 2, 3, 4, 5, 6], 0) == nil
+# puts binary_search([1, 2, 3, 4, 5, 7], 6) == nil
 
 =begin
 The base cases are for arrays of length zero or one. 
