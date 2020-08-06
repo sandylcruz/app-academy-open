@@ -56,9 +56,9 @@ exp(b, n) = exp(b, n / 2) ** 2             [for even n]
 exp(b, n) = b * (exp(b, (n - 1) / 2) ** 2) [for odd n]
 =end
 
-def exponentiation_1(base, power_of)
-  return 1 if power_of == 0
-  base * exponentiation_1(base, (power_of - 1))
+def exponentiation_1(base, power)
+  return 1 if power == 0
+  base * exponentiation_1(base, (power - 1))
 end
 puts "Exponentiation 1 tests:"
 puts exponentiation_1(0, 1) == 0
@@ -68,10 +68,26 @@ puts exponentiation_1(7, 2) == 49
 puts exponentiation_1(8, 4) == 4096
 puts exponentiation_1(10, 4) ==10000
 
-def exponentiation_2
-  return 1 if power_of == 0
+def exponentiation_2(base, power)
+  return 1 if power == 0
+  return base if power == 1
+  smaller_element = power - 1
+  base_to_smaller_exponent = exponentiation_2(base, smaller_element)
+
+  if power.even?
+    exponentiation_2(base, (power / 2)) ** 2
+  else
+    base * base_to_smaller_exponent
+  end
 end
 puts "Exponentiation 2 tests:"
+puts exponentiation_2(0, 1) == 0
+puts exponentiation_2(1, 1) == 1
+puts exponentiation_2(2, 2) == 4
+puts exponentiation_2(7, 5) == 16807
+puts exponentiation_2(8, 4) == 4096
+puts exponentiation_2(10, 4) ==10000
+
 =begin
 Write method that will perform a "deep" duplication of the 
 interior arrays
