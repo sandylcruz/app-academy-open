@@ -113,8 +113,6 @@ end
 # print deep_dup([1, 2, 3])
 # print deep_dup([1, [2, 3]])
 
-
-
 =begin
 Write a recursive and an iterative Fibonacci method. 
 The method should take in an integer n and return the 
@@ -204,7 +202,6 @@ def binary_search(array, target)
   else
     return nil
   end
-
 end
 # puts "Binary search tests:"
 # puts binary_search([1, 2, 3, 4], 2) == 1
@@ -224,44 +221,42 @@ You'll want to write a merge helper method to merge the
 sorted halves.
 =end
 
-# def merge(left_array, right_array)
-#   sorted_array = []
-#   print left_array
-#   print right_array
-#   sorted right_array if left_array.empty? 
+def merge(left_array, right_array)
+  sorted_array = []
+  sorted right_array if left_array.empty? 
  
+  until left_array.empty? || right_array.empty? do
+    if left_array[0] < right_array[0]
+      sorted_array << left_array.shift
+    else
+      sorted_array << right_array.shift
+    end
+  end
 
-#   until left_array.empty? || right_array.empty? do
-#     if left_array[0] < right_array[0]
-#       sorted_array << left_array.shift
-#     else
-#       sorted_array << right_array.shift
-#     end
-#   end
+  if right_array.empty?
+    sorted_array << left_array.shift
+  else
+    sorted_array << right_array.shift
+  end
+  return sorted_array.concat(left_array).concat(right_array)
+end
 
-#   if right_array.empty?
-#     sorted_array << left_array
-#   else
-#     sorted_array << right_array
-#   end
-#   sorted_array
-# end
-# puts "Merge tests:"
-# puts merge([3, 2, 1], [4, 5, 6])
-
-# def merge_sort(unsorted_array)
-#   return unsorted_array if unsorted_array.length <= 1 
- 
-#   half_array = unsorted_array.size / 2
-
-#   left_array = unsorted_array.take(half_array)
-#   right_array = unsorted_array.drop(half_array)
-
-#   sorted_array = merge(left_array, right_array)
-# end
-
-# def merge_halves
-# end
+def merge_sort(unsorted_array)
+  if unsorted_array.length <= 1 
+    return unsorted_array 
+  else
+    middle = unsorted_array.length / 2
+    left_array = merge_sort(unsorted_array.slice(0...middle))
+    right_array = merge_sort(unsorted_array.slice(middle..-1))
+    merge(left_array, right_array)
+  end
+end
+puts "Merge sort tests:"
+puts merge_sort([7, 9, 8, 12, 11, 10]) == [7, 8, 9, 10, 11, 12]
+puts merge_sort([1, 4, 5, 7, 9, 7, 2]) == [1, 2, 4, 5, 7, 7, 9]
+puts merge_sort([-2, -1, 0, 22, 100, 4, 5, 7, 9, 7, 2]) == [-2, -1, 0, 2, 4, 5, 7, 7, 9, 22, 100]
+puts merge_sort([]) == []
+puts merge_sort([10, 9, 8, 7, 6, 5, 4]) == [4, 5, 6, 7, 8, 9, 10]
 
 =begin
 Write a method subsets that will return all subsets of an 
