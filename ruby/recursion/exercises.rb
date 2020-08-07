@@ -9,12 +9,12 @@ def range(num1, num2)
 
   [num1] + range((num1 + 1), num2)
 end
-# puts "Range tests:"
-# puts range(1, 5) == [1, 2, 3, 4, 5]
-# puts range(5, 5) == [5]
-# puts range(0, 10) == [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-# puts range(11, 15) == [11, 12, 13, 14, 15]
-# puts 
+puts "Range tests:"
+puts range(1, 5) == [1, 2, 3, 4, 5]
+puts range(5, 5) == [5]
+puts range(0, 10) == [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+puts range(11, 15) == [11, 12, 13, 14, 15]
+puts 
 =begin
 Write both a recursive and iterative version of sum of an array.
 =end
@@ -22,10 +22,11 @@ def sum_array_recursively(array)
   return array[0] if array.length == 1
   array[0] + sum_array_recursively(array[1..-1])
 end
-# puts "Sum array tests:"
-# puts sum_array_recursively([1, 2, 3]) == 6
-# puts sum_array_recursively([10, 20, 30, 40, 50]) == 150
-# puts sum_array_recursively([10, 10, 10, 10, 10]) == 50
+puts "Sum array recursive tests:"
+puts sum_array_recursively([1, 2, 3]) == 6
+puts sum_array_recursively([10, 20, 30, 40, 50]) == 150
+puts sum_array_recursively([10, 10, 10, 10, 10]) == 50
+puts
 
 def sum_array_iteratively(array)
   i = 0
@@ -37,10 +38,11 @@ def sum_array_iteratively(array)
   end
   sum_array
 end
-# puts sum_array_iteratively([1, 2, 3]) == 6
-# puts sum_array_iteratively([10, 20, 30, 40, 50]) == 150
-# puts sum_array_iteratively([10, 10, 10, 10, 10]) == 50
-# puts 
+puts "Sum array iterative tests:"
+puts sum_array_iteratively([1, 2, 3]) == 6
+puts sum_array_iteratively([10, 20, 30, 40, 50]) == 150
+puts sum_array_iteratively([10, 10, 10, 10, 10]) == 50
+puts 
 
 =begin
 Write two versions of exponent that use two different 
@@ -60,14 +62,14 @@ def exponentiation_1(base, power)
   return 1 if power == 0
   base * exponentiation_1(base, (power - 1))
 end
-# puts "Exponentiation 1 tests:"
-# puts exponentiation_1(0, 1) == 0
-# puts exponentiation_1(1, 1) == 1
-# puts exponentiation_1(2, 2) == 4
-# puts exponentiation_1(7, 2) == 49
-# puts exponentiation_1(8, 4) == 4096
-# puts exponentiation_1(10, 4) ==10000
-# puts 
+puts "Exponentiation 1 tests:"
+puts exponentiation_1(0, 1) == 0
+puts exponentiation_1(1, 1) == 1
+puts exponentiation_1(2, 2) == 4
+puts exponentiation_1(7, 2) == 49
+puts exponentiation_1(8, 4) == 4096
+puts exponentiation_1(10, 4) ==10000
+puts 
 
 def exponentiation_2(base, power)
   return 1 if power == 0
@@ -82,14 +84,14 @@ def exponentiation_2(base, power)
     base * base_to_smaller_exponent
   end
 end
-# puts "Exponentiation 2 tests:"
-# puts exponentiation_2(0, 1) == 0
-# puts exponentiation_2(1, 1) == 1
-# puts exponentiation_2(2, 2) == 4
-# puts exponentiation_2(7, 5) == 16807
-# puts exponentiation_2(8, 4) == 4096
-# puts exponentiation_2(10, 4) ==10000
-# puts 
+puts "Exponentiation 2 tests:"
+puts exponentiation_2(0, 1) == 0
+puts exponentiation_2(1, 1) == 1
+puts exponentiation_2(2, 2) == 4
+puts exponentiation_2(7, 5) == 16807
+puts exponentiation_2(8, 4) == 4096
+puts exponentiation_2(10, 4) ==10000
+puts 
 
 =begin
 Write method that will perform a "deep" duplication of the 
@@ -109,10 +111,10 @@ def deep_dup(array)
   dup_array
 end
 
-# puts "Deep dup tests:"
-# print deep_dup([1, 2, 3])
-# print deep_dup([1, [2, 3]])
-
+puts "Deep dup tests:"
+puts deep_dup([1, 2, 3]) == [1, 2, 3]
+puts deep_dup([1, [2, 3]]) == [1, [2, 3]]
+puts 
 =begin
 Write a recursive and an iterative Fibonacci method. 
 The method should take in an integer n and return the 
@@ -131,14 +133,15 @@ def recursive_fib(n)
 
   return recursive_fib(x) + recursive_fib(y)
 end
-# puts "Recursive fibonacci tests: "
-# puts recursive_fib(1) == 0
-# puts recursive_fib(2) == 1
-# puts recursive_fib(3) == 1
-# puts recursive_fib(4) == 2
-# puts recursive_fib(5) == 3
-# puts recursive_fib(6) == 5
-# puts recursive_fib(7) == 8
+puts "Recursive fibonacci tests: "
+puts recursive_fib(1) == 0
+puts recursive_fib(2) == 1
+puts recursive_fib(3) == 1
+puts recursive_fib(4) == 2
+puts recursive_fib(5) == 3
+puts recursive_fib(6) == 5
+puts recursive_fib(7) == 8
+puts
 
 def iterative_fib(n)
   fib_array = [0]
@@ -154,14 +157,15 @@ def iterative_fib(n)
   end
   return fib_array[n - 1]
 end
-# puts "Iterative fibonacci tests: "
-# puts iterative_fib(1) == 0
-# puts iterative_fib(2) == 1
-# puts iterative_fib(3) == 1
-# puts iterative_fib(4) == 2
-# puts iterative_fib(5) == 3
-# puts iterative_fib(6) == 5
-# puts iterative_fib(7) == 8
+puts "Iterative fibonacci tests: "
+puts iterative_fib(1) == 0
+puts iterative_fib(2) == 1
+puts iterative_fib(3) == 1
+puts iterative_fib(4) == 2
+puts iterative_fib(5) == 3
+puts iterative_fib(6) == 5
+puts iterative_fib(7) == 8
+puts
 
 =begin
 The binary search algorithm begins by comparing the target 
@@ -203,14 +207,15 @@ def binary_search(array, target)
     return nil
   end
 end
-# puts "Binary search tests:"
-# puts binary_search([1, 2, 3, 4], 2) == 1
-# puts binary_search([2, 3, 4, 5], 3) == 1
-# puts binary_search([2, 4, 6, 8, 10], 6) == 2
-# puts binary_search([1, 3, 4, 5, 9], 5) == 3
-# puts binary_search([1, 2, 3, 4, 5, 6], 6) == 5
-# puts binary_search([1, 2, 3, 4, 5, 6], 0) == nil
-# puts binary_search([1, 2, 3, 4, 5, 7], 6) == nil
+puts "Binary search tests:"
+puts binary_search([1, 2, 3, 4], 2) == 1
+puts binary_search([2, 3, 4, 5], 3) == 1
+puts binary_search([2, 4, 6, 8, 10], 6) == 2
+puts binary_search([1, 3, 4, 5, 9], 5) == 3
+puts binary_search([1, 2, 3, 4, 5, 6], 6) == 5
+puts binary_search([1, 2, 3, 4, 5, 6], 0) == nil
+puts binary_search([1, 2, 3, 4, 5, 7], 6) == nil
+puts
 
 =begin
 The base cases are for arrays of length zero or one. 
@@ -257,21 +262,28 @@ puts merge_sort([1, 4, 5, 7, 9, 7, 2]) == [1, 2, 4, 5, 7, 7, 9]
 puts merge_sort([-2, -1, 0, 22, 100, 4, 5, 7, 9, 7, 2]) == [-2, -1, 0, 2, 4, 5, 7, 7, 9, 22, 100]
 puts merge_sort([]) == []
 puts merge_sort([10, 9, 8, 7, 6, 5, 4]) == [4, 5, 6, 7, 8, 9, 10]
+puts
 
 =begin
 Write a method subsets that will return all subsets of an 
 array.
 =end
 
-# def subsets(array)
-#   return [] if array.empty?
-# end
-# puts "Subsets test"
-# puts subsets([]) #== [[]]
-# subsets([1]) # => [[], [1]]
-# subsets([1, 2]) # => [[], [1], [2], [1, 2]]
-# subsets([1, 2, 3])
-# => [[], [1], [2], [1, 2], [3], [1, 3], [2, 3], [1, 2, 3]]
+def subsets(array)
+  return [[]] if array.empty?
+  old_subset = subsets(array.drop(1))
+  new_subset = []
+
+  old_subset.each do |subset|
+    new_subset << [array.first] + subset
+  end
+  old_subset + new_subset
+end
+
+puts "Subsets test"
+puts subsets([]) == [[]]
+puts subsets([1]) == [[], [1]]
+print subsets([1, 2, 3]) #[[], [1], [2], [1, 2], [3], [1, 3], [2, 3], [1, 2, 3]]
 
 =begin
 Calculate all the permutations of the given array. For an 
@@ -280,12 +292,11 @@ So for an array with three elements we will have
 3 * 2 * 1 = 6 different permutations.
 =end
 
-# def permutations(array)
-# end
-# permutations([1, 2, 3]) # => [[1, 2, 3], [1, 3, 2],
-#                         #     [2, 1, 3], [2, 3, 1],
-#                         #     [3, 1, 2], [3, 2, 1]]
-
+def permutations(array)
+  return [array] if array.length <= 1
   
-# def make_change
-# end
+end
+permutations([1, 2, 3]) # => [[1, 2, 3], [1, 3, 2],
+                        #     [2, 1, 3], [2, 3, 1],
+                        #     [3, 1, 2], [3, 2, 1]]
+
