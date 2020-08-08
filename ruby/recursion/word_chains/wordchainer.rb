@@ -47,22 +47,28 @@ class WordChainer
   def run(source, target)
     puts "Welcome to word chainer"
     @current_words = [source]
-    @all_seen_words = [source]
+    @all_seen_words = { source => nil }
 
     until @current_words.empty?
-      new_current_words = []
-      @current_words.each do |current_word|
-        potential_words = adjacent_words(current_word)
-        potential_words.each do |potential_word|
-          unless @all_seen_words.include?(potential_word)
-            @all_seen_words << potential_word
-            new_current_words << potential_word
-          end
+      explore_current_words
+    end
+  end
+
+  def explore_current_words
+    new_current_words = []
+    @current_words.each do |current_word|
+
+      potential_words = adjacent_words(current_word)
+      potential_words.each do |potential_word|
+        unless @all_seen_words.include?(potential_word)
+          @all_seen_words << potential_word
+          new_current_words << potential_word
+          @all_seen_words[adjacent_word] = current_word
         end
       end
-      print new_current_words
-      @current_words = new_current_words
     end
+    print new_current_words
+    @current_words = new_current_words
   end
 
   def get_input
