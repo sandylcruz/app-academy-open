@@ -49,42 +49,42 @@ class WordChainer
     @current_words = [source]
     @all_seen_words = { source => nil }
 
-    until @current_words.empty?
+    until @current_words.empty? || @all_seen_words.include?(target)
       explore_current_words
     end
+    build_path(target)
+  end
+
+  def build_path(target)
+    path = []
+    current_word = target
+
+    until current_word.nil?
+      path << current_word
+      current_word = @all_seen_words[current_word]
+    end
+    path.reverse
   end
 
   def explore_current_words
     new_current_words = []
     @current_words.each do |current_word|
-
       potential_words = adjacent_words(current_word)
+
       potential_words.each do |potential_word|
         unless @all_seen_words.include?(potential_word)
-          @all_seen_words << potential_word
           new_current_words << potential_word
-          @all_seen_words[adjacent_word] = current_word
+          @all_seen_words[potential_word] = current_word
         end
       end
+      @current_words = new_current_words
     end
-    print new_current_words
-    @current_words = new_current_words
+  
   end
-
-  def get_input
-    puts ""
-    answer = gets.chomp
-    word_1 = answer[0]
-    word_2 = answer[1]
-  end
-
-  def chain_over?
-  end
-
 end
 word_chains = WordChainer.new("dictionary.txt")
 # puts word_chains.adjacent_words("zen")
-print word_chains.run("zen", "ten")
+print word_chains.run("cat", "zoo")
 # puts word_chains.adjacent_words("cat")
 # puts word_chains.adjacent_words("apple")
 # puts word_chains.is_valid_word?("catc")
