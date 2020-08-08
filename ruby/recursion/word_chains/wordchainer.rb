@@ -17,61 +17,30 @@ class WordChainer
   def adjacent_words(word)
     found_words = []
     alphabet = ("a".."z").to_a
-    chars = word.split("")
     i = 0
 
-    while i < chars.length
+    while i < word.length
       j = 0
       while j < alphabet.length
-        current_letter = chars[i]
+        current_letter = word[i]
         alphabet_letter = alphabet[j]
-        unless current_letter == alphabet_letter
-          prefix = ""
-          suffix = ""
-          target = alphabet[j]
-          word = "adios"
-          # puts "#{current_letter}, #{alphabet_letter}"
-          if is_valid_word?(word)
-           
         
-            found_words << word
+        unless current_letter == alphabet_letter
+          prefix = word[0...current_letter.to_i]
+          suffix = word[(current_letter.to_i + 1)..-1]
+
+          potential_word = prefix + alphabet_letter + suffix
+  
+          if is_valid_word?(potential_word) && !found_words.include?(potential_word)       
+            found_words << potential_word
           end
         end
-    
-
         j += 1
       end
       i += 1
     end
-   
     found_words
   end
-
-
-  # def neighbor_words(word)
-  #   possible_words = []
-  #   alphabet = ("a".."z").to_a
-  #   chars = word.split("")
-
-  #   alphabet.each do |letter|
-  #     i = 0
-
-  #     while i < alphabet.length
-  #       possible_words << word[i]
-  #       i += 1
-  #     end
-
-  #   end
-  #   possible_words
-  # end
-  # def adjacent_words(word)
-  #   length = word.length
-
-  #   word.split("").with_index do |char, index|
-  #     Set.include?(word)
-
-  #   end
-  # end
 
   def run(source, target)
     puts "Welcome to word chainer"
@@ -85,14 +54,17 @@ class WordChainer
 
   def get_input
     puts ""
+    answer = gets.chomp
+    word_1 = answer[0]
+    word_2 = answer[1]
   end
 
   def chain_over?
   end
 
-
-
 end
 word_chains = WordChainer.new("dictionary.txt")
-puts word_chains.adjacent_words("ab")
-puts word_chains.is_valid_word?("catc")
+puts word_chains.adjacent_words("bam")
+# puts word_chains.adjacent_words("cat")
+# puts word_chains.adjacent_words("apple")
+# puts word_chains.is_valid_word?("catc")
