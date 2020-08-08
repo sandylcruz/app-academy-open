@@ -20,14 +20,15 @@ class WordChainer
     i = 0
 
     while i < word.length
+    
       j = 0
       while j < alphabet.length
         current_letter = word[i]
         alphabet_letter = alphabet[j]
         
         unless current_letter == alphabet_letter
-          prefix = word[0...current_letter.to_i]
-          suffix = word[(current_letter.to_i + 1)..-1]
+          prefix = word[0...i]
+          suffix = word[(i + 1)..-1]
 
           potential_word = prefix + alphabet_letter + suffix
   
@@ -36,6 +37,7 @@ class WordChainer
           end
         end
         j += 1
+        
       end
       i += 1
     end
@@ -44,8 +46,8 @@ class WordChainer
 
   def run(source, target)
     puts "Welcome to word chainer"
-    @current_words = source
-    @all_seen_words = source
+    @current_words = [source]
+    @all_seen_words = [source]
 
     until @current_words.empty?
       play_around until chain_over?
@@ -64,7 +66,7 @@ class WordChainer
 
 end
 word_chains = WordChainer.new("dictionary.txt")
-puts word_chains.adjacent_words("bam")
+puts word_chains.adjacent_words("zen")
 # puts word_chains.adjacent_words("cat")
 # puts word_chains.adjacent_words("apple")
 # puts word_chains.is_valid_word?("catc")
