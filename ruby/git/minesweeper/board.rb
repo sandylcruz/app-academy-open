@@ -79,7 +79,6 @@ class Board
   def columns
     @grid.transpose
   end
-
 end
 board = Board.new
 board.render
