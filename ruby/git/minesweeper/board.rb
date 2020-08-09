@@ -1,10 +1,15 @@
 class Board
 
   def initialize
-    @grid = grid.new(Array.new{ Array.new(9)})
+    @grid = Array.new(9) { Array.new(9, "_") }
   end
 
-
+  def print
+    @grid.each do |row|
+      puts row.join(" ")
+    end
+  end
 
 end
 board = Board.new
+board.print
