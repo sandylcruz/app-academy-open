@@ -2,17 +2,22 @@ require_relative 'board.rb'
 require 'io/console'
 
 class Game
+  attr_reader :board
   def initialize
-
+    @board = Board.new
   end
 
   def play
     until game_over?
+      puts "hi"
       @board.render
+      keyboard_input = get_input
+      make_move(keyboard_input)
     end
   end
 
   def game_over?
+    false
   end
 
   def make_move(keyboard_input) 
@@ -32,7 +37,7 @@ class Game
     input = STDIN.getch
     exit(0) if input == "\u0003"
     input
-  end
+   end
 end
 game = Game.new
 game.play

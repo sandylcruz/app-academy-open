@@ -2,7 +2,7 @@ require_relative  'tile.rb'
 
 class Board
   def initialize
-    @grid = Array.new(9) { Array.new(9, "_") }
+    @grid = Array.new(9) { Array.new(9, self, [row, col) }
     @cursor_position = [4, 4]
   end
 
@@ -55,21 +55,23 @@ class Board
     system("clear")
 
     @grid.each_with_index do |row, x|
+      puts x
       row.each_with_index do |tile, y|
         current_position = [x, y]
         cursor_position_equals_current_position = current_position == @cursor_position
         if cursor_position_equals_current_position
-          print tile.as_cursor_string
+          puts tile.as_cursor_string
         else
-          print tile
+          puts tile
         end
 
         if y < row.length - 1
-          print ' '
+          puts ' '
         end
       end
-      print "\n"
+      puts "\n"
     end
+    puts "hello"
   end
 
   def row
@@ -80,5 +82,3 @@ class Board
     @grid.transpose
   end
 end
-board = Board.new
-board.render

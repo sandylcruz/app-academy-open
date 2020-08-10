@@ -3,9 +3,9 @@ require 'colorize'
 class Tile
   attr_reader :value
 
-  def initialize
+  def initialize(value, revealed)
     @value = value
-    @given = given
+    @revealed = revealed
   end
   
   def [](position)
@@ -58,5 +58,5 @@ class Tile
       @value = number
     end
   end
-  
+
 end
