@@ -3,8 +3,8 @@ require 'colorize'
 class Tile
   attr_reader :value
 
-  def initialize(value, revealed)
-    @value = value
+  def initialize(is_bomb, revealed)
+    @is_bomb = is_bomb
     @revealed = revealed
   end
   
@@ -29,17 +29,13 @@ class Tile
   def inspect
   end
 
-  # def to_s
-  #   if @given
-  #     "#{@value}".blue
-  #   else
-  #     if @value == 0
-  #       "x"
-  #     else
-  #       "#{@value}".white
-  #     end
-  #   end
-  # end
+  def to_s
+    if @revealed
+      "O"
+    else
+      "-"
+    end
+  end
 
   # def as_cursor_string
   #   if @given

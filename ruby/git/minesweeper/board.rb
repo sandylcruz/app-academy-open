@@ -5,7 +5,7 @@ class Board
     @grid_size = grid_size
     @num_bombs = num_bombs
 
-    generate_grid
+    @grid = generate_grid(grid_size)
   end
     
   def [](position)
@@ -14,17 +14,15 @@ class Board
     @board[row][column]
   end
 
-  def generate_grid
-    # @grid = Array.new(@grid_size) do |row|
-    #   { Array.new(@grid_size, { |col| Tile.new(self, [row, col]) }
-    # @cursor_position = [4, 4]
+  def generate_grid(grid_size)
+    Array.new(grid_size) { Array.new(grid_size, Tile.new(false, false))}
   end
 
+
   def print
-    puts @board
-    # @board.each do |row|
-    #   puts row.join(" ")
-    # end
+    @grid.each do |row|
+      puts row.join(" ")
+    end
   end
 
   # def move_left!

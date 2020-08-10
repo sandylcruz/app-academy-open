@@ -20,24 +20,27 @@ class Game
     false
   end
 
-  def make_move(keyboard_input) 
-    case keyboard_input
-    when "a"
-      @board.move_left!
-    when "w"
-      @board.move_up!
-    when "d"
-      @board.move_right!
-    when "s"
-      @board.move_down!
-    end
+  def game_won?
   end
 
-  def get_input
-    input = STDIN.getch
-    exit(0) if input == "\u0003"
-    input
-   end
+  # def make_move(keyboard_input) 
+  #   case keyboard_input
+  #   when "a"
+  #     @board.move_left!
+  #   when "w"
+  #     @board.move_up!
+  #   when "d"
+  #     @board.move_right!
+  #   when "s"
+  #     @board.move_down!
+  #   end
+  # end
+
+  # def get_input
+  #   input = STDIN.getch
+  #   exit(0) if input == "\u0003"
+  #   input
+  #  end
 end
 game = Game.new
 game.play
