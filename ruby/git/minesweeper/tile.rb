@@ -15,6 +15,7 @@ class Tile
   end
 
   def reveal
+    @revealed = true
   end
 
   def neighbors

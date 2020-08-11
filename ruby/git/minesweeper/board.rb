@@ -4,18 +4,38 @@ class Board
   def initialize(grid_size, num_bombs)
     @grid_size = grid_size
     @num_bombs = num_bombs
-
     @grid = generate_grid(grid_size)
   end
     
-  def [](position)
-    row = position[0]
-    column = position[1]
-    @board[row][column]
-  end
+  # def [](position)
+  #   row = position[0]
+  #   column = position[1]
+  #   @board[row][column]
+  # end
 
   def generate_grid(grid_size)
     Array.new(grid_size) { Array.new(grid_size, Tile.new(false, false))}
+  end
+
+    #generate num_bombs amount of bombs
+    #randomly place bombs on grid
+    #set flag for tile that it is a bomb
+
+    def generate_all_coordinates
+    end
+
+    #generate all coordinates of grid
+    # call .sample on the array of coordinates
+  def random_bombs(num_bombs)
+    coordinates = []
+
+    if !coordinates.include?(x, y)
+      num_bombs.times do |i|
+        x = rand(@grid_size)
+        y = rand(@grid_size)
+      end
+
+    end
   end
 
 
@@ -76,5 +96,5 @@ class Board
     @board.transpose
   end
 end
-board = Board.new(10, 5)
+board = Board.new(4, 1)
 board.print
