@@ -17,10 +17,6 @@ class Board
     Array.new(grid_size) { Array.new(grid_size, Tile.new(false, false))}
   end
 
-    #generate num_bombs amount of bombs
-    #randomly place bombs on grid
-    #set flag for tile that it is a bomb
-
   def generate_all_coordinates
     coordinate_pairs = []
     i = 0
@@ -40,11 +36,11 @@ class Board
     random_bomb_coordinates = generate_all_coordinates.sample(num_bombs)
   end
 
-  # def print
-  #   @grid.each do |row|
-  #     puts row.join(" ")
-  #   end
-  # end
+  def print
+    @grid.each do |row|
+      puts row.join(" ")
+    end
+  end
 
   # def move_left!
   #   i = @cursor_position[0]
@@ -98,5 +94,6 @@ class Board
   # end
 end
 board = Board.new(4, 1)
-# board.generate_all_coordinates
+board.generate_all_coordinates
 board.generate_bombs(5)
+board.print

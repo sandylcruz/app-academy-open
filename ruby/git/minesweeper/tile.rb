@@ -18,6 +18,10 @@ class Tile
     @revealed = true
   end
 
+  def flag_tile_as_bomb
+
+  end
+
   def neighbors
   end
 
