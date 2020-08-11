@@ -37,10 +37,7 @@ class Board
   end
 
   def generate_bombs(num_bombs)
-    random_bombs = []
-    all_coordinate_pairs = generate_all_coordinates
-    random_bombs << all_coordinate_pairs.sample(num_bombs)
-    print random_bombs
+    random_bomb_coordinates = generate_all_coordinates.sample(num_bombs)
   end
 
   # def print
@@ -102,4 +99,4 @@ class Board
 end
 board = Board.new(4, 1)
 # board.generate_all_coordinates
-board.generate_bombs(4)
+board.generate_bombs(5)
