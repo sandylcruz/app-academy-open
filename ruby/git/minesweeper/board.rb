@@ -21,35 +21,27 @@ class Board
     #randomly place bombs on grid
     #set flag for tile that it is a bomb
 
-  def generate_all_coordinates(height, width)
+  def generate_all_coordinates
     coordinate_pairs = []
     i = 0
 
-    while i < height
+    while i < @grid_size
       j = 0
-      while j < height
+      while j < @grid_size
         coordinate_pairs << [i, j]
         j += 1
       end
       i += 1
     end
-    print coordinate_pairs
+    coordinate_pairs
   end
 
-    #generate all coordinates of grid
-    # call .sample on the array of coordinates
-  # def random_bombs(num_bombs)
-  #   coordinates = []
-
-  #   if !coordinates.include?(x, y)
-  #     num_bombs.times do |i|
-  #       x = rand(@grid_size)
-  #       y = rand(@grid_size)
-  #     end
-
-  #   end
-  # end
-
+  def generate_bombs(num_bombs)
+    random_bombs = []
+    all_coordinate_pairs = generate_all_coordinates
+    random_bombs << all_coordinate_pairs.sample(num_bombs)
+    print random_bombs
+  end
 
   # def print
   #   @grid.each do |row|
@@ -109,4 +101,5 @@ class Board
   # end
 end
 board = Board.new(4, 1)
-board.generate_all_coordinates(4, 4)
+# board.generate_all_coordinates
+board.generate_bombs(4)
