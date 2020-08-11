@@ -21,29 +21,41 @@ class Board
     #randomly place bombs on grid
     #set flag for tile that it is a bomb
 
-    def generate_all_coordinates
+  def generate_all_coordinates(height, width)
+    coordinate_pairs = []
+    i = 0
+
+    while i < height
+      j = 0
+      while j < height
+        coordinate_pairs << [i, j]
+        j += 1
+      end
+      i += 1
     end
+    print coordinate_pairs
+  end
 
     #generate all coordinates of grid
     # call .sample on the array of coordinates
-  def random_bombs(num_bombs)
-    coordinates = []
+  # def random_bombs(num_bombs)
+  #   coordinates = []
 
-    if !coordinates.include?(x, y)
-      num_bombs.times do |i|
-        x = rand(@grid_size)
-        y = rand(@grid_size)
-      end
+  #   if !coordinates.include?(x, y)
+  #     num_bombs.times do |i|
+  #       x = rand(@grid_size)
+  #       y = rand(@grid_size)
+  #     end
 
-    end
-  end
+  #   end
+  # end
 
 
-  def print
-    @grid.each do |row|
-      puts row.join(" ")
-    end
-  end
+  # def print
+  #   @grid.each do |row|
+  #     puts row.join(" ")
+  #   end
+  # end
 
   # def move_left!
   #   i = @cursor_position[0]
@@ -84,17 +96,17 @@ class Board
   #   tile.mark_number(number)
   # end
 
-  def render(revealed = false)
+  # def render(revealed = false)
 
-  end
+  # end
 
-  def row
-    @board
-  end
+  # def row
+  #   @board
+  # end
 
-  def columns
-    @board.transpose
-  end
+  # def columns
+  #   @board.transpose
+  # end
 end
 board = Board.new(4, 1)
-board.print
+board.generate_all_coordinates(4, 4)
