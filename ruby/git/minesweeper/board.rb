@@ -33,13 +33,24 @@ class Board
   end
 
   def generate_bombs(num_bombs)
-    random_bomb_coordinates = generate_all_coordinates.sample(num_bombs)
+    generate_all_coordinates.sample(num_bombs)
   end
 
   def print
     @grid.each do |row|
       puts row.join(" ")
     end
+  end
+
+  def neighbors(position)
+    x = position[0]
+    y = position[1]
+  end
+
+  def neighbor_bomb_count
+    # neighbors.each do |neighbor|
+    #   count += 1 if 
+    # end
   end
 
   # def move_left!

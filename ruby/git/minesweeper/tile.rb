@@ -18,14 +18,17 @@ class Tile
     @revealed = true
   end
 
-  def flag_tile_as_bomb
-
+  def flag_tile_as_bomb!
+    @is_bomb = true
   end
 
   def neighbors
   end
 
   def neighbor_bomb_count
+    # neighbors.each do |neighbor|
+    #   count += 1 if 
+    # end
   end
 
   def print
