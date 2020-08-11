@@ -8,19 +8,24 @@ class Game
   end
 
   def play
-    until game_over?
-      puts "hi"
-      @board.render
-      keyboard_input = get_input
-      make_move(keyboard_input)
+    until @board.won? || @board.lost?
+      puts @board.render
+      get_move
+      make_move
+    end
+
+    if @board.won?
+      puts "You won!"
+    elsif @board.lost?
+      puts "You lose :("
+      @board.reveal
     end
   end
 
-  def game_over?
-    false
+  def get_move
   end
 
-  def game_won?
+  def perform_move
   end
 
   # def make_move(keyboard_input) 

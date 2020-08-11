@@ -22,16 +22,7 @@ class Tile
     @is_bomb = true
   end
 
-  def neighbors
-  end
-
-  def neighbor_bomb_count
-    # neighbors.each do |neighbor|
-    #   count += 1 if 
-    # end
-  end
-
-  def print
+  def render
   end
 
   def inspect
