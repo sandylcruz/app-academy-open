@@ -6,16 +6,6 @@ class Board
     @num_bombs = num_bombs
     @grid = generate_grid(grid_size)
     @cursor_position = [2, 2]
-    @bordering = [
-      [-1,-1], #upper-left
-      [-1,0], #top
-      [-1,1], #upper-right
-      [0,1], #right
-      [1,1], #lower-right
-      [1,0], #bottom
-      [1,-1], #lower-left
-      [0,-1] #left
-    ]
   end
     
   def [](position)
@@ -67,15 +57,16 @@ class Board
     x = index1
     y = index2
 
-    (x - 1..x + 1).each do |i|
-      (y - 1..y + 1).each do |j|
-        unless index1 == i && index2 == j
-          numbers << [i, j]
+    if x <= @grid_size && y <= @grid_size
+      (x - 1..x + 1).each do |i|
+        (y - 1..y + 1).each do |j|
+          unless index1 == i && index2 == j
+            numbers << [i, j]
+          end
         end
       end
     end
     numbers
-    #map over coordinates into a tile
   end
 
   def print
@@ -168,5 +159,5 @@ board.generate_all_coordinates
 board.generate_bombs(5)
 board.place_bombs
 board.print
-print board.neighbors(2, 2)
+print board.neighbors(10, 10)
 
