@@ -1,13 +1,14 @@
 require 'colorize'
 
 class Tile
-  attr_reader :value
+  attr_reader :value, :is_bomb
 
   def initialize(is_bomb, revealed)
     @is_bomb = is_bomb
     @revealed = revealed
   end
-  
+
+
   def [](position)
   end
 

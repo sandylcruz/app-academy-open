@@ -69,6 +69,24 @@ class Board
     numbers
   end
 
+  def neighbor_bomb_count(index1, index2)
+    bomb_count = 0
+    neighbor_coordinates = neighbors(index1, index2)
+
+    neighbor_coordinates.each do |neighbor_coordinate|
+
+      x = neighbor_coordinate[0]
+      y = neighbor_coordinate[1]
+
+      neighbor_tile = @grid[x][y]
+      if neighbor_tile.is_bomb
+        bomb_count += 1
+      end
+    end
+
+    bomb_count
+  end
+
   def print
     @grid.each do |row|
       puts row.join(" ")
@@ -154,10 +172,10 @@ class Board
     @board.transpose
   end
 end
-board = Board.new(10, 5)
+board = Board.new(4, 8)
 board.generate_all_coordinates
 board.generate_bombs(5)
 board.place_bombs
 board.print
-print board.neighbors(10, 10)
-
+# print board.neighbors(4, 4)
+puts board.neighbor_bomb_count(1, 1)
