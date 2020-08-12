@@ -14,7 +14,11 @@ class Board
   end
 
   def generate_grid(grid_size)
-    Array.new(grid_size) { Array.new(grid_size, Tile.new(false, false))}
+    Array.new(grid_size) do
+      Array.new(grid_size) do 
+        Tile.new(false, true)
+      end
+    end
   end
 
   def generate_all_coordinates
@@ -37,27 +41,21 @@ class Board
   end
 
   def place_bombs
-
+    locations = generate_bombs(@num_bombs)
+    locations.each do |location|
+      x = location[0]
+      y = location[1]
+      tile = @grid[x][y]
+      tile.flag_tile_as_bomb!
+    end
+    @grid
   end
-
 
   def neighbors(position)
     x = position[0]
     y = position[1]
   end
 
-  def neighbor_bomb_count
-    # neighbors.each do |neighbor|
-    #   count += 1 if 
-    # end
-  end
-
-  def get_move
-  end
-
-  def perform_move
-  end
-  
   def print
     @grid.each do |row|
       puts row.join(" ")
@@ -72,6 +70,7 @@ class Board
 
   def reveal #show entire board after losing
   end
+
   # def move_left!
   #   i = @cursor_position[0]
   #   j = @cursor_position[1]
@@ -123,7 +122,8 @@ class Board
   #   @board.transpose
   # end
 end
-board = Board.new(4, 1)
+board = Board.new(10, 5)
 board.generate_all_coordinates
 board.generate_bombs(5)
+board.place_bombs
 board.print

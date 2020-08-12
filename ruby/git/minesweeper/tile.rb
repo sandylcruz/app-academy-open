@@ -30,14 +30,18 @@ class Tile
 
   def to_s
     if @revealed
-      "O"
+      if @is_bomb
+        "X".colorize(:red)
+      else
+        "O".colorize(:green)
+      end
     else
-      "-"
+      "-".colorize(:blue)
     end
   end
 
   # def as_cursor_string
-  #   if @given
+  #   if @revealed
   #     "#{@value}".light_green.on_white
   #   else
   #     if @value == 0
@@ -48,10 +52,12 @@ class Tile
   #   end
   # end
 
-  # def mark_number(number)
-  #   unless @given
-  #     @value = number
+  # def place_mark
+  #   unless @is_bomb
+  #     "X"
   #   end
   # end
 
 end
+tile = Tile.new(false, false)
+tile.to_s

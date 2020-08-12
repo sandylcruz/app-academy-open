@@ -2,9 +2,10 @@ require_relative 'board.rb'
 require 'io/console'
 
 class Game
-  attr_reader :board
+  attr_reader :board, :grid_size, :num_bombs
+  
   def initialize
-    @board = Board.new
+    @board = Board.new(grid_size, num_bombs)
   end
 
   def play
