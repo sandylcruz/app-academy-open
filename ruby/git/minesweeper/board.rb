@@ -5,6 +5,17 @@ class Board
     @grid_size = grid_size
     @num_bombs = num_bombs
     @grid = generate_grid(grid_size)
+    @cursor_position = [2, 2]
+    @bordering = [
+      [-1,-1], #upper-left
+      [-1,0], #top
+      [-1,1], #upper-right
+      [0,1], #right
+      [1,1], #lower-right
+      [1,0], #bottom
+      [1,-1], #lower-left
+      [0,-1] #left
+    ]
   end
     
   def [](position)
@@ -51,9 +62,20 @@ class Board
     @grid
   end
 
-  def neighbors(position)
-    x = position[0]
-    y = position[1]
+  def neighbors(index1, index2)
+    numbers = []
+    x = index1
+    y = index2
+
+    (x - 1..x + 1).each do |i|
+      (y - 1..y + 1).each do |j|
+        unless index1 == i && index2 == j
+          numbers << [i, j]
+        end
+      end
+    end
+    numbers
+    #map over coordinates into a tile
   end
 
   def print
@@ -70,6 +92,25 @@ class Board
 
   def reveal #show entire board after losing
   end
+
+  # def render
+  #   @grid.each_with_index do |row, x|
+  #     row.each_with_index do |tile, y|
+  #       current_position = [x, y]
+  #       cursor_position_equals_current_position = current_position == @cursor_position
+  #       if cursor_position_equals_current_position
+  #         print tile.as_cursor_string
+  #       else
+  #         print tile
+  #       end
+
+  #       if y < row.length - 1
+  #         print ' '
+  #       end
+  #     end
+  #     print "\n"
+  #   end
+  # end
 
   # def move_left!
   #   i = @cursor_position[0]
@@ -114,16 +155,18 @@ class Board
 
   # end
 
-  # def row
-  #   @board
-  # end
+  def row
+    @board
+  end
 
-  # def columns
-  #   @board.transpose
-  # end
+  def columns
+    @board.transpose
+  end
 end
 board = Board.new(10, 5)
 board.generate_all_coordinates
 board.generate_bombs(5)
 board.place_bombs
 board.print
+print board.neighbors(2, 2)
+
