@@ -8,10 +8,8 @@ class Tile
     @revealed = revealed
   end
 
-  def [](position)
-  end
-
-  def []=(value)
+  def set_neighbor_bomb_count!
+    
   end
 
   def reveal!
@@ -59,5 +57,3 @@ class Tile
   # end
 
 end
-tile = Tile.new(false, false)
-tile.to_s
