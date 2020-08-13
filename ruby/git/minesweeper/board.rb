@@ -15,9 +15,26 @@ class Board
   end
 
   def generate_grid(grid_size)
-    Array.new(grid_size) do
+    grid = Array.new(grid_size) do
       Array.new(grid_size) do 
         Tile.new(false, false)
+      end
+    end
+    set_all_neighbor_bomb_count!(grid)
+    grid
+  end
+
+  def set_individual_tile_bomb_count
+    @bomb_count = 0
+  end
+
+  def set_all_neighbor_bomb_count!(grid)
+    grid.each_with_index do |row, i|
+      row.each_with_index do |tile, j|
+        if !tile.is_bomb
+          number_of_neighbor_bombs = neighbor_bomb_count(i, j)
+          set_individual_tile_bomb_count
+        end
       end
     end
   end

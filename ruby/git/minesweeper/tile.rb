@@ -1,4 +1,5 @@
 require 'colorize'
+require_relative 'board.rb'
 
 class Tile
   attr_reader :value, :is_bomb
@@ -8,8 +9,19 @@ class Tile
     @revealed = revealed
   end
 
-  def set_neighbor_bomb_count!
-    
+  def set_individual_tile_bomb_count
+    @bomb_count = 0
+  end
+
+  def set_all_neighbor_bomb_count!(grid)
+    grid.each do |row|
+      row.each do |tile|
+        if !tile.is_bomb
+          number_of_neighbor_bombs = @board.neighbor_bomb_count(index1, index2)
+          set_individual_tile_bomb_count
+        end
+      end
+    end
   end
 
   def reveal!
@@ -27,6 +39,7 @@ class Tile
   end
 
   def to_s
+    #if neighbor_bomb_count == 0, do not display 0
     if @revealed
       if @is_bomb
         "X".colorize(:red)
