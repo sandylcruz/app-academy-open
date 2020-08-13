@@ -57,15 +57,24 @@ class Board
     x = index1
     y = index2
 
-    if x <= @grid_size && y <= @grid_size
+   
+    no_duplicates = x <= @grid_size && y <= @grid_size
+
+    if no_duplicates
       (x - 1..x + 1).each do |i|
         (y - 1..y + 1).each do |j|
-          unless index1 == i && index2 == j
-            numbers << [i, j]
+          unless x == i && y == j
+            is_i_in_bounds = i >= 0 && i < @grid_size
+            is_j_in_bounds = j >= 0 && j < @grid_size
+            
+            if is_i_in_bounds && is_j_in_bounds
+              numbers << [i, j]
+            end
           end
         end
       end
     end
+    
     numbers
   end
 
@@ -87,6 +96,10 @@ class Board
     bomb_count
   end
 
+  def display_bomb_count
+
+  end
+
   def print
     @grid.each do |row|
       puts row.join(" ")
@@ -99,7 +112,9 @@ class Board
   def lost?
   end
 
-  def reveal #show entire board after losing
+  def reveal
+    @revealed = true
+    print
   end
 
   # def render
@@ -176,6 +191,7 @@ board = Board.new(4, 8)
 board.generate_all_coordinates
 board.generate_bombs(5)
 board.place_bombs
-board.print
-# print board.neighbors(4, 4)
-puts board.neighbor_bomb_count(1, 1)
+# board.print
+print board.neighbors(3, 3)
+# puts board.neighbor_bomb_count(1, 1)
+# board.reveal
