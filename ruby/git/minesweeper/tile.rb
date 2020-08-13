@@ -8,14 +8,13 @@ class Tile
     @revealed = revealed
   end
 
-
   def [](position)
   end
 
   def []=(value)
   end
 
-  def reveal
+  def reveal!
     @revealed = true
   end
 

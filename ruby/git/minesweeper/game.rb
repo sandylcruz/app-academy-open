@@ -29,6 +29,10 @@ class Game
   def perform_move
   end
 
+  def lost?
+    
+  end
+
   # def make_move(keyboard_input) 
   #   case keyboard_input
   #   when "a"

@@ -56,8 +56,6 @@ class Board
     numbers = []
     x = index1
     y = index2
-
-   
     no_duplicates = x <= @grid_size && y <= @grid_size
 
     if no_duplicates
@@ -66,7 +64,6 @@ class Board
           unless x == i && y == j
             is_i_in_bounds = i >= 0 && i < @grid_size
             is_j_in_bounds = j >= 0 && j < @grid_size
-            
             if is_i_in_bounds && is_j_in_bounds
               numbers << [i, j]
             end
@@ -74,7 +71,6 @@ class Board
         end
       end
     end
-    
     numbers
   end
 
@@ -112,9 +108,12 @@ class Board
   def lost?
   end
 
-  def reveal
-    @revealed = true
-    print
+  def reveal_every_tile!
+    @grid.each do |row|
+      row.each do |tile|
+        tile.reveal
+      end
+    end
   end
 
   # def render
@@ -192,6 +191,7 @@ board.generate_all_coordinates
 board.generate_bombs(5)
 board.place_bombs
 # board.print
-print board.neighbors(3, 3)
+# print board.neighbors(3, 3)
 # puts board.neighbor_bomb_count(1, 1)
-# board.reveal
+board.reveal_every_tile!
+board.print
