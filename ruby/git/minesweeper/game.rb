@@ -16,9 +16,9 @@ class Game
     end
 
     if @board.won?
-      puts "You won!"
+      puts "You won! =^..^="
     elsif @board.lost?
-      puts "You lose :("
+      puts "** Bomb hit ** You lose :("
       @board.reveal
     end
   end
@@ -30,7 +30,7 @@ class Game
   end
 
   def lost?
-    
+
   end
 
   # def make_move(keyboard_input) 

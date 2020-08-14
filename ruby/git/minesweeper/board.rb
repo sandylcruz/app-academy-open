@@ -4,7 +4,7 @@ class Board
   def initialize(grid_size, num_bombs)
     @grid_size = grid_size
     @num_bombs = num_bombs
-    @grid = generate_grid(grid_size)
+    generate_grid!(grid_size)
     @cursor_position = [2, 2]
   end
     
@@ -14,26 +14,22 @@ class Board
     @board[row][column]
   end
 
-  def generate_grid(grid_size)
-    grid = Array.new(grid_size) do
+  def generate_grid!(grid_size)
+    @grid = Array.new(grid_size) do
       Array.new(grid_size) do 
         Tile.new(false, false)
       end
     end
-    set_all_neighbor_bomb_count!(grid)
-    grid
+    place_bombs
+    set_all_neighbor_bomb_count!
   end
 
-  def set_individual_tile_bomb_count
-    @bomb_count = 0
-  end
-
-  def set_all_neighbor_bomb_count!(grid)
-    grid.each_with_index do |row, i|
+  def set_all_neighbor_bomb_count!
+    @grid.each_with_index do |row, i|
       row.each_with_index do |tile, j|
         if !tile.is_bomb
           number_of_neighbor_bombs = neighbor_bomb_count(i, j)
-          set_individual_tile_bomb_count
+          tile.set_individual_tile_bomb_count!(number_of_neighbor_bombs)
         end
       end
     end
@@ -99,7 +95,6 @@ class Board
 
       x = neighbor_coordinate[0]
       y = neighbor_coordinate[1]
-
       neighbor_tile = @grid[x][y]
       if neighbor_tile.is_bomb
         bomb_count += 1
@@ -134,6 +129,11 @@ class Board
   end
 
   def lost?
+    @grid.each do |row|
+      row.any? do |tile|
+        tile.bombed
+      end
+    end
   end
 
   def reveal_every_tile!
@@ -215,14 +215,6 @@ class Board
   end
 end
 board = Board.new(10, 2)
-board.generate_all_coordinates
-board.generate_bombs(5)
-board.place_bombs
-# board.print
-# print board.neighbors(3, 3)
-# puts board.neighbor_bomb_count(1, 1)
-# board.reveal_every_tile!
-# board.print
-# board.print
-board.expand!([2, 2])
+
+board.reveal_every_tile!
 board.print
