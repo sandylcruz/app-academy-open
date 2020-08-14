@@ -123,6 +123,12 @@ class Board
       new_tile = @grid[x][y]
       new_tile.reveal!
     end
+
+    if tile.is_bomb
+      return false
+    else
+      return true
+    end
   end
 
   def won?
@@ -214,7 +220,9 @@ class Board
     @board.transpose
   end
 end
-board = Board.new(10, 2)
+board = Board.new(10, 80)
 
 board.reveal_every_tile!
 board.print
+puts board.expand!([0, 0])
+#
