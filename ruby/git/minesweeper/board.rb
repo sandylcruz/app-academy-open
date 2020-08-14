@@ -65,6 +65,26 @@ class Board
     @grid
   end
 
+  def strict_neighbors(index1, index2)
+    left = [index1, index2 - 1]
+    up = [index1 - 1, index2]
+    down = [index1 + 1, index2]
+    right = [index1, index2 + 1]
+    neighbor_coordinates = []
+
+    [left, up, down, right].each do |coordinate_pair|
+      i = coordinate_pair[0]
+      j = coordinate_pair[1]
+      is_i_in_bounds = i >= 0 && i < @grid_size
+      is_j_in_bounds = j >= 0 && j < @grid_size
+
+      if is_i_in_bounds && is_j_in_bounds
+        neighbor_coordinates << coordinate_pair
+      end
+    end
+    neighbor_coordinates
+  end
+
   def neighbors(index1, index2)
     numbers = []
     x = index1
@@ -113,20 +133,32 @@ class Board
   def expand!(coordinate_pair)
     x = coordinate_pair[0]
     y = coordinate_pair[1]
-    
     tile = @grid[x][y]
-    tile.reveal!
-    neighbor_coordinates = neighbors(x, y)
-    neighbor_coordinates.each do |neighbor_coordinate|
-      x = neighbor_coordinate[0]
-      y = neighbor_coordinate[1]
-      new_tile = @grid[x][y]
-      new_tile.reveal!
-    end
 
     if tile.is_bomb
       return false
     else
+      coordinates_to_check = strict_neighbors(x, y)
+      
+      until coordinates_to_check.empty?
+        coordinate_to_check = coordinates_to_check.shift
+        x = coordinate_to_check[0]
+        y = coordinate_to_check[1]
+        tile = @grid[x][y]
+
+        unless tile.is_bomb
+          tile.reveal!
+          next_neighbors = strict_neighbors(x, y).select do |coordinate_pair|
+            x = coordinate_pair[0]
+            y = coordinate_pair[1]
+            tile = @grid[x][y]
+            !tile.revealed
+          end
+         
+          coordinates_to_check += next_neighbors
+        end
+      end
+
       return true
     end
   end
@@ -220,9 +252,9 @@ class Board
     @board.transpose
   end
 end
-board = Board.new(10, 80)
+board = Board.new(10, 50)
 
-board.reveal_every_tile!
-board.print
+# board.reveal_every_tile!
+# board.print
 puts board.expand!([0, 0])
-#
+board.print

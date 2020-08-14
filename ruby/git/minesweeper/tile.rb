@@ -1,7 +1,7 @@
 require 'colorize'
 
 class Tile
-  attr_reader :value, :is_bomb
+  attr_reader :value, :is_bomb, :revealed
 
   def initialize(is_bomb, revealed)
     @is_bomb = is_bomb
