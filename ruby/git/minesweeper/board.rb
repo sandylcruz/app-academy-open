@@ -116,10 +116,10 @@ class Board
     tile = @grid[x][y]
 
     if tile.is_bomb
-      return false
+      return true
     else
       tile.reveal!
-      return true if tile.bomb_count > 0
+      return false if tile.bomb_count > 0
       coordinates_to_check = neighbors(x, y)
       
       until coordinates_to_check.empty?
@@ -142,19 +142,24 @@ class Board
         end
       end
 
-      return true
+      return false
     end
   end
 
   def won?
-  end
+    total_num_tiles = (@grid_size ** 2)
+    target_num_tiles = total_num_tiles - @num_bombs
 
-  def lost?
+    count = 0
     @grid.each do |row|
-      row.any? do |tile|
-        tile.bombed
+      row.each do |tile|
+        if tile.revealed
+          count += 1
+        end
       end
     end
+
+    count == target_num_tiles
   end
 
   def reveal_every_tile!
@@ -165,56 +170,37 @@ class Board
     end
   end
 
-  # def render
-  #   @grid.each_with_index do |row, x|
-  #     row.each_with_index do |tile, y|
-  #       current_position = [x, y]
-  #       cursor_position_equals_current_position = current_position == @cursor_position
-  #       if cursor_position_equals_current_position
-  #         print tile.as_cursor_string
-  #       else
-  #         print tile
-  #       end
+  def move_left!
+    i = @cursor_position[0]
+    j = @cursor_position[1]
 
-  #       if y < row.length - 1
-  #         print ' '
-  #       end
-  #     end
-  #     print "\n"
-  #   end
-  # end
+    return if j == 0
+    @cursor_position = [i, j - 1]
+  end
 
-  # def move_left!
-  #   i = @cursor_position[0]
-  #   j = @cursor_position[1]
+  def move_right!
+    i = @cursor_position[0]
+    j = @cursor_position[1]
 
-  #   return if j == 0
-  #   @cursor_position = [i, j - 1]
-  # end
+    return if j == 8
+    @cursor_position = [i, j + 1]
+  end
 
-  # def move_right!
-  #   i = @cursor_position[0]
-  #   j = @cursor_position[1]
+  def move_up!
+    i = @cursor_position[0]
+    j = @cursor_position[1]
 
-  #   return if j == 8
-  #   @cursor_position = [i, j + 1]
-  # end
+    return if i == 0
+    @cursor_position = [i - 1, j]
+  end
 
-  # def move_up!
-  #   i = @cursor_position[0]
-  #   j = @cursor_position[1]
+  def move_down!
+    i = @cursor_position[0]
+    j = @cursor_position[1]
 
-  #   return if i == 0
-  #   @cursor_position = [i - 1, j]
-  # end
-
-  # def move_down!
-  #   i = @cursor_position[0]
-  #   j = @cursor_position[1]
-
-  #   return if i == 8
-  #   @cursor_position = [i + 1, j]
-  # end
+    return if i == 8
+    @cursor_position = [i + 1, j]
+  end
 
   # def mark_number(number)
   #   index1 = @cursor_position[0]
@@ -235,9 +221,9 @@ class Board
     @board.transpose
   end
 end
-board = Board.new(10, 30)
+# board = Board.new(10, 30)
 
-# board.reveal_every_tile!
+# # board.reveal_every_tile!
+# # board.print
+# puts board.expand!([0, 0])
 # board.print
-puts board.expand!([0, 0])
-board.print
