@@ -10,9 +10,10 @@ class Game
 
   def play
     has_hit_bomb = false
+
     until has_hit_bomb || @board.won?
       @board.print
-      input = get_input
+      keyboard_input = get_input
       has_hit_bomb = @board.expand!(input)
       make_move
     end
@@ -44,5 +45,5 @@ class Game
     input
    end
 end
-game = Game.new(10, 5)
+game = Game.new(5, 5)
 game.play

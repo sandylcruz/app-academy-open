@@ -202,16 +202,12 @@ class Board
     @cursor_position = [i + 1, j]
   end
 
-  # def mark_number(number)
-  #   index1 = @cursor_position[0]
-  #   index2 = @cursor_position[1]
-  #   tile = @grid[index1][index2]
-  #   tile.mark_number(number)
-  # end
-
-  # def render(revealed = false)
-
-  # end
+  def press_enter(number)
+    index1 = @cursor_position[0]
+    index2 = @cursor_position[1]
+    tile = @grid[index1][index2]
+    tile.mark_number(number)
+  end
 
   def row
     @board
@@ -221,9 +217,3 @@ class Board
     @board.transpose
   end
 end
-# board = Board.new(10, 30)
-
-# # board.reveal_every_tile!
-# # board.print
-# puts board.expand!([0, 0])
-# board.print
