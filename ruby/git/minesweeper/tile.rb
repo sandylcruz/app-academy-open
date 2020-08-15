@@ -27,7 +27,6 @@ class Tile
   end
 
   def to_s
-    #if neighbor_bomb_count == 0, do not display 0
     if @revealed
       if @is_bomb
         "X".colorize(:red)
@@ -39,17 +38,17 @@ class Tile
     end
   end
 
-  def as_cursor_string
-    if @revealed
-      "#{@value}".light_green.on_white
-    else
-      if @value == 0
-        "x".green.on_white
-      else
-        "#{@value}".green.on_white
-      end
-    end
-  end
+  # def as_cursor_string
+  #   if @revealed
+  #     "#{@value}".light_green.on_white
+  #   else
+  #     if @value == 0
+  #       "x".green.on_white
+  #     else
+  #       "#{@value}".green.on_white
+  #     end
+  #   end
+  # end
 
   # def place_mark
   #   unless @is_bomb

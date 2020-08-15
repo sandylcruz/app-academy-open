@@ -8,14 +8,20 @@ class Game
     @board = Board.new(grid_size, num_bombs)
   end
 
+  def get_input
+    input = STDIN.getch
+    exit(0) if input == "\u0003"
+    input
+   end
+
   def play
     has_hit_bomb = false
 
     until has_hit_bomb || @board.won?
       @board.print
       keyboard_input = get_input
-      has_hit_bomb = @board.expand!(input)
-      make_move
+      has_hit_bomb = @board.expand!(keyboard_input)
+      make_move(keyboard_input)
     end
 
     if @board.won?
@@ -36,14 +42,12 @@ class Game
       @board.move_right!
     when "s"
       @board.move_down!
+    when "enter"
+      @board.expand!(keyboard_input)
     end
   end
 
-  def get_input
-    input = STDIN.getch
-    exit(0) if input == "\u0003"
-    input
-   end
+
 end
 game = Game.new(5, 5)
 game.play
