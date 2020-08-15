@@ -104,15 +104,23 @@ class Board
     bomb_count
   end
 
-  def print
-    @grid.each do |row|
-      puts row.join(" ")
+  def render
+    @grid.each_with_index do |row, row_index|
+      row.each_with_index do |tile, tile_index|
+        is_cursor = @cursor_position == [row_index, tile_index]
+        tile.render(is_cursor)
+        if tile_index < row.length - 1
+          print " "
+        end
+      end
+
+      print "\n"
     end
   end
 
-  def expand!(coordinate_pair)
-    x = coordinate_pair[0]
-    y = coordinate_pair[1]
+  def expand!
+    x = @cursor_position[0]
+    y = @cursor_position[1]
     tile = @grid[x][y]
 
     if tile.is_bomb
@@ -182,7 +190,7 @@ class Board
     i = @cursor_position[0]
     j = @cursor_position[1]
 
-    return if j == 8
+    return if j == @grid_size - 1
     @cursor_position = [i, j + 1]
   end
 
@@ -198,7 +206,7 @@ class Board
     i = @cursor_position[0]
     j = @cursor_position[1]
 
-    return if i == 8
+    return if i == @grid_size - 1
     @cursor_position = [i + 1, j]
   end
 

@@ -18,10 +18,10 @@ class Game
     has_hit_bomb = false
 
     until has_hit_bomb || @board.won?
-      @board.print
+      system("clear")
+      @board.render
       keyboard_input = get_input
-      has_hit_bomb = @board.expand!(keyboard_input)
-      make_move(keyboard_input)
+      has_hit_bomb = make_move(keyboard_input)
     end
 
     if @board.won?
@@ -36,15 +36,21 @@ class Game
     case keyboard_input
     when "a"
       @board.move_left!
+      return false
     when "w"
       @board.move_up!
+      return false
     when "d"
       @board.move_right!
+      return false
     when "s"
       @board.move_down!
+      return false
     when "enter"
-      @board.expand!(keyboard_input)
+      return @board.expand!
     end
+
+    return false
   end
 
 

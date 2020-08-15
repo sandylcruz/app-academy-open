@@ -26,34 +26,27 @@ class Tile
   def inspect
   end
 
-  def to_s
+  def render(is_cursor)
     if @revealed
       if @is_bomb
-        "X".colorize(:red)
+        if is_cursor
+          print "X".red.on_white
+        else
+          print "X".colorize(:red)
+        end
       else
-        @bomb_count.to_s.colorize(:green)
+        if is_cursor
+          print @bomb_count.to_s.purple
+        else
+          print @bomb_count.to_s.colorize(:green)
+        end
       end
     else
-      "-".colorize(:blue)
+      if is_cursor
+        print "-".green.on_white
+      else
+        print "-".colorize(:blue)
+      end
     end
   end
-
-  # def as_cursor_string
-  #   if @revealed
-  #     "#{@value}".light_green.on_white
-  #   else
-  #     if @value == 0
-  #       "x".green.on_white
-  #     else
-  #       "#{@value}".green.on_white
-  #     end
-  #   end
-  # end
-
-  # def place_mark
-  #   unless @is_bomb
-  #     "X"
-  #   end
-  # end
-
 end
