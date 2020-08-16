@@ -23,16 +23,18 @@ class Game
       keyboard_input = get_input
       has_hit_bomb = make_move(keyboard_input)
     end
-
+    
+    system("clear")
     if @board.won?
       puts "You won! =^..^="
-    elsif @board.lost?
+    else
       puts "** Bomb hit ** You lose :("
-      @board.reveal
+      @board.reveal_every_tile!
     end
+    @board.render
   end
 
-  def make_move(keyboard_input) 
+  def make_move(keyboard_input)
     case keyboard_input
     when "a"
       @board.move_left!
@@ -46,7 +48,7 @@ class Game
     when "s"
       @board.move_down!
       return false
-    when "enter"
+    when " "
       return @board.expand!
     end
 
@@ -55,5 +57,5 @@ class Game
 
 
 end
-game = Game.new(5, 5)
+game = Game.new(20, 200)
 game.play

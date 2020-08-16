@@ -36,7 +36,7 @@ class Tile
         end
       else
         if is_cursor
-          print @bomb_count.to_s.purple
+          print @bomb_count.to_s.colorize(:orange)
         else
           print @bomb_count.to_s.colorize(:green)
         end
