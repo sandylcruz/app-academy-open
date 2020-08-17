@@ -52,17 +52,50 @@ puts queue.enqueue(2) == 2
 puts queue.enqueue(3) == 3
 puts queue.dequeue == 3
 puts queue.peek == 2
+puts 
 
-def Map
+class Map
+  def initialize
+    @underlying_array = []
+  end
+
   def set(key, value)
+    pair_index = @underlying_array.index { |pair| pair[0] == key }
+    if pair_index
+      @underlying_array[pair_index][1] = value
+    else
+      @underlying_array.push([key, value])
+    end
+    nil
   end
 
   def get(key)
+    entry = @underlying_array.find do |entry| 
+      entry[0] == key
+    end
+    return nil if entry.nil?
+    entry[1]
   end
 
   def delete(key)
+    value = get(key)
+    @underlying_array.reject! { |pair| pair[0] == key}
+    value
   end
 
   def show
+    @underlying_array
   end
 end
+puts "Map class tests:"
+my_map = Map.new
+puts my_map.set('cat', 'callie') == nil
+puts my_map.set('kitten', 'squeaky') == nil
+
+puts my_map.get('cat') == 'callie'
+puts my_map.get('phoenix') == nil
+puts my_map.show == [["cat", "callie"], ["kitten", "squeaky"]]
+puts my_map.set('kitten', 'phoenix') == nil
+puts my_map.get('kitten') == 'phoenix'
+puts my_map.delete('cat') == 'callie'
+print my_map.show == [["kitten", "phoenix"]]
