@@ -11,21 +11,29 @@ class PolyTreeNode
   # 3) Reassign parent to new parent @parent = new_parent
   # 4) Push in self's children to new_parent
 
-  def parent=(passed_node)
-    @parent = passed_node
-    return nil if passed_node.nil?
+  def parent=(new_parent)
+    unless @parent.nil?
+      @parent.children.delete(self)
+    end
 
-    if !passed_node.children.include?(self)
-      passed_node.children << self
+    @parent = new_parent
+    return nil if new_parent.nil?
+
+    if !new_parent.children.include?(self)
+      new_parent.children << self
     end
   end
 
-  def add_child
-    child.parent = self
+  def add_child(child_node)
+    child_node.parent = self
   end
 
-  def remove_child
-    child.parent = nil
+  def remove_child(child_node)
+    if !self.children.include?(child_node)
+      raise "This is not a child"
+    end
+
+    child_node.parent = nil
   end
 end
 
