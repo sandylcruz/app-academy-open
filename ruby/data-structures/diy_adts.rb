@@ -1,25 +1,22 @@
 class Stack
-   # create ivar to store stack here!
   def initialize
     @stack = []
   end
 
-  # adds an element to the stack
   def push(el)
     @stack << el
     el
   end
 
-  # removes one element from the stack
   def pop
     @stack.pop
   end
 
-  # returns, but doesn't remove, the top element in the stack
   def peek
     return @stack[-1]
   end
 end
+puts "Stack tests"
 stack = Stack.new
 puts stack.peek == nil
 puts stack.push(1) == 1
@@ -28,17 +25,33 @@ puts stack.push(3) == 3
 puts stack.peek == 3
 puts stack.pop == 3
 puts stack.peek == 2
+puts 
 
 class Queue
+  def initialize
+    @stack = []
+  end
+
   def enqueue(el)
+    @stack.push(el)
+    el
   end
 
   def dequeue
+    @stack.pop
   end
 
   def peek
+    @stack[-1]
   end
 end
+puts "Queue tests:"
+queue = Queue.new
+puts queue.enqueue(1) == 1
+puts queue.enqueue(2) == 2
+puts queue.enqueue(3) == 3
+puts queue.dequeue == 3
+puts queue.peek == 2
 
 def Map
   def set(key, value)
