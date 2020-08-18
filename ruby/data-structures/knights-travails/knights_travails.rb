@@ -1,30 +1,31 @@
 class KnightPathFinder
-  def initialize
-    kpf = KnightPathFinder.new([0, 0])
-    @grid = Array.new(8) { Array.new(8)}
-    @considered_positions = [starting_position]
-  end
 
-  def self.root_node
-    initial_position = 
+  def initialize(start_position)
+    @start_position = start_position
+    @considered_positions = [start_position]
+
+    build_move_Tree
   end
 
   def build_move_tree(start_position)
+    self.root_node = PolyTreeNode.new(start_position)
+
     queue = [start_position]
+    until queue.empty?
+      current_ele = queue.shift
+      return current_ele if current_ele.value == target_value
+    end
   end
 
-  def self.root_nodeend
-  end
-
-  def find_path
-  end
+  # def find_path(end_position)
+  # end
   
-  def valid_moves(position)
-  end
+  # def self.valid_moves(position)
+  # end
 
-  def new_move_positions(position)
-    valid_moves(position)
-  end
+  # def new_move_positions(position)
+  #   valid_moves(position)
+  # end
 end
 
 new = KnightPathFinder.new
