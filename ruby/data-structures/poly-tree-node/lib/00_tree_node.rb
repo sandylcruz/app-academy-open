@@ -35,12 +35,29 @@ class PolyTreeNode
 
     child_node.parent = nil
   end
-end
 
-class Searchable
-  def dfs
+  def dfs(target_value)
+    return self if target_value == @value
+
+    children.each do |child|
+      response = child.dfs(target_value)
+      unless response.nil?
+        return response
+      end
+    end
+    
+    nil
   end
 
-  def bfs
+  def bfs(target_value)
+    queue = [self]
+
+    until queue.empty?
+      current_element = queue.shift
+      return current_element if current_element.value == target_value
+      queue += current_element.children
+    end
+
+    nil
   end
 end
