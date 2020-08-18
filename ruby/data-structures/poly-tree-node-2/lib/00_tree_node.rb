@@ -20,14 +20,19 @@ class PolyTreeNode
     @parent = new_parent
     return nil if new_parent.nil?
    
-    new_parent.children << self  
+    if !new_parent.children.include?(self)
+      new_parent.children << self  
+    end
   end
 
-  # def add_child(child_node)
-  # end
+  def add_child(child_node)
+    child_node.parent = self
+  end
 
-  # def delete_child(child_node)
-  # end
+  def remove_child(child_node)
+    raise "This is not a child" if !self.children.include?(child_node)
+    child_node.parent = nil
+  end
 
   # def bfs
   # end
