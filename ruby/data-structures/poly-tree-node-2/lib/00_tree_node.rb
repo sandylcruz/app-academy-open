@@ -35,21 +35,42 @@ class PolyTreeNode
   end
   
   # return nil or an instance of hte polytreenode class
+  # def dfs(target_value)
+  #   return self if target_value == value
+
+  #   children.each do |child|
+  #     response = child.dfs(target_value)
+  #     unless response.nil?
+  #       return response
+  #     end
+  #   end
+  #   nil
+  # end
+
+  # def bfs(target_value)
+  #   queue = [self]
+
+  #   until queue.empty?
+  #     current_element = queue.shift
+  #     return current_element if current_element.value == target_value
+  #     queue += current_element.children
+  #   end
+  #   nil
+  # end
+
   def dfs(target_value)
-    return self if target_value == value
+    return self if target_value == @value
 
     children.each do |child|
       response = child.dfs(target_value)
-      unless response.nil?
-        return response
-      end
+      return response unless response.nil?
     end
+
     nil
   end
 
   def bfs(target_value)
     queue = [self]
-
     until queue.empty?
       current_element = queue.shift
       return current_element if current_element.value == target_value
@@ -57,5 +78,4 @@ class PolyTreeNode
     end
     nil
   end
-
 end
