@@ -1,5 +1,6 @@
-class KnightPathFinder
+require_relative "poly_tree_node"
 
+class KnightPathFinder
   def self.coordinate_in_range?(position)
     x = position[0]
     y = position[1]
@@ -55,14 +56,21 @@ class KnightPathFinder
     @considered_positions
   end
 
-  # def build_move_tree(start_position)
-  #   @root_node = PolyTreeNode.new(start_position)
+  def build_move_tree(start_position)
+    node = PolyTreeNode.new(start_position)
+    root_node = node
+    
+    #array of polytreenode instances
+    queue = [root_node]
+    
+    until queue.empty?
+      current_node = queue.shift
+      current_coordinate = current_node.
+      queue << current_node.children
+    end
+  end
 
-
-  # end
-
-
-
+  
   # def find_path(end_position)
   # end
   
