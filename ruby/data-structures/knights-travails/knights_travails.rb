@@ -36,12 +36,23 @@ class KnightPathFinder
     possible_moves
   end
     
-
   def initialize(start_position)
     @start_position = start_position
     @considered_positions = [start_position]
 
     # build_move_tree
+  end
+
+  def new_move_positions(position)
+    unfiltered_moves = KnightPathFinder::valid_moves(position)
+
+    unfiltered_moves.each do |unfiltered_move|
+      if !@considered_positions.include?(unfiltered_move)
+        @considered_positions << unfiltered_move
+      end
+    end
+    
+    @considered_positions
   end
 
   # def build_move_tree(start_position)
@@ -50,10 +61,7 @@ class KnightPathFinder
 
   # end
 
-  # def new_move_positions(position)
-  #   unfiltered_moves = KnightPathFinder::valid_moves(position)
 
-  # end
 
   # def find_path(end_position)
   # end
@@ -64,8 +72,9 @@ class KnightPathFinder
   #   valid_moves(position)
   # end
 end
-# a = KnightPathFinder.new([4, 4])
+a = KnightPathFinder.new([4, 4])
 # print KnightPathFinder::valid_moves([7,7])
 # print KnightPathFinder::valid_moves([0, 0])
-print KnightPathFinder::valid_moves([0, 7])
+# print KnightPathFinder::valid_moves([0, 7])
 # print KnightPathFinder::valid_moves([7,0])
+print a.new_move_positions([4, 4])
