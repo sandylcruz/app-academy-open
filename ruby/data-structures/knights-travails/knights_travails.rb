@@ -86,20 +86,18 @@ class KnightPathFinder
   end
   
   def trace_path_back(end_node)
-    tree_array = []
+    path_array = []
 
+    current_node = end_node
+    until current_node.nil?
+      path_array << current_node.value #coordinate array
+      current_node = current_node.parent
+    end
 
-    tree_array.reverse
+    path_array.reverse
   end
-
-
-
 end
-kpf = KnightPathFinder.new([0,0])
-# print KnightPathFinder::valid_moves([7,7])
-# print KnightPathFinder::valid_moves([0, 0])
-# print KnightPathFinder::valid_moves([0, 7])
-# print KnightPathFinder::valid_moves([7,0])
-# puts kpf.find_path([7,7]).value
-puts kpf.find_path([7, 6]) # => [[0, 0], [1, 2], [2, 4], [3, 6], [5, 5], [7, 6]]
-# kpf.find_path([6, 2]) # => [[0, 0], [1, 2], [2, 0], [4, 1], [6, 2]]
+# kpf = KnightPathFinder.new([0,0])
+
+# print kpf.find_path([7, 6]) # => [[0, 0], [1, 2], [2, 4], [3, 6], [5, 5], [7, 6]]
+# print kpf.find_path([6, 2]) # => [[0, 0], [1, 2], [2, 0], [4, 1], [6, 2]]
