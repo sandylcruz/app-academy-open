@@ -15,6 +15,7 @@ class TicTacToeNode
 
   def winning_node?(evaluator)
     if board.over?
+      return board.winner == evaluator
     end
   end
 
