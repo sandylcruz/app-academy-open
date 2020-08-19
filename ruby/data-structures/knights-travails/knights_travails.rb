@@ -1,6 +1,7 @@
 require_relative "poly_tree_node"
 
 class KnightPathFinder
+
   def self.coordinate_in_range?(position)
     x = position[0]
     y = position[1]
@@ -42,7 +43,6 @@ class KnightPathFinder
     @considered_positions = [start_position]
 
     @tree = build_move_tree(start_position)
-    puts @tree
   end
 
   def new_move_positions(position)
@@ -81,19 +81,25 @@ class KnightPathFinder
   end
 
   def find_path(end_position)
-    
+    end_node = @tree.bfs(end_position)
+    trace_path_back(end_node)
   end
   
-  def trace_path_back
+  def trace_path_back(end_node)
+    tree_array = []
+
+
+    tree_array.reverse
   end
 
 
 
 end
-a = KnightPathFinder.new([4, 4])
+kpf = KnightPathFinder.new([0,0])
 # print KnightPathFinder::valid_moves([7,7])
 # print KnightPathFinder::valid_moves([0, 0])
 # print KnightPathFinder::valid_moves([0, 7])
 # print KnightPathFinder::valid_moves([7,0])
-
-
+# puts kpf.find_path([7,7]).value
+puts kpf.find_path([7, 6]) # => [[0, 0], [1, 2], [2, 4], [3, 6], [5, 5], [7, 6]]
+# kpf.find_path([6, 2]) # => [[0, 0], [1, 2], [2, 0], [4, 1], [6, 2]]
