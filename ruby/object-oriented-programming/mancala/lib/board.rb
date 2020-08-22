@@ -29,7 +29,11 @@ class Board
     @cups[start_pos] = []
 
     # until stones.empty?
+
     # end
+
+    render
+    next_turn(ending_cup_idx)
   end
 
   def next_turn(ending_cup_idx)
@@ -61,7 +65,7 @@ class Board
     if player1_count == player2_count
       :draw
     else
-      
+      player1_count > player2_count ? @name1 : @name2
     end
   end
 end
