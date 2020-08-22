@@ -1,58 +1,58 @@
-# def my_all?(array, &prc)
-#   array.each do |element|
-#     return false if prc.call(element) == false
-#   end
-#   return true
-# end
-# puts "My_all tests:"
-# puts my_all?([0, 1, 2, 3]) { |num| num > 1 } == false
-# puts my_all?([1, 2, 3]) { |num| num < 4 } == true
-# puts
+def my_all?(array, &prc)
+  array.each do |element|
+    return false if prc.call(element) == false
+  end
+  return true
+end
+puts "My_all tests:"
+puts my_all?([0, 1, 2, 3]) { |num| num > 1 } == false
+puts my_all?([1, 2, 3]) { |num| num < 4 } == true
+puts
 
-# def my_any?(array, &prc)
-#   i = 0
+def my_any?(array, &prc)
+  i = 0
 
-#   while i < array.length
-#     if prc.call(array[i]) == true
-#       return true
-#     end
-#     i += 1
-#   end
-# end
-# puts "My_any tests:"
-# puts my_any?([1, 2, 3]) { |num| num > 1 } == true
-# puts my_any?([1, 2, 3]) { |num| num < 4 } == true
-# puts
+  while i < array.length
+    if prc.call(array[i]) == true
+      return true
+    end
+    i += 1
+  end
+end
+puts "My_any tests:"
+puts my_any?([1, 2, 3]) { |num| num > 1 } == true
+puts my_any?([1, 2, 3]) { |num| num < 4 } == true
+puts
 
-# def my_count(array, &prc)
-#   count = 0
-#   array.each do |element|
-#     if prc.call(element) == true
-#       count += 1
-#     end
-#   end
-#   count
-# end
-# puts "My_count tests:"
-# puts my_count([1, 2, 4, 2]) { |num| num % 2 == 0} == 3
-# puts my_count([1, 2, 4, 2]) { |num| num.odd? } == 1
-# puts my_count([1, 2, 4, 2]) { |num| num.even? } == 3
-# puts
+def my_count(array, &prc)
+  count = 0
+  array.each do |element|
+    if prc.call(element) == true
+      count += 1
+    end
+  end
+  count
+end
+puts "My_count tests:"
+puts my_count([1, 2, 4, 2]) { |num| num % 2 == 0} == 3
+puts my_count([1, 2, 4, 2]) { |num| num.odd? } == 1
+puts my_count([1, 2, 4, 2]) { |num| num.even? } == 3
+puts
 
-# def my_each(array, &prc)
-#   accumulator = []
-#   i = 0
+def my_each(array, &prc)
+  accumulator = []
+  i = 0
 
-#   while i < array.length
-#     accumulator << array[i]
-#     i += 1
-#   end
-#   accumulator
-# end
-# puts "My_each tests:"
-# puts my_each([1, 2, 3]) { |num| puts num } == [1, 2, 3]
-# puts my_each([1, 2, 3, 4, 5, 6]) { |num| puts num } == [1, 2, 3, 4, 5, 6]
-# puts 
+  while i < array.length
+    accumulator << array[i]
+    i += 1
+  end
+  accumulator
+end
+puts "My_each tests:"
+puts my_each([1, 2, 3]) { |num| puts num } == [1, 2, 3]
+puts my_each([1, 2, 3, 4, 5, 6]) { |num| puts num } == [1, 2, 3, 4, 5, 6]
+puts 
 
 def my_map(array, &prc)
 end
@@ -66,12 +66,23 @@ def my_include?(array, target)
     end
   end
 end
-puts my_include?([1, 2, 3, 4, 5, 6], 4) == true
-# puts my_include?([1, 2, 3, 4, 5, 6], 7) == false
-# puts my_include?(["cat", "dog", "banana"], "cat") == true
+puts "My_include tests:"
+puts my_include?([1, 2, 3, 4, 5, 6], 7) == false
+puts my_include?(["cat", "dog", "banana"], "cat") == true
+puts
 
 def my_none?(array, &prc)
+  array.each do |element|
+    if prc.call(element) == false
+      return false
+    end
+  end
+  return true
 end
+puts "My_none? tests:"
+puts my_none?([0, 1, 2, 3]) { |num| num > 1 } #== false
+puts my_none?([1, 2, 3]) { |num| num < 4 } #== false
+puts my_none?([1, 2, 3]) { |num| num > 4 } #== true
 
 def my_partition(array, &prc)
 end
@@ -110,21 +121,21 @@ end
 # puts my_select([1, 2, 3, 0, -1, -2]) { |num| num > 1} == [2, 3]
 # puts my_select([1, 2, 3, 4, 5, 6]) { |num| num == 4 } == [4]
 
-def my_uniq(array)
-  unique_array = []
+# def my_uniq(array)
+#   unique_array = []
 
-  array.each do |element|
-    if !unique_array.include?(element)
-      unique_array << element
-    end
-  end
-  unique_array
-end
-puts "My_uniq tests:"
-puts my_uniq([1, 2, 2, 2, 3, 4, 5]) == [1, 2, 3, 4, 5]
-puts my_uniq([1, 2, 0, -2, 3, 4, 5]) == [1, 2, 0, -2, 3, 4, 5]
-puts my_uniq(["cat", "cat", "banana"]) == ["cat", "banana"]
-puts my_uniq(["dog", "cat", "banana"]) == ["dog", "cat", "banana"]
+#   array.each do |element|
+#     if !unique_array.include?(element)
+#       unique_array << element
+#     end
+#   end
+#   unique_array
+# end
+# puts "My_uniq tests:"
+# puts my_uniq([1, 2, 2, 2, 3, 4, 5]) == [1, 2, 3, 4, 5]
+# puts my_uniq([1, 2, 0, -2, 3, 4, 5]) == [1, 2, 0, -2, 3, 4, 5]
+# puts my_uniq(["cat", "cat", "banana"]) == ["cat", "banana"]
+# puts my_uniq(["dog", "cat", "banana"]) == ["dog", "cat", "banana"]
 
 # [1, 2, 3].my_each { |num| puts num } #monkey patched
 # my_each([1, 2, 3]) { |num| puts num } #non-monkey patched
