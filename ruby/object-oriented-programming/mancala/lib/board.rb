@@ -28,12 +28,17 @@ class Board
     stones = @cups[start_pos]
     @cups[start_pos] = []
 
-    until stones.empty?
-    end
+    # until stones.empty?
+    # end
   end
 
   def next_turn(ending_cup_idx)
     # helper method to determine whether #make_move returns :switch, :prompt, or ending_cup_idx
+    if ending_cup_idx == 6 || ending_cup_idx == 13
+      :prompt
+    else
+      :switch
+    end
   end
 
   def render
@@ -45,6 +50,8 @@ class Board
   end
 
   def one_side_empty?
+    @cups[0..5].all? { |cup| cup.empty? } ||
+    @cups[7..12].all? { |cup| cup.empty? }
   end
 
   def winner
