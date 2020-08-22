@@ -24,22 +24,20 @@
 # puts my_any?([1, 2, 3]) { |num| num < 4 } == true
 # puts
 
-def my_count(array, &prc)
-  count = 0
-  array.each do |element|
-    if prc.call(element) == true
-      count += 1
-    end
-  end
-  count
-end
-puts "My_count tests:"
-puts my_count([1, 2, 4, 2]) { |num| num % 2 == 0} == 3
-puts my_count([1, 2, 4, 2]) { |num| num.odd? } == 1
-puts my_count([1, 2, 4, 2]) { |num| num.even? } == 3
-puts
-def my_filter(array, &prc)
-end
+# def my_count(array, &prc)
+#   count = 0
+#   array.each do |element|
+#     if prc.call(element) == true
+#       count += 1
+#     end
+#   end
+#   count
+# end
+# puts "My_count tests:"
+# puts my_count([1, 2, 4, 2]) { |num| num % 2 == 0} == 3
+# puts my_count([1, 2, 4, 2]) { |num| num.odd? } == 1
+# puts my_count([1, 2, 4, 2]) { |num| num.even? } == 3
+# puts
 
 # def my_each(array, &prc)
 #   accumulator = []
@@ -58,8 +56,19 @@ end
 
 def my_map(array, &prc)
 end
-def my_include?(array, &prc)
+
+def my_include?(array, target)
+  array.each do |element|
+    if element == target
+      return true
+    else
+      return false
+    end
+  end
 end
+puts my_include?([1, 2, 3, 4, 5, 6], 4) == true
+# puts my_include?([1, 2, 3, 4, 5, 6], 7) == false
+# puts my_include?(["cat", "dog", "banana"], "cat") == true
 
 def my_none?(array, &prc)
 end
@@ -101,12 +110,21 @@ end
 # puts my_select([1, 2, 3, 0, -1, -2]) { |num| num > 1} == [2, 3]
 # puts my_select([1, 2, 3, 4, 5, 6]) { |num| num == 4 } == [4]
 
-def my_uniq(array, &prc)
-end
+def my_uniq(array)
+  unique_array = []
 
-def my_zip(array, &prc)
+  array.each do |element|
+    if !unique_array.include?(element)
+      unique_array << element
+    end
+  end
+  unique_array
 end
-
+puts "My_uniq tests:"
+puts my_uniq([1, 2, 2, 2, 3, 4, 5]) == [1, 2, 3, 4, 5]
+puts my_uniq([1, 2, 0, -2, 3, 4, 5]) == [1, 2, 0, -2, 3, 4, 5]
+puts my_uniq(["cat", "cat", "banana"]) == ["cat", "banana"]
+puts my_uniq(["dog", "cat", "banana"]) == ["dog", "cat", "banana"]
 
 # [1, 2, 3].my_each { |num| puts num } #monkey patched
 # my_each([1, 2, 3]) { |num| puts num } #non-monkey patched
