@@ -27,21 +27,36 @@ class Board
   def make_move(start_pos, current_player_name)
     stones = @cups[start_pos]
     @cups[start_pos] = []
+    cup_index = start_pos
 
-    # until stones.empty?
+    until stones.empty?
+      cup_index = (cup_index + 1) % 14
+      
+      if cup_index == 6 && current_player_name == @name2
+        cup_index += 1
+      elsif cup_index == 13 && current_player_name == @name1
+        cup_index = 0
+      end
 
-    # end
+      current_cup = @cups[cup_index]
+      stone = stones.pop
+      current_cup << stone
+    end
 
     render
-    next_turn(ending_cup_idx)
+    next_turn(cup_index, current_player_name)
   end
 
-  def next_turn(ending_cup_idx)
+  def next_turn(ending_cup_idx, current_player_name)
     # helper method to determine whether #make_move returns :switch, :prompt, or ending_cup_idx
-    if ending_cup_idx == 6 || ending_cup_idx == 13
+    if ending_cup_idx == 6 && current_player_name == @name1
       :prompt
-    else
+    elsif ending_cup_idx == 13 && current_player_name == @name2
+      :prompt 
+    elsif @cups[ending_cup_idx].length == 1
       :switch
+    else
+      ending_cup_idx
     end
   end
 
