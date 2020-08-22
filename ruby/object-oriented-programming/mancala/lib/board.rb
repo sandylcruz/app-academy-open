@@ -55,5 +55,13 @@ class Board
   end
 
   def winner
+    player1_count = @cups[6].count
+    player2_count = @cups[13].count
+
+    if player1_count == player2_count
+      :draw
+    else
+      
+    end
   end
 end
