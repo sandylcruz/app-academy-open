@@ -16,32 +16,35 @@ end
 # puts "bubble sort test: "
 # puts bubble_sort([64, 34, 25, 12, 22, 11, 90])
 # puts
-
 def merge(left, right)
   sorted_array = []
 
-  while !left.empty? || !right.empty?
+  until left.empty? || right.empty?
     if left[0] < right[0]
       sorted_array << left.shift
     else
       sorted_array << right.shift
     end
   end
-  sorted_array.concat(left).concat(right)
+  sorted_array + left + right
 end
-puts merge([3, 2, 1], [4, 5, 6])
 
 def merge_sort(unsorted_array)
   if unsorted_array.length <= 1
-    return unsorted_array
+    unsorted_array
   else
     middle = (unsorted_array.length) / 2
-    left = unsorted_array.slice(0, middle)
-    right = unsorted_array.slice(middle, unsorted_array.length)
+    left = merge_sort(unsorted_array.slice(0, middle))
+    right = merge_sort(unsorted_array.slice(middle, unsorted_array.length))
+    merge(left, right)
   end
-  merge(left, right)
 end
-puts merge_sort([10, 9, 8, 7, 6, 5])
+print merge_sort([4, 3, 2, 1])
+
+
+
+
+
 
 
 
