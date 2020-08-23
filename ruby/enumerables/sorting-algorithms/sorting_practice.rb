@@ -39,17 +39,30 @@ def merge_sort(unsorted_array)
     merge(left, right)
   end
 end
-print merge_sort([4, 3, 2, 1])
-
-
-
-
-
-
+# print merge_sort([4, 3, 2, 1])
 
 
 def quick_sort(array)
+  return array if array.length <= 1
+  pivot = array.pop
+  less_than = []
+  greater_than = []
+  sorted_array = []
+
+  array.each do |number|
+    if number <= pivot
+      less_than << number
+    else
+      greater_than << number
+    end
+  end
+  sorted_array << quick_sort(less_than)
+  sorted_array << pivot
+  sorted_array << quick_sort(greater_than)
+  sorted_array.flatten
 end
+# print quick_sort([4, 3, 2, 1])
+print quick_sort([10, 9, 8, 7, 6, 5, 4, 3, 2, 1])
 
 def binary_search
 end
