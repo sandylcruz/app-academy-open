@@ -41,7 +41,6 @@ def merge_sort(unsorted_array)
 end
 # print merge_sort([4, 3, 2, 1])
 
-
 def quick_sort(array)
   return array if array.length <= 1
   pivot = array.pop
@@ -61,8 +60,45 @@ def quick_sort(array)
   sorted_array << quick_sort(greater_than)
   sorted_array.flatten
 end
-# print quick_sort([4, 3, 2, 1])
-print quick_sort([10, 9, 8, 7, 6, 5, 4, 3, 2, 1])
 
-def binary_search
+def quick_sort(array)
+  return array if array.length <= 1
+
+  pivot = array.pop
+  less_than = []
+  greater_than = []
+  sorted_array = []
+
+  array.each do |num|
+    if num < pivot
+      less_than << num
+    else
+      greater_than << num
+    end
+  end
+
+  sorted_array += quick_sort(less_than)
+  sorted_array << pivot
+  sorted_array += quick_sort(greater_than)
 end
+# print quick_sort([10, 9, 8, 7, 6, 5, 4, 3, 2, 1])
+
+def binary_search(array, target)
+  low = 0
+  high = array.length - 1
+
+  while low < high
+    middle_index = (low + ((high - low) / 2)) 
+    value_at_middle = array[middle_index]
+    
+    return middle_index if value_at_middle == target
+
+    if value_at_middle < target
+      low = middle_index + 1
+    else
+      high = middle_index - 1
+    end
+  end
+  nil
+end
+puts binary_search([10, 9, 8, 7, 6, 5, 4, 3, 2, 1], 11)
