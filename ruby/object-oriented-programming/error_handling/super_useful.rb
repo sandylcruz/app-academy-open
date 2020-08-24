@@ -3,11 +3,12 @@ def convert_to_int(str)
   begin
     Integer(str)
   rescue ArgumentError => e
-    puts "Input cannot be converted"
-    puts "Error was: #{e.message}"
+    puts "#{str} cannot be converted into an integer"
+    puts "#Error was: #{e.message}"
     return nil
   end
 end
+puts convert_to_int("callie")
 
 # PHASE 3
 FRUITS = ["apple", "banana", "orange"]
@@ -19,6 +20,7 @@ def reaction(maybe_fruit)
     raise StandardError 
   end 
 end
+
 
 def feed_me_a_fruit
   puts "Hello, I am a friendly monster. :)"
