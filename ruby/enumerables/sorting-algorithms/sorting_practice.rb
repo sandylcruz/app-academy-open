@@ -101,4 +101,8 @@ def binary_search(array, target)
   end
   nil
 end
-puts binary_search([10, 9, 8, 7, 6, 5, 4, 3, 2, 1], 11)
+puts binary_search([1, 2, 3, 4, 5 ,6, 7, 8], 7)
+
+def binary_search(array, target)
+end
+puts binary_search([1, 2, 3, 4, 5 ,6, 7, 8], 7)
