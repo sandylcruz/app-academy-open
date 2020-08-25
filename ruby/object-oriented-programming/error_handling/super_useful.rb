@@ -9,48 +9,47 @@ def convert_to_int(str)
     num ||= 0
   end
   num 
-
 end
 
-# class CoffeeError < StandardError
-#   def message
-#     "I like coffee, but this is not a fruit. Try again"
-#   end
-# end
+class CoffeeError < StandardError
+  def message
+    "I like coffee, but this is not a fruit. Try again"
+  end
+end
 
-# class NotaFruitError < StandardError
-#   def message
-#     "This is not a fruit"
-#   end
-# end
+class NotaFruitError < StandardError
+  def message
+    "This is not a fruit"
+  end
+end
 
-# # PHASE 3
-# FRUITS = ["apple", "banana", "orange"]
+# PHASE 3
+FRUITS = ["apple", "banana", "orange"]
 
-# def reaction(maybe_fruit)
-#   if FRUITS.include?(maybe_fruit)
-#     puts "OMG, thanks so much for the #{maybe_fruit}!"
-#   elsif maybe_fruit == "coffee"
-#     raise CoffeeError 
-#   else 
-#     raise NotaFruitError 
-#   end 
-# end
+def reaction(maybe_fruit)
+  if FRUITS.include?(maybe_fruit)
+    puts "OMG, thanks so much for the #{maybe_fruit}!"
+  elsif maybe_fruit == "coffee"
+    raise CoffeeError 
+  else 
+    raise NotaFruitError 
+  end 
+end
 
-# def feed_me_a_fruit
-#   puts "Hello, I am a friendly monster. :)"
-#   begin
-#     puts "Feed me a fruit! (Enter the name of a fruit:)"
-#     maybe_fruit = gets.chomp
-#     reaction(maybe_fruit)
-#   rescue CoffeeError => e
-#     puts e.message
-#     retry
-#   rescue NotaFruitError => e
-#     puts e.message
-#   end
-# end  
-# puts feed_me_a_fruit
+def feed_me_a_fruit
+  puts "Hello, I am a friendly monster. :)"
+  begin
+    puts "Feed me a fruit! (Enter the name of a fruit:)"
+    maybe_fruit = gets.chomp
+    reaction(maybe_fruit)
+  rescue CoffeeError => e
+    puts e.message
+    retry
+  rescue NotaFruitError => e
+    puts e.message
+  end
+end  
+puts feed_me_a_fruit
 
 # PHASE 4
 class BestFriend
