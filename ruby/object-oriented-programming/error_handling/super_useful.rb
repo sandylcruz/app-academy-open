@@ -27,6 +27,9 @@ def feed_me_a_fruit
 
   puts "Feed me a fruit! (Enter the name of a fruit:)"
   maybe_fruit = gets.chomp
+  if maybe_fruit == "coffee"
+    
+  end
   reaction(maybe_fruit) 
 end  
 
