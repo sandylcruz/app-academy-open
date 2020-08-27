@@ -1,0 +1,3 @@
+module Singelton
+  
+end
