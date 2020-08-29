@@ -1,4 +1,6 @@
-class NullPiece < Pieces
+require 'singleton'
+
+class NullPiece < Piece
   include Singleton
   
   def initialize
@@ -9,5 +11,4 @@ class NullPiece < Pieces
 
   def symbol
   end
-
 end

@@ -1,7 +1,7 @@
 require_relative 'piece'
 require_relative 'slideable'
 
-class Bishop < Pieces
+class Bishop < Piece
   include Slideable
   
   def symbol

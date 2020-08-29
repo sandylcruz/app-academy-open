@@ -1,6 +1,6 @@
 require_relative 'piece'
 
-class Pawn < Pieces
+class Pawn < Piece
   def symbol
     '♟'.colorize(color)
   end

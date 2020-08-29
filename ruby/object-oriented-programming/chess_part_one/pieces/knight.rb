@@ -1,7 +1,7 @@
 require_relative 'piece'
 require_relative 'stepable'
 
-class Knight < Pieces
+class Knight < Piece
   include Stepable
   
   def symbol
@@ -10,6 +10,6 @@ class Knight < Pieces
 
   protected
   
-  def move_directions
+  def move_diffs
   end
 end
