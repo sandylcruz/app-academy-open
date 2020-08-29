@@ -19,7 +19,7 @@ class Piece
   def to_s
   end
 
-  def empty?
+  def empty?(position)
   end
 
   def valid_moves

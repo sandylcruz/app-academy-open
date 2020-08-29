@@ -7,6 +7,9 @@ class Game
   end
 
   def play
+    # until @board.solved?
+      @board.render
+    # end
   end
 
   private

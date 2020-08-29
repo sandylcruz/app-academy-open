@@ -2,8 +2,14 @@ require 'colorize'
 
 class Board
   def initialize
-    @grid = Array.new(8) { Array.new(8) }
-    @rows = []
+    # @rows = []
+    generate_grid!
+  end
+
+  def generate_grid!
+    @grid = Array.new(8) do 
+      Array.new(8)
+    end
   end
 
   def [](position)
@@ -16,6 +22,24 @@ class Board
     row = position[0]
     column = position[1]
     @grid[row][column] = value
+  end
+
+  def render
+    @grid.each_with_index do |row, row_index|
+      row_string = " "
+      row.each_with_index do |cell, cell_index|
+        if row_index.even? && cell_index.even?
+          row_string += "  ".on_red
+        elsif row_index.even? && cell_index.odd?
+          row_string += "  ".on_blue
+        elsif row_index.odd? && cell_index.even?
+          row_string += "  ".on_blue
+        elsif row_index.odd? && cell_index.odd?
+          row_string += "  ".on_red
+        end
+      end
+      puts row_string
+    end
   end
 
   def move_piece(color, start_position, end_position)
@@ -58,4 +82,4 @@ class Board
   end
 end
 b = Board.new
-# b.render
+b.render
