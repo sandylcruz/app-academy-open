@@ -5,9 +5,15 @@ class Board
   end
 
   def [](position)
+    row = position[0]
+    column = position[1]
+    @grid[row][column]
   end
 
   def []=(position, value)
+    row = position[0]
+    column = position[1]
+    @grid[row][column] = value
   end
 
   def move_piece(color, start_position, end_position)
