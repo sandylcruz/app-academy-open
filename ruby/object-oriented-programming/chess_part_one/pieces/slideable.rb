@@ -1,8 +1,7 @@
 module Slideable
-  def initialize
-    HORIZONTAL_DIRS = []
-    DIAGONAL_DIRS = []
-  end
+
+  # HORIZONTAL_DIRS = []
+  # DIAGONAL_DIRS = []
   
   def horizontal_directions
   end

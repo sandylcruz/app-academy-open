@@ -1,8 +1,8 @@
 class Piece
   attr_reader :color, :board, :position
 
-  def initialize
-    @color = symbol
+  def initialize(color = :none)
+    @color = color
     @board = board
     @position = []
   end

@@ -19,7 +19,7 @@ class Display
         if @cursor.cursor_position == [row_index, cell_index]
           row_string += " #{piece} ".on_green
         elsif row_index.even? && cell_index.even? || row_index.odd? && cell_index.odd?
-          row_string += " #{piece} ".on_white
+          row_string += " #{piece} ".on_red
         elsif row_index.even? && cell_index.odd? || row_index.odd? && cell_index.even?
           row_string += " #{piece} ".on_blue
         end

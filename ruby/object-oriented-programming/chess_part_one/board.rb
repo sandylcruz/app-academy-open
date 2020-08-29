@@ -1,6 +1,12 @@
 require 'colorize'
 require './pieces/null_piece.rb'
+require './pieces/bishop.rb'
+require './pieces/king.rb'
 require './pieces/knight.rb'
+require './pieces/null_piece.rb'
+require './pieces/pawn.rb'
+require './pieces/queen.rb'
+require './pieces/rook.rb'
 
 class Board
   attr_reader :rows
@@ -9,8 +15,26 @@ class Board
   def initialize
     @sentinel = NullPiece.instance
     @rows = Array.new(8) { Array.new(8) { @sentinel } }  
-    add_piece(Knight.new, [0, 0])
-    add_piece()
+    add_piece(Rook.new(:black), [0, 0])
+    add_piece(Knight.new(:black), [0, 1])
+    add_piece(Bishop.new(:black), [0, 2])
+    add_piece(Queen.new(:black), [0, 3])
+    add_piece(King.new(:black), [0, 4])
+    add_piece(Bishop.new(:black), [0, 5])
+    add_piece(Knight.new(:black), [0, 6])
+    add_piece(Rook.new(:black), [0, 7])
+    (0..7).each do |num|
+      add_piece(Pawn.new(:black), [1, num])
+      add_piece(Pawn.new(:white), [6, num])
+    end
+    add_piece(Rook.new(:white), [7, 0])
+    add_piece(Knight.new(:white), [7, 1])
+    add_piece(Bishop.new(:white), [7, 2])
+    add_piece(Queen.new(:white), [7, 3])
+    add_piece(King.new(:white), [7, 4])
+    add_piece(Bishop.new(:white), [7, 5])
+    add_piece(Knight.new(:white), [7, 6])
+    add_piece(Rook.new(:white), [7, 7])
   end
 
   def [](position)
