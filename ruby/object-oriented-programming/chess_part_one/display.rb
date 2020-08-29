@@ -17,11 +17,11 @@ class Display
       row_string = ""
       row.each_with_index do |piece, cell_index|
         if @cursor.cursor_position == [row_index, cell_index]
-          row_string += "  ".on_green
+          row_string += " #{piece} ".on_green
         elsif row_index.even? && cell_index.even? || row_index.odd? && cell_index.odd?
-          row_string += "  ".on_white
+          row_string += " #{piece} ".on_white
         elsif row_index.even? && cell_index.odd? || row_index.odd? && cell_index.even?
-          row_string += "  ".on_blue
+          row_string += " #{piece} ".on_blue
         end
       end
       puts row_string

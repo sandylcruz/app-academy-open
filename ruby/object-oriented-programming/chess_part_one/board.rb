@@ -1,11 +1,16 @@
 require 'colorize'
+require './pieces/null_piece.rb'
+require './pieces/knight.rb'
 
 class Board
   attr_reader :rows
   attr_reader :sentinal
 
   def initialize
-    @rows = Array.new(8) { Array.new(8) } 
+    @sentinel = NullPiece.instance
+    @rows = Array.new(8) { Array.new(8) { @sentinel } }  
+    add_piece(Knight.new, [0, 0])
+    add_piece()
   end
 
   def [](position)
@@ -35,6 +40,7 @@ class Board
   end
 
   def add_piece(piece, position)
+    self[position] = piece
   end
 
   def checkmate?(color)
