@@ -1,5 +1,5 @@
 require 'colorize'
-require_relative "board"
+require_relative './cursor.rb'
 
 class Display
   attr_reader :board
@@ -7,15 +7,19 @@ class Display
 
   def initialize(board)
     @board = board
-    @cursor = cursor
+    @cursor = Cursor.new([0, 0], board)
   end
 
   def render
+    system("clear")
+
     @board.rows.each_with_index do |row, row_index|
-      row_string = " "
-      row.each_with_index do |cell, cell_index|
-        if row_index.even? && cell_index.even? || row_index.odd? && cell_index.odd?
-          row_string += "  ".on_red
+      row_string = ""
+      row.each_with_index do |piece, cell_index|
+        if @cursor.cursor_position == [row_index, cell_index]
+          row_string += "  ".on_green
+        elsif row_index.even? && cell_index.even? || row_index.odd? && cell_index.odd?
+          row_string += "  ".on_white
         elsif row_index.even? && cell_index.odd? || row_index.odd? && cell_index.even?
           row_string += "  ".on_blue
         end

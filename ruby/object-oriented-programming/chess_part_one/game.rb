@@ -1,4 +1,5 @@
 require_relative "./board.rb"
+require_relative "./display.rb"
 
 class Game
   attr_reader :board
@@ -15,22 +16,11 @@ class Game
 
   def play
     # until @board.solved?
+    while true
       @display.render
-    # end
+      @display.cursor.get_input
+    end
   end
-
-  # def make_move(keyboard_input)
-  #   case keyboard_input
-  #   when "a"
-  #     @board.move_left!
-  #   when "w"
-  #     @board.move_up!
-  #   when "d"
-  #     @board.move_right!
-  #   when "s"
-  #     @board.move_down!
-  #   end
-  # end
 
   private
   def notify_players
@@ -40,4 +30,5 @@ class Game
   end
 end
 
-g = Game.new
+game = Game.new
+game.play
