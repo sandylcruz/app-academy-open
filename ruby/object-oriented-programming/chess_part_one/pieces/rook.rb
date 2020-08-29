@@ -1,3 +1,6 @@
+require_relative 'piece'
+require_relative 'slideable'
+
 class Rook < Pieces
   include Slideable
   
