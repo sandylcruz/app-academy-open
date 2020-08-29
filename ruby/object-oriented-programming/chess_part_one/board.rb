@@ -1,6 +1,6 @@
 class Board
   def initialize
-    @board = board
+    @grid = Array.new(8) { Array.new(8) }
     @rows = []
   end
 
@@ -19,7 +19,19 @@ class Board
   def move_piece(color, start_position, end_position)
   end
 
+  def coordinate_in_range?(position)
+    row = position[0]
+    column = position[1]
+    grid_size = 8
+
+    is_row_within_bounds = row >= 0 && row <= (grid_size - 1)
+    is_column_within_bounds = column >= 0 && column <= (grid_size - 1)
+
+    is_row_within_bounds && is_column_within_bounds
+  end
+
   def valid_position?(position)
+
   end
 
   def add_piece(piece, position)
@@ -43,3 +55,5 @@ class Board
   def move_piece!(color, start_position, end_position)
   end
 end
+b = Board.new
+puts b
