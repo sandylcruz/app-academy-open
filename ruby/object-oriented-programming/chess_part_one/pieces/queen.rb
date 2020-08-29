@@ -2,6 +2,7 @@ class Queen < Pieces
   include Slideable
   
   def symbol
+    '♛'.colorize(color)
   end
 
   protected

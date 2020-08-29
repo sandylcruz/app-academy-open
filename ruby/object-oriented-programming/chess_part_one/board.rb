@@ -1,3 +1,5 @@
+require 'colorize'
+
 class Board
   def initialize
     @grid = Array.new(8) { Array.new(8) }
@@ -56,4 +58,4 @@ class Board
   end
 end
 b = Board.new
-puts b
+# b.render

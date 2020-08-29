@@ -1,5 +1,8 @@
+require_relative 'piece'
+
 class Pawn < Pieces
   def symbol
+    '♟'.colorize(color)
   end
 
   def move_directions

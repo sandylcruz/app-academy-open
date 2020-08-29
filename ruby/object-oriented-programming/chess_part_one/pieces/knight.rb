@@ -2,6 +2,7 @@ class Knight < Pieces
   include Stepable
   
   def symbol
+    '♞'.colorize(color)
   end
 
   protected
