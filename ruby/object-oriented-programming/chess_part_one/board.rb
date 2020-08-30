@@ -50,6 +50,8 @@ class Board
   end
 
   def move_piece(color, start_position, end_position)
+    raise "There is no piece at start position" if empty?(start_position)
+    raise "The piece cannot move to end position" if !end_pos.valid_position?(position)
   end
 
   def valid_position?(position)
@@ -63,8 +65,12 @@ class Board
     is_row_within_bounds && is_column_within_bounds
   end
 
-  def add_piece(piece, position)
-    self[position] = piece
+  # def add_piece(piece, position)
+  #   @rows[position] = piece
+  # end
+
+  def empty?(position)
+    @rows[position].empty?
   end
 
   def checkmate?(color)
@@ -85,3 +91,5 @@ class Board
   def move_piece!(color, start_position, end_position)
   end
 end
+b = Board.new
+b.move_piece(:black, [-1, -1], [5, 0])

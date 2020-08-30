@@ -12,6 +12,7 @@ class Piece
   end
 
   def empty?(position)
+    self[position].empty?
   end
 
   def valid_moves
