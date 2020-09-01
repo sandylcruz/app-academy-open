@@ -65,9 +65,9 @@ class Board
     is_row_within_bounds && is_column_within_bounds
   end
 
-  # def add_piece(piece, position)
-  #   @rows[position] = piece
-  # end
+  def add_piece(piece, position)
+    @rows[position] = piece
+  end
 
   def empty?(position)
     @rows[position].empty?
@@ -92,4 +92,4 @@ class Board
   end
 end
 b = Board.new
-b.move_piece(:black, [-1, -1], [5, 0])
+b.move_piece("black", [-1, -1], [5, 0])
