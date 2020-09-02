@@ -50,8 +50,10 @@ class Board
   end
 
   def move_piece(color, start_position, end_position)
-    raise "There is no piece at start position" if empty?(start_position)
-    raise "The piece cannot move to end position" if !end_pos.valid_position?(position)
+    raise "There is no piece at start position" if start_position.nil?
+    piece = self[start_position]
+    
+    raise "Piece cannot move that way" if piece.moves.include?(end_position)
   end
 
   def valid_position?(position)
@@ -66,7 +68,7 @@ class Board
   end
 
   def add_piece(piece, position)
-    @rows[position] = piece
+    self[position] = piece
   end
 
   def empty?(position)
@@ -92,4 +94,4 @@ class Board
   end
 end
 b = Board.new
-b.move_piece("black", [-1, -1], [5, 0])
+b.move_piece("black", [1, 1], [22, 0])
