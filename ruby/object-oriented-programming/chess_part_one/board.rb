@@ -52,7 +52,7 @@ class Board
   def move_piece(color, start_position, end_position)
     raise "There is no piece at start position" if start_position.nil?
     piece = self[start_position]
-    
+    raise "This is nil" if end_position.nil?
     raise "Piece cannot move that way" if piece.moves.include?(end_position)
   end
 
