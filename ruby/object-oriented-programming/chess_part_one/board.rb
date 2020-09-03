@@ -49,11 +49,14 @@ class Board
     @rows[row][column] = value
   end
 
-  def move_piece(color, start_position, end_position)
-    raise "There is no piece at start position" if start_position.nil?
-    piece = self[start_position]
-    raise "This is nil" if end_position.nil?
-    raise "Piece cannot move that way" if piece.moves.include?(end_position)
+  # Should we have color passed in? Diagram shows color, 
+  # but instructions don't
+  
+  def move_piece(start_position, end_position)
+    raise "Invalid position" unless valid_position?(start_position) && valid_position?(end_position)
+    piece = self.[](start_position)
+    raise "There is no piece at start position" if piece == NullPiece
+    raise "Piece cannot move that way" if piece.valid_moves.include?(end_position) 
   end
 
   def valid_position?(position)
@@ -94,4 +97,5 @@ class Board
   end
 end
 b = Board.new
-b.move_piece("black", [1, 1], [22, 0])
+b.move_piece([1, 1], [22, 0])
+b.move_piece([1, 1], [22, 0])
