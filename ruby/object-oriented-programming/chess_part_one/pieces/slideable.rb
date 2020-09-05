@@ -1,7 +1,7 @@
 module Slideable
 
-  # HORIZONTAL_DIRS = []
-  # DIAGONAL_DIRS = []
+  HORIZONTAL_DIRS = []
+  DIAGONAL_DIRS = []
   
   def horizontal_directions
   end
@@ -16,6 +16,7 @@ module Slideable
 
   def move_directions
   end
+
 
   def grow_unblocked_moves_in(dx, dy)
   end
