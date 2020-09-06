@@ -11,6 +11,13 @@ class Queen < Piece
   protected
   
   def move_directions
-    Slideable::HORIZONTAL_DIRS + Slideable::DIAGONAL_DIRS
+    accumulator = []
+
+    Slideable::HORIZONTAL_DIRS.each_with_index do |horizontal_direction, index|
+      accumulator << horizontal_direction
+      accumulator << Slideable::DIAGONAL_DIRS[index]
+    end
+
+    accumulator
   end
 end

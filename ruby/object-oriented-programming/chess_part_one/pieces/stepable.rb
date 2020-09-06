@@ -1,6 +1,6 @@
 module Stepable
   def moves
-    move_diffs
+    # move_diffs
   end
 
   private
