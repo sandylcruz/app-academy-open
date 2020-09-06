@@ -11,5 +11,6 @@ class Rook < Piece
   protected
   
   def move_directions
+    Slideable::HORIZONTAL_DIRS
   end
 end

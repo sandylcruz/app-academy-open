@@ -1,7 +1,7 @@
 class Piece
   attr_reader :color, :board, :position
 
-  def initialize(color = :none)
+  def initialize(board, color = :none)
     @color = color
     @board = board
     @position = []
@@ -16,11 +16,11 @@ class Piece
   end
 
   def valid_moves
-    move_positions
-    
+    []
   end
 
   def pos=(value)
+    @position = value
   end
 
   def symbol

@@ -42,10 +42,7 @@ class Cursor
       @cursor_position = [new_i, j]
     end
   end
-
-  def read_char
-  end
-
+  
   def update_position(diff)
   end
 end

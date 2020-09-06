@@ -15,26 +15,26 @@ class Board
   def initialize
     @sentinel = NullPiece.instance
     @rows = Array.new(8) { Array.new(8) { @sentinel } }  
-    add_piece(Rook.new(:black), [0, 0])
-    add_piece(Knight.new(:black), [0, 1])
-    add_piece(Bishop.new(:black), [0, 2])
-    add_piece(Queen.new(:black), [0, 3])
-    add_piece(King.new(:black), [0, 4])
-    add_piece(Bishop.new(:black), [0, 5])
-    add_piece(Knight.new(:black), [0, 6])
-    add_piece(Rook.new(:black), [0, 7])
+    add_piece(Rook.new(self, :black), [0, 0])
+    add_piece(Knight.new(self, :black), [0, 1])
+    add_piece(Bishop.new(self, :black), [0, 2])
+    add_piece(Queen.new(self, :black), [0, 3])
+    add_piece(King.new(self, :black), [0, 4])
+    add_piece(Bishop.new(self, :black), [0, 5])
+    add_piece(Knight.new(self, :black), [0, 6])
+    add_piece(Rook.new(self, :black), [0, 7])
     (0..7).each do |num|
-      add_piece(Pawn.new(:black), [1, num])
-      add_piece(Pawn.new(:white), [6, num])
+      add_piece(Pawn.new(self, :black), [1, num])
+      add_piece(Pawn.new(self, :white), [6, num])
     end
-    add_piece(Rook.new(:white), [7, 0])
-    add_piece(Knight.new(:white), [7, 1])
-    add_piece(Bishop.new(:white), [7, 2])
-    add_piece(Queen.new(:white), [7, 3])
-    add_piece(King.new(:white), [7, 4])
-    add_piece(Bishop.new(:white), [7, 5])
-    add_piece(Knight.new(:white), [7, 6])
-    add_piece(Rook.new(:white), [7, 7])
+    add_piece(Rook.new(self, :white), [7, 0])
+    add_piece(Knight.new(self, :white), [7, 1])
+    add_piece(Bishop.new(self, :white), [7, 2])
+    add_piece(Queen.new(self, :white), [7, 3])
+    add_piece(King.new(self, :white), [7, 4])
+    add_piece(Bishop.new(self, :white), [7, 5])
+    add_piece(Knight.new(self, :white), [7, 6])
+    add_piece(Rook.new(self, :white), [7, 7])
   end
 
   def [](position)
@@ -60,18 +60,13 @@ class Board
   end
 
   def valid_position?(position)
-    row = position[0]
-    column = position[1]
-    grid_size = 8
-
-    is_row_within_bounds = row >= 0 && row <= (grid_size - 1)
-    is_column_within_bounds = column >= 0 && column <= (grid_size - 1)
-
-    is_row_within_bounds && is_column_within_bounds
+    x, y = position
+    x.between?(0, 7) && y.between?(0, 7)
   end
 
   def add_piece(piece, position)
     self[position] = piece
+    piece.pos = position
   end
 
   def empty?(position)
@@ -97,5 +92,7 @@ class Board
   end
 end
 b = Board.new
-b.move_piece([1, 1], [22, 0])
-b.move_piece([1, 1], [22, 0])
+# b.move_piece([1, 1], [22, 0])
+# b.move_piece([1, 1], [5, 0])
+rook = b[[0, 0]]
+print rook.moves

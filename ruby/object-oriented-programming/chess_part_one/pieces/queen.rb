@@ -11,5 +11,6 @@ class Queen < Piece
   protected
   
   def move_directions
+    Slideable::HORIZONTAL_DIRS + Slideable::DIAGONAL_DIRS
   end
 end

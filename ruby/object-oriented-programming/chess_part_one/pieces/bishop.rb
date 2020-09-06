@@ -11,5 +11,6 @@ class Bishop < Piece
   protected
   
   def move_directions
+    Slideable::DIAGONAL_DIRS
   end
 end
