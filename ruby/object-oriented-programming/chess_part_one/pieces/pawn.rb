@@ -6,6 +6,10 @@ class Pawn < Piece
   end
 
   def move_directions
+    if at_start_row?
+      
+    else
+    end
   end
 
   private

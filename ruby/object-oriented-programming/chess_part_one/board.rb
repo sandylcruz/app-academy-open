@@ -70,7 +70,7 @@ class Board
   end
 
   def empty?(position)
-    @rows[position].empty?
+    self[position] == NullPiece.instance
   end
 
   def checkmate?(color)
