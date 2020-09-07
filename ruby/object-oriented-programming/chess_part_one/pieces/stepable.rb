@@ -1,10 +1,4 @@
 module Stepable
-
-    #take vector of possible moves and return possible coordinate pairs
-    #if next space has an enemy
-    #if next space has a friend
-    #if next space is blank
-
   def moves
     possible_moves = []
     move_diffs.each do |dx, dy|
