@@ -5,21 +5,22 @@ class Pawn < Piece
     '♟'.colorize(color)
   end
 
-  def move_directions
+  def moves
     forward_steps + side_attacks
   end
 
   private
   
   def at_start_row?
-    # @position[0] 
+    @position[0] && @board.color == :white
   end
 
   def forward_direction
-    x = @position[0]
-    y = @position[1]
-
-    one_step = [x + 1, y]
+    if @color == white
+      1
+    else
+      -1
+    end
   end
 
   def forward_steps
@@ -45,8 +46,17 @@ class Pawn < Piece
     x = @position[0]
     y = @position[1]
 
-    if !@board.empty?(one_step) && @board.color != @color
-      
+    potential_diagonal_positions = [@board[x + 1, y + 1], @board[x + 1, y - 1]]
+    potential_diagonal_positions.each do |diagonal_position|
+      if @board[diagonal_position].color != 
+
+    end
+
+
+    # if !@board.empty?(left_potential_side_step_piece) 
+
+    # if !@board.empty?(one_step) && @board.color != @color
+
     end
   end
 end

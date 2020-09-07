@@ -16,7 +16,7 @@ class Piece
   end
 
   def valid_moves
-    []
+    moves
   end
 
   def pos=(value)
