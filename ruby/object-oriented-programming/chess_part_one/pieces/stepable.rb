@@ -14,10 +14,8 @@ module Stepable
       if @board.valid_position?(new_position)
         if @board.empty?(new_position)
           possible_moves << new_position
-        elsif @board.color != color
+        elsif @board[position].color != color
           possible_moves << new_position
-        elsif @board.color == color
-
         end
       end
     end
