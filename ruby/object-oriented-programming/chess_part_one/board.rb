@@ -18,8 +18,8 @@ class Board
     # add_piece(Rook.new(self, :black), [0, 0])
     # add_piece(Knight.new(self, :black), [0, 1])
     # add_piece(Bishop.new(self, :black), [0, 2])
-    add_piece(Queen.new(self, :black), [0, 3])
-    # add_piece(King.new(self, :black), [0, 4])
+    # add_piece(Queen.new(self, :black), [0, 3])
+    add_piece(King.new(self, :black), [0, 4])
     # add_piece(Bishop.new(self, :black), [0, 5])
     # add_piece(Knight.new(self, :black), [0, 6])
     # add_piece(Rook.new(self, :black), [0, 7])
@@ -30,7 +30,7 @@ class Board
     # add_piece(Rook.new(self, :white), [7, 0])
     # add_piece(Knight.new(self, :white), [7, 1])
     # add_piece(Bishop.new(self, :white), [7, 2])
-    add_piece(Queen.new(self, :white), [7, 3])
+    # add_piece(Queen.new(self, :white), [7, 3])
     # add_piece(King.new(self, :white), [7, 4])
     # add_piece(Bishop.new(self, :white), [7, 5])
     # add_piece(Knight.new(self, :white), [7, 6])
@@ -94,5 +94,5 @@ end
 b = Board.new
 # b.move_piece([1, 1], [22, 0])
 # b.move_piece([1, 1], [5, 0])
-queen = b[[7, 3]]
-print queen.moves
+king = b[[0, 4]]
+print king.moves

@@ -2,7 +2,8 @@ module Stepable
   def moves
     possible_moves = []
     move_diffs.each do |dx, dy|
-      @position = x, y
+      x = @position[0]
+      y = @position[1]
       new_position = [x + dx, y + dy]
       
       if @board.valid_position?(new_position)
