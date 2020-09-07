@@ -45,18 +45,13 @@ class Pawn < Piece
   def side_attacks
     x = @position[0]
     y = @position[1]
-
     potential_diagonal_positions = [@board[x + 1, y + 1], @board[x + 1, y - 1]]
+
     potential_diagonal_positions.each do |diagonal_position|
-      if @board[diagonal_position].color != 
-
-    end
-
-
-    # if !@board.empty?(left_potential_side_step_piece) 
-
-    # if !@board.empty?(one_step) && @board.color != @color
-
+      if @board.valid_position?(diagonal_position) && @board.empty?(diagonal_position)
+        @board[diagonal_position].color != @color
+        end
+      end
     end
   end
 end
