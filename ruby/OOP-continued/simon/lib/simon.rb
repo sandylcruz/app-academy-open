@@ -29,17 +29,17 @@ class Simon
     end
   end
 
-  def show_sequence
-    add_random_color
-  end
+  # def show_sequence
+  #   add_random_color
+  # end
 
-  def require_sequence
-    print "Repeat back the new sequence:"
-    new_sequence = gets.chomp
-    if !new_sequence.include? 
+  # def require_sequence
+  #   print "Repeat back the new sequence:"
+  #   new_sequence = gets.chomp
+  #   if !new_sequence.include? 
 
-    end
-  end
+  #   end
+  # end
 
   def add_random_color
     @seq << COLORS.sample
