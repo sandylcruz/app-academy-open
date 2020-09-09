@@ -12,19 +12,18 @@ class Simon
   def play
     until @game_over == true
       take_turn
+      systen("clear")
     end
-
-    if @game_over == true
-      game_over_message
-      reset_game
-    end
+   
+    game_over_message
+    reset_game
   end
 
   def take_turn
     show_sequence 
     require_sequence
 
-    until @game_over == true
+    unless @game_over == true
       round_success_message
       @sequence_length += 1
     end
@@ -38,6 +37,8 @@ class Simon
     print "Repeat back the new sequence:"
     new_sequence = gets.chomp
     if !new_sequence.include? 
+
+    end
   end
 
   def add_random_color
