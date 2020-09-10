@@ -12,7 +12,7 @@ class Simon
   def play
     until @game_over == true
       take_turn
-      systen("clear")
+      system("clear")
     end
    
     game_over_message
