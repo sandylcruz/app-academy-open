@@ -46,6 +46,9 @@ class Cursor
   end
   
   def update_position(diff)
+    if @board.valid_position?(diff)
+      @cursor_position = diff
+    end
   end
 end
 
