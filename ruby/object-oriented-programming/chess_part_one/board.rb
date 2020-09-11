@@ -94,5 +94,5 @@ end
 b = Board.new
 # b.move_piece([1, 1], [22, 0])
 # b.move_piece([1, 1], [5, 0])
-pawn = b[[0, 0]]
-print pawn.moves
+# pawn = b[[0, 0]]
+# print pawn.moves

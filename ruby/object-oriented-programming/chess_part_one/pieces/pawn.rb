@@ -50,7 +50,6 @@ class Pawn < Piece
     potential_diagonal_positions.each do |diagonal_position|
       if @board.valid_position?(diagonal_position) && @board.empty?(diagonal_position)
         @board[diagonal_position].color != @color
-        end
       end
     end
   end

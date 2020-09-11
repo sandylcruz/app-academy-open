@@ -40,6 +40,8 @@ class Cursor
       i, j = @cursor_position
       new_i = [i + 1, 7].min
       @cursor_position = [new_i, j]
+    when :space || :return
+      print @cursor_position
     end
   end
   
