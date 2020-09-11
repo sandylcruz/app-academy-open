@@ -1,5 +1,6 @@
 require 'colorize'
-require_relative './cursor.rb'
+require_relative './cursor.rb' 
+require_relative './board.rb'
 
 class Display
   attr_reader :board
@@ -28,3 +29,5 @@ class Display
     end
   end
 end
+d = Display.new(@board)
+d.render
