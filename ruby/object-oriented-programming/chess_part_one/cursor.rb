@@ -41,13 +41,16 @@ class Cursor
       new_i = [i + 1, 7].min
       @cursor_position = [new_i, j]
     when :space || :return
-      print @cursor_position
+      @cursor_position
+    when :ctrl_c
+      Process.exit(0)
     end
   end
   
   def update_position(diff)
-    if @board.valid_position?(diff)
-      @cursor_position = diff
+    new_position = [@cursor_position[0] + diff[0], @cursor_position[1] + diff[1]]
+    if @board.valid_position?(new_position)
+      @cursor_position = new_position
     end
   end
 end
