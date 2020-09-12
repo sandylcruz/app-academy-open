@@ -74,9 +74,14 @@ class Board
   end
 
   def checkmate?(color)
+    # if in_check?(color) && !valid_moves(position)
+    # end
   end
 
   def in_check?(color)
+    king_position = find_king(color)
+
+    king_position
   end
 
   def find_king(color)

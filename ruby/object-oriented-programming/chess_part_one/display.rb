@@ -29,5 +29,11 @@ class Display
     end
   end
 end
-d = Display.new(@board)
+
+board = Board.new
+d = Display.new(board)
 d.render
+while true
+  d.render
+  d.cursor.get_input
+end
