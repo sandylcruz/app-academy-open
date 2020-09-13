@@ -18,7 +18,9 @@ class Piece
   end
 
   def valid_moves
-    moves
+    moves.select do |end_position|
+      !move_into_check?(end_position)
+    end
   end
 
   def pos=(value)
