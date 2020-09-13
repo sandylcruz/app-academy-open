@@ -73,18 +73,45 @@ class Board
     self[position] == NullPiece.instance
   end
 
-  def checkmate?(color)
-    # if in_check?(color) && !valid_moves(position)
-    # end
+  def get_pieces_for_color(color)
+    accumulator = []
+    @rows.each do |row|
+      row.each do |piece|
+        if piece.color == color
+          accumulator << piece
+        end
+      end
+    end
+    accumulator
   end
 
   def in_check?(color)
-    king_position = find_king(color)
+    king_position = find_king(color).position
+    opposing_color = color == :black ? :white : :black
+    opposing_pieces = get_pieces_for_color(opposing_color)
 
-    king_position
+    opposing_pieces.any? do |opposing_piece|
+      opposing_piece.valid_moves.any? do |valid_move|
+        valid_move == king_position
+      end
+    end
+  end
+
+  def checkmate?(color)
+    if in_check?(color) && !valid_moves(position)
+    end
   end
 
   def find_king(color)
+    @rows.each do |row|
+      row.each do |piece|
+        is_king = piece.instance_of?(King)
+        is_opposite_color = color != :color
+        if is_king && is_opposite_color
+          return piece
+        end
+      end
+    end
   end
 
   def pieces
@@ -96,7 +123,9 @@ class Board
   def move_piece!(color, start_position, end_position)
   end
 end
-b = Board.new
+# b = Board.new
+# print b.find_king(:black).position
+# puts b.in_check?(:black)
 # b.move_piece([1, 1], [22, 0])
 # b.move_piece([1, 1], [5, 0])
 # pawn = b[[0, 0]]
