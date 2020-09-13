@@ -45,13 +45,13 @@ class Piece
 
   def move_into_check?(end_position)
     duped_board = @board.dup
-    duped_board.move_piece(position, end_position)
-    duped_board.in_check?(color)
+    duped_board.move_piece!(@color, position, end_position)
+    duped_board.in_check?(@color)
   end
 end
-piece = Piece.new({}, :black)
-piece.pos = [1, 2]
-new_piece = piece.dup
+# piece = Piece.new({}, :black)
+# piece.pos = [1, 2]
+# new_piece = piece.dup
 # puts piece == new_piece
 # puts new_piece.position
 # puts piece.position.object_id === new_piece.position.object_id

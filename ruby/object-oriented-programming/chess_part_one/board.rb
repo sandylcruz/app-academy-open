@@ -20,6 +20,7 @@ class Board
     add_piece(Bishop.new(self, :black), [0, 2])
     add_piece(Queen.new(self, :black), [0, 3])
     add_piece(King.new(self, :black), [0, 4])
+    add_piece(King.new(self, :black), [0, 1])
     add_piece(Bishop.new(self, :black), [0, 5])
     add_piece(Knight.new(self, :black), [0, 6])
     add_piece(Rook.new(self, :black), [0, 7])
@@ -49,14 +50,16 @@ class Board
     @rows[row][column] = value
   end
 
-  # Should we have color passed in? Diagram shows color, 
-  # but instructions don't
-  
-  def move_piece(start_position, end_position)
+  def move_piece(color, start_position, end_position)
     raise "Invalid position" unless valid_position?(start_position) && valid_position?(end_position)
     piece = self.[](start_position)
     raise "There is no piece at start position" if piece == NullPiece
-    raise "Piece cannot move that way" if piece.valid_moves.include?(end_position) 
+    print piece.valid_moves
+    raise "Piece cannot move that way" if !piece.valid_moves.include?(end_position)
+
+    self[end_position] = piece
+    self[start_position] = NullPiece.instance
+    piece.pos = end_position
   end
 
   def valid_position?(position)
@@ -91,8 +94,8 @@ class Board
     opposing_pieces = get_pieces_for_color(opposing_color)
 
     opposing_pieces.any? do |opposing_piece|
-      opposing_piece.valid_moves.any? do |valid_move|
-        valid_move == king_position
+      opposing_piece.moves.any? do |move|
+        move == king_position
       end
     end
   end
@@ -132,15 +135,12 @@ class Board
   end
 
   def move_piece!(color, start_position, end_position)
+    raise "Invalid position" unless valid_position?(start_position) && valid_position?(end_position)
+    piece = self.[](start_position)
+    raise "There is no piece at start position" if piece == NullPiece
+   
+    self[end_position] = piece
+    self[start_position] = NullPiece.instance
+    piece.pos = end_position
   end
 end
-# b = Board.new
-# print b.find_king(:black).position
-# puts b.in_check?(:black)
-# b.move_piece([1, 1], [22, 0])
-# b.move_piece([1, 1], [5, 0])
-# pawn = b[[0, 0]]
-# print pawn.moves
-board = Board.new
-new_board = board.dup
-puts new_board.object_id == board.object_id

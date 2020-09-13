@@ -36,10 +36,6 @@ class Display
 end
 
 board = Board.new
-puts board.bishop.valid_moves
-# d = Display.new(board)
-# d.render
-# while true
-#   d.render
-#   d.cursor.get_input
-# end
+rook = board[[7, 0]]
+king = board[[0, 1]]
+print king.valid_moves
