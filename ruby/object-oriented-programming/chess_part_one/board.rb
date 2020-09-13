@@ -10,7 +10,7 @@ require './pieces/rook.rb'
 
 class Board
   attr_reader :rows
-  attr_reader :sentinal
+  attr_reader :sentinel
 
   def initialize
     @sentinel = NullPiece.instance
@@ -118,6 +118,17 @@ class Board
   end
 
   def dup
+    new_board = Board.new
+    @rows.each do |row|
+      row.each do |piece|
+        unless piece == NullPiece.instance
+          new_piece = piece.dup
+          new_position = new_piece.position
+          new_board.add_piece(new_piece, new_position)
+        end
+      end
+    end
+    new_board
   end
 
   def move_piece!(color, start_position, end_position)
@@ -130,3 +141,6 @@ end
 # b.move_piece([1, 1], [5, 0])
 # pawn = b[[0, 0]]
 # print pawn.moves
+board = Board.new
+new_board = board.dup
+puts new_board.object_id == board.object_id

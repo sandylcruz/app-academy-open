@@ -9,6 +9,7 @@ class Display
   def initialize(board)
     @board = board
     @cursor = Cursor.new([0, 0], board)
+    @show_debug_info = false
   end
 
   def render
@@ -18,7 +19,6 @@ class Display
       row_string = ""
       row.each_with_index do |piece, cell_index|
         if @cursor.cursor_position == [row_index, cell_index]
-          
           if @cursor.selected
             row_string += " #{piece} ".on_red
           else
@@ -36,9 +36,10 @@ class Display
 end
 
 board = Board.new
-d = Display.new(board)
-d.render
-while true
-  d.render
-  d.cursor.get_input
-end
+puts board.bishop.valid_moves
+# d = Display.new(board)
+# d.render
+# while true
+#   d.render
+#   d.cursor.get_input
+# end

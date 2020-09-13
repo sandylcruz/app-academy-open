@@ -13,6 +13,10 @@ class NullPiece < Piece
     []
   end
 
+  def dup
+    self
+  end
+
   def symbol
     " "
   end
