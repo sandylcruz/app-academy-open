@@ -18,7 +18,12 @@ class Display
       row_string = ""
       row.each_with_index do |piece, cell_index|
         if @cursor.cursor_position == [row_index, cell_index]
-          row_string += " #{piece} ".on_green
+          
+          if @cursor.selected
+            row_string += " #{piece} ".on_red
+          else
+            row_string += " #{piece} ".on_green
+          end
         elsif row_index.even? && cell_index.even? || row_index.odd? && cell_index.odd?
           row_string += " #{piece} ".on_red
         elsif row_index.even? && cell_index.odd? || row_index.odd? && cell_index.even?
