@@ -34,6 +34,9 @@ class Game
 
   private
   def notify_players
+    if @board.in_check?(@current_player)
+      
+    end
   end
 
   def swap_turn!

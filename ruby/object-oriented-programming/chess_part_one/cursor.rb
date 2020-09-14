@@ -26,11 +26,10 @@ class Cursor
     "\u0003" => :ctrl_c,
   }.freeze
 
-  def initialize(cursor_position, board, move_maker_cursor)
+  def initialize(cursor_position, board)
     @board = board
     @cursor_position = cursor_position
     @selected = false
-    @move_maker_cursor = move_maker_cursor
   end
 
   def get_input(current_player)

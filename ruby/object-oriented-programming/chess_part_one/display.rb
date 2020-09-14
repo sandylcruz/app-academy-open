@@ -35,7 +35,7 @@ class Display
             row_string += " #{piece} ".on_green
           end
         elsif positions_to_highlight.include?([row_index, cell_index])
-          row_string += " #{piece} ".on_green
+          row_string += " #{piece} ".on_yellow
         elsif row_index.even? && cell_index.even? || row_index.odd? && cell_index.odd?
           row_string += " #{piece} ".on_red
         elsif row_index.even? && cell_index.odd? || row_index.odd? && cell_index.even?
