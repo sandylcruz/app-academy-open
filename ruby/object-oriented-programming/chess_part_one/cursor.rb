@@ -32,21 +32,28 @@ class Cursor
     @selected = false
   end
 
-  def get_input
+  def get_input(current_player)
     input = STDIN.getch
     exit(0) if input == "\u0003"
-    handle_key(input)
-    input
+    handle_key(input, current_player)
   end
 
-  def toggle_selected
+  def toggle_selected(current_player)
     # to do: ensure you can only select a piece and only a piece that is yours
-    @selected = !@selected
+    return if @board.empty?(@cursor_position)
+
+    current_piece = @board[@cursor_position]
+    current_player_color = current_player.color
+    current_piece_color = current_piece.color
+    
+    if current_player_color == current_piece_color
+      @selected = !@selected
+    end
   end
 
   private
 
-  def handle_key(key)
+  def handle_key(key, current_player)
     case KEYMAP[key]
     when :left
       i, j = @cursor_position
@@ -65,7 +72,7 @@ class Cursor
       new_i = [i + 1, 7].min
       @cursor_position = [new_i, j]
     when :space, :return
-      toggle_selected
+      toggle_selected(current_player)
       @cursor_position
     when :ctrl_c
       Process.exit(0)

@@ -54,7 +54,6 @@ class Board
     raise "Invalid position" unless valid_position?(start_position) && valid_position?(end_position)
     piece = self.[](start_position)
     raise "There is no piece at start position" if piece == NullPiece
-    print piece.valid_moves
     raise "Piece cannot move that way" if !piece.valid_moves.include?(end_position)
 
     self[end_position] = piece

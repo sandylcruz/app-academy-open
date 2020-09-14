@@ -6,15 +6,24 @@ class Display
   attr_reader :board
   attr_reader :cursor
 
-  def initialize(board)
+  def initialize(board, game)
     @board = board
+    @game = game
     @cursor = Cursor.new([0, 0], board)
     @show_debug_info = false
   end
 
-  def render
+  def render(possible_moves = [])
     system("clear")
 
+    puts "Current Player: #{@game.current_player.name}"
+
+    positions_to_highlight = []
+
+    if @cursor.selected
+      positions_to_highlight = possible_moves
+    end
+    
     @board.rows.each_with_index do |row, row_index|
       row_string = ""
       row.each_with_index do |piece, cell_index|
@@ -34,8 +43,3 @@ class Display
     end
   end
 end
-
-board = Board.new
-rook = board[[7, 0]]
-king = board[[0, 1]]
-print king.valid_moves
