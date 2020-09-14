@@ -22,8 +22,9 @@ class Display
 
     if @cursor.selected
       positions_to_highlight = possible_moves
+
     end
-    
+
     @board.rows.each_with_index do |row, row_index|
       row_string = ""
       row.each_with_index do |piece, cell_index|
@@ -33,6 +34,8 @@ class Display
           else
             row_string += " #{piece} ".on_green
           end
+        elsif positions_to_highlight.include?([row_index, cell_index])
+          row_string += " #{piece} ".on_green
         elsif row_index.even? && cell_index.even? || row_index.odd? && cell_index.odd?
           row_string += " #{piece} ".on_red
         elsif row_index.even? && cell_index.odd? || row_index.odd? && cell_index.even?
