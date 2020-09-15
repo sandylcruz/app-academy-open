@@ -26,6 +26,13 @@ class Cursor
     "\u0003" => :ctrl_c,
   }.freeze
 
+    MOVES = {
+    left: [0, -1],
+    right: [0, 1],
+    up: [-1, 0],
+    down: [1, 0]
+  }.freeze
+
   def initialize(cursor_position, board)
     @board = board
     @cursor_position = cursor_position

@@ -15,27 +15,27 @@ class Game
     @player_two = Player.new(:white, @display, "Louis")
     @current_player = @player_one
   end
-=
+
   def play
     until @board.checkmate?(@player_one.color) || @board.checkmate?(@player_two.color)
       @display.render
       initial_position = @display.cursor.get_input(@current_player)
 
       while @display.cursor.selected
+         #while selected is true, need sub-cursor to cycle through possible moves
         piece = @board[initial_position]
         possible_moves = piece.valid_moves
         @display.render(possible_moves)
         next_position = @display.cursor.get_input(@current_player)
       end
-
+     
       # swap_turn!
     end
   end
 
   private
   def notify_players
- 
-  endp;lo
+  end
 
   def swap_turn!
     if @current_player == @player_one
