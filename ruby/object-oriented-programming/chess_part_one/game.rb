@@ -26,9 +26,11 @@ class Game
         piece = @board[initial_position]
         possible_moves = piece.valid_moves
         @display.render(possible_moves)
+        # subcursor = 
         next_position = @display.cursor.get_input(@current_player)
+        # start_pos, end_pos = players[current_player].make_move(board)
+        # @board.move_piece(current_player, start_position, end_position)
       end
-     
       # swap_turn!
     end
   end

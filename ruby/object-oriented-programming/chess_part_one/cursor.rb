@@ -1,7 +1,7 @@
 require 'io/console'
 
 class Cursor
-  attr_reader :board, :cursor_position, :selected
+  attr_reader :board, :cursor_position, :selected, :sub_cursor_position
 
   KEYMAP = {
     " " => :space,
@@ -37,6 +37,7 @@ class Cursor
     @board = board
     @cursor_position = cursor_position
     @selected = false
+    @sub_cursor_position = nil
   end
 
   def get_input(current_player)
@@ -46,21 +47,29 @@ class Cursor
   end
 
   def toggle_selected(current_player)
-    # to do: ensure you can only select a piece and only a piece that is yours
     return if @board.empty?(@cursor_position)
 
     current_piece = @board[@cursor_position]
     current_player_color = current_player.color
     current_piece_color = current_piece.color
-    
+
     if current_player_color == current_piece_color
-      @selected = !@selected
+      valid_moves = current_piece.valid_moves
+      if !valid_moves.empty?
+        @selected = !@selected
+        if @selected
+          @sub_cursor_position = valid_moves.first
+        else
+          @sub_cursor_position = nil
+        end
+      end
     end
   end
 
   private
 
   def handle_key(key, current_player)
+    return handle_sub_cursor_key(key, current_player) unless @sub_cursor_position.nil?
     case KEYMAP[key]
     when :left
       i, j = @cursor_position
@@ -83,6 +92,15 @@ class Cursor
       @cursor_position
     when :ctrl_c
       Process.exit(0)
+    end
+  end
+
+  def handle_sub_cursor_key(key, current_player)
+    case KEYMAP
+      when :left
+      when :enter
+        make_move!(position)
+      end
     end
   end
   

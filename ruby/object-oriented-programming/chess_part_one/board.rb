@@ -63,6 +63,16 @@ class Board
     move_piece!(start_position, end_position) 
   end
 
+  def move_piece!(color, start_position, end_position)
+    raise "Invalid position" unless valid_position?(start_position) && valid_position?(end_position)
+    piece = self[start_position]
+    raise "There is no piece at start position" if piece == NullPiece
+   
+    self[end_position] = piece
+    self[start_position] = NullPiece.instance
+    piece.pos = end_position
+  end
+
   def valid_position?(position)
     x, y = position
     x.between?(0, 7) && y.between?(0, 7)
@@ -135,13 +145,4 @@ class Board
     new_board
   end
 
-  def move_piece!(color, start_position, end_position)
-    raise "Invalid position" unless valid_position?(start_position) && valid_position?(end_position)
-    piece = self[start_position]
-    raise "There is no piece at start position" if piece == NullPiece
-   
-    self[end_position] = piece
-    self[start_position] = NullPiece.instance
-    piece.pos = end_position
-  end
 end
