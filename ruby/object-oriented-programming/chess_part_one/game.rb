@@ -15,7 +15,7 @@ class Game
     @player_two = Player.new(:white, @display, "Louis")
     @current_player = @player_one
   end
-
+=
   def play
     until @board.checkmate?(@player_one.color) || @board.checkmate?(@player_two.color)
       @display.render
@@ -34,10 +34,8 @@ class Game
 
   private
   def notify_players
-    if @board.in_check?(@current_player)
-      
-    end
-  end
+ 
+  endp;lo
 
   def swap_turn!
     if @current_player == @player_one
