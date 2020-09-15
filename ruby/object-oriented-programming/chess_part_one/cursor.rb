@@ -97,11 +97,12 @@ class Cursor
 
   def handle_sub_cursor_key(key, current_player)
     case KEYMAP
-      when :left
-      when :enter
-        make_move!(position)
-      end
+    when :left
+      @sub_cursor_position.valid_moves
+    when :enter
+      make_move!(@sub_cursor_position)
     end
+    
   end
   
   def update_position(diff)

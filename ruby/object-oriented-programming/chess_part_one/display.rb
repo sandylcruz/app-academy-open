@@ -22,7 +22,7 @@ class Display
 
     if @cursor.selected
       positions_to_highlight = possible_moves
-
+    else
     end
 
     @board.rows.each_with_index do |row, row_index|
