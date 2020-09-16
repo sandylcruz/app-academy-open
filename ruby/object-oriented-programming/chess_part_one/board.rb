@@ -60,11 +60,9 @@ class Board
     self[end_position] = piece
     self[start_position] = @sentinel
     piece.pos = end_position
-
-    move_piece!(color, start_position, end_position) 
   end
 
-  def move_piece!(color, start_position, end_position)
+  def move_piece!(start_position, end_position)
     raise "Invalid position" unless valid_position?(start_position) && valid_position?(end_position)
     piece = self[start_position]
     raise "There is no piece at start position" if piece == NullPiece
@@ -129,9 +127,6 @@ class Board
     end
   end
 
-  def pieces
-  end
-
   def dup
     new_board = Board.new
     @rows.each do |row|
@@ -145,5 +140,4 @@ class Board
     end
     new_board
   end
-
 end

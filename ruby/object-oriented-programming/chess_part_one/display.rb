@@ -14,7 +14,7 @@ class Display
   end
 
   def render(possible_moves = [])
-    system("clear")
+    # system("clear")
 
     puts "Current Player: #{@game.current_player.name}"
 

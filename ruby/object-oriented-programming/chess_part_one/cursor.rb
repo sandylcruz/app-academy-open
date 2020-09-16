@@ -47,7 +47,10 @@ class Cursor
   end
 
   def toggle_selected(current_player)
-    return if @board.empty?(@cursor_position)
+    if @board.empty?(@cursor_position)
+      @selected = false
+      @sub_cursor_position = nil
+    end
 
     current_piece = @board[@cursor_position]
     current_player_color = current_player.color
@@ -111,7 +114,8 @@ class Cursor
       next_piece_index = (current_piece_index + 1) % valid_moves.length
       @sub_cursor_position = valid_moves[next_piece_index]
     when :return
-      @board.move_piece!(current_player, @sub_cursor_position)
+      # @board.move_piece!(current_player.color, @sub_cursor_position)
+      @sub_cursor_position
     end
   end
   
