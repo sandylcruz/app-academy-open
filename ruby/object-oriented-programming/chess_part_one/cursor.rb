@@ -70,6 +70,7 @@ class Cursor
 
   def handle_key(key, current_player)
     return handle_sub_cursor_key(key, current_player) unless @sub_cursor_position.nil?
+    
     case KEYMAP[key]
     when :left
       i, j = @cursor_position
@@ -95,14 +96,31 @@ class Cursor
     end
   end
 
-  def handle_sub_cursor_key(key, current_player)
-    case KEYMAP
-    when :left
-      @sub_cursor_position.valid_moves
-    when :enter
-      make_move!(@sub_cursor_position)
+  def find_index(array)
+    i = 0
+    while i < array.length 
+
     end
-    
+  end
+
+  def handle_sub_cursor_key(key, current_player)
+   
+    case KEYMAP[key]
+    when :left
+      current_piece = @board[@cursor_position]
+      valid_moves = current_piece.valid_moves
+      current_piece_index = valid_moves.find_index(@sub_cursor_position)
+      next_piece_index = (current_piece_index - 1) % valid_moves.length
+      @sub_cursor_position = valid_moves[next_piece_index]
+    when :right
+      current_piece = @board[@cursor_position]
+      valid_moves = current_piece.valid_moves
+      current_piece_index = valid_moves.find_index(@sub_cursor_position)
+      next_piece_index = (current_piece_index + 1) % valid_moves.length
+      @sub_cursor_position = valid_moves[next_piece_index]
+    when :return
+      @board.move_piece!(@current_player, @sub_cursor_position)
+    end
   end
   
   def update_position(diff)
