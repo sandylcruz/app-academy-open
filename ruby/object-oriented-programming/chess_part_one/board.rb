@@ -61,7 +61,7 @@ class Board
     self[start_position] = @sentinel
     piece.pos = end_position
 
-    move_piece!(start_position, end_position) 
+    move_piece!(color, start_position, end_position) 
   end
 
   def move_piece!(color, start_position, end_position)
