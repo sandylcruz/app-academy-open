@@ -37,7 +37,7 @@ describe Dessert do
   describe "#mix!" do
     it "shuffles the ingredient array" do
       ingredients = ["chocolate", "flour", "egg", "sugar", "butter"]
-      
+
       ingredients.each do |ingredient|
         brownie.add_ingredient(ingredient)
       end
@@ -56,7 +56,9 @@ describe Dessert do
     end
 
 
-    it "raises an error if the amount is greater than the quantity"
+    it "raises an error if the amount is greater than the quantity" do
+      expect { brownie.eat(150) }.to raise_error("not enough left!")
+    end
   end
 
   describe "#serve" do
