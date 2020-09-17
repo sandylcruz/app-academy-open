@@ -62,13 +62,15 @@ describe Dessert do
   end
 
   describe "#serve" do
-    # it "contains the titleized version of the chef's name" do
-    #   expect(brownie.serve).to eq()
-    # end
+    it "contains the titleized version of the chef's name" do
+      expect(chef.
+    end
 
   end
 
   describe "#make_more" do
-    it "calls bake on the dessert's chef with the dessert passed in"
+    it "calls bake on the dessert's chef with the dessert passed in" do
+      expect
+    end
   end
 end
