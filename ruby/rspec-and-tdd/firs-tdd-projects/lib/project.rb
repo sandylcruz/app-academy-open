@@ -1,5 +1,5 @@
 
-def uniq(array)
+def my_uniq(array)
   new_array = []
 
   array.each do |number|
@@ -19,8 +19,7 @@ smaller index before bigger index. We want the array of pairs
 to be sorted "dictionary-wise":
 =end
 
-
-def two_sum
+def two_sum(array)
 end
 
 
