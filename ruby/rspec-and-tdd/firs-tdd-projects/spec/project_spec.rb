@@ -31,18 +31,25 @@ describe "my_uniq" do
   end
 end
 
-# describe "two_sum" do
-#   it "should return pairs of positions" do 
-#     expect[-1, 0, 2, -2, 1].two_sum # => [[0, 4], [2, 3]]
-#   end
+describe "two_sum" do
+  it "should return pairs of positions" do
+    result = [1, 2].two_sum
 
-#   it "should select pairs where elements at those positions sum to zero" do
-#     expect
-#   end
+    all_items_are_pairs = result.all? do |pair| 
+      pair.length == 2 && pair.all? { |item| item.kind_of? Integer }
+    end
 
-#   it "should be sorted small index before bigger index" do
-#     expect c
-#   end
+    expect(all_items_are_pairs).to be_true
+  end
+
+  it "should select pairs where elements at those positions sum to zero" do
+    expect
+  end
+
+  it "should be sorted small index before bigger index" do
+    expect 
+  end
+end
 
 # describe "my_transpose" do
 #   it "transposes a matrix" do 
