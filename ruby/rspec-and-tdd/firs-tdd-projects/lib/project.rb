@@ -54,7 +54,16 @@ look like the following:
   #    [2, 5, 8]]
 =end
 
-def my_transpose
+def my_transpose(matrix)
+  new_matrix = Array.new(matrix.length) { Array.new(matrix.length) }
+
+  matrix.each_with_index do |row, row_index|
+    row.each_with_index do |element, element_index|
+      new_matrix[element_index][row_index] = element
+    end
+  end
+  
+  new_matrix
 end
 
 =begin
@@ -64,5 +73,30 @@ of days on which to first buy the stock and then sell
 the stock. Remember, you can't sell stock before you buy it!
 =end
 
-def stock_picker
+def stock_picker(stock_prices)
+  greatest_profit_days = [0, 0]
+  highest_profit = 0
+
+  i = 0
+
+  while i < stock_prices.length
+    j = i
+
+    while j < stock_prices.length
+      first_value = stock_prices[i]
+      second_value = stock_prices[j]
+      profit = second_value - first_value
+
+      if profit > highest_profit
+        highest_profit = profit
+        greatest_profit_days = [i, j]
+      end
+
+      j += 1
+    end
+
+    i += 1
+  end
+  
+  greatest_profit_days
 end

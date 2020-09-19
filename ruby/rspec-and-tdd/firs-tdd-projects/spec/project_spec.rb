@@ -58,17 +58,34 @@ describe "two_sum" do
   end
 end
 
-# describe "my_transpose" do
-#   it "transposes a matrix" do 
-#     expect 
-#   end
-# end
-# end
+describe "my_transpose" do
+  it "should transpose a matrix" do
+    rows = [
+      [0, 1, 2],
+      [3, 4, 5],
+      [6, 7, 8]
+    ]
+    expect(my_transpose(rows)).to eq([
+      [0, 3, 6],
+      [1, 4, 7],
+      [2, 5, 8]
+    ])
+  end
+end
 
-# describe "stock_picker" do
-#   it "should find most profitable pair days" do
-#     expect
-#   end
+describe "stock_picker" do
+  it "should find most profitable pair days" do
+    result = stock_picker([1, 2, 4, 1, 0])
+    expect(result).to eq([0, 2])
+  end
 
+  it "should return 0 when there are no profitable trades" do
+    result = stock_picker([4, 3, 2, 1])
+    expect(result).to eq([0, 0])
+  end
 
-#  end
+  it "should return the first pair of days when there are equal profit dates" do
+    result = stock_picker([1, 4, 1, 4])
+    expect(result).to eq([0, 1])
+  end
+ end
