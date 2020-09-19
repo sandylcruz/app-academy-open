@@ -20,8 +20,24 @@ to be sorted "dictionary-wise":
 =end
 
 def two_sum(array)
-end
+  pairs = []
+  i = 0
+  
+  while i < array.length
+    j = i + 1
 
+    while j < array.length
+      if array[i] + array[j] == 0
+        pairs << [i, j]
+      end
+
+      j += 1
+    end
+    i += 1
+  end
+
+  pairs
+end
 
 =begin
 Write a method, my_transpose, which will convert between the 

@@ -33,21 +33,28 @@ end
 
 describe "two_sum" do
   it "should return pairs of positions" do
-    result = [1, 2].two_sum
+    result = two_sum([1, 2])
 
     all_items_are_pairs = result.all? do |pair| 
       pair.length == 2 && pair.all? { |item| item.kind_of? Integer }
     end
 
-    expect(all_items_are_pairs).to be_true
+    expect(all_items_are_pairs).to be true
   end
 
   it "should select pairs where elements at those positions sum to zero" do
-    expect
+    result = two_sum([4, -4, 2, 3])
+    expect(result).to eq([[0, 1]])
   end
 
   it "should be sorted small index before bigger index" do
-    expect 
+    result = two_sum([4, -4, 3, -3])
+    expect(result).to eq([[0, 1], [2, 3]])
+  end
+
+  it "should reuse numbers" do
+    result = two_sum([4, -4, 4])
+    expect(result).to eq([[0, 1], [1, 2]])
   end
 end
 
