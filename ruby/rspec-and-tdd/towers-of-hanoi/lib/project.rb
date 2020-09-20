@@ -1,10 +1,12 @@
 class Game
   def initialize
     @stacks = [[1, 2, 3], [], []]
+    
   end
 
   def play
     until won?
+      render
       puts "Where should we move from?"
       source = gets.chomp.to_i
       
@@ -31,8 +33,8 @@ class Game
 
   def move(source, destination)
     if valid_move?(source, destination)
-      source_stack = @stack[source]
-      destination_stack = @stack[destination]
+      source_stack = @stacks[source]
+      destination_stack = @stacks[destination]
       
       item_to_move = source_stack.shift
 
@@ -46,8 +48,20 @@ class Game
   end
 
   def render
-  end
+    system("clear")
+    i = 0
 
+    while i < 3
+      j = 0
+      while j < 3
+        stack = @stacks[j]
+        element = @stacks[i]
+      end
+    end 
+    
+  end
 end
+
+
 game = Game.new
 game.play
