@@ -43,7 +43,10 @@ class Game
 
   def won?
     last_rod = @stacks[-1]
-    last_rod == [1, 2, 3]
+    
+    if last_rod == [1, 2, 3]
+      puts "You won!"
+    end
   end
 
   def render
