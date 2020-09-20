@@ -79,6 +79,16 @@ describe "stock_picker" do
     expect(result).to eq([0, 2])
   end
 
+  it "should find most profitable pair days" do
+    result = stock_picker([2, 1, 4, 3])
+    expect(result).to eq([1, 2])
+  end
+
+  it "should find most profitable pair days" do
+    result = stock_picker([1, 3, 2, 4])
+    expect(result).to eq([0, 3])
+  end
+
   it "should return 0 when there are no profitable trades" do
     result = stock_picker([4, 3, 2, 1])
     expect(result).to eq([0, 0])

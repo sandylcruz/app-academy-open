@@ -73,7 +73,7 @@ of days on which to first buy the stock and then sell
 the stock. Remember, you can't sell stock before you buy it!
 =end
 
-def stock_picker(stock_prices)
+def slow_stock_picker(stock_prices)
   greatest_profit_days = [0, 0]
   highest_profit = 0
 
@@ -99,4 +99,33 @@ def stock_picker(stock_prices)
   end
   
   greatest_profit_days
+end
+
+def stock_picker(stock_prices)
+  highest_profit = 0
+  highest_days = [0, 0]
+
+  lowest_price = stock_prices[0]
+  lowest_day = 0
+  highest_price = stock_prices[0]
+  highest_day = 0
+
+  stock_prices.each_with_index do |price, day_index|
+    possible_profit = price - lowest_price
+
+    if possible_profit > highest_profit
+      highest_profit = possible_profit
+      highest_days = [lowest_day, day_index]
+    end
+
+    if price > highest_price
+      highest_price = price
+      highest_day = day_index
+    elsif price < lowest_price
+      lowest_price = price
+      lowest_day = day_index
+    end
+  end
+
+  highest_days
 end
