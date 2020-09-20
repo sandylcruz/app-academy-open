@@ -49,17 +49,28 @@ class Game
 
   def render
     system("clear")
-    i = 0
 
-    while i < 3
-      j = 0
-      while j < 3
+    row_strings = (0..2).map do |i|
+      row_string = ""
+
+      (0..2).each do |j|
         stack = @stacks[j]
-        element = @stacks[i]
+        element = stack[i]
+
+        if element.nil?
+          row_string += " _ "
+        else
+          row_string += " #{element} "
+        end
+
       end
-    end 
+
+      row_string
+    end
     
+    row_strings.each { |row_string| puts row_string }
   end
+
 end
 
 
