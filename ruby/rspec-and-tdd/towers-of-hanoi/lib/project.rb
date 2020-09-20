@@ -1,7 +1,6 @@
 class Game
   def initialize
     @stacks = [[1, 2, 3], [], []]
-    
   end
 
   def play
@@ -25,8 +24,8 @@ class Game
     return false if empty?(source)
     return true if empty?(destination)
 
-    item_at_top_of_destination = @stacks[destination]
-    item_at_source = @stacks[source]
+    item_at_top_of_destination = @stacks[destination].first
+    item_at_source = @stacks[source].first
 
     item_at_source < item_at_top_of_destination
   end
@@ -62,7 +61,6 @@ class Game
         else
           row_string += " #{element} "
         end
-
       end
 
       row_string
