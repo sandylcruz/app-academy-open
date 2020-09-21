@@ -50,6 +50,16 @@ describe "#empty?" do
 end
 
 describe "#move" do
+  let(:game) { Game.new }
+  
+  it "should move item from source to destination" do
+    game.move(0, 1)
+    expect(game.stacks).to eq([[2, 3], [1], []])
+  end
 
+  it "should move item from source to destination if move is invalid" do
+    game.move(0, 7)
+    expect(game.stacks).to eq([[1, 2, 3], [], []])
+  end
 end
 
