@@ -1,4 +1,8 @@
+require 'rspec'
+
 class Game
+  attr_reader :stacks
+
   def initialize
     @stacks = [[1, 2, 3], [], []]
   end
@@ -21,6 +25,8 @@ class Game
   end
 
   def valid_move?(source, destination)
+    return false unless source.between?(0, 2)
+    return false unless destination.between?(0, 2)
     return false if empty?(source)
     return true if empty?(destination)
 
@@ -43,7 +49,7 @@ class Game
 
   def won?
     last_rod = @stacks[-1]
-    
+
     if last_rod == [1, 2, 3]
       puts "You won!"
     end
@@ -73,7 +79,3 @@ class Game
   end
 
 end
-
-
-game = Game.new
-game.play
