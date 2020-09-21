@@ -2,7 +2,7 @@ require 'rspec'
 require_relative '../lib/project.rb'
 
 describe "#initialize" do
-  game = Game.new
+  let(:game) { Game.new }
 
   it "initializes correct items in stack" do
     expect(game.stacks).to eq([[1, 2, 3], [], []])
@@ -10,7 +10,7 @@ describe "#initialize" do
 end
 
 describe "#valid_move?" do
-  game = Game.new
+  let(:game) { Game.new }
 
   it "should return false if you try to move an empty source column" do
     expect(game.valid_move?(1, 2)).to eq(false)
@@ -38,6 +38,18 @@ describe "#valid_move?" do
 end
 
 describe "#empty?" do
-  it "should return true if location is empty" 
+  let(:game) { Game.new }
+
+  it "should return true if location is empty" do
+    expect(game.empty?(1)).to eq(true)
+  end
+
+  it "should return false if location is not empty" do
+    expect(game.empty?(0)).to eq(false)
+  end
+end
+
+describe "#move" do
+
 end
 
