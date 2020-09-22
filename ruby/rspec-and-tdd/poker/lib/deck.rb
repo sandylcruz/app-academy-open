@@ -3,6 +3,7 @@ require_relative "./card.rb"
 class Deck
   def initialize
     @cards = generate_deck
+    puts @cards
   end
 
   private
@@ -17,9 +18,12 @@ class Deck
       end
     end
 
-    complete_deck
+    complete_deck.shuffle
   end
 
-  def deal_cards
+  def deal_card!
+    one_card = @cards.shift
   end
+
 end
+deck = Deck.new

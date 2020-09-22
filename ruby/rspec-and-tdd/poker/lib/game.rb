@@ -5,6 +5,11 @@ class Game
     @pot_amount = 0
   end
 
+
+  def deal_cards
+    
+  end
+  
   def switch_turn
   end
 
