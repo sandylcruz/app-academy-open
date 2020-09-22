@@ -5,4 +5,18 @@ class Game
     @pot_amount = 0
   end
 
+  def switch_turn
+  end
+
+  def discard_card
+  end
+
+  def fold
+  end
+
+  def see
+  end
+
+  def raise
+  end
 end
