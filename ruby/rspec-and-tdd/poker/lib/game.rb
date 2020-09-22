@@ -9,15 +9,17 @@ class Game
 
   def play
     play_round until game_over?
-      #switch turn
-      #if fold
-      #elsif see
-      #elsif raise
+  
     end
   end
 
   def play_round
-    deck
+    deal_cards
+    take_bet
+    trade_cards
+    deal_cards
+    take_bet
+    end_round
   end
 
   def deal_cards
@@ -36,6 +38,9 @@ class Game
   end
 
   def switch_turn
+  end
+
+  def end_round
   end
 
   def discard_card
