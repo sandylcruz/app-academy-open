@@ -1,4 +1,12 @@
+require './card.rb'
+
 class Hand
+  def trade_cards
+  end
+
+  def to_s
+  end
+
   def royal_flush?
   end
 
@@ -27,6 +35,7 @@ class Hand
   end
 
   def high_card?
+    @cards.sort[-1]
   end
 
   def winning_hand?

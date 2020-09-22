@@ -30,4 +30,7 @@ class Card
   def to_s
     "#{VALUES[@value]}#{SUITS[@suit]}"
   end
+
+  def ==(card1, card2)
+  end
 end

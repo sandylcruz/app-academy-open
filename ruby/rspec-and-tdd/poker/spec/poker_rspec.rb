@@ -5,10 +5,37 @@ describe Card do
 
   end
 
+  describe "#to_s" do 
+    it "returns out a readable version of card"
+      expect(card.to_s).to eq()
+    end
+  end
 end
 
 describe Deck do
- 
+  deck = Deck.new
+
+  describe "#initialize" do
+    it "contains the deck of cards" do
+      expect(deck.cards.sort).to eq()
+      end
+    end
+  end
+
+  describe "#generate_deck" do
+    it "generate all suit and value pairs" do
+      expect
+    end
+
+    it "should shuffle completed deck" do
+    end
+  end
+
+  describe "#deal_card!" do
+    it "should return one card from shuffled deck" do
+      expect 
+    end
+  end
 end
 
 describe Game do
@@ -89,8 +116,10 @@ describe Player do
   describe "#ask_player" do
     it "should ask player which card they want to discard" do
     end
-    
+
     it "should ask player if they want to fold, see, or call" do
     end
+
+
   end
 end

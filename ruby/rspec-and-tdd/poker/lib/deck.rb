@@ -3,7 +3,6 @@ require_relative "./card.rb"
 class Deck
   def initialize
     @cards = generate_deck
-    puts @cards
   end
 
   private
@@ -25,5 +24,9 @@ class Deck
     one_card = @cards.shift
   end
 
+  def deal_hand
+    Hand.new
+  end
 end
 deck = Deck.new
+puts deck

@@ -1,3 +1,5 @@
+require './game.rb'
+
 class Player
   def initialize
     @hand = hand
@@ -12,8 +14,11 @@ class Player
     answer = gets.chomp
 
     if answer == "fold"
+      game.fold
     elsif answer == "see"
+      game.see
     elsif answer == "raise"
+      game.raise
     end
   end
 
