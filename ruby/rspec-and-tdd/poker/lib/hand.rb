@@ -21,7 +21,7 @@ class Hand
     # raise "You don't have enough cards" if @cards.count < 5
 
     @cards = cards
-    puts @cards
+    # puts @cards
   end
 
   def trade_cards
@@ -68,4 +68,4 @@ end
 deck = Deck.new
 cards = deck.take_cards(5)
 hand = Hand.new(cards)
-# hand.to_s
+puts hand.to_s
