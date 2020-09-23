@@ -2,11 +2,13 @@ require 'rspec'
 
 describe Card do
   describe "#initialize" do
-
+    it "should initialize a card" do
+      expect 
+    end
   end
 
   describe "#to_s" do 
-    it "returns out a readable version of card"
+    it "returns out a readable version of card" do
       expect(card.to_s).to eq()
     end
   end
@@ -23,8 +25,16 @@ describe Deck do
   end
 
   describe "#generate_deck" do
-    it "generate all suit and value pairs" do
-      expect
+    it "generate 52 unique cards" do
+      complete_deck = {}
+      Card::VALUES.each do |value_key, value_value|
+        Card::SUITS.each do |suit_key, suit_value|
+          card = Card.new(suit_key, value_key)
+          complete_deck << card
+        end
+      end
+      expect(deck.complete_deck.length).to eq(52)
+      expect(deck.complete_deck.uniq).to eq(true)
     end
 
     it "should shuffle completed deck" do
@@ -44,6 +54,7 @@ describe Game do
   describe "#initialize" do
   
     it "initializes deck" do
+   
     end
 
     it "initializes turn" do

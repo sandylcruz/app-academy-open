@@ -45,13 +45,4 @@ class Game
 
   def discard_card
   end
-
-  def fold
-  end
-
-  def see
-  end
-
-  def raise
-  end
 end

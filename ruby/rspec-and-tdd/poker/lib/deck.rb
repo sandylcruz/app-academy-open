@@ -27,6 +27,10 @@ class Deck
   def deal_hand
     Hand.new
   end
+
+  def take_cards(number)
+    @cards.shift(number)
+  end
 end
 deck = Deck.new
 puts deck
