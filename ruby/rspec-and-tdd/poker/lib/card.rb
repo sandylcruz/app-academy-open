@@ -1,4 +1,6 @@
 class Card
+  attr_reader :value
+  
   SUITS = {
     clubs: "♣",
     diamonds: "♦",
@@ -31,6 +33,7 @@ class Card
     "#{VALUES[@value]}#{SUITS[@suit]}"
   end
 
-  def ==(card1, card2)
+  def ==(other_card)
+    self.value == other_card.value
   end
 end

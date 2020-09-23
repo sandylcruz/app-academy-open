@@ -1,25 +1,27 @@
 require './card.rb'
+require './deck.rb'
 
 class Hand
-
-  RANKINGS:[
-    :royal_flush,
-    :straight_flush,
-    :four_of_a_kind,
-    :full_house,
-    :flush,
-    :straight,
-    :three_of_a_kind
-    :two_pair
-    :pair
-    :high_card
-  ]
+  
+  # RANKINGS:[
+  #   :royal_flush,
+  #   :straight_flush,
+  #   :four_of_a_kind,
+  #   :full_house,
+  #   :flush,
+  #   :straight,
+  #   :three_of_a_kind
+  #   :two_pair
+  #   :pair
+  #   :high_card
+  # ]
   attr_reader :cards
 
-  def initialize
-    raise "You don't have enough cards" if @cards.length < 5
-    
-    @cards = cards.sort
+  def initialize(cards)
+    # raise "You don't have enough cards" if @cards.count < 5
+
+    @cards = cards
+    puts @cards
   end
 
   def trade_cards
@@ -63,3 +65,7 @@ class Hand
   def winning_hand?
   end
 end
+deck = Deck.new
+cards = deck.take_cards(5)
+hand = Hand.new(cards)
+# hand.to_s

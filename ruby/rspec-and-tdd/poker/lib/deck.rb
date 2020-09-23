@@ -5,8 +5,6 @@ class Deck
     @cards = generate_deck
   end
 
-  private
-
   def generate_deck
     complete_deck = []
   
@@ -21,16 +19,13 @@ class Deck
   end
 
   def deal_card!
-    one_card = @cards.shift
-  end
-
-  def deal_hand
-    Hand.new
+    take_cards(1)
   end
 
   def take_cards(number)
     @cards.shift(number)
   end
 end
-deck = Deck.new
-puts deck
+
+
+# puts deck.deal_hand
