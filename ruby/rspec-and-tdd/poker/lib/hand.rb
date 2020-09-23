@@ -18,10 +18,8 @@ class Hand
   attr_reader :cards
 
   def initialize(cards)
-    # raise "You don't have enough cards" if @cards.count < 5
-
     @cards = cards
-    # puts @cards
+    raise "You don't have enough cards" if @cards.count < 5
   end
 
   def trade_cards
@@ -64,8 +62,11 @@ class Hand
 
   def winning_hand?
   end
+
 end
 deck = Deck.new
 cards = deck.take_cards(5)
 hand = Hand.new(cards)
 puts hand.to_s
+# puts cards.sort
+# puts hand.high_card?
