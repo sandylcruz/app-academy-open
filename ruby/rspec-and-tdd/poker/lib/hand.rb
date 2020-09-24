@@ -22,6 +22,7 @@ class Hand
     raise "You don't have enough cards" if @cards.count < 5
   end
 
+  
   def trade_cards
   end
 
@@ -29,6 +30,14 @@ class Hand
     @cards.join(" ")
   end
 
+  def sort!
+    @cards.sort!
+  end
+
+  def take_card
+  end
+
+  def 
   def royal_flush?
   end
 
