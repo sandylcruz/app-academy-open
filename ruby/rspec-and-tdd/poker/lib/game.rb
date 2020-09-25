@@ -31,7 +31,7 @@ class Game
   def trade_card
     #show player's hand
     puts "Do you want to trade any cards? yes or no"
-    answer = gets.chomp
+    answer = gets.chomp.downcase
 
     if answer == "yes"
       puts "Which cards would you like to trade? 0, 1, 2, 3, 4?"
@@ -68,5 +68,6 @@ class Game
   end
 
   def discard_card
+    if 
   end
 end
