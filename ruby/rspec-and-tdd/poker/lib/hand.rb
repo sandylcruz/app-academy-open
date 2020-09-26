@@ -34,38 +34,38 @@ class Hand
     @cards.sort!
   end
 
-  def take_card
+  def take_cards(cards)
+    @cards.push(cards)
+  end
+ 
+  def royal_flush? # A, K, Q, J, 10 same suit
   end
 
-  def 
-  def royal_flush?
+  def straight_flush? # Any straight in same suit
   end
 
-  def straight_flush?
+  def four_of_a_kind? # 4 cards same value. 1 extra
   end
 
-  def four_of_a_kind?
+  def full_house? # 3 cards same value, 2 extra
   end
 
-  def full_house?
+  def flush? # 5 cards in same suit in any order
   end
 
-  def flush?
+  def straight? # 5 cards same value, not same suit
   end
 
-  def straight?
+  def three_of_a_kind? # 3 cards of same value,  2 extra 
   end
 
-  def three_of_a_kind?
+  def two_pair? # 2 cards same value, 2 cards equal value, 1 extra
   end
 
-  def two_pair?
+  def pair? # 2 cards same value, 3 extra cards
   end
 
-  def pair?
-  end
-
-  def high_card?
+  def high_card? # 5 cards that don't interact with each other
     @cards.sort[-1]
   end
 
@@ -79,3 +79,5 @@ hand = Hand.new(cards)
 puts hand.to_s
 # puts cards.sort
 # puts hand.high_card?
+puts hand.take_cards(cards)
+puts hand.to_s

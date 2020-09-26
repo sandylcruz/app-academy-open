@@ -69,5 +69,6 @@ class Game
 
   def discard_card
     if 
+    end
   end
 end
