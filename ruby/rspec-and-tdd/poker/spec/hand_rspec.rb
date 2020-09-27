@@ -1,19 +1,53 @@
 require 'rspec'
+require '../lib/hand.rb'
+
+RSpec.configure do |config|
+  config.formatter = :documentation
+end
 
 describe Hand do
   game = Game.new
   hand = Hand.new
 
   describe "#initialize" do
-
+    it "should initialize cards variable" do
+    end
   end
 
   describe "#trade" do 
-    it 
+    it "should " 
   end
 
   describe "#to_s" do
+
     it "should print out hand"
+  end
+
+  describe "#sort!" do
+    it "should sort 5 cards in order" do
+      
+    end
+  end
+
+  describe "#take_cards" do
+  end
+
+  describe "#discard_cards" do
+  end
+
+  describe "#same_suit?" do
+    it "should return true if 2 cards are same suit" do
+    end
+
+    it "should return false if 2 cards are different suits" do
+    end
+  end
+
+  describe "#same_value?" do
+    it "should return true if 2 cards are same value" do
+    end
+
+    it "should return false if 2 cards are different value"
   end
 
   describe "#royal_flush?" do

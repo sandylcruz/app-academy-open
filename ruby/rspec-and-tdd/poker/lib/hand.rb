@@ -9,10 +9,10 @@ class Hand
     raise "You don't have enough cards" if @cards.count < 5
   end
   
-  def trade_cards(old_card, new_card)
-    take_cards
-    discard_cards
-
+  def trade_cards(old_cards, new_cards)
+    discard_cards(old_cards)
+    take_cards(new_cards)
+    sort!
   end
 
   def to_s
@@ -23,8 +23,8 @@ class Hand
     @cards.sort!
   end
 
-  def take_cards(cards)
-    @cards.push(cards)
+  def take_cards(*new_cards)
+    @cards.push(*new_cards)
   end
 
   def discard_cards(old_cards)
@@ -34,7 +34,18 @@ class Hand
   end
  
   def same_suit?
-    # @cards.
+    suits = []
+    @cards.each do |card|
+      if suits.include?(card)
+        suits << card
+      end
+    end
+
+    if suits.length > 1
+      return false
+    else
+      return true
+    end
   end
 
   def same_value?
