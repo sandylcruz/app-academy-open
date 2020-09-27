@@ -1,5 +1,5 @@
 class Card
-  attr_reader :value
+  attr_reader :value, :suit
 
   SUITS = {
     clubs: "♣",
@@ -27,6 +27,7 @@ class Card
   def initialize(suit, value)
     @suit = suit
     @value = value
+    # unless Card.suits.include?(suit) and Card.values.include?(value)
   end
 
   def to_s

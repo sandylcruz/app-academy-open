@@ -54,7 +54,7 @@ describe Hand do
 
   describe "#high_card?" do
     it "should return the highest value card from hand" do
-      expect
+      expect()
     end
   end
 
