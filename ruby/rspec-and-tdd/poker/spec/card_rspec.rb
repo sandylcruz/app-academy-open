@@ -1,5 +1,9 @@
 require 'rspec'
-require '../lib/card.rb'
+require_relative '../lib/card.rb'
+
+RSpec.configure do |config|
+  config.formatter = :documentation
+end
 
 describe Card do
   describe "#initialize" do

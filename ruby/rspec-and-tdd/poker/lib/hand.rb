@@ -1,11 +1,12 @@
-require './card.rb'
-require './deck.rb'
+require_relative './card.rb'
+require_relative './deck.rb'
+require 'set'
 
 class Hand
   attr_reader :cards
 
   def initialize(cards)
-    @cards = cards
+    @cards = cards #hand class maintains instances of cards
     raise "You don't have enough cards" if @cards.count < 5
   end
   
@@ -52,41 +53,6 @@ class Hand
 
   end
 
-  def royal_flush? # A, K, Q, J, 10 same suit
-    return false if !same_suit?
-  end
-
-  def straight_flush? # Any straight in same suit
-    return false if !same_suit?
-  end
-
-  def four_of_a_kind? # 4 cards same value. 1 extra
-  end
-
-  def full_house? # 3 cards same value, 2 extra
-  end
-
-  def flush? # 5 cards in same suit in any order
-    return false if !same_suit?
-  end
-
-  def straight? # 5 cards same value, not same suit
-    return false if !same_value?
-  end
-
-  def three_of_a_kind? # 3 cards of same value,  2 extra 
-  end
-
-  def two_pair? # 2 cards same value, 2 cards equal value, 1 extra
-  end
-
-  def pair? # 2 cards same value, 3 extra cards
-  end
-
-  def high_card # 5 cards that don't interact with each other
-    @cards.sort[-1]
-  end
-
   def <=>(other_hand)
     if value < other_hand.value
       return -1
@@ -126,10 +92,63 @@ class Hand
       return high_card.value
     end
   end
+
+  def royal_flush? # A, K, Q, J, 10 same suit
+    return false if !same_suit?
+  end
+  
+  def high_card # 5 cards that don't interact with each other
+    @cards.sort[-1]
+  end
+
+  private
+
+  def straight_flush? # Any straight in same suit
+    # return false if !same_suit?
+  end
+
+  def four_of_a_kind? # 4 cards same value. 1 extra
+  end
+
+  def full_house? # 3 cards same value, 2 extra
+  end
+
+  def flush? # 5 cards in same suit in any order
+    # return false if !same_suit?
+  end
+
+  def straight? # 5 cards same value, not same suit
+    # return false if !same_value?
+  end
+
+  def three_of_a_kind? # 3 cards of same value,  2 extra 
+  end
+
+  def two_pair? # 2 cards same value, 2 cards equal value, 1 extra
+    
+  end
+
+  def pair? # 2 cards same value, 3 extra cards
+    unique_card_values = unique_values
+    unique_values.length == 4
+  end
+
+  def unique_values
+    unique_set = Set.new
+    unique_array = []
+
+    @cards.each do |card|
+      if !unique_set.include?(card.value)
+        unique_array << card.value
+      end
+    end
+    unique_array
+  end
 end
 
+
 deck = Deck.new
-first_hand_cards = deck.take_cards(5)
+first_hand_cards = deck.take_cards(5) #array of card instances
 hand_one = Hand.new(first_hand_cards)
 second_hard_cards = deck.take_cards(5)
 hand_two = Hand.new(second_hard_cards)

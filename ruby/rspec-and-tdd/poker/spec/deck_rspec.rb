@@ -1,5 +1,5 @@
 require 'rspec'
-require '../lib/deck.rb'
+require_relative '../lib/deck.rb'
 
 RSpec.configure do |config|
   config.formatter = :documentation

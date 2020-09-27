@@ -1,9 +1,9 @@
-require './game.rb'
+require_relative './game.rb'
 
 class Player
   def initialize
     @hand = hand
-    @pot = pot
+    @current_bet = current_bet
   end
 
   def ask_user
