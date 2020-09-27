@@ -98,25 +98,25 @@ class Hand
 
   def value
     if royal_flush?
-      return 10
+      return 10 * 10
     elsif straight_flush?
-      return 9
+      return 9 * 10
     elsif four_of_a_kind?
-      return 8
+      return 8 * 10
     elsif full_house?
-      return 7
+      return 7 * 10
     elsif flush?
-      return 6
+      return 6 * 10
     elsif straight?
-      return 5
+      return 5 * 10
     elsif three_of_a_kind?
-      return 4
+      return 4 * 10
     elsif two_pair?
-      return 3
+      return 3 * 10
     elsif pair?
-      return 2
+      return 2 * 10
     else
-      return 1
+      return high_card.value
     end
   end
 end

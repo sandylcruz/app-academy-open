@@ -57,4 +57,14 @@ describe Hand do
       expect
     end
   end
+
+  describe "#<=>" do
+    it do
+    end
+  end
+
+  describe "#value" do
+    it do
+    end
+  end
 end
