@@ -1,5 +1,9 @@
 require 'rspec'
 
+RSpec.configure do |config|
+  config.formatter = :documentation
+end
+
 describe Player do
   describe "#initialize" do
     it "should initialize hand" do

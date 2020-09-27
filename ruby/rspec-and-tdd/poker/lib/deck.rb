@@ -1,6 +1,8 @@
 require_relative "./card.rb"
 
 class Deck
+  attr_reader :cards, :deck
+
   def initialize
     @cards = generate_deck
   end
@@ -26,6 +28,3 @@ class Deck
     @cards.shift(number)
   end
 end
-
-
-# puts deck.deal_hand

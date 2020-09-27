@@ -1,45 +1,44 @@
 require 'rspec'
+require '../lib/deck.rb'
+
+RSpec.configure do |config|
+  config.formatter = :documentation
+end
 
 describe Deck do
-  deck = Deck.new
-
-  describe "#initialize" do
-    it "contains the deck of cards" do
-      expect(deck.cards.sort).to eq()
-      end
-    end
-  end
-
-  describe "#generate_deck" do
-    it "generate 52 unique cards" do
-      complete_deck = {}
-      Card::VALUES.each do |value_key, value_value|
-        Card::SUITS.each do |suit_key, suit_value|
-          card = Card.new(suit_key, value_key)
-          complete_deck << card
-        end
-      end
-      expect(deck.complete_deck.length).to eq(52)
-      expect(deck.complete_deck.uniq).to eq(true)
+  describe "#cards" do
+    it "contains 52 cards" do
+      deck = Deck.new
+      expect(deck.count).to eq(52)
     end
 
-    it "should shuffle completed deck" do
+    it "contains no duplicates" do
+      deck = Deck.new
+      expect(deck.uniq.length).to eq(52)
+    end
+
+    it "should call .shuffle on completed deck" do
+      deck1 = Deck.new
+      deck2 = Deck.new
+      expect(deck1).not_to eql(deck2)
     end
   end
 
   describe "#deal_card!" do
     it "should return one card from shuffled deck" do
-      expect 
+      deck = Deck.new
+      expect (deck.length).to eq() 
     end
 
     it "should call take_card method" do
-      expect
+      deck = Deck.new
     end
   end
 
   describe "#take_card" do
-    it "should give you n number of cards" do 
-
+    it "should give you number of cards" do 
+      deck = Deck.new
+      expect(deck.take_card).to eq()
     end
   end
 end

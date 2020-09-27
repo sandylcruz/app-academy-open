@@ -2,19 +2,6 @@ require './card.rb'
 require './deck.rb'
 
 class Hand
-  
-  # RANKINGS:[
-  #   :royal_flush,
-  #   :straight_flush,
-  #   :four_of_a_kind,
-  #   :full_house,
-  #   :flush,
-  #   :straight,
-  #   :three_of_a_kind
-  #   :two_pair
-  #   :pair
-  #   :high_card
-  # ]
   attr_reader :cards
 
   def initialize(cards)
@@ -22,7 +9,10 @@ class Hand
     raise "You don't have enough cards" if @cards.count < 5
   end
   
-  def trade_cards
+  def trade_cards(old_card, new_card)
+    take_cards
+    discard_cards
+
   end
 
   def to_s
@@ -35,6 +25,12 @@ class Hand
 
   def take_cards(cards)
     @cards.push(cards)
+  end
+
+  def discard_cards(old_cards)
+    old_cards.each do |old_card|
+      cards.delete(old_card)
+    end
   end
  
   def same_suit?
