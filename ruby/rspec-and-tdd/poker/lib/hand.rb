@@ -123,6 +123,19 @@ class Hand
   end
 
   def three_of_a_kind? # 3 cards of same value,  2 extra 
+    # value_counts = {}
+
+    # @cards.each do |card|
+    #   suit = card.suit
+    #   if !card_counts.key?(suit)
+    #     card_counts[suit] = 1
+    #   else
+    #     card_counts[suit] = card_counts[suit] + 1
+    #   end
+    # end
+    # number_values_count = value_counts.count do |count, count_count|
+    #   count_count == 3
+    # end
   end
 
   def two_pair? # 2 cards same value, 2 cards equal value, 1 extra
