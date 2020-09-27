@@ -108,6 +108,7 @@ class Hand
   end
 
   def four_of_a_kind? # 4 cards same value. 1 extra
+    unique_values.length == 2
   end
 
   def full_house? # 3 cards same value, 2 extra
@@ -125,11 +126,26 @@ class Hand
   end
 
   def two_pair? # 2 cards same value, 2 cards equal value, 1 extra
-    
+    # unique_values.length == 3
+    card_counts = {}
+
+    @cards.each do |card|
+      value = card.value
+      if !card_counts.key?(value)
+        card_counts[value] = 1
+      else
+        card_counts[value] = card_counts[value] + 1
+      end
+    end
+
+    pairs_count = card_counts.count do |value, value_count|
+      value_count == 2
+    end
+
+    pairs_count == 2
   end
 
   def pair? # 2 cards same value, 3 extra cards
-    unique_card_values = unique_values
     unique_values.length == 4
   end
 
@@ -139,21 +155,11 @@ class Hand
 
     @cards.each do |card|
       if !unique_set.include?(card.value)
+        unique_set.add(card.value)
         unique_array << card.value
       end
     end
     unique_array
   end
 end
-
-
-deck = Deck.new
-first_hand_cards = deck.take_cards(5) #array of card instances
-hand_one = Hand.new(first_hand_cards)
-second_hard_cards = deck.take_cards(5)
-hand_two = Hand.new(second_hard_cards)
-
-puts hand_one <=> hand_two
-puts hand_one
-puts hand_two
 
