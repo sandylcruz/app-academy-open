@@ -65,6 +65,21 @@ class Game
   end
 
   def end_round
+    comparison = player1.hand <=> player2.hand
+
+    if comparison == 0
+      puts "This was a tie"
+      half_pot = @pot_amount / 2
+
+      player1.deposit(half_pot)
+      player2.deposit(half_pot)
+    else
+      winner = comparison == -1 ? player1 : player2
+      puts "The winner of this round is #{winner.name}, who wins #{@pot_amount}"
+      player1.deposit(@pot_amount)
+    end
+
+    @pot_amount = 0
   end
 
   def discard_card
