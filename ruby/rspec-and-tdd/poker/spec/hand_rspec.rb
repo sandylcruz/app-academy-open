@@ -134,7 +134,6 @@ describe Hand do
 
         expect(hand1 <=> hand2).to eq(1)
       end
-    end
 
       it "should return 0 if other_hand also has a pair and both have the same highest card" do
         first_hand_cards = [
@@ -227,30 +226,32 @@ describe Hand do
 
         expect(hand1 <=> hand2).to eq(-1)
       end
-      
-    # describe "when current_hand has a two_pair" do
-    #   it "should return 1 if current_hand has two_pair and other_hand has single pair" do
-    #     first_hand_cards = [
-    #       Card.new(:clubs, 2),
-    #       Card.new(:diamonds, 2),
-    #       Card.new(:spades, 7),
-    #       Card.new(:hearts, 7),
-    #       Card.new(:clubs, 12)
-    #     ]
-    #     second_hand_cards = [
-    #       Card.new(:clubs, 10),
-    #       Card.new(:spades, 10),
-    #       Card.new(:hearts, 8),
-    #       Card.new(:clubs, 2),
-    #       Card.new(:diamonds, 6)
-    #     ]
+    end
+    describe "when current_hand has a two_pair" do
+      it "should return 1 if current_hand has two_pair and other_hand has single pair" do
+        first_hand_cards = [
+          Card.new(:clubs, 2),
+          Card.new(:diamonds, 2),
+          Card.new(:spades, 7),
+          Card.new(:hearts, 7),
+          Card.new(:clubs, 12)
+        ]
+        second_hand_cards = [
+          Card.new(:clubs, 10),
+          Card.new(:spades, 10),
+          Card.new(:hearts, 8),
+          Card.new(:clubs, 2),
+          Card.new(:diamonds, 6)
+        ]
 
-    #     hand1 = Hand.new(first_hand_cards)
-    #     hand2 = Hand.new(second_hand_cards)
+        hand1 = Hand.new(first_hand_cards)
+        hand2 = Hand.new(second_hand_cards)
 
-    #     expect(hand1 <=> hand2).to eq(1)
-    #   end
-    # end
+        expect(hand1 <=> hand2).to eq(1)
+      end
+
+      it "should return 0 if other_hand"
+    end
   end
     # end
   
