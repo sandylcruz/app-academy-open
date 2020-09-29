@@ -450,6 +450,29 @@ describe Hand do
         expect(hand1 <=> hand2).to eq(-1)
       end
     end
+    describe "when current_hand has a straight" do
+      it "should return 1 if current_hand has a straight and other_hand has three of a kind" do
+        first_hand_cards = [
+          Card.new(:clubs, 11),
+          Card.new(:diamonds, 10),
+          Card.new(:spades, 9),
+          Card.new(:hearts, 8),
+          Card.new(:clubs, 7)
+        ]
+        second_hand_cards = [
+          Card.new(:clubs, 11),
+          Card.new(:diamonds, 11),
+          Card.new(:spades, 11),
+          Card.new(:hearts, 7),
+          Card.new(:clubs, 5)
+        ]
+
+        hand1 = Hand.new(first_hand_cards)
+        hand2 = Hand.new(second_hand_cards)
+
+        expect(hand1 <=> hand2).to eq(1)
+      end
+    end
   end
     # end
   

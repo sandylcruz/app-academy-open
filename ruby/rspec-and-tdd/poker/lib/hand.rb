@@ -114,18 +114,31 @@ class Hand
   def full_house? # 3 cards same value, 2 extra
   end
 
-  def flush? # 5 cards in same suit in any order
+  def flush? # 5 cards, same suit in any order
     # return false if !same_suit?
   end
 
-  def straight? # 5 cards same value, not same suit
-    # return false if !same_value?
+  def straight? # 5 cards consecutive value, not same suit
+    i = 0
+    sorted_cards = @cards.sort
+
+    while i < sorted_cards.length - 1
+      first_card = sorted_cards[i]
+      second_card = sorted_cards[i + 1]
+      difference = second_card.value - first_card.value
+
+      return false if difference != 1
+      i += 1
+    end
+   
+    return true
   end
 
   def three_of_a_kind? # 3 cards of same value,  2 extra 
     card_counts = {}
+    sorted_cards = @cards.sort!
 
-    @cards.each do |card|
+    sorted_cards.each do |card|
       value = card.value
       if !card_counts.key?(value)
         card_counts[value] = 1
