@@ -134,15 +134,14 @@ class Hand
       end
     end
 
-    pairs_count = card_counts.count do |value, value_count|
+    threes_count = card_counts.count do |value, value_count|
       value_count == 3
     end
 
-    pairs_count == 3
+   threes_count == 1
   end
 
   def two_pair? # 2 cards same value, 2 cards equal value, 1 extra
-    # unique_values.length == 3
     card_counts = {}
 
     @cards.each do |card|
