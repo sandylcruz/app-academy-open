@@ -562,6 +562,119 @@ describe Hand do
         expect(hand1 <=> hand2).to eq(-1)
       end
     end
+
+    describe "when current_hand has a flush" do
+      it "should return 1 if current_hand has a flush and other_hand has a straight" do
+        first_hand_cards = [
+          Card.new(:clubs, 2),
+          Card.new(:clubs, 11),
+          Card.new(:clubs, 9),
+          Card.new(:clubs, 8),
+          Card.new(:clubs, 7)
+        ]
+        second_hand_cards = [
+          Card.new(:clubs, 10),
+          Card.new(:diamonds, 9),
+          Card.new(:spades, 8),
+          Card.new(:hearts, 7),
+          Card.new(:clubs, 6)
+        ]
+
+        hand1 = Hand.new(first_hand_cards)
+        hand2 = Hand.new(second_hand_cards)
+
+        expect(hand1 <=> hand2).to eq(1)
+      end
+
+      it "should return 0 if other_hand also has a flush and both have same high card" do
+        first_hand_cards = [
+          Card.new(:clubs, 2),
+          Card.new(:clubs, 3),
+          Card.new(:clubs, 4),
+          Card.new(:clubs, 5),
+          Card.new(:clubs, 6)
+        ]
+        second_hand_cards = [
+          Card.new(:spades, 2),
+          Card.new(:spades, 3),
+          Card.new(:spades, 4),
+          Card.new(:spades, 5),
+          Card.new(:spades, 6)
+        ]
+
+        hand1 = Hand.new(first_hand_cards)
+        hand2 = Hand.new(second_hand_cards)
+
+        expect(hand1 <=> hand2).to eq(0)
+      end
+
+      it "should return 1 if other_hand also has a flush, but current_hand has highest card" do
+        first_hand_cards = [
+          Card.new(:clubs, 7),
+          Card.new(:clubs, 3),
+          Card.new(:clubs, 4),
+          Card.new(:clubs, 5),
+          Card.new(:clubs, 6)
+        ]
+        second_hand_cards = [
+          Card.new(:clubs, 2),
+          Card.new(:clubs, 9),
+          Card.new(:clubs, 4),
+          Card.new(:clubs, 10),
+          Card.new(:clubs, 6)
+        ]
+
+        hand1 = Hand.new(first_hand_cards)
+        hand2 = Hand.new(second_hand_cards)
+
+        expect(hand1 <=> hand2).to eq(1)
+      end
+
+      it "should return -1 if other_hand also has flush, but other_hand has highest card" do
+        first_hand_cards = [
+          Card.new(:clubs, 2),
+          Card.new(:clubs, 7),
+          Card.new(:clubs, 4),
+          Card.new(:clubs, 9),
+          Card.new(:clubs, 6)
+        ]
+        second_hand_cards = [
+          Card.new(:spades, 2),
+          Card.new(:spades, 7),
+          Card.new(:spades, 4),
+          Card.new(:spades, 10),
+          Card.new(:spades, 6)
+        ]
+
+        hand1 = Hand.new(first_hand_cards)
+        hand2 = Hand.new(second_hand_cards)
+
+        expect(hand1 <=> hand2).to eq(-1)
+      end
+
+      it "should return -1 if other_hand has a hand greater than a flush" do
+        first_hand_cards = [
+          Card.new(:spades, 2),
+          Card.new(:spades, 7),
+          Card.new(:spades, 4),
+          Card.new(:spades, 10),
+          Card.new(:spades, 6)
+        ]
+        second_hand_cards = [
+          Card.new(:clubs, 7),
+          Card.new(:spades, 7),
+          Card.new(:diamonds, 7),
+          Card.new(:clubs, 8),
+          Card.new(:diamonds, 8)
+        ]
+
+        hand1 = Hand.new(first_hand_cards)
+        hand2 = Hand.new(second_hand_cards)
+
+        expect(hand1 <=> hand2).to eq(-1)
+      end
+    end
+    
   end
     # end
   

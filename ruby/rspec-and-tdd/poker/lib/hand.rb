@@ -115,7 +115,9 @@ class Hand
   end
 
   def flush? # 5 cards, same suit in any order
-    # return false if !same_suit?
+    @cards.map do(&:suit).uniq.length == 1
+    
+    
   end
 
   def straight? # 5 cards consecutive value, not same suit
