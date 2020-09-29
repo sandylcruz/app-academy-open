@@ -109,7 +109,6 @@ describe Hand do
         expect(hand1 <=> hand2).to eq(-1)
       end
     end
-  
 
     describe "when current_hand has a pair" do
       it "should return 1 if other_hand only has high card" do
@@ -227,6 +226,7 @@ describe Hand do
         expect(hand1 <=> hand2).to eq(-1)
       end
     end
+
     describe "when current_hand has a two_pair" do
       it "should return 1 if current_hand has two_pair and other_hand has single pair" do
         first_hand_cards = [
@@ -316,7 +316,7 @@ describe Hand do
         expect(hand1 <=> hand2).to eq(-1)
       end
 
-      it "should -1 if other_hand has a hand greater than a pair" do
+      it "should return -1 if other_hand has a hand greater than a pair" do
         first_hand_cards = [
           Card.new(:clubs, 9),
           Card.new(:diamonds, 9),
@@ -428,7 +428,7 @@ describe Hand do
         expect(hand1 <=> hand2).to eq(-1)
       end
 
-      it "should -1 if other_hand has a hand greater than three of a kind" do
+      it "should return -1 if other_hand has a hand greater than three of a kind" do
         first_hand_cards = [
           Card.new(:clubs, 9),
           Card.new(:diamonds, 9),
@@ -450,6 +450,7 @@ describe Hand do
         expect(hand1 <=> hand2).to eq(-1)
       end
     end
+
     describe "when current_hand has a straight" do
       it "should return 1 if current_hand has a straight and other_hand has three of a kind" do
         first_hand_cards = [
@@ -471,6 +472,94 @@ describe Hand do
         hand2 = Hand.new(second_hand_cards)
 
         expect(hand1 <=> hand2).to eq(1)
+      end
+
+      it "should return 0 if other_hand also has a straight and both have same high card" do
+        first_hand_cards = [
+          Card.new(:clubs, 2),
+          Card.new(:diamonds, 3),
+          Card.new(:spades, 4),
+          Card.new(:hearts, 5),
+          Card.new(:clubs, 6)
+        ]
+        second_hand_cards = [
+          Card.new(:clubs, 2),
+          Card.new(:spades, 3),
+          Card.new(:hearts, 4),
+          Card.new(:clubs, 5),
+          Card.new(:diamonds, 6)
+        ]
+
+        hand1 = Hand.new(first_hand_cards)
+        hand2 = Hand.new(second_hand_cards)
+
+        expect(hand1 <=> hand2).to eq(0)
+      end
+
+      it "should return 1 if other_hand also has a straight, but current_hand has highest card" do
+        first_hand_cards = [
+          Card.new(:clubs, 3),
+          Card.new(:spades, 4),
+          Card.new(:hearts, 5),
+          Card.new(:clubs, 6),
+          Card.new(:diamonds, 7)
+        ]
+        second_hand_cards = [
+          Card.new(:clubs, 2),
+          Card.new(:spades, 3),
+          Card.new(:hearts, 4),
+          Card.new(:clubs, 5),
+          Card.new(:diamonds, 6)
+        ]
+
+        hand1 = Hand.new(first_hand_cards)
+        hand2 = Hand.new(second_hand_cards)
+
+        expect(hand1 <=> hand2).to eq(1)
+      end
+
+      it "should return -1 if other_hand also has straight, but other_hand has highest card" do
+        first_hand_cards = [
+          Card.new(:clubs, 2),
+          Card.new(:spades, 3),
+          Card.new(:hearts, 4),
+          Card.new(:clubs, 5),
+          Card.new(:diamonds, 6)
+        ]
+        second_hand_cards = [
+          Card.new(:clubs, 3),
+          Card.new(:spades, 4),
+          Card.new(:hearts, 5),
+          Card.new(:clubs, 6),
+          Card.new(:diamonds, 7)
+        ]
+
+        hand1 = Hand.new(first_hand_cards)
+        hand2 = Hand.new(second_hand_cards)
+
+        expect(hand1 <=> hand2).to eq(-1)
+      end
+
+      it "should return -1 if other_hand has a hand greater than a straight" do
+        first_hand_cards = [
+          Card.new(:clubs, 2),
+          Card.new(:spades, 3),
+          Card.new(:hearts, 4),
+          Card.new(:clubs, 5),
+          Card.new(:diamonds, 6)
+        ]
+        second_hand_cards = [
+          Card.new(:clubs, 2),
+          Card.new(:clubs, 3),
+          Card.new(:clubs, 10),
+          Card.new(:clubs, 11),
+          Card.new(:clubs, 5)
+        ]
+
+        hand1 = Hand.new(first_hand_cards)
+        hand2 = Hand.new(second_hand_cards)
+
+        expect(hand1 <=> hand2).to eq(-1)
       end
     end
   end
