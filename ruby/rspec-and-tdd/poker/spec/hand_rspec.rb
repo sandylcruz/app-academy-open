@@ -614,7 +614,7 @@ describe Hand do
           Card.new(:clubs, 3),
           Card.new(:clubs, 4),
           Card.new(:clubs, 5),
-          Card.new(:clubs, 6)
+          Card.new(:clubs, 12)
         ]
         second_hand_cards = [
           Card.new(:clubs, 2),

@@ -104,7 +104,7 @@ class Hand
   private
 
   def straight_flush? # Any straight in same suit
-    # return false if !same_suit?
+    # same_suit? && straight?
   end
 
   def four_of_a_kind? # 4 cards same value. 1 extra
@@ -115,9 +115,15 @@ class Hand
   end
 
   def flush? # 5 cards, same suit in any order
-    @cards.map do(&:suit).uniq.length == 1
-    
-    
+    first_card = @cards[0]
+    first_suit = first_card.suit
+
+    @cards.drop(1).each do |card|
+      if card.suit != first_suit
+        return false
+      end
+    end
+    return true
   end
 
   def straight? # 5 cards consecutive value, not same suit
