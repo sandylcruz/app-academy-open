@@ -33,30 +33,14 @@ class Hand
       cards.delete(old_card)
     end
   end
- 
-  def same_suit?
-    suits = []
-    @cards.each do |card|
-      if suits.include?(card)
-        suits << card
-      end
-    end
-
-    if suits.length > 1
-      return false
-    else
-      return true
-    end
-  end
-
-  def same_value?
-
-  end
 
   def <=>(other_hand)
-    if value < other_hand.value
+    current_hand_value = value
+    other_hand_value = other_hand.value
+
+    if current_hand_value < other_hand_value
       return -1
-    elsif value > other_hand.value
+    elsif current_hand_value > other_hand_value
       return 1
     else
       if royal_flush?
@@ -94,7 +78,7 @@ class Hand
   end
 
   def royal_flush? # A, K, Q, J, 10 same suit
-    return false if !same_suit?
+    flush? && is_royal?
   end
   
   def high_card # 5 cards that don't interact with each other
@@ -103,8 +87,18 @@ class Hand
 
   private
 
+  def is_royal?
+    @cards.each do |card|
+      value = card.value
+      if !value.between?(10, 14)
+        return false
+      end
+    end
+    return true
+  end
+
   def straight_flush? # Any straight in same suit
-    # same_suit? && straight?
+    flush? && straight?
   end
 
   def four_of_a_kind? # 4 cards same value. 1 extra
