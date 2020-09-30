@@ -698,7 +698,7 @@ describe Hand do
         expect(hand1 <=> hand2).to eq(1)
       end
 
-      it "should return 0 if other_hand also has a flush and both have same high card" do
+      it "should return 0 if other_hand also has a full house and both have same high card" do
         first_hand_cards = [
           Card.new(:clubs, 7),
           Card.new(:spades, 7),
@@ -720,7 +720,7 @@ describe Hand do
         expect(hand1 <=> hand2).to eq(0)
       end
 
-      it "should return 1 if other_hand also has a flush, but current_hand has highest card" do
+      it "should return 1 if other_hand also has a full house, but current_hand has highest card" do
         first_hand_cards = [
           Card.new(:clubs, 7),
           Card.new(:spades, 7),
@@ -742,7 +742,7 @@ describe Hand do
         expect(hand1 <=> hand2).to eq(1)
       end
 
-      it "should return -1 if other_hand also has flush, but other_hand has highest card" do
+      it "should return -1 if other_hand also has full house, but other_hand has highest card" do
         first_hand_cards = [
           Card.new(:clubs, 7),
           Card.new(:spades, 7),
@@ -764,7 +764,7 @@ describe Hand do
         expect(hand1 <=> hand2).to eq(-1)
       end
 
-      it "should return -1 if other_hand has a hand greater than a flush" do
+      it "should return -1 if other_hand has a hand greater than a full house" do
         first_hand_cards = [
           Card.new(:clubs, 7),
           Card.new(:spades, 7),
@@ -778,6 +778,118 @@ describe Hand do
           Card.new(:diamonds, 7),
           Card.new(:clubs, 7),
           Card.new(:diamonds, 8)
+        ]
+
+        hand1 = Hand.new(first_hand_cards)
+        hand2 = Hand.new(second_hand_cards)
+
+        expect(hand1 <=> hand2).to eq(-1)
+      end
+    end
+
+    describe "when current_hand has four of a kind" do
+      it "should return 1 if current_hand has a four of a kind and other_hand has a full house" do
+        first_hand_cards = [
+          Card.new(:clubs, 7),
+          Card.new(:spades, 7),
+          Card.new(:diamonds, 7),
+          Card.new(:clubs, 7),
+          Card.new(:spades, 9)
+        ]
+        second_hand_cards = [
+          Card.new(:clubs, 7),
+          Card.new(:spades, 7),
+          Card.new(:diamonds, 7),
+          Card.new(:clubs, 9),
+          Card.new(:spades, 9)
+        ]
+
+        hand1 = Hand.new(first_hand_cards)
+        hand2 = Hand.new(second_hand_cards)
+
+        expect(hand1 <=> hand2).to eq(1)
+      end
+
+      it "should return 0 if other_hand also has four of a kind and both have same high card" do
+        first_hand_cards = [
+          Card.new(:clubs, 7),
+          Card.new(:spades, 7),
+          Card.new(:diamonds, 7),
+          Card.new(:clubs, 7),
+          Card.new(:spades, 9)
+        ]
+        second_hand_cards = [
+          Card.new(:clubs, 7),
+          Card.new(:spades, 7),
+          Card.new(:diamonds, 7),
+          Card.new(:clubs, 7),
+          Card.new(:spades, 9)
+        ]
+
+        hand1 = Hand.new(first_hand_cards)
+        hand2 = Hand.new(second_hand_cards)
+
+        expect(hand1 <=> hand2).to eq(0)
+      end
+
+      it "should return 1 if other_hand also has four of a kind, but current_hand has highest card" do
+        first_hand_cards = [
+          Card.new(:clubs, 7),
+          Card.new(:spades, 7),
+          Card.new(:diamonds, 7),
+          Card.new(:clubs, 7),
+          Card.new(:spades, 10)
+        ]
+        second_hand_cards = [
+          Card.new(:clubs, 7),
+          Card.new(:spades, 7),
+          Card.new(:diamonds, 7),
+          Card.new(:clubs, 7),
+          Card.new(:spades, 9)
+        ]
+
+        hand1 = Hand.new(first_hand_cards)
+        hand2 = Hand.new(second_hand_cards)
+
+        expect(hand1 <=> hand2).to eq(1)
+      end
+
+      it "should return -1 if other_hand also has four of a kind, but other_hand has highest card" do
+        first_hand_cards = [
+          Card.new(:clubs, 7),
+          Card.new(:spades, 7),
+          Card.new(:diamonds, 7),
+          Card.new(:clubs, 7),
+          Card.new(:spades, 9)
+        ]
+        second_hand_cards = [
+          Card.new(:clubs, 7),
+          Card.new(:spades, 7),
+          Card.new(:diamonds, 7),
+          Card.new(:clubs, 7),
+          Card.new(:spades, 10)
+        ]
+
+        hand1 = Hand.new(first_hand_cards)
+        hand2 = Hand.new(second_hand_cards)
+
+        expect(hand1 <=> hand2).to eq(-1)
+      end
+
+      it "should return -1 if other_hand has a hand greater than four of a kind" do
+        first_hand_cards = [
+          Card.new(:clubs, 7),
+          Card.new(:spades, 7),
+          Card.new(:diamonds, 7),
+          Card.new(:clubs, 7),
+          Card.new(:spades, 9)
+        ]
+        second_hand_cards = [
+          Card.new(:clubs, 6),
+          Card.new(:clubs, 7),
+          Card.new(:clubs, 9),
+          Card.new(:clubs, 10),
+          Card.new(:clubs, 8)
         ]
 
         hand1 = Hand.new(first_hand_cards)

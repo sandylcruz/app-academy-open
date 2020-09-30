@@ -108,7 +108,23 @@ class Hand
   end
 
   def four_of_a_kind? # 4 cards same value. 1 extra
-    unique_values.length == 2
+    card_counts = {}
+    sorted_cards = @cards.sort!
+
+    sorted_cards.each do |card|
+      value = card.value
+      if !card_counts.key?(value)
+        card_counts[value] = 1
+      else
+        card_counts[value] = card_counts[value] + 1
+      end
+    end
+
+    fours_count = card_counts.count do |value, value_count|
+      value_count == 4
+    end
+
+   fours_count == 1
   end
 
   def full_house? # 3 cards same value, 2 extra
