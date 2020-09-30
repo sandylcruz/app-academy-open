@@ -112,6 +112,27 @@ class Hand
   end
 
   def full_house? # 3 cards same value, 2 extra
+    card_counts = {}
+    sorted_cards = @cards.sort!
+
+    sorted_cards.each do |card|
+      value = card.value
+      if !card_counts.key?(value)
+        card_counts[value] = 1
+      else
+        card_counts[value] = card_counts[value] + 1
+      end
+    end
+
+    threes_count = card_counts.count do |value, value_count|
+      value_count == 3
+    end
+
+    twos_count = card_counts.count do |value, value_count|
+      value_count == 2
+    end
+
+   threes_count == 1 && twos_count == 1
   end
 
   def flush? # 5 cards, same suit in any order
