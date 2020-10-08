@@ -1,11 +1,14 @@
 class Array
-
   # Extend the Array class to include a method named my_each 
   # that takes a block, calls the block on every element of the 
   # array, and returns the original array. Do not use Enumerable's 
-  # each method. I want to be able to write:
+  # each method.
+
   def my_each
-    array.each 
+    self.length.times do |num|
+      
+    end
+    self
   end
 
   return_value = [1, 2, 3].my_each do |num|
