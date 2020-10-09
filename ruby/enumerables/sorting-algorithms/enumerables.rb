@@ -43,21 +43,31 @@ class Array
     selected
   end
 
-  puts "My_select tests: "
-  a = [1, 2, 3]
-  puts a.my_select { |num| num > 1 } == [2, 3]
-  puts a.my_select { |num| num == 4 } == []
+  # puts "My_select tests: "
+  # a = [1, 2, 3]
+  # puts a.my_select { |num| num > 1 } == [2, 3]
+  # puts a.my_select { |num| num == 4 } == []
 
 
   # Write my_reject to take a block and return a new array 
   # excluding elements that satisfy the block.
 
   def my_reject(&prc)
+    rejected = []
+
+    self.each do |num|
+      unless prc.call(num) == true
+        rejected << num
+      end
+    end
+
+    rejected
   end
 
-  # a = [1, 2, 3]
-  # a.my_reject { |num| num > 1 } # => [1]
-  # a.my_reject { |num| num == 4 } # => [1, 2, 3]
+  puts "My_reject tests: "
+  a = [1, 2, 3]
+  puts a.my_reject { |num| num > 1 } == [1]
+  puts a.my_reject { |num| num == 4 } == [1, 2, 3]
 
 
   # Write my_any? to return true if any elements of the array 
