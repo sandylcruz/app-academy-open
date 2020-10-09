@@ -4,26 +4,26 @@ class Array
   # array, and returns the original array. Do not use Enumerable's 
   # each method.
 
-  def my_each
-    self.length.times do |num|
+  # def my_each(&prc)
+  #   self.length.times do |num|
       
-    end
-    self
-  end
+  #   end
+  #   self
+  # end
 
-  return_value = [1, 2, 3].my_each do |num|
-    puts num
-  end.my_each do |num|
-    puts num
-  end
-  # => 1
-      2
-      3
-      1
-      2
-      3
+  # return_value = [1, 2, 3].my_each do |num|
+  #   puts num
+  # end.my_each do |num|
+  #   puts num
+  # end
+  # # => 1
+  #     2
+  #     3
+  #     1
+  #     2
+  #     3
 
-  p return_value  # => [1, 2, 3]
+  # p return_value  # => [1, 2, 3]
 
 
   # Now extend the Array class to include my_select that takes a 
@@ -31,23 +31,33 @@ class Array
   # satisfy the block. Use your my_each method!
 
 
-  def my_select
+  def my_select(&prc)
+    selected = []
+
+    self.each do |num|
+      if prc.call(num)
+        selected << num
+      end
+    end
+
+    selected
   end
 
+  puts "My_select tests: "
   a = [1, 2, 3]
-  a.my_select { |num| num > 1 } # => [2, 3]
-  a.my_select { |num| num == 4 } # => []
+  puts a.my_select { |num| num > 1 } == [2, 3]
+  puts a.my_select { |num| num == 4 } == []
 
 
   # Write my_reject to take a block and return a new array 
   # excluding elements that satisfy the block.
 
-  def my_reject
+  def my_reject(&prc)
   end
 
-  a = [1, 2, 3]
-  a.my_reject { |num| num > 1 } # => [1]
-  a.my_reject { |num| num == 4 } # => [1, 2, 3]
+  # a = [1, 2, 3]
+  # a.my_reject { |num| num > 1 } # => [1]
+  # a.my_reject { |num| num == 4 } # => [1, 2, 3]
 
 
   # Write my_any? to return true if any elements of the array 
@@ -55,21 +65,21 @@ class Array
   # elements satisfy the block.
 
 
-  def my_any
+  def my_any(&prc)
   end
 
-  a = [1, 2, 3]
-  a.my_any? { |num| num > 1 } # => true
-  a.my_any? { |num| num == 4 } # => false
-  a.my_all? { |num| num > 1 } # => false
-  a.my_all? { |num| num < 4 } # => true
+  # a = [1, 2, 3]
+  # a.my_any? { |num| num > 1 } # => true
+  # a.my_any? { |num| num == 4 } # => false
+  # a.my_all? { |num| num > 1 } # => false
+  # a.my_all? { |num| num < 4 } # => true
 
  # My_flatten should return all elements of the array into a new, 
  # one-dimensional array. Hint: use recursion!
 
   def my_flatten
   end
-  [1, 2, 3, [4, [5, 6]], [[[7]], 8]].my_flatten # => [1, 2, 3, 4, 5, 6, 7, 8]
+  # [1, 2, 3, [4, [5, 6]], [[[7]], 8]].my_flatten # => [1, 2, 3, 4, 5, 6, 7, 8]
 
   # Write my_zip to take any number of arguments. It should return 
   # a new array containing self.length elements. Each element 
@@ -81,15 +91,15 @@ class Array
   def my_zip
   end
 
-  a = [ 4, 5, 6 ]
-  b = [ 7, 8, 9 ]
-  [1, 2, 3].my_zip(a, b) # => [[1, 4, 7], [2, 5, 8], [3, 6, 9]]
-  a.my_zip([1,2], [8])   # => [[4, 1, 8], [5, 2, nil], [6, nil, nil]]
-  [1, 2].my_zip(a, b)    # => [[1, 4, 7], [2, 5, 8]]
+  # a = [ 4, 5, 6 ]
+  # b = [ 7, 8, 9 ]
+  # [1, 2, 3].my_zip(a, b) # => [[1, 4, 7], [2, 5, 8], [3, 6, 9]]
+  # a.my_zip([1,2], [8])   # => [[4, 1, 8], [5, 2, nil], [6, nil, nil]]
+  # [1, 2].my_zip(a, b)    # => [[1, 4, 7], [2, 5, 8]]
   
-  c = [10, 11, 12]
-  d = [13, 14, 15]
-  [1, 2].my_zip(a, b, c, d)    # => [[1, 4, 7, 10, 13], [2, 5, 8, 11, 14]]
+  # c = [10, 11, 12]
+  # d = [13, 14, 15]
+  # [1, 2].my_zip(a, b, c, d)    # => [[1, 4, 7, 10, 13], [2, 5, 8, 11, 14]]
 
 
   # Write a method my_rotate that returns a new array containing 
@@ -101,11 +111,11 @@ class Array
   def my_rotate
   end
 
-  a = [ "a", "b", "c", "d" ]
-  a.my_rotate         #=> ["b", "c", "d", "a"]
-  a.my_rotate(2)      #=> ["c", "d", "a", "b"]
-  a.my_rotate(-3)     #=> ["b", "c", "d", "a"]
-  a.my_rotate(15)     #=> ["d", "a", "b", "c"]
+  # a = [ "a", "b", "c", "d" ]
+  # a.my_rotate         #=> ["b", "c", "d", "a"]
+  # a.my_rotate(2)      #=> ["c", "d", "a", "b"]
+  # a.my_rotate(-3)     #=> ["b", "c", "d", "a"]
+  # a.my_rotate(15)     #=> ["d", "a", "b", "c"]
 
 
   # my_join returns a single string containing all the elements 
@@ -115,9 +125,9 @@ class Array
   def my_join
   end
 
-  a = [ "a", "b", "c", "d" ]
-  a.my_join         # => "abcd"
-  a.my_join("$")    # => "a$b$c$d"
+  # a = [ "a", "b", "c", "d" ]
+  # a.my_join         # => "abcd"
+  # a.my_join("$")    # => "a$b$c$d"
 
   # Write a method that returns a new array containing all the 
   # elements of the original array in reverse order.
@@ -125,8 +135,8 @@ class Array
   def my_reverse
   end
 
-  [ "a", "b", "c" ].my_reverse   #=> ["c", "b", "a"]
-  [ 1 ].my_reverse               #=> [1]
+  # [ "a", "b", "c" ].my_reverse   #=> ["c", "b", "a"]
+  # [ 1 ].my_reverse               #=> [1]
 
 end
 
