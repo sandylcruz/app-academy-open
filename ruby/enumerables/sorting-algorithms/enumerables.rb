@@ -31,17 +31,17 @@ class Array
   # satisfy the block. Use your my_each method!
 
 
-  def my_select(&prc)
-    selected = []
+  # def my_select(&prc)
+  #   selected = []
 
-    self.each do |num|
-      if prc.call(num)
-        selected << num
-      end
-    end
+  #   self.each do |num|
+  #     if prc.call(num)
+  #       selected << num
+  #     end
+  #   end
 
-    selected
-  end
+  #   selected
+  # end
 
   # puts "My_select tests: "
   # a = [1, 2, 3]
@@ -52,22 +52,22 @@ class Array
   # Write my_reject to take a block and return a new array 
   # excluding elements that satisfy the block.
 
-  def my_reject(&prc)
-    rejected = []
+  # def my_reject(&prc)
+  #   rejected = []
 
-    self.each do |num|
-      unless prc.call(num) == true
-        rejected << num
-      end
-    end
+  #   self.each do |num|
+  #     unless prc.call(num) == true
+  #       rejected << num
+  #     end
+  #   end
 
-    rejected
-  end
+  #   rejected
+  # end
 
-  puts "My_reject tests: "
-  a = [1, 2, 3]
-  puts a.my_reject { |num| num > 1 } == [1]
-  puts a.my_reject { |num| num == 4 } == [1, 2, 3]
+  # puts "My_reject tests: "
+  # a = [1, 2, 3]
+  # puts a.my_reject { |num| num > 1 } == [1]
+  # puts a.my_reject { |num| num == 4 } == [1, 2, 3]
 
 
   # Write my_any? to return true if any elements of the array 
@@ -75,14 +75,23 @@ class Array
   # elements satisfy the block.
 
 
-  def my_any(&prc)
+  def my_any?(&prc)
+    self.each do |num|
+      if prc.call(num)
+        return true
+      end
+    end
+    return false
   end
 
-  # a = [1, 2, 3]
-  # a.my_any? { |num| num > 1 } # => true
-  # a.my_any? { |num| num == 4 } # => false
-  # a.my_all? { |num| num > 1 } # => false
-  # a.my_all? { |num| num < 4 } # => true
+  a = [1, 2, 3]
+  puts a.my_any? { |num| num > 1 } == true
+  puts a.my_any? { |num| num == 4 } == false
+
+
+
+  # puts a.my_all? { |num| num > 1 } # => false
+  # puts a.my_all? { |num| num < 4 } # => true
 
  # My_flatten should return all elements of the array into a new, 
  # one-dimensional array. Hint: use recursion!
