@@ -31,48 +31,47 @@ class Array
   # satisfy the block. Use your my_each method!
 
 
-  # def my_select(&prc)
-  #   selected = []
+  def my_select(&prc)
+    selected = []
 
-  #   self.each do |num|
-  #     if prc.call(num)
-  #       selected << num
-  #     end
-  #   end
+    self.each do |num|
+      if prc.call(num)
+        selected << num
+      end
+    end
 
-  #   selected
-  # end
+    selected
+  end
 
-  # puts "My_select tests: "
-  # a = [1, 2, 3]
-  # puts a.my_select { |num| num > 1 } == [2, 3]
-  # puts a.my_select { |num| num == 4 } == []
-
+  puts "My_select tests: "
+  a = [1, 2, 3]
+  puts a.my_select { |num| num > 1 } == [2, 3]
+  puts a.my_select { |num| num == 4 } == []
+  puts
 
   # Write my_reject to take a block and return a new array 
   # excluding elements that satisfy the block.
 
-  # def my_reject(&prc)
-  #   rejected = []
+  def my_reject(&prc)
+    rejected = []
 
-  #   self.each do |num|
-  #     unless prc.call(num) == true
-  #       rejected << num
-  #     end
-  #   end
+    self.each do |num|
+      unless prc.call(num) == true
+        rejected << num
+      end
+    end
 
-  #   rejected
-  # end
+    rejected
+  end
 
-  # puts "My_reject tests: "
-  # a = [1, 2, 3]
-  # puts a.my_reject { |num| num > 1 } == [1]
-  # puts a.my_reject { |num| num == 4 } == [1, 2, 3]
-
+  puts "My_reject tests: "
+  a = [1, 2, 3]
+  puts a.my_reject { |num| num > 1 } == [1]
+  puts a.my_reject { |num| num == 4 } == [1, 2, 3]
+  puts
 
   # Write my_any? to return true if any elements of the array 
-  # satisfy the block and my_all? to return true only if all 
-  # elements satisfy the block.
+  # satisfy the block.
 
 
   def my_any?(&prc)
@@ -84,14 +83,29 @@ class Array
     return false
   end
 
+  puts "My_any? tests: "
   a = [1, 2, 3]
   puts a.my_any? { |num| num > 1 } == true
   puts a.my_any? { |num| num == 4 } == false
+  puts
 
+  # Write my_all? to return true only if all 
+  # elements satisfy the block.
 
+  def my_all?(&prc)
+    self.each do |num|
+      if !prc.call(num)
+        return false
+      end
+    end
+    return true
+  end
 
-  # puts a.my_all? { |num| num > 1 } # => false
-  # puts a.my_all? { |num| num < 4 } # => true
+  puts "My_all? tests: "
+  a = [1, 2, 3]
+  puts a.my_all? { |num| num > 1 } == false
+  puts a.my_all? { |num| num < 4 } == true
+  puts
 
  # My_flatten should return all elements of the array into a new, 
  # one-dimensional array. Hint: use recursion!
