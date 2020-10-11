@@ -112,7 +112,9 @@ class Array
 
   def my_flatten
   end
-  # [1, 2, 3, [4, [5, 6]], [[[7]], 8]].my_flatten # => [1, 2, 3, 4, 5, 6, 7, 8]
+
+  puts "My _flatten tests: "
+  [1, 2, 3, [4, [5, 6]], [[[7]], 8]].my_flatten # => [1, 2, 3, 4, 5, 6, 7, 8]
 
   # Write my_zip to take any number of arguments. It should return 
   # a new array containing self.length elements. Each element 
