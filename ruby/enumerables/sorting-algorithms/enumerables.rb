@@ -111,10 +111,25 @@ class Array
  # one-dimensional array. Hint: use recursion!
 
   def my_flatten
+    flattened_array = []
+
+    self.each do |element|
+      if element.kind_of?(Array)
+        flattened_element = element.my_flatten
+        flattened_element.each do |element|
+          flattened_array << element
+        end
+      else
+        flattened_array << element
+      end
+    end
+
+    flattened_array
   end
 
   puts "My _flatten tests: "
-  [1, 2, 3, [4, [5, 6]], [[[7]], 8]].my_flatten # => [1, 2, 3, 4, 5, 6, 7, 8]
+  puts [1, 2, 3, [4, [5, 6]], [[[7]], 8]].my_flatten == [1, 2, 3, 4, 5, 6, 7, 8]
+  puts
 
   # Write my_zip to take any number of arguments. It should return 
   # a new array containing self.length elements. Each element 
