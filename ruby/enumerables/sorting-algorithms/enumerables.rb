@@ -4,26 +4,19 @@ class Array
   # array, and returns the original array. Do not use Enumerable's 
   # each method.
 
-  # def my_each(&prc)
-  #   self.length.times do |num|
-      
-  #   end
-  #   self
-  # end
-
-  # return_value = [1, 2, 3].my_each do |num|
-  #   puts num
-  # end.my_each do |num|
-  #   puts num
-  # end
-  # # => 1
-  #     2
-  #     3
-  #     1
-  #     2
-  #     3
-
-  # p return_value  # => [1, 2, 3]
+  def my_each(&prc)
+    i = 0
+    while i < self.length
+      prc.call(self[i]) 
+      i += 1
+    end
+    self
+  end
+  "My_each tests: "
+  return_value = [1, 2, 3].my_each do |num|
+    puts num
+  end
+  p return_value  == [1, 2, 3]
 
 
   # Now extend the Array class to include my_select that takes a 
@@ -138,12 +131,19 @@ class Array
   # that index. If the size of any argument is less than self, 
   # nil is returned for that location.
 
-  def my_zip
+  def my_zip(*args)
+    zipped_array = []
+
+    args.each do |element|
+      zipped_array << element
+    end
+
+    zipped_array
   end
 
-  # a = [ 4, 5, 6 ]
-  # b = [ 7, 8, 9 ]
-  # [1, 2, 3].my_zip(a, b) # => [[1, 4, 7], [2, 5, 8], [3, 6, 9]]
+  a = [ 4, 5, 6 ]
+  b = [ 7, 8, 9 ]
+  [1, 2, 3].my_zip(a, b) # => [[1, 4, 7], [2, 5, 8], [3, 6, 9]]
   # a.my_zip([1,2], [8])   # => [[4, 1, 8], [5, 2, nil], [6, nil, nil]]
   # [1, 2].my_zip(a, b)    # => [[1, 4, 7], [2, 5, 8]]
   
