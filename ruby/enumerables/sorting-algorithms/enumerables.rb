@@ -27,7 +27,7 @@ class Array
   def my_select(&prc)
     selected = []
 
-    self.each do |num|
+    self.my_each do |num|
       if prc.call(num)
         selected << num
       end
@@ -48,7 +48,7 @@ class Array
   def my_reject(&prc)
     rejected = []
 
-    self.each do |num|
+    self.my_each do |num|
       unless prc.call(num) == true
         rejected << num
       end
@@ -68,7 +68,7 @@ class Array
 
 
   def my_any?(&prc)
-    self.each do |num|
+    self.my_each do |num|
       if prc.call(num)
         return true
       end
@@ -86,7 +86,7 @@ class Array
   # elements satisfy the block.
 
   def my_all?(&prc)
-    self.each do |num|
+    self.my_each do |num|
       if !prc.call(num)
         return false
       end
@@ -106,10 +106,10 @@ class Array
   def my_flatten
     flattened_array = []
 
-    self.each do |element|
+    self.my_each do |element|
       if element.kind_of?(Array)
         flattened_element = element.my_flatten
-        flattened_element.each do |element|
+        flattened_element.my_each do |element|
           flattened_array << element
         end
       else
