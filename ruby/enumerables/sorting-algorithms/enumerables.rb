@@ -120,7 +120,7 @@ class Array
     flattened_array
   end
 
-  puts "My _flatten tests: "
+  puts "My_flatten tests: "
   puts [1, 2, 3, [4, [5, 6]], [[[7]], 8]].my_flatten == [1, 2, 3, 4, 5, 6, 7, 8]
   puts
 
@@ -131,26 +131,29 @@ class Array
   # that index. If the size of any argument is less than self, 
   # nil is returned for that location.
 
-  def my_zip(*args)
+  def my_zip(*arrays)
     zipped_array = []
 
-    args.each do |element|
-      zipped_array << element
+    arrays.each do |array|
+      array.each do |num|
+        zipped_array << num
+      end
     end
 
     zipped_array
   end
 
+  puts "My_zip tests: "
   a = [ 4, 5, 6 ]
   b = [ 7, 8, 9 ]
-  [1, 2, 3].my_zip(a, b) # => [[1, 4, 7], [2, 5, 8], [3, 6, 9]]
+  # puts [1, 2, 3].my_zip(a, b) # => [[1, 4, 7], [2, 5, 8], [3, 6, 9]]
   # a.my_zip([1,2], [8])   # => [[4, 1, 8], [5, 2, nil], [6, nil, nil]]
   # [1, 2].my_zip(a, b)    # => [[1, 4, 7], [2, 5, 8]]
   
   # c = [10, 11, 12]
   # d = [13, 14, 15]
   # [1, 2].my_zip(a, b, c, d)    # => [[1, 4, 7, 10, 13], [2, 5, 8, 11, 14]]
-
+  puts
 
   # Write a method my_rotate that returns a new array containing 
   # all the elements of the original array in a rotated order. 
@@ -158,14 +161,26 @@ class Array
   # negative value is given, the array is rotated in the opposite 
   # direction.
 
-  def my_rotate
+  def my_rotate(num)
+    rotated_array = []
+    letter_to_rotate = rotated_array.shift
+    i = 0
+
+    while i < self.length
+
+      rotated_array << letter_to_rotate
+      i += 1
+    end
+   
+    rotated_array
   end
 
-  # a = [ "a", "b", "c", "d" ]
-  # a.my_rotate         #=> ["b", "c", "d", "a"]
-  # a.my_rotate(2)      #=> ["c", "d", "a", "b"]
-  # a.my_rotate(-3)     #=> ["b", "c", "d", "a"]
-  # a.my_rotate(15)     #=> ["d", "a", "b", "c"]
+  puts "My_rotate tests: "
+  a = [ "a", "b", "c", "d" ]
+  puts a.my_rotate(1)         #=> ["b", "c", "d", "a"]
+  # puts a.my_rotate(2)      #=> ["c", "d", "a", "b"]
+  # puts a.my_rotate(-3)     #=> ["b", "c", "d", "a"]
+  # puts a.my_rotate(15)     #=> ["d", "a", "b", "c"]
 
 
   # my_join returns a single string containing all the elements 
@@ -191,7 +206,20 @@ class Array
 end
 
 def factors(num)
+  factors = []
+
+  (1..num).each do |factor|
+    if num % factor == 0
+      factors << factor
+    end
+  end
+  factors
 end
+puts "Factors tests: "
+puts factors(10)
+puts factors(-10)
+puts factors(33)
+puts factors(7)
 
 def bubble_sort!(&prc)
 end
