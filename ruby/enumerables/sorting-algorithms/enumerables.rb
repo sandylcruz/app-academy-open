@@ -161,33 +161,27 @@ class Array
   # negative value is given, the array is rotated in the opposite 
   # direction.
 
-  def my_rotate(num)
-    rotated_array = []
-    letter_to_rotate = rotated_array.shift
-    i = 0
+  def my_rotate(num = 1)
+    number_times_to_rotate = num % self.length
+    prefix = self.drop(number_times_to_rotate)
+    suffix = self.take(number_times_to_rotate)
 
-    while i < self.length
-
-      rotated_array << letter_to_rotate
-      i += 1
-    end
-   
-    rotated_array
+    prefix + suffix 
   end
 
   puts "My_rotate tests: "
   a = [ "a", "b", "c", "d" ]
-  puts a.my_rotate(1)         #=> ["b", "c", "d", "a"]
-  # puts a.my_rotate(2)      #=> ["c", "d", "a", "b"]
-  # puts a.my_rotate(-3)     #=> ["b", "c", "d", "a"]
-  # puts a.my_rotate(15)     #=> ["d", "a", "b", "c"]
+  puts a.my_rotate == ["b", "c", "d", "a"]
+  puts a.my_rotate(2) == ["c", "d", "a", "b"]
+  puts a.my_rotate(-3) == ["b", "c", "d", "a"]
+  puts a.my_rotate(15) == ["d", "a", "b", "c"]
 
 
   # my_join returns a single string containing all the elements 
   # of the array, separated by the given string separator. 
   # If no separator is given, an empty string is used.
 
-  def my_join
+  def my_join(joiner = "")
   end
 
   # a = [ "a", "b", "c", "d" ]
@@ -213,13 +207,14 @@ def factors(num)
       factors << factor
     end
   end
+
   factors
 end
-puts "Factors tests: "
-puts factors(10)
-puts factors(-10)
-puts factors(33)
-puts factors(7)
+# puts "Factors tests: "
+# puts factors(10)
+# puts factors(-10)
+# puts factors(33)
+# puts factors(7)
 
 def bubble_sort!(&prc)
 end
