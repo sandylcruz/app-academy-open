@@ -175,7 +175,7 @@ class Array
   puts a.my_rotate(2) == ["c", "d", "a", "b"]
   puts a.my_rotate(-3) == ["b", "c", "d", "a"]
   puts a.my_rotate(15) == ["d", "a", "b", "c"]
-
+  puts
 
   # my_join returns a single string containing all the elements 
   # of the array, separated by the given string separator. 
@@ -191,11 +191,33 @@ class Array
   # Write a method that returns a new array containing all the 
   # elements of the original array in reverse order.
 
+  # def my_reverse
+  #   return self if self.length == 1
+  #   array = self.dup
+  #   reversed = []
+
+  #   self.length.times do 
+  #     last_element = array.pop
+  #     reversed << last_element
+  #   end
+
+  #   reversed
+  # end
+
   def my_reverse
+    reversed = []
+
+    self.length.times do
+      element = self.pop
+      reversed.push(element)
+    end
+
+    reversed
   end
 
-  # [ "a", "b", "c" ].my_reverse   #=> ["c", "b", "a"]
-  # [ 1 ].my_reverse               #=> [1]
+  puts "My_reverse tests"
+  puts [ "a", "b", "c" ].my_reverse == ["c", "b", "a"]
+  puts [ 1 ].my_reverse == [1]
 
 end
 
