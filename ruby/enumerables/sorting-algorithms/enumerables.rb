@@ -182,12 +182,24 @@ class Array
   # If no separator is given, an empty string is used.
 
   def my_join(joiner = "")
+    joined_string = ""
+
+    self.each do |letter|
+      if letter != self[-1]
+        joined_string << letter + joiner
+      else
+        joined_string << letter
+      end
+    end
+
+    joined_string
   end
 
-  # a = [ "a", "b", "c", "d" ]
-  # a.my_join         # => "abcd"
-  # a.my_join("$")    # => "a$b$c$d"
-
+  puts "My_join tests:"
+  a = [ "a", "b", "c", "d" ]
+  puts a.my_join == "abcd"
+  puts a.my_join("$") == "a$b$c$d"
+  puts
   # Write a method that returns a new array containing all the 
   # elements of the original array in reverse order.
 
