@@ -133,12 +133,18 @@ class Array
 
   def my_zip(*arrays)
     zipped_array = []
+    i = 0
 
-    arrays.each do |array|
-      array.each do |num|
-        zipped_array << num
+    while i < self.length
+      arrays.each do |array|
+        array.each do |num|
+          zipped_array << array[i]
+        end
       end
+      i += 1
+
     end
+  
 
     zipped_array
   end
@@ -200,6 +206,7 @@ class Array
   puts a.my_join == "abcd"
   puts a.my_join("$") == "a$b$c$d"
   puts
+
   # Write a method that returns a new array containing all the 
   # elements of the original array in reverse order.
 
@@ -230,7 +237,7 @@ class Array
   puts "My_reverse tests"
   puts [ "a", "b", "c" ].my_reverse == ["c", "b", "a"]
   puts [ 1 ].my_reverse == [1]
-
+  puts
 end
 
 def factors(num)
@@ -244,20 +251,30 @@ def factors(num)
 
   factors
 end
-# puts "Factors tests: "
-# puts factors(10)
-# puts factors(-10)
-# puts factors(33)
-# puts factors(7)
+puts "Factors tests: "
+puts factors(10) == [1, 2, 5, 10]
+puts factors(33) == [1, 3, 11, 33]
+puts factors(7) == [1, 7]
+puts
 
-def bubble_sort!(&prc)
+def substrings(string)
+  substrings = []
+
+  (0...string.length).each do |i|
+    (i...string.length).each do |j|
+      substring = string[i..j]
+      substrings << substring unless substrings.include?(substring)
+    end
+  end
+
+  substrings
+end
+puts "Substrings tests"
+puts substrings("cat") == ["c", "ca", "cat", "a", "at", "t"]
+
+def subwords(word, dictionary)
+
 end
 
 def bubble_sort(&prc)
-end
-
-def substrings(string)
-end
-
-def subwords(word, dictionary)
 end
