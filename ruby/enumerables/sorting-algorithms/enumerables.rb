@@ -277,25 +277,46 @@ def subwords(word, dictionary)
 
 end
 
-def bubble_sort(array)
+# def bubble_sort(array)
   
+#   sorted = false
+
+#   until sorted
+#     i = 0
+#     sorted = true
+
+#     while i < (array.length - 1)
+#       j = i + 1
+#       if array[i] > array[j]
+#         array[i], array[j] = array[j], array[i]
+#         sorted = false
+#       end
+    
+#       i += 1
+#     end
+#   end
+#   array
+# end
+puts "Bubble sort tests:"
+# puts bubble_sort([5, 2, 3, 11, 6, -1, 0, -11])
+
+def bubble_sort(array)
   sorted = false
 
   until sorted
     i = 0
     sorted = true
 
-    while i < (array.length - 1)
+    while i < array.length - 1
       j = i + 1
       if array[i] > array[j]
         array[i], array[j] = array[j], array[i]
         sorted = false
       end
-    
       i += 1
     end
   end
+  
   array
 end
-puts "Bubble sort tests:"
 puts bubble_sort([5, 2, 3, 11, 6, -1, 0, -11])
