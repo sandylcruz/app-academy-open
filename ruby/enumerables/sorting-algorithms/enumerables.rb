@@ -271,10 +271,31 @@ def substrings(string)
 end
 puts "Substrings tests"
 puts substrings("cat") == ["c", "ca", "cat", "a", "at", "t"]
+puts
 
 def subwords(word, dictionary)
 
 end
 
-def bubble_sort(&prc)
+def bubble_sort(array)
+  
+  sorted = false
+
+  until sorted
+    i = 0
+    sorted = true
+
+    while i < (array.length - 1)
+      j = i + 1
+      if array[i] > array[j]
+        array[i], array[j] = array[j], array[i]
+        sorted = false
+      end
+    
+      i += 1
+    end
+  end
+  array
 end
+puts "Bubble sort tests:"
+puts bubble_sort([5, 2, 3, 11, 6, -1, 0, -11])
