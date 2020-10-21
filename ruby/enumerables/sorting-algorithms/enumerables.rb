@@ -426,9 +426,31 @@ end
 puts "Merge sort tests:"
 puts merge_sort([0, 2, 1, 4, 3, 5]) == [0, 1, 2, 3, 4, 5]
 puts merge_sort([-11, 20, 4, -1, 11, 5, 7]) == [-11, -1, 4, 5, 7, 11, 20]
+puts
 
-# def binary_search(array)
-# end
+def binary_search(array, target)
+  middle_index = array.length / 2
+  first_half = array[0...middle_index]
+  second_half = array[middle_index..-1]
+  middle_value = array[middle_index]
+  
+  if middle_value == target
+    return middle_index
+  elsif array.length == 1
+    print "Nil. Value not found"
+  elsif middle_value < target
+    potential_index = binary_search(second_half, target)
+    return nil if potential_index.nil?
+    potential_index + middle_index
+  elsif middle_value > target
+    binary_search(first_half, target)
+  end
+end
+
+puts "Binary search tests: "
+puts binary_search([1, 4, 9, 10, 11, 40, 45, 61], 61)
+puts binary_search([1, 4, 9, 10, 11, 40, 45, 61], 62)
+puts binary_search([1, 4, 4, 9, 10, 11, 40, 45, 61], 4)
 
 # def depth_first_search
 # end
