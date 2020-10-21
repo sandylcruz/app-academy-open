@@ -373,6 +373,32 @@ puts bubble_sort([5, 2, 3, 11, 6, -1, 0, -11]) == [-11, -1, 0, 2, 3, 5, 6, 11]
 puts bubble_sort([0, -11, -2, -1, 11, 2]) == [-11, -2, -1, 0, 2, 11]
 puts 
 
+# def merge(left, right)
+#   sorted = []
+
+#   until left.empty? || right.empty?
+#     if left.first <= right.first
+#       sorted << left.shift
+#     else
+#       sorted << right.shift
+#     end
+#   end
+  
+#   sorted + left + right
+# end
+
+# def merge_sort(array)
+#   return array if array.length <= 1
+
+#   middle = array.length / 2
+#   left = merge_sort(array[0...middle])
+#   right = merge_sort(array[middle..-1])
+
+#   merge(left, right)
+# end
+# puts "Merge sort tests:"
+# puts merge_sort([0, 2, 1, 4, 3, 5]) == [0, 1, 2, 3, 4, 5]
+# puts merge_sort([-11, 20, 4, -1, 11, 5, 7]) == [-11, -1, 4, 5, 7, 11, 20]
 def merge(left, right)
   sorted = []
 
@@ -383,9 +409,9 @@ def merge(left, right)
       sorted << right.shift
     end
   end
-  
+
   sorted + left + right
-end
+end 
 
 def merge_sort(array)
   return array if array.length <= 1
@@ -396,6 +422,7 @@ def merge_sort(array)
 
   merge(left, right)
 end
+
 puts "Merge sort tests:"
 puts merge_sort([0, 2, 1, 4, 3, 5]) == [0, 1, 2, 3, 4, 5]
 puts merge_sort([-11, 20, 4, -1, 11, 5, 7]) == [-11, -1, 4, 5, 7, 11, 20]
