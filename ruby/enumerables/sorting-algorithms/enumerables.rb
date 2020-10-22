@@ -452,8 +452,23 @@ puts binary_search([1, 4, 9, 10, 11, 40, 45, 61], 61)
 puts binary_search([1, 4, 9, 10, 11, 40, 45, 61], 62)
 puts binary_search([1, 4, 4, 9, 10, 11, 40, 45, 61], 4)
 
-# def depth_first_search
-# end
+def depth_first_search(node, target)
+  node.children.each do |child|
+    depth_first_search(child)
+  end
+end
+puts depth_first_search([1, 4, 6, 11, 12, 19, 20, 50])
 
-# def breadth_search
-# end
+def breadth_search(node, target)
+  queue = []
+
+  until queue.empty?
+    current = queue.shift
+    return current if current == target
+    
+    queue << current
+    current.each do |child|
+      queue << child
+    end
+  end
+end
