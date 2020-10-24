@@ -4,7 +4,9 @@ comparing all fish lengths to all other fish
 lengths
 =end
 
-def sluggist_octopus
+def quadratic_sluggish_octopus
+  array = ['fish', 'fiiish', 'fiiiiish', 'fiiiish', 'fffish', 'ffiiiiisshh', 'fsh', 'fiiiissshhhhhh']
+
 end
 
 =begin
@@ -14,7 +16,7 @@ in the Sorting Complexity Demo. Remember that
 Big O is classified by the dominant term.
 =end
 
-def dominant_octopus
+def nlogn_dominant_octopus
 end
 
 =begin
@@ -23,7 +25,7 @@ hold on to the longest fish that you have found
 so far while stepping through the array only once.
 =end
 
-def clever_octopus
+def linear_clever_octopus
 end
 
 =begin
@@ -32,7 +34,7 @@ array to return the tentacle number (tile index)
 the octopus must move. This should take O(n) time.
 =end
 
-def slow_dance
+def slow_dance(direction, tile_array)
 end
 
 =begin
