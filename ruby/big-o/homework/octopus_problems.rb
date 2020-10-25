@@ -44,5 +44,5 @@ write a new function so that you can access the
 tentacle number in O(1) time.
 =end
 
-def constance_dance!
+def fast_dance(direciton, tile_array)
 end
