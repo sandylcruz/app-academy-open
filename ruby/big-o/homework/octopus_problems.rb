@@ -4,7 +4,7 @@ comparing all fish lengths to all other fish
 lengths
 =end
 
-def quadratic_sluggish_octopus
+def quadratic_biggest_fish
   array = ['fish', 'fiiish', 'fiiiiish', 'fiiiish', 'fffish', 'ffiiiiisshh', 'fsh', 'fiiiissshhhhhh']
 
 end
@@ -16,7 +16,7 @@ in the Sorting Complexity Demo. Remember that
 Big O is classified by the dominant term.
 =end
 
-def nlogn_dominant_octopus
+def nlogn_biggest_fish
 end
 
 =begin
@@ -44,5 +44,5 @@ write a new function so that you can access the
 tentacle number in O(1) time.
 =end
 
-def fast_dance(direciton, tile_array)
+def fast_dance(direction, tile_array)
 end
