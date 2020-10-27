@@ -16,7 +16,7 @@ in the Sorting Complexity Demo. Remember that
 Big O is classified by the dominant term.
 =end
 
-def nlogn_biggest_fish
+def nlogn_biggest_fish(fish)
 end
 
 =begin
@@ -25,7 +25,7 @@ hold on to the longest fish that you have found
 so far while stepping through the array only once.
 =end
 
-def linear_clever_octopus
+def linear_biggest_fish(fish)
 end
 
 =begin
