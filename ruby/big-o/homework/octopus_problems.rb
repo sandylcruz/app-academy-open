@@ -5,9 +5,22 @@ lengths
 =end
 
 def quadratic_biggest_fish
-  array = ['fish', 'fiiish', 'fiiiiish', 'fiiiish', 'fffish', 'ffiiiiisshh', 'fsh', 'fiiiissshhhhhh']
+  fish_array = ['fish', 'fiiish', 'fiiiiish', 'fiiiish', 'fffish', 'ffiiiiisshh', 'fsh', 'fiiiissshhhhhh']
+  longest_fish = ""
 
+  fish_array.each_with_index do |fish, index|
+    fish_array.each do |fish2, index2|
+      if fish2.length < fish.length
+        longest_fish = fish2
+      else
+        longest_fish = fish
+      end
+    end
+  end
+  
+  longest_fish
 end
+puts quadratic_biggest_fish
 
 =begin
 Find the longest fish in O(n log n) time. Hint: 
