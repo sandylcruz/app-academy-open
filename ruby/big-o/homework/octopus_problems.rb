@@ -4,8 +4,7 @@ comparing all fish lengths to all other fish
 lengths
 =end
 
-def quadratic_biggest_fish
-  fish_array = ['fish', 'fiiish', 'fiiiiish', 'fiiiish', 'fffish', 'ffiiiiisshh', 'fsh', 'fiiiissshhhhhh']
+def quadratic_biggest_fish(fish_array)
   longest_fish = ""
 
   fish_array.each_with_index do |fish, index|
@@ -20,7 +19,9 @@ def quadratic_biggest_fish
 
   longest_fish
 end
-puts quadratic_biggest_fish
+puts "Quadratic test: "
+puts quadratic_biggest_fish(['fish', 'fiiish', 'fiiiiish', 'fiiiish', 'fffish', 'ffiiiiisshh', 'fsh', 'fiiiissshhhhhh']) == 'fiiiissshhhhhh'
+puts
 
 =begin
 Find the longest fish in O(n log n) time. Hint: 
@@ -55,11 +56,31 @@ def merge_sort(array)
 
   merge(left, right)
 end
-puts "Merge sort test:"
+puts "Merge sort test: "
 puts merge_sort([11, -1, 2, 0, -1, 4, 6, 8])
+puts
 
-def quick_sort
+def quick_sort(array)
+  return array if array.length <= 1
+
+  pivot = array[-1]
+  puts pivot
+  left = []
+  right = []
+  i = 0
+  
+  while i < array.length
+    partition(array, left, right)
+    i += 1
+  end
+
 end
+
+def partition(array, left, right)
+end
+
+puts "Quick sort tests: "
+puts quick_sort([11, -1, 2, 0, -1, 4, 6, 8])
 
 =begin
 Find the longest fish in O(n) time. The octopus can 
