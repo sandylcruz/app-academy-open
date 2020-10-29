@@ -30,15 +30,11 @@ in the Sorting Complexity Demo. Remember that
 Big O is classified by the dominant term.
 =end
 
-def nlogn_biggest_fish(fish)
-
-end
-
 def merge(left, right)
   sorted = []
 
   while !left.empty? && !right.empty? do
-    if left[0] < right[0]
+    if left[0].length < right[0].length
       sorted << left.shift
     else
       sorted << right.shift
@@ -56,31 +52,13 @@ def merge_sort(array)
 
   merge(left, right)
 end
-puts "Merge sort test: "
-puts merge_sort([11, -1, 2, 0, -1, 4, 6, 8])
-puts
 
-def quick_sort(array)
-  return array if array.length <= 1
-
-  pivot = array[-1]
-  puts pivot
-  left = []
-  right = []
-  i = 0
-  
-  while i < array.length
-    partition(array, left, right)
-    i += 1
-  end
-
+def nlogn_biggest_fish(fish)
+  merge_sort(fish)
 end
+puts "n log n fish:"
+puts nlogn_biggest_fish(['fish', 'fiiish', 'fiiiiish', 'fiiiish', 'fffish', 'ffiiiiisshh', 'fsh', 'fiiiissshhhhhh'])
 
-def partition(array, left, right)
-end
-
-puts "Quick sort tests: "
-puts quick_sort([11, -1, 2, 0, -1, 4, 6, 8])
 
 =begin
 Find the longest fish in O(n) time. The octopus can 
