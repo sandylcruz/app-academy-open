@@ -17,7 +17,7 @@ def quadratic_biggest_fish
       end
     end
   end
-  
+
   longest_fish
 end
 puts quadratic_biggest_fish
@@ -30,6 +30,35 @@ Big O is classified by the dominant term.
 =end
 
 def nlogn_biggest_fish(fish)
+
+end
+
+def merge(left, right)
+  sorted = []
+
+  while !left.empty? && !right.empty? do
+    if left[0] < right[0]
+      sorted << left.shift
+    else
+      sorted << right.shift
+    end
+  end
+  return sorted.concat(left).concat(right)
+end
+
+def merge_sort(array)
+  return array if array.length <= 1
+
+  middle = array.length / 2
+  left = merge_sort(array[0...middle])
+  right = merge_sort(array[middle..-1])
+
+  merge(left, right)
+end
+puts "Merge sort test:"
+puts merge_sort([11, -1, 2, 0, -1, 4, 6, 8])
+
+def quick_sort
 end
 
 =begin
