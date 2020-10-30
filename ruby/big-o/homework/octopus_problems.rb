@@ -58,7 +58,7 @@ def nlogn_biggest_fish(fish)
 end
 puts "n log n fish:"
 puts nlogn_biggest_fish(['fish', 'fiiish', 'fiiiiish', 'fiiiish', 'fffish', 'ffiiiiisshh', 'fsh', 'fiiiissshhhhhh'])
-
+puts
 
 =begin
 Find the longest fish in O(n) time. The octopus can 
@@ -67,8 +67,18 @@ so far while stepping through the array only once.
 =end
 
 def linear_biggest_fish(fish)
-end
+  biggest_fish = ""
 
+  fish.each do |fish|
+    if fish.length > biggest_fish.length
+      biggest_fish = fish
+    end
+  end
+  biggest_fish
+
+end
+puts "Linear biggest fish:"
+puts linear_biggest_fish(['fish', 'fiiish', 'fiiiiish', 'fiiiish', 'fffish', 'ffiiiiisshh', 'fsh', 'fiiiissshhhhhh'])
 =begin
 Given a tile direction, iterate through a tiles 
 array to return the tentacle number (tile index) 
