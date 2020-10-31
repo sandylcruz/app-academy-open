@@ -79,14 +79,25 @@ def linear_biggest_fish(fish)
 end
 puts "Linear biggest fish:"
 puts linear_biggest_fish(['fish', 'fiiish', 'fiiiiish', 'fiiiish', 'fffish', 'ffiiiiisshh', 'fsh', 'fiiiissshhhhhh'])
+puts
 =begin
 Given a tile direction, iterate through a tiles 
 array to return the tentacle number (tile index) 
 the octopus must move. This should take O(n) time.
 =end
 
-def slow_dance(direction, tile_array)
+def slow_dance(input_direction, tiles_array)
+  tiles_array.each_with_index do |direction, index|
+    if direction == input_direction
+      return index
+    end
+  end
+  return nil
 end
+tiles_array = ["up", "right-up", "right", "right-down", "down", "left-down", "left",  "left-up" ]
+puts "Slow dance tests:"
+puts slow_dance("up", tiles_array)
+puts slow_dance("right-down", tiles_array)
 
 =begin
 Now that the octopus is warmed up, let's help her 
@@ -95,5 +106,5 @@ write a new function so that you can access the
 tentacle number in O(1) time.
 =end
 
-def fast_dance(direction, tile_array)
+def fast_dance(direction, tiles_array)
 end
