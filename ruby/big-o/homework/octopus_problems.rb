@@ -98,13 +98,27 @@ tiles_array = ["up", "right-up", "right", "right-down", "down", "left-down", "le
 puts "Slow dance tests:"
 puts slow_dance("up", tiles_array)
 puts slow_dance("right-down", tiles_array)
-
+puts
 =begin
 Now that the octopus is warmed up, let's help her 
 dance faster. Use a different data structure and 
 write a new function so that you can access the 
 tentacle number in O(1) time.
 =end
+tiles_hash = {
+    "up" => 0,
+    "right-up" => 1,
+    "right"=> 2,
+    "right-down" => 3,
+    "down" => 4,
+    "left-down" => 5,
+    "left" => 6,
+    "left-up" => 7
+}
 
-def fast_dance(direction, tiles_array)
+def fast_dance(input_direction, tiles_hash)
+  direction_hash[input_direction]
 end
+
+puts "Fast dance tests:"
+puts("up", tiles_hash)
