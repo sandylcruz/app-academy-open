@@ -5,16 +5,34 @@ other element of the list. Return the element if all
 other elements in the array are larger.
 =end
 
-def my_min_phase_one(array)
+def my_min_phase_one(list)
+  
 end
+puts "My min phase one"
+
+list = [ 0, 3, 5, 4, -5, 10, 1, 90 ]
+puts my_min_phase_one(list)
+puts
 
 =begin
 Now rewrite the function to iterate through the list just once 
 while keeping track of the minimum. What is the time complexity?
 =end
 
-def my_min_phase_two(array)
+def my_min_phase_two(list)
+  smallest_number = 0
+  list.each do |num|
+    if num < smallest_number
+      smallest_num = num
+    end
+  end
+
+  smallest_number
 end
+puts "My min phase two"
+list = [ 0, 3, 5, 4, -5, 10, 1, 90 ]
+puts my_min_phase_one(list)
+puts
 
 =begin
 You have an array of integers and you want to find the largest 
