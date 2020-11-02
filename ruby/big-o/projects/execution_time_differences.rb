@@ -28,7 +28,7 @@ puts
 
 # Quadratic time O(n^2)
 def my_min_1b(list)
-  smallest_num = list.first
+  smallest_num = 0
   i = 0
 
   while i < list.length
@@ -58,7 +58,7 @@ end
 puts "My minimum 1B"
 
 list = [ 0, 3, 5, 4, -5, 10, 1, 90 ]
-puts my_min_1b(list)
+puts my_min_1b(list) == -5
 puts
 
 =begin
@@ -67,22 +67,22 @@ while keeping track of the minimum. What is the time complexity?
 =end
 
 # 
-# def my_min_2(list)
-#   smallest_number = 0
+def my_min_2(list)
+  smallest_number = list[0]
 
-#   list.each do |num|
-#     if num < smallest_number
-#       smallest_num = num
-#     end
-#   end
+  list.each do |num|
+    if num < smallest_number
+      smallest_number = num
+    end
+  end
 
-#   smallest_number
-# end
+  smallest_number
+end
 
-# puts "My minimum 2"
-# list = [ 0, 3, 5, 4, -5, 10, 1, 90 ]
-# puts my_min_2(list)
-# puts
+puts "My minimum 2"
+list = [ 0, 3, 5, 4, -5, 10, 1, 90 ]
+puts my_min_2(list) == -5
+puts
 
 =begin
 You have an array of integers and you want to find the largest 
