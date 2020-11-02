@@ -5,13 +5,60 @@ other element of the list. Return the element if all
 other elements in the array are larger.
 =end
 
-def my_min_phase_one(list)
-  
+# Quadratic time O(n^2)
+def my_min_1a(list)
+  smallest_num = list.first
+  i = 0
+
+  while i < list.length
+    if list[i] < smallest_num
+      smallest_num = list[i]
+    end
+    
+    i += 1
+  end
+
+  smallest_num
 end
-puts "My min phase one"
+puts "My minimum 1A"
 
 list = [ 0, 3, 5, 4, -5, 10, 1, 90 ]
-puts my_min_phase_one(list)
+puts my_min_1a(list) == -5
+puts
+
+# Quadratic time O(n^2)
+def my_min_1b(list)
+  smallest_num = list.first
+  i = 0
+
+  while i < list.length
+    j = 0
+
+    while j < list.length
+      first_item = list[i]
+      second_item = list[j]
+      is_first_less_than_second = first_item < second_item
+      
+      if is_first_less_than_second && first_item < smallest_num
+        smallest_num = first_item
+      end
+
+      if j == i - 1
+        j += 2
+      else
+        j += 1
+      end
+    end
+
+    i += 1
+  end
+
+  smallest_num
+end
+puts "My minimum 1B"
+
+list = [ 0, 3, 5, 4, -5, 10, 1, 90 ]
+puts my_min_1b(list)
 puts
 
 =begin
@@ -19,20 +66,23 @@ Now rewrite the function to iterate through the list just once
 while keeping track of the minimum. What is the time complexity?
 =end
 
-def my_min_phase_two(list)
-  smallest_number = 0
-  list.each do |num|
-    if num < smallest_number
-      smallest_num = num
-    end
-  end
+# 
+# def my_min_2(list)
+#   smallest_number = 0
 
-  smallest_number
-end
-puts "My min phase two"
-list = [ 0, 3, 5, 4, -5, 10, 1, 90 ]
-puts my_min_phase_one(list)
-puts
+#   list.each do |num|
+#     if num < smallest_number
+#       smallest_num = num
+#     end
+#   end
+
+#   smallest_number
+# end
+
+# puts "My minimum 2"
+# list = [ 0, 3, 5, 4, -5, 10, 1, 90 ]
+# puts my_min_2(list)
+# puts
 
 =begin
 You have an array of integers and you want to find the largest 
