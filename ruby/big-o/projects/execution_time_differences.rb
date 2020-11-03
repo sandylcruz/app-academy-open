@@ -66,7 +66,7 @@ Now rewrite the function to iterate through the list just once
 while keeping track of the minimum. What is the time complexity?
 =end
 
-# 
+# Constant time
 def my_min_2(list)
   smallest_number = list[0]
 
@@ -97,8 +97,41 @@ return the max.
 Discuss the time complexity of this solution.
 =end
 
-def largest_contiguous_subsum_phase_one(list)
+# Quadratic time
+def largest_contiguous_subsum_1(array)
+  subarrays = []
+  length = array.length - 1
+
+  (0..length).each do |i|
+    (i..length).each do |j|
+      subarrays << array[i..j]
+    end
+  end
+
+  current_highest = nil
+
+  subarrays.each do |subarray|
+    new_number = subarray.sum
+
+    if current_highest.nil? || new_number > current_highest
+      current_highest = new_number
+    end
+  end
+
+  current_highest
+  # subarrays.map do |sub|
+  #   sub.inject do |a, b|
+  #     a + b
+  #   end
+  # end
+  # subarrays.map { |sub| sub.inject(:+) }.max
 end
+array = [2, 3, -6, 7, -6, 7]
+puts "Largest contiguous subsum"
+puts largest_contiguous_subsum_1(array) # => 8 (from [7, -6, 7])
+
+list = [-5, -1, -3]
+puts largest_contiguous_subsum_1(list) # => -1 (from [-1])
 
 =begin
 Let's make a better version. Write a new function using O(n) 
@@ -112,4 +145,8 @@ Get your story straight, and then explain your solution's time
 complexity to your TA.
 =end
 def largest_contiguous_subsum_phase_two(list)
+  largest_sum = nil
+  current_sum = nil
+
+  
 end
