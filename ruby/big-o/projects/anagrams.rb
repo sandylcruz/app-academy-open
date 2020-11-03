@@ -11,9 +11,41 @@ possible anagrams, look into this method. What is the time
 complexity of this solution? What happens if you increase 
 the size of the strings?
 =end
+# n!
 
-def first_anagram?(string)
+def get_anagrams(string)
+  return [string] if string.length == 1
+  final_anagrams = []
+
+  string.each_char.with_index do |char1, index1|
+    prefix = char1
+    other_chars = ""
+
+    string.each_char.with_index do |char2, index2|
+      other_chars << char2 if index2 != index1
+    end
+
+    other_anagrams = get_anagrams(other_chars)
+
+    other_anagrams.each do |suffix|
+      new_anagram = prefix + suffix
+      final_anagrams << new_anagram
+    end
+  end
+
+  final_anagrams
 end
+
+def first_anagram?(string1, string2)
+  string1chars = string1.split("")
+  string2chars = string2.split("")
+  first_string_anagrams = get_anagrams(string1)
+  first_string_anagrams.include?(string2)
+end
+puts "First anagram? tests:"
+puts first_anagram?("cat", "dog") == false
+puts first_anagram?("cat", "tac") == true
+puts
 
 =begin
 Write a method #second_anagram? that iterates over the first string. 
@@ -26,7 +58,7 @@ Try varying the length of the input strings. What are the differences
 between #first_anagram? and #second_anagram??
 =end
 
-def second_anagram?(string)
+def second_anagram?(string1, string2)
 end
 
 =begin
@@ -38,7 +70,7 @@ What is the time complexity of this solution? Is it better or worse
 than #second_anagram??
 =end
 
-def third_anagram?(string)
+def third_anagram?(string1, string2)
 end
 
 =begin
@@ -51,5 +83,5 @@ What is the time complexity?
 Bonus: Do it with only one hash.
 =end
 
-def fourth_anagram?
+def fourth_anagram?(string1, string2)
 end
