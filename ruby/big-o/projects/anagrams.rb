@@ -59,6 +59,13 @@ between #first_anagram? and #second_anagram??
 =end
 
 def second_anagram?(string1, string2)
+  return true if string2.empty?
+
+  string1.each_char.with_index do |string1_char, index1|
+    string2.each_char.with_index do |string2_char, index2|
+    end
+  end
+
 end
 
 =begin
@@ -71,7 +78,15 @@ than #second_anagram??
 =end
 
 def third_anagram?(string1, string2)
+  string1chars = string1.split("")
+  string2chars = string2.split("")
+  sorted_string_1 = string1chars.sort
+  sorted_string_2 = string2chars.sort
+
+  sorted_string_1 == sorted_string_2
 end
+puts "Third anagram tests:"
+puts third_anagram?("cat", "dog")
 
 =begin
 Write one more method #fourth_anagram?. This time, use two Hashes 
