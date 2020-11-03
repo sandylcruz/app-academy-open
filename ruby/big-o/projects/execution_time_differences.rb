@@ -126,12 +126,13 @@ def largest_contiguous_subsum_1(array)
   # end
   # subarrays.map { |sub| sub.inject(:+) }.max
 end
-array = [2, 3, -6, 7, -6, 7]
-puts "Largest contiguous subsum"
-puts largest_contiguous_subsum_1(array) # => 8 (from [7, -6, 7])
+# array = [2, 3, -6, 7, -6, 7]
+# puts "Largest contiguous subsum part 1"
+# puts largest_contiguous_subsum_1(array) # => 8 (from [7, -6, 7])
 
-list = [-5, -1, -3]
-puts largest_contiguous_subsum_1(list) # => -1 (from [-1])
+# list = [-5, -1, -3]
+# puts largest_contiguous_subsum_1(list) # => -1 (from [-1])
+# puts
 
 =begin
 Let's make a better version. Write a new function using O(n) 
@@ -144,9 +145,40 @@ rest to you.
 Get your story straight, and then explain your solution's time 
 complexity to your TA.
 =end
-def largest_contiguous_subsum_phase_two(list)
-  largest_sum = nil
-  current_sum = nil
 
+def largest_contiguous_subsum_phase_two(array)
+  largest_sum = array.first
+  current_sum = array.first
+
+  # array.each do |i|
+  #   current_sum += array[i]
+
+  #   if current_sum < 0
+  #     current_sum = 0
+  #   elsif current_sum > largest_sum
+  #     largest_sum = current_sum
+  #   end
+  # end
   
+  i = 1
+  while i < array.length
+    current_sum += array[i]
+
+    if current_sum < 0
+      current_sum = 0
+    elsif current_sum > largest_sum
+      largest_sum = current_sum
+    end
+
+    i += 1
+  end
+
+  largest_sum
 end
+
+puts "Largest contiguous subsum part 2:"
+array = [2, 3, -6, 7, -6, 7]
+puts largest_contiguous_subsum_phase_two(array) #== 8
+
+array = [-5, -1, -3]
+puts largest_contiguous_subsum_1(array) # => -1 (from [-1])
