@@ -1,16 +1,7 @@
 =begin
-Given an arrayay of unique integers and a target sum, determine whether 
+Given an array of unique integers and a target sum, determine whether 
 any two integers in the array sum to that amount.
-=end
 
-def two_sum?(array, target_sum)
-end
-# puts "Two_sum? tests:"
-# array = [0, 1, 5, 7]
-# puts two_sum?(array, 6) == true
-# puts two_sum?(array, 10) == false
-
-=begin
 To start with, we could check every possible pair. If we sum each 
 element with every other, we're sure to either find the pair that 
 sums to the target, or determine that no such pair exists.
@@ -34,13 +25,11 @@ def bad_two_sum?(array, target_sum)
   i = 0
 
   while i < array.length
-    j = 0
+    j = i + 1
 
     while j < array.length
       possible_pair = [array[i], array[j]]
-      if !number_pairs.include?(possible_pair) && array[i] != array[j]
-        number_pairs << possible_pair
-      end
+      number_pairs << possible_pair
       j += 1
     end
 
@@ -58,6 +47,9 @@ puts "Bad_two_sum? Tests:"
 array = [0, 1, 5, 7]
 puts bad_two_sum?(array, 6) == true
 puts bad_two_sum?(array, 10) == false
+
+array = [1, 2, 1]
+puts bad_two_sum?(array, 2) == true
 puts
 =begin
 Sort your data, then try to solve the problem.
@@ -70,6 +62,7 @@ Make sure it works correctly.
 =end
 
 def okay_two_sum?(array, target_sum)
+
 end
 
 =begin
