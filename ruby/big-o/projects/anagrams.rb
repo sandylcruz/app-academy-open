@@ -92,7 +92,7 @@ def third_anagram?(string1, string2)
 end
 puts "Third anagram tests:"
 puts third_anagram?("cat", "dog") == false
-puts second_anagram?("cat", "tac") == true
+puts third_anagram?("cat", "tac") == true
 puts
 =begin
 Write one more method #fourth_anagram?. This time, use two Hashes 
@@ -105,4 +105,22 @@ Bonus: Do it with only one hash.
 =end
 
 def fourth_anagram?(string1, string2)
+  string1chars = string1.split("")
+  string2chars = string2.split("")
+
+  string1hash = Hash.new(0)
+  string2hash = Hash.new(0)
+
+  string1chars.each do |letter|
+    string1hash[letter] += 1
+  end
+
+  string2chars.each do |letter|
+    string2hash[letter] += 1
+  end
+
+  string1hash == string2hash
 end
+puts "Fourth anagram tests:"
+puts fourth_anagram?("cat", "dog") == false
+puts fourth_anagram?("cat", "tac") == true
