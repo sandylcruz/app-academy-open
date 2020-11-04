@@ -60,14 +60,19 @@ between #first_anagram? and #second_anagram??
 
 def second_anagram?(string1, string2)
   return true if string2.empty?
+  string1chars = string1.split("")
+  string2chars = string2.split("")
 
-  string1.each_char.with_index do |string1_char, index1|
-    string2.each_char.with_index do |string2_char, index2|
-    end
+  string1chars.each do |string1_char|
+    string2chars.delete(string1_char)
   end
 
+  string2chars.empty?
 end
-
+puts "Second anagram tests:"
+puts second_anagram?("cat", "dog") == false
+puts second_anagram?("cat", "tac") == true
+puts
 =begin
 Write a method #third_anagram? that solves the problem by sorting 
 both strings alphabetically. The strings are then anagrams if and 
@@ -86,8 +91,9 @@ def third_anagram?(string1, string2)
   sorted_string_1 == sorted_string_2
 end
 puts "Third anagram tests:"
-puts third_anagram?("cat", "dog")
-
+puts third_anagram?("cat", "dog") == false
+puts second_anagram?("cat", "tac") == true
+puts
 =begin
 Write one more method #fourth_anagram?. This time, use two Hashes 
 to store the number of times each letter appears in both words. 
