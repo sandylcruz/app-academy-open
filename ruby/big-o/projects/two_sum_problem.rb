@@ -61,10 +61,44 @@ Write a second solution, called okay_two_sum?, which uses sorting.
 Make sure it works correctly.
 =end
 
-def okay_two_sum?(array, target_sum)
+def binary_search(array, target)
+  middle_index = array.length / 2
+  middle_value = array[middle_index]
+  first_half = array[0...middle_index]
+  second_half = array[middle_index..-1]
 
+  if middle_value == target
+    return middle_index
+  elsif middle_value < target
+    potential_index = binary_search(second_half, target)
+    potential_index + middle_index
+  elsif middle_value > target
+    binary_search(first_half, target)
+  end
 end
+puts "Binary search test:"
+puts binary_search([1, 2, 3, 4, 5, 6], 3)
+puts binary_search([1, 2, 2, 3, 4, 5, 6], 2)
+puts 
 
+# def okay_two_sum?(array, target_sum)
+#   sorted = array.sort
+  
+#   array.each_with_index do |number, index|
+#     number_needed = target_sum - number
+#     return true if array.include?(number_needed)
+#   end
+
+#   return false
+# end
+# puts "Okay_two_sum? Tests: "
+# array = [0, 1, 5, 7]
+# puts okay_two_sum?(array, 6) == true
+# puts okay_two_sum?(array, 10) == false
+
+# array = [1, 2, 1]
+# puts okay_two_sum?(array, 2) == true
+# puts
 =begin
 Remember, a hash map has O(1) #set and O(1) #get, so you can build a 
 hash out of each of the n elements in your arrayay in O(n) time. That 
