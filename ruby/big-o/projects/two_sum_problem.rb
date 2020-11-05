@@ -70,7 +70,7 @@ def binary_search(array, target)
   if middle_value == target
     return middle_index
   elsif array.length == 1
-    print "Nil. Value not found"
+    return nil
   elsif middle_value < target
     potential_index = binary_search(second_half, target)
     return nil if potential_index.nil?
@@ -82,26 +82,25 @@ end
 puts "Binary search test:"
 puts binary_search([1, 2, 3, 4, 5, 6], 3) == 2
 puts binary_search([1, 2, 2, 3, 4, 5, 6], 2) == 1
-puts binary_search([1, 2, 2, 3, 4, 5, 6], 9)
+puts binary_search([1, 2, 2, 3, 4, 5, 6], 9) == nil
 puts 
 
 def okay_two_sum?(array, target_sum)
   sorted = array.sort
-  
   i = 0
+  
   while i < sorted.length
     number_needed = target_sum - array[i]
-    # potential_index = binary_search(array, number_needed)
     return true if binary_search(array, number_needed)
     i += 1
   end
   
   return false
 end
-# puts "Okay_two_sum? Tests: "
-# array = [0, 1, 5, 7]
-# puts okay_two_sum?(array, 6)
-# puts okay_two_sum?(array, 10)
+puts "Okay_two_sum? Tests: "
+array = [0, 1, 5, 7]
+puts okay_two_sum?(array, 6)
+puts okay_two_sum?(array, 10)
 
 # array = [1, 2, 1]
 # puts okay_two_sum?(array, 2)
