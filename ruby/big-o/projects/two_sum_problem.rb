@@ -88,10 +88,11 @@ puts
 def okay_two_sum?(array, target_sum)
   sorted = array.sort
   i = 0
-  
+
   while i < sorted.length
     number_needed = target_sum - array[i]
-    return true if binary_search(array, number_needed)
+    matching_index = binary_search(array, number_needed)
+    return true if !matching_index.nil? && matching_index != i
     i += 1
   end
   
@@ -102,9 +103,9 @@ array = [0, 1, 5, 7]
 puts okay_two_sum?(array, 6)
 puts okay_two_sum?(array, 10)
 
-# array = [1, 2, 1]
-# puts okay_two_sum?(array, 2)
-# puts
+array = [1, 2, 1]
+puts okay_two_sum?(array, 2)
+puts
 
 =begin
 Remember, a hash map has O(1) #set and O(1) #get, so you can build a 
