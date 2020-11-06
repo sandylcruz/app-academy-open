@@ -101,7 +101,7 @@ end
 puts "Okay_two_sum? Tests: "
 array = [0, 1, 5, 7]
 puts okay_two_sum?(array, 6)
-puts okay_two_sum?(array, 10)
+
 
 array = [1, 2, 1]
 puts okay_two_sum?(array, 2)
@@ -118,4 +118,17 @@ your hash map.
 =end
 
 def two_sum_hash_map?(array, target_sum)
+  matches = {}
+
+  array.each_with_index do |current_number, index|
+    number_needed = target_sum - current_number
+    matches, j = matches[number_needed]
+    return [index, j] if number_needed
+    matches[current_number] = [current_number, index]
+  end
+  nil
 end
+puts "Hash map tests:"
+array = [0, 1, 5, 7]
+puts two_sum_hash_map?(array, 6)
+# puts two_sum_hash_map?([5, 4, 3, 2, 1], 22)
