@@ -23,6 +23,16 @@ time complexity in Big-O notation?
 =end
 
 def windowed_max_range(array, window_size)
+  current_max_range = 0
+  windows = []
+  
+  (0..array.length - window_size).each do |start|
+    chunk = array[start...window_size + start]
+    range = chunk.max - chunk.min
+    current_max_range = range if range > current_max_range || current_max_range.nil?
+  end
+
+  current_max_range
 end
 puts "Naive tests:"
 puts windowed_max_range([1, 0, 2, 5, 4, 8], 2) == 4 # 4, 8
