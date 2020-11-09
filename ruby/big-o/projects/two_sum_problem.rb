@@ -123,7 +123,7 @@ def two_sum_hash_map?(array, target_sum)
   array.each_with_index do |current_number, index|
     number_needed = target_sum - current_number
     matches, j = matches[number_needed]
-    return [index, j] if number_needed
+    return [index, j] if matches
     matches[current_number] = [current_number, index]
   end
   nil
