@@ -30,18 +30,22 @@ class MyStack
   end
 
   def peek
+    @store.first
   end
 
   def size
+    @store.length
   end
 
   def empty?
+    @store.empty?
   end
 
   def pop
+    @store.pop
   end
 
-  def push
+  def push(new_element)
+    @store.unshift(new_element)
   end
-
 end
