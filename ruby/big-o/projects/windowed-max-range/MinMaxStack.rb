@@ -29,24 +29,32 @@ class MinMaxStack
   end
 
   def push(new_element)
-    if new_element > @current_maximum
-      @current_maximum = new_element
-    elsif new_element < @current_minimum
-      @current_minimum = new_element
-    end
-    @store.push(new_element)
+    # create instasnce of metadata class, add that instance to the stack.
+    # stack is not stack of numbers, it's a stack of instances of the metadata class
+    # when yo upop the stack, just return the value of the metadata instance
+    # do the min max computation whhen you push
+  if @store.empty?
+    metadata = MetaData.new(new_element, new_element, new_element)
+    @store.push(metadata)
+  else
+    previous_metadata = @store.last
+    new_minimum = previous_metadata.minimum < new_element ? previous_metadata.minimum : new_element
+    new_maximum = previous_metadata.maximum > new_element ? previous_metadata.maximum : new_element
+    metadata = MetaData.new(new_element, new_minimum, new_maximum)
+    @store.push(metadata)
   end
 end
-a = MinMaxStack.new
-puts a.min
+
 
 class MetaData
-  def initialize
-    @value = 
-    @minimum =
-    @maximum =
-    
+  attr_reader :minimun, :maximum
+  def initialize(new_element, minimum, maximum)
+    @value = new_element
+    @minimum = minimum
+    @maximum = maximum
+  end
+  
     # peek at element, and compare its minimum and maximum, and if it exceeds it, you replace 
     # that minimum and maximun, if not, you copy over its minimum and maximum
-  end
+  
 end
