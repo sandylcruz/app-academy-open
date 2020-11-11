@@ -20,10 +20,19 @@ class MinMaxStack
   end
 
   def min
-    @store.peek.min
+    unless @store.empty?
+      peek.min   
+    else
+      nil
+    end 
   end
 
   def max
+    unless @store.empty?
+      peek.max   
+    else
+      nil
+    end 
   end
 
   def size
