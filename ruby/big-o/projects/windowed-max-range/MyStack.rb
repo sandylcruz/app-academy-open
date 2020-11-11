@@ -1,5 +1,3 @@
-# require_relative 'StackQueue'
-
 class MyStack
   def initialize
     @store = []
@@ -25,3 +23,8 @@ class MyStack
     @store.push(new_element)
   end
 end
+a = MyStack.new
+a.push(1)
+a.push(2)
+a.push(3)
+puts a.peek
