@@ -1,5 +1,5 @@
 class MetaData
-  attr_reader :minimun, :maximum
+  attr_reader :minimum, :maximum, :value
   def initialize(new_element, minimum, maximum)
     @value = new_element
     @minimum = minimum
@@ -8,20 +8,19 @@ class MetaData
 end
 
 require_relative  "MyStack"
-require_relative  "MetaData"
 
 class MinMaxStack
   def initialize
-    @store = MyStack.new
+    @store = []
   end
 
   def peek
-    @store.peek
+    @store[-1]
   end
 
   def min
     unless @store.empty?
-      peek.min   
+      peek.minimum  
     else
       nil
     end 
@@ -29,7 +28,7 @@ class MinMaxStack
 
   def max
     unless @store.empty?
-      peek.max   
+      peek.maximum
     else
       nil
     end 
@@ -45,7 +44,11 @@ class MinMaxStack
   
   def pop
     removed_element = @store.pop
-    removed_element.value
+    if removed_element.nil?
+      nil
+    else
+      removed_element.value
+    end
   end
 
   def push(new_element)
@@ -61,7 +64,15 @@ class MinMaxStack
     end
   end
 end
-a = MinMaxStack.new
-a.push(1)
-puts a.push(2)
-
+# a = MinMaxStack.new
+# # puts a.empty? == true
+# a.push(1)
+# a.push(2)
+# a.push(3)
+# puts a.size == 3
+# puts a.max == 3
+# puts a.min == 1
+# puts a.empty? == false
+# puts a.size == 3
+# puts a.pop
+# puts a.max
