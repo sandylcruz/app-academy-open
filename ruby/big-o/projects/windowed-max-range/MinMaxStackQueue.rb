@@ -15,7 +15,15 @@ class MinMaxStackQueue
   end
 
   def dequeue
-    @second_stack.pop
+    if @second_stack.empty?
+      until @first_stack.empty?
+        popped_off = @first_stack.pop
+        @second_stack.push(popped_off)
+      end
+      @second_stack.pop
+    else
+      @second_stack.pop
+    end
   end
 
   def enqueue(new_element)
