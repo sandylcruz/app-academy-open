@@ -64,15 +64,3 @@ class MinMaxStack
     end
   end
 end
-# a = MinMaxStack.new
-# # puts a.empty? == true
-# a.push(1)
-# a.push(2)
-# a.push(3)
-# puts a.size == 3
-# puts a.max == 3
-# puts a.min == 1
-# puts a.empty? == false
-# puts a.size == 3
-# puts a.pop
-# puts a.max

@@ -1,5 +1,4 @@
 require_relative  "MinMaxStack"
-
 class MinMaxStackQueue
   def initialize
     @first_stack = MinMaxStack.new
@@ -60,11 +59,3 @@ class MinMaxStackQueue
     end
   end
 end
-# a = MinMaxStackQueue.new
-# a.enqueue(1)
-# a.enqueue(-1)
-# a.enqueue(50)
-# a.enqueue(2)
-# a.enqueue(3)
-# a.dequeue
-# puts a.max
