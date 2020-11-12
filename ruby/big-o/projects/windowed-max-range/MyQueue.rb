@@ -23,6 +23,3 @@ class MyQueue
     @store.empty?
   end
 end
-# MyQueue.new.enqueue("cat")
-# new_queue = MyQueue.new
-# new_queue.enqueue("cat")
