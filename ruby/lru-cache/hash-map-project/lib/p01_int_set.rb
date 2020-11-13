@@ -1,14 +1,24 @@
 class MaxIntSet
-  def initialize(max)
+  def initialize(max) 
+    @max = max
+    @store = []
   end
 
   def insert(num)
+    # @store << num unless @store.length >= @max
+    if @store.length <= @max
+      @store << num
+    else
+      raise Exception.new "Out of bounds"
+    end
   end
 
   def remove(num)
+    @store.delete(num)
   end
 
   def include?(num)
+    @store.include?(num)
   end
 
   private
