@@ -1,20 +1,26 @@
 class LRUCache
-  def initialize
+  def initialize(number)
+    @cache = []
+    @number = number
   end
 
   def count
-    # returns number of elements currently in cache
+    @cache.length
   end
 
   def add(el)
-    # adds element to cache according to LRU principle
+    if @cache.include?(el)
+      @cache.delete(el)
+      @cache.push(el)
+    elsif @cache.length >= @number
+      @cache.shift 
+      @cache.push(el)
+    else
+      @cache.push(el)
+    end
   end
 
   def show
-    # shows the items in the cache, with the LRU item first
+    print @cache
   end
-
-  private
-  # helper methods go here!
-
 end
