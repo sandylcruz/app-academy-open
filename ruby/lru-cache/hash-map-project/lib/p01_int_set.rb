@@ -22,7 +22,7 @@ class MaxIntSet
   private
 
   def is_valid?(num)
-    num.between?(0, @store.length - 1)
+    num.between?(0, @store.length - 1) 
   end
 
   def validate!(num)
