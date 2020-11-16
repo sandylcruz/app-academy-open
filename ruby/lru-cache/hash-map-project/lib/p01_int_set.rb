@@ -1,4 +1,6 @@
 class MaxIntSet
+  attr_reader :store
+  
   def initialize(max) 
     @store = Array.new(max, false)
   end
@@ -12,6 +14,7 @@ class MaxIntSet
     validate!(num)
     return false if @store[num]
     @store[num] = true
+    true
   end
 
   def remove(num)
