@@ -1,6 +1,6 @@
 class MaxIntSet
   attr_reader :store
-  
+
   def initialize(max) 
     @store = Array.new(max, false)
   end
@@ -43,15 +43,23 @@ class IntSet
   end
 
   def remove(num)
+    number_in_set = num % @store.length
+    bucket = self[number_in_set]
+    bucket.delete(num)
   end
 
   def include?(num)
+    number_in_set = num % @store.length
+    bucket = self[number_in_set]
+    bucket.include?(num)
+    
   end
 
   private
 
   def [](num)
     # optional but useful; return the bucket corresponding to `num`
+    @store[num]
   end
 
   def num_buckets
