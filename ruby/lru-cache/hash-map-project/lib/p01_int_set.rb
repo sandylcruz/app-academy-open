@@ -40,6 +40,9 @@ class IntSet
   end
 
   def insert(num)
+    number_in_set = num % @store.length
+    bucket = self[number_in_set]
+    bucket << num
   end
 
   def remove(num)
@@ -52,7 +55,6 @@ class IntSet
     number_in_set = num % @store.length
     bucket = self[number_in_set]
     bucket.include?(num)
-    
   end
 
   private
