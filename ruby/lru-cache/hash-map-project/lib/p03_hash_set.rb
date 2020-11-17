@@ -7,7 +7,8 @@ class HashSet
   end
 
   def insert(key)
-    @store[key]
+    bucket_index = num % @store.length
+    @store[bucket_index].push(num)
   end
 
   def include?(key)
@@ -20,7 +21,7 @@ class HashSet
   private
 
   def [](num)
-    # optional but useful; return the bucket corresponding to `num`
+    @store[num % num_buckets]
   end
 
   def num_buckets
@@ -28,5 +29,15 @@ class HashSet
   end
 
   def resize!
+    old_store = @store
+    @store = Array.new(num_buckets * 2) {Array.new}
+    @count = 0
+
+    old_store.each do |bucket|
+      bucket.each do |num|
+        hash_num = num.hash
+        insert(hash_num)
+      end
+    end
   end
 end
