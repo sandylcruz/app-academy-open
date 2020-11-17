@@ -7,9 +7,11 @@ class HashSet
   end
 
   def insert(key)
+    @store[key]
   end
 
   def include?(key)
+    return false unless insert(key)
   end
 
   def remove(key)

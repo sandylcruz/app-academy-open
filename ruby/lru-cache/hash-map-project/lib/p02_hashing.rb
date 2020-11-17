@@ -4,6 +4,11 @@ end
 
 class Array
   def hash
+    hash_string = ""
+
+    
+
+    hash_string
   end
 end
 
