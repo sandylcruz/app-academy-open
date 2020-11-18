@@ -27,44 +27,53 @@ class LinkedList
     @tail.prev = @head
   end
 
-  def [](i)
-    each_with_index { |link, j| return link if i == j }
-    nil
+  def empty?
+    @head.next == @tail
+  end
+
+  def append(key, val)
+    new_node = Node.new(key, val)
+    current_last_node = @tail.prev
+    current_last_node.next = new_node
+    new_node.next = @tail
+    new_node.prev = current_last_node
+    @tail.prev = new_node
   end
 
   def first
-    @head
+    if empty?
+      nil
+    else
+      @head.next
+    end
   end
 
   def last
-    @tail
+    @tail.prev
   end
 
-  def empty?
+  def each
+  end
+
+  def update(key, val)
   end
 
   def get(key)
     return nil if !include?(key)
   end
 
-  def include?(key)
-
-  end
-
-  def append(key, val)
-    new_node = Node.new(key, val)
-    @tail = new_node
-  end
-
-  def update(key, val)
-  end
-
   def remove(key)
   end
 
-  def each
-  end
+  def include?(key)
 
+  end
+  
+  def [](i)
+    each_with_index { |link, j| return link if i == j }
+    nil
+  end
+  
   # uncomment when you have `each` working and `Enumerable` included
   # def to_s
   #   inject([]) { |acc, link| acc << "[#{link.key}, #{link.val}]" }.join(", ")
