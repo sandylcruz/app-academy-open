@@ -7,15 +7,22 @@ class HashSet
   end
 
   def insert(key)
-    bucket_index = num % @store.length
-    @store[bucket_index].push(num)
+    return false if include?(key)
+    bucket_index = key % @store.length
+    @store[bucket_index].push(key)
+    @count += 1
   end
 
   def include?(key)
-    return false unless insert(key)
+    self[key].include?(key)
   end
 
   def remove(key)
+    if include?(key)
+      @store[key].delete(key)
+      @count -= 1
+      true
+    end
   end
 
   private
