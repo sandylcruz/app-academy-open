@@ -80,7 +80,6 @@ class ResizingIntSet
   def insert(num)
     bucket_index = num % @store.length
     return false if @store[bucket_index].include?(num)
-
     resize! if num_buckets == @count
     latest_bucket_index = num % @store.length
     bucket = self[latest_bucket_index]

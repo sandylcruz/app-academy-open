@@ -7,19 +7,23 @@ class HashSet
   end
 
   def insert(key)
-    return false if include?(key)
-    bucket_index = key % @store.length
-    @store[bucket_index].push(key)
+    hashed_key = key.hash
+    return false if include?(hashed_key)
+    resize! if num_buckets == @count
+    
+    self[key.hash] << key
     @count += 1
+
+    key
   end
 
   def include?(key)
-    self[key].include?(key)
+    self[key.hash].include?(key)
   end
 
   def remove(key)
     if include?(key)
-      @store[key].delete(key)
+      self[key.hash].delete(key)
       @count -= 1
       true
     end

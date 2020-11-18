@@ -8,7 +8,7 @@ class Array
 
     self.each_with_index do |element, index|
       # IF WE WERE DOING THIS FOR REAL THEN WE'D HAVE TO MAKE SURE EVERY DATA TYPE CAN BE CONVERTED INTO A NUMBER
-      element_with_index = element ^ index
+      element_with_index = element.hash ^ index
       combined_hash = element_with_index.hash
       hash_number ^= combined_hash
     end
