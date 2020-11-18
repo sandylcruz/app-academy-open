@@ -21,7 +21,7 @@ end
 
 class LinkedList
   include Enumerable
-  
+
   def initialize
     @head = Node.new
     @tail = Node.new
@@ -54,16 +54,21 @@ class LinkedList
     @tail.prev
   end
 
-  def each
+  def each(&prc)
     current_node = @head.next
 
     until current_node == @tail
-      yield current_node
+      prc.call(current_node) 
       current_node = current_node.next
     end
   end
 
   def update(key, val)
+    self.each do |node|
+      if node.key == key
+        node.val = val
+      end
+    end
   end
 
   def get(key)
