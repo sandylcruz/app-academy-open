@@ -21,14 +21,14 @@ class Array
 
     middle_index = self.length / 2
     midpoint = self[middle_index]
-    left = merge_sort(self[0...middle_index])
-    right = merge_sort(self[middle_index..-1])
+    left = self[0...middle_index].merge_sort
+    right = self[middle_index..-1].merge_sort
 
     merge(left, right)
   end
 
   private
-  
+
   def merge(left, right)
     sorted = []
 
@@ -37,6 +37,7 @@ class Array
         sorted << left.shift
       else
         sorted << right.shift
+      end
     end
 
     sorted + left + right
@@ -59,7 +60,22 @@ class Hash
   # This returns 0 because rspec will break if it returns nil
   # Make sure to implement an actual Hash#hash method
   def hash
-    self.to_a.sort.hash
+    hash_array = self.to_a
+   
+    sorted_array = hash_array.sort
+    flattened_sorted_array = sorted_array.flatten
+
+    hash_keys = self.keys
+
+    sorted_keys = hash_keys.merge_sort
+    accumulator = 0
+
+    sorted_keys.each do |key|
+      value = self[key]
+      combined = key.hash ^ value.hash
+      accumulator = accumulator ^ combined
+    end
+    accumulator
   end
 end
 
