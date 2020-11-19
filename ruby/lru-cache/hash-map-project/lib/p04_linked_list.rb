@@ -90,7 +90,12 @@ class LinkedList
   end
 
   def include?(key)
-
+    each do |node|
+      if node.key == key
+        return true
+      end
+    end
+    false
   end
   
   def [](i)
