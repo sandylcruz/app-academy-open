@@ -8,16 +8,35 @@ class HashMap
     @count = 0
   end
 
-  def include?(key)
+  def get(key)
+    hashed_key = key.hash % @store.length
+    target_bucket = @store[hashed_key]
+
+    target_bucket.get(key)
   end
 
   def set(key, val)
+    hashed_key = key.hash % @store.length
+    current_bucket = @store[hashed_key]
+
+    if current_bucket.include?(key)
+      current_bucket.update(key, val)
+    else
+      current_bucket.append(key, val)
+      @count += 1
+    end
+    
+    nil
   end
 
-  def get(key)
+  def include?(key)
+    bucket(key).include?(key)
   end
 
   def delete(key)
+  end
+
+  def count
   end
 
   def each
@@ -45,5 +64,6 @@ class HashMap
 
   def bucket(key)
     # optional but useful; return the bucket corresponding to `key`
+    @store[key.hash % num_buckets]
   end
 end
