@@ -35,6 +35,7 @@ class LinkedList
 
   def append(key, val)
     new_node = Node.new(key, val)
+
     current_last_node = @tail.prev
     current_last_node.next = new_node
     new_node.next = @tail
@@ -43,15 +44,11 @@ class LinkedList
   end
 
   def first
-    if empty?
-      nil
-    else
-      @head.next
-    end
+    empty? ? nil : @head.next
   end
 
   def last
-    @tail.prev
+    empty? ? nil : @tail.prev
   end
 
   def each(&prc)
@@ -64,18 +61,28 @@ class LinkedList
   end
 
   def update(key, val)
-    self.each do |node|
+    each do |node|
       if node.key == key
         node.val = val
+        return #this assumes key only shows up once in a list
       end
     end
   end
 
   def get(key)
-    return nil if !include?(key)
+    each do |node|
+      return node.val if node.key == key
+    end
+
+    nil
   end
 
   def remove(key)
+    each do |node|
+      if node.key == key
+        
+      end
+    end
   end
 
   def include?(key)
