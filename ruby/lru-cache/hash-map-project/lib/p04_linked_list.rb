@@ -85,15 +85,14 @@ class LinkedList
         next_node = node.next
         previous_node.next = next_node
         next_node.prev = previous_node
+        return
       end
     end
   end
 
   def include?(key)
     each do |node|
-      if node.key == key
-        return true
-      end
+      return true if node.key == key
     end
     false
   end
