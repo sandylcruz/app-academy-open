@@ -80,7 +80,11 @@ class LinkedList
   def remove(key)
     each do |node|
       if node.key == key
-        
+        current_node = node
+        previous_node = node.prev
+        next_node = node.next
+        previous_node.next = next_node
+        next_node.prev = previous_node
       end
     end
   end
