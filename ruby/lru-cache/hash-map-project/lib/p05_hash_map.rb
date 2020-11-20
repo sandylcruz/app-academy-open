@@ -30,7 +30,9 @@ class HashMap
   end
 
   def include?(key)
-    bucket(key).include?(key)
+    hashed_key = key.hash % @store.length
+    current_bucket = @store[hashed_key]
+    current_bucket.get(key)
   end
 
   def delete(key)
