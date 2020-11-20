@@ -16,10 +16,10 @@ class Node
   def remove
     # optional but useful, connects previous link to next link
     # and removes self from list.
-    previous_node = self.prev
-    next_node = self.next
-    previous_node.next = next_node
-    next_node.prev = previous_node
+    previous_node = @prev
+    next_node = @next
+    previous_node.next = next_node unless previous_node.nil?
+    next_node.prev = previous_node unless next_node.nil?
     @next = nil
     @prev = nil
     self
@@ -48,6 +48,7 @@ class LinkedList
     new_node.next = @tail
     new_node.prev = current_last_node
     @tail.prev = new_node
+
     new_node
   end
 
@@ -60,7 +61,7 @@ class LinkedList
   end
 
   def shift
-    return nil if first_node.empty?
+    return nil if empty?
     
     first_node = first
     first_node.remove

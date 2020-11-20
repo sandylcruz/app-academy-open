@@ -20,7 +20,7 @@ describe LRUCache do
     it "should not call the proc for cached inputs" do
       lru = LRUCache.new(3, prc)
 
-      expect(prc).to receive(:call).exactly(3).times
+      expect(prc).to receive(:call).exactly(3).times.and_return(100)
 
       3.times do
         1.upto(3) { |i| lru.get(i) }

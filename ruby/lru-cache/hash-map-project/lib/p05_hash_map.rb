@@ -21,7 +21,7 @@ class HashMap
     hashed_key = key.hash % @store.length
     current_bucket = @store[hashed_key]
 
-    resize! if size == @count
+    resize! if @store.length == @count
 
     if current_bucket.include?(key)
       current_bucket.update(key, val)
@@ -66,15 +66,11 @@ class HashMap
   alias_method :[], :get
   alias_method :[]=, :set
 
-  def size
-    @store.length
-  end
-
   private
 
   def resize!
     old_store = @store
-    @store = Array.new(size * 2) {LinkedList.new}
+    @store = Array.new(old_store.size * 2) { LinkedList.new }
     @count = 0
 
     old_store.each do |bucket|
@@ -84,6 +80,6 @@ class HashMap
 
   def bucket(key)
     # optional but useful; return the bucket corresponding to `key`
-    @store[key.hash % size]
+    @store[key.hash % @store.size]
   end
 end

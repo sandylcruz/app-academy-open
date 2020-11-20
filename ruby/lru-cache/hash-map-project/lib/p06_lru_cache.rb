@@ -14,19 +14,23 @@ class LRUCache
   end
 
   def get(key)
-    value_node = @map[key]
+    target_node = @map[key]
 
-    if value_node
-      
-      value_node.val
+    if target_node
+      target_node.remove
+      new_target_node = @store.append(key, target_node.val)
+      @map[key] = new_target_node
+      target_node.val
     else
       computed_value = @prc.call(key)
       new_node = @store.append(key, computed_value)
       @map[key] = new_node
-
-      if @map.size > @max
+    
+      if count > @max
         eject!
       end
+
+      computed_value
     end
   end
 
