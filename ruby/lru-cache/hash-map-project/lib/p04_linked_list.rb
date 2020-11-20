@@ -41,6 +41,7 @@ class LinkedList
     new_node.next = @tail
     new_node.prev = current_last_node
     @tail.prev = new_node
+    new_node
   end
 
   def first
