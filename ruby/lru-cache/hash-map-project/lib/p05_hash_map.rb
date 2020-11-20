@@ -36,6 +36,9 @@ class HashMap
   end
 
   def delete(key)
+    hashed_key = key.hash % @store.length
+    current_bucket = @store[hashed_key]
+    current_bucket.remove(key)
   end
 
   def count
