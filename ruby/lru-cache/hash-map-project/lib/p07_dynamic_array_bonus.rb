@@ -34,20 +34,16 @@ class DynamicArray
     @count = 0
   end
 
+  def push(val)
+
+    @count += 1
+  end
+
   def [](i)
   end
 
   def []=(i, val)
-  end
-
-  def capacity
-    @store.length
-  end
-
-  def include?(val)
-  end
-
-  def push(val)
+    
   end
 
   def unshift(val)
@@ -60,12 +56,20 @@ class DynamicArray
   end
 
   def first
+    # @store[0]
   end
 
   def last
   end
 
   def each
+  end
+
+  def include?(val)
+  end
+ 
+  def capacity
+    @store.length
   end
 
   def to_s
