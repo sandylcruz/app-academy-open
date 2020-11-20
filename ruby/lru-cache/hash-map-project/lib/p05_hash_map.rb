@@ -19,6 +19,8 @@ class HashMap
     hashed_key = key.hash % @store.length
     current_bucket = @store[hashed_key]
 
+    resize! if num_buckets == @count
+
     if current_bucket.include?(key)
       current_bucket.update(key, val)
     else
@@ -42,11 +44,11 @@ class HashMap
     @count -= 1
   end
 
-  def count
-    @count
-  end
-
   def each
+    @store.each do |nodes|
+      nodes.each do |node|
+      end
+    end
   end
 
   # uncomment when you have Enumerable included
@@ -67,6 +69,13 @@ class HashMap
   end
 
   def resize!
+    old_store = @store
+    @store = Array.new(num_buckets * 2) {LinkedList.new}
+    @count = 0
+
+    old_store.each do |bucket|
+      bucket.each { |link| set(link.key, link.val) }
+    end
   end
 
   def bucket(key)
