@@ -12,12 +12,9 @@ require_relative './sqlzoo.rb'
 
 def example_select
   execute(<<-SQL)
-    SELECT
-      population
-    FROM
-      countries
-    WHERE
-      name = 'France'
+    SELECT population
+    FROM countries
+    WHERE name = 'France'
   SQL
 end
 
@@ -25,6 +22,9 @@ def large_countries
   # Show the names of the countries that have a population of at least
   # 200 million. 200 million is 200,000,000 (eight zeros).
   execute(<<-SQL)
+    SELECT continent, population
+    FROM countries
+    WHERE population >= 200000000
   SQL
 end
 
