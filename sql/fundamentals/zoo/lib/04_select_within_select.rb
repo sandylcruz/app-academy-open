@@ -31,7 +31,10 @@ def larger_than_russia
   execute(<<-SQL)
     SELECT name
     FROM countries
-    WHERE population > (SELECT population FROM countries WHERE name='Russia')
+    WHERE population > 
+      (SELECT population 
+       FROM countries 
+       WHERE name='Russia')
   SQL
 end
 
@@ -42,7 +45,11 @@ def richer_than_england
     SELECT name
     FROM countries
     WHERE continent = 'Europe'
-      AND gdp / population > (SELECT gdp / population FROM countries WHERE name='United Kingdom')
+      AND gdp / population > 
+      (SELECT gdp / population 
+       FROM countries 
+       WHERE name='United Kingdom'
+      )
   SQL
 end
 
@@ -52,7 +59,11 @@ def neighbors_of_certain_b_countries
   execute(<<-SQL)
     SELECT name, continent
     FROM countries
-    WHERE 
+    WHERE continent IN
+      (SELECT continent 
+       FROM countries 
+       WHERE name IN ('Belize', 'Belgium')
+      )
   SQL
 end
 
