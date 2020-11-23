@@ -54,7 +54,7 @@ def name_and_population
   execute(<<-SQL)
     SELECT name, population
     FROM countries
-    WHERE name = 'FRANCE', 'GERMANY', 'ITALY'
+    WHERE name IN ('France', 'Germany', 'Italy')
   SQL
 end
 
