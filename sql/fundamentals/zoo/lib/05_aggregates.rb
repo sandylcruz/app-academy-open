@@ -30,7 +30,7 @@ def africa_gdp
   execute(<<-SQL)
     SELECT SUM(gdp)
     FROM countries
-    WHERE name = 'Africa'
+    WHERE continent = 'Africa'
   SQL
 end
 
