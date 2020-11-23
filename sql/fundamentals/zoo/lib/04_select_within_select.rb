@@ -16,18 +16,12 @@ require_relative './sqlzoo.rb'
 
 def example_select_with_subquery
   execute(<<-SQL)
-    SELECT
-      name
-    FROM
-      countries
-    WHERE
-      population > (
-        SELECT
-          population
-        FROM
-          countries
-        WHERE
-          name='Romania'
+    SELECT name
+    FROM countries
+    WHERE population > (
+      SELECT population
+      FROM countries
+      WHERE name='Romania'
         )
   SQL
 end
@@ -35,6 +29,9 @@ end
 def larger_than_russia
   # List each country name where the population is larger than 'Russia'.
   execute(<<-SQL)
+    SELECT name
+    FROM countries
+    WHERE population > (SELECT population FROM countries WHERE name='Russia')
   SQL
 end
 
