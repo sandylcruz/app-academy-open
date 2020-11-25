@@ -114,7 +114,6 @@ def prolific_actors
     GROUP BY actors.name
     HAVING COUNT(movies.id) >= 15
     ORDER BY actors.name ASC
-    
   SQL
 end
 
@@ -122,11 +121,13 @@ def films_by_cast_size
   # List the films released in the year 1978 ordered by the number of actors
   # in the cast (descending), then by title (ascending).
   execute(<<-SQL)
-    SELECT movies.title, 
+    SELECT title, COUNT(castings.actor_id)
     FROM movies
     JOIN castings on movies.id = castings.movie_id
-    JOIN actors on castings.actor_id = actors.id
-    WHERE movies.yr = '1978'
+    WHERE yr = '1978' 
+    GROUP BY title
+    ORDER BY COUNT(castings.actor_id) DESC, title
+ 
   SQL
 end
 
@@ -135,6 +136,5 @@ def colleagues_of_garfunkel
   execute(<<-SQL)
     SELECT
     FROM
-    WHERE
   SQL
 end
