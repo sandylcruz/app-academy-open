@@ -21,7 +21,6 @@ def null_dept
     SELECT name
     FROM teachers
     WHERE dept_id IS NULL
-
   SQL
 end
 
