@@ -123,18 +123,27 @@ def films_by_cast_size
   execute(<<-SQL)
     SELECT title, COUNT(castings.actor_id)
     FROM movies
-    JOIN castings on movies.id = castings.movie_id
+    JOIN castings ON movies.id = castings.movie_id
     WHERE yr = '1978' 
     GROUP BY title
     ORDER BY COUNT(castings.actor_id) DESC, title
- 
   SQL
 end
 
 def colleagues_of_garfunkel
   # List all the people who have played alongside 'Art Garfunkel'.
   execute(<<-SQL)
-    SELECT
-    FROM
+    SELECT actors.name
+    FROM actors
+    JOIN castings ON actors.id = castings.actor_id
+    JOIN movies ON castings.movie_id = movies.id
+    WHERE movies.id IN 
+      (SELECT movies.id
+       FROM movies
+       JOIN castings on movies.id = castings.movie_id
+       JOIN actors on castings.actor_id = actors.id
+       WHERE actors.name = 'Art Garfunkel'
+      )
+    AND actors.name != 'Art Garfunkel'
   SQL
 end
