@@ -73,9 +73,13 @@ def travoltas_busiest_years
   # Which were the busiest years for 'John Travolta'? Show the year and the
   # number of movies he made for any year in which he made at least 2 movies.
   execute(<<-SQL)
-    SELECT
-    FROM
-    WHERE
+    SELECT DISTINCT movies.yr, COUNT(movies.yr)
+    FROM movies
+    JOIN castings on movies.id = castings.movie_id
+    JOIN actors on castings.actor_id = actors.id
+    WHERE actors.name = 'John Travolta' 
+    GROUP BY movies.yr
+    HAVING COUNT(movies.yr) > 1
   SQL
 end
 
@@ -83,9 +87,17 @@ def andrews_films_and_leads
   # List the film title and the leading actor for all of the films 'Julie
   # Andrews' played in.
   execute(<<-SQL)
-    SELECT
-    FROM
-    WHERE
+    SELECT DISTINCT movies.title, actors.name
+    FROM movies
+    JOIN castings on movies.id = castings.movie_id
+    JOIN actors on castings.actor_id = actors.id 
+    WHERE castings.ord = 1
+      (SELECT actors.name
+      FROM actors 
+      WHERE castings.ord = 1 
+      )
+ 
+    
   SQL
 end
 
@@ -93,9 +105,12 @@ def prolific_actors
   # Obtain a list in alphabetical order of actors who've had at least 15
   # starring roles.
   execute(<<-SQL)
-    SELECT
-    FROM
-    WHERE
+    SELECT actors.name
+    FROM movies
+    JOIN castings on movies.id = castings.movie_id
+    JOIN actors on castings.actor_id = actors.id
+    WHERE COUNT(ord) >= 15
+    GROUP BY name
   SQL
 end
 
@@ -103,9 +118,11 @@ def films_by_cast_size
   # List the films released in the year 1978 ordered by the number of actors
   # in the cast (descending), then by title (ascending).
   execute(<<-SQL)
-    SELECT
-    FROM
-    WHERE
+    SELECT movies.title, 
+    FROM movies
+    JOIN castings on movies.id = castings.movie_id
+    JOIN actors on castings.actor_id = actors.id
+    WHERE movies.yr = '1978'
   SQL
 end
 
