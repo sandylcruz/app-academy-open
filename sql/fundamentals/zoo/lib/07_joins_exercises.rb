@@ -107,11 +107,14 @@ def prolific_actors
   # starring roles.
   execute(<<-SQL)
     SELECT actors.name
-    FROM movies
-    JOIN castings on movies.id = castings.movie_id
-    JOIN actors on castings.actor_id = actors.id
-    WHERE COUNT(ord) >= 15
-    GROUP BY name
+    FROM actors
+    JOIN castings on actors.id = castings.actor_id
+    JOIN movies ON castings.movie_id = movies.id
+    WHERE ord = 1
+    GROUP BY actors.name
+    HAVING COUNT(movies.id) >= 15
+    ORDER BY actors.name ASC
+    
   SQL
 end
 
