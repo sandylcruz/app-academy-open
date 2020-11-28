@@ -30,7 +30,13 @@ def largest_in_continent
   execute(<<-SQL)
     SELECT continent, name, area
     FROM countries
-    WHERE MAX(area)
+    GROUP BY countries.continent, countries.name, countries.area
+    WHERE area >= (
+      SELECT MAX(area)
+      FROM countries
+      GROUP BY continent
+      )
+
   SQL
 end
 
