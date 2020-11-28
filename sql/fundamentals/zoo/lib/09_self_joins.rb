@@ -88,13 +88,13 @@ def haymarket_and_leith
   # Give the company and num of the services that connect stops
   # 115 and 137 ('Haymarket' and 'Leith')
   execute(<<-SQL)
-    SELECT a.company, a.num, b.company, b.num
+    SELECT a.company, a.num
     FROM routes a
     JOIN routes b ON (a.company = b.company AND a.num = b.num)
     JOIN stops stopa ON (a.stop_id = stopa.id)
     JOIN stops stopb ON (b.stop_id = stopb.id)
     WHERE stopa.name = 'Haymarket' AND stopb.name = 'Leith'
-    GROUP BY company, num
+    GROUP BY a.company, a.num
   SQL
 end
 
@@ -102,9 +102,13 @@ def craiglockhart_and_tollcross
   # Give the company and num of the services that connect stops
   # 'Craiglockhart' and 'Tollcross'
   execute(<<-SQL)
-    SELECT
-    FROM
-    WHEN
+    SELECT a.company, a.num
+    FROM routes a
+    JOIN routes b ON (a.company = b.company AND a.num = b.num)
+    JOIN stops stopa ON (a.stop_id = stopa.id)
+    JOIN stops stopb ON (b.stop_id = stopb.id)
+    WHERE stopa.name = 'Craiglockhart' AND stopb.name = 'Tollcross'
+    GROUP BY a.company, a.num
   SQL
 end
 
@@ -113,7 +117,7 @@ def start_at_craiglockhart
   # by taking one bus, including 'Craiglockhart' itself. Include the stop name,
   # as well as the company and bus no. of the relevant service.
   execute(<<-SQL)
-    SELECT
+    SELECT DISTINCT stopa.name 
     FROM
     WHEN
   SQL
