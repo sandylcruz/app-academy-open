@@ -48,4 +48,11 @@ class Play
         id = ?
     SQL
   end
+
+  def self.find_by_title(title)
+    
+  end
+
+  def self.find_by_playwright(name)
+  end
 end
