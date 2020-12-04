@@ -1,5 +1,6 @@
 require 'sqlite3'
 require 'singleton'
+require 'pry'
 
 class PlayDBConnection < SQLite3::Database
   include Singleton
@@ -40,12 +41,9 @@ class Play
   def update
     raise "#{self} not in database" unless self.id
     PlayDBConnection.instance.execute(<<-SQL, self.title, self.year, self.playwright_id, self.id)
-      UPDATE
-        plays
-      SET
-        title = ?, year = ?, playwright_id = ?
-      WHERE
-        id = ?
+      UPDATE plays
+      SET title = ?, year = ?, playwright_id = ?
+      WHERE id = ?
     SQL
   end
 
@@ -66,17 +64,35 @@ class Play
   end
 end
 
-class Playwrights
+class Playwright
+  attr_accessor :name, :birth_year, :id
+
   def new #initialize
+    @name = options['name']
+    @birth_year = options['birth_year']
+    @id = options['id']
   end
 
   def self.all
+    data = PlayDBConnection.instance.execute("SELECT * FROM playwrights")
+    data.map { |datum| Playwright.new(datum) }
+
   end
 
   def self.find_by_name(name)
+    play = PlayDBConnection.instance.execute(<<-SQL, name)
+    SELECT *
+    FROM playwrights
+    WHERE name = ?
   end
 
   def create
+    PlayDBConnection.instance.execute(<<-SQL, self.name, self.birth_year, self.id)
+    INSERT INTO
+      playwrights (name, birth_year, id)
+    VALUES
+      (?, ?, ?)
+  SQL
   end
 
   def update
