@@ -19,6 +19,7 @@ are children of an Unordered Lsit element */
 ul li a, figcaption a {
   text-decoration: none;
   color: inherit;
+  display: inline-block
 }
 
 /* This selector selects only IMMEDIATE (1 level deep) image element children
