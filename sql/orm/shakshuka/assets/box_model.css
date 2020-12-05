@@ -4,6 +4,7 @@ body {
   /* If the user cannot load the Arial font, the sans-serif font is used */
   font-family: Arial, sans-serif;
   background-color: #FEFFF1;
+  margin: 0 auto;
 }
 
 h1 {
@@ -15,13 +16,21 @@ h2 {
 }
 
 /* This selector selects ALL anchor tag children of ALL list elements that
-are children of an Unordered Lsit element */
-ul li a, figcaption a {
+are children of an Unordered list element */
+ul li, figcaption, a {
   text-decoration: none;
   color: inherit;
-  display: inline-block
+  display: inline-block;
 }
 
+nav ul li, a {
+  padding: 20px;
+  display: inline;
+}
+
+header img, header nav {
+  display: inline-block;
+}
 /* This selector selects only IMMEDIATE (1 level deep) image element children
 of the header element */
 header > img {
