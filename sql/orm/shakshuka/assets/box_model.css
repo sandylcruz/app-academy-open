@@ -4,7 +4,6 @@ body {
   /* If the user cannot load the Arial font, the sans-serif font is used */
   font-family: Arial, sans-serif;
   background-color: #FEFFF1;
-  margin: 0 auto;
 }
 
 h1 {
@@ -28,8 +27,28 @@ nav ul li, a {
   display: inline;
 }
 
+section {
+  width: 700px;
+  display: inline-block;
+}
+
+aside {
+  width: 180px;
+  margin-right: 15px;
+  
+}
+
+section, aside {
+  margin-right: 15px 0px;
+}
+
 header img, header nav {
   display: inline-block;
+}
+
+body {
+  width: 900px;
+  margin: 0 auto;
 }
 /* This selector selects only IMMEDIATE (1 level deep) image element children
 of the header element */
@@ -42,6 +61,10 @@ header > img {
 
   /* The list style property is shorthand for multiple list-style properties*/
   list-style: square inside;
+}
+
+.ingredients-list li {
+  margin: 15px;
 }
 
 ol {
