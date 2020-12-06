@@ -27,10 +27,13 @@ header > img {
   width: 100px;
 }
 
-.img:after {
-	content: “”;
-	display: block;
-	clear: both;
+header {
+  display: flex;
+  justify-content: space-between;
+}
+
+nav {
+  display: flex;
 }
 
 
