@@ -27,6 +27,13 @@ header > img {
   width: 100px;
 }
 
+.img:after {
+	content: “”;
+	display: block;
+	clear: both;
+}
+
+
 /* Selects all elements with the class attribute "ingredients-list" */
 .ingredients-list {
 
