@@ -27,6 +27,7 @@ class Question
   end
 
   def author
+    @author_id
   end
 
   def replies

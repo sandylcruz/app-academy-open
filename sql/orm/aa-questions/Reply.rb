@@ -32,9 +32,11 @@ class Reply
   end
 
   def author
+    @author_id
   end
 
   def question
+    @question_id
   end
 
   def parent_reply
