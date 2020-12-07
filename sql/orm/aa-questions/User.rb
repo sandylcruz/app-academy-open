@@ -1,4 +1,5 @@
 require_relative  "QuestionsDatabase"
+
 class User
   attr_accessor :id, :fname, :lname
 
@@ -32,6 +33,9 @@ class User
     SQL
 
     users.map { |user| User.new(user)}
+  end
+
+  def authored_questions
   end
 
   def create

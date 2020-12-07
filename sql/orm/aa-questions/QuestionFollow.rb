@@ -1,4 +1,4 @@
-class Question_follows
+class QuestionFollow
   def initialize(options)
     @id = options['id']
     @user_id = options['user_id']

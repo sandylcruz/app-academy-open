@@ -1,4 +1,4 @@
-class Question_likes
+class QuestionLike
   def initialize
     @user_id = options['user_id']
     @question_id = options['question_id']
