@@ -161,20 +161,39 @@ SELECT (
   ),
   "Oh hi";
 
--- WHERE -- VALUES (
---     (
---       SELECT id
---       FROM users
---       WHERE fname = "Callie"
---         AND lname = "Cat"
---     )
---     SELECT id
---     FROM questions
---     WHERE
---   );
--- -- Replies
--- INSERT INTO replies(id, question_id, reply_id, author_id, body)
--- SELECT questions.id
--- FROM
--- WHERE;
--- -- Question Likes
+-- Question Likes
+INSERT INTO question_likes(user_id, question_id)
+SELECT (
+    SELECT id
+    FROM users
+    WHERE id = 1
+  ),
+  (
+    SELECT id
+    FROM questions
+    where title = "Squeaky question"
+  );
+
+INSERT INTO question_likes(user_id, question_id)
+SELECT (
+    SELECT id
+    FROM users
+    WHERE id = 2
+  ),
+  (
+    SELECT id
+    FROM questions
+    where title = "Squeaky question"
+  );
+
+INSERT INTO question_likes(user_id, question_id)
+SELECT (
+    SELECT id
+    FROM users
+    WHERE id = 3
+  ),
+  (
+    SELECT id
+    FROM questions
+    where title = "Callie's question"
+  );
