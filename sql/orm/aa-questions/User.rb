@@ -70,4 +70,12 @@ class User
     SQL
     self
   end
+
+  def followed_questions
+    QuestionFollow.followed_questions_for_user_id(user_id)
+  end
+
+  def followers
+    QuestionFollow.followers_for_question_id(question_id)
+  end
 end
