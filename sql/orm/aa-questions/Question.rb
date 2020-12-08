@@ -36,6 +36,5 @@ class Question
 
   def replies
     replies = Reply.find_by_question_id(id)
-    # replies.map { |reply| Reply.new(reply)}
   end
 end

@@ -6,6 +6,8 @@ require_relative 'Reply'
 require_relative 'User'
 
 class Reply
+  attr_accessor :id, :question_id, :reply_id, :author_id, :body
+
   def initialize(options)
     @id = options['id']
     @question_id = options['question_id']
@@ -22,7 +24,7 @@ class Reply
     SQL
 
     return nil if replies.empty?
-    replies.map { |reply| reply }
+    replies.map { |reply| Reply.new(reply) }
   end
 
   def self.find_by_question_id(question_id)
@@ -33,7 +35,7 @@ class Reply
     SQL
 
     return nil if replies.empty?
-    replies.map { |reply| reply }
+    replies.map { |reply| Reply.new(reply) }
   end
 
   def author
@@ -45,8 +47,10 @@ class Reply
   end
 
   def parent_reply
+    Reply.find_by_author_id(author_id)
   end
 
   def child_replies
+    Reply.find_by_author_id(reply_id)
   end
 end
