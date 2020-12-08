@@ -53,4 +53,8 @@ class Question
   def num_likes(question_id)
     QuestionLike.num_likes_for_question_id(question_id)
   end
+
+  def most_liked(n)
+    QuestionLike.most_liked_questions(n)
+  end
 end
