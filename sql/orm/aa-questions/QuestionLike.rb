@@ -10,6 +10,11 @@ class QuestionLike
     @question_id = options['question_id']
   end
 
-  def self.find_by_id
+  def self.likers_for_question_id(question_id)
   end
+
+  def self.num_likes_for_question_id(question_id)
+  end
+
+  def self.liked_questions_for_user_id(user_id)
 end
