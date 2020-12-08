@@ -24,13 +24,14 @@ class QuestionFollow
     users.map { |user| User.new(user)}
   end
 
-  # def self.followed_questions_for_user_id(user_id)
-  #   question_data =  QuestionsDatabase.instance.execute(<<-SQL, user_id)
-  #     SELECT * 
-  #     FROM question
-  #     JOIN question_follows ON = 
-  #   SQL
+  def self.followed_questions_for_user_id(user_id)
+    questions =  QuestionsDatabase.instance.execute(<<-SQL, user_id)
+      SELECT * 
+      FROM questions
+      JOIN question_follows ON questions.id = question_follows.question_id
+      WHERE question_follows.user_id = ?
+    SQL
 
-  # question_data.map { |question_datum| QuestionFollow.new(question_datum)}
-  # end
+  questions.map { |question| QuestionFollow.new(question)}
+  end
 end

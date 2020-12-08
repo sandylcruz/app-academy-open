@@ -40,14 +40,6 @@ class User
     users.map { |user| User.new(user)}
   end
 
-  def authored_questions
-    Question.find_by_author_id(self.id)
-  end
-
-  def authored_replies
-    Reply.find_by_author_id(self.id)
-  end
-
   def create
     raise "#{self} already in database" if self.id
 
@@ -71,11 +63,15 @@ class User
     self
   end
 
-  def followed_questions
-    QuestionFollow.followed_questions_for_user_id(user_id)
+  def authored_questions
+    Question.find_by_author_id(self.id)
   end
 
-  def followers
-    QuestionFollow.followers_for_question_id(question_id)
+  def authored_replies
+    Reply.find_by_author_id(self.id)
+  end
+
+  def followed_questions
+    QuestionFollow.followed_questions_for_user_id(id)
   end
 end
