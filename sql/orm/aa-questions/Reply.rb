@@ -1,4 +1,9 @@
 require_relative  "QuestionsDatabase"
+require_relative "Question"
+require_relative 'QuestionFollow'
+require_relative 'QuestionLike'
+require_relative 'Reply'
+require_relative 'User'
 
 class Reply
   def initialize(options)
@@ -32,11 +37,11 @@ class Reply
   end
 
   def author
-    @author_id
+    User.find_by_id(author_id)
   end
 
   def question
-    @question_id
+    Question.find_by_author_id(author_id)
   end
 
   def parent_reply

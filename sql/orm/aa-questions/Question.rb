@@ -23,13 +23,14 @@ class Question
     SQL
 
     return nil if questions.empty?
-    questions.map { |question| question }
+    questions.map { |question| Question.new(question) }
   end
 
   def author
-    @author_id
+    User.find_by_id(author_id)
   end
 
   def replies
+    Reply.find_by_question_id(author_id)
   end
 end
