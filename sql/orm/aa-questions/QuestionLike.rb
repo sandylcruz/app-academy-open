@@ -23,15 +23,21 @@ class QuestionLike
 
   def self.num_likes_for_question_id(question_id)
     likes =  QuestionsDatabase.instance.execute(<<-SQL, question_id)
-      SELECT * 
-      FROM users
-      JOIN question_follows ON users.id = question_follows.user_id
-      WHERE question_follows.question_id = ?
+      SELECT COUNT(*) AS likes
+      FROM questions
+      JOIN question_likes ON questions.id = question_likes.question_id
+      WHERE questions.id = ?
     SQL
-
-    likes.map { |like| User.new(like)}
   end
 
   def self.liked_questions_for_user_id(user_id)
+    questions =  QuestionsDatabase.instance.execute(<<-SQL, user_id)
+      SELECT * 
+      FROM questions
+      JOIN question_likes ON questions.id = question_likes.question_id
+      WHERE question_likes.user_id = ?
+    SQL
+
+    questions.map { |question| Question.new(question)}
   end
 end
