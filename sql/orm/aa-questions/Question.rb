@@ -1,7 +1,11 @@
 require_relative  "QuestionsDatabase"
+require_relative 'QuestionFollow'
+require_relative 'QuestionLike'
+require_relative 'Reply'
+require_relative 'User'
 
 class Question
-  attr_accessor :id, :title, :body, :author
+  attr_accessor :id, :title, :body, :author_id
 
   def initialize(options)
     @id = options['id']
@@ -31,6 +35,7 @@ class Question
   end
 
   def replies
-    Reply.find_by_question_id(author_id)
+    replies = Reply.find_by_question_id(id)
+    # replies.map { |reply| Reply.new(reply)}
   end
 end

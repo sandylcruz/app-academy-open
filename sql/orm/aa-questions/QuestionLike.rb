@@ -1,3 +1,9 @@
+require_relative  "QuestionsDatabase"
+require_relative "Question"
+require_relative 'QuestionFollow'
+require_relative 'Reply'
+require_relative 'User'
+
 class QuestionLike
   def initialize
     @user_id = options['user_id']
