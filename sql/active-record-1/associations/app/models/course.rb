@@ -7,4 +7,18 @@ class Course < ApplicationRecord
   )
 
   has_many :enrolled_students, through: :enrollments, source: :student
+  
+  belongs_to(
+    :prerequisite,
+    class_name: 'Course',
+    primary_key: :id,
+    foreign_key: :prereq_id
+  )
+
+  has_many(
+    :blocked_courses,
+    class_name: 'Course',
+    primary_key: :id,
+    foreign_key: :prereq_id
+  )
 end
