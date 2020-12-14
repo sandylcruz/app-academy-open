@@ -18,6 +18,7 @@ class ShortenedURL < ActiveRecord::Base
   )
 
   has_many :visitors, through: :visits, source: :user
+  
 
   def self.random_code
     random_code = SecureRandom.urlsafe_base64

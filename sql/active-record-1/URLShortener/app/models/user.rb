@@ -12,7 +12,7 @@ class User < ApplicationRecord
     :visits,
     class_name: 'Visit',
     primary_key: :id,
-    foregin_key: :user_id
+    foreign_key: :user_id
   )
 
   has_many :visited_urls, through: :visits, source: :shortened_url
