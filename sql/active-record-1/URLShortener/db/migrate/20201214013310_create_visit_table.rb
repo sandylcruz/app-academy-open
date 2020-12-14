@@ -1,8 +1,8 @@
 class CreateVisitTable < ActiveRecord::Migration[5.1]
   def change
-    create_table :visit do |t|, force: :cascade do |t|
-      t.integer :user_id
-      t.string :shortened_url_id
+    create_table :visits, force: :cascade do |t|
+      t.string :user_id, null: false
+      t.string :shortened_url_id, null: false
 
       t.timestamps
     end
