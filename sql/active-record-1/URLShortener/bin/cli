@@ -5,13 +5,13 @@ class CLI
     puts "Type in your long url"
     long_url = gets.chomp
     short_url = ShortenedURL.create_shortened_url(@current_user, long_url)
-    puts "Short url is: #{short_url}"
+    puts "Short url is: #{short_url.short_url}"
   end
 
   def log_in!
     puts "Input your email:"
     email_address = gets.chomp
-    user = User.find_by(email: email_address)
+    @current_user = User.find_by(email: email_address)
   end
 
   def visit_url
@@ -19,20 +19,21 @@ class CLI
     short_url = gets.chomp
 
     shortened = ShortenedURL.find_by(short_url: short_url)
-    Launchy.open(shortened)
+    Launchy.open(shortened.long_url)
   end
 
   def run
     log_in!
 
-    puts "What do you want to do? 0. Create shortened url 1. Visit shortened url
+    puts "What do you want to do? 0. Create shortened url 1. Visit shortened url"
     answer = gets.chomp
 
-    if answer == 0
+    if answer == "0"
       get_url
-    elsif answer == 1
+    elsif answer == "1"
       visit_url
     end
   end
 end
-
+new_instance = CLI.new
+new_instance.run
