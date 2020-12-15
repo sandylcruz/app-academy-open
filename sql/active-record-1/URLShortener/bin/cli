@@ -1,4 +1,38 @@
 #!/usr/bin/env ruby
 
-puts "What is your email address?"
-answer = gets.chomp
+class CLI
+  def get_url
+    puts "Type in your long url"
+    long_url = gets.chomp
+    short_url = ShortenedURL.create_shortened_url(@current_user, long_url)
+    puts "Short url is: #{short_url}"
+  end
+
+  def log_in!
+    puts "Input your email:"
+    email_address = gets.chomp
+    user = User.find_by(email: email_address)
+  end
+
+  def visit_url
+    puts "Input short url:"
+    short_url = gets.chomp
+
+    shortened = ShortenedURL.find_by(short_url: short_url)
+    Launchy.open(shortened)
+  end
+
+  def run
+    log_in!
+
+    puts "What do you want to do? 0. Create shortened url 1. Visit shortened url
+    answer = gets.chomp
+
+    if answer == 0
+      get_url
+    elsif answer == 1
+      visit_url
+    end
+  end
+end
+
