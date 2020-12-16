@@ -41,7 +41,7 @@ describe 'harrison_ford' do
       {id: 371, title: 'American Graffiti'},
       {id: 700, title: 'Conversation, The'}
     ].map{ |el| el.stringify_keys }
-
+    puts subject
     expect(subject).to contain_exactly(*expected_result)
   end
 
