@@ -23,6 +23,14 @@ ActiveRecord::Schema.define(version: 20170711194929) do
     t.index ["artist_id"], name: "index_albums_on_artist_id"
   end
 
+  create_table "tracks", force: :cascade do |t|
+    t.string "title", null: false
+    t.integer "album_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["album_id"], name: "index_tracks_on_album_id"
+  end
+
   create_table "artists", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
@@ -81,12 +89,5 @@ ActiveRecord::Schema.define(version: 20170711194929) do
     t.index ["plant_id"], name: "index_seeds_on_plant_id"
   end
 
-  create_table "tracks", force: :cascade do |t|
-    t.string "title", null: false
-    t.integer "album_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["album_id"], name: "index_tracks_on_album_id"
-  end
 
 end
