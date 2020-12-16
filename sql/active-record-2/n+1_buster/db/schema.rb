@@ -53,6 +53,12 @@ ActiveRecord::Schema.define(version: 20170711194929) do
     t.index ["bus_id"], name: "index_drivers_on_bus_id"
   end
 
+  create_table "routes", force: :cascade do |t|
+    t.integer "number", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "gardeners", force: :cascade do |t|
     t.string "name", null: false
     t.integer "house_id"
@@ -75,12 +81,6 @@ ActiveRecord::Schema.define(version: 20170711194929) do
     t.index ["gardener_id"], name: "index_plants_on_gardener_id"
   end
 
-  create_table "routes", force: :cascade do |t|
-    t.integer "number", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "seeds", force: :cascade do |t|
     t.integer "count", null: false
     t.integer "plant_id"
@@ -88,6 +88,4 @@ ActiveRecord::Schema.define(version: 20170711194929) do
     t.datetime "updated_at", null: false
     t.index ["plant_id"], name: "index_seeds_on_plant_id"
   end
-
-
 end
