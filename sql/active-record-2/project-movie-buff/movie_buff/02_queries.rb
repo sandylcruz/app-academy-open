@@ -19,16 +19,17 @@ end
 def cast_list(title)
   # List all the actors for a particular movie, given the title.
   # Sort the results by starring order (ord). Show the actor id and name.
-  Casting
-    .select(:actor_id, 'actors.name')
-    .join(:actors, :castings)
-    .sort(castings.ord DESC)
+  Actor
+    .select(:id, :name)
+    .joins(:movies)
+    .where(movies: { title: title})
+    .order('castings.ord ASC')
 end
 
 def vanity_projects
   # List the title of all movies in which the director also appeared
   # as the starring actor.
-  # Show the movie id and title and director's name.
+  # Show the movie id and tistle and director's name.
 
   # Note: Directors appear in the 'actors' table.
 
