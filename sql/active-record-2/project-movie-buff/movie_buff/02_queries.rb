@@ -43,6 +43,9 @@ def most_supportive
   # Show each actor's id, name and number of supporting roles.
   Actor
     .select(:id, :name, 'COUNT(castings.ord > 1) AS roles')
+    .where.not('castings.ord = 1')
     .joins(:movies)
     .group('actors.id')
+    .order('roles DESC')
+    .limit(2)
 end
