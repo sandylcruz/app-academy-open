@@ -4,8 +4,8 @@ class User < ApplicationRecord
   validates :email, presence: true
 
   # has_many(
-  #   :authored_polls,
-  #   class_name: 'AuthoredPolls',
+  #   :polls,
+  #   class_name: 'Polls',
   #   foreign_key: ,
   #   primary_key: id
   # )

@@ -1,10 +1,10 @@
 class Poll < ActiveRecord
 
-  belongs_to(
-    :User,
-  )
+  # belongs_to(
+  #   :User,
+  # )
 
-  has_many(
-    :Questions
-  )
+  # has_many(
+  #   :Questions
+  # )
 end
