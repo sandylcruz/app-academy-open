@@ -102,7 +102,6 @@ class CorgiSnacks
 
 end
 
-
 class MetaCorgiSnacks
   def initialize(snack_box, box_id)
     @snack_box = snack_box
@@ -110,7 +109,10 @@ class MetaCorgiSnacks
   end
 
   def method_missing(name, *args)
-    # Your code goes here...
+    info = @snack_box.get_bone_tastiness(@box_id)
+    tastiness = @snack_box.get_bone_tastiness(@box_id)
+    result = "Bone: #{info}, #{tastiness}"
+    tastiness = 
   end
 
 
