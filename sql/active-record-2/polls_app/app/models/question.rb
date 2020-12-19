@@ -1,16 +1,15 @@
-class Questions < ApplicationRecord
-
+class Question < ApplicationRecord
   has_many(
     :answer_choices,
-    class: 'AnswerChoices'
+    class_name: 'AnswerChoice'
     foreign_key: :answer_choice_id,
     primary_key: :id
   )
 
   belongs_to(
-    :polls,
-    class: 'Polls',
-    foreign_key: :question_id,
+    :poll,
+    class_name: 'Poll',
+    foreign_key: :poll_id,
     primary_key: :id
   )
 end

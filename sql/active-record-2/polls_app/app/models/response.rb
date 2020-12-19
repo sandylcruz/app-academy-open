@@ -1,17 +1,15 @@
-class Responses < ApplicationRecord
+class Response < ApplicationRecord
   belongs_to(
-    :users,
-    class_name: 'Users',
-    foreign_key: :respondent,
+    :respondent,
+    class_name: 'User',
+    foreign_key: :respondent_id,
     primary_key: :id
   )
 
   belongs_to(
-    :answer_choices,
-    class_name: 'AnswerChoices',
+    :answer_choice,
+    class_name: 'AnswerChoice',
     foreign_key: :answer_choice_id,
     primary_key: :id
   )
-
-
 end
