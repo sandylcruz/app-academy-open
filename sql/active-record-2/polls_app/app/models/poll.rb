@@ -1,4 +1,4 @@
-class Poll < ApplicationRecord
+class Poll < ApplicationRecord  
   belongs_to(
     :author,
     class_name: 'User',
