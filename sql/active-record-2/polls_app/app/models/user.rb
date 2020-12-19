@@ -1,7 +1,5 @@
 class User < ApplicationRecord
-  validates :user_name, presence: true, uniqueness: true
-  validates :name, presence: true
-  validates :email, presence: true
+  validates :username, presence: true, uniqueness: true
 
   has_many(
     :authored_polls,
@@ -11,7 +9,7 @@ class User < ApplicationRecord
   )
 
   has_many(
-    :responses
+    :responses,
     class_name: 'Response',
     foreign_key: :respondent_id,
     primary_key: :id
