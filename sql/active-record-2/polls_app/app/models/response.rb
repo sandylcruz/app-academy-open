@@ -1,4 +1,4 @@
-class Responses
+class Responses < ApplicationRecord
   belongs_to(
     :users,
     class_name: 'Users',

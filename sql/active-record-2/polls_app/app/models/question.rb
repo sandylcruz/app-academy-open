@@ -1,9 +1,9 @@
-class Questions < ActiveRecord
+class Questions < ApplicationRecord
 
   has_many(
     :answer_choices,
     class: 'AnswerChoices'
-    foreign_key: :answer_choices,
+    foreign_key: :answer_choice_id,
     primary_key: :id
   )
 
