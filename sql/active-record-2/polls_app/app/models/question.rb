@@ -24,13 +24,12 @@ class Question < ApplicationRecord
   end
 
   def results
-    acs = AnswerChoice.find_by_sql([<<-SQL, id])
-      SELECT answer_choices.*, COUNT(responses.id) AS number_responses
-      FROM answer_choices
-      LEFT OUTER JOIN responses ON answer_choices.id = responses.answer_choice_id
-      WHERE answer_choices.question_id = ?
-      GROUP BY answer_choices.id
-    SQL
-  end
+    acs = self.answer_choices
+    .select("answer_choices.text, COUNT(responses.id) AS num_responses")
+    .left_outer_joins(:responses).group("answer_choices.id")
 
+    acs.inject({}) do |results, ac|
+      results[ac.text] = ac.num_responses; results
+    end
+  end
 end
