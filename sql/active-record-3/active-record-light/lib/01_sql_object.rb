@@ -55,7 +55,7 @@ class SQLObject
   end
 
   def self.find(id)
-    # ...
+    
   end
 
   def initialize(params = {})
