@@ -5,7 +5,7 @@ require 'active_support/inflector'
 class SQLObject
   def self.columns
     return @columns unless @columns.nil?
-    
+
     columns = DBConnection.execute2(<<-SQL).first
       SELECT *
       FROM "#{self.table_name}"
@@ -14,7 +14,20 @@ class SQLObject
     @columns = columns.map { |x| x.to_sym }
   end
 
+  def my_custom_attribute=(value)
+    # thing.my_custom_attribute = 5
+  end
+
   def self.finalize!
+    columns.each do |column|
+      define_method(column) do
+        attributes[column]
+      end
+
+      define_method("#{column}=") do |value|
+        attributes[column] = value
+      end
+    end
   end
 
   def self.table_name=(table_name)
@@ -42,7 +55,7 @@ class SQLObject
   end
 
   def attributes
-    # ...
+    @attributes ||= {}
   end
 
   def attribute_values
