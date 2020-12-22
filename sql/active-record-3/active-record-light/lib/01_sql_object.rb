@@ -112,6 +112,10 @@ class SQLObject
   end
 
   def save
-    # ...
+    if id.nil?
+      self.insert
+    else
+      self.update
+    end
   end
 end
