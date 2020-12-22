@@ -4,15 +4,15 @@ def my_map(array, &prc)
 
   while i < array.length
     new_array << prc.call(array[i])
+    i += 1
   end
 
   new_array
 end
 puts 'my_map test:'
-puts my_map([1, 2, 3, 4, 5] { |num| num * 2} )
+puts my_map([1, 2, 3]) { |num| num * 2 } == [2, 4, 6]
+puts my_map([1, 2, 3]) { |num| num * 3 } == [3, 6, 9]
 puts
-
-
 
 def my_each(array, &prc)
   i = 0
@@ -23,7 +23,7 @@ def my_each(array, &prc)
   end
 end
 puts 'my_each test non-monkey patched:'
-my_each([1, 2, 3]) { |num| puts num }
+puts my_each([1, 2, 3]) { |num| puts num }
 puts
 
 class Array
@@ -44,6 +44,8 @@ puts accumulator == [1, 2, 3]
 puts
 
 def my_join(array, joiner)
+  return "" if array.empty?
+
   new_string = array[0]
   i = 1
 
