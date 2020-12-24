@@ -9,8 +9,8 @@ class AssocOptions
     :primary_key
   )
 
-  def model_class
-    @class_name.constantize
+  def model_class # returns the class NOT the instance
+    @class_name.constantize # returns the class_name class itself
   end
 
   def table_name
@@ -55,17 +55,28 @@ end
 
 module Associatable
   # Phase IIIb
-  def belongs_to(name, options = {})
+  def belongs_to(name, options = {}) # creates an instance method that returns the associated instance of associated class
     options = BelongsToOptions.new(name, options)
+    
     define_method(name) do
       # Must return the correct instance of the class it belongs to
-      foreign_key_value = self.send(options.foreign_key)
-      # target_model_class = 
+      foreign_key_value = self.send(options.foreign_key) #self = instance of SQLObject class
+      target_model_class = options.model_class
+      primary_key_name = options.primary_key
+      target_model_class.where(primary_key_name => foreign_key_value).first
     end
   end
 
-  def has_many(name, options = {})
-    # ...
+  def has_many(name, options = {}) # creates an instance method that returns all associated instances of associated class
+    options = HasManyOptions.new(name, self.name, options)
+
+    define_method(name) do # creates an instance method for the movie class
+      # Returns a collection of other instances in another class
+      primary_key_value = self.send(options.primary_key)
+      target_model_class = options.model_class #options is an instance of the hasmanyoptions class
+      primary_key_name = options.primary_key # symbol from options hash
+      target_model_class.where(options.foreign_key => primary_key_value)
+    end
   end
 
   def assoc_options
@@ -74,5 +85,19 @@ module Associatable
 end
 
 class SQLObject
-  # extend Associatable
+  extend Associatable
 end
+
+# class Movie
+#   has_many(
+#     :actors,
+#     class_name: 'Actor',
+#     foreign_key: :movie_id,
+#     primary_key: :id
+#   )
+# end
+
+# class Actor
+#   ...
+# end
+
