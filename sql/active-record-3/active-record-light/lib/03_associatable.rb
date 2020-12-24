@@ -32,13 +32,24 @@ class BelongsToOptions < AssocOptions
   end
 end
 
+# has_many(
+#   :cats,
+#   class_name: 'Cat',
+#   foreign_key: :user_id,
+#   primary_key: :id
+# )
+
 class HasManyOptions < AssocOptions
   def initialize(name, self_class_name, options = {})
-  # defaults = {
-  #   :foreign_key => "#{self_class_name.underscore}_id".to_sym,
-  #   :class_name => "#{self_class_name}",
-  #   :primary_key => :id
-  # }
+    defaults = {
+      foreign_key: "#{self_class_name.underscore}_id".to_sym,
+      class_name: name.to_s.singularize.titleize,
+      primary_key: :id
+    }
+
+    @foreign_key = options.fetch(:foreign_key, defaults[:foreign_key])
+    @class_name = options.fetch(:class_name, defaults[:class_name])
+    @primary_key = options.fetch(:primary_key, defaults[:primary_key])
   end
 end
 
