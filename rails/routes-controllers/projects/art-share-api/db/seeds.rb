@@ -7,7 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 linus = User.create!(username: 'linus_the_cat')
-callie = User.create!(username: 'callie_the_cat')
+callie = User.create!(username: 'cal_pal')
+squeaky = User.create!(username: 'squeakfreak')
 
 artwork_one = Artwork.create!(title: "Cat", artist: callie, image_url: 'google.com')
 artwork_two = Artwork.create!(title: 'Cat two', artist: linus, image_url: 'google.com')
