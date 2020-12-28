@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_27_231846) do
+ActiveRecord::Schema.define(version: 2020_12_28_004559) do
+
+  create_table "artworks", force: :cascade do |t|
+    t.string "title", null: false
+    t.string "image_url", null: false
+    t.integer "artist_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["artist_id", "title"], name: "index_artworks_on_artist_id_and_title", unique: true
+    t.index ["artist_id"], name: "index_artworks_on_artist_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "username", null: false
