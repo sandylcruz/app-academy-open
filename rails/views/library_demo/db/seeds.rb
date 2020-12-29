@@ -6,7 +6,7 @@ Book.create!(
   description: 'Nine-year-old Oskar Schell has embarked on an urgent, secret mission that will take him through the five boroughs of New York. His goal is to find the lock that matches a mysterious key that belonged to his father, who died in the World Trade Center on the morning of September 11. This seemingly impossible task will bring Oskar into contact with survivors of all sorts on an exhilarating, affecting, often hilarious, and ultimately healing journey.')
 
 Book.create!(
-  title: 'The Argonauts' ,
+  title: 'The Argonauts',
   author: 'Maggie Nelson',
   year: 2015,
   category: 'Memoir',
