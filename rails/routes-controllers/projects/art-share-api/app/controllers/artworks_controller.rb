@@ -1,10 +1,20 @@
 class ArtworksController < ApplicationController
   def index
-    render json: Artwork.all
+    if params[:user_id]
+      user = User.find_by(id: params[:user_id])
+
+      if user.nil?
+        render json: { error: "not_found" }, status: :not_found
+      else 
+        render json: user.artworks + user.shared_artworks
+      end
+    else
+      render json: Artwork.all
+    end
   end
 
   def create
-    artwork = Artwork.create!(id: params.require(:artist_id))
+    artwork = Artwork.new(id: params.require(:artist_id))
 
     if artwork.save
       render json: artwork
