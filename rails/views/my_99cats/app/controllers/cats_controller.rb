@@ -1,15 +1,23 @@
 class CatsController < ApplicationController
   def index
-    render json: Cat.all
+    @cats = Cat.all
+    render :index
   end
 
   def show
-    cat = Cat.find_by(id: params.require(:id))
-    
-    if cat
-      render json: cat
+    @cat = Cat.find_by(id: params.require[:id])
+    render json @cat
+    if @cat
+      render :show
     else
-      render json: { error: "not_found" }, status: not_found
+      redirect_to cats_url
     end
+  end
+
+  def new
+    render :new
+  end
+
+  def create
   end
 end

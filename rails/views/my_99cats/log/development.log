@@ -207,3 +207,889 @@ Started POST "/__better_errors/372af0a7664ec0a6/variables" for ::1 at 2021-01-01
   [1m[36mCat Load (0.2ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" ORDER BY "cats"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
   [1m[36mCat Load (0.8ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" ORDER BY "cats"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
   [1m[36mCat Load (0.2ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" ORDER BY "cats"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+Started GET "/cats/new" for ::1 at 2021-01-02 12:40:38 -0800
+Processing by CatsController#new as HTML
+  Rendering cats/new.html.erb within layouts/application
+  Rendered cats/new.html.erb within layouts/application (1.0ms)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+
+
+
+SyntaxError - syntax error, unexpected tLABEL_END, expecting literal content or terminator or tSTRING_DBEG or tSTRING_DVAR
+...pend=( 'data-turbolinks-track': 'reload' );@output_buffer.sa...
+...                             ^~:
+  app/views/layouts/application.html.erb:9:in `'
+
+Started POST "/__better_errors/1727b5289f52edc8/variables" for ::1 at 2021-01-02 12:40:38 -0800
+Started GET "/cats/new.html.erb" for ::1 at 2021-01-02 12:40:44 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/cats/new.html.erb"):
+  
+actionpack (5.2.4.4) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.4.4) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.4.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.4.4) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/cats/" for ::1 at 2021-01-02 12:40:48 -0800
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  Rendered cats/index.html.erb within layouts/application (0.2ms)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+
+
+
+SyntaxError - syntax error, unexpected tLABEL_END, expecting literal content or terminator or tSTRING_DBEG or tSTRING_DVAR
+...pend=( 'data-turbolinks-track': 'reload' );@output_buffer.sa...
+...                             ^~:
+  app/views/layouts/application.html.erb:9:in `'
+  app/controllers/cats_controller.rb:5:in `index'
+
+Started POST "/__better_errors/5ca64b9a3c676c19/variables" for ::1 at 2021-01-02 12:40:48 -0800
+Started GET "/cats/" for ::1 at 2021-01-02 12:41:06 -0800
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  Rendered cats/index.html.erb within layouts/application (0.3ms)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+
+SyntaxError - syntax error, unexpected tLABEL_END, expecting literal content or terminator or tSTRING_DBEG or tSTRING_DVAR
+...pend=( 'data-turbolinks-track': 'reload' );@output_buffer.sa...
+...                             ^~:
+  app/views/layouts/application.html.erb:9:in `'
+  app/controllers/cats_controller.rb:5:in `index'
+
+Started POST "/__better_errors/573d6f1cf080ab70/variables" for ::1 at 2021-01-02 12:41:06 -0800
+Started GET "/" for ::1 at 2021-01-02 12:41:08 -0800
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/sandylcruz/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/railties-5.2.4.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/sandylcruz/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/railties-5.2.4.4/lib/rails/templates/rails/welcome/index.html.erb (3.3ms)
+Completed 200 OK in 7ms (Views: 4.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/index" for ::1 at 2021-01-02 12:41:12 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/index"):
+  
+actionpack (5.2.4.4) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.4.4) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.4.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.4.4) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/cats" for ::1 at 2021-01-02 12:41:15 -0800
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  Rendered cats/index.html.erb within layouts/application (0.3ms)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+
+SyntaxError - syntax error, unexpected tLABEL_END, expecting literal content or terminator or tSTRING_DBEG or tSTRING_DVAR
+...pend=( 'data-turbolinks-track': 'reload' );@output_buffer.sa...
+...                             ^~:
+  app/views/layouts/application.html.erb:9:in `'
+  app/controllers/cats_controller.rb:5:in `index'
+
+Started POST "/__better_errors/aabd6bb547f8ceb8/variables" for ::1 at 2021-01-02 12:41:15 -0800
+Started GET "/cats" for ::1 at 2021-01-02 12:41:46 -0800
+  [1m[35m (7.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/sandylcruz/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  Rendered cats/index.html.erb within layouts/application (0.5ms)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.0ms)
+
+
+
+SyntaxError - syntax error, unexpected tLABEL_END, expecting literal content or terminator or tSTRING_DBEG or tSTRING_DVAR
+...pend=( 'data-turbolinks-track': 'reload' );@output_buffer.sa...
+...                             ^~:
+  app/views/layouts/application.html.erb:9:in `'
+  app/controllers/cats_controller.rb:5:in `index'
+
+Started POST "/__better_errors/e536d6b94810a821/variables" for ::1 at 2021-01-02 12:41:46 -0800
+Started GET "/cats" for ::1 at 2021-01-02 13:02:10 -0800
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  Rendered cats/index.html.erb within layouts/application (0.2ms)
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+
+SyntaxError - syntax error, unexpected tLABEL_END, expecting literal content or terminator or tSTRING_DBEG or tSTRING_DVAR
+...pend=( 'data-turbolinks-track': 'reload' );@output_buffer.sa...
+...                             ^~:
+  app/views/layouts/application.html.erb:9:in `'
+  app/controllers/cats_controller.rb:5:in `index'
+
+Started POST "/__better_errors/acf8c3660631f1c4/variables" for ::1 at 2021-01-02 13:02:10 -0800
+Started GET "/cats" for ::1 at 2021-01-02 13:02:11 -0800
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  Rendered cats/index.html.erb within layouts/application (0.3ms)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+
+SyntaxError - syntax error, unexpected tLABEL_END, expecting literal content or terminator or tSTRING_DBEG or tSTRING_DVAR
+...pend=( 'data-turbolinks-track': 'reload' );@output_buffer.sa...
+...                             ^~:
+  app/views/layouts/application.html.erb:9:in `'
+  app/controllers/cats_controller.rb:5:in `index'
+
+Started POST "/__better_errors/efc5c0dd040721e6/variables" for ::1 at 2021-01-02 13:02:11 -0800
+Started GET "/cats" for ::1 at 2021-01-02 13:02:18 -0800
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  Rendered cats/index.html.erb within layouts/application (0.4ms)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+
+SyntaxError - syntax error, unexpected tLABEL_END, expecting literal content or terminator or tSTRING_DBEG or tSTRING_DVAR
+...pend=( 'data-turbolinks-track': 'reload' );@output_buffer.sa...
+...                             ^~:
+  app/views/layouts/application.html.erb:9:in `'
+  app/controllers/cats_controller.rb:5:in `index'
+
+Started POST "/__better_errors/b8d62bdd36794311/variables" for ::1 at 2021-01-02 13:02:18 -0800
+Started GET "/" for ::1 at 2021-01-02 13:02:34 -0800
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/sandylcruz/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/railties-5.2.4.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/sandylcruz/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/railties-5.2.4.4/lib/rails/templates/rails/welcome/index.html.erb (1.9ms)
+Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cats" for ::1 at 2021-01-02 13:02:48 -0800
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  Rendered cats/index.html.erb within layouts/application (0.3ms)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+
+SyntaxError - syntax error, unexpected tLABEL_END, expecting literal content or terminator or tSTRING_DBEG or tSTRING_DVAR
+...pend=( 'data-turbolinks-track': 'reload' );@output_buffer.sa...
+...                             ^~:
+  app/views/layouts/application.html.erb:9:in `'
+  app/controllers/cats_controller.rb:5:in `index'
+
+Started POST "/__better_errors/95e241c2e9460227/variables" for ::1 at 2021-01-02 13:02:48 -0800
+Started GET "/cat" for ::1 at 2021-01-02 13:02:50 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/cat"):
+  
+actionpack (5.2.4.4) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.4.4) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.4.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.4.4) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/cats" for ::1 at 2021-01-02 13:02:54 -0800
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  Rendered cats/index.html.erb within layouts/application (0.2ms)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+
+SyntaxError - syntax error, unexpected tLABEL_END, expecting literal content or terminator or tSTRING_DBEG or tSTRING_DVAR
+...pend=( 'data-turbolinks-track': 'reload' );@output_buffer.sa...
+...                             ^~:
+  app/views/layouts/application.html.erb:9:in `'
+  app/controllers/cats_controller.rb:5:in `index'
+
+Started POST "/__better_errors/0d6ead4af6d62df3/variables" for ::1 at 2021-01-02 13:02:54 -0800
+Started GET "/cats" for ::1 at 2021-01-02 13:04:18 -0800
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  Rendered cats/index.html.erb within layouts/application (0.6ms)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+
+
+SyntaxError - syntax error, unexpected tLABEL_END, expecting literal content or terminator or tSTRING_DBEG or tSTRING_DVAR
+...pend=( 'data-turbolinks-track': 'reload' );@output_buffer.sa...
+...                             ^~:
+  app/views/layouts/application.html.erb:9:in `'
+  app/controllers/cats_controller.rb:5:in `index'
+
+Started POST "/__better_errors/ace2792591c32a88/variables" for ::1 at 2021-01-02 13:04:18 -0800
+Started GET "/cats" for ::1 at 2021-01-02 13:04:24 -0800
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  Rendered cats/index.html.erb within layouts/application (0.3ms)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+
+SyntaxError - syntax error, unexpected tLABEL_END, expecting literal content or terminator or tSTRING_DBEG or tSTRING_DVAR
+...pend=( 'data-turbolinks-track': 'reload' );@output_buffer.sa...
+...                             ^~:
+  app/views/layouts/application.html.erb:9:in `'
+  app/controllers/cats_controller.rb:5:in `index'
+
+Started POST "/__better_errors/fdccb6d3dceb7d55/variables" for ::1 at 2021-01-02 13:04:24 -0800
+Started GET "/cats" for ::1 at 2021-01-02 13:04:32 -0800
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  Rendered cats/index.html.erb within layouts/application (0.3ms)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms)
+
+
+
+SyntaxError - syntax error, unexpected tLABEL_END, expecting literal content or terminator or tSTRING_DBEG or tSTRING_DVAR
+...pend=( 'data-turbolinks-track': 'reload' );@output_buffer.sa...
+...                             ^~:
+  app/views/layouts/application.html.erb:9:in `'
+  app/controllers/cats_controller.rb:5:in `index'
+
+Started POST "/__better_errors/5da8c0c910be3447/variables" for ::1 at 2021-01-02 13:04:33 -0800
+Started GET "/cats" for ::1 at 2021-01-02 13:08:29 -0800
+Processing by CatsController#index as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+
+ActionView::MissingTemplate - Missing template cats/index, application/index with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/sandylcruz/Code/app-academy-open/rails/views/my_99cats/app/views":
+  app/controllers/cats_controller.rb:5:in `index'
+
+Started POST "/__better_errors/ccbff177999b2c85/variables" for ::1 at 2021-01-02 13:08:29 -0800
+  [1m[36mCat Load (0.5ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/sandylcruz/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Started GET "/cats" for ::1 at 2021-01-02 13:08:30 -0800
+Processing by CatsController#index as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+
+ActionView::MissingTemplate - Missing template cats/index, application/index with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/sandylcruz/Code/app-academy-open/rails/views/my_99cats/app/views":
+  app/controllers/cats_controller.rb:5:in `index'
+
+Started POST "/__better_errors/038bee679cf64320/variables" for ::1 at 2021-01-02 13:08:30 -0800
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/sandylcruz/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Started GET "/cats" for ::1 at 2021-01-02 13:08:39 -0800
+Processing by CatsController#index as HTML
+Completed 406 Not Acceptable in 4ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::UnknownFormat - CatsController#index is missing a template for this request format and variant.
+request.formats: ["text/html"]
+request.variant: []
+NOTE! For XHR/Ajax or API requests, this action would normally respond with 204 No Content: an empty white screen. Since you're loading it in a web browser, we assume that you expected to actually render a template, not nothing, so we're showing an error to be extra-clear. If you expect 204 No Content, carry on. That's what you'll get from an XHR or API request. Give it a shot.:
+
+Started POST "/__better_errors/11af5bddb8eebffc/variables" for ::1 at 2021-01-02 13:08:39 -0800
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/sandylcruz/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Started GET "/cats" for ::1 at 2021-01-02 13:08:48 -0800
+Processing by CatsController#index as HTML
+  [1m[36mCat Load (0.4ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/controllers/cats_controller.rb:5
+Completed 200 OK in 14ms (Views: 6.5ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/cats" for ::1 at 2021-01-02 13:09:23 -0800
+Processing by CatsController#index as HTML
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+
+ActionView::MissingTemplate - Missing template cats/index, application/index with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/sandylcruz/Code/app-academy-open/rails/views/my_99cats/app/views":
+  app/controllers/cats_controller.rb:4:in `index'
+
+Started POST "/__better_errors/3d32b362780e46bf/variables" for ::1 at 2021-01-02 13:09:23 -0800
+  [1m[36mCat Load (0.4ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/sandylcruz/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Started GET "/cats" for ::1 at 2021-01-02 13:09:48 -0800
+Processing by CatsController#index as HTML
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+
+ActionView::MissingTemplate - Missing template cats/index, application/index with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/sandylcruz/Code/app-academy-open/rails/views/my_99cats/app/views":
+  app/controllers/cats_controller.rb:4:in `index'
+
+Started POST "/__better_errors/cb3692f1e919de05/variables" for ::1 at 2021-01-02 13:09:48 -0800
+  [1m[36mCat Load (0.4ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/sandylcruz/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Started GET "/cats" for ::1 at 2021-01-02 13:10:13 -0800
+Processing by CatsController#index as HTML
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+
+ActionView::MissingTemplate - Missing template cats/index, application/index with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/sandylcruz/Code/app-academy-open/rails/views/my_99cats/app/views":
+  app/controllers/cats_controller.rb:4:in `index'
+
+Started POST "/__better_errors/cb6be976688b6626/variables" for ::1 at 2021-01-02 13:10:13 -0800
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/sandylcruz/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Started GET "/cats" for ::1 at 2021-01-02 13:10:34 -0800
+Processing by CatsController#index as HTML
+  [1m[36mCat Load (0.8ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/controllers/cats_controller.rb:5
+Completed 200 OK in 13ms (Views: 6.4ms | ActiveRecord: 5.2ms)
+
+
+Started GET "/cats/new" for ::1 at 2021-01-02 13:12:18 -0800
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/sandylcruz/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+
+AbstractController::ActionNotFound - The action 'new' could not be found for CatsController:
+
+Started POST "/__better_errors/7d7af1c954a92d3d/variables" for ::1 at 2021-01-02 13:12:18 -0800
+Started GET "/cats/new" for ::1 at 2021-01-02 13:13:12 -0800
+
+AbstractController::ActionNotFound - The action 'new' could not be found for CatsController:
+
+Started POST "/__better_errors/353466331269fb92/variables" for ::1 at 2021-01-02 13:13:13 -0800
+Started GET "/cats/new" for ::1 at 2021-01-02 13:13:55 -0800
+
+AbstractController::ActionNotFound - The action 'new' could not be found for CatsController:
+
+Started POST "/__better_errors/334117c0acf83eb8/variables" for ::1 at 2021-01-02 13:13:55 -0800
+Started GET "/cats/new" for ::1 at 2021-01-02 13:14:07 -0800
+Processing by CatsController#new as HTML
+Completed 406 Not Acceptable in 7ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::UnknownFormat - CatsController#new is missing a template for this request format and variant.
+request.formats: ["text/html"]
+request.variant: []
+NOTE! For XHR/Ajax or API requests, this action would normally respond with 204 No Content: an empty white screen. Since you're loading it in a web browser, we assume that you expected to actually render a template, not nothing, so we're showing an error to be extra-clear. If you expect 204 No Content, carry on. That's what you'll get from an XHR or API request. Give it a shot.:
+
+Started POST "/__better_errors/477d6f2be48e3c6a/variables" for ::1 at 2021-01-02 13:14:07 -0800
+Started GET "/cats/new" for ::1 at 2021-01-02 13:14:59 -0800
+Processing by CatsController#new as HTML
+Completed 406 Not Acceptable in 3ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::UnknownFormat - CatsController#new is missing a template for this request format and variant.
+request.formats: ["text/html"]
+request.variant: []
+NOTE! For XHR/Ajax or API requests, this action would normally respond with 204 No Content: an empty white screen. Since you're loading it in a web browser, we assume that you expected to actually render a template, not nothing, so we're showing an error to be extra-clear. If you expect 204 No Content, carry on. That's what you'll get from an XHR or API request. Give it a shot.:
+
+Started POST "/__better_errors/a9845058efbcdd9d/variables" for ::1 at 2021-01-02 13:14:59 -0800
+Started GET "/cats/new" for ::1 at 2021-01-02 13:15:15 -0800
+Processing by CatsController#new as HTML
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+
+ActionView::MissingTemplate - Missing template cats/new, application/new with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/sandylcruz/Code/app-academy-open/rails/views/my_99cats/app/views":
+  app/controllers/cats_controller.rb:19:in `new'
+
+Started POST "/__better_errors/47932f5e44dae4dd/variables" for ::1 at 2021-01-02 13:15:16 -0800
+Started GET "/cats/new" for ::1 at 2021-01-02 13:15:33 -0800
+Processing by CatsController#new as HTML
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+
+ActionView::MissingTemplate - Missing template cats/new, application/new with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/sandylcruz/Code/app-academy-open/rails/views/my_99cats/app/views":
+  app/controllers/cats_controller.rb:19:in `new'
+
+Started POST "/__better_errors/0c2a16cc7c47c012/variables" for ::1 at 2021-01-02 13:15:33 -0800
+Started GET "/cats/new" for ::1 at 2021-01-02 13:17:13 -0800
+Processing by CatsController#new as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+
+ActionView::MissingTemplate - Missing template cats/new, application/new with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/sandylcruz/Code/app-academy-open/rails/views/my_99cats/app/views":
+  app/controllers/cats_controller.rb:19:in `new'
+
+Started POST "/__better_errors/8c92f91e0a40cc90/variables" for ::1 at 2021-01-02 13:17:13 -0800
+Started GET "/cats/new" for ::1 at 2021-01-02 13:18:24 -0800
+Processing by CatsController#new as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+
+ActionView::MissingTemplate - Missing template cats/new, application/new with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/sandylcruz/Code/app-academy-open/rails/views/my_99cats/app/views":
+  app/controllers/cats_controller.rb:19:in `new'
+
+Started POST "/__better_errors/0ee1577441479eaf/variables" for ::1 at 2021-01-02 13:18:24 -0800
+Started GET "/cats/" for ::1 at 2021-01-02 13:18:28 -0800
+Processing by CatsController#index as HTML
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+
+ActionView::MissingTemplate - Missing template cats/index, application/index with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/sandylcruz/Code/app-academy-open/rails/views/my_99cats/app/views":
+  app/controllers/cats_controller.rb:4:in `index'
+
+Started POST "/__better_errors/5ffe599756140f5b/variables" for ::1 at 2021-01-02 13:18:28 -0800
+  [1m[36mCat Load (0.5ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/sandylcruz/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Started GET "/cats/index" for ::1 at 2021-01-02 13:19:01 -0800
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"index"}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms)
+
+
+
+ArgumentError - wrong number of arguments (given 0, expected 1):
+  app/controllers/cats_controller.rb:9:in `show'
+
+Started POST "/__better_errors/a0a4d56d096a2e02/variables" for ::1 at 2021-01-02 13:19:01 -0800
+Started GET "/cats" for ::1 at 2021-01-02 13:19:14 -0800
+Processing by CatsController#index as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+
+ActionView::MissingTemplate - Missing template cats/index, application/index with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/sandylcruz/Code/app-academy-open/rails/views/my_99cats/app/views":
+  app/controllers/cats_controller.rb:4:in `index'
+
+Started POST "/__better_errors/a77b38cfff5c0c80/variables" for ::1 at 2021-01-02 13:19:14 -0800
+  [1m[36mCat Load (0.2ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/sandylcruz/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Started GET "/cats" for ::1 at 2021-01-02 13:20:09 -0800
+Processing by CatsController#index as HTML
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+
+
+ActionView::MissingTemplate - Missing template cats/index, application/index with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/sandylcruz/Code/app-academy-open/rails/views/my_99cats/app/views":
+  app/controllers/cats_controller.rb:4:in `index'
+
+Started POST "/__better_errors/6b158f9f3816642c/variables" for ::1 at 2021-01-02 13:20:09 -0800
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/sandylcruz/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Started GET "/cats" for ::1 at 2021-01-02 13:20:28 -0800
+Processing by CatsController#index as HTML
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+
+ActionView::MissingTemplate - Missing template cats/index, application/index with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/sandylcruz/Code/app-academy-open/rails/views/my_99cats/app/views":
+  app/controllers/cats_controller.rb:4:in `index'
+
+Started POST "/__better_errors/df2d41ec4aab683b/variables" for ::1 at 2021-01-02 13:20:28 -0800
+  [1m[36mCat Load (0.2ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/sandylcruz/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Started GET "/cats" for ::1 at 2021-01-02 13:21:26 -0800
+Processing by CatsController#index as HTML
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/controllers/cats_controller.rb:4
+Completed 200 OK in 18ms (Views: 9.8ms | ActiveRecord: 6.1ms)
+
+
+Started GET "/cats/index" for ::1 at 2021-01-02 13:24:56 -0800
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/sandylcruz/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"index"}
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms)
+
+
+
+ArgumentError - wrong number of arguments (given 0, expected 1):
+  app/controllers/cats_controller.rb:9:in `show'
+
+Started POST "/__better_errors/9e6e5b43494b4f1a/variables" for ::1 at 2021-01-02 13:24:56 -0800
+Started GET "/cats/index" for ::1 at 2021-01-02 13:24:57 -0800
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"index"}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms)
+
+
+
+ArgumentError - wrong number of arguments (given 0, expected 1):
+  app/controllers/cats_controller.rb:9:in `show'
+
+Started POST "/__better_errors/9b91f86fac7ab387/variables" for ::1 at 2021-01-02 13:24:57 -0800
+Started GET "/cats/index" for ::1 at 2021-01-02 13:24:58 -0800
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"index"}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms)
+
+
+
+ArgumentError - wrong number of arguments (given 0, expected 1):
+  app/controllers/cats_controller.rb:9:in `show'
+
+Started POST "/__better_errors/97324c39b26a2109/variables" for ::1 at 2021-01-02 13:24:58 -0800
+Started GET "/cats/index" for ::1 at 2021-01-02 13:25:40 -0800
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"index"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+
+ArgumentError - wrong number of arguments (given 0, expected 1):
+  app/controllers/cats_controller.rb:8:in `show'
+
+Started POST "/__better_errors/b9ac29cddca38f1c/variables" for ::1 at 2021-01-02 13:25:40 -0800
+Started GET "/cats/index" for ::1 at 2021-01-02 13:26:02 -0800
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"index"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+
+ArgumentError - wrong number of arguments (given 0, expected 1):
+  app/controllers/cats_controller.rb:8:in `show'
+
+Started POST "/__better_errors/76b538bec22af50a/variables" for ::1 at 2021-01-02 13:26:02 -0800
+Started GET "/cats/" for ::1 at 2021-01-02 13:26:36 -0800
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  Rendered cats/index.html.erb within layouts/application (0.5ms)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.0ms)
+
+
+
+SyntaxError - syntax error, unexpected tLABEL_END, expecting literal content or terminator or tSTRING_DBEG or tSTRING_DVAR
+...pend=( 'data-turbolinks-track': 'reload' );@output_buffer.sa...
+...                             ^~:
+  app/views/layouts/application.html.erb:9:in `'
+  app/controllers/cats_controller.rb:4:in `index'
+
+Started POST "/__better_errors/c90ec25fc364f140/variables" for ::1 at 2021-01-02 13:26:36 -0800
+Started GET "/cats/" for ::1 at 2021-01-02 13:27:18 -0800
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  Rendered cats/index.html.erb within layouts/application (0.3ms)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+
+
+
+SyntaxError - syntax error, unexpected tLABEL_END, expecting literal content or terminator or tSTRING_DBEG or tSTRING_DVAR
+...pend=( 'data-turbolinks-track': 'reload' );@output_buffer.sa...
+...                             ^~:
+  app/views/layouts/application.html.erb:9:in `'
+  app/controllers/cats_controller.rb:4:in `index'
+
+Started POST "/__better_errors/b6940c0025b939f1/variables" for ::1 at 2021-01-02 13:27:18 -0800
+Started GET "/cats/" for ::1 at 2021-01-02 13:27:46 -0800
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  Rendered cats/index.html.erb within layouts/application (0.3ms)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+
+
+
+SyntaxError - syntax error, unexpected tLABEL_END, expecting literal content or terminator or tSTRING_DBEG or tSTRING_DVAR
+...pend=( 'data-turbolinks-track': 'reload' );@output_buffer.sa...
+...                             ^~:
+  app/views/layouts/application.html.erb:9:in `'
+  app/controllers/cats_controller.rb:4:in `index'
+
+Started POST "/__better_errors/58e85a5d9e09c576/variables" for ::1 at 2021-01-02 13:27:46 -0800
+Started GET "/cats/" for ::1 at 2021-01-02 13:28:06 -0800
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  Rendered cats/index.html.erb within layouts/application (0.3ms)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+
+SyntaxError - syntax error, unexpected tLABEL_END, expecting literal content or terminator or tSTRING_DBEG or tSTRING_DVAR
+...pend=( 'data-turbolinks-track': 'reload' );@output_buffer.sa...
+...                             ^~:
+  app/views/layouts/application.html.erb:9:in `'
+  app/controllers/cats_controller.rb:4:in `index'
+
+Started POST "/__better_errors/111b9ffc6e3a0a5d/variables" for ::1 at 2021-01-02 13:28:06 -0800
+Started GET "/cats/" for ::1 at 2021-01-02 13:31:42 -0800
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  Rendered cats/index.html.erb within layouts/application (0.4ms)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms)
+
+
+
+SyntaxError - syntax error, unexpected tLABEL_END, expecting literal content or terminator or tSTRING_DBEG or tSTRING_DVAR
+...pend=( 'data-turbolinks-track': 'reload' );@output_buffer.sa...
+...                             ^~:
+  app/views/layouts/application.html.erb:9:in `'
+
+Started POST "/__better_errors/183799fc6f6bb3b1/variables" for ::1 at 2021-01-02 13:31:42 -0800
+Started GET "/cats/" for ::1 at 2021-01-02 13:31:50 -0800
+Processing by CatsController#index as HTML
+  [1m[36mCat Load (0.6ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/controllers/cats_controller.rb:4
+Completed 200 OK in 15ms (Views: 7.4ms | ActiveRecord: 5.8ms)
+
+
+Started GET "/cats/" for ::1 at 2021-01-02 13:32:48 -0800
+Processing by CatsController#index as HTML
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/controllers/cats_controller.rb:4
+Completed 200 OK in 13ms (Views: 5.8ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/cats/" for ::1 at 2021-01-02 13:33:12 -0800
+Processing by CatsController#index as HTML
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/controllers/cats_controller.rb:4
+Completed 200 OK in 13ms (Views: 6.3ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/cats/" for ::1 at 2021-01-02 13:33:17 -0800
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  Rendered cats/index.html.erb within layouts/application (0.2ms)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+
+
+SyntaxError - syntax error, unexpected tLABEL_END, expecting literal content or terminator or tSTRING_DBEG or tSTRING_DVAR
+...pend=( 'data-turbolinks-track': 'reload' );@output_buffer.sa...
+...                             ^~:
+  app/views/layouts/application.html.erb:9:in `'
+  app/controllers/cats_controller.rb:5:in `index'
+
+Started POST "/__better_errors/194dfd373e398f03/variables" for ::1 at 2021-01-02 13:33:17 -0800
+Started GET "/cats/" for ::1 at 2021-01-02 13:33:24 -0800
+Processing by CatsController#index as HTML
+  [1m[36mCat Load (0.4ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/controllers/cats_controller.rb:4
+Completed 200 OK in 15ms (Views: 7.6ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/cats/" for ::1 at 2021-01-02 13:34:11 -0800
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/sandylcruz/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by CatsController#index as HTML
+  [1m[36mCat Load (0.5ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/controllers/cats_controller.rb:4
+Completed 200 OK in 19ms (Views: 7.0ms | ActiveRecord: 5.9ms)
+
+
+Started GET "/cats/" for ::1 at 2021-01-02 13:35:29 -0800
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  Rendered cats/index.html.erb within layouts/application (0.6ms)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms)
+
+
+
+SyntaxError - syntax error, unexpected tLABEL_END, expecting literal content or terminator or tSTRING_DBEG or tSTRING_DVAR
+...pend=( 'data-turbolinks-track': 'reload' );@output_buffer.sa...
+...                             ^~:
+  app/views/layouts/application.html.erb:9:in `'
+  app/controllers/cats_controller.rb:5:in `index'
+
+Started POST "/__better_errors/4c97f71d5dbd9f17/variables" for ::1 at 2021-01-02 13:35:29 -0800
+Started GET "/cats/new" for ::1 at 2021-01-02 13:38:46 -0800
+Processing by CatsController#new as HTML
+  Rendering cats/new.html.erb within layouts/application
+  Rendered cats/new.html.erb within layouts/application (0.2ms)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+
+SyntaxError - syntax error, unexpected tLABEL_END, expecting literal content or terminator or tSTRING_DBEG or tSTRING_DVAR
+...pend=( 'data-turbolinks-track': 'reload' );@output_buffer.sa...
+...                             ^~:
+  app/views/layouts/application.html.erb:9:in `'
+  app/controllers/cats_controller.rb:19:in `new'
+
+Started POST "/__better_errors/13bb8d7c262e89cc/variables" for ::1 at 2021-01-02 13:38:46 -0800
+Started POST "/__better_errors/4c97f71d5dbd9f17/variables" for ::1 at 2021-01-02 13:38:50 -0800
+Started GET "/cats/" for ::1 at 2021-01-02 13:39:20 -0800
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  Rendered cats/index.html.erb within layouts/application (0.3ms)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+
+
+
+SyntaxError - syntax error, unexpected tLABEL_END, expecting literal content or terminator or tSTRING_DBEG or tSTRING_DVAR
+...pend=( 'data-turbolinks-track': 'reload' );@output_buffer.sa...
+...                             ^~:
+  app/views/layouts/application.html.erb:9:in `'
+  app/controllers/cats_controller.rb:5:in `index'
+
+Started POST "/__better_errors/a4ac2f139174fc18/variables" for ::1 at 2021-01-02 13:39:20 -0800
+Started GET "/cats/new" for ::1 at 2021-01-02 13:39:23 -0800
+Processing by CatsController#new as HTML
+  Rendering text template
+  Rendered text template (0.0ms)
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cats/" for ::1 at 2021-01-02 13:39:37 -0800
+Processing by CatsController#index as HTML
+  Rendering text template
+  Rendered text template (0.0ms)
+Completed 200 OK in 2ms (Views: 0.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cats/" for ::1 at 2021-01-02 13:39:45 -0800
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  Rendered cats/index.html.erb within layouts/application (0.3ms)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.0ms)
+
+
+
+SyntaxError - syntax error, unexpected tLABEL_END, expecting literal content or terminator or tSTRING_DBEG or tSTRING_DVAR
+...pend=( 'data-turbolinks-track': 'reload' );@output_buffer.sa...
+...                             ^~:
+  app/views/layouts/application.html.erb:9:in `'
+  app/controllers/cats_controller.rb:5:in `index'
+
+Started POST "/__better_errors/4a6b08a98f56a871/variables" for ::1 at 2021-01-02 13:39:45 -0800
+Started GET "/cats/" for ::1 at 2021-01-02 13:44:17 -0800
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/sandylcruz/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  Rendered cats/index.html.erb within layouts/application (0.5ms)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.0ms)
+
+
+
+SyntaxError - syntax error, unexpected tLABEL_END, expecting literal content or terminator or tSTRING_DBEG or tSTRING_DVAR
+...pend=( 'data-turbolinks-track': 'reload' );@output_buffer.sa...
+...                             ^~:
+  app/views/layouts/application.html.erb:9:in `'
+  app/controllers/cats_controller.rb:5:in `index'
+
+Started POST "/__better_errors/4346a486c77bb35c/variables" for ::1 at 2021-01-02 13:44:17 -0800
+Started POST "/__better_errors/4346a486c77bb35c/variables" for ::1 at 2021-01-02 13:44:21 -0800
+  [1m[36mCat Load (0.4ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/sandylcruz/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Started GET "/cats/" for ::1 at 2021-01-02 13:44:57 -0800
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  Rendered cats/index.html.erb within layouts/application (0.3ms)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+
+
+
+SyntaxError - syntax error, unexpected tLABEL_END, expecting literal content or terminator or tSTRING_DBEG or tSTRING_DVAR
+...pend=( 'data-turbolinks-track': 'reload' );@output_buffer.sa...
+...                             ^~:
+  app/views/layouts/application.html.erb:9:in `'
+  app/controllers/cats_controller.rb:5:in `index'
+
+Started POST "/__better_errors/a989186ea69b8241/variables" for ::1 at 2021-01-02 13:44:57 -0800
+Started GET "/cats/" for ::1 at 2021-01-02 13:47:46 -0800
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  Rendered cats/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 252ms (Views: 250.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cats/" for ::1 at 2021-01-02 13:50:14 -0800
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  Rendered cats/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 10ms (Views: 10.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cats/new" for ::1 at 2021-01-02 13:50:16 -0800
+Processing by CatsController#new as HTML
+  Rendering text template
+  Rendered text template (0.0ms)
+Completed 200 OK in 8ms (Views: 7.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cats/" for ::1 at 2021-01-02 13:50:41 -0800
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  Rendered cats/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 9ms (Views: 9.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cats/" for ::1 at 2021-01-02 13:52:20 -0800
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  Rendered cats/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 12ms (Views: 9.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cats/new" for ::1 at 2021-01-02 13:52:22 -0800
+Processing by CatsController#new as HTML
+  Rendering cats/new.html.erb within layouts/application
+  Rendered cats/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 9ms (Views: 9.1ms | ActiveRecord: 0.0ms)
+
+
