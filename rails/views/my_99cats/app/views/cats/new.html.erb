@@ -1,21 +1,21 @@
 <h1>Add Cat to Library</h1
 
-<form action="index.html" method="post">
+<form action="/cats" method="post">
   <label for="name-field">Name</label>
-  <input type="text" id="name-field" />
+  <input type="text" id="name-field" name="cat[name]"/>
   <br /> <br />
 
   <label>Choose one option: </label>
   <label for="male">Male</label>
-  <input type="radio" name="sex" id="male" value="M" />
+  <input type="radio" name="sex" id="male" value="M" name="cat[sex]"/>
   
   <label for="female">Female</label>
-  <input type="radio" name="sex" id="female" value="F" />
+  <input type="radio" name="sex" id="female" value="F" name="cat[sex]"/>
 
   <br /> <br />
 
   <label for="color-field">Color</label>
-  <select>
+  <select id="color" name = "cat[color]">
     <option selected = "-- Choose a Color --">-- Choose a Color --</option>
     <option>Orange</option>
     <option>Black</option>
@@ -26,10 +26,19 @@
     <option>White</option>
     <option>Calico</option>
   </select>
-  <br /> <br />
-  <label for="date-field">Birth-date</label>
-  <input type="date" id="date-field" />
+
   <br /> <br />
 
-  <textarea name ="description" form ="catform"></textarea>
+  <label for="date-field">Birth-date</label>
+  <input type="date" id="date-field" name="cat[birth_date]" />
+
+  <br /> <br />
+
+  <label for="description-field">Description</label>
+  <br>
+  <textarea name ="cat[description]" form ="catform"></textarea>
+
+  <br /> <br />
+
+  <input type="submit" value="Add Cat to Library">
 </form>

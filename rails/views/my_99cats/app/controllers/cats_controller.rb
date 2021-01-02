@@ -5,8 +5,8 @@ class CatsController < ApplicationController
   end
 
   def show
-    @cat = Cat.find_by(id: params.require[:id])
-    render json @cat
+    @cat = Cat.find_by(id: params[:id])
+
     if @cat
       render :show
     else
@@ -15,9 +15,23 @@ class CatsController < ApplicationController
   end
 
   def new
+    @cat = Cat.new
     render :new
   end
 
   def create
+    @cat = Cat.new(params)
+
+    if @cat.save
+      redirect_to cat_url(@cat)
+    else
+      render :new
+    end
+  end
+
+  private
+
+  def cat_params
+    params.require(:cat).permit(:name, :sex, :color, :birth_date, :description)
   end
 end
