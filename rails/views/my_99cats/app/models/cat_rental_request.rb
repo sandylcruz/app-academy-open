@@ -11,6 +11,8 @@ class CatRentalRequest < ApplicationRecord
   )
 
   def overlapping_requests
-    
+    CatRentalRequest
+      .where(cat_id: cat_id)
+      .where('end_date >= ? AND start_date <= ? AND id != ?', start_date, end_date, id)
   end
 end
