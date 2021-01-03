@@ -1,8 +1,10 @@
-<form action="<%= cat_url(cat) %>" method="post">
-  <input 
-    type="hidden" 
-    name="_method" 
-    value="PATCH">
+<% action_url = (cat.persisted? ? cat_url(cat) : cats_url) %>
+<% method = (cat.persisted? ? :patch : :post) %>
+
+<form action="<%= action_url %>" method="post">
+  <% if method == :patch %>
+    <input type="hidden" name="_method" value="patch" />
+  <% end %>
 
   <label for="name-field">Name</label>
   <input 
@@ -36,7 +38,7 @@
 
   <label for="color-field">Color</label>
   <select id="color-field" name="cat[color]">
-    <option disabled="-- Choose a Color --">-- Choose a Color --</option>
+    <option disabled selected="-- Choose a Color --">-- Choose a Color --</option>
     <option value="Orange" <%= cat.color == "Orange" ? "selected" : ""%> >Orange</option>
     <option value="Black" <%= cat.color == "Black" ? "selected" : ""%> >Black</option>
     <option value="Tabby" <%= cat.color == "Tabby" ? "selected" : ""%> >Tabby</option>
@@ -69,7 +71,6 @@
   <br />
   <br />
 
-  <input 
-    type="submit" 
-    value="Update Cat in Library" />
+  <% submit_text = (cat.persisted? ? 'Update' : 'Create') + ' cat!' %>
+  <input type="submit" value="<%= submit_text %>">
 </form>
