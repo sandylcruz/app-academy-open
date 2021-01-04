@@ -1,0 +1,26 @@
+<h1>Cat Rental Request</h1>
+
+<form action="<%= cat_rental_requests_url %>" method="post">
+
+  <label for="cat-rental_request_id">Select-a-Cat</label>
+
+  <select id="cat-rental_request_id" name="cat_rental_request[id]">
+    
+    <option disable selected="-- Choose a Cat --">-- Choose a Cat --</option>
+      <% Cat.all.each do |cat| %>
+        <option value=<%= cat.name %>><%= cat.name %></option>
+      <% end %>
+  </select>
+  
+  <br />
+  <br />
+
+  <label for="requested_date">Request-a-Date</label>
+    <input 
+        type="date"
+        id="date-field"
+        name="cat_rental_request[date]"
+        value="cat_rental_request.date" />
+  </label>
+</form>
+

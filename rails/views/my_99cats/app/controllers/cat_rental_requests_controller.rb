@@ -1,4 +1,19 @@
-class CatRentalRequests < ApplicationController
+class CatRentalRequestsController < ApplicationController
+  def index
+    @cat_rental_requests = CatRentalRequest.all
+      render :index
+  end
+
+  def show
+    @cat_rental_request = CatRentalRequest.find_by(id: params[:id])
+
+    if @cat_rental_request
+      render :show
+    else
+      redirect_to cat_rental_requests_url
+    end
+  end
+
   def new
     @cat_rental_request = CatRentalRequest.new
     render :new
@@ -8,12 +23,10 @@ class CatRentalRequests < ApplicationController
     @cat_rental_request = CatRentalRequest.new(cat_rental_request_params)
 
     if @cat_rental_request.save?
-
+      redirect_to cat_rental_request_url(@cat)
     else
+      render :new
     end
-  end
-
-  def edit
   end
 
   private
