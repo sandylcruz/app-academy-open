@@ -25,6 +25,10 @@ class CatRentalRequest < ApplicationRecord
     overlapping_requests.where(status: "PENDING")
   end
 
+  def pending?
+    self.status == "PENDING"
+  end
+
   def approve!
     raise "Status cannot be changed" if self.status != "PENDING"
 
@@ -40,14 +44,6 @@ class CatRentalRequest < ApplicationRecord
     raise "Status cannot be changed" if self.status != "PENDING"
     self.status = "DENIED"
     self.save!
-  end
-
-  def pending?
-    if self.status == "PENDING"
-      return true
-    else
-      return false
-    end
   end
 
   private

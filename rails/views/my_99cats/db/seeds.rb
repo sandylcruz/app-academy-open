@@ -13,3 +13,5 @@ linus = Cat.create!(name: "Linus", sex: "M", color: "Tabby", birth_date: "2020-0
 request_one = CatRentalRequest.create!(cat: callie, start_date: '2021-01-01', end_date: '2021-01-05')
 request_two = CatRentalRequest.create!(cat: callie, start_date: '2021-01-10', end_date: '2021-01-15')
 request_three = CatRentalRequest.create!(cat: squeaky, start_date: '2021-01-10', end_date: '2021-01-15')
+request_four = CatRentalRequest.create!(cat: squeaky, start_date: '2021-01-10', end_date: '2021-01-15')
+request_five = CatRentalRequest.create!(cat: linus, start_date: '2021-01-10', end_date: '2021-01-15')
