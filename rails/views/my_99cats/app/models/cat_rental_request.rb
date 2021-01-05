@@ -26,15 +26,19 @@ class CatRentalRequest < ApplicationRecord
   end
 
   def approve!
-    if self.status != "PENDING"
-      raise "Status cannot be changed"
-    end
+    raise "Status cannot be changed" if self.status != "PENDING"
 
     overlapping_pending_requests.each do |request|
       request.update!(status: "DENIED")
     end
 
     self.status = "APPROVED"
+    self.save!
+  end
+
+  def deny!
+    raise "Status cannot be changed" if self.status != "PENDING"
+    self.status = "DENIED"
     self.save!
   end
 
