@@ -1,57 +1,73 @@
-<center>
-<h1> <%= @cat.name %></h1>
-<table style="width:100%">
-  <tr>
-    <td>Attribute</td>
-    <td>Value</td>
-  </tr>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
 
-  <tr>
-    <td>Age</td>
-    <td><%= @cat.age %></td>
-  </tr>
+  <center>
+    <body>
+      <table style="width:100%", class="styled-table">
+      
+      <h1> <%= @cat.name %></h1>
+        <thead>
+            <tr>
+              <td>Attribute</td>
+              <td>Value</td>
+            </tr>
+        </thead>
 
-  <tr>
-    <td>Birth_date</td>
-    <td><%= @cat.birth_date %></td>
-  </tr>
+        <tbody>
+        
+          <tr>
+            <td>Age</td>
+            <td><%= @cat.age %></td>
+          </tr>
 
-  <tr>
-    <td>Color</td>
-    <td><%= @cat.color %></td>
-  </tr>
+          <tr>
+            <td>Birth_date</td>
+            <td><%= @cat.birth_date %></td>
+          </tr>
 
-  <tr>
-    <td>Sex</td>
-    <td><%= @cat.sex %></td>
-  </tr>
+          <tr>
+            <td>Color</td>
+            <td><%= @cat.color %></td>
+          </tr>
 
-  
- 
-  <td><%= @cat.description %></td>
-</tr>
+          <tr>
+            <td>Sex</td>
+            <td><%= @cat.sex %></td>
+          </tr>
 
-</table>
+          <td><%= @cat.description %></td>
+          </tr>
+        </tbody>
+      </table>
 
-<h3>Rental Requests</h3>
-<table style="width:100%">
-  <tr>
-    <td>Start date</td>
-    <td>End date</td>
-    <td>Status</td>
-  </tr>
-  <% @cat.cat_rental_requests.order('start_date').each do |request| %>
-    <tr>
-      <td><%= request.start_date %></td>
-      <td><%= request.end_date %></td>
-      <td><%= request.status %></td>
-    </tr>
-  <% end %>
-</table>
+      <h2>Rental Requests</h2>
+      <table style="width:100%", class="styled_table-2">
+        <thead>
+          <tr>
+            <td>Start date</td>
+            <td>End date</td>
+            <td>Status</td>
+          </tr>
+        </thead>
 
-<br>
-<br>
+        <% @cat.cat_rental_requests.order('start_date').each do |request| %>
+          <tbody>
+            <tr>
+              <td><%= request.start_date %></td>
+              <td><%= request.end_date %></td>
+              <td><%= request.status %></td>
+            </tr>
+          </tbody>
+        <% end %>
+      </table>
 
-<button type="button">Approve</button>
-<button type="button">Deny</button>
-</center>
+      <br>
+      <br>
+
+      <button type="button">Approve</button>
+      <button type="button">Deny</button>
+    </body>
+  </center>
+</html>
