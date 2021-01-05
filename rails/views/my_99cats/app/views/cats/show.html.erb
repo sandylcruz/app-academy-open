@@ -1,13 +1,37 @@
+<center>
 <h1> <%= @cat.name %></h1>
-<h3>Name: <%= @cat.name %></h3>
-<h3>Sex: <%= @cat.sex %></h3>
-<h3>Color: <%= @cat.color %></h3>
-<h3>Birth-date: <%= @cat.birth_date %></h3>
-<h3>Age: <%= @cat.age %></h3>
+<table style="width:100%">
+  <tr>
+    <td>Attribute</td>
+    <td>Value</td>
+  </tr>
 
-<p>
-  <%= @cat.description %>
-</p>
+  <tr>
+    <td>Age</td>
+    <td><%= @cat.age %></td>
+  </tr>
+
+  <tr>
+    <td>Birth_date</td>
+    <td><%= @cat.birth_date %></td>
+  </tr>
+
+  <tr>
+    <td>Color</td>
+    <td><%= @cat.color %></td>
+  </tr>
+
+  <tr>
+    <td>Sex</td>
+    <td><%= @cat.sex %></td>
+  </tr>
+
+  
+ 
+  <td><%= @cat.description %></td>
+</tr>
+
+</table>
 
 <h3>Rental Requests</h3>
 <table style="width:100%">
@@ -24,3 +48,10 @@
     </tr>
   <% end %>
 </table>
+
+<br>
+<br>
+
+<button type="button">Approve</button>
+<button type="button">Deny</button>
+</center>
