@@ -1,0 +1,49 @@
+h1 {
+  font-size: 60px;
+  font-family: sans-serif;
+  font: helvetica neue;
+}
+
+h2 {
+  font-size: 30px;
+  font-family: sans-serif;
+  font: helvetica neue;
+}
+
+button {
+  font-size: 15px;
+  font-family: sans-serif;
+  font: helvetica neue;
+  color: #f3f3f3;
+  background-color: #009879;
+  border-color: #f3f3f3;
+}
+
+table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  font: helvetica neue;
+  min-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+body thead tr {
+  background-color: #009879;
+  color: #ffffff;
+  text-align: left;
+}
+
+table th,
+table td {
+  padding: 5px 7px;
+}
+
+table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
