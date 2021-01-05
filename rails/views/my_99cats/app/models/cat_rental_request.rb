@@ -42,6 +42,14 @@ class CatRentalRequest < ApplicationRecord
     self.save!
   end
 
+  def pending?
+    if self.status == "PENDING"
+      return true
+    else
+      return false
+    end
+  end
+
   private
 
   def does_not_overlap_approved_request
