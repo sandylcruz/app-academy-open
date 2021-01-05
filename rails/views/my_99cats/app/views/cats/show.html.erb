@@ -4,6 +4,23 @@
 <h3>Color: <%= @cat.color %></h3>
 <h3>Birth-date: <%= @cat.birth_date %></h3>
 <h3>Age: <%= @cat.age %></h3>
+
 <p>
   <%= @cat.description %>
 </p>
+
+<h3>Rental Requests</h3>
+<table style="width:100%">
+  <tr>
+    <td>Start date</td>
+    <td>End date</td>
+    <td>Status</td>
+  </tr>
+  <% @cat.cat_rental_requests.order('start_date').each do |request| %>
+    <tr>
+      <td><%= request.start_date %></td>
+      <td><%= request.end_date %></td>
+      <td><%= request.status %></td>
+    </tr>
+  <% end %>
+</table>
