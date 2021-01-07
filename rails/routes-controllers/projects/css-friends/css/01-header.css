@@ -1,17 +1,30 @@
 /* PHASE 1: Header */
 
-.header {
+.body {
+  font-family: helvetica, sans-serif;
+  line-height: 2;
+  font-size: 20px;
+  color: blue;
+}
+
+li {
+  list-style: none;
+}
+ul {
+  margin: 0;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
   padding: 60px;
   text-align: center;
   background: #1abc9c;
   color: white;
-  font: helvetica;
+  font-family: helvetica, sans-serif;
   font-size: 30px;
-  display: block;
 }
 
-.body {
-  font: helvetica;
-  font-size: 20px;
-  color: blue;
+#links li {
+  display: inline-block;
 }
