@@ -1,6 +1,9 @@
 require 'securerandom'
+require 'bcrypt'
 
 class User < ApplicationRecord
+  include BCrypt
+
   before_validation :ensure_session_token
 
   validates :username, presence: true, uniqueness: true
@@ -12,6 +15,10 @@ class User < ApplicationRecord
 
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
+    password = BCrypt::Password.create('password')
+
+    return user if user.password_digest == BCrypt::Password.create('password')
+    # return user if user.find_by_credentials()
   end
 
   def self.generate_session_token
@@ -27,8 +34,8 @@ class User < ApplicationRecord
   def ensure_session_token
   end
 
-  def password=(arg)
-    @password = arg
+  def password=(password)
+    self.password_digest = BCrypt::Password.create(password)
   end
 
 
