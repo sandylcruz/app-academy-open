@@ -17,8 +17,11 @@ class User < ApplicationRecord
     user = User.find_by(username: username)
     password = BCrypt::Password.create('password')
 
-    return user if user.password_digest == BCrypt::Password.create('password')
-    # return user if user.find_by_credentials()
+    return user.is_password?(password)
+  end
+
+  def is_password?(password)
+    BCrypt::Password.new(self.password_digest).is_password?(password)
   end
 
   def self.generate_session_token
