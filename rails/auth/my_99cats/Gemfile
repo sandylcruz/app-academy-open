@@ -54,6 +54,7 @@ group :development do
   gem 'byebug'
   gem 'pry-rails'
   gem 'bcrypt'
+  gem 'securerandom'
 end
 
 group :test do
