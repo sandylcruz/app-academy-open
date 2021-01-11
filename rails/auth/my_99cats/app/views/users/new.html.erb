@@ -1,1 +1,22 @@
-<h3>User page</h3>
+<h3>New User</h3>
+
+<form action="<%= new_user_url %>" method="post">
+
+<label for="username-field">Username</label>
+<input 
+  type="text" 
+  id="username-field" 
+  name="@user[username]" 
+  value="<%= @user.username %>">
+<br>
+<br>
+
+<label for="password-field">Password</label>
+<input 
+  type="text"
+  id="password-field"
+  name="@user[password]"
+  value="<%= @user.password %>">
+<br>
+<br>
+<input type="submit">
