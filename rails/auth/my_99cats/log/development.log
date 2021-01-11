@@ -18145,3 +18145,16 @@ Processing by UsersController#new as HTML
 Completed 200 OK in 197ms (Views: 183.3ms | ActiveRecord: 7.6ms)
 
 
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "loucrew"], ["LIMIT", 1]]
+Started GET "/users/new" for ::1 at 2021-01-11 13:08:29 -0800
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 27ms (Views: 12.1ms | ActiveRecord: 8.4ms)
+
+
+Started GET "/session/new" for ::1 at 2021-01-11 13:08:32 -0800
+
+ActionController::RoutingError - uninitialized constant SessionController:
+
+Started POST "/__better_errors/1ec366255a29057a/variables" for ::1 at 2021-01-11 13:08:32 -0800

@@ -5,18 +5,20 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @session = Session.new
+    user = User.find_by_credentials(
+      params[:user][:username],
+      params[:user][:password]
+    )
 
-    user = User.find_by_credentials(username, password)
-    user.reset_session_token!
-    user.save
-
-    if @session.save
-      redirect_to cats_url
+    if user.nil?
+      render json: 'Credentials were wrong'
     else
-      flash.now[:errors] = @session.errors.full_messages
-      render :new
+      render json: 'Welcome back #{user.username}!'
     end
+
+    def new
+    end
+
   end
 
   def destroy
