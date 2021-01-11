@@ -7,6 +7,6 @@ Rails.application.routes.draw do
       post :deny
     end
   end
-  resources :sessions
+  resources :session
   resources :users
 end

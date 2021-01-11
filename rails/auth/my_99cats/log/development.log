@@ -17681,3 +17681,15 @@ Started GET "/users" for ::1 at 2021-01-10 17:22:00 -0800
 AbstractController::ActionNotFound - The action 'index' could not be found for UsersController:
 
 Started POST "/__better_errors/fa0d0ba01db694e7/variables" for ::1 at 2021-01-10 17:22:00 -0800
+Started GET "/users" for ::1 at 2021-01-10 17:22:27 -0800
+
+AbstractController::ActionNotFound - The action 'index' could not be found for UsersController:
+
+Started GET "/sessions" for ::1 at 2021-01-10 17:23:12 -0800
+
+AbstractController::ActionNotFound - The action 'index' could not be found for SessionsController:
+
+Started GET "/session" for ::1 at 2021-01-10 17:23:28 -0800
+
+ActionController::RoutingError - uninitialized constant SessionController:
+
