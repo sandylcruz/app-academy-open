@@ -17970,3 +17970,178 @@ Started POST "/__better_errors/54e3161175a89e38/variables" for ::1 at 2021-01-11
   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "loucrew"], ["LIMIT", 1]]
   [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "loucrew"], ["LIMIT", 1]]
   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "loucrew"], ["LIMIT", 1]]
+Started GET "/" for ::1 at 2021-01-11 12:42:13 -0800
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/sandylcruz/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/railties-5.2.4.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/sandylcruz/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/railties-5.2.4.4/lib/rails/templates/rails/welcome/index.html.erb (2.5ms)
+Completed 200 OK in 7ms (Views: 3.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cats" for ::1 at 2021-01-11 12:42:17 -0800
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (7.4ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/index.html.erb within layouts/application (23.9ms)
+Completed 200 OK in 47ms (Views: 25.7ms | ActiveRecord: 15.6ms)
+
+
+Started GET "/cats/2" for ::1 at 2021-01-11 12:42:19 -0800
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:8
+  Rendering cats/show.html.erb within layouts/application
+  [1m[36mCatRentalRequest Load (18.5ms)[0m  [1m[34mSELECT "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY start_date[0m  [["cat_id", 2]]
+  ↳ app/views/cats/show.html.erb:58
+  [1m[36mCatRentalRequest Load (0.2ms)[0m  [1m[34mSELECT "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1[0m  [["cat_id", 2]]
+  ↳ app/views/cats/show.html.erb:77
+  Rendered cats/show.html.erb within layouts/application (43.4ms)
+Completed 200 OK in 69ms (Views: 43.8ms | ActiveRecord: 23.0ms)
+
+
+Started GET "/cats/style.css" for ::1 at 2021-01-11 12:42:19 -0800
+Processing by CatsController#show as CSS
+  Parameters: {"id"=>"style"}
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:8
+Redirected to http://localhost:3000/cats
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/cats" for ::1 at 2021-01-11 12:42:19 -0800
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 13ms (Views: 12.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/session" for ::1 at 2021-01-11 12:42:26 -0800
+
+ActionController::RoutingError - uninitialized constant SessionController:
+
+Started POST "/__better_errors/8f6c957a0fccc0c7/variables" for ::1 at 2021-01-11 12:42:26 -0800
+Started GET "/users/new" for ::1 at 2021-01-11 12:42:35 -0800
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 26ms (Views: 15.5ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/users/" for ::1 at 2021-01-11 12:42:37 -0800
+
+AbstractController::ActionNotFound - The action 'index' could not be found for UsersController:
+
+Started POST "/__better_errors/8f1bc508ce279705/variables" for ::1 at 2021-01-11 12:42:37 -0800
+Started GET "/users/new" for ::1 at 2021-01-11 12:42:39 -0800
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 12ms (Views: 11.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/" for ::1 at 2021-01-11 12:43:29 -0800
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+
+ActionView::MissingTemplate - Missing template users/index, application/index with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/sandylcruz/Code/app-academy-open/rails/auth/my_99cats/app/views":
+  app/controllers/users_controller.rb:4:in `index'
+
+Started POST "/__better_errors/7a68db8d91bd72a8/variables" for ::1 at 2021-01-11 12:43:29 -0800
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/sandylcruz/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/sandylcruz/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Started GET "/users/new" for ::1 at 2021-01-11 12:44:01 -0800
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 12ms (Views: 11.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/" for ::1 at 2021-01-11 12:44:46 -0800
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+
+ActionView::MissingTemplate - Missing template users/index, application/index with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/sandylcruz/Code/app-academy-open/rails/auth/my_99cats/app/views":
+  app/controllers/users_controller.rb:4:in `index'
+
+Started GET "/session/new" for ::1 at 2021-01-11 12:44:48 -0800
+
+ActionController::RoutingError - uninitialized constant SessionController:
+
+Started POST "/__better_errors/26c07d17d5dcc0bd/variables" for ::1 at 2021-01-11 12:44:49 -0800
+Started GET "/session/new" for ::1 at 2021-01-11 12:45:14 -0800
+
+ActionController::RoutingError - uninitialized constant SessionController:
+
+Started POST "/__better_errors/667261dbd2dcd13f/variables" for ::1 at 2021-01-11 12:45:14 -0800
+Started GET "/session/new" for ::1 at 2021-01-11 12:50:01 -0800
+
+ActionController::RoutingError - uninitialized constant SessionController:
+
+Started POST "/__better_errors/1aac1b4a969e8538/variables" for ::1 at 2021-01-11 12:50:01 -0800
+Started GET "/session/new" for ::1 at 2021-01-11 12:51:00 -0800
+
+ActionController::RoutingError - uninitialized constant SessionController:
+
+Started POST "/__better_errors/84a2e5514ef1e557/variables" for ::1 at 2021-01-11 12:51:00 -0800
+Started GET "/session/" for ::1 at 2021-01-11 12:51:17 -0800
+
+ActionController::RoutingError - uninitialized constant SessionController:
+
+Started POST "/__better_errors/1b25a85c9c9968c7/variables" for ::1 at 2021-01-11 12:51:17 -0800
+Started GET "/session/new" for ::1 at 2021-01-11 12:52:07 -0800
+  [1m[35m (7.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/sandylcruz/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+
+ActionController::RoutingError - uninitialized constant SessionController:
+
+Started POST "/__better_errors/6ef450f6b143739c/variables" for ::1 at 2021-01-11 12:52:08 -0800
+Started POST "/__better_errors/1b25a85c9c9968c7/variables" for ::1 at 2021-01-11 12:56:02 -0800
+Started GET "/user/new" for ::1 at 2021-01-11 13:00:34 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/user/new"):
+  
+actionpack (5.2.4.4) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.4.4) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.4.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.4.4) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/users/new" for ::1 at 2021-01-11 13:00:38 -0800
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 197ms (Views: 183.3ms | ActiveRecord: 7.6ms)
+
+

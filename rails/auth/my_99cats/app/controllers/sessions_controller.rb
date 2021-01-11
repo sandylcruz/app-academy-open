@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
   def create
     @session = Session.new
 
-    user = User.find_by_credentials(username: username, password: password)
+    user = User.find_by_credentials(username, password)
     user.reset_session_token!
     user.save
 
