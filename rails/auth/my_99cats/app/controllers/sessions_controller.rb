@@ -6,7 +6,10 @@ class SessionsController < ApplicationController
 
   def create
     @session = Session.new
-    
+
+    user = User.find_by_credentials(username: username, password: password)
+    user.reset_session_token!
+
     if @session.save
       redirect_to cats_url
     else
