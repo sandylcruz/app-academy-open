@@ -9,10 +9,14 @@ class User < ApplicationRecord
   validates :password_digest, presence: { message: 'Password cannot be blank' }
   validates :session_token, presence: true
 
-  after_initialize :session_token
+  after_initialize :ensure_session_token
+
+  def self.generate_session_token
+    SecureRandom::urlsafe_base64(16)
+  end
 
   def reset_session_token!
-    self.session_token = SecureRandom.base64(16)
+    self.session_token = self.class.generate_session_token
     self.save!
     self.session_token
   end
@@ -31,5 +35,11 @@ class User < ApplicationRecord
 
     return user if user && user.is_password?(password)
     nil
+  end
+
+  private
+
+  def ensure_session_token
+    self.session_token ||= self.class.generate_session_token
   end
 end
