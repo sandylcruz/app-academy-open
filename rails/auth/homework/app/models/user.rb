@@ -3,21 +3,20 @@ require 'bcrypt'
 
 class User < ApplicationRecord
   include BCrypt
-
-  before_validation :ensure_session_token
-
+  
   validates :username, presence: true, uniqueness: true
-  validates :password_digest, presence: true
-  validates :password, allow_nil: true, length: { minimum: 6 }
+  validates :password_digest, presence: { message: 'cannot be blank'}
+  validates :password, length: { minimum: 6, allow_nil: true }
   validates :session_token, presence: true, uniqueness: true
+  before_validation :ensure_session_token
 
   attr_reader :password
 
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
-    password = BCrypt::Password.create('password')
-
-    return user if user.is_password?(password)
+  
+    return user if user && BCrpyt::Password.new(user.password_digest).is_password?(password)
+    nil
   end
 
   def is_password?(password)
