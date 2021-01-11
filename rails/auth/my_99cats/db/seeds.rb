@@ -15,3 +15,5 @@ request_two = CatRentalRequest.create!(cat: callie, start_date: '2021-01-10', en
 request_three = CatRentalRequest.create!(cat: squeaky, start_date: '2021-01-10', end_date: '2021-01-15')
 request_four = CatRentalRequest.create!(cat: squeaky, start_date: '2021-01-10', end_date: '2021-01-15')
 request_five = CatRentalRequest.create!(cat: linus, start_date: '2021-01-10', end_date: '2021-01-15')
+
+louis = User.create!(username: 'loucrew', password: 'password')
