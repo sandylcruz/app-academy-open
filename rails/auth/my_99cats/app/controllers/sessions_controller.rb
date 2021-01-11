@@ -1,6 +1,5 @@
 class SessionsController < ApplicationController
   def new
-    @session = Session.new
     render :new
   end
 
@@ -13,12 +12,9 @@ class SessionsController < ApplicationController
     if user.nil?
       render json: 'Credentials were wrong'
     else
-      render json: 'Welcome back #{user.username}!'
+      login!(user)
+      redirect_to user_url(user)
     end
-
-    def new
-    end
-
   end
 
   def destroy
