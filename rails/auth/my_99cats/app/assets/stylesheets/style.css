@@ -63,6 +63,7 @@ header {
   background:  #009879;
   color: white;
   justify-content: space-between;
+  width: 100%;
 }
 
 #links li {
@@ -71,6 +72,9 @@ header {
 
 body {
   font-family: helvetica;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 a.nav-link {
@@ -83,8 +87,21 @@ a.title-link {
   font-size: 40px;
 }
 
-.rectangle {
+section {
+  float: center;
   width: 400px;
   height: 200px;
-  background-color: #d4f6e9;
+  background: #d4f6e9;
+  margin: 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+section form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
