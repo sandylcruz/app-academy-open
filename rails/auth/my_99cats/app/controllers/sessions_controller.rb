@@ -10,7 +10,6 @@ class SessionsController < ApplicationController
     )
 
     if user.nil?
-      render json: 'Credentials were wrong'
       render :new
     else
       login!(user)
@@ -19,11 +18,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    unless current_user.nil?
-      current_user.reset_session_token
-      session[:session_token] = nil
-      redirect_to new_session_url
-    end
+    logout!
+    redirect_to new_session_url
   end
-
 end
