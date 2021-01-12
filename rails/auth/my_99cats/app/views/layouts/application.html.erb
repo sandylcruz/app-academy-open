@@ -12,12 +12,29 @@
     <header class="header">
       <div id="title"><a href="<%= cats_path %>" class="title-link">99 Cats</a></div>  
 
-      <nav id="links">
+      
+      <% if !current_user.nil? %>
         <ul>
-          <li><a href="<%= new_session_path %>" class="nav-link">Sign in</a></li>
-          <li><a href="<%= new_user_path %>" class="nav-link">Sign up</a></li>
+          <li>Logged in as: <%= current_user.username %></li>
+          <li>
+            <form action="<%= session_url %>" method="POST">
+              <input type="hidden"
+                      name="authenticity_token"
+                      value="<%= form_authenticity_token %>"
+              <input type="hidden" value="delete" name="_method" />
+              <input type="submit" value="Logout" />
+            </form>
+          </li>
         </ul>
-      </nav>
+      <% end %>
+        
+      
+        <nav id="links">
+          <ul>
+            <li><a href="<%= new_session_path %>" class="nav-link">Sign in</a></li>
+            <li><a href="<%= new_user_path %>" class="nav-link">Sign up</a></li>
+          </ul>
+        </nav>
     </header>
 
 
