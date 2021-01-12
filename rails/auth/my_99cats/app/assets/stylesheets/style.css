@@ -33,6 +33,7 @@ body thead tr {
   background-color: #009879;
   color: #ffffff;
   text-align: left;
+  font-family: helvetica;
 }
 
 table th,
@@ -46,4 +47,43 @@ table tbody tr {
 
 table tbody tr:nth-of-type(even) {
   background-color: #f3f3f3;
+}
+li {
+  list-style: none;
+}
+ul {
+  margin: 0;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  padding: 60px;
+  text-align: center;
+  background:  #009879;
+  color: white;
+  font-family: helvetica;
+  font-size: 40px;
+}
+
+#links li {
+  display: inline-block;
+}
+
+body {
+  font-family: helvetica;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+}
+
+a.nav-link {
+  color:#ffffff;
+  font-size: 30px;
+}
+
+a.title-link {
+  color: #ffffff;
 }
