@@ -5,6 +5,7 @@ class Cat < ApplicationRecord
   validates :birth_date, :name, :description, presence: true
   validates :color, presence: true, inclusion: { in: %w(Orange Black Tabby Tuxedo Dilute-tortie White Calico) }
   validates :sex, presence: true, length: { maximum: 1 }, inclusion: { in: %w(M F) }
+  validates :user_id, presence: true
 
   has_many(
     :cat_rental_requests,
@@ -12,6 +13,13 @@ class Cat < ApplicationRecord
     foreign_key: :cat_id,
     primary_key: :id,
     dependent: :destroy
+  )
+
+  belongs_to(
+    :owners,
+    class_name: 'User'
+    foreign_key: :user_id
+    primary_key: :id
   )
 
   def age
