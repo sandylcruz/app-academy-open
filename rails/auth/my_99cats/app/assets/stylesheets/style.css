@@ -58,12 +58,11 @@ ul {
 header {
   display: flex;
   flex-direction: row;
-  padding: 60px;
+  padding: 10px;
   text-align: center;
   background:  #009879;
   color: white;
-  font-family: helvetica;
-  font-size: 40px;
+  justify-content: space-between;
 }
 
 #links li {
@@ -74,16 +73,18 @@ body {
   font-family: helvetica;
 }
 
-header {
-  display: flex;
-  justify-content: space-between;
-}
-
 a.nav-link {
   color:#ffffff;
-  font-size: 30px;
+  font-size: 25px;
 }
 
 a.title-link {
   color: #ffffff;
+  font-size: 40px;
+}
+
+.rectangle {
+  width: 400px;
+  height: 200px;
+  background-color: #d4f6e9;
 }
