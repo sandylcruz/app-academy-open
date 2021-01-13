@@ -12,9 +12,8 @@ class User < ApplicationRecord
   after_initialize :ensure_session_token
 
   has_many(
-    :cats,
-    class: 'Cat'
-    foreign_key: :user_id
+    :cat,
+    foreign_key: :user_id,
     primary_key: :id
   )
 
