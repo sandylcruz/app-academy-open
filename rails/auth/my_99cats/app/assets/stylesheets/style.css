@@ -88,9 +88,7 @@ a.title-link {
 }
 
 section {
-  float: center;
   width: 500px;
-  height: 300px;
   background: #d4f6e9;
   margin: 20px;
   position: relative;
