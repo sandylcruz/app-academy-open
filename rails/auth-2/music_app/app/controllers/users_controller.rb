@@ -3,8 +3,8 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      login_user!(@user)
-      redirect_to sessions_url
+      log_in_user!(@user)
+      render plain: "you created a user"
     else
       render :new
     end
@@ -15,10 +15,15 @@ class UsersController < ApplicationController
     render :new
   end
 
+  def index
+    @users = User.all
+    render :index
+  end
+
   private
   
   def user_params
-    params.require(:user).permit(:email, :password_digest, :session_token)
+    params.require(:user).permit(:email, :password)
   end
 
 end
