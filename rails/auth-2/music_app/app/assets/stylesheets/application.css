@@ -13,7 +13,7 @@
  *= require_tree .
  *= require_self
  */
-.main-nav {
+header {
   overflow: hidden;
   height: 80px;
   width: 100%;
@@ -23,11 +23,26 @@
   justify-content: space-between;
 }
 
-h1 {
-  font-family: helvetica;
+a.title-link {
+  font-family: kiona;
   font-size: 50px;
+}
+
+a.nav-link {
+  font-family: arial;
+  font-size: 20px;
+  display: flex;
+  justify-content: flex-end;
 }
 
 body {
   font-family: helvetica;
 }
+
+nav {
+  font-family: helvetica;
+  font-size: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+
