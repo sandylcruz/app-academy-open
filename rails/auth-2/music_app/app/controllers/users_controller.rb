@@ -3,7 +3,8 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      render "hi"
+      login_user!(@user)
+      redirect_to sessions_url
     else
       render :new
     end
