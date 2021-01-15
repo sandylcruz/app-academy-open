@@ -13,6 +13,11 @@
  *= require_tree .
  *= require_self
  */
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
 header {
   overflow: hidden;
   height: 150px;
@@ -29,6 +34,7 @@ header {
 a.title-link {
   font-family: kiona;
   font-size: 50px;
+  color: #ffffff;
   text-decoration: none;
   margin-left: 10px;
 }

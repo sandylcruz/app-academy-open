@@ -9,3 +9,8 @@
 callie = User.create!(email: 'calpal@gmail.com', password: 'callieisbest')
 squeaky = User.create!(email: 'squeakfreak@gmail.com', password: 'password')
 linus = User.create!(email: 'oldmanlinus@gmail.com', password: 'password')
+
+cat_sabbath = Band.create!(name: 'Cat Sabbath')
+purvanna = Band.create!(name: 'Purvanna')
+meowhaus = Band.create!(name: 'Meowhaus')
+metallicat = Band.create!(name: 'Metallicat')
