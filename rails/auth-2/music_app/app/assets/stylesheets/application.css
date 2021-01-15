@@ -26,13 +26,15 @@ header {
 a.title-link {
   font-family: kiona;
   font-size: 50px;
+  text-decoration: none;
 }
 
 a.nav-link {
   font-family: arial;
   font-size: 20px;
   display: flex;
-  justify-content: flex-end;
+  flex-direction: row;
+  text-decoration: none;
 }
 
 body {
@@ -43,6 +45,12 @@ nav {
   font-family: helvetica;
   font-size: 30px;
   display: flex;
-  justify-content: space-between;
+  flex-direction: space-between;
+  align-items: center;
 }
+
+li {
+  list-style: none;
+}
+
 

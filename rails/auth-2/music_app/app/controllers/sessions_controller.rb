@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       render :new
     else
       log_in_user!(user)
-      render plain: "you're logged in"
+      redirect_to users_url
     end
   end
 
