@@ -15,7 +15,7 @@
  */
 header {
   overflow: hidden;
-  height: 100px;
+  height: 150px;
   width: 100%;
   margin: 0 auto;
   padding: 0;
@@ -30,6 +30,7 @@ a.title-link {
   font-family: kiona;
   font-size: 50px;
   text-decoration: none;
+  margin-left: 10px;
 }
 
 a.nav-link {
@@ -42,6 +43,7 @@ a.nav-link {
 
 body {
   font-family: helvetica;
+  
 }
 
 nav {
@@ -55,6 +57,8 @@ nav {
 
 li {
   list-style: none;
+  display: flex;
+  justify-content: row;
 }
 
 form {
@@ -67,4 +71,13 @@ form {
   background-color: #009999;
   text-align: center;
   padding: 50px;
+}
+
+ul {
+  display: flex;
+  margin-top: -40px;
+  margin-right: 50px;
+  justify-content: space-between;
+  padding-right: 5px;
+  padding-bottom: 5px;
 }
