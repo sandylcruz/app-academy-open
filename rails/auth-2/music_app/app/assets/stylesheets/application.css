@@ -50,7 +50,8 @@ a.nav-link {
 
 body {
   font-family: helvetica;
-  background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="4" height="4" viewBox="0 0 4 4"%3E%3Cpath fill="%239C92AC" fill-opacity="0.4" d="M1 3h1v1H1V3zm2-2h1v1H3V1z"%3E%3C/path%3E%3C/svg%3E');}
+  background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="4" height="4" viewBox="0 0 4 4"%3E%3Cpath fill="%239C92AC" fill-opacity="0.4" d="M1 3h1v1H1V3zm2-2h1v1H3V1z"%3E%3C/path%3E%3C/svg%3E');
+}
 
 nav {
   font-family: helvetica;
@@ -68,15 +69,10 @@ li {
 }
 
 form {
+  display: flex;
   align-items: center;
-}
-
-.centered-box {
-  width: 500px;
-  margin: 50px 0;
-  background-color: #009999;
-  text-align: center;
-  padding: 50px;
+  flex-direction: column;
+  width: 100%;
 }
 
 ul {
@@ -87,4 +83,8 @@ ul {
   padding-right: 5px;
   padding-bottom: 5px;
   list-style: none;
+}
+
+h2 {
+  text-align: center;
 }
