@@ -12,14 +12,34 @@
   <body>
     <header class="header">
       <div id="title"><a href="google.com" class="title-link">Music App</a></div>
-        <nav id="links">
+
+      <% if !current_user.nil? %>
+        <nav id="logged-in-out-links">
           <ul>
-            <li><a href="<%= new_session_url %>" class="nav-link">Sign in</a></li>
-            <li><a href="<%= new_user_url %>" class="nav-link">Sign up</a></li>
+            <li>Logged in as: <%= current_user.email %></li>
+            <li>
+              <form action="<%= session_url %>" method="POST">
+                <input type="hidden"
+                        name="authenticity_token"
+                        value="<%= form_authenticity_token %>">
+                <input type="hidden" value="delete" name="_method" />
+                <input type="submit" value="Logout" />
+              </form>
+            </li>
           </ul>
         </nav>
+    <% else %>
+      <nav id="links">
+        <ul>
+          <li><a href="<%= new_session_path %>" class="nav-link">Sign in</a></li>
+          <li><a href="<%= new_user_path %>" class="nav-link">Sign up</a></li>
+        </ul>
+      </nav>
+    <% end %>
+  </header>
     </header>
-
+    <br>
+    
     <%= yield %>
   </body>
 </html>
