@@ -17,10 +17,11 @@ header {
   overflow: hidden;
   height: 80px;
   width: 100%;
-  background-color: #957dad;
   padding: 20px 10px;
   display: flex;
   justify-content: space-between;
+  background: -webkit-linear-gradient(90deg, #24C6DC 10%, #514A9D 90%);
+  clip-path: polygon(0 0, 100% 0, 100% 70%, 0 100%);
 }
 
 a.title-link {
@@ -45,12 +46,16 @@ nav {
   font-family: helvetica;
   font-size: 30px;
   display: flex;
-  flex-direction: space-between;
+  justify-content: space-between;
   align-items: center;
+  padding: 0px 10px;
 }
 
 li {
   list-style: none;
 }
 
+form {
+  align-items: center;
+}
 
