@@ -14,3 +14,5 @@ cat_sabbath = Band.create!(name: 'Cat Sabbath')
 purvanna = Band.create!(name: 'Purvanna')
 meowhaus = Band.create!(name: 'Meowhaus')
 metallicat = Band.create!(name: 'Metallicat')
+
+album1 = Album.create!(title: 'Meowy Catmas', year: 2000, band: 'cat_sabbath', live: false)

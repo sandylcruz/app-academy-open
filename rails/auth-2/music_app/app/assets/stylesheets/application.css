@@ -66,6 +66,7 @@ nav#links {
   display: flex;
   justify-content: flex-end;
   margin-right: 20px;
+  color: white;
 }
 
 nav ul {
@@ -88,6 +89,10 @@ input[type=text] {
   font-family: antic didone;
 }
 
+input[type=radio] {
+  display: inline;
+}
+
 #edit-band {
   margin-top: 50px;
   display: flex;
@@ -107,4 +112,12 @@ input[type=text] {
 
 main h2 {
   text-align: center;
+}
+
+logged-in-out-links {
+  color: white;
+}
+
+form > input {
+  margin-bottom: 20px;
 }
