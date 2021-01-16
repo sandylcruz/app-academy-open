@@ -28,18 +28,18 @@
             </li>
           </ul>
         </nav>
-    <% else %>
-      <nav id="links">
-        <ul>
-          <li><a href="<%= new_session_path %>" class="nav-link">Sign in</a></li>
-          <li><a href="<%= new_user_path %>" class="nav-link">Sign up</a></li>
-        </ul>
-      </nav>
-    <% end %>
-  </header>
+      <% else %>
+        <nav id="links">
+          <ul>
+            <li><a href="<%= new_session_path %>" class="nav-link">Sign in</a></li>
+            <li><a href="<%= new_user_path %>" class="nav-link">Sign up</a></li>
+          </ul>
+        </nav>
+      <% end %>
     </header>
-    <br>
-    
-    <%= yield %>
+
+    <main>
+      <%= yield %>
+    </main>
   </body>
 </html>
