@@ -3,7 +3,7 @@ class BandsController < ApplicationController
     @band = Band.new(band_params)
 
     if @band.save
-      render plain: "You added a new band"
+      redirect_to band_url(@band)
     else
       render plain: "you failed"
     end
@@ -40,9 +40,6 @@ class BandsController < ApplicationController
     else
       redirect_to edit_band_url(@band)
     end
-  end
-
-  def delete
   end
 
   def index

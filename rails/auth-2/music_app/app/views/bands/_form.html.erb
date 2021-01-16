@@ -20,9 +20,8 @@
           value="<%= @band.name %>"> 
   </input>
   <br>
-  <input type="submit" value="Add band">
 
-  <% submit_text = (band.persisted? ? 'Edit' : 'Create') + ' band!' %>
+  <% submit_text = (band.persisted? ? 'Update' : 'Create') + ' band!' %>
   <input type="submit" value="<%= submit_text %>">
 
 </form>
