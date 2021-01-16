@@ -6,5 +6,5 @@ Rails.application.routes.draw do
     resources :albums, only: :new
   end
 
-  resources :albums, except: [:index, :new]
+  resources :albums, except: [:new, :index]
 end

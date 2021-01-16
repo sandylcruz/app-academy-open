@@ -1,15 +1,1 @@
-<h2>New Album</h2>
-
-<form action="post">
-  <label for="album_name">Name:</label>
-  <input type="text" id="album_name" name="album_name" />
-  <label for="band_name">Band:</label>
-  <label for="album_location">Venue recorded:</label>
-  <label for="studio">Studio</label>
-  <input type="radio" name="album_location" />
-  <label for ="live">Live</label>
-  <input type="radio" name="album_location" />
-  <label for="year">Year:</label>
-  <input type="text" id="album_year" name="album_year" />
-  <input type="submit" />
-</form>
+<h2><%= @album.title %></h2>

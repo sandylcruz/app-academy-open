@@ -5,7 +5,7 @@ class AlbumsController < ApplicationController
     if @album.save
       redirect_to album_url(@album)
     else
-      render plain: 'album not saved'
+      render plain: @album.errors.full_messages
     end
   end
 
