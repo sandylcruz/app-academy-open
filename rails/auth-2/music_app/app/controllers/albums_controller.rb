@@ -29,6 +29,11 @@ class AlbumsController < ApplicationController
     redirect_to bands_url
   end
 
+  def edit
+    @album = Album.find_by(id: params[:id])
+    render :edit
+  end
+
   private
 
   def album_params

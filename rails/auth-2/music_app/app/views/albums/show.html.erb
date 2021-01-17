@@ -3,11 +3,12 @@ Track name
 <br>
 <h2>Links</h2>
   
-<div>
-  New track
-  <nav id="edit-album">
-  <a href="<%= edit_album_url %>">Edit album</a>
-  </nav>
-  Destory album
-  Back to band
-</div>
+<ul class="links">
+<section class="band-links">
+  <a href="<%= edit_album_url(@album) %>">Edit album</a>
+  <a href="<%= bands_url %>">Back to all bands</a>
+</section>
+</ul>
+
+
+
