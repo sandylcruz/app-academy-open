@@ -1,9 +1,15 @@
 <h1>Bands</h1>
 
-<div>
+<div id="band-index">
   <section class="band-index">
     <% @bands.each do |band| %>
       <a href="<%= band_url(band) %>"><%= band.name %></a>
     <% end %>
   </section>
 </div>
+
+<h2>Links</h2>
+
+<section class="create-band">
+<a href="<%= new_band_url %>">Create band</a>
+</section>
