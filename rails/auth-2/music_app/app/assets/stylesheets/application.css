@@ -200,3 +200,7 @@ form > input {
   display: inline-block;
   text-decoration: none
 }
+
+#logged_in {
+  color: white;
+}
