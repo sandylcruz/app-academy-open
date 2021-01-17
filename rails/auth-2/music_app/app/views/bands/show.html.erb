@@ -1,6 +1,14 @@
 <h1><%= @band.name %></h1>
   <h2>Albums</h2>
-  
+
+  <ul class="links">
+    <section class="album-links">
+      <% @band.albums.each do |album| %>
+        <a href="<%= album_url(album) %>"><%= album.title %></a>
+      <% end %>
+    </section>
+  </ul>
+
   <h2>Links</h2>
   <ul class="links">
     <section class="band-links">
