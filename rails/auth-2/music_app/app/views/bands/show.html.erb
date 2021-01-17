@@ -5,10 +5,16 @@
 
   <h2>Links</h2>
 
-<section class="create-band">
-<a href="<%= edit_band_url %>">New album</a>
-</section>
+  <ul class="links">
+    <section class="band-links">
+    <a href="<%= new_band_album_url(@band) %>">New album</a>
+    </section>
 
-<section class="create-band">
-<a href="<%= edit_band_url %>">Edit band</a>
-</section>
+    <section class="band-links">
+    <a href="<%= edit_band_url(@band) %>">Edit band</a>
+    </section>
+
+    <section class="band-links">
+    <a href="<%= bands_url %>">All bands</a>
+    </section>
+  </ul>
