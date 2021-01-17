@@ -29,6 +29,18 @@ class TracksController < ApplicationController
     render :edit
   end
 
+  def update
+    @track = Track.find_by(id: params[:id])
+
+    if @track.nil?
+      redirect_to tracks_url
+    elsif @track.update_attributes(track_params)
+      redirect_to track_url(@track)
+    else
+      redirect_to edit_track_url(@track)
+    end
+  end
+
   def destroy
   end
 
