@@ -1,4 +1,4 @@
-class Tracks < ApplicationController
+class TracksController < ApplicationController
   def new
     @track = Track.new
     render :new
@@ -35,6 +35,6 @@ class Tracks < ApplicationController
   private
   
   def track_params
-    params.require(:tracks).permit(:name, :album_id, :bonus)
+    params.require(:track).permit(:name, :album_id, :bonus, :ord)
   end
 end
