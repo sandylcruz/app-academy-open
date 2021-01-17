@@ -15,4 +15,12 @@ purvanna = Band.create!(name: 'Purvanna')
 meowhaus = Band.create!(name: 'Meowhaus')
 metallicat = Band.create!(name: 'Metallicat')
 
-album1 = Album.create!(title: 'Meowy Catmas', year: 2000, band: 'cat_sabbath', live: false)
+album1 = Album.create!(title: 'Meowy Catmas Album', year: 2000, band: cat_sabbath, live: false)
+album2 = Album.create!(title: 'Tale of Two Kittens Album', year: 2000, band: purvanna, live: false)
+album3 = Album.create!(title: 'Callies revenge album', year: 2000, band: meowhaus, live: false)
+album4 = Album.create!(title: 'Callies baby album', year: 2000, band: metallicat, live: false)
+
+track1 = Track.create!(name: 'Cat Attack Track', album: album1, bonus: true, ord: 1)
+track2 = Track.create!(name: 'Kitten Attack Track', album: album2, bonus: false, ord: 1)
+track3 = Track.create!(name: 'Callieopolis Track', album: album3, bonus: true, ord: 1)
+track4 = Track.create!(name: 'Squeakland Track', album: album4, bonus: true, ord: 1)

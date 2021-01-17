@@ -1,10 +1,22 @@
 <h2><%= @album.title %></h2>
-Track name
-<br>
+
+<% if @album.tracks.length > 0 %>
+<ul class='main-list'>
+  <% @album.tracks.each do |track| %>
+    <section class="links">
+      <li><a href="<%= track_url(track) %>"><p><%= track.name %></p></a></li>
+    </section>
+  <% end %>
+</ul>
+<% else %>
+  <p>This album has no tracks... yet!</p> 
+<% end %>
+
 <h2>Links</h2>
   
 <ul class="links">
-<section class="band-links">
+<section class="links">
+  <a class='button' href="<%= new_track_url(@album) %>">New track</a></li>
   <a href="<%= edit_album_url(@album) %>">Edit album</a>
   <a href="<%= bands_url %>">Back to all bands</a>
 </section>
