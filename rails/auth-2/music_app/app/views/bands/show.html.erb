@@ -1,6 +1,14 @@
-<h2><%= @band.name %></h1>
-<nav id="edit-band">
+<h1><%= @band.name %></h1>
+
   <h2>Albums</h2>
+
+
   <h2>Links</h2>
-  <a href="<%= edit_band_url %>">Edit band</a>
-</nav>
+
+<section class="create-band">
+<a href="<%= edit_band_url %>">New album</a>
+</section>
+
+<section class="create-band">
+<a href="<%= edit_band_url %>">Edit band</a>
+</section>
