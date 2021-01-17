@@ -5,6 +5,7 @@
   <% if method == :patch %>
     <input type="hidden" name="_method" value="patch" />
   <% end %>
+  
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
   <label for="album_name">Title:</label>
   <input type="text" id="album_title" name="album[title]" />
