@@ -27,7 +27,8 @@ RSpect.feature "the signup process" do
       click_on "create user"
     end
 
-    scenario "re-renders the signup page after failed signup"
+    scenario "re-renders the signup page after failed signup" do
       expect(page).to have_content ('Sign up')
+    end
   end
 end
