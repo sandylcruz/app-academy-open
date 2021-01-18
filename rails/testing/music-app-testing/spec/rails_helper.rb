@@ -1,7 +1,7 @@
 # Rails helper
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
-require 'shoulda/matchers'
+require 'shoulda-matchers'
 
 Shoulda::Matchers.configure do |config|
   config.integrate do |with|
