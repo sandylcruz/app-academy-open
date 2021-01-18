@@ -2,12 +2,15 @@ require 'bcrypt'
 require 'securerandom'
 
 class User < ApplicationRecord
+  before_validation :ensure_session_token
+
   validates :session_token, presence: true, uniqueness: true
   validates :password, length: { minimum: 6, allow_nil: true }
   validates :password_digest, presence: true
   validates :email, presence: true, uniqueness: true
 
   attr_reader :password
+  
 
   def reset_session_token!
     self.session_token = SecureRandom.urlsafe_base64(16)

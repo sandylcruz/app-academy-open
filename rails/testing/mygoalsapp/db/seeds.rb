@@ -5,5 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'faker'
 
 callie = User.create!(email: 'cat@gmail.com', password: 'password')
+
+5.times do
+  User.create!(
+    email: "#{Faker::Games::Zelda.character}.gmail.com",
+    password: 'password'
+  )
+end
