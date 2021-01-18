@@ -39,6 +39,7 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
 
+  gem 'spring'
   gem 'shoulda-matchers'
   gem 'rails-controller-testing'
   gem 'rspec-rails', '~> 3.5'
@@ -55,6 +56,15 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'letter_opener'
+  gem 'spring-commands-rspec'
+  gem 'guard-rspec'
+
+  group :test do
+    gem 'faker'
+    gem 'capybara', '~> 2.13'
+    gem 'guard-rspec'
+    gem 'launchy'
+  end
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
