@@ -50,5 +50,18 @@ RSpec.describe User, type: :model do
     end
   end
 
+  describe '#password=' do
+    it "changes user's password to passed in password" do
+      user = User.find_by(username: "calpal")
+      user.password = "new_password"
+      expect(user.password).to eq("new_password")
+    end
 
+    it "changes user's password digest when password is updated" do
+      user = User.find_by(username: "calpal")
+      old_password_digest = user.password_digest
+      user.password = "new_password"
+      expect(user.password_digest).to_not eq(old_password_digest)
+    end
+  end
 end
