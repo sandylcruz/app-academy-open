@@ -7,11 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
-callie = User.create!(email: 'cat@gmail.com', password: 'password')
+callie = User.create!(username: 'calpal', password: 'password')
 
 5.times do
   User.create!(
-    email: "#{Faker::Games::Zelda.character}.gmail.com",
+    email: "#{Faker::Games::Zelda.character",
     password: 'password'
   )
 end
