@@ -1,6 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe UsersController, :type => :controller do
+  subject(:user) do
+    User.create!(
+    username: "jill_bruce",
+    password: "password")
+  end
+
   describe "GET #new" do
     it "renders the new template" do
       get :new, {}
@@ -24,43 +30,25 @@ RSpec.describe UsersController, :type => :controller do
     end
 
     context "with valid params" do
-      # it "redirects user to index on success" do
-      #   post :create, params: { user: { email: "jack_bruce@place.com", password: "asdfgg" } }
-      #   expect(response).to redirect_to(new_session_url)
-      # end
+      it "redirects user to index on success" do
+        post :create, params: { user: { email: "jack_bruce@place.com", password: "asdfgg" } }
+        expect(response).to render_template("new")
+        expect(flash[:errors]).to be_present
+      end
     end
   end
 
   describe "GET #index" do
-    it "returns successful response" do
-      get :index
-      expect(response).to be_successful
-    end
-
     it "renders index template" do
       get :index
       expect(response).to render_template("index")
     end
-
-    # it "assigns @users" do
-    #   user = User.create(username: "test", password: "password")
-    #   get :index
-    #   expect(assigns(:users)).to eq([user])
-    # end
   end
 
-  # describe "GET #show" do
-  #   it do
-  #   end
-  # end
-
-  # describe "PATCH #update" do
-  #   it do
-  #   end
-  # end
-
-  # describe "DELETE #destroy" do
-  #   it do
-  #   end
-  # end
+  describe "GET #show" do
+    it "renders the show template" do
+      get :show, params: { id: user.id }
+      expect(response).to render_template(:show)
+    end
+  end
 end
