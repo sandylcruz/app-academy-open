@@ -8,10 +8,12 @@
 require 'faker'
 
 callie = User.create!(username: 'calpal', password: 'password')
+squeaky = User.create!(username: 'squeakfreak', password: 'password')
+linus = User.create!(username: 'babykitten', password: 'password')
 
 5.times do
   User.create!(
-    email: "#{Faker::Games::Zelda.character",
+    username: Faker::Games::Zelda.character,
     password: 'password'
   )
 end
