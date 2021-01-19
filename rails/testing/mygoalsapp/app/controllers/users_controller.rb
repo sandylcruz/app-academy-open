@@ -11,6 +11,7 @@ class UsersController < ApplicationController
       render plain: "has been saved"
     else
       render :new
+      flash[:errors] = "User not created"
     end
   end
 

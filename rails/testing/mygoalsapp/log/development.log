@@ -2613,3 +2613,17 @@ Processing by UsersController#new as HTML
 Completed 200 OK in 12ms (Views: 11.5ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/users/new" for ::1 at 2021-01-19 12:44:42 -0800
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 31ms (Views: 14.0ms | ActiveRecord: 10.6ms)
+
+
+Started GET "/users/" for ::1 at 2021-01-19 12:44:44 -0800
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 12ms (Views: 11.2ms | ActiveRecord: 0.0ms)
+
+
