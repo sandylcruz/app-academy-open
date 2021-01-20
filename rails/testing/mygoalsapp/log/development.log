@@ -3314,3 +3314,1145 @@ Processing by UsersController#new as HTML
 Completed 200 OK in 195ms (Views: 180.4ms | ActiveRecord: 5.4ms)
 
 
+Started POST "/users" for ::1 at 2021-01-19 16:28:04 -0800
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"username"=>"callie", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/__better_errors/5a8d5a8b224f0517/variables" for ::1 at 2021-01-19 16:28:04 -0800
+Started GET "/users/new" for ::1 at 2021-01-19 16:29:54 -0800
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.5ms)
+  Rendered users/new.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 15ms (Views: 14.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2021-01-19 16:29:55 -0800
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"KqtTCLCkjZqSO3C0hzqtqwMomrEthsr33N462BMt1Mk+bI6G7cGgyEWTKAK0dqMrsRX9MSxjkKmPm+7uwIAkWg==", "user"=>{"username"=>"tigerlily1419", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:10
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "sbeD5nNr1FPqKAAH76UnMw"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "tigerlily1419"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10
+  [1m[36mUser Create (3.2ms)[0m  [1m[32mINSERT INTO "users" ("password_digest", "session_token", "created_at", "updated_at", "username") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["password_digest", "$2a$12$GnE.EBAkVK9KXto85ywjmehAojRiZRzdlfwV./8db.4gx2y3AG0Vi"], ["session_token", "sbeD5nNr1FPqKAAH76UnMw"], ["created_at", "2021-01-20 00:29:55.991715"], ["updated_at", "2021-01-20 00:29:55.991715"], ["username", "tigerlily1419"]]
+  ↳ app/controllers/users_controller.rb:10
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:10
+Redirected to http://localhost:3000/users/9
+Completed 302 Found in 233ms (ActiveRecord: 5.4ms)
+
+
+Started GET "/users/9" for ::1 at 2021-01-19 16:29:56 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 13ms (Views: 10.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/9" for ::1 at 2021-01-19 16:30:07 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 11ms (Views: 9.7ms | ActiveRecord: 0.3ms)
+
+
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Started GET "/users/" for ::1 at 2021-01-19 16:30:29 -0800
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:4
+  Rendered users/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 11ms (Views: 10.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/9/edit" for ::1 at 2021-01-19 16:30:34 -0800
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:29
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.5ms)
+  Rendered users/edit.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 12ms (Views: 10.4ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/users/9" for ::1 at 2021-01-19 16:30:37 -0800
+  
+ActionController::RoutingError (No route matches [POST] "/users/9"):
+  
+actionpack (5.2.4.4) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.4.4) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.4.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.4.4) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/users/new" for ::1 at 2021-01-19 16:31:48 -0800
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.5ms)
+  Rendered users/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 12ms (Views: 11.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2021-01-19 16:31:56 -0800
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"94PX/8E0LEZ/p/LrmhuQdJVz3AS9my154iY+xRUy+0zjRApxnFEBFKgPql2pV570J067hLx+dyexY+rzxp8L3w==", "user"=>{"username"=>"linusoldman", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:10
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "edm9IfjUriSb74iFmrbFaQ"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "linusoldman"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("password_digest", "session_token", "created_at", "updated_at", "username") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["password_digest", "$2a$12$NfX.1c3fbWcnUYxZ9Iqb/eb5J1m0FKWoFnxY6j9Z7FRnZOwxR0y6K"], ["session_token", "edm9IfjUriSb74iFmrbFaQ"], ["created_at", "2021-01-20 00:31:56.484239"], ["updated_at", "2021-01-20 00:31:56.484239"], ["username", "linusoldman"]]
+  ↳ app/controllers/users_controller.rb:10
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:10
+Redirected to http://localhost:3000/users/10
+Completed 302 Found in 224ms (ActiveRecord: 2.9ms)
+
+
+Started GET "/users/10" for ::1 at 2021-01-19 16:31:56 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 11ms (Views: 9.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/" for ::1 at 2021-01-19 16:32:01 -0800
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:4
+  Rendered users/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 11ms (Views: 10.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/1" for ::1 at 2021-01-19 16:32:03 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 12ms (Views: 11.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/10/edit" for ::1 at 2021-01-19 16:32:04 -0800
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:29
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.6ms)
+  Rendered users/edit.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 12ms (Views: 11.1ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/users/10" for ::1 at 2021-01-19 16:32:08 -0800
+  
+ActionController::RoutingError (No route matches [POST] "/users/10"):
+  
+actionpack (5.2.4.4) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.4.4) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.4.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.4.4) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/users/10/edit" for ::1 at 2021-01-19 16:33:03 -0800
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:29
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.5ms)
+  Rendered users/edit.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 13ms (Views: 12.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/10?authenticity_token=y5QaFNROlk9P9wgW9gSqN96iKdNaQZH0OKFO1Mmmg7jfU8eaiSu7HZhfUKDFSKS3bJ9OU1uky6pr5JriGgtzKw%3D%3D&user%5Busername%5D=tigerlily14192&user%5Bpassword%5D=[FILTERED]" for ::1 at 2021-01-19 16:33:05 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"authenticity_token"=>"y5QaFNROlk9P9wgW9gSqN96iKdNaQZH0OKFO1Mmmg7jfU8eaiSu7HZhfUKDFSKS3bJ9OU1uky6pr5JriGgtzKw==", "user"=>{"username"=>"tigerlily14192", "password"=>"[FILTERED]"}, "id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 11ms (Views: 9.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users" for ::1 at 2021-01-19 16:33:14 -0800
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:4
+  Rendered users/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 12ms (Views: 11.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/9/edit" for ::1 at 2021-01-19 16:33:20 -0800
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:29
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.6ms)
+  Rendered users/edit.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 12ms (Views: 10.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/9?authenticity_token=Rvuv%2F8EXKiTUJbePxm787I4iQgw7id7esDpTNYOiKCtSPHJxnHIHdgON7zn1IvJsPB8ljDpshIDjf4cDUA%2FYuA%3D%3D&user%5Busername%5D=tigerlily14192&user%5Bpassword%5D=[FILTERED]" for ::1 at 2021-01-19 16:33:22 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"authenticity_token"=>"Rvuv/8EXKiTUJbePxm787I4iQgw7id7esDpTNYOiKCtSPHJxnHIHdgON7zn1IvJsPB8ljDpshIDjf4cDUA/YuA==", "user"=>{"username"=>"tigerlily14192", "password"=>"[FILTERED]"}, "id"=>"9"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 11ms (Views: 9.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/9/edit" for ::1 at 2021-01-19 16:33:50 -0800
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:29
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.8ms)
+  Rendered users/edit.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 24ms (Views: 13.0ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/users/9?authenticity_token=%2Fp1Cq5hngZxEKj0evVE%2FK6GLMO4agbCC5RPGdi1qWcHqWp8lxQKszpOCZaiOHTGrE7ZXbhtk6ty2VhJA%2FsepUg%3D%3D&user%5Busername%5D=tigerlily14192&user%5Bpassword%5D=[FILTERED]" for ::1 at 2021-01-19 16:33:51 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"authenticity_token"=>"/p1Cq5hngZxEKj0evVE/K6GLMO4agbCC5RPGdi1qWcHqWp8lxQKszpOCZaiOHTGrE7ZXbhtk6ty2VhJA/sepUg==", "user"=>{"username"=>"tigerlily14192", "password"=>"[FILTERED]"}, "id"=>"9"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 12ms (Views: 11.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/22/edit" for ::1 at 2021-01-19 16:34:43 -0800
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"22"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:29
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (2.1ms)
+  Rendered users/edit.html.erb within layouts/application (2.8ms)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 1.6ms)
+
+
+
+NoMethodError - undefined method `persisted?' for nil:NilClass:
+  app/views/users/_form.html.erb:1:in `_app_views_users__form_html_erb___3885353993596611309_23180'
+  app/views/users/edit.html.erb:3:in `_app_views_users_edit_html_erb___2655188533284063589_23160'
+  app/controllers/users_controller.rb:30:in `edit'
+
+Started POST "/__better_errors/a430dc6d3bf0f8a4/variables" for ::1 at 2021-01-19 16:34:43 -0800
+Started GET "/users/39/edit" for ::1 at 2021-01-19 16:34:59 -0800
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"39"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 39], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:29
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (2.8ms)
+  Rendered users/edit.html.erb within layouts/application (3.7ms)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 1.5ms)
+
+
+
+NoMethodError - undefined method `persisted?' for nil:NilClass:
+  app/views/users/_form.html.erb:1:in `_app_views_users__form_html_erb___3885353993596611309_25400'
+  app/views/users/edit.html.erb:3:in `_app_views_users_edit_html_erb___2655188533284063589_25380'
+  app/controllers/users_controller.rb:30:in `edit'
+
+Started POST "/__better_errors/439f1589649989d6/variables" for ::1 at 2021-01-19 16:34:59 -0800
+Started GET "/users/9/edit" for ::1 at 2021-01-19 16:36:15 -0800
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:29
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.6ms)
+  Rendered users/edit.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 35ms (Views: 20.5ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/users/9?authenticity_token=LRFm7Jgf2sXu8oioBqiNGSnjQgfzOV5aktbYV1JwwtA51rtixXr3lzla0B415IOZm94lh%2FLcBATBkwxhgd0yQw%3D%3D&user%5Busername%5D=tigerlily14192&user%5Bpassword%5D=[FILTERED]" for ::1 at 2021-01-19 16:36:16 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"authenticity_token"=>"LRFm7Jgf2sXu8oioBqiNGSnjQgfzOV5aktbYV1JwwtA51rtixXr3lzla0B415IOZm94lh/LcBATBkwxhgd0yQw==", "user"=>{"username"=>"tigerlily14192", "password"=>"[FILTERED]"}, "id"=>"9"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 13ms (Views: 11.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/39/edit" for ::1 at 2021-01-19 16:36:37 -0800
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"39"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 39], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:29
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (2.2ms)
+  Rendered users/edit.html.erb within layouts/application (3.0ms)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 2.0ms)
+
+
+
+NoMethodError - undefined method `persisted?' for nil:NilClass:
+  app/views/users/_form.html.erb:1:in `_app_views_users__form_html_erb___3885353993596611309_29900'
+  app/views/users/edit.html.erb:3:in `_app_views_users_edit_html_erb___2655188533284063589_29880'
+  app/controllers/users_controller.rb:30:in `edit'
+
+Started POST "/__better_errors/504c0abc438626f8/variables" for ::1 at 2021-01-19 16:36:37 -0800
+Started GET "/users/9/edit" for ::1 at 2021-01-19 16:37:05 -0800
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:29
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.7ms)
+  Rendered users/edit.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 28ms (Views: 14.3ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/users/9?authenticity_token=FxlZNaSU25ABWmqwM4%2F56nHRTZt2zTWmE%2F8vPok4HHAD3oS7%2BfH2wtbyMgYAw%2Fdqw%2BwqG3cob%2FhAuvsIWpXs4w%3D%3D&user%5Busername%5D=tigerlily14192&user%5Bpassword%5D=[FILTERED]" for ::1 at 2021-01-19 16:37:08 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"authenticity_token"=>"FxlZNaSU25ABWmqwM4/56nHRTZt2zTWmE/8vPok4HHAD3oS7+fH2wtbyMgYAw/dqw+wqG3cob/hAuvsIWpXs4w==", "user"=>{"username"=>"tigerlily14192", "password"=>"[FILTERED]"}, "id"=>"9"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 13ms (Views: 12.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/new" for ::1 at 2021-01-19 16:37:18 -0800
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.7ms)
+  Rendered users/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 31ms (Views: 18.3ms | ActiveRecord: 4.5ms)
+
+
+Started POST "/users" for ::1 at 2021-01-19 16:37:20 -0800
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"JT0ph9uxynxL5Moxj3DbIk6oJG7yEZ8J006/GkYk/U8x+vQJhtTnLpxMkoe8PNWi/JVD7vP0xVeAC2sslYkN3A==", "user"=>{"username"=>"tigerlily1419222", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:10
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "RxvZUX8dK1R3k5syiugPtw"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "tigerlily1419222"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("password_digest", "session_token", "created_at", "updated_at", "username") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["password_digest", "$2a$12$R1eckunZwSDHSWFmouR0wevA8LfQh.lZE1X/Dd5zZmhf.ZqEH2cLK"], ["session_token", "RxvZUX8dK1R3k5syiugPtw"], ["created_at", "2021-01-20 00:37:20.922162"], ["updated_at", "2021-01-20 00:37:20.922162"], ["username", "tigerlily1419222"]]
+  ↳ app/controllers/users_controller.rb:10
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:10
+Redirected to http://localhost:3000/users/11
+Completed 302 Found in 229ms (ActiveRecord: 2.9ms)
+
+
+Started GET "/users/11" for ::1 at 2021-01-19 16:37:20 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 17ms (Views: 15.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/1" for ::1 at 2021-01-19 16:37:26 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 24ms (Views: 22.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/" for ::1 at 2021-01-19 16:37:27 -0800
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:4
+  Rendered users/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 15ms (Views: 13.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/9/edit" for ::1 at 2021-01-19 16:37:35 -0800
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:29
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.5ms)
+  Rendered users/edit.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 13ms (Views: 12.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/9?authenticity_token=zK27mpb8xWDqcYfAZ7hCk%2FH7eQzwNmmEEoYasbOrJITYamYUy5noMj3Z33ZU9EwTQ8YejPHTM9pBw86HYAbUFw%3D%3D&user%5Busername%5D=tigerlily141922222&user%5Bpassword%5D=[FILTERED]" for ::1 at 2021-01-19 16:37:40 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"authenticity_token"=>"zK27mpb8xWDqcYfAZ7hCk/H7eQzwNmmEEoYasbOrJITYamYUy5noMj3Z33ZU9EwTQ8YejPHTM9pBw86HYAbUFw==", "user"=>{"username"=>"tigerlily141922222", "password"=>"[FILTERED]"}, "id"=>"9"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 14ms (Views: 12.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/new" for ::1 at 2021-01-19 16:38:46 -0800
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.9ms)
+  Rendered users/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 50ms (Views: 35.5ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/users/9/edit" for ::1 at 2021-01-19 16:39:35 -0800
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:29
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.6ms)
+  Rendered users/edit.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 15ms (Views: 13.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/9?authenticity_token=22g6o92ErDheeSXzRuABPIoM%2B%2FSOzZZRq1Xz%2BQD%2BOprPr%2BctgOGBaonRfUV1rA%2B8ODGcdI8ozA%2F4ECfP01PKCQ%3D%3D&user%5Busername%5D=tigerlily14192222&user%5Bpassword%5D=[FILTERED]" for ::1 at 2021-01-19 16:39:45 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"authenticity_token"=>"22g6o92ErDheeSXzRuABPIoM+/SOzZZRq1Xz+QD+OprPr+ctgOGBaonRfUV1rA+8ODGcdI8ozA/4ECfP01PKCQ==", "user"=>{"username"=>"tigerlily14192222", "password"=>"[FILTERED]"}, "id"=>"9"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 12ms (Views: 10.7ms | ActiveRecord: 0.2ms)
+
+
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Started GET "/users/9/edit" for ::1 at 2021-01-19 16:40:27 -0800
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:29
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.5ms)
+  Rendered users/edit.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 17ms (Views: 15.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/9?authenticity_token=deMmwR1zKRf%2B5w7ech41gmXZvHI3WPRKaInLN8AUmgFhJPtPQBYERSlPVmhBUjsC1%2BTb8ja9rhQ7zB8BE7lqkg%3D%3D&user%5Busername%5D=catattack&user%5Bpassword%5D=[FILTERED]" for ::1 at 2021-01-19 16:40:34 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"authenticity_token"=>"deMmwR1zKRf+5w7ech41gmXZvHI3WPRKaInLN8AUmgFhJPtPQBYERSlPVmhBUjsC1+Tb8ja9rhQ7zB8BE7lqkg==", "user"=>{"username"=>"catattack", "password"=>"[FILTERED]"}, "id"=>"9"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 12ms (Views: 10.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users" for ::1 at 2021-01-19 16:40:39 -0800
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:4
+  Rendered users/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 12ms (Views: 10.9ms | ActiveRecord: 0.3ms)
+
+
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Started GET "/users/9/edit" for ::1 at 2021-01-19 16:41:00 -0800
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:29
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.6ms)
+  Rendered users/edit.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 12ms (Views: 11.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/9" for ::1 at 2021-01-19 16:41:01 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 13ms (Views: 12.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/8/edit" for ::1 at 2021-01-19 16:41:10 -0800
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:29
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.6ms)
+  Rendered users/edit.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 12ms (Views: 11.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/8" for ::1 at 2021-01-19 16:41:14 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 12ms (Views: 11.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/10/edit" for ::1 at 2021-01-19 16:41:17 -0800
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:29
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.6ms)
+  Rendered users/edit.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 12ms (Views: 10.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/10/edit" for ::1 at 2021-01-19 16:41:21 -0800
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:29
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.5ms)
+  Rendered users/edit.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 12ms (Views: 10.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/10/" for ::1 at 2021-01-19 16:41:23 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 11ms (Views: 10.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/10/edit" for ::1 at 2021-01-19 16:41:26 -0800
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:29
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.5ms)
+  Rendered users/edit.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 12ms (Views: 10.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/10/" for ::1 at 2021-01-19 16:42:55 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 17ms (Views: 15.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/10/edit" for ::1 at 2021-01-19 16:42:57 -0800
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (5.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:29
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (1.3ms)
+  Rendered users/edit.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 30ms (Views: 23.0ms | ActiveRecord: 5.3ms)
+
+
+Started GET "/users/10?authenticity_token=U%2BtH4IYwI2susN1j67IYGLiSzafqneu7iILqf3nrQ6VHLJpu21UOOfkYhdXY%2FhaYCq%2BqJ%2Bt4seXbxz5JqkazNg%3D%3D&user%5Busername%5D=linusoldman22222&user%5Bpassword%5D=" for ::1 at 2021-01-19 16:43:01 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"authenticity_token"=>"U+tH4IYwI2susN1j67IYGLiSzafqneu7iILqf3nrQ6VHLJpu21UOOfkYhdXY/haYCq+qJ+t4seXbxz5JqkazNg==", "user"=>{"username"=>"linusoldman22222", "password"=>"[FILTERED]"}, "id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 12ms (Views: 11.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users" for ::1 at 2021-01-19 16:43:07 -0800
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:4
+  Rendered users/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 15ms (Views: 14.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/10/" for ::1 at 2021-01-19 16:43:14 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 13ms (Views: 12.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/10/edit" for ::1 at 2021-01-19 16:43:17 -0800
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:29
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.7ms)
+  Rendered users/edit.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 12ms (Views: 11.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/new" for ::1 at 2021-01-19 16:43:47 -0800
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.5ms)
+  Rendered users/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 15ms (Views: 15.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2021-01-19 16:43:53 -0800
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"tjG0JVxjwkLAAJM1xUQ3m8YnrYxpk0gztksHulTZq1ai9mmrAQbvEBeoy4P2CDkbdBrKDGh2Em3lDtOMh3RbxQ==", "user"=>{"username"=>"loucrew", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:10
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "YqLkJWeiNdL9rjQC_v6rFA"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "loucrew"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("password_digest", "session_token", "created_at", "updated_at", "username") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["password_digest", "$2a$12$GSGBjRDN5RvgOc1ZX9Wnj.miDyr6xk2nB4njmfJBE1BOHhrcsNv7e"], ["session_token", "YqLkJWeiNdL9rjQC_v6rFA"], ["created_at", "2021-01-20 00:43:53.405756"], ["updated_at", "2021-01-20 00:43:53.405756"], ["username", "loucrew"]]
+  ↳ app/controllers/users_controller.rb:10
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:10
+Redirected to http://localhost:3000/users/12
+Completed 302 Found in 228ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/users/12" for ::1 at 2021-01-19 16:43:53 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 11ms (Views: 9.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/" for ::1 at 2021-01-19 16:43:56 -0800
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:4
+  Rendered users/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 11ms (Views: 10.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/edit" for ::1 at 2021-01-19 16:44:00 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"edit"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (2.1ms)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.2ms)
+
+
+
+NoMethodError - undefined method `username' for nil:NilClass:
+  app/views/users/show.html.erb:1:in `_app_views_users_show_html_erb___2264978099805736452_39140'
+
+Started POST "/__better_errors/7397fe2c2bb2457f/variables" for ::1 at 2021-01-19 16:44:00 -0800
+Started GET "/users/10/edit" for ::1 at 2021-01-19 16:44:04 -0800
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:29
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.6ms)
+  Rendered users/edit.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 15ms (Views: 13.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/10?authenticity_token=oN6oiKcriLP07%2BnijT42sMZjoWBrpBVjnwhDkkajpr%2B0GXUG%2Bk6l4SNHsVS%2BcjgwdF7G4GpBTz3MTZeklQ5WLA%3D%3D&user%5Busername%5D=linusoldman22222222&user%5Bpassword%5D=" for ::1 at 2021-01-19 16:44:08 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"authenticity_token"=>"oN6oiKcriLP07+nijT42sMZjoWBrpBVjnwhDkkajpr+0GXUG+k6l4SNHsVS+cjgwdF7G4GpBTz3MTZeklQ5WLA==", "user"=>{"username"=>"linusoldman22222222", "password"=>"[FILTERED]"}, "id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 15ms (Views: 13.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/10/edit" for ::1 at 2021-01-19 16:44:16 -0800
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:29
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.6ms)
+  Rendered users/edit.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 14ms (Views: 12.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/10?authenticity_token=lwjVbvCRFv7yOCf3suSyNm7fAHSguK4sZfzawYli60WDzwjgrfQ7rCWQf0GBqLy23OJn9KFd9HI2uQ73Ws8b1g%3D%3D&user%5Busername%5D=linusoldman2222&user%5Bpassword%5D=" for ::1 at 2021-01-19 16:44:18 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"authenticity_token"=>"lwjVbvCRFv7yOCf3suSyNm7fAHSguK4sZfzawYli60WDzwjgrfQ7rCWQf0GBqLy23OJn9KFd9HI2uQ73Ws8b1g==", "user"=>{"username"=>"linusoldman2222", "password"=>"[FILTERED]"}, "id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 15ms (Views: 14.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/10/" for ::1 at 2021-01-19 16:47:11 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 13ms (Views: 10.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/10/edit" for ::1 at 2021-01-19 16:47:13 -0800
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:29
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.6ms)
+  Rendered users/edit.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 11ms (Views: 10.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/10?_method=patch&authenticity_token=9z1%2BO422mRCkhpDS%2FfQTJKDVakLe%2BvjTO3keZ1xyrIPj%2BqO10NO0QnMuyGTOuB2kEugNwt8foo1oPMpRj99cEA%3D%3D&user%5Busername%5D=2&user%5Bpassword%5D=" for ::1 at 2021-01-19 16:47:17 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"authenticity_token"=>"9z1+O422mRCkhpDS/fQTJKDVakLe+vjTO3keZ1xyrIPj+qO10NO0QnMuyGTOuB2kEugNwt8foo1oPMpRj99cEA==", "user"=>{"username"=>"2", "password"=>"[FILTERED]"}, "id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 11ms (Views: 9.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/" for ::1 at 2021-01-19 16:47:24 -0800
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:4
+  Rendered users/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 14ms (Views: 12.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/10/edit" for ::1 at 2021-01-19 16:47:28 -0800
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:29
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.9ms)
+  Rendered users/edit.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 21ms (Views: 19.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/10/edit" for ::1 at 2021-01-19 16:48:31 -0800
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/sandylcruz/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:29
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (1.4ms)
+  Rendered users/edit.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 218ms (Views: 197.8ms | ActiveRecord: 6.9ms)
+
+
+Started GET "/users/10?_method=patch&authenticity_token=lzzhji93OJ4j2mho8nKxgXjQ1d4CRDHHarnN3QsIm%2BKD%2BzwAchIVzPRyMN7BPr8Byu2yXgOha5k5%2FBnr2KVrcQ%3D%3D&user%5Busername%5D=linusoldman2&user%5Bpassword%5D=" for ::1 at 2021-01-19 16:48:33 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"authenticity_token"=>"lzzhji93OJ4j2mho8nKxgXjQ1d4CRDHHarnN3QsIm+KD+zwAchIVzPRyMN7BPr8Byu2yXgOha5k5/Bnr2KVrcQ==", "user"=>{"username"=>"linusoldman2", "password"=>"[FILTERED]"}, "id"=>"10"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 12ms (Views: 10.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/10/edit" for ::1 at 2021-01-19 16:48:38 -0800
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:29
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.9ms)
+  Rendered users/edit.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 14ms (Views: 12.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/10?_method=patch&authenticity_token=%2F4MYL050AmGa7KLYCJjh8YF0T6cUa8Qhm97uWSTVW4frRMWhExEvM01E%2Bm471O9xM0koJxWOnn%2FImzpv93irFA%3D%3D&user%5Busername%5D=2linusoldman&user%5Bpassword%5D=" for ::1 at 2021-01-19 16:48:40 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"authenticity_token"=>"/4MYL050AmGa7KLYCJjh8YF0T6cUa8Qhm97uWSTVW4frRMWhExEvM01E+m471O9xM0koJxWOnn/Imzpv93irFA==", "user"=>{"username"=>"2linusoldman", "password"=>"[FILTERED]"}, "id"=>"10"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 10ms (Views: 9.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/edit" for ::1 at 2021-01-19 16:50:01 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"edit"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (9.8ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.3ms)
+
+
+
+NoMethodError - undefined method `username' for nil:NilClass:
+  app/views/users/show.html.erb:1:in `_app_views_users_show_html_erb__3784487530355388094_16120'
+
+Started POST "/__better_errors/17cd218082ce2fb4/variables" for ::1 at 2021-01-19 16:50:01 -0800
+Started GET "/users/10/edit" for ::1 at 2021-01-19 16:50:07 -0800
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:29
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.5ms)
+  Rendered users/edit.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 12ms (Views: 10.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/10/edit" for ::1 at 2021-01-19 16:50:08 -0800
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:29
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.5ms)
+  Rendered users/edit.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 11ms (Views: 10.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/10?_method=patch&authenticity_token=SPsJ06Xpb62l1lDsEYIv6MsiYG4ztbF7VlQvp2ih%2F%2FFcPNRd%2BIxC%2F3J%2BCFoiziFoeR8H7jJQ6yUFEfuRuwwPYg%3D%3D&user%5Busername%5D=linusoldman2&user%5Bpassword%5D=" for ::1 at 2021-01-19 16:50:10 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"authenticity_token"=>"SPsJ06Xpb62l1lDsEYIv6MsiYG4ztbF7VlQvp2ih//FcPNRd+IxC/3J+CFoiziFoeR8H7jJQ6yUFEfuRuwwPYg==", "user"=>{"username"=>"linusoldman2", "password"=>"[FILTERED]"}, "id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 10ms (Views: 9.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/10/edit" for ::1 at 2021-01-19 16:50:58 -0800
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:29
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.7ms)
+  Rendered users/edit.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 22ms (Views: 11.5ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/users/10?_method=patch&authenticity_token=ixmcZ%2FMAi18n3zu9%2BSxBoLtOrrrzxyiplUD%2BlOCiCYWf3kHprmWmDfB3YwvKYE8gCXPJOvIicvfGBSqiMw%2F5Fg%3D%3D&user%5Busername%5D=linusoldman2&user%5Bpassword%5D=" for ::1 at 2021-01-19 16:51:00 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"authenticity_token"=>"ixmcZ/MAi18n3zu9+SxBoLtOrrrzxyiplUD+lOCiCYWf3kHprmWmDfB3YwvKYE8gCXPJOvIicvfGBSqiMw/5Fg==", "user"=>{"username"=>"linusoldman2", "password"=>"[FILTERED]"}, "id"=>"10"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 12ms (Views: 10.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/10/edit" for ::1 at 2021-01-19 16:52:12 -0800
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:29
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.7ms)
+  Rendered users/edit.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 14ms (Views: 13.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/10?_method=patch&authenticity_token=PE1KFfw%2Fto3wjZ%2F2QrDrb8M4B7uKtDkWc5omisc9MyEoipeboVqb3yclx0Bx%2FOXvcQVgO4tRY0gg3%2FK8FJDDsg%3D%3D&user%5Busername%5D=linusoldman2&user%5Bpassword%5D=" for ::1 at 2021-01-19 16:52:14 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"authenticity_token"=>"PE1KFfw/to3wjZ/2QrDrb8M4B7uKtDkWc5omisc9MyEoipeboVqb3yclx0Bx/OXvcQVgO4tRY0gg3/K8FJDDsg==", "user"=>{"username"=>"linusoldman2", "password"=>"[FILTERED]"}, "id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 25ms (Views: 23.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/10/edit" for ::1 at 2021-01-19 16:52:43 -0800
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:29
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.5ms)
+  Rendered users/edit.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 23ms (Views: 21.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/10/edit" for ::1 at 2021-01-19 16:53:19 -0800
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:29
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.5ms)
+  Rendered users/edit.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 17ms (Views: 15.4ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/users/10" for ::1 at 2021-01-19 16:53:21 -0800
+Processing by UsersController#update as HTML
+  Parameters: {"authenticity_token"=>"IdKw32fZWjAe55dcstNy+r8D0BDb9zZ8yO2s9nTNOQg1FW1ROrx3YslPz+qBn3x6DT63kNoSbCKbqHjAp2DJmw==", "user"=>{"username"=>"linusoldman2", "password"=>"[FILTERED]"}, "id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:35
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:40
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "edm9IfjUriSb74iFmrbFaQ"], ["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:40
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "linusoldman2"], ["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:40
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:40
+Redirected to http://localhost:3000/users
+Completed 302 Found in 234ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/users" for ::1 at 2021-01-19 16:53:21 -0800
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:4
+  Rendered users/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 24ms (Views: 23.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/10/edit" for ::1 at 2021-01-19 16:53:26 -0800
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:29
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (1.0ms)
+  Rendered users/edit.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 27ms (Views: 25.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/10/" for ::1 at 2021-01-19 16:53:28 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 13ms (Views: 11.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/10/edit" for ::1 at 2021-01-19 16:53:34 -0800
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:29
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.6ms)
+  Rendered users/edit.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 14ms (Views: 13.2ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/users/10" for ::1 at 2021-01-19 16:53:38 -0800
+Processing by UsersController#update as HTML
+  Parameters: {"authenticity_token"=>"DwCfCC8/uGuuy5SM6dgegGGUtAr9Vf1hIQAd8PMV3q4bx0KGclqVOXljzDralBAA06nTivywpz9yRcnGILguPQ==", "user"=>{"username"=>"linusoldman2", "password"=>"[FILTERED]"}, "id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:35
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:40
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "edm9IfjUriSb74iFmrbFaQ"], ["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:40
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "linusoldman2"], ["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:40
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:40
+Redirected to http://localhost:3000/users
+Completed 302 Found in 226ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/users" for ::1 at 2021-01-19 16:53:38 -0800
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:4
+  Rendered users/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 12ms (Views: 10.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/10/" for ::1 at 2021-01-19 16:54:39 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 24ms (Views: 12.6ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/users/10/edit" for ::1 at 2021-01-19 16:54:41 -0800
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:29
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.6ms)
+  Rendered users/edit.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 11ms (Views: 10.4ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/users/10" for ::1 at 2021-01-19 16:54:43 -0800
+Processing by UsersController#update as HTML
+  Parameters: {"authenticity_token"=>"q0kgYN2l4AV8kPhyYttp7CL3tKJHdKLsXywL1+/WAli/jv3ugMDNV6s4oMRRl2dskMrTIkaR+LIMad/hPHvyyw==", "user"=>{"username"=>"linusoldman2", "password"=>"[FILTERED]"}, "id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:35
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:40
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "edm9IfjUriSb74iFmrbFaQ"], ["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:40
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "linusoldman2"], ["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:40
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:40
+Redirected to http://localhost:3000/users
+Completed 302 Found in 220ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/users" for ::1 at 2021-01-19 16:54:43 -0800
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:4
+  Rendered users/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 11ms (Views: 10.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/10/" for ::1 at 2021-01-19 16:54:53 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 11ms (Views: 10.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/10/edit" for ::1 at 2021-01-19 16:54:55 -0800
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:29
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.7ms)
+  Rendered users/edit.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 12ms (Views: 10.6ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/users/10" for ::1 at 2021-01-19 16:54:59 -0800
+Processing by UsersController#update as HTML
+  Parameters: {"authenticity_token"=>"ZPMtWk1Eu8l3fh0eyHFH2cAEn1ON2HsNmj2YJFHO2iVwNPDUECGWm6DWRaj7PUlZcjn404w9IVPJeEwSgmMqtg==", "user"=>{"username"=>"linusoldman2", "password"=>"[FILTERED]"}, "id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:35
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:40
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "edm9IfjUriSb74iFmrbFaQ"], ["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:40
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "linusoldman2"], ["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:40
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "username" = $1, "password_digest" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["username", "linusoldman2"], ["password_digest", "$2a$12$KYbmO8VZVXucrhLm24Drt.vf51o9Bw89QmsnGqVe4j8eRWBWf73vG"], ["updated_at", "2021-01-20 00:54:59.619354"], ["id", 10]]
+  ↳ app/controllers/users_controller.rb:40
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:40
+Redirected to http://localhost:3000/users/10
+Completed 302 Found in 220ms (ActiveRecord: 3.2ms)
+
+
+Started GET "/users/10" for ::1 at 2021-01-19 16:54:59 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 10ms (Views: 9.2ms | ActiveRecord: 0.2ms)
+
+

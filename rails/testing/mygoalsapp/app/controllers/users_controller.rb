@@ -31,12 +31,17 @@ class UsersController < ApplicationController
   end
 
   def update
+    id = params[:id]
     @user = User.find_by(id: params[:id])
+    
     if @user.nil?
+      puts "user nil"
       render :new
     elsif @user.update_attributes(user_params)
+      puts "updated user"
       redirect_to user_url(@user)
     else
+      puts @user.errors.full_messages
       redirect_to users_url
     end
   end

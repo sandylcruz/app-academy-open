@@ -12,9 +12,9 @@ RSpec.describe 'Create User', type: :feature do
   feature 'signing up a user' do 
     scenario 'valid inputs' do 
       visit new_user_url
-      fill_in 'Username', :with => "calpal"
-      fill_in 'Password', :with => "biscuits"
-      click_on "Create User"
+      fill_in 'Username:', :with => "calpal"
+      fill_in 'Password:', :with => "biscuits"
+      click_on "Submit"
       expect(page).to have_content('calpal')
     end
 
