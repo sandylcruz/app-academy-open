@@ -29,10 +29,12 @@ RSpec.describe 'Create User', type: :feature do
     end
   end
 
+  feature 'logging out' do
+    scenario 'begins with logged out state' do
+      visit root_url
+      expect(page).to have_content('Log in')
+    end
 
-  # feature 'logging out' do
-  #   scenario 'begins with logged out state'
-
-  #   scenario 'doesn\t show username on homepage after logout'
-  # end
+    scenario 'doesn\t show username on homepage after logout'
+  end
 end
