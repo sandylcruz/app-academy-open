@@ -21,7 +21,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by(id: params[:id])
+    @user = User.find_by_credentials(id: params[:id])
     render :show if @user
   end
 
@@ -44,9 +44,6 @@ class UsersController < ApplicationController
       puts @user.errors.full_messages
       redirect_to users_url
     end
-  end
-
-  def destroy
   end
 
   private
