@@ -12,7 +12,6 @@ class GoalsController
     else
       render :new
       flash[:errors] = "Goal not created"
-
     end
   end
 

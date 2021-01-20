@@ -1,36 +1,12 @@
 class Goal < ApplicationRecord
-  def create
-    @goal = Goal.new(goal_params)
+  validates :user_id, presence: true
+  validates :title, presence: true
+  validates :description, presence: true
+  validates :private, presence: true
+  validates :completed, presence: true
 
-    if @goal.save
-      redirect_to goal_url(@goal)
-    else
-      render :new
-    end
-  end
-
-  def new
-    @goal = Goal.new
-    render :new
-  end
-
-  def update
-    @goal = Goal.find_by(id: params[:id])
-    render :edit
-  end
-
-  def destroy
-    @goal = Goal.find_by(id: params[:id])
-  end
-
-  def show
-    @goals = Goal.all
-    render :index
-  end
-
-  private
-
-  def goal_params
-    params.require(:goal).permit(:title, :user_id, :description )
-  end
+  belongs_to :author,
+    class_name: 'User',
+    foreign_key: :user_id,
+    primary_key: :id
 end

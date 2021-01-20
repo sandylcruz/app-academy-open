@@ -1,1 +1,10 @@
-<h2> Welcome <%= @user.username %> </h2>
+<h2> <%= @user.username %>'s Profile </h2>
+
+<p>New Comment</p>
+<form>
+  <h3>Comment</h3>
+  <input type="text" id="comment_box" name=user[comment]></input>
+  <input type="submit" \>
+</form>
+<h3><%= @user.username %>'s Goals:</h3>
+<a href="<%= new_goal_url %>">New Goal</a>

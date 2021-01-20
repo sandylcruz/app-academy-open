@@ -6,6 +6,7 @@ class AddGoalsTable < ActiveRecord::Migration[5.2]
       t.text :description, null: false
       t.boolean :private, null: false, default: false 
       t.boolean :completed, null: false, default: false
+      t.timestamps
     end
 
     add_index :goals, :user_id
