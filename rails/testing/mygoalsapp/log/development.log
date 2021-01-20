@@ -4456,3 +4456,81 @@ Processing by UsersController#show as HTML
 Completed 200 OK in 10ms (Views: 9.2ms | ActiveRecord: 0.2ms)
 
 
+Started GET "/users/new" for ::1 at 2021-01-19 17:01:21 -0800
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.6ms)
+  Rendered users/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 13ms (Views: 12.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2021-01-19 17:13:09 -0800
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"IFxDVjDV205yYOu1nJXnEOIbSvLzWKfgX5a8vw+jeo80m57YbbD2HKXIswOv2emQUCYtcvK9/b4M02iJ3A6KHA==", "user"=>{"username"=>"calpal", "password"=>"[FILTERED]"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:10
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7TmDVY6HJVkYwltKjdvACQ"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "calpal"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:10
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.6ms)
+  Rendered users/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 233ms (Views: 11.3ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/users" for ::1 at 2021-01-19 17:13:11 -0800
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"ykS4FeGv3VMhs6qLUBiZwLH3Q42Y3vdpHNBFvQ52pLbeg2WbvMrwAfYb8j1jVJdAA8okDZk7rTdPlZGL3dtUJQ==", "user"=>{"username"=>"calpal", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:10
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "sJvlXCA-bAgfNIyAHGlkWw"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "calpal"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:10
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.6ms)
+  Rendered users/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 231ms (Views: 11.4ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/users" for ::1 at 2021-01-19 17:13:13 -0800
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"JDbUx6LMC3xSjGnWQJWdmHnnotdbmHKoGE7CYJuAacQw8QlJ/6kmLoUkMWBz2ZMYy9rFV1p9KPZLCxZWSC2ZVw==", "user"=>{"username"=>"calpals", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:10
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "F8gfulsn9aZPMsux87_c_Q"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "calpals"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("password_digest", "session_token", "created_at", "updated_at", "username") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["password_digest", "$2a$12$SO9exRgf4K1cAG0./TTW9e9Nn3EuxUGbV45N/IkdmcabRFDkjElg6"], ["session_token", "F8gfulsn9aZPMsux87_c_Q"], ["created_at", "2021-01-20 01:13:14.193708"], ["updated_at", "2021-01-20 01:13:14.193708"], ["username", "calpals"]]
+  ↳ app/controllers/users_controller.rb:10
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:10
+Redirected to http://localhost:3000/users/13
+Completed 302 Found in 233ms (ActiveRecord: 3.6ms)
+
+
+Started GET "/users/13" for ::1 at 2021-01-19 17:13:14 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 12ms (Views: 10.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users" for ::1 at 2021-01-19 17:13:15 -0800
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:4
+  Rendered users/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 14ms (Views: 12.8ms | ActiveRecord: 0.3ms)
+
+

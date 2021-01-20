@@ -10,29 +10,21 @@ RSpec.describe 'Create User', type: :feature do
   end
 
   feature 'signing up a user' do 
-    scenario 'valid inputs' do 
+    scenario 'show username after creating new user' do 
       visit new_user_url
-      fill_in 'Username:', :with => "calpal"
-      fill_in 'Password:', :with => "biscuits"
-      click_on "Submit"
-      expect(page).to have_content('calpal')
+      fill_in 'user[username]', with: "calpalz"
+      fill_in 'user[password]', with: "biscuits"
+      click_on "Create user!"
+      expect(page).to have_content('calpalz')
     end
-
-    # scenario 'shows username on homepage after signup'
-
-    # before(:each) do
-    #   scenario 'with an invalid user' do
-    #     visit new_user_url
-    #     fill_in 'Username', :with => "calpal"
-    #     click_on "Create User"
-    #     expect(page).to have_content('Password cannot be blank')
-    #   end
-    # end
   end
 
-  # feature 'logging in' do
-  #   scenario 'shows username on homepage after log in'
-  # end
+  feature 'logging in' do
+    scenario 'shows username on homepage after log in' do
+      login_as('calpalz')
+      expect(page).to have_content('calpalz')
+    end
+  end
 
   # feature 'logging out' do
   #   scenario 'begings with logged out state'
