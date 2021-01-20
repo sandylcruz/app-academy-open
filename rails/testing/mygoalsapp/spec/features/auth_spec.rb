@@ -19,21 +19,16 @@ RSpec.describe 'Create User', type: :feature do
     end
   end
 
-  feature "logging in" do
-    subject(:user) do
-      FactoryBot.build(:user,
-        username: "calpal",
-        password: "password")
-    end
-
-    # given(:calpal) { FactoryBot.create(:user) }
-    
-    scenario "shows username on the homepage after login" do
-      user = FactoryBot.build(:user, password: "password")
-      visit 
-      expect(page).to have_content "Welcome user"
+  feature 'logging in' do
+    scenario "signs user in with correct credentials" do
+      visit new_session_url
+      fill_in 'Username', with: 'calpal'
+      fill_in 'Password', with: 'password'
+      click_on 'Submit'
+      expect(page).to have_content('calpal')
     end
   end
+
 
   # feature 'logging out' do
   #   scenario 'begins with logged out state'
