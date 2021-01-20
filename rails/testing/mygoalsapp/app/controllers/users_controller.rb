@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      render plain: "has been saved"
+      redirect_to user_url(@user)
     else
       render :new
       flash[:errors] = "User not created"
@@ -49,5 +49,4 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:username, :password)
   end
-
 end

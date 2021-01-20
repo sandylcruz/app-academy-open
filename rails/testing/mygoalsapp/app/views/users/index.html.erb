@@ -1,1 +1,7 @@
-<h2>This is the index</h2>
+<h2>All users</h2>
+
+<section class="user_index">
+  <% User.all.each do |user| %>
+    <li><%= user.username %></li>
+  <% end %>
+</section>
