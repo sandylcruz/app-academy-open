@@ -15,6 +15,10 @@ class SessionsController < ApplicationController
     end
   end
 
+  def destroy
+    logout!
+  end
+
   private
 
   def user_params
