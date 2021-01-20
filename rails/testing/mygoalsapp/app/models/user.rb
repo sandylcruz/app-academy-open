@@ -10,7 +10,6 @@ class User < ApplicationRecord
   validates :username, presence: true, uniqueness: true
 
   attr_reader :password
-  
 
   def reset_session_token!
     self.session_token = SecureRandom.urlsafe_base64(16)
@@ -29,7 +28,6 @@ class User < ApplicationRecord
 
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
-
     user && user.is_password?(password) ? user : nil
   end
 

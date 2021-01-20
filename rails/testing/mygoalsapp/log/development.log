@@ -5240,3 +5240,115 @@ NoMethodError - undefined method `login!' for #<SessionsController:0x00007fe1f8d
   app/controllers/sessions_controller.rb:10:in `create'
 
 Started POST "/__better_errors/8ab952841a9efd19/variables" for ::1 at 2021-01-19 18:18:34 -0800
+Started GET "/session/new" for ::1 at 2021-01-19 18:25:36 -0800
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 10ms (Views: 9.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for ::1 at 2021-01-19 18:25:40 -0800
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"7X4lLXSXL/oMlEeNIo667X24++FTH9OgUZg1tljdl235ufijKfICqNs8HzsRwrRtz4WcYVL6if4C3eGAi3Bn/g==", "user"=>{"username"=>"calpal", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "calpal"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:31
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:17
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "9LLvpi7d4jah67MGrn4IHw"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:17
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "calpal"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:17
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "9LLvpi7d4jah67MGrn4IHw"], ["updated_at", "2021-01-20 02:25:40.880954"], ["id", 1]]
+  ↳ app/models/user.rb:17
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:17
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 244ms (ActiveRecord: 11.1ms)
+
+
+Started GET "/users/1" for ::1 at 2021-01-19 18:25:40 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms)
+
+
+
+ArgumentError - wrong number of arguments (given 1, expected 2):
+  app/models/user.rb:30:in `find_by_credentials'
+  app/controllers/users_controller.rb:24:in `show'
+
+Started POST "/__better_errors/8100f6bea1feb108/variables" for ::1 at 2021-01-19 18:25:40 -0800
+Started GET "/session/new" for ::1 at 2021-01-19 18:36:41 -0800
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 16ms (Views: 15.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for ::1 at 2021-01-19 18:36:43 -0800
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"dwJjyqrgnOHl0Yu13fWbWJk9D49YVI3tNR9Q4OVhylZjxb5E94WxszJ50wPuuZXYKwBoD1mx17NmWoTWNsw6xQ==", "user"=>{"username"=>"tigerlily1419", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "tigerlily1419"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:31
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:17
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "QtY0HBWkLlI-wCLlnxmqyw"], ["id", 9], ["LIMIT", 1]]
+  ↳ app/models/user.rb:17
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "tigerlily1419"], ["id", 9], ["LIMIT", 1]]
+  ↳ app/models/user.rb:17
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "QtY0HBWkLlI-wCLlnxmqyw"], ["updated_at", "2021-01-20 02:36:43.246598"], ["id", 9]]
+  ↳ app/models/user.rb:17
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:17
+Redirected to http://localhost:3000/users/9
+Completed 302 Found in 245ms (ActiveRecord: 12.0ms)
+
+
+Started GET "/users/9" for ::1 at 2021-01-19 18:36:43 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"9"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+
+ArgumentError - wrong number of arguments (given 1, expected 2):
+  app/models/user.rb:30:in `find_by_credentials'
+  app/controllers/users_controller.rb:24:in `show'
+
+Started POST "/__better_errors/2a92b24803e56bab/variables" for ::1 at 2021-01-19 18:36:43 -0800
+Started GET "/session/new" for ::1 at 2021-01-19 18:39:40 -0800
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 13ms (Views: 12.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for ::1 at 2021-01-19 18:39:46 -0800
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"t0MTc+tS6lBdP5C1dxYqzSVWU7wrpUdgYcPmVb1PZVKjhM79tjfHAoqXyANEWiRNl2s0PCpAHT4yhjJjbuKVwQ==", "user"=>{"username"=>"calpal", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "calpal"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:30
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:16
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "Z-5jxCgaijHP6ZmRh8WduQ"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:16
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "calpal"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:16
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "Z-5jxCgaijHP6ZmRh8WduQ"], ["updated_at", "2021-01-20 02:39:46.247968"], ["id", 1]]
+  ↳ app/models/user.rb:16
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:16
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 240ms (ActiveRecord: 8.4ms)
+
+
+Started GET "/users/1" for ::1 at 2021-01-19 18:39:46 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 12ms (Views: 10.1ms | ActiveRecord: 0.2ms)
+
+

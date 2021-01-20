@@ -21,7 +21,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by_credentials(id: params[:id])
+    @user = User.find_by(id: params[:id])
     render :show if @user
   end
 
