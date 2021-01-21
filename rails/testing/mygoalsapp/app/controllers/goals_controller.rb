@@ -6,12 +6,12 @@ class GoalsController < ApplicationController
 
   def create
     @goal = Goal.new(goal_params)
+    @goal.author = current_user
 
     if @goal.save
       redirect_to goal_url(@goal)
     else
-      render :new
-      flash[:errors] = "Goal not created"
+      render @goal.errors.full_messages
     end
   end
 
@@ -45,6 +45,6 @@ class GoalsController < ApplicationController
   private
 
   def goal_params
-    params.require(:goal).permit(:title, :user_id, :description )
+    params.require(:goal).permit(:title, :description, :private, :completed)
   end
 end

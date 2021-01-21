@@ -1,0 +1,27 @@
+<% action_url = (goal.persisted? ? goal_url(goal) : goals_url) %>
+<% method = (goal.persisted? ? :patch : :post) %>
+
+<form action="<%= action_url %>" method="POST">
+  <% if method == :patch %>
+    <input type="hidden" name="_method" value="patch" />
+  <% end %>
+
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
+
+  <label for="title">Title:</label>
+  <input type="text" id="goal-title" name="goal[title]" value="<%=@goal.title %>" />
+
+  <label for="description">Description:</label>
+  <textarea id="goal-description" name="goal[description]" rows="4" cols="50"></textarea>
+
+  <label for="private" id="goal-private" name="goal[private]" value="<%= @goal.private %>">Private?</label>
+    <div>
+      <input type="checkbox" id="goal-private" name="goal[private]" value="<%= "checked" if goal.private %>" Private?  />
+    </div>
+
+  <label for="completed" id="goal-completed" name="goal[completed]">Completed?</label>
+    <div>
+      <input type="checkbox" id="goal-completed" name="goal[completed">
+    </div>
+  <input type="submit"></input>
+</form>
