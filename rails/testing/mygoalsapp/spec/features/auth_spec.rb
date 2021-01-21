@@ -31,16 +31,18 @@ RSpec.describe 'Create User', type: :feature do
 
   feature "logging out" do
     given!(:hello_world) { FactoryBot.create(:user, username: 'catpat', password: 'password') }
-  
     scenario "begins with logged out state" do
-      visit root_url
-      expect(page).to have_content "Log In"
+      visit users_url
+      expect(page).to have_content "Log in"
     end
   
     scenario "doesn't show username on the homepage after logout" do
-      login_as(hello_world)
-      click_button "Log Out"
-      expect(page).not_to have_content "hello_world"
+      visit new_session_url
+      fill_in 'Username', with: 'calpal'
+      fill_in 'Password', with: 'password'
+      click_on 'Submit'
+      click_button "Logout"
+      expect(page).not_to have_content "calpal"
     end
   end
 end

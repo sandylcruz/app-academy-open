@@ -1,11 +1,11 @@
-<% privacy = (@user.goal.private) ? "Private" : "Public" %>
-<% completedness = (@user.goal.completed) ? "Complete" : "Ongoing" %>
+<% privacy = (goal.private) ? "Private" : "Public" %>
+<% completedness = (goal.completed) ? "Complete" : "Ongoing" %>
 
-<%= @user.goals.each do |goal| %>
+<ul>
   <li>
     <a href="<%= goal_url(goal) %>"><%= goal.title %></a>
   </li>
   <li><%= goal.description %></li>
   <li><%= privacy %></li>
-  <li><%= completendess %></li>
-<% end %>
+  <li><%= completedness %></li>
+</ul>
