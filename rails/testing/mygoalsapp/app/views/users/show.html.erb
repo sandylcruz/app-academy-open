@@ -2,7 +2,7 @@
 
 <h3>New Comment</h3>
 <form>
-  <h3>Comment</h3>
+  <h4>Comment:</h4>
   <input type="text" id="comment_box" name=user[comment]></input>
   <input type="submit" value="Save Comment"\>
 </form>
@@ -14,7 +14,10 @@
   <% end %>
 
   <%= @user.goals.each do |goal| %>
-    <li><%= goal %></li>
+    <li><a href="<%= goal_url(goal) %>"><%= goal.title %></a></li>
+    <li><%= goal.description %></li>
+    <li><%= goal.private %></li>
+    <li><%= goal.completed %></li>
   <% end %> 
 
 </div>

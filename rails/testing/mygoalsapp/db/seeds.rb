@@ -14,10 +14,3 @@ linus = User.create!(username: 'babykitten', password: 'password')
 def coerce_into_camelcase(string)
   string.split(" ").join("_").downcase
 end
-
-5.times do
-  User.create!(
-    username: coerce_into_camelcase(Faker::Games::Zelda.unique.character),
-    password: 'password'
-  )
-end
