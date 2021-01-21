@@ -9,6 +9,11 @@ class User < ApplicationRecord
   validates :password_digest, presence: true
   validates :username, presence: true, uniqueness: true
 
+  has_many :goals,
+    class_name: 'Goal',
+    foreign_key: :user_id,
+    primary_key: :id
+
   attr_reader :password
 
   def reset_session_token!
