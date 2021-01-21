@@ -1,11 +1,13 @@
 <% privacy = (goal.private) ? "Private" : "Public" %>
 <% completedness = (goal.completed) ? "Complete" : "Ongoing" %>
 
-<ul>
-  <li>
-    <a href="<%= goal_url(goal) %>"><%= goal.title %></a>
-  </li>
-  <li><%= goal.description %></li>
-  <li><%= privacy %></li>
-  <li><%= completedness %></li>
-</ul>
+<div id="goals_div">
+  <ul>
+    <li>
+      <a href="<%= goal_url(goal) %>"><%= goal.title %></a>
+    </li>
+    <li><%= goal.description %></li>
+    <li><%= privacy %></li>
+    <li><%= completedness %></li>
+  </ul>
+</div>
