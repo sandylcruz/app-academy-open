@@ -19,6 +19,7 @@ button {
 	text-transform: uppercase;
 	font-size: 11px;
   text-align: center;
+  margin: 5px;
 }
 
 #subscribe-button, #login-button {
@@ -27,6 +28,7 @@ button {
   color: $lightest-gray;
   transition: 0.4s;
   border-radius: 3px;
+  margin-right: 10px;
 }
 
 #subscribe-button:hover, #login-button:hover {
@@ -38,6 +40,7 @@ button {
   background-color: none;
   transition: 0.4s;
   border-radius: 3px;
+  margin-right: 15px;
 }
 
 #sections-sidebar-btn:hover, #search-modal-btn:hover, #settings-button:hover {
@@ -56,7 +59,7 @@ hr {
 
 .hr-top, .hr-bottom {
 	width: 100%;
-	margin: 0;
+	margin: 50px;
 }
 
 .hr-top {

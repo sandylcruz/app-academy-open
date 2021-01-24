@@ -2,6 +2,7 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
+  margin: 20px;
 }
 
 .left-nav > ul,
@@ -14,7 +15,8 @@
 
   > ul {
     > li {
-
+      font-family: $serif;
+      font-size: 11px;
     }
   }
 
@@ -32,7 +34,6 @@
     }
 
     > li:last-of-type {
-  
     }
   }
   
@@ -43,5 +44,5 @@
 
 .left-nav > ul > li:hover,
 .right-nav > ul > li:last-of-type:hover {
-
+  background-color: $lightest-gray
 }
