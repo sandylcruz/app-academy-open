@@ -1,1 +1,23 @@
-// Use the gear_dropdown.png screenshot as a style guide
+#settings-menu {
+  position: absolute;
+  background-color: white;
+  opacity: 0;
+  height: 0;
+  border: 1px solid $lightest-gray;
+}
+
+#settings {
+  transition: all 0.3s ease-in-out;
+}
+
+#settings-button:focus {
+  -webkit-box-shadow: 6px 0px 7px 0px #DCD8EA; 
+  box-shadow: 6px 0px 7px 0px #DCD8EA;
+}
+
+#settings:hover > #settings-menu, #settings-button:focus + #settings-menu {
+  display: block;
+  opacity: 1;
+  height: 200px;
+  transition: all 0.3s ease-in-out;
+}

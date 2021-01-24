@@ -20,8 +20,9 @@
       <li id="login-button">
         <button type="button">log in</button>
       </li>
-      <li id="settings-button">
-        <button type="button"><i class="fas fa-cog"></i></button>
+      <li id="settings" class="cog">
+        <button type="button" id="settings-button"><i class="fas fa-cog"></i></button>
+        <%= render partial: 'shared/gear_dropdown' %>
       </li>
       </ul>
   </nav>

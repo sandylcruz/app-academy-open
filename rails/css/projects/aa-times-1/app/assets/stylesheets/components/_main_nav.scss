@@ -14,7 +14,6 @@
 }
 
 .left-nav {
-
   > ul {
     > li {
       font-family: $serif;
@@ -23,16 +22,12 @@
   }
 
   span {
-
   }
 }
 
 .right-nav  {
-
   > ul {
-
     > li {
-  
     }
 
     > li:last-of-type {
@@ -40,11 +35,13 @@
   }
   
   i {
-
   }
 }
 
 .left-nav > ul > li:hover,
 .right-nav > ul > li:last-of-type:hover {
-  background-color: $lightest-gray
+  background-color: $lightest-gray;
+}
+
+.right-nav > ul > li:last-of-type {
 }
