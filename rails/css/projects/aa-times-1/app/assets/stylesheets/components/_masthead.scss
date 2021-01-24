@@ -30,8 +30,8 @@
 		color: $dark-gray;
   }
 
-  ::first-line{
-    color: red;
+  li:first-child a {
+    font-weight: bold;
   }
 }
 
@@ -50,14 +50,18 @@
   margin-top: -10px;
   margin-bottom: 10px;
   justify-content: center;
+  border-bottom: 2px solid black;
+
 
 	li {
     margin: 10px;
     border-right: 1px solid $light-gray;
     padding: 7px;
   }
-  
- 
+
+  li:last-child {
+    border: none;
+  }
 
 	button {
 		background: none;
@@ -65,10 +69,11 @@
 		color: #000;
 		font-weight: normal;
     border: none;
+    transition: 0.4s
 	}
 
 	button:hover {
-		background-color: $lightest-gray;
+		background-color: $light-gray;
 	}
 
 	a,
