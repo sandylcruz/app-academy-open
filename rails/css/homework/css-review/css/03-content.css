@@ -1,21 +1,40 @@
 /* PHASE 3: Content */
 
 .content {
-
+  margin: 0 auto;
+  background: #fff;
+  border-left:1 px solid #ccc;
+  border-right:1 px solid #ccc;
+  border-bottom:1 px solid #ccc;
+  font-family: arial;
+  width: 900px;
 }
 
-.content-sidebar {
 
+.content-sidebar {
+  float: left;
+  width: 200px;
+  padding: 20px;
 }
 
 .content-main {
-
+  float: left;
+  width: 620px;
+  padding: 20px;
+ 
 }
 
 .content h1 {
-
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0 0 20px 0;
 }
 
 .content p {
+}
 
+.group:after {
+  content: "";
+  display: block;
+  clear: both;
 }
