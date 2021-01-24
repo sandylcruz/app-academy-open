@@ -1,10 +1,13 @@
 .main-nav {
-
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .left-nav > ul,
 .right-nav > ul {
-
+  display: flex;
+  align-items: row;
 }
 
 .left-nav {

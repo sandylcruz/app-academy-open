@@ -15,8 +15,6 @@ body {
 button {
   font-weight: bold;
 	padding: 5px;
-	border-radius: 3px;
-	transition: 0.4s;
 	font-family: $sans-serif;
 	text-transform: uppercase;
 	font-size: 11px;
@@ -26,28 +24,24 @@ button {
 #subscribe-button, #login-button {
   background-color: $light-blue;
 	border-color: $light-blue;
-	color: $lightest-gray;
-  display: inline-block;
+  color: $lightest-gray;
+  transition: 0.4s;
+  border-radius: 3px;
+}
+
+#subscribe-button:hover, #login-button:hover {
+	background-color: $darkest-blue;
+  border-color: $darkest-blue;
 }
 
 #sections-sidebar-btn, #search-modal-btn, #settings-button {
-  background-color: $lightest-gray;
+  background-color: none;
+  transition: 0.4s;
+  border-radius: 3px;
 }
 
-#subscribe-button, #login-button:hover {
-	background-color: $darkest-blue;
-  border-color: $darkest-blue;
-  display: inline-block;
-}
-
-#sections-sidebar-btn, #search-modal-btn, #settings-button:hover {
+#sections-sidebar-btn:hover, #search-modal-btn:hover, #settings-button:hover {
   background-color: $light-gray;
-}
-
-
-button:hover {
-	// background-color: $darkest-gray;
-	// border-color: $darkest-gray;
 }
 
 /*
