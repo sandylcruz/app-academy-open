@@ -45,3 +45,18 @@
 
 .right-nav > ul > li:last-of-type {
 }
+
+@media all and (max-width: 1000px) {
+	.right-nav {
+		
+		button {
+			display: none;
+		}
+	}
+  .left-nav > ul > li {
+  	margin: 0;
+  }
+  .main-nav {
+  	padding: 20px 0;
+  }
+}

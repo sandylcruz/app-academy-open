@@ -2,8 +2,11 @@
 	<nav class="left-nav">
 		<ul>
 			<li id="sections-sidebar-btn">
-				<button type="button"><i class="fa fa-bars"></i><span> sections</span>
+        <button type="button"><i class="fa fa-bars"></i>
+          <span> sections</span>
         </button>
+        <%= render partial: 'shared/sections_sidebar' %>
+        
 			</li>
       <li id="search-modal-btn">
         <button type="button"><i class="fa fa-search"></i><span> search</span>

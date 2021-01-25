@@ -88,5 +88,10 @@
 
 	strong {
 		color: green;
-	}
+  }
+  @media all and (max-width: 1000px) {
+    .language-nav, .languages, .section-links {
+      display: none;
+    }
+  }
 }
