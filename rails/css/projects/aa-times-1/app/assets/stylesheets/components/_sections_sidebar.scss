@@ -3,7 +3,7 @@
   width: 150px;
   display: flex;
   overflow: visible;
-
+	transition: width 0.2s ease, opacity 0.5s ease;
 }
 
 .sections-sidebar {
@@ -16,10 +16,11 @@
   font-weight: bold;
   background: white;
   z-index: 1;
-  margin: 0;
   overflow: auto;
   border: 1px solid $dark-gray;
   box-shadow: 5px 10px 8px #888888;
+  text-decoration: none;
+  margin-top: 5px;
 }
 
 .dropdown {
@@ -30,7 +31,10 @@
     left: 162px;
     top: 0px;
     font-size: 15px;
-    background-color:$dark-gray;
+    background-color: white;
+    width: 200px;
+    box-shadow: 5px 10px 8px #888888;
+
   }
 
   ul:before {
@@ -58,5 +62,5 @@
 
 .subheader {
   font-color: $light-gray;
-  background-color: purple;
+  font-weight: light;
 }
