@@ -6,9 +6,11 @@
 	transition: width 0.2s ease, opacity 0.5s ease;
 }
 
+.nav {
+}
+
 .sections-sidebar {
   opacity: 0;
-  padding: 10px;
   position: absolute;
   margin: 10px;
   font-family: $sans-serif;
@@ -16,11 +18,11 @@
   font-weight: bold;
   background: white;
   z-index: 1;
-  overflow: auto;
-  border: 1px solid $dark-gray;
   box-shadow: 5px 10px 8px #888888;
   text-decoration: none;
   margin-top: 5px;
+  padding: 5px;
+  border-radius: 5px;
 }
 
 .dropdown {
@@ -28,12 +30,12 @@
   ul {
     display: none;
     position: absolute;
-    left: 162px;
+    left: 145px;
     top: 0px;
     font-size: 15px;
     background-color: white;
-    width: 200px;
     box-shadow: 5px 10px 8px #888888;
+		padding: 10px 20px 20px 20px;
 
   }
 
@@ -54,13 +56,31 @@
 
 .dropdown li {
   position: relative;
+	padding: 5px;
+  border-radius: 5px;
 }
 
 .dropdown a:hover {
-  background-color: $lightest-blue;
+  background-color: $light-blue;
 }
 
 .subheader {
   font-color: $light-gray;
   font-weight: light;
+}
+
+li:hover:not(.subheader) {
+  background-color: $lightest-blue;
+}
+
+li.subheader {
+  font-size: smaller;
+  text-transform: uppercase;
+  color: $gray;
+  margin: 0 0 5px 0;
+}
+
+li.dropdown {
+  width: 130px;
+  padding: 10px;
 }
