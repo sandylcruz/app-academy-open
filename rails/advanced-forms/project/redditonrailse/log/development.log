@@ -481,3 +481,909 @@ ActionController::ParameterMissing - param is missing or the value is empty: use
   app/controllers/users_controller.rb:14:in `new'
 
 Started POST "/__better_errors/0e328d23f25f3072/variables" for ::1 at 2021-01-27 12:30:48 -0800
+Started GET "/users/new" for ::1 at 2021-01-27 12:31:46 -0800
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 7.3ms)
+
+
+
+ActiveRecord::StatementInvalid - PG::UndefinedTable: ERROR:  relation "application_records" does not exist
+LINE 8:                WHERE a.attrelid = '"application_records"'::r...
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod,
+                     c.collname, col_description(a.attrelid, a.attnum) AS comment
+                FROM pg_attribute a
+                LEFT JOIN pg_attrdef d ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+                LEFT JOIN pg_type t ON a.atttypid = t.oid
+                LEFT JOIN pg_collation c ON a.attcollation = c.oid AND a.attcollation <> t.typcollation
+               WHERE a.attrelid = '"application_records"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum:
+  app/controllers/users_controller.rb:14:in `new'
+
+Started POST "/__better_errors/1bcc7621594c2de6/variables" for ::1 at 2021-01-27 12:31:46 -0800
+Started GET "/users/new" for ::1 at 2021-01-27 12:32:02 -0800
+Processing by UsersController#new as HTML
+Completed 400 Bad Request in 2ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: user:
+  app/controllers/users_controller.rb:61:in `user_params'
+  app/controllers/users_controller.rb:14:in `new'
+
+Started POST "/__better_errors/df3ba20121d2b087/variables" for ::1 at 2021-01-27 12:32:02 -0800
+Started GET "/users/new" for ::1 at 2021-01-27 12:33:18 -0800
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 253ms (Views: 253.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2021-01-27 12:40:06 -0800
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (242.7ms)
+Completed 500 Internal Server Error in 245ms (ActiveRecord: 0.0ms)
+
+
+
+NameError - undefined local variable or method `user' for #<#<Class:0x00007fc587b24950>:0x00007fc58efc90a8>
+Did you mean?  super:
+  app/views/users/new.html.erb:4:in `_app_views_users_new_html_erb___4262271562795771860_38880'
+  app/controllers/users_controller.rb:14:in `new'
+
+Started POST "/__better_errors/ac163f8ceaddb500/variables" for ::1 at 2021-01-27 12:40:07 -0800
+Started GET "/users/new" for ::1 at 2021-01-27 12:40:15 -0800
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (323.8ms)
+Completed 500 Internal Server Error in 326ms (ActiveRecord: 0.0ms)
+
+
+
+NameError - undefined local variable or method `user' for #<#<Class:0x00007fc587b24950>:0x00007fc58eb91af8>
+Did you mean?  super:
+  app/views/users/new.html.erb:4:in `_app_views_users_new_html_erb___4262271562795771860_39040'
+  app/controllers/users_controller.rb:14:in `new'
+
+Started POST "/__better_errors/8ff56c4a9ea1cfb8/variables" for ::1 at 2021-01-27 12:40:16 -0800
+Started GET "/users/new" for ::1 at 2021-01-27 12:40:43 -0800
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (3.3ms)
+  Rendered users/new.html.erb within layouts/application (4.2ms)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `username' for nil:NilClass:
+  app/views/users/_form.html.erb:2:in `_app_views_users__form_html_erb__3809353177756143627_39140'
+  app/views/users/new.html.erb:3:in `_app_views_users_new_html_erb___4262271562795771860_39120'
+  app/controllers/users_controller.rb:14:in `new'
+
+Started POST "/__better_errors/5f573d191926d0bc/variables" for ::1 at 2021-01-27 12:40:43 -0800
+Started GET "/users/new" for ::1 at 2021-01-27 12:41:09 -0800
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (2.1ms)
+  Rendered users/new.html.erb within layouts/application (2.9ms)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `username' for nil:NilClass:
+  app/views/users/_form.html.erb:2:in `_app_views_users__form_html_erb__3809353177756143627_39240'
+  app/views/users/new.html.erb:3:in `_app_views_users_new_html_erb___4262271562795771860_39220'
+  app/controllers/users_controller.rb:14:in `new'
+
+Started POST "/__better_errors/edd656a492d54b5c/variables" for ::1 at 2021-01-27 12:41:09 -0800
+Started GET "/users/new" for ::1 at 2021-01-27 12:43:04 -0800
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (1.9ms)
+  Rendered users/new.html.erb within layouts/application (2.6ms)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `username' for nil:NilClass:
+  app/views/users/_form.html.erb:2:in `_app_views_users__form_html_erb__3809353177756143627_39340'
+  app/views/users/new.html.erb:3:in `_app_views_users_new_html_erb___4262271562795771860_39320'
+  app/controllers/users_controller.rb:14:in `new'
+
+Started POST "/__better_errors/bb7023883fad71f6/variables" for ::1 at 2021-01-27 12:43:04 -0800
+Started GET "/users/new" for ::1 at 2021-01-27 12:49:02 -0800
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (1.7ms)
+  Rendered users/new.html.erb within layouts/application (2.5ms)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `username' for nil:NilClass:
+  app/views/users/_form.html.erb:2:in `_app_views_users__form_html_erb__3809353177756143627_39460'
+  app/views/users/new.html.erb:3:in `_app_views_users_new_html_erb___4262271562795771860_39440'
+  app/controllers/users_controller.rb:14:in `new'
+
+Started POST "/__better_errors/78358536b2808528/variables" for ::1 at 2021-01-27 12:49:02 -0800
+Started GET "/users/new" for ::1 at 2021-01-27 12:52:42 -0800
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (2.2ms)
+  Rendered users/new.html.erb within layouts/application (3.0ms)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `username' for nil:NilClass:
+  app/views/users/_form.html.erb:5:in `_app_views_users__form_html_erb__3809353177756143627_39560'
+  app/views/users/new.html.erb:3:in `_app_views_users_new_html_erb___4262271562795771860_39540'
+  app/controllers/users_controller.rb:14:in `new'
+
+Started POST "/__better_errors/c24583dbddf9a53f/variables" for ::1 at 2021-01-27 12:52:42 -0800
+Started GET "/users/new" for ::1 at 2021-01-27 12:53:11 -0800
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (3.5ms)
+  Rendered users/new.html.erb within layouts/application (4.6ms)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `username' for nil:NilClass:
+  app/views/users/_form.html.erb:5:in `_app_views_users__form_html_erb__3809353177756143627_39660'
+  app/views/users/new.html.erb:3:in `_app_views_users_new_html_erb___4262271562795771860_39640'
+  app/controllers/users_controller.rb:14:in `new'
+
+Started POST "/__better_errors/5c72ad1070efd6b7/variables" for ::1 at 2021-01-27 12:53:11 -0800
+Started GET "/users/new" for ::1 at 2021-01-27 12:53:12 -0800
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (2.1ms)
+  Rendered users/new.html.erb within layouts/application (2.9ms)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `username' for nil:NilClass:
+  app/views/users/_form.html.erb:5:in `_app_views_users__form_html_erb__3809353177756143627_39760'
+  app/views/users/new.html.erb:3:in `_app_views_users_new_html_erb___4262271562795771860_39740'
+  app/controllers/users_controller.rb:14:in `new'
+
+Started POST "/__better_errors/9a46d1026d960d4c/variables" for ::1 at 2021-01-27 12:53:12 -0800
+Started GET "/users/new" for ::1 at 2021-01-27 12:53:31 -0800
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (3.2ms)
+  Rendered users/new.html.erb within layouts/application (4.2ms)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `username' for nil:NilClass:
+  app/views/users/_form.html.erb:5:in `_app_views_users__form_html_erb__3809353177756143627_39860'
+  app/views/users/new.html.erb:3:in `_app_views_users_new_html_erb___4262271562795771860_39840'
+  app/controllers/users_controller.rb:14:in `new'
+
+Started POST "/__better_errors/ebe783f8de0f7a7c/variables" for ::1 at 2021-01-27 12:53:31 -0800
+Started GET "/users/new" for ::1 at 2021-01-27 12:53:47 -0800
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (5.6ms)
+  Rendered users/new.html.erb within layouts/application (7.2ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `username' for nil:NilClass:
+  app/views/users/_form.html.erb:5:in `_app_views_users__form_html_erb__3809353177756143627_39940'
+  app/views/users/new.html.erb:3:in `_app_views_users_new_html_erb___4262271562795771860_39920'
+  app/controllers/users_controller.rb:14:in `new'
+
+Started POST "/__better_errors/11ef74661a165fef/variables" for ::1 at 2021-01-27 12:53:47 -0800
+Started GET "/users/new" for ::1 at 2021-01-27 12:56:18 -0800
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (2.2ms)
+  Rendered users/new.html.erb within layouts/application (3.1ms)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `persisted?' for nil:NilClass:
+  app/views/users/_form.html.erb:1:in `_app_views_users__form_html_erb__3809353177756143627_40020'
+  app/views/users/new.html.erb:3:in `_app_views_users_new_html_erb___4262271562795771860_40000'
+  app/controllers/users_controller.rb:14:in `new'
+
+Started POST "/__better_errors/8db334b53c4c8e0d/variables" for ::1 at 2021-01-27 12:56:19 -0800
+Started GET "/users/new" for ::1 at 2021-01-27 12:56:31 -0800
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (2.5ms)
+  Rendered users/new.html.erb within layouts/application (4.9ms)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `persisted?' for nil:NilClass:
+  app/views/users/_form.html.erb:1:in `_app_views_users__form_html_erb__3809353177756143627_40120'
+  app/views/users/new.html.erb:3:in `_app_views_users_new_html_erb___4262271562795771860_40100'
+  app/controllers/users_controller.rb:14:in `new'
+
+Started POST "/__better_errors/bb3f2caa27018cb6/variables" for ::1 at 2021-01-27 12:56:31 -0800
+Started GET "/users/new" for ::1 at 2021-01-27 12:56:36 -0800
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (2.6ms)
+  Rendered users/new.html.erb within layouts/application (4.5ms)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `persisted?' for nil:NilClass:
+  app/views/users/_form.html.erb:1:in `_app_views_users__form_html_erb__3809353177756143627_40220'
+  app/views/users/new.html.erb:3:in `_app_views_users_new_html_erb___4262271562795771860_40200'
+  app/controllers/users_controller.rb:14:in `new'
+
+Started POST "/__better_errors/1baabbb9a9cdb9a7/variables" for ::1 at 2021-01-27 12:56:36 -0800
+Started GET "/users/new" for ::1 at 2021-01-27 12:56:40 -0800
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (2.0ms)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `username' for nil:NilClass:
+  app/views/users/new.html.erb:8:in `_app_views_users_new_html_erb___4262271562795771860_40280'
+  app/controllers/users_controller.rb:14:in `new'
+
+Started POST "/__better_errors/3d3865ffb3ab74ee/variables" for ::1 at 2021-01-27 12:56:40 -0800
+Started GET "/users/new" for ::1 at 2021-01-27 12:59:12 -0800
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (3.8ms)
+  Rendered users/new.html.erb within layouts/application (5.0ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `persisted?' for nil:NilClass:
+  app/views/users/_form.html.erb:1:in `_app_views_users__form_html_erb__3809353177756143627_40360'
+  app/views/users/new.html.erb:3:in `_app_views_users_new_html_erb___4262271562795771860_40340'
+  app/controllers/users_controller.rb:14:in `new'
+
+Started POST "/__better_errors/0f3934e82073cd3b/variables" for ::1 at 2021-01-27 12:59:12 -0800
+Started GET "/users/new" for ::1 at 2021-01-27 12:59:16 -0800
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (1.8ms)
+  Rendered users/new.html.erb within layouts/application (2.6ms)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `persisted?' for nil:NilClass:
+  app/views/users/_form.html.erb:1:in `_app_views_users__form_html_erb__3809353177756143627_40460'
+  app/views/users/new.html.erb:3:in `_app_views_users_new_html_erb___4262271562795771860_40440'
+  app/controllers/users_controller.rb:14:in `new'
+
+Started POST "/__better_errors/31f75791ed4e5e25/variables" for ::1 at 2021-01-27 12:59:16 -0800
+Started GET "/users/new" for ::1 at 2021-01-27 12:59:19 -0800
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 14ms (Views: 14.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2021-01-27 12:59:36 -0800
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 11ms (Views: 10.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2021-01-27 12:59:42 -0800
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (2.0ms)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `username' for nil:NilClass:
+  app/views/users/new.html.erb:4:in `_app_views_users_new_html_erb___4262271562795771860_40700'
+  app/controllers/users_controller.rb:14:in `new'
+
+Started POST "/__better_errors/fb8ed1378177bbc4/variables" for ::1 at 2021-01-27 12:59:42 -0800
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (33.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "redditonrailse_development"[0m
+  ↳ bin/rails:9
+  [1m[35m (33.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "redditonrailse_test"[0m
+  ↳ bin/rails:9
+  [1m[35m (159.9ms)[0m  [1m[35mCREATE DATABASE "redditonrailse_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (55.7ms)[0m  [1m[35mCREATE DATABASE "redditonrailse_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  ↳ db/schema.rb:16
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "subs" CASCADE[0m
+  ↳ db/schema.rb:18
+  [1m[35m (24.8ms)[0m  [1m[35mCREATE TABLE "subs" ("id" bigserial primary key, "title" character varying NOT NULL, "description" text NOT NULL, "moderator" character varying NOT NULL)[0m
+  ↳ db/schema.rb:18
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE  INDEX  "index_subs_on_title" ON "subs"  ("title")[0m
+  ↳ db/schema.rb:18
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  ↳ db/schema.rb:25
+  [1m[35m (3.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying NOT NULL, "password_digest" character varying NOT NULL, "session_token" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:25
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_session_token" ON "users"  ("session_token")[0m
+  ↳ db/schema.rb:25
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_username" ON "users"  ("username")[0m
+  ↳ db/schema.rb:25
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20210127195011)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20210127184003);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-01-27 21:07:55.258904"], ["updated_at", "2021-01-27 21:07:55.258904"]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35mSQL (0.3ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  ↳ db/schema.rb:16
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "subs" CASCADE[0m
+  ↳ db/schema.rb:18
+  [1m[35m (6.0ms)[0m  [1m[35mCREATE TABLE "subs" ("id" bigserial primary key, "title" character varying NOT NULL, "description" text NOT NULL, "moderator" character varying NOT NULL)[0m
+  ↳ db/schema.rb:18
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX  "index_subs_on_title" ON "subs"  ("title")[0m
+  ↳ db/schema.rb:18
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  ↳ db/schema.rb:25
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying NOT NULL, "password_digest" character varying NOT NULL, "session_token" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:25
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_session_token" ON "users"  ("session_token")[0m
+  ↳ db/schema.rb:25
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_username" ON "users"  ("username")[0m
+  ↳ db/schema.rb:25
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20210127195011)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20210127184003);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-01-27 21:07:55.330514"], ["updated_at", "2021-01-27 21:07:55.330514"]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Update (0.3ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2021-01-27 21:07:55.333429"], ["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (39.9ms)[0m  [1m[35mDROP DATABASE IF EXISTS "redditonrailse_development"[0m
+  ↳ bin/rails:9
+  [1m[35m (31.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "redditonrailse_test"[0m
+  ↳ bin/rails:9
+  [1m[35m (66.2ms)[0m  [1m[35mCREATE DATABASE "redditonrailse_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (57.3ms)[0m  [1m[35mCREATE DATABASE "redditonrailse_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (5.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4176086745739871760)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to AddUsersTable (20210127184003)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (16.8ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying NOT NULL, "password_digest" character varying NOT NULL, "session_token" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20210127184003_add_users_table.rb:3
+  [1m[35m (11.4ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_session_token" ON "users"  ("session_token")[0m
+  ↳ db/migrate/20210127184003_add_users_table.rb:10
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_username" ON "users"  ("username")[0m
+  ↳ db/migrate/20210127184003_add_users_table.rb:11
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210127184003"]]
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to AddSubTable (20210127195011)
+  [1m[35m (6.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (14.8ms)[0m  [1m[35mCREATE TABLE "subs" ("id" bigserial primary key, "title" character varying NOT NULL, "description" text NOT NULL, "moderator" character varying NOT NULL)[0m
+  ↳ db/migrate/20210127195011_add_sub_table.rb:3
+  [1m[35m (5.0ms)[0m  [1m[35mCREATE  INDEX  "index_subs_on_title" ON "subs"  ("title")[0m
+  ↳ db/migrate/20210127195011_add_sub_table.rb:9
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210127195011"]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-01-27 21:09:16.130097"], ["updated_at", "2021-01-27 21:09:16.130097"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(4176086745739871760)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (33.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "redditonrailse_development"[0m
+  ↳ bin/rails:9
+  [1m[35m (29.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "redditonrailse_test"[0m
+  ↳ bin/rails:9
+  [1m[35m (67.2ms)[0m  [1m[35mCREATE DATABASE "redditonrailse_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (56.3ms)[0m  [1m[35mCREATE DATABASE "redditonrailse_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (5.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (3.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4176086745739871760)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to AddUsersTable (20210127184003)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (7.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying NOT NULL, "password_digest" character varying NOT NULL, "session_token" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20210127184003_add_users_table.rb:3
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_session_token" ON "users"  ("session_token")[0m
+  ↳ db/migrate/20210127184003_add_users_table.rb:10
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_username" ON "users"  ("username")[0m
+  ↳ db/migrate/20210127184003_add_users_table.rb:11
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210127184003"]]
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to AddSubTable (20210127195011)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE TABLE "subs" ("id" bigserial primary key, "title" character varying NOT NULL, "description" text NOT NULL, "moderator" character varying NOT NULL)[0m
+  ↳ db/migrate/20210127195011_add_sub_table.rb:3
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX  "index_subs_on_title" ON "subs"  ("title")[0m
+  ↳ db/migrate/20210127195011_add_sub_table.rb:9
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210127195011"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-01-27 21:13:35.267749"], ["updated_at", "2021-01-27 21:13:35.267749"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(4176086745739871760)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Exists (1.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "calpal"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:9
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "NDkXdj5kCmnFoR7tTu83Ww"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:9
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "calpal"], ["password_digest", "$2a$12$OW2I8OR32HsYdtGSkcdI2e8s3U8F0A40YkJVfA7Uqu.sZmURp8Ry6"], ["session_token", "NDkXdj5kCmnFoR7tTu83Ww"], ["created_at", "2021-01-27 21:13:43.974268"], ["updated_at", "2021-01-27 21:13:43.974268"]]
+  ↳ db/seeds.rb:9
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "squeakfreak"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:10
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "cQ-l0_Z_1lmPcmBCWWlEvA"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "squeakfreak"], ["password_digest", "$2a$12$jZmuMdHLu06opgiBhNLO2.Osd2G8Gn6wZyZhb39N6s2lbEqpyShaq"], ["session_token", "cQ-l0_Z_1lmPcmBCWWlEvA"], ["created_at", "2021-01-27 21:13:44.195602"], ["updated_at", "2021-01-27 21:13:44.195602"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "oldmanlinus"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "MsIDu4K95H1kKRJbeFEFlA"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:11
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "oldmanlinus"], ["password_digest", "$2a$12$MmzuEoM8wxfCExd3sBzHcOMU.LJCIPdNmsmCfXeTyoT2sTwdeOk6y"], ["session_token", "MsIDu4K95H1kKRJbeFEFlA"], ["created_at", "2021-01-27 21:13:44.414695"], ["updated_at", "2021-01-27 21:13:44.414695"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Started GET "/users/new" for ::1 at 2021-01-27 13:21:28 -0800
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (2.3ms)
+  Rendered users/new.html.erb within layouts/application (3.4ms)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `persisted?' for nil:NilClass:
+  app/views/users/_form.html.erb:1:in `_app_views_users__form_html_erb__3809353177756143627_43460'
+  app/views/users/new.html.erb:3:in `_app_views_users_new_html_erb___4262271562795771860_43440'
+  app/controllers/users_controller.rb:14:in `new'
+
+Started POST "/__better_errors/c0ca468530af80d8/variables" for ::1 at 2021-01-27 13:21:28 -0800
+Started GET "/users/new" for ::1 at 2021-01-27 13:21:37 -0800
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (2.4ms)
+  Rendered users/new.html.erb within layouts/application (3.3ms)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `username' for nil:NilClass:
+  app/views/users/_form.html.erb:6:in `_app_views_users__form_html_erb__3809353177756143627_43560'
+  app/views/users/new.html.erb:3:in `_app_views_users_new_html_erb___4262271562795771860_43540'
+  app/controllers/users_controller.rb:14:in `new'
+
+Started POST "/__better_errors/a0944f6de34aa38c/variables" for ::1 at 2021-01-27 13:21:37 -0800
+Started GET "/users/new" for ::1 at 2021-01-27 13:22:24 -0800
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (2.2ms)
+  Rendered users/new.html.erb within layouts/application (3.2ms)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `persisted?' for nil:NilClass:
+  app/views/users/_form.html.erb:1:in `_app_views_users__form_html_erb__3809353177756143627_43640'
+  app/views/users/new.html.erb:3:in `_app_views_users_new_html_erb___4262271562795771860_43620'
+  app/controllers/users_controller.rb:14:in `new'
+
+Started POST "/__better_errors/1267be63664ac812/variables" for ::1 at 2021-01-27 13:22:24 -0800
+Started GET "/users/new" for ::1 at 2021-01-27 13:22:45 -0800
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 20ms (Views: 19.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2021-01-27 13:22:51 -0800
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (2.1ms)
+  Rendered users/new.html.erb within layouts/application (3.0ms)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `persisted?' for nil:NilClass:
+  app/views/users/_form.html.erb:1:in `_app_views_users__form_html_erb__3809353177756143627_43820'
+  app/views/users/new.html.erb:3:in `_app_views_users_new_html_erb___4262271562795771860_43800'
+  app/controllers/users_controller.rb:14:in `new'
+
+Started POST "/__better_errors/00376a318b5d8e68/variables" for ::1 at 2021-01-27 13:22:51 -0800
+Started GET "/users/new" for ::1 at 2021-01-27 13:24:09 -0800
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (4.4ms)
+  Rendered users/new.html.erb within layouts/application (5.2ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `username' for nil:NilClass:
+  app/views/users/_form.html.erb:7:in `_app_views_users__form_html_erb__3809353177756143627_43920'
+  app/views/users/new.html.erb:3:in `_app_views_users_new_html_erb___4262271562795771860_43900'
+  app/controllers/users_controller.rb:14:in `new'
+
+Started POST "/__better_errors/1d90093ba68fb2e9/variables" for ::1 at 2021-01-27 13:24:09 -0800
+Started GET "/users/new" for ::1 at 2021-01-27 13:25:20 -0800
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.5ms)
+  Rendered users/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 254ms (Views: 15.0ms | ActiveRecord: 9.5ms)
+
+
+Started GET "/users/new" for ::1 at 2021-01-27 13:25:39 -0800
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.4ms)
+  Rendered users/new.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 22ms (Views: 10.4ms | ActiveRecord: 5.9ms)
+
+
+Started GET "/users/new" for ::1 at 2021-01-27 13:25:40 -0800
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.5ms)
+  Rendered users/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 13ms (Views: 12.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2021-01-27 13:25:59 -0800
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.4ms)
+  Rendered users/new.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 12ms (Views: 11.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2021-01-27 13:26:04 -0800
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.4ms)
+  Rendered users/new.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 11ms (Views: 11.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2021-01-27 13:26:14 -0800
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"nB7yHYbxSzWhuEGh+MyrpXSA99J4RiKPa5lAdeoYE9RfMA8TrgxPwIr+JC/C0qgpp9sgE1GCmpLwhVsZc6xzJQ==", "user"=>{"username"=>"loucrew", "password"=>"[FILTERED]"}}
+Unpermitted parameter: :password
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "loucrew"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "FsoKTfcReZJc_8WNI5pGWA"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:5
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.5ms)
+  Rendered users/new.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 20ms (Views: 11.7ms | ActiveRecord: 1.6ms)
+
+
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Started POST "/users" for ::1 at 2021-01-27 13:26:48 -0800
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"minmRvpwj3EKekCBGcgJn36Z0QWoQgzOLr1X0D5XqJNZBxtI0o2LhCE8JQ8j1goTrcIGxIGGtNO1oUy8p+PIYg==", "user"=>{"username"=>"loucrew", "password"=>"[FILTERED]"}}
+Unpermitted parameter: :password
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "loucrew"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "5Z9VODd0yS8uZp3Bm6Q1aQ"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:5
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.4ms)
+  Rendered users/new.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 14ms (Views: 10.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users" for ::1 at 2021-01-27 13:27:17 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+actionpack (5.2.4.4) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.4.4) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.4.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.4.4) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/users/new" for ::1 at 2021-01-27 13:27:21 -0800
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.6ms)
+  Rendered users/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 23ms (Views: 12.6ms | ActiveRecord: 4.4ms)
+
+
+Started POST "/users" for ::1 at 2021-01-27 13:27:26 -0800
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"mrkN0eD+NKpqFYgNQn8Gcmb2+qrrZKGmM0EDuZQKS31Zl/DfyAMwX0FT7YN4YQX+ta0ta8KgGbuoXRjVDb4rjA==", "user"=>{"username"=>"loucrew", "password"=>"[FILTERED]"}}
+Unpermitted parameter: :password
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "loucrew"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8I_94Oljcf9xexsoWaVJfg"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:5
+No template found for UsersController#create, rendering head :no_content
+Completed 204 No Content in 28ms (ActiveRecord: 0.7ms)
+
+
+Started POST "/users" for ::1 at 2021-01-27 13:27:27 -0800
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"mrkN0eD+NKpqFYgNQn8Gcmb2+qrrZKGmM0EDuZQKS31Zl/DfyAMwX0FT7YN4YQX+ta0ta8KgGbuoXRjVDb4rjA==", "user"=>{"username"=>"loucrew", "password"=>"[FILTERED]"}}
+Unpermitted parameter: :password
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "loucrew"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vtqGGHS5ekWnmeUVWYAcFA"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:5
+No template found for UsersController#create, rendering head :no_content
+Completed 204 No Content in 25ms (ActiveRecord: 0.7ms)
+
+
+Started POST "/users" for ::1 at 2021-01-27 13:27:28 -0800
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"mrkN0eD+NKpqFYgNQn8Gcmb2+qrrZKGmM0EDuZQKS31Zl/DfyAMwX0FT7YN4YQX+ta0ta8KgGbuoXRjVDb4rjA==", "user"=>{"username"=>"loucrew", "password"=>"[FILTERED]"}}
+Unpermitted parameter: :password
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "loucrew"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "3eTnMQxglwWyh9ZISX7PDg"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:5
+No template found for UsersController#create, rendering head :no_content
+Completed 204 No Content in 24ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/users/new" for ::1 at 2021-01-27 13:27:30 -0800
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.4ms)
+  Rendered users/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 24ms (Views: 13.0ms | ActiveRecord: 4.4ms)
+
+
+Started POST "/users" for ::1 at 2021-01-27 13:27:31 -0800
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"ueh5j+zUZpXCoSJcgsxQaCyjsKGYVQ9PA8N6E6MkiaN6xoSBxCliYOnnR9K40lPk//hnYLGRt1KY32F/OpDpUg==", "user"=>{"username"=>"tigerlily1419", "password"=>"[FILTERED]"}}
+Unpermitted parameter: :password
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "tigerlily1419"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "EIoDHxFiIVg8vVnoX_XFqA"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:5
+No template found for UsersController#create, rendering head :no_content
+Completed 204 No Content in 26ms (ActiveRecord: 0.7ms)
+
+
+Started POST "/users" for ::1 at 2021-01-27 13:27:32 -0800
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"ueh5j+zUZpXCoSJcgsxQaCyjsKGYVQ9PA8N6E6MkiaN6xoSBxCliYOnnR9K40lPk//hnYLGRt1KY32F/OpDpUg==", "user"=>{"username"=>"tigerlily1419", "password"=>"[FILTERED]"}}
+Unpermitted parameter: :password
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "tigerlily1419"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "XRcSaNr1WVqSs1edWoi_Mg"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:5
+No template found for UsersController#create, rendering head :no_content
+Completed 204 No Content in 24ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/users/new" for ::1 at 2021-01-27 13:27:59 -0800
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.5ms)
+  Rendered users/new.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 24ms (Views: 12.1ms | ActiveRecord: 5.3ms)
+
+
+Started POST "/users" for ::1 at 2021-01-27 13:28:04 -0800
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"mIerle8b+hntgNpmA/SdUPU7weCqQRRHnDag68YW0EBbqVabx+b+7MbGv+g56p7cJmAWIYOFrFoHKruHX6KwsQ==", "user"=>{"username"=>"loucrew", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "loucrew"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "Ze9adtqh_m_s3a1GFdoXIg"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "loucrew"], ["password_digest", "$2a$12$Bu0ZMOMdi0bB316SD1cHUOEnn1WA9WIudpUOOfjRj9jPEHglSia3G"], ["session_token", "Ze9adtqh_m_s3a1GFdoXIg"], ["created_at", "2021-01-27 21:28:04.791206"], ["updated_at", "2021-01-27 21:28:04.791206"]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:5
+  Rendering text template
+  Rendered text template (0.0ms)
+Completed 200 OK in 235ms (Views: 1.6ms | ActiveRecord: 3.4ms)
+
+
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m

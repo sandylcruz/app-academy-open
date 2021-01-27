@@ -3,15 +3,17 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      login_user!(@user)
-      redirect_to user_url(@user)
+      render plain: "user saved"
+      # login_user!(@user)
+      # redirect_to user_url(@user)
     else
-      render :new
+      @user.errors.full_messages
+      # render :new
     end
   end
 
   def new
-    @user = User.new(user_params)
+    @user = User.new
     render :new
   end
 
@@ -58,6 +60,6 @@ class UsersController < ApplicationController
   private
   
   def user_params
-    params.require(:user).permit(:username, :password_digest)
+    params.require(:user).permit(:username, :password)
   end
 end
