@@ -13,3 +13,7 @@ linus = User.create!(username: 'oldmanlinus', password: 'password')
 sub1 = Sub.create!(title: 'Attack Cat', description: 'Learn how to attack', moderator: callie)
 sub2 = Sub.create!(title: 'Cool Cats', description: 'Only cool cats allowed', moderator: squeaky)
 sub3 = Sub.create!(title: 'Home Is Where the Cat Is', description: 'Home obviously', moderator: linus)
+
+post1 = Post.create!(title: 'Callie\'s Big Day', content: 'Callie has a big day outside forever', user: callie)
+post2 = Post.create!(title: 'Squeaky\'s Previous Life', content: 'Squeaky used to live in Santa Rosa, but now lives somewhere cooler', user: squeaky)
+post3 = Post.create!(title: 'Preview of Old Man Linus', content: 'He makes a lot of old man sounds now', user: linus)
