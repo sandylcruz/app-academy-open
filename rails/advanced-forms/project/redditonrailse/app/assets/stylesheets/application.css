@@ -13,3 +13,64 @@
  *= require_tree .
  *= require_self
  */
+
+html, body, section, article,
+h1, h2, p, strong, em, a {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: inherit;
+  font: inherit;
+  text-decoration: inherit;
+  text-align: inherit;
+  color: inherit;
+  background: transparent;
+}
+
+body {
+  font-family: roboto;
+  font-weight: bold;
+  background-color: #a0c5c9;
+  display: block;
+  align-items: center;
+  justify-content: center;
+}
+
+header {
+  height: 150px;
+  font-family: roboto;
+  font-weight: bold;
+  background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);
+  border-bottom-left-radius: 50% 20%;
+  border-bottom-right-radius: 50% 20%;
+}
+
+
+.home_link {
+  font-size: 50px;
+  float: left;
+  padding: 10px;
+}
+
+li {
+  list-style: none;
+}
+
+.logged_out_links, .logged_in {
+  display: block;
+  float: right;
+  padding: 3px;
+}
+
+h1 {
+  font-size: 35px;
+}
+
+form {
+  font-size: 30px;
+  display: block;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
