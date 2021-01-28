@@ -3,12 +3,11 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      render plain: "user saved"
-      # login_user!(@user)
-      # redirect_to user_url(@user)
+      login_user!(@user)
+      redirect_to subs_url
     else
       @user.errors.full_messages
-      # render :new
+      render :new
     end
   end
 
@@ -24,13 +23,7 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find_by(id: params[:id])
-    
-    if @user.nil?
-      render :new
-    elsif @user.save
-      redirect_to users_url(@user)
-    else
-    end
+    render :edit
   end
 
   def update

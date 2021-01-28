@@ -9,3 +9,7 @@
 callie = User.create!(username: 'calpal', password: 'password')
 squeaky = User.create!(username: 'squeakfreak', password: 'password')
 linus = User.create!(username: 'oldmanlinus', password: 'password')
+
+sub1 = Sub.create!(title: 'Attack Cat', description: 'Learn how to attack', moderator: callie)
+sub2 = Sub.create!(title: 'Cool Cats', description: 'Only cool cats allowed', moderator: squeaky)
+sub3 = Sub.create!(title: 'Home Is Where the Cat Is', description: 'Home obviously', moderator: linus)
