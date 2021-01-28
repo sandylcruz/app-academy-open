@@ -6,8 +6,8 @@ class SessionsController < ApplicationController
     )
 
     if user.nil?
-      render plain: "not logged in"
-      # flash.now[:errors] = { message: 'Incorrect username/password' }
+      flash[:alert] = 'Error: Incorrect username/password'
+      render :new
     else
       login_user!(user)
       redirect_to subs_url
