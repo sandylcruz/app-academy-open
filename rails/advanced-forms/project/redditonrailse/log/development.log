@@ -6127,3 +6127,2231 @@ Processing by SessionsController#new as HTML
 Completed 200 OK in 12ms (Views: 11.3ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/session/new" for ::1 at 2021-01-28 12:26:47 -0800
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/sandylcruz/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 200ms (Views: 196.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new" for ::1 at 2021-01-28 12:26:47 -0800
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 12ms (Views: 11.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 12:26:49 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.7ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (24.6ms)
+Completed 200 OK in 44ms (Views: 21.2ms | ActiveRecord: 19.3ms)
+
+
+Started GET "/users/new" for ::1 at 2021-01-28 12:26:50 -0800
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.6ms)
+  Rendered users/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 24ms (Views: 12.0ms | ActiveRecord: 4.1ms)
+
+
+Started DELETE "/session" for ::1 at 2021-01-28 12:26:52 -0800
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"FPvG23fGx/RDpgo2oVS+F6drff7Gg1r8xgT0tk8yz3PX1TvVXzvDAWjgb7ibSr2bdDCqP+9H4uFdGO/a1oavgg=="}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "iycIYrqPsPB0xbEpvst_gg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "iycIYrqPsPB0xbEpvst_gg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Redirected to http://localhost:3000/session/new
+Completed 302 Found in 5ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/session/new" for ::1 at 2021-01-28 12:26:52 -0800
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 15ms (Views: 14.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new" for ::1 at 2021-01-28 12:26:53 -0800
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 12ms (Views: 11.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new" for ::1 at 2021-01-28 12:27:01 -0800
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 13ms (Views: 12.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new?authenticity_token=hxL%2B9zxyxCv4MLkXIEiy4XuxE2DwaZdJEP7H9MA5RvxEPAP5FI%2FA3tN23JkaVrFtqOrEodmtL1SL4tyYWY0mDQ%3D%3D&user%5Busername%5D=cat&user%5Bpassword%5D=[FILTERED]" for ::1 at 2021-01-28 12:27:06 -0800
+Processing by SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"hxL+9zxyxCv4MLkXIEiy4XuxE2DwaZdJEP7H9MA5RvxEPAP5FI/A3tN23JkaVrFtqOrEodmtL1SL4tyYWY0mDQ==", "user"=>{"username"=>"cat", "password"=>"[FILTERED]"}}
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 11ms (Views: 11.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new?authenticity_token=2KoyhZI%2BtLyvSIyvBb35%2FKAuc2sAU1%2FzSna%2FWJQUNf0bhM%2BLusOwSYQO6SE%2Fo%2Fpwc3WkqimX5%2B7RaqQ0DaBVDA%3D%3D&user%5Busername%5D=calpal&user%5Bpassword%5D=[FILTERED]" for ::1 at 2021-01-28 12:27:30 -0800
+Processing by SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"2KoyhZI+tLyvSIyvBb35/KAuc2sAU1/zSna/WJQUNf0bhM+LusOwSYQO6SE/o/pwc3WkqimX5+7RaqQ0DaBVDA==", "user"=>{"username"=>"calpal", "password"=>"[FILTERED]"}}
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 13ms (Views: 11.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new?authenticity_token=2KoyhZI%2BtLyvSIyvBb35%2FKAuc2sAU1%2FzSna%2FWJQUNf0bhM%2BLusOwSYQO6SE%2Fo%2Fpwc3WkqimX5%2B7RaqQ0DaBVDA%3D%3D&user%5Busername%5D=calpal&user%5Bpassword%5D=[FILTERED]" for ::1 at 2021-01-28 12:27:42 -0800
+Processing by SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"2KoyhZI+tLyvSIyvBb35/KAuc2sAU1/zSna/WJQUNf0bhM+LusOwSYQO6SE/o/pwc3WkqimX5+7RaqQ0DaBVDA==", "user"=>{"username"=>"calpal", "password"=>"[FILTERED]"}}
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 13ms (Views: 12.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new?authenticity_token=obOL4Ez3C3TU5C69DVGOK6EHGPdCwMIEfMQmEC%2BZWl5inXbuZAoPgf%2BiSzM3T42nclzPNmsEehnn2D18ti06rw%3D%3D&user%5Busername%5D=calpal&user%5Bpassword%5D=[FILTERED]" for ::1 at 2021-01-28 12:27:46 -0800
+Processing by SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"obOL4Ez3C3TU5C69DVGOK6EHGPdCwMIEfMQmEC+ZWl5inXbuZAoPgf+iSzM3T42nclzPNmsEehnn2D18ti06rw==", "user"=>{"username"=>"calpal", "password"=>"[FILTERED]"}}
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 12ms (Views: 11.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new?authenticity_token=74rQpO%2BbEah4AOH%2BqlWgzpAhfNpCHnWEpM%2BVtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk%2F047aKLqwkw%3D%3D&user%5Busername%5D=calpal&user%5Bpassword%5D=[FILTERED]" for ::1 at 2021-01-28 12:27:53 -0800
+Processing by SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"74rQpO+bEah4AOH+qlWgzpAhfNpCHnWEpM+VtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk/047aKLqwkw==", "user"=>{"username"=>"calpal", "password"=>"[FILTERED]"}}
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 12ms (Views: 11.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new?authenticity_token=74rQpO%2BbEah4AOH%2BqlWgzpAhfNpCHnWEpM%2BVtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk%2F047aKLqwkw%3D%3D&user%5Busername%5D=calpal&user%5Bpassword%5D=[FILTERED]" for ::1 at 2021-01-28 12:28:51 -0800
+Processing by SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"74rQpO+bEah4AOH+qlWgzpAhfNpCHnWEpM+VtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk/047aKLqwkw==", "user"=>{"username"=>"calpal", "password"=>"[FILTERED]"}}
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 18ms (Views: 17.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new?authenticity_token=74rQpO%2BbEah4AOH%2BqlWgzpAhfNpCHnWEpM%2BVtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk%2F047aKLqwkw%3D%3D&user%5Busername%5D=calpal&user%5Bpassword%5D=[FILTERED]" for ::1 at 2021-01-28 12:29:01 -0800
+Processing by SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"74rQpO+bEah4AOH+qlWgzpAhfNpCHnWEpM+VtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk/047aKLqwkw==", "user"=>{"username"=>"calpal", "password"=>"[FILTERED]"}}
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 16ms (Views: 15.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new?authenticity_token=74rQpO%2BbEah4AOH%2BqlWgzpAhfNpCHnWEpM%2BVtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk%2F047aKLqwkw%3D%3D&user%5Busername%5D=calpal&user%5Bpassword%5D=[FILTERED]" for ::1 at 2021-01-28 12:29:05 -0800
+Processing by SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"74rQpO+bEah4AOH+qlWgzpAhfNpCHnWEpM+VtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk/047aKLqwkw==", "user"=>{"username"=>"calpal", "password"=>"[FILTERED]"}}
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 12ms (Views: 11.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new?authenticity_token=74rQpO%2BbEah4AOH%2BqlWgzpAhfNpCHnWEpM%2BVtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk%2F047aKLqwkw%3D%3D&user%5Busername%5D=calpal&user%5Bpassword%5D=[FILTERED]" for ::1 at 2021-01-28 12:29:18 -0800
+Processing by SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"74rQpO+bEah4AOH+qlWgzpAhfNpCHnWEpM+VtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk/047aKLqwkw==", "user"=>{"username"=>"calpal", "password"=>"[FILTERED]"}}
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 26ms (Views: 25.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new?authenticity_token=74rQpO%2BbEah4AOH%2BqlWgzpAhfNpCHnWEpM%2BVtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk%2F047aKLqwkw%3D%3D&user%5Busername%5D=calpal&user%5Bpassword%5D=[FILTERED]" for ::1 at 2021-01-28 12:29:19 -0800
+Processing by SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"74rQpO+bEah4AOH+qlWgzpAhfNpCHnWEpM+VtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk/047aKLqwkw==", "user"=>{"username"=>"calpal", "password"=>"[FILTERED]"}}
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 11ms (Views: 10.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new?authenticity_token=74rQpO%2BbEah4AOH%2BqlWgzpAhfNpCHnWEpM%2BVtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk%2F047aKLqwkw%3D%3D&user%5Busername%5D=calpal&user%5Bpassword%5D=[FILTERED]" for ::1 at 2021-01-28 12:29:42 -0800
+Processing by SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"74rQpO+bEah4AOH+qlWgzpAhfNpCHnWEpM+VtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk/047aKLqwkw==", "user"=>{"username"=>"calpal", "password"=>"[FILTERED]"}}
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 18ms (Views: 17.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new?authenticity_token=74rQpO%2BbEah4AOH%2BqlWgzpAhfNpCHnWEpM%2BVtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk%2F047aKLqwkw%3D%3D&user%5Busername%5D=calpal&user%5Bpassword%5D=[FILTERED]" for ::1 at 2021-01-28 12:29:55 -0800
+Processing by SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"74rQpO+bEah4AOH+qlWgzpAhfNpCHnWEpM+VtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk/047aKLqwkw==", "user"=>{"username"=>"calpal", "password"=>"[FILTERED]"}}
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 17ms (Views: 17.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new?authenticity_token=74rQpO%2BbEah4AOH%2BqlWgzpAhfNpCHnWEpM%2BVtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk%2F047aKLqwkw%3D%3D&user%5Busername%5D=calpal&user%5Bpassword%5D=[FILTERED]" for ::1 at 2021-01-28 12:29:58 -0800
+Processing by SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"74rQpO+bEah4AOH+qlWgzpAhfNpCHnWEpM+VtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk/047aKLqwkw==", "user"=>{"username"=>"calpal", "password"=>"[FILTERED]"}}
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 19ms (Views: 19.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new?authenticity_token=74rQpO%2BbEah4AOH%2BqlWgzpAhfNpCHnWEpM%2BVtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk%2F047aKLqwkw%3D%3D&user%5Busername%5D=calpal&user%5Bpassword%5D=[FILTERED]" for ::1 at 2021-01-28 12:29:58 -0800
+Processing by SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"74rQpO+bEah4AOH+qlWgzpAhfNpCHnWEpM+VtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk/047aKLqwkw==", "user"=>{"username"=>"calpal", "password"=>"[FILTERED]"}}
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 12ms (Views: 11.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new?authenticity_token=74rQpO%2BbEah4AOH%2BqlWgzpAhfNpCHnWEpM%2BVtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk%2F047aKLqwkw%3D%3D&user%5Busername%5D=calpal&user%5Bpassword%5D=[FILTERED]" for ::1 at 2021-01-28 12:30:01 -0800
+Processing by SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"74rQpO+bEah4AOH+qlWgzpAhfNpCHnWEpM+VtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk/047aKLqwkw==", "user"=>{"username"=>"calpal", "password"=>"[FILTERED]"}}
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 20ms (Views: 19.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new?authenticity_token=74rQpO%2BbEah4AOH%2BqlWgzpAhfNpCHnWEpM%2BVtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk%2F047aKLqwkw%3D%3D&user%5Busername%5D=calpal&user%5Bpassword%5D=[FILTERED]" for ::1 at 2021-01-28 12:30:03 -0800
+Processing by SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"74rQpO+bEah4AOH+qlWgzpAhfNpCHnWEpM+VtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk/047aKLqwkw==", "user"=>{"username"=>"calpal", "password"=>"[FILTERED]"}}
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 15ms (Views: 14.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new?authenticity_token=74rQpO%2BbEah4AOH%2BqlWgzpAhfNpCHnWEpM%2BVtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk%2F047aKLqwkw%3D%3D&user%5Busername%5D=calpal&user%5Bpassword%5D=[FILTERED]" for ::1 at 2021-01-28 12:30:06 -0800
+Processing by SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"74rQpO+bEah4AOH+qlWgzpAhfNpCHnWEpM+VtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk/047aKLqwkw==", "user"=>{"username"=>"calpal", "password"=>"[FILTERED]"}}
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 12ms (Views: 11.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new?authenticity_token=74rQpO%2BbEah4AOH%2BqlWgzpAhfNpCHnWEpM%2BVtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk%2F047aKLqwkw%3D%3D&user%5Busername%5D=calpal&user%5Bpassword%5D=[FILTERED]" for ::1 at 2021-01-28 12:30:16 -0800
+Processing by SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"74rQpO+bEah4AOH+qlWgzpAhfNpCHnWEpM+VtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk/047aKLqwkw==", "user"=>{"username"=>"calpal", "password"=>"[FILTERED]"}}
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 19ms (Views: 18.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new?authenticity_token=74rQpO%2BbEah4AOH%2BqlWgzpAhfNpCHnWEpM%2BVtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk%2F047aKLqwkw%3D%3D&user%5Busername%5D=calpal&user%5Bpassword%5D=[FILTERED]" for ::1 at 2021-01-28 12:30:17 -0800
+Processing by SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"74rQpO+bEah4AOH+qlWgzpAhfNpCHnWEpM+VtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk/047aKLqwkw==", "user"=>{"username"=>"calpal", "password"=>"[FILTERED]"}}
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 12ms (Views: 11.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new?authenticity_token=74rQpO%2BbEah4AOH%2BqlWgzpAhfNpCHnWEpM%2BVtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk%2F047aKLqwkw%3D%3D&user%5Busername%5D=calpal&user%5Bpassword%5D=[FILTERED]" for ::1 at 2021-01-28 12:30:19 -0800
+Processing by SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"74rQpO+bEah4AOH+qlWgzpAhfNpCHnWEpM+VtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk/047aKLqwkw==", "user"=>{"username"=>"calpal", "password"=>"[FILTERED]"}}
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 25ms (Views: 24.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new?authenticity_token=74rQpO%2BbEah4AOH%2BqlWgzpAhfNpCHnWEpM%2BVtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk%2F047aKLqwkw%3D%3D&user%5Busername%5D=calpal&user%5Bpassword%5D=[FILTERED]" for ::1 at 2021-01-28 12:30:38 -0800
+Processing by SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"74rQpO+bEah4AOH+qlWgzpAhfNpCHnWEpM+VtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk/047aKLqwkw==", "user"=>{"username"=>"calpal", "password"=>"[FILTERED]"}}
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 16ms (Views: 15.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new?authenticity_token=74rQpO%2BbEah4AOH%2BqlWgzpAhfNpCHnWEpM%2BVtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk%2F047aKLqwkw%3D%3D&user%5Busername%5D=calpal&user%5Bpassword%5D=[FILTERED]" for ::1 at 2021-01-28 12:30:39 -0800
+Processing by SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"74rQpO+bEah4AOH+qlWgzpAhfNpCHnWEpM+VtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk/047aKLqwkw==", "user"=>{"username"=>"calpal", "password"=>"[FILTERED]"}}
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 11ms (Views: 10.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new?authenticity_token=74rQpO%2BbEah4AOH%2BqlWgzpAhfNpCHnWEpM%2BVtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk%2F047aKLqwkw%3D%3D&user%5Busername%5D=calpal&user%5Bpassword%5D=[FILTERED]" for ::1 at 2021-01-28 12:30:56 -0800
+Processing by SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"74rQpO+bEah4AOH+qlWgzpAhfNpCHnWEpM+VtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk/047aKLqwkw==", "user"=>{"username"=>"calpal", "password"=>"[FILTERED]"}}
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 18ms (Views: 17.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new?authenticity_token=74rQpO%2BbEah4AOH%2BqlWgzpAhfNpCHnWEpM%2BVtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk%2F047aKLqwkw%3D%3D&user%5Busername%5D=calpal&user%5Bpassword%5D=[FILTERED]" for ::1 at 2021-01-28 12:31:09 -0800
+Processing by SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"74rQpO+bEah4AOH+qlWgzpAhfNpCHnWEpM+VtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk/047aKLqwkw==", "user"=>{"username"=>"calpal", "password"=>"[FILTERED]"}}
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 20ms (Views: 19.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new?authenticity_token=74rQpO%2BbEah4AOH%2BqlWgzpAhfNpCHnWEpM%2BVtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk%2F047aKLqwkw%3D%3D&user%5Busername%5D=calpal&user%5Bpassword%5D=[FILTERED]" for ::1 at 2021-01-28 12:31:12 -0800
+Processing by SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"74rQpO+bEah4AOH+qlWgzpAhfNpCHnWEpM+VtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk/047aKLqwkw==", "user"=>{"username"=>"calpal", "password"=>"[FILTERED]"}}
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 17ms (Views: 16.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new?authenticity_token=74rQpO%2BbEah4AOH%2BqlWgzpAhfNpCHnWEpM%2BVtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk%2F047aKLqwkw%3D%3D&user%5Busername%5D=calpal&user%5Bpassword%5D=[FILTERED]" for ::1 at 2021-01-28 12:31:16 -0800
+Processing by SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"74rQpO+bEah4AOH+qlWgzpAhfNpCHnWEpM+VtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk/047aKLqwkw==", "user"=>{"username"=>"calpal", "password"=>"[FILTERED]"}}
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 12ms (Views: 11.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new?authenticity_token=74rQpO%2BbEah4AOH%2BqlWgzpAhfNpCHnWEpM%2BVtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk%2F047aKLqwkw%3D%3D&user%5Busername%5D=calpal&user%5Bpassword%5D=[FILTERED]" for ::1 at 2021-01-28 12:31:25 -0800
+Processing by SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"74rQpO+bEah4AOH+qlWgzpAhfNpCHnWEpM+VtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk/047aKLqwkw==", "user"=>{"username"=>"calpal", "password"=>"[FILTERED]"}}
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 17ms (Views: 16.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new?authenticity_token=74rQpO%2BbEah4AOH%2BqlWgzpAhfNpCHnWEpM%2BVtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk%2F047aKLqwkw%3D%3D&user%5Busername%5D=calpal&user%5Bpassword%5D=[FILTERED]" for ::1 at 2021-01-28 12:31:39 -0800
+Processing by SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"74rQpO+bEah4AOH+qlWgzpAhfNpCHnWEpM+VtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk/047aKLqwkw==", "user"=>{"username"=>"calpal", "password"=>"[FILTERED]"}}
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 21ms (Views: 20.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new?authenticity_token=74rQpO%2BbEah4AOH%2BqlWgzpAhfNpCHnWEpM%2BVtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk%2F047aKLqwkw%3D%3D&user%5Busername%5D=calpal&user%5Bpassword%5D=[FILTERED]" for ::1 at 2021-01-28 12:31:48 -0800
+Processing by SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"74rQpO+bEah4AOH+qlWgzpAhfNpCHnWEpM+VtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk/047aKLqwkw==", "user"=>{"username"=>"calpal", "password"=>"[FILTERED]"}}
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 16ms (Views: 16.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new?authenticity_token=74rQpO%2BbEah4AOH%2BqlWgzpAhfNpCHnWEpM%2BVtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk%2F047aKLqwkw%3D%3D&user%5Busername%5D=calpal&user%5Bpassword%5D=[FILTERED]" for ::1 at 2021-01-28 12:32:04 -0800
+Processing by SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"74rQpO+bEah4AOH+qlWgzpAhfNpCHnWEpM+VtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk/047aKLqwkw==", "user"=>{"username"=>"calpal", "password"=>"[FILTERED]"}}
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 24ms (Views: 23.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new?authenticity_token=74rQpO%2BbEah4AOH%2BqlWgzpAhfNpCHnWEpM%2BVtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk%2F047aKLqwkw%3D%3D&user%5Busername%5D=calpal&user%5Bpassword%5D=[FILTERED]" for ::1 at 2021-01-28 12:32:11 -0800
+Processing by SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"74rQpO+bEah4AOH+qlWgzpAhfNpCHnWEpM+VtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk/047aKLqwkw==", "user"=>{"username"=>"calpal", "password"=>"[FILTERED]"}}
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 21ms (Views: 20.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new?authenticity_token=74rQpO%2BbEah4AOH%2BqlWgzpAhfNpCHnWEpM%2BVtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk%2F047aKLqwkw%3D%3D&user%5Busername%5D=calpal&user%5Bpassword%5D=[FILTERED]" for ::1 at 2021-01-28 12:32:15 -0800
+Processing by SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"74rQpO+bEah4AOH+qlWgzpAhfNpCHnWEpM+VtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk/047aKLqwkw==", "user"=>{"username"=>"calpal", "password"=>"[FILTERED]"}}
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 16ms (Views: 15.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new?authenticity_token=74rQpO%2BbEah4AOH%2BqlWgzpAhfNpCHnWEpM%2BVtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk%2F047aKLqwkw%3D%3D&user%5Busername%5D=calpal&user%5Bpassword%5D=[FILTERED]" for ::1 at 2021-01-28 12:32:22 -0800
+Processing by SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"74rQpO+bEah4AOH+qlWgzpAhfNpCHnWEpM+VtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk/047aKLqwkw==", "user"=>{"username"=>"calpal", "password"=>"[FILTERED]"}}
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 20ms (Views: 19.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new?authenticity_token=74rQpO%2BbEah4AOH%2BqlWgzpAhfNpCHnWEpM%2BVtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk%2F047aKLqwkw%3D%3D&user%5Busername%5D=calpal&user%5Bpassword%5D=[FILTERED]" for ::1 at 2021-01-28 12:32:28 -0800
+Processing by SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"74rQpO+bEah4AOH+qlWgzpAhfNpCHnWEpM+VtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk/047aKLqwkw==", "user"=>{"username"=>"calpal", "password"=>"[FILTERED]"}}
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 17ms (Views: 16.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new?authenticity_token=74rQpO%2BbEah4AOH%2BqlWgzpAhfNpCHnWEpM%2BVtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk%2F047aKLqwkw%3D%3D&user%5Busername%5D=calpal&user%5Bpassword%5D=[FILTERED]" for ::1 at 2021-01-28 12:32:35 -0800
+Processing by SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"74rQpO+bEah4AOH+qlWgzpAhfNpCHnWEpM+VtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk/047aKLqwkw==", "user"=>{"username"=>"calpal", "password"=>"[FILTERED]"}}
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 16ms (Views: 15.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new?authenticity_token=74rQpO%2BbEah4AOH%2BqlWgzpAhfNpCHnWEpM%2BVtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk%2F047aKLqwkw%3D%3D&user%5Busername%5D=calpal&user%5Bpassword%5D=[FILTERED]" for ::1 at 2021-01-28 12:32:42 -0800
+Processing by SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"74rQpO+bEah4AOH+qlWgzpAhfNpCHnWEpM+VtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk/047aKLqwkw==", "user"=>{"username"=>"calpal", "password"=>"[FILTERED]"}}
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 18ms (Views: 17.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new?authenticity_token=74rQpO%2BbEah4AOH%2BqlWgzpAhfNpCHnWEpM%2BVtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk%2F047aKLqwkw%3D%3D&user%5Busername%5D=calpal&user%5Bpassword%5D=[FILTERED]" for ::1 at 2021-01-28 12:32:58 -0800
+Processing by SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"74rQpO+bEah4AOH+qlWgzpAhfNpCHnWEpM+VtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk/047aKLqwkw==", "user"=>{"username"=>"calpal", "password"=>"[FILTERED]"}}
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 17ms (Views: 16.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new?authenticity_token=74rQpO%2BbEah4AOH%2BqlWgzpAhfNpCHnWEpM%2BVtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk%2F047aKLqwkw%3D%3D&user%5Busername%5D=calpal&user%5Bpassword%5D=[FILTERED]" for ::1 at 2021-01-28 12:33:10 -0800
+Processing by SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"74rQpO+bEah4AOH+qlWgzpAhfNpCHnWEpM+VtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk/047aKLqwkw==", "user"=>{"username"=>"calpal", "password"=>"[FILTERED]"}}
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 18ms (Views: 17.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new?authenticity_token=74rQpO%2BbEah4AOH%2BqlWgzpAhfNpCHnWEpM%2BVtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk%2F047aKLqwkw%3D%3D&user%5Busername%5D=calpal&user%5Bpassword%5D=[FILTERED]" for ::1 at 2021-01-28 12:33:22 -0800
+Processing by SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"74rQpO+bEah4AOH+qlWgzpAhfNpCHnWEpM+VtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk/047aKLqwkw==", "user"=>{"username"=>"calpal", "password"=>"[FILTERED]"}}
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 18ms (Views: 17.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new?authenticity_token=74rQpO%2BbEah4AOH%2BqlWgzpAhfNpCHnWEpM%2BVtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk%2F047aKLqwkw%3D%3D&user%5Busername%5D=calpal&user%5Bpassword%5D=[FILTERED]" for ::1 at 2021-01-28 12:33:23 -0800
+Processing by SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"74rQpO+bEah4AOH+qlWgzpAhfNpCHnWEpM+VtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk/047aKLqwkw==", "user"=>{"username"=>"calpal", "password"=>"[FILTERED]"}}
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 10ms (Views: 9.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new?authenticity_token=74rQpO%2BbEah4AOH%2BqlWgzpAhfNpCHnWEpM%2BVtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk%2F047aKLqwkw%3D%3D&user%5Busername%5D=calpal&user%5Bpassword%5D=[FILTERED]" for ::1 at 2021-01-28 12:33:25 -0800
+Processing by SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"74rQpO+bEah4AOH+qlWgzpAhfNpCHnWEpM+VtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk/047aKLqwkw==", "user"=>{"username"=>"calpal", "password"=>"[FILTERED]"}}
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 14ms (Views: 13.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new?authenticity_token=74rQpO%2BbEah4AOH%2BqlWgzpAhfNpCHnWEpM%2BVtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk%2F047aKLqwkw%3D%3D&user%5Busername%5D=calpal&user%5Bpassword%5D=[FILTERED]" for ::1 at 2021-01-28 12:33:30 -0800
+Processing by SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"74rQpO+bEah4AOH+qlWgzpAhfNpCHnWEpM+VtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk/047aKLqwkw==", "user"=>{"username"=>"calpal", "password"=>"[FILTERED]"}}
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 16ms (Views: 15.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new?authenticity_token=74rQpO%2BbEah4AOH%2BqlWgzpAhfNpCHnWEpM%2BVtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk%2F047aKLqwkw%3D%3D&user%5Busername%5D=calpal&user%5Bpassword%5D=[FILTERED]" for ::1 at 2021-01-28 12:33:38 -0800
+Processing by SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"74rQpO+bEah4AOH+qlWgzpAhfNpCHnWEpM+VtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk/047aKLqwkw==", "user"=>{"username"=>"calpal", "password"=>"[FILTERED]"}}
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 18ms (Views: 18.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new?authenticity_token=74rQpO%2BbEah4AOH%2BqlWgzpAhfNpCHnWEpM%2BVtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk%2F047aKLqwkw%3D%3D&user%5Busername%5D=calpal&user%5Bpassword%5D=[FILTERED]" for ::1 at 2021-01-28 12:34:07 -0800
+Processing by SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"74rQpO+bEah4AOH+qlWgzpAhfNpCHnWEpM+VtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk/047aKLqwkw==", "user"=>{"username"=>"calpal", "password"=>"[FILTERED]"}}
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 20ms (Views: 19.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new?authenticity_token=74rQpO%2BbEah4AOH%2BqlWgzpAhfNpCHnWEpM%2BVtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk%2F047aKLqwkw%3D%3D&user%5Busername%5D=calpal&user%5Bpassword%5D=[FILTERED]" for ::1 at 2021-01-28 12:34:10 -0800
+Processing by SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"74rQpO+bEah4AOH+qlWgzpAhfNpCHnWEpM+VtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk/047aKLqwkw==", "user"=>{"username"=>"calpal", "password"=>"[FILTERED]"}}
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 20ms (Views: 19.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new?authenticity_token=74rQpO%2BbEah4AOH%2BqlWgzpAhfNpCHnWEpM%2BVtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk%2F047aKLqwkw%3D%3D&user%5Busername%5D=calpal&user%5Bpassword%5D=[FILTERED]" for ::1 at 2021-01-28 12:34:11 -0800
+Processing by SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"74rQpO+bEah4AOH+qlWgzpAhfNpCHnWEpM+VtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk/047aKLqwkw==", "user"=>{"username"=>"calpal", "password"=>"[FILTERED]"}}
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 11ms (Views: 11.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new?authenticity_token=74rQpO%2BbEah4AOH%2BqlWgzpAhfNpCHnWEpM%2BVtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk%2F047aKLqwkw%3D%3D&user%5Busername%5D=calpal&user%5Bpassword%5D=[FILTERED]" for ::1 at 2021-01-28 12:34:13 -0800
+Processing by SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"74rQpO+bEah4AOH+qlWgzpAhfNpCHnWEpM+VtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk/047aKLqwkw==", "user"=>{"username"=>"calpal", "password"=>"[FILTERED]"}}
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 14ms (Views: 13.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new?authenticity_token=74rQpO%2BbEah4AOH%2BqlWgzpAhfNpCHnWEpM%2BVtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk%2F047aKLqwkw%3D%3D&user%5Busername%5D=calpal&user%5Bpassword%5D=[FILTERED]" for ::1 at 2021-01-28 12:34:21 -0800
+Processing by SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"74rQpO+bEah4AOH+qlWgzpAhfNpCHnWEpM+VtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk/047aKLqwkw==", "user"=>{"username"=>"calpal", "password"=>"[FILTERED]"}}
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 22ms (Views: 21.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new?authenticity_token=74rQpO%2BbEah4AOH%2BqlWgzpAhfNpCHnWEpM%2BVtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk%2F047aKLqwkw%3D%3D&user%5Busername%5D=calpal&user%5Bpassword%5D=[FILTERED]" for ::1 at 2021-01-28 12:34:28 -0800
+Processing by SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"74rQpO+bEah4AOH+qlWgzpAhfNpCHnWEpM+VtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk/047aKLqwkw==", "user"=>{"username"=>"calpal", "password"=>"[FILTERED]"}}
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 17ms (Views: 16.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new?authenticity_token=74rQpO%2BbEah4AOH%2BqlWgzpAhfNpCHnWEpM%2BVtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk%2F047aKLqwkw%3D%3D&user%5Busername%5D=calpal&user%5Bpassword%5D=[FILTERED]" for ::1 at 2021-01-28 12:34:38 -0800
+Processing by SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"74rQpO+bEah4AOH+qlWgzpAhfNpCHnWEpM+VtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk/047aKLqwkw==", "user"=>{"username"=>"calpal", "password"=>"[FILTERED]"}}
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 22ms (Views: 22.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new?authenticity_token=74rQpO%2BbEah4AOH%2BqlWgzpAhfNpCHnWEpM%2BVtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk%2F047aKLqwkw%3D%3D&user%5Busername%5D=calpal&user%5Bpassword%5D=[FILTERED]" for ::1 at 2021-01-28 12:34:46 -0800
+Processing by SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"74rQpO+bEah4AOH+qlWgzpAhfNpCHnWEpM+VtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk/047aKLqwkw==", "user"=>{"username"=>"calpal", "password"=>"[FILTERED]"}}
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 16ms (Views: 15.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new?authenticity_token=74rQpO%2BbEah4AOH%2BqlWgzpAhfNpCHnWEpM%2BVtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk%2F047aKLqwkw%3D%3D&user%5Busername%5D=calpal&user%5Bpassword%5D=[FILTERED]" for ::1 at 2021-01-28 12:34:53 -0800
+Processing by SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"74rQpO+bEah4AOH+qlWgzpAhfNpCHnWEpM+VtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk/047aKLqwkw==", "user"=>{"username"=>"calpal", "password"=>"[FILTERED]"}}
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 18ms (Views: 18.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new?authenticity_token=74rQpO%2BbEah4AOH%2BqlWgzpAhfNpCHnWEpM%2BVtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk%2F047aKLqwkw%3D%3D&user%5Busername%5D=calpal&user%5Bpassword%5D=[FILTERED]" for ::1 at 2021-01-28 12:35:09 -0800
+Processing by SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"74rQpO+bEah4AOH+qlWgzpAhfNpCHnWEpM+VtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk/047aKLqwkw==", "user"=>{"username"=>"calpal", "password"=>"[FILTERED]"}}
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 17ms (Views: 16.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new?authenticity_token=74rQpO%2BbEah4AOH%2BqlWgzpAhfNpCHnWEpM%2BVtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk%2F047aKLqwkw%3D%3D&user%5Busername%5D=calpal&user%5Bpassword%5D=[FILTERED]" for ::1 at 2021-01-28 12:35:10 -0800
+Processing by SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"74rQpO+bEah4AOH+qlWgzpAhfNpCHnWEpM+VtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk/047aKLqwkw==", "user"=>{"username"=>"calpal", "password"=>"[FILTERED]"}}
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 11ms (Views: 10.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new?authenticity_token=74rQpO%2BbEah4AOH%2BqlWgzpAhfNpCHnWEpM%2BVtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk%2F047aKLqwkw%3D%3D&user%5Busername%5D=calpal&user%5Bpassword%5D=[FILTERED]" for ::1 at 2021-01-28 12:35:34 -0800
+Processing by SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"74rQpO+bEah4AOH+qlWgzpAhfNpCHnWEpM+VtrEO0GIspC2qx2YVXVNGhHCQS6NCQ3qrG2vazZk/047aKLqwkw==", "user"=>{"username"=>"calpal", "password"=>"[FILTERED]"}}
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 21ms (Views: 20.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 12:35:44 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 28ms (Views: 20.9ms | ActiveRecord: 5.2ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 12:35:44 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.2ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 13ms (Views: 11.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/subs/1" for ::1 at 2021-01-28 12:35:45 -0800
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:37
+  Rendering subs/show.html.erb within layouts/application
+  Rendered subs/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 13ms (Views: 11.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/subs/1" for ::1 at 2021-01-28 12:35:47 -0800
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSub Load (0.4ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:37
+  Rendering subs/show.html.erb within layouts/application
+  Rendered subs/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 14ms (Views: 12.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 12:35:49 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.4ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 16ms (Views: 15.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 12:36:18 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.2ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 19ms (Views: 18.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 12:36:31 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 19ms (Views: 18.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 12:36:49 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 20ms (Views: 19.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 12:36:53 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 14ms (Views: 12.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 12:36:57 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.4ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 21ms (Views: 20.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 12:37:03 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 18ms (Views: 17.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 12:37:09 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 19ms (Views: 18.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 12:37:28 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.2ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 20ms (Views: 18.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 12:37:47 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 19ms (Views: 18.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 12:37:48 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 13ms (Views: 12.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 12:37:55 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 18ms (Views: 17.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 12:39:10 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 21ms (Views: 19.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 12:39:11 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 11ms (Views: 10.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 12:39:12 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.2ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 11ms (Views: 10.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 12:39:18 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.2ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 19ms (Views: 18.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 12:39:20 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 12ms (Views: 11.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 12:39:38 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.2ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 13ms (Views: 12.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 12:39:58 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 13ms (Views: 12.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 12:40:10 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 20ms (Views: 19.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 12:40:17 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 21ms (Views: 20.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 12:40:36 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 27ms (Views: 25.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 12:41:38 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.4ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 20ms (Views: 19.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 12:41:43 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 18ms (Views: 17.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 12:41:58 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 20ms (Views: 18.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 12:42:22 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.2ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 18ms (Views: 17.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 12:42:42 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 12ms (Views: 11.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 12:42:47 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 19ms (Views: 18.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 12:42:54 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.2ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 19ms (Views: 17.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 12:43:05 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 20ms (Views: 19.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 12:43:11 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 20ms (Views: 19.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 12:43:16 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 21ms (Views: 19.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 12:43:24 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.2ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 19ms (Views: 18.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 12:43:25 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.2ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 12ms (Views: 11.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 12:43:35 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 20ms (Views: 19.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 12:43:45 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.2ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 18ms (Views: 17.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 12:43:53 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.2ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 21ms (Views: 20.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 12:44:00 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 18ms (Views: 17.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 12:44:03 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 14ms (Views: 13.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 12:44:07 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.2ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 20ms (Views: 18.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 12:44:11 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 18ms (Views: 17.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 12:44:26 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 20ms (Views: 19.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 12:44:26 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 12ms (Views: 11.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/new" for ::1 at 2021-01-28 12:44:27 -0800
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.5ms)
+  Rendered users/new.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 24ms (Views: 12.2ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 12:44:29 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 14ms (Views: 13.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/session/new" for ::1 at 2021-01-28 12:44:29 -0800
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 13ms (Views: 12.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 12:44:31 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 14ms (Views: 13.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 12:46:25 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 13ms (Views: 12.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/subs/1" for ::1 at 2021-01-28 12:46:27 -0800
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSub Load (0.6ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:37
+  Rendering subs/show.html.erb within layouts/application
+  Rendered subs/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 15ms (Views: 12.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/subs/1" for ::1 at 2021-01-28 12:46:36 -0800
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:37
+  Rendering subs/show.html.erb within layouts/application
+  Rendered subs/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 19ms (Views: 17.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/subs/1" for ::1 at 2021-01-28 12:46:41 -0800
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:37
+  Rendering subs/show.html.erb within layouts/application
+  Rendered subs/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 20ms (Views: 14.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/subs/1" for ::1 at 2021-01-28 12:46:45 -0800
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSub Load (0.4ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:37
+  Rendering subs/show.html.erb within layouts/application
+  Rendered subs/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 14ms (Views: 12.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/subs/1" for ::1 at 2021-01-28 12:54:28 -0800
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSub Load (0.8ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:37
+  Rendering subs/show.html.erb within layouts/application
+  Rendered subs/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 21ms (Views: 18.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/subs/1" for ::1 at 2021-01-28 12:54:40 -0800
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSub Load (0.5ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:37
+  Rendering subs/show.html.erb within layouts/application
+  Rendered subs/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 50ms (Views: 47.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/subs/1" for ::1 at 2021-01-28 12:54:54 -0800
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:37
+  Rendering subs/show.html.erb within layouts/application
+  Rendered subs/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 20ms (Views: 19.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/subs/1" for ::1 at 2021-01-28 12:55:03 -0800
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:37
+  Rendering subs/show.html.erb within layouts/application
+  Rendered subs/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 18ms (Views: 16.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/subs/1" for ::1 at 2021-01-28 12:55:09 -0800
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:37
+  Rendering subs/show.html.erb within layouts/application
+  Rendered subs/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 20ms (Views: 18.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/subs/1" for ::1 at 2021-01-28 12:55:21 -0800
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:37
+  Rendering subs/show.html.erb within layouts/application
+  Rendered subs/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 18ms (Views: 16.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/subs/1" for ::1 at 2021-01-28 12:55:22 -0800
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:37
+  Rendering subs/show.html.erb within layouts/application
+  Rendered subs/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 12ms (Views: 11.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/subs/1" for ::1 at 2021-01-28 12:55:22 -0800
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSub Load (0.2ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:37
+  Rendering subs/show.html.erb within layouts/application
+  Rendered subs/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 12ms (Views: 10.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/subs/1" for ::1 at 2021-01-28 12:55:23 -0800
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSub Load (0.2ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:37
+  Rendering subs/show.html.erb within layouts/application
+  Rendered subs/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 11ms (Views: 10.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/subs/1" for ::1 at 2021-01-28 12:55:31 -0800
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSub Load (0.2ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:37
+  Rendering subs/show.html.erb within layouts/application
+  Rendered subs/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 23ms (Views: 21.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/subs/1" for ::1 at 2021-01-28 12:55:40 -0800
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSub Load (0.2ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:37
+  Rendering subs/show.html.erb within layouts/application
+  Rendered subs/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 22ms (Views: 19.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 12:55:46 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.4ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 13ms (Views: 12.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/new" for ::1 at 2021-01-28 12:55:48 -0800
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.6ms)
+  Rendered users/new.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 15ms (Views: 14.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 12:55:49 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.4ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 14ms (Views: 12.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/session/new" for ::1 at 2021-01-28 12:55:49 -0800
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 12ms (Views: 11.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 12:55:50 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.5ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 14ms (Views: 12.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/subs/1" for ::1 at 2021-01-28 12:55:51 -0800
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:37
+  Rendering subs/show.html.erb within layouts/application
+  Rendered subs/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 13ms (Views: 11.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 12:55:52 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 15ms (Views: 13.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 12:56:06 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 18ms (Views: 17.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 12:56:20 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 20ms (Views: 19.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 12:56:35 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.2ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 26ms (Views: 25.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 12:57:25 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.2ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 23ms (Views: 22.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 12:57:39 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 20ms (Views: 19.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 12:57:40 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 12ms (Views: 11.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 12:57:45 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.2ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 20ms (Views: 19.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 12:58:00 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 18ms (Views: 17.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 12:58:12 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.4ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 19ms (Views: 18.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 12:58:23 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 20ms (Views: 19.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 12:58:27 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 23ms (Views: 22.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 12:58:29 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 12ms (Views: 11.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/subs/1" for ::1 at 2021-01-28 12:58:31 -0800
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:37
+  Rendering subs/show.html.erb within layouts/application
+  Rendered subs/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 17ms (Views: 15.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 12:58:40 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.4ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 18ms (Views: 17.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/new" for ::1 at 2021-01-28 12:58:41 -0800
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.5ms)
+  Rendered users/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 14ms (Views: 13.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2021-01-28 12:58:47 -0800
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"qDEziqH4lQtID/gjHdh8650JKTRsT1ejrB1N51MeZFprH86EiQWR/mNJna0nxn9nTlL+9UWL7743AVaLyqoEqw==", "user"=>{"username"=>"cals", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "cals"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "1k1ygg7ejmZTuGst9CVXZg"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "cals"], ["password_digest", "$2a$12$J1Hq2jNXCj/iX3NmbsWEWeWiIk2pSSEEB1XEjHJ2UgVIvgN8FabdO"], ["session_token", "1k1ygg7ejmZTuGst9CVXZg"], ["created_at", "2021-01-28 20:58:47.238840"], ["updated_at", "2021-01-28 20:58:47.238840"]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:5
+Redirected to http://localhost:3000/subs
+Completed 302 Found in 227ms (ActiveRecord: 4.0ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 12:58:47 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 13ms (Views: 12.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 12:58:54 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 12ms (Views: 11.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 12:58:54 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 14ms (Views: 12.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/session/new" for ::1 at 2021-01-28 12:58:55 -0800
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 13ms (Views: 13.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2021-01-28 12:58:56 -0800
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.6ms)
+  Rendered users/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 14ms (Views: 13.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 12:58:57 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 14ms (Views: 12.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/new" for ::1 at 2021-01-28 12:58:58 -0800
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.7ms)
+  Rendered users/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 16ms (Views: 14.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 12:59:01 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 15ms (Views: 13.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/new" for ::1 at 2021-01-28 12:59:02 -0800
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.6ms)
+  Rendered users/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 16ms (Views: 14.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 13:01:43 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.2ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 17ms (Views: 16.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/new" for ::1 at 2021-01-28 13:01:46 -0800
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.6ms)
+  Rendered users/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 17ms (Views: 16.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2021-01-28 13:01:50 -0800
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"deC4hsflmmeM6luCC+wH0OIrMX9y46I0PtwDZ5i1UJu2zkWI7xiekqesPgwx8gRcMXDmvlsnGimlwBgLAQEwag==", "user"=>{"username"=>"cats", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "cats"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vxj2jN7yeMMOsw3yJ68Zxw"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:5
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.5ms)
+  Rendered users/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 240ms (Views: 12.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 13:01:52 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 16ms (Views: 15.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 13:02:22 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 26ms (Views: 25.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 13:02:23 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.6ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 19ms (Views: 17.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 13:03:24 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.2ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 39ms (Views: 38.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 13:03:34 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 21ms (Views: 20.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 13:03:47 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.2ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 27ms (Views: 26.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 13:03:48 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 19ms (Views: 17.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 13:03:53 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 42ms (Views: 41.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 13:04:10 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 13ms (Views: 12.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 13:04:20 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.4ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 26ms (Views: 25.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 13:04:28 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 13ms (Views: 12.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 13:04:28 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.4ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 15ms (Views: 14.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/new" for ::1 at 2021-01-28 13:04:29 -0800
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.6ms)
+  Rendered users/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 14ms (Views: 13.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2021-01-28 13:04:40 -0800
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.5ms)
+  Rendered users/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 20ms (Views: 19.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2021-01-28 13:04:40 -0800
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.5ms)
+  Rendered users/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 12ms (Views: 11.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2021-01-28 13:05:03 -0800
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.5ms)
+  Rendered users/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 19ms (Views: 18.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2021-01-28 13:05:08 -0800
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.5ms)
+  Rendered users/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 19ms (Views: 18.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2021-01-28 13:05:09 -0800
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.5ms)
+  Rendered users/new.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 15ms (Views: 13.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 13:05:09 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.4ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 13ms (Views: 12.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/new" for ::1 at 2021-01-28 13:05:10 -0800
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.5ms)
+  Rendered users/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 15ms (Views: 13.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 13:05:11 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 15ms (Views: 13.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/session/new" for ::1 at 2021-01-28 13:05:12 -0800
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 13ms (Views: 12.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2021-01-28 13:05:13 -0800
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.5ms)
+  Rendered users/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 13ms (Views: 12.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 13:05:15 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 14ms (Views: 13.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 13:05:43 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 14ms (Views: 13.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/new" for ::1 at 2021-01-28 13:05:44 -0800
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.6ms)
+  Rendered users/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 15ms (Views: 14.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2021-01-28 13:05:54 -0800
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"wmfuS5U/zw8UiqBRQOVkiTMhw2IOoM0/hajuTjDgBE8BSRNFvcLL+j/Mxd96+2cF4HoUoydkdSIetPUiqVRkvg==", "user"=>{"username"=>"callie", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "callie"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "9GFJIB6GG7AXkS1lURVpjA"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "callie"], ["password_digest", "$2a$12$nlFY4EAB1GYtgEgtedycGO5wjDkWctAnsDQ6W8jPxJoTIfaJ3SfjG"], ["session_token", "9GFJIB6GG7AXkS1lURVpjA"], ["created_at", "2021-01-28 21:05:54.476228"], ["updated_at", "2021-01-28 21:05:54.476228"]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:5
+Redirected to http://localhost:3000/subs
+Completed 302 Found in 231ms (ActiveRecord: 2.9ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 13:05:54 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 12ms (Views: 11.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/new" for ::1 at 2021-01-28 13:05:58 -0800
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.5ms)
+  Rendered users/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 13ms (Views: 12.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2021-01-28 13:06:29 -0800
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"brFEMCrmtlvUt6WbFw+oTC/NDIRx1V+DdUioHeek9wutn7k+Ahuyrv/xwBUtEavA/JbbRVgR557uVLNxfhCX+g==", "user"=>{"username"=>"calpal", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "calpal"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "Beb9XSE5rVJQ6CKmwccSIw"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:5
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.5ms)
+  Rendered users/new.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 236ms (Views: 11.3ms | ActiveRecord: 1.0ms)
+
+
+Started DELETE "/session" for ::1 at 2021-01-28 13:07:08 -0800
+  [1m[35m (6.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/sandylcruz/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"wPXO/bsdzHpxKZpXoJQo2T6VYjZ1uN3kTVn2J42s/HAD2zPzk+DIj1pv/9maiitV7c6191x8ZfnWRe1LFBicgQ=="}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "9GFJIB6GG7AXkS1lURVpjA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:42
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "callie"], ["id", 7], ["LIMIT", 1]]
+  ↳ app/models/user.rb:42
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "SSrEXUULNMFGMn47GEnlfQ"], ["id", 7], ["LIMIT", 1]]
+  ↳ app/models/user.rb:42
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "SSrEXUULNMFGMn47GEnlfQ"], ["updated_at", "2021-01-28 21:07:08.386620"], ["id", 7]]
+  ↳ app/models/user.rb:42
+  [1m[35m (5.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:42
+No template found for SessionsController#destroy, rendering head :no_content
+Completed 204 No Content in 56ms (ActiveRecord: 14.3ms)
+
+
+Started DELETE "/session" for ::1 at 2021-01-28 13:07:08 -0800
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"wPXO/bsdzHpxKZpXoJQo2T6VYjZ1uN3kTVn2J42s/HAD2zPzk+DIj1pv/9maiitV7c6191x8ZfnWRe1LFBicgQ=="}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "9GFJIB6GG7AXkS1lURVpjA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "9GFJIB6GG7AXkS1lURVpjA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Redirected to http://localhost:3000/session/new
+Completed 302 Found in 2ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/session/new" for ::1 at 2021-01-28 13:07:08 -0800
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 234ms (Views: 233.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new?authenticity_token=61T0k%2BZxOiBFzFlPUUD9bszhY50LJb1%2FeDNV7HA6%2F9coegmdzow%2B1W6KPMFrXv7iH7q0XCLhBWLjL06A6Y6fJg%3D%3D&user%5Busername%5D=calpal&user%5Bpassword%5D=[FILTERED]" for ::1 at 2021-01-28 13:07:14 -0800
+Processing by SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"61T0k+ZxOiBFzFlPUUD9bszhY50LJb1/eDNV7HA6/9coegmdzow+1W6KPMFrXv7iH7q0XCLhBWLjL06A6Y6fJg==", "user"=>{"username"=>"calpal", "password"=>"[FILTERED]"}}
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 12ms (Views: 11.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new?authenticity_token=61T0k%2BZxOiBFzFlPUUD9bszhY50LJb1%2FeDNV7HA6%2F9coegmdzow%2B1W6KPMFrXv7iH7q0XCLhBWLjL06A6Y6fJg%3D%3D&user%5Busername%5D=calpal&user%5Bpassword%5D=[FILTERED]" for ::1 at 2021-01-28 13:08:23 -0800
+Processing by SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"61T0k+ZxOiBFzFlPUUD9bszhY50LJb1/eDNV7HA6/9coegmdzow+1W6KPMFrXv7iH7q0XCLhBWLjL06A6Y6fJg==", "user"=>{"username"=>"calpal", "password"=>"[FILTERED]"}}
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 14ms (Views: 13.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session/new" for ::1 at 2021-01-28 13:08:28 -0800
+  
+ActionController::RoutingError (No route matches [POST] "/session/new"):
+  
+actionpack (5.2.4.4) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.4.4) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.4.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.4.4) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/session/new?authenticity_token=61T0k%2BZxOiBFzFlPUUD9bszhY50LJb1%2FeDNV7HA6%2F9coegmdzow%2B1W6KPMFrXv7iH7q0XCLhBWLjL06A6Y6fJg%3D%3D&user%5Busername%5D=calpal&user%5Bpassword%5D=[FILTERED]" for ::1 at 2021-01-28 13:09:37 -0800
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/sandylcruz/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"61T0k+ZxOiBFzFlPUUD9bszhY50LJb1/eDNV7HA6/9coegmdzow+1W6KPMFrXv7iH7q0XCLhBWLjL06A6Y6fJg==", "user"=>{"username"=>"calpal", "password"=>"[FILTERED]"}}
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 166ms (Views: 161.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for ::1 at 2021-01-28 13:09:43 -0800
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"Zo3gOYB2AuYUAMQPyeRsRRHty8yWlGA45X0AiwVXlSWlox03qIsGEz9GoYHz+m/JwrYcDb9Q2CV+YRvnnOP11A==", "user"=>{"username"=>"calpal", "password"=>"[FILTERED]"}}
+Completed 500 Internal Server Error in 49ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `find_by_credentials' for #<SessionsController:0x00007fc2a4063948>:
+  app/controllers/sessions_controller.rb:3:in `create'
+
+Started POST "/__better_errors/1c564688fa8d5c57/variables" for ::1 at 2021-01-28 13:09:43 -0800
+Started GET "/session/new?authenticity_token=61T0k%2BZxOiBFzFlPUUD9bszhY50LJb1%2FeDNV7HA6%2F9coegmdzow%2B1W6KPMFrXv7iH7q0XCLhBWLjL06A6Y6fJg%3D%3D&user%5Busername%5D=calpal&user%5Bpassword%5D=[FILTERED]" for ::1 at 2021-01-28 13:11:06 -0800
+Processing by SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"61T0k+ZxOiBFzFlPUUD9bszhY50LJb1/eDNV7HA6/9coegmdzow+1W6KPMFrXv7iH7q0XCLhBWLjL06A6Y6fJg==", "user"=>{"username"=>"calpal", "password"=>"[FILTERED]"}}
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 16ms (Views: 15.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for ::1 at 2021-01-28 13:11:10 -0800
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"8ZeORS7MKlpeOi85oqcPJYI8KHLxbWBWwfvnTBVjP6oyuXNLBjEur3V8SreYuQypUWf/s9ip2Eta5/wgjNdfWw==", "user"=>{"username"=>"calpal", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "calpal"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:25
+  Rendering text template
+  Rendered text template (0.0ms)
+Redirected to 
+Completed 500 Internal Server Error in 240ms (Views: 0.9ms | ActiveRecord: 6.1ms)
+
+
+
+AbstractController::DoubleRenderError - Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".:
+  app/controllers/sessions_controller.rb:15:in `create'
+
+Started POST "/__better_errors/47f701b4a60be2b5/variables" for ::1 at 2021-01-28 13:11:11 -0800
+Started GET "/session/new?authenticity_token=61T0k%2BZxOiBFzFlPUUD9bszhY50LJb1%2FeDNV7HA6%2F9coegmdzow%2B1W6KPMFrXv7iH7q0XCLhBWLjL06A6Y6fJg%3D%3D&user%5Busername%5D=calpal&user%5Bpassword%5D=[FILTERED]" for ::1 at 2021-01-28 13:11:19 -0800
+Processing by SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"61T0k+ZxOiBFzFlPUUD9bszhY50LJb1/eDNV7HA6/9coegmdzow+1W6KPMFrXv7iH7q0XCLhBWLjL06A6Y6fJg==", "user"=>{"username"=>"calpal", "password"=>"[FILTERED]"}}
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 27ms (Views: 25.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for ::1 at 2021-01-28 13:11:23 -0800
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"+2p/YbiB8Z80tNnPJ16bMCWQGa5SX9AiTVBd3Wn5I144RIJvkHz1ah/yvEEdQJi89svOb3ubaD/WTEax8E1Drw==", "user"=>{"username"=>"calpal", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "calpal"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:25
+Redirected to http://localhost:3000/subs
+Completed 302 Found in 235ms (ActiveRecord: 4.5ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 13:11:23 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.8ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (12.8ms)
+Completed 200 OK in 42ms (Views: 31.8ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 13:12:01 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (11.5ms)
+Completed 200 OK in 24ms (Views: 15.8ms | ActiveRecord: 6.1ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 13:12:02 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 11ms (Views: 10.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/session/new" for ::1 at 2021-01-28 13:12:03 -0800
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 11ms (Views: 10.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for ::1 at 2021-01-28 13:12:07 -0800
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"e4KeeqqUJWXCLyoqb6SeCdFfwPJg/Cq1FMW+mzsfuLu4rGN0gmkhkOlpT6RVup2FAgQXM0k4kqiP2aX3oqvYSg==", "user"=>{"username"=>"calpal", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "calpal"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:25
+Completed 500 Internal Server Error in 343ms (ActiveRecord: 3.9ms)
+
+
+
+NameError - undefined local variable or method `user' for #<SessionsController:0x00007fc2a36f0e38>
+Did you mean?  @user:
+  app/controllers/sessions_controller.rb:8:in `create'
+
+Started POST "/__better_errors/b7d9d2f7f902baa5/variables" for ::1 at 2021-01-28 13:12:07 -0800
+Started GET "/session/new" for ::1 at 2021-01-28 13:12:25 -0800
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 12ms (Views: 11.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for ::1 at 2021-01-28 13:12:28 -0800
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"uIKmJgt71g5kLPQgakbXilUZ/817msKRAWKwDhO5sLR7rFsoI4bS+09qka5QWNQGhkIoDFJeeoyafqtiig3QRQ==", "user"=>{"username"=>"calpal", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "calpal"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:25
+Redirected to http://localhost:3000/subs
+Completed 302 Found in 231ms (ActiveRecord: 4.5ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 13:12:28 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 19ms (Views: 13.4ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 13:18:13 -0800
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/sandylcruz/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (1.0ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (15.4ms)
+Completed 200 OK in 225ms (Views: 206.7ms | ActiveRecord: 8.5ms)
+
+
+Started GET "/session/new" for ::1 at 2021-01-28 13:18:15 -0800
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 11ms (Views: 10.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for ::1 at 2021-01-28 13:18:21 -0800
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"BRHmbqE/sScTv6yKIRgwbw9FkNF9sqll5nO3oGRjjYHGPxtgicK10jj5yQQbBjPj3B5HEFR2EXh9b6zM/dftcA==", "user"=>{"username"=>"calpal", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "calpal"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:25
+Redirected to http://localhost:3000/subs
+Completed 302 Found in 235ms (ActiveRecord: 4.6ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 13:18:21 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 13ms (Views: 11.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 13:19:22 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.4ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.8ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "2bUFQHEbnUaCS6EMojPnFA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Completed 500 Internal Server Error in 26ms (ActiveRecord: 0.6ms)
+
+
+
+NoMethodError - undefined method `username' for nil:NilClass:
+  app/views/layouts/application.html.erb:36:in `_app_views_layouts_application_html_erb___4452285335990968325_16980'
+  app/controllers/subs_controller.rb:46:in `index'
+
+Started POST "/__better_errors/8a66961e7a59a6ec/variables" for ::1 at 2021-01-28 13:19:22 -0800
+Started GET "/users/new" for ::1 at 2021-01-28 13:19:31 -0800
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.5ms)
+  Rendered users/new.html.erb within layouts/application (1.2ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "2bUFQHEbnUaCS6EMojPnFA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Completed 200 OK in 12ms (Views: 11.2ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/session" for ::1 at 2021-01-28 13:19:34 -0800
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"/ScKr5515C8vtuAzAPLamxb5UCiWUxAyPAABMGtlhJM+Cfehtojg2gTwhb067NkXxaKH6b+XqC+nHBpc8tHkYg=="}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "2bUFQHEbnUaCS6EMojPnFA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:42
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "calpal"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:42
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "w-ZdYexvkYJoB3oAg_WeCw"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:42
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "w-ZdYexvkYJoB3oAg_WeCw"], ["updated_at", "2021-01-28 21:19:34.490157"], ["id", 1]]
+  ↳ app/models/user.rb:42
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:42
+No template found for SessionsController#destroy, rendering head :no_content
+Completed 204 No Content in 28ms (ActiveRecord: 3.5ms)
+
+
+Started DELETE "/session" for ::1 at 2021-01-28 13:19:35 -0800
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"/ScKr5515C8vtuAzAPLamxb5UCiWUxAyPAABMGtlhJM+Cfehtojg2gTwhb067NkXxaKH6b+XqC+nHBpc8tHkYg=="}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "2bUFQHEbnUaCS6EMojPnFA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "2bUFQHEbnUaCS6EMojPnFA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Redirected to http://localhost:3000/session/new
+Completed 302 Found in 2ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/session/new" for ::1 at 2021-01-28 13:19:35 -0800
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.5ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "2bUFQHEbnUaCS6EMojPnFA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Completed 200 OK in 12ms (Views: 11.6ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/session" for ::1 at 2021-01-28 13:19:39 -0800
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"oBVEuksawQT+tyboZOZsGD0reRDyf7LZoK1CT21QBPRjO7m0Y+fF8dXxQ2Ze+G+U7nCu0du7CsQ7sVkj9ORkBQ==", "user"=>{"username"=>"calpal", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "calpal"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:25
+Redirected to http://localhost:3000/subs
+Completed 302 Found in 222ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 13:19:40 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.2ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.1ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "w-ZdYexvkYJoB3oAg_WeCw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.6ms)
+
+
+
+NoMethodError - undefined method `username' for nil:NilClass:
+  app/views/layouts/application.html.erb:36:in `_app_views_layouts_application_html_erb___4452285335990968325_17660'
+  app/controllers/subs_controller.rb:46:in `index'
+
+Started POST "/__better_errors/b486e79eb77ba8b5/variables" for ::1 at 2021-01-28 13:19:40 -0800
+Started GET "/session/new" for ::1 at 2021-01-28 13:19:51 -0800
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.5ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "w-ZdYexvkYJoB3oAg_WeCw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Completed 200 OK in 13ms (Views: 12.4ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/session" for ::1 at 2021-01-28 13:19:53 -0800
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"CNl5aAI/i2h1lgWsJz+mcZw9rr1+qt7/8CtyX/avhmnL94RmKsKPnV7QYCIdIaX9T2Z5fFduZuJrN2kzbxvmmA=="}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "w-ZdYexvkYJoB3oAg_WeCw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:42
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "calpal"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:42
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "QZPUkcpoVeGdds-1U2HTpw"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:42
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "QZPUkcpoVeGdds-1U2HTpw"], ["updated_at", "2021-01-28 21:19:53.884026"], ["id", 1]]
+  ↳ app/models/user.rb:42
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:42
+No template found for SessionsController#destroy, rendering head :no_content
+Completed 204 No Content in 25ms (ActiveRecord: 3.1ms)
+
+
+Started DELETE "/session" for ::1 at 2021-01-28 13:19:55 -0800
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"CNl5aAI/i2h1lgWsJz+mcZw9rr1+qt7/8CtyX/avhmnL94RmKsKPnV7QYCIdIaX9T2Z5fFduZuJrN2kzbxvmmA=="}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "w-ZdYexvkYJoB3oAg_WeCw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "w-ZdYexvkYJoB3oAg_WeCw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Redirected to http://localhost:3000/session/new
+Completed 302 Found in 1ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/session/new" for ::1 at 2021-01-28 13:19:55 -0800
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.5ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "w-ZdYexvkYJoB3oAg_WeCw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Completed 200 OK in 11ms (Views: 10.2ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/session" for ::1 at 2021-01-28 13:20:00 -0800
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"wN/HPfrfFhS282HABBmu5PTq5B6ggi/yfoazvc2GKaoD8Toz0iIS4Z21BE4+B61oJ7Ez34lGl+/lmqjRVDJJWw==", "user"=>{"username"=>"calpal", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "calpal"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:25
+Redirected to http://localhost:3000/subs
+Completed 302 Found in 221ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 13:20:00 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.2ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.2ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "QZPUkcpoVeGdds-1U2HTpw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Completed 200 OK in 14ms (Views: 12.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 13:20:02 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.8ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "QZPUkcpoVeGdds-1U2HTpw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Completed 200 OK in 28ms (Views: 26.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 13:20:02 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.4ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (2.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "QZPUkcpoVeGdds-1U2HTpw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Completed 200 OK in 22ms (Views: 20.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/subs/1" for ::1 at 2021-01-28 13:20:03 -0800
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:37
+  Rendering subs/show.html.erb within layouts/application
+  Rendered subs/show.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "QZPUkcpoVeGdds-1U2HTpw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Completed 200 OK in 22ms (Views: 19.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/subs/1" for ::1 at 2021-01-28 13:20:05 -0800
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSub Load (0.4ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:37
+  Rendering subs/show.html.erb within layouts/application
+  Rendered subs/show.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "QZPUkcpoVeGdds-1U2HTpw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Completed 200 OK in 23ms (Views: 21.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 13:22:55 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.8ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "QZPUkcpoVeGdds-1U2HTpw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Completed 200 OK in 21ms (Views: 19.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/subs/1" for ::1 at 2021-01-28 13:22:57 -0800
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:37
+  Rendering subs/show.html.erb within layouts/application
+  Rendered subs/show.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "QZPUkcpoVeGdds-1U2HTpw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Completed 200 OK in 23ms (Views: 20.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/subs/1" for ::1 at 2021-01-28 13:22:59 -0800
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSub Load (0.5ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:37
+  Rendering subs/show.html.erb within layouts/application
+  Rendered subs/show.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "QZPUkcpoVeGdds-1U2HTpw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Completed 200 OK in 15ms (Views: 13.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/subs" for ::1 at 2021-01-28 13:23:00 -0800
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.4ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (1.8ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "QZPUkcpoVeGdds-1U2HTpw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Completed 200 OK in 20ms (Views: 18.7ms | ActiveRecord: 0.6ms)
+
+

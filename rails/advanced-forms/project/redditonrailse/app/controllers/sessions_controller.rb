@@ -1,12 +1,13 @@
 class SessionsController < ApplicationController 
   def create
-    user = find_by_credentials(
+    user = User.find_by_credentials(
       params[:user][:username], 
       params[:user][:password]
     )
 
     if user.nil?
-      flash.now[:errors] = { message: 'Incorrect username/password' }
+      render plain: "not logged in"
+      # flash.now[:errors] = { message: 'Incorrect username/password' }
     else
       login_user!(user)
       redirect_to subs_url

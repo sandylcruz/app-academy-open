@@ -16,36 +16,35 @@
         <a href="<%= subs_url %>">Home</a>
       </nav>
 
-      <% if @user.nil? %>
-        <nav class="logged_out_links">
-          <ul> 
-            <li>
-              <a href="<%= new_user_url %>">Sign up!</a>
-            </li>
+        <% if current_user.nil? %>
+          <nav class="logged_out_links">
+            <ul class="log_out_links"> 
+              <li>
+                <a href="<%= new_user_url %>">Sign up</a>
+              </li>
 
-            <li>
-              <a href="<%= new_session_url %>">Sign in!</a>
-            </li>
-          </nav>
-        </ul>
+              <li>
+                <a href="<%= new_session_url %>">Sign in</a>
+              </li>
+            </nav>
+          </ul>
 
-      <% else %>
-        <nav class="logged_in">
-          <ul>
-            <li id="logged_in">
-              Logged in as: <%= @user.username %>
-            </li>
-            <li>
-              <form action="<%= session_url %>" method="POST">
-                <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
-                <input type="hidden" value="delete" name="_method" />
-                <input type="submit" value="Logout" />
-              </form>
-            </li>
-          </nav>
-        </ul>
-      <% end %>
-
+        <% else %>
+          <nav class="logged_in">
+            <ul>
+              <li id="logged_in">
+                Logged in as: <%= current_user.username %>
+              </li>
+              <li>
+                <form action="<%= session_url %>" method="POST">
+                  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
+                  <input type="hidden" value="delete" name="_method" />
+                  <input type="submit" value="Logout" />
+                </form>
+              </li>
+            </nav>
+          </ul>
+        <% end %>
     </header>
     <%= yield %>
   </body>
