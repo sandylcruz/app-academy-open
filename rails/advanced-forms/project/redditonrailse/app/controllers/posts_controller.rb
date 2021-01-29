@@ -3,14 +3,16 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
 
     if @post.save
+      render plain: "post saved"
       redirect_to post_url(@post)
     else
-      render :new
+      render plain: "not saved"
+      # render :new
     end
   end
 
   def new
-    @post = Post.new(post_params)
+    @post = Post.new
     render :new
   end
 

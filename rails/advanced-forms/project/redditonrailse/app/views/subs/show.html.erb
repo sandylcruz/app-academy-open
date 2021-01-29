@@ -5,6 +5,10 @@
 
   <%= @sub.description %> ////
   
-  <a href="#">Make new post!</a>
+  <a href="<%= new_post_url %>">Make new post!</a>
+
+  <% @posts.each do |post| %>
+    <%= post.title %>
+  <% end %>
 </div>
 
