@@ -1,12 +1,18 @@
+<% action_url = sub.persisted? ? sub_url(sub) : subs_url %>
+<% method = (sub.persisted? ? :patch : :post) %>
 
+<form class="form" action="<%= action_url %>" method="POST">
+<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
+  <% if method == :patch %>
+  <input type="hidden" name="_method" value="patch" />
+  <% end %>
 
+  <label for="name">Name:</label>
+  <input type="text" name="sub[title]" />
 
-<form action="POST">
-<label for="name">Name:</label>
-<input type="text" name="sub[title]" />
+  <label for="description">Description:</label>
+  <textarea name="sub[description]" /></textarea>
 
-<label for="description">Description:</label>
-<input type="textbox" name="sub[description]"/>
+  <input type="submit" />
 
-<input type="submit" />
 </form>

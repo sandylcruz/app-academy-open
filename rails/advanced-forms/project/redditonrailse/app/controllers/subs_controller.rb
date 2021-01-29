@@ -3,10 +3,11 @@ class SubsController < ApplicationController
     @sub = Sub.new(sub_params)
 
     if @sub.save
+      render plain: "sub made"
       redirect_to sub_url(@sub)
     else
-      @sub.errors.full_messages
-      render :new
+      render plain: @sub.errors.full_messages
+      # render :new
     end
   end
 
