@@ -1,13 +1,14 @@
 class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
+    @post.author = current_user
+    puts "asdfasdfasdfasdfasdfasdfafd"
+    puts current_user
 
     if @post.save
-      render plain: "post saved"
       redirect_to post_url(@post)
     else
-      render plain: "not saved"
-      # render :new
+      render :new
     end
   end
 
@@ -45,6 +46,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :content, :user_id)
+    params.require(:post).permit(:title, :content, sub_ids: [])
   end
 end
