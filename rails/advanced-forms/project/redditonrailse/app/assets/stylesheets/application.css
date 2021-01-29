@@ -49,7 +49,6 @@ header {
   flex-direction: row;
   padding: 10px;
   justify-content: space-around;
-
 }
 
 .home_link {
@@ -80,7 +79,6 @@ ul.subs_index {
   flex-direction: column;
   justify-content: center;
   list-style: disc;
-  
 }
 
 .logged_out_links, .logged_in {
@@ -105,7 +103,7 @@ h4 {
 }
 
 form {
-  font-size: 30px;
+  font-size: 25px;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -119,6 +117,7 @@ form {
   flex-direction: column;
   justify-content: center;
   font-size: 20px;
+  list-style: disc;
 }
 
 .flash_error {
@@ -133,7 +132,7 @@ form {
   font-size: 20px;
 }
 
-.edit_post, .new_post, .post_style, .post_details {
+.edit_post, .new_post, .post_style, .post_details, .new_sub {
   display: flex;
   align-items: center;
   flex-direction: column;
