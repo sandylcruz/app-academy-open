@@ -1,13 +1,15 @@
 <h1><%= @post.title %></h1>
 
-<h4>Content:</h4>
+<div class="post_details">
+  <h4>Content:</h4>
 
-<%= @post.content %>
+  <%= @post.content %>
 
-<h4>Subs:</h4>
+  <h4>Subs:</h4>
 
-<ul>
-  <% @subs.each do |sub| %>
-    <li><%= sub.title %></li>
-  <% end %>
-</ul>
+  <ul>
+    <% @subs.each do |sub| %>
+      <li><%= sub.title %></li>
+    <% end %>
+  </ul>
+</div>
