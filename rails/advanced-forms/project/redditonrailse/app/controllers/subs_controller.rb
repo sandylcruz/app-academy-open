@@ -11,7 +11,7 @@ class SubsController < ApplicationController
   end
 
   def new
-    @sub = Sub.new(sub_params)
+    @sub = Sub.new
     render :new
   end
 
