@@ -1,15 +1,28 @@
-<form>
+<% action_url = post.persisted? ? post_url(post) : posts_url %>
+<% method = (post.persisted? ? :patch : :post) %>
+
+<form class="form" action="<%= action_url %>" method="post">
+<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
+  <% if method == :patch %>
+  <input type="hidden" name="_method" value="patch" />
+  <% end %>
+
   <div class="post_style">
     <label for="title">Title:</label>
-    <input type="text" name="post[title]" />
+    <input type="text" name="post[title]" value="<%= post.title %>"/>
 
     <label for="url">URL:</label>
-    <input type="text" name="post[url]" />
+    <input type="text" name="post[url]" value="<%= post.url %>" />
 
     <label for="content">Content:</label>
-    <input type="text" name="post[content]"
+    <textarea name="post[content]" rows="4" cols="30" value="<%= post.content %>"></textarea>
 
-    <input type="submit">
+
+  Cats
+  Kittens
+  Baby kittens
+
+    <input type="submit"></input>
   </div>
 
 </form>
