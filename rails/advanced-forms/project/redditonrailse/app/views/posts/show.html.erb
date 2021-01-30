@@ -13,13 +13,21 @@
     <% end %>
   </ul>
 
-  <h4>Comments:</h4>
+
   <ul>
       <li><a href="<%= new_post_comment_url(@post.id) %>">Comment on This Post!</a></li>
   </ul>
 
+  <h4>Comments:</h4>
   <ul>
     <% parent_comment = @post.comments.where(parent_comment_id: nil) %>
+    <% @post.comments.each do |comment| %>
+      <li class="comment_body">
+        <a href="<%= comment_url(comment)%>">
+        <%= comment.body %>
+        </a>
+      </li>
+    <% end %>
   </ul>
 
   <a href="<%= edit_post_url %>">Edit</a>

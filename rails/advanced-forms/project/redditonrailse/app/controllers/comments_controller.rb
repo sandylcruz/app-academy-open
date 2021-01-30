@@ -15,10 +15,15 @@ class CommentsController < ApplicationController
     end
   end
 
+  def show
+    @comment = Comment.find_by(id: params[:id])
+    @new_comment = @comment.child_comments.new
+  end
+
   private
 
   def comment_params
-    params.require(:comment).permit(:user_id, :post_id, :parent_comment_id, :body)
+    params.require(:comment).permit(:post_id, :parent_comment_id, :body)
   end
 
 end

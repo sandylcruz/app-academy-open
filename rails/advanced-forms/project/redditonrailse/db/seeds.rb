@@ -17,3 +17,10 @@ sub3 = Sub.create!(title: 'Home Is Where the Cat Is', description: 'Home obvious
 post1 = Post.create!(title: 'Callie\'s Big Day', content: 'Callie has a big day outside forever', author: callie, subs: [sub1])
 post2 = Post.create!(title: 'Squeaky\'s Previous Life', content: 'Squeaky used to live in Santa Rosa, but now lives somewhere cooler', author: squeaky, subs: [sub1, sub2])
 post3 = Post.create!(title: 'Preview of Old Man Linus', content: 'He makes a lot of old man sounds now', author: linus, subs: [sub3])
+
+comment1 = Comment.create!(post: post1, author: callie, body: "This is a parent comment")
+comment2 = Comment.create!(post: post2, author: squeaky, body: "This is a parent comment too")
+comment3 = Comment.create!(post: post3, author: linus, body: "This is a parent comment as well")
+
+
+
