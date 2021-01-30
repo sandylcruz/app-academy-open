@@ -2,8 +2,6 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.author = current_user
-    puts "asdfasdfasdfasdfasdfasdfafd"
-    puts current_user
 
     if @post.save
       redirect_to post_url(@post)

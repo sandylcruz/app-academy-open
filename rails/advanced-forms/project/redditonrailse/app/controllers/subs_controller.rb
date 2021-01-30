@@ -1,6 +1,7 @@
 class SubsController < ApplicationController
   def create
     @sub = Sub.new(sub_params)
+    @post.moderator = current_user
 
     if @sub.save
       render plain: "sub made"
