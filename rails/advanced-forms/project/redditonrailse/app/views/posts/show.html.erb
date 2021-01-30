@@ -15,7 +15,11 @@
 
   <h4>Comments:</h4>
   <ul>
-      <li><a href="#">Comment on This Post!</a></li>
+      <li><a href="<%= new_post_comment_url(@post.id) %>">Comment on This Post!</a></li>
+  </ul>
+
+  <ul>
+    <% parent_comment = @post.comments.where(parent_comment_id: nil) %>
   </ul>
 
   <a href="<%= edit_post_url %>">Edit</a>

@@ -35,6 +35,8 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find_by(id: params[:id])
+    @comments = Comment.all
+    
     if @post
       @subs = Sub.all
       render :show
