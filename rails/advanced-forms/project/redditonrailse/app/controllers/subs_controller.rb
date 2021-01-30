@@ -1,10 +1,9 @@
 class SubsController < ApplicationController
   def create
     @sub = Sub.new(sub_params)
-    @post.moderator = current_user
+    @sub.moderator = current_user
 
     if @sub.save
-      render plain: "sub made"
       redirect_to sub_url(@sub)
     else
       render plain: @sub.errors.full_messages

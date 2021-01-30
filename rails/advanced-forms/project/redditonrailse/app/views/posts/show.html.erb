@@ -5,10 +5,10 @@
 
   <%= @post.content %>
 
-  <h4>Other Subreddits:</h4>
+  <h4>Posted on These Subreddits:</h4>
 
   <ul>
-    <% @subs.each do |sub| %>
+    <% @post.subs.each do |sub| %>
       <li><a href="<%= sub_url(sub) %>"><%= sub.title %></a></li>
     <% end %>
   </ul>
