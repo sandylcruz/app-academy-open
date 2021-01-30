@@ -22,5 +22,6 @@ comment1 = Comment.create!(post: post1, author: callie, body: "This is a parent 
 comment2 = Comment.create!(post: post2, author: squeaky, body: "This is a parent comment too")
 comment3 = Comment.create!(post: post3, author: linus, body: "This is a parent comment as well")
 
-
+childcomment1 = Comment.create!(post: post1, author: callie, body: "This is a child comment", parent_comment: comment1)
+childcomment2 = Comment.create!(post: post1, author: linus, body: "this is a child on a child comment", parent_comment: childcomment1)
 
