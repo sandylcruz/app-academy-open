@@ -23,6 +23,7 @@ class ControllerBase
     raise StandardError.new "Already been rendered" if @already_built_response
     @res.redirect(url, 302)
     @already_built_response = true
+    session.store_session(@res)
   end
 
   # Populate the response with content.
