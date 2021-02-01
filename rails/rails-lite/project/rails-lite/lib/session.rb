@@ -25,7 +25,6 @@ class Session
   # add to the responses cookies
   def store_session(res)
     unserialized_cookie = { path: "/", value: @cookie.to_json }
-    # serialized_cookie = unserialized_cookie.to_json
     res.set_cookie("_rails_lite_app", unserialized_cookie)
   end
 end
