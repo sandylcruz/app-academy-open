@@ -5,7 +5,6 @@ const inventory = {
   bags: 1344,
 };
 
-// Write your code below:
 const myExecutor = (resolve, reject) => {
   if (inventory.sunglasses > 0) {
     resolve("Sunglasses order processed.");
@@ -30,5 +29,39 @@ const usingSTO = () => {
 
 setTimeout(usingSTO, 15);
 console.log("This is the last line of code in app.js.");
+
+// onFulfilled and onRejected
+const { checkInventory } = require("./library.js");
+const order = [
+  ["sunglasses", 1],
+  ["bags", 2],
+];
+
+// Write your code below:
+function handleSuccess(value) {
+  console.log(value);
+}
+
+function handleFailure(value) {
+  console.log(value);
+}
+
+checkInventory(order).then(handleSuccess, handleFailure);
+
+const { checkInventory } = require("./library.js");
+const order = [
+  ["sunglasses", 1],
+  ["bags", 2],
+];
+
+function handleSuccess(value) {
+  console.log(value);
+}
+
+function handleFailure(value) {
+  console.log(value);
+}
+
+checkInventory(order).then(handleSuccess, handleFailure);
 
 //
