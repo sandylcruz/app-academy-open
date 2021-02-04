@@ -64,4 +64,45 @@ function handleFailure(value) {
 
 checkInventory(order).then(handleSuccess, handleFailure);
 
-//
+// Using catch()
+const { checkInventory } = require("./library.js");
+const order = [
+  ["sunglasses", 1],
+  ["bags", 2],
+];
+
+const handleSuccess = (resolvedValue) => {
+  console.log(resolvedValue);
+};
+
+const handleFailure = (rejectReason) => {
+  console.log(rejectReason);
+};
+
+checkInventory(order).then(handleSuccess).catch(handleFailure);
+
+// Chaining multiple promises
+
+const { checkInventory, processPayment, shipOrder } = require("./library.js");
+
+const order = {
+  items: [
+    ["sunglasses", 1],
+    ["bags", 2],
+  ],
+  giftcardBalance: 79.82,
+};
+
+checkInventory(order)
+  .then((resolvedValueArray) => {
+    return processPayment(resolvedValueArray);
+  })
+  .then((resolvedValueArray) => {
+    return shipOrder(resolvedValueArray);
+  })
+  .then((successMessage) => {
+    console.log(successMessage);
+  })
+  .catch((errorMessage) => {
+    console.log(errorMessage);
+  });
