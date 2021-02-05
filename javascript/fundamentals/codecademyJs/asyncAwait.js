@@ -78,4 +78,65 @@ function makeBeans() {
   });
 }
 
-//
+// Handling errors
+const cookBeanSouffle = require("./library.js");
+async function hostDinnerParty() {
+  try {
+    let dinner = await cookBeanSouffle();
+    console.log(`${dinner} is served!`);
+  } catch (error) {
+    console.log(error);
+    console.log("Ordering a pizza!");
+  }
+}
+
+hostDinnerParty();
+
+// Handling independent promises
+let {
+  cookBeans,
+  steamBroccoli,
+  cookRice,
+  bakeChicken,
+} = require("./library.js");
+
+async function serveDinner() {
+  const vegetablePromise = steamBroccoli();
+  const starchPromise = cookRice();
+  const proteinPromise = bakeChicken();
+  const sidePromise = cookBeans();
+  console.log(
+    `Dinner is served. We're having ${await vegetablePromise}, ${await starchPromise}, ${await proteinPromise}, and ${await sidePromise}.`
+  );
+}
+
+serveDinner();
+
+// Await Promise.all()
+let {
+  cookBeans,
+  steamBroccoli,
+  cookRice,
+  bakeChicken,
+} = require("./library.js");
+
+// Write your code below:
+async function serveDinnerAgain() {
+  let foodArray = await Promise.all([
+    steamBroccoli(),
+    cookRice(),
+    bakeChicken(),
+    cookBeans(),
+  ]);
+
+  let vegetable = foodArray[0];
+  let starch = foodArray[1];
+  let protein = foodArray[2];
+  let side = foodArray[3];
+
+  console.log(
+    `Dinner is served. We're having ${vegetable}, ${starch}, ${protein}, and ${side}.`
+  );
+}
+
+serveDinnerAgain();
