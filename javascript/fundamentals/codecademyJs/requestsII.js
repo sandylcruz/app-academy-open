@@ -213,3 +213,5 @@ const getData = async () => {
     console.log(error);
   }
 };
+
+// async GET Requests III
