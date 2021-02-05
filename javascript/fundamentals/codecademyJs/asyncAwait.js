@@ -55,3 +55,27 @@ async function getBeans() {
 }
 
 getBeans();
+
+// Handling dependent promises
+const { shopForBeans, soakTheBeans, cookTheBeans } = require("./library.js");
+
+async function makeBeans() {
+  let type = await shopForBeans();
+  let isSoft = await soakTheBeans(type);
+  let dinner = await cookTheBeans(isSoft);
+  console.log(dinner);
+}
+
+makeBeans();
+
+function makeBeans() {
+  shopForBeans().then((beanType) => {
+    soakTheBeans(beanType).then((isSoft) => {
+      cookTheBeans(isSoft).then((dinner) => {
+        console.log(dinner);
+      });
+    });
+  });
+}
+
+//
