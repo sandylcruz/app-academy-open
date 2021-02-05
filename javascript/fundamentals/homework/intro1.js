@@ -49,18 +49,26 @@ function isPrime(num) {
 
 function firstNPrimes(num) {
   const arr = [];
-  let i = 2;
 
-  while (arr.length < num) {
-    if (num % i === 0) {
+  for (let i = 2; arr.length < num; i++) {
+    if (isPrime(i)) {
       arr.push(i);
     }
-    i++;
   }
-  console.log(arr);
+  return arr;
 }
-console.log(firstNPrimes(10));
+// console.log(firstNPrimes(10));
 
 // sumOfNPrimes
 
-// function sumOfNPrimes(n) {}
+function sumOfNPrimes(n) {
+  let primes = firstNPrimes(n);
+  let sum = 0;
+  primes.forEach((num) => {
+    sum += num;
+  });
+  return sum;
+}
+console.log(sumOfNPrimes(0));
+console.log(sumOfNPrimes(1));
+console.log(sumOfNPrimes(4));
