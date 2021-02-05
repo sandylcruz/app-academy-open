@@ -17,7 +17,7 @@ class Dog {
   }
 }
 
-const halley = new Dog('Halley');
+const halley = new Dog("Halley");
 console.log(halley.name); // Print name value to console
 console.log(halley.behavior); // Print behavior value to console
 halley.incrementBehavior(); // Add one to behavior
@@ -40,8 +40,8 @@ class Surgeon {
   }
 }
 
-const surgeonCurry = new Surgeon('Curry', 'Cardiovascular');
-const surgeonDurant = new Surgeon('Durant', 'Orthopedics');
+const surgeonCurry = new Surgeon("Curry", "Cardiovascular");
+const surgeonDurant = new Surgeon("Durant", "Orthopedics");
 
 // Methods
 class Surgeon {
@@ -64,11 +64,11 @@ class Surgeon {
   }
 
   takeVacationDays(daysOff) {
-    this._remainingVacationDays -= daysOff
+    this._remainingVacationDays -= daysOff;
   }
 }
-const surgeonCurry = new Surgeon('Curry', 'Cardiovascular');
-const surgeonDurant = new Surgeon('Durant', 'Orthopedics');
+const surgeonCurry = new Surgeon("Curry", "Cardiovascular");
+const surgeonDurant = new Surgeon("Durant", "Orthopedics");
 
 console.log(surgeonCurry.name);
 surgeonCurry.takeVacationDays(3);
@@ -113,11 +113,10 @@ class Nurse extends HospitalEmployee {
   }
 }
 
-const nurseOlynyk = new Nurse('Olynyk', ['Trauma', 'Pediatrics']);
+const nurseOlynyk = new Nurse("Olynyk", ["Trauma", "Pediatrics"]);
 nurseOlynyk.takeVacationDays(5);
 console.log(nurseOlynyk.remainingVacationDays);
-nurseOlynyk.addCertification('Genetics');
+nurseOlynyk.addCertification("Genetics");
 console.log(nurseOlynyk.certifications);
 
 // Static methods
-
