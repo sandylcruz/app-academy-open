@@ -46,10 +46,23 @@ let callie = new Cat("Callie", 52, ["drink", "eat"]);
 let squeaky = new Cat("Squeaky", 60, ["play", "run"]);
 let linus = new Cat("Linus", 22, ["be bad", "run"]);
 let clowder = [callie, squeaky, linus];
-
 // console.log(clowder);
 
 Cat.paradeHelper = function (cat) {
   console.log(`${cat.name} is walking by`);
 };
-Cat.paradeHelper(callie);
+// Cat.paradeHelper(callie);
+
+//
+function dinerBreakfast() {
+  let order = "I would like pancakes";
+  // console.log(order);
+
+  return function (moreFood) {
+    order = `${order} and ${moreFood}`;
+    console.log(order);
+  };
+}
+let breakfast = dinerBreakfast();
+breakfast("apples");
+breakfast("waffles");
