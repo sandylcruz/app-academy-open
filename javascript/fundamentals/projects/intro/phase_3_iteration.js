@@ -17,5 +17,21 @@ Array.prototype.bubbleSort = function () {
   return arr;
 };
 
-console.log([5, 4, 3, 2, 1].bubbleSort());
-console.log([53, 42, 3, 22, 10].bubbleSort());
+// console.log([5, 4, 3, 2, 1].bubbleSort());
+// console.log([53, 42, 3, 22, 10].bubbleSort());
+
+// substrings
+
+String.prototype.substrings = function () {
+  let substringsArray = [];
+
+  for (i = 0; i < this.length; i++) {
+    for (j = i + 1; j <= this.length - 1; j++) {
+      newSubstring = this.slice(i, j);
+
+      substringsArray.push(newSubstring);
+    }
+  }
+  return substringsArray;
+};
+console.log("cats".substrings());
