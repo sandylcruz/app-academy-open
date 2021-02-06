@@ -35,8 +35,12 @@ Cat.prototype.addTrick = function (trick) {
 
 Cat.prototype.play = function () {
   trickIndex = Math.floor(Math.random() * this.tricks.length);
-  console.log(`${this.name} is ${this.tricks[trickIndex]}`);
+  console.log(`${this.name} likes to ${this.tricks[trickIndex]}`);
 };
+
+// callie.trumpet();
+// callie.grow();
+// callie.play();
 
 let callie = new Cat("Callie", 52, ["drink", "eat"]);
 let squeaky = new Cat("Squeaky", 60, ["play", "run"]);
@@ -44,7 +48,8 @@ let linus = new Cat("Linus", 22, ["be bad", "run"]);
 let clowder = [callie, squeaky, linus];
 
 // console.log(clowder);
-// clowder;
-// console.log(callie);
-callie.trumpet();
-callie.grow();
+
+Cat.paradeHelper = function (cat) {
+  console.log(`${cat.name} is walking by`);
+};
+Cat.paradeHelper(callie);
