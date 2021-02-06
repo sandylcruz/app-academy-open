@@ -28,4 +28,25 @@ function callback(element) {
 }
 
 // [1, 2, 3, 4, 5].myMap((num) => console.log(num * 2));
-[1, 2, 3, 4, 5].myMap(callback);
+// [1, 2, 3, 4, 5].myMap(callback);
+
+Array.prototype.myReduce = function (func, initialValue) {
+  let arr = this;
+
+  if (initialValue === undefined) {
+    initialValue = arr[0];
+    arr = arr.slice(1);
+  }
+
+  let result = initialValue;
+
+  arr.myEach((el) => (result = func(result, el)));
+
+  return result;
+};
+
+/////
+NUMBERS = [1, 2, 3, 4, 5];
+
+console.log(NUMBERS.myReduce((total, item) => total + item));
+console.log(NUMBERS.myReduce((total, item) => total + item, 1));
