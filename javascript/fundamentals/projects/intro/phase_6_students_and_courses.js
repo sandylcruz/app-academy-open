@@ -15,7 +15,14 @@ Student.prototype.enroll = function (course) {
   }
 };
 
-Student.prototype.courseLoad = function () {};
+Student.prototype.courseLoad = function () {
+  let courseload = {};
+
+  this.courses.forEach (course => {
+    course.department += 1;
+    course.credits += ;
+  }) 
+};
 
 function Course(courseName, department, numCredits, days, block) {
   this.courseName = courseName;
@@ -31,9 +38,11 @@ Course.prototype.addStudent = function (student) {
   student.enroll(this);
 };
 
-// Course.prototype.conflictsWith(course1, course2) {
-
-// }
+Course.prototype.conflictsWith(course1, course2) {
+  if (course1.block === course2.block && course1.days === course2.days) {
+    return true
+  }
+}
 
 let callie = new Student("Callie", "Cat");
 let course1 = new Course("How to Cat", "Cats", 3, ["Monday"], 1);

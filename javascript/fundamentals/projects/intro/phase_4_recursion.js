@@ -104,9 +104,22 @@ function binarySearch(array, target) {
     return -1;
   }
 }
-
 // console.log(binarySearch([1, 2, 3, 4, 5], 4));
 
 // subsets(arr)
+function subsets(array) {
+  let subsetsHolder = [];
+}
 
 // deepDup(arr)
+function deepDup(array) {
+  if (!(array instanceof Array)) {
+    return array;
+  }
+
+  return array.map((element) => {
+    return deepDup(element);
+  });
+}
+
+console.log(deepDup([1, 2, 3]));
