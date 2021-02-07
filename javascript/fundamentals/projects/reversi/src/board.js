@@ -74,7 +74,14 @@ Board.prototype.getPiece = function (pos) {
  * Checks if the piece at a given position
  * matches a given color.
  */
-Board.prototype.isMine = function (pos, color) {};
+Board.prototype.isMine = function (pos, color) {
+  piece = this.getPiece(pos);
+  if (piece && piece.color === color) {
+    return true;
+  } else {
+    return false;
+  }
+};
 
 /**
  * Checks if a given position has a piece on it.
