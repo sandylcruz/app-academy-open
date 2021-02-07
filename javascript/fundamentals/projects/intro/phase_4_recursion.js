@@ -54,17 +54,7 @@ function fib(num) {
 }
 // console.log(fib(6));
 
-// deepDup(arr)
-
-// bsearch(arr, target)
-function binarySearch(array, target) {
-  let middleIndex = array.length / 2;
-}
-
-// console.log(binarySearch([1, 2, 3, 4, 5], 4));
-
 // mergesort(arr)
-
 function merge(left, right) {
   const sortedArray = [];
 
@@ -88,6 +78,35 @@ function mergeSort(array) {
     return merge(left, right);
   }
 }
-console.log(mergeSort([5, 4, 3, 2, 1]));
+// console.log(mergeSort([5, 4, 3, 2, 1]));
+
+// bsearch(arr, target)
+function binarySearch(array, target) {
+  const floor = 0;
+  const ceiling = array.length - 1;
+  const mid = Math.floor((floor + ceiling) / 2);
+
+  if (array[mid] === target) {
+    return mid;
+  } else if (array[mid] < target) {
+    let newArray = array.slice(mid + 1, ceiling);
+    const indexOnRight = binarySearch(newArray, target);
+
+    if (indexOnRight === -1) {
+      return -1;
+    } else {
+      return mid + 1 + indexOnRight;
+    }
+  } else if (array[mid] > target) {
+    let newArray = array.slice(floor, mid - 1);
+    return binarySearch(newArray, target);
+  } else if (array.length === 0) {
+    return -1;
+  }
+}
+
+// console.log(binarySearch([1, 2, 3, 4, 5], 4));
 
 // subsets(arr)
+
+// deepDup(arr)
