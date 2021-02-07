@@ -45,7 +45,18 @@ Board.DIRS = [
 /**
  * Checks if a given position is on the Board.
  */
-Board.prototype.isValidPos = function (pos) {};
+Board.prototype.isValidPos = function (position) {
+  if (
+    position[0] >= 0 &&
+    position[0] < 8 &&
+    position[1] >= 0 &&
+    position[1] < 8
+  ) {
+    return true;
+  } else {
+    return false;
+  }
+};
 
 /**
  * Returns the piece at a given [x, y] position,
