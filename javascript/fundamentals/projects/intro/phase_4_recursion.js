@@ -29,6 +29,7 @@ function sumRec(arr) {
   if (arr.length === 1) {
     return arr;
   } else {
+    sumRec(arr);
   }
 }
 
