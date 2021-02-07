@@ -9,10 +9,10 @@ Student.prototype.name = function () {
 };
 
 Student.prototype.enroll = function (course) {
-  if (!this.courses.includes?(course)) {
+  if (!this.courses.includes(course)) {
     this.courses.push(course);
     course.addStudent(this);
-  } 
+  }
 };
 
 Student.prototype.courseLoad = function () {};
@@ -24,7 +24,7 @@ function Course(courseName, department, numCredits) {
   this.students = [];
 }
 
-Course.prototype.addStudent = function () {
+Course.prototype.addStudent = function (student) {
   this.students.push(student);
   student.enroll(this);
 };
@@ -32,7 +32,9 @@ Course.prototype.addStudent = function () {
 let callie = new Student("Callie", "Cat");
 let course1 = new Course("How to Cat", "Cats", 3);
 // console.log(course1);
-console.log(callie);
 // console.log(callie.name());
 console.log(callie.enroll(course1));
-console.log(course1);
+// console.log(course1);
+console.log(callie);
+
+// console.log(course1);

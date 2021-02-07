@@ -57,9 +57,11 @@ function fib(num) {
 // deepDup(arr)
 
 // bsearch(arr, target)
-function binarySearch(array, target) {}
+function binarySearch(array, target) {
+  let middleIndex = array.length / 2;
+}
 
-console.log(binarySearch([1, 2, 3, 4, 5], 4));
+// console.log(binarySearch([1, 2, 3, 4, 5], 4));
 
 // mergesort(arr)
 
@@ -75,8 +77,6 @@ function merge(left, right) {
   }
   return sortedArray.concat(left, right);
 }
-
-// console.log(merge([7, 12, 3], [6, 5, 4]));
 
 function mergeSort(array) {
   if (array.length < 2) {
