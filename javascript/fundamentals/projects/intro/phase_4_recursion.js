@@ -1,10 +1,25 @@
 // range(start, end)
 
-function range(start, end) {
-  rangeArray = [];
+function range(startNum, endNum) {
+  let list = [];
+
+  if (startNum - endNum === 0) {
+    return endNum;
+  } else {
+    let list = range(startNum, endNum - 1);
+    list.push(endNum);
+    return list;
+  }
 }
+// console.log(range(1, 5));
 
 //sumRec(arr)
+function sumRec(arr) {
+  if (arr.length === 1) {
+    return arr;
+  } else {
+  }
+}
 
 // exponent(base, exp)
 function myExponent(base, exp) {
@@ -15,10 +30,17 @@ function myExponent(base, exp) {
   }
 }
 
-console.log(myExponent(2, 2));
-console.log(myExponent(3, 2));
-
 // fibonacci(n)
+function fib(num) {
+  if (num === 0) {
+    return 0;
+  } else if (num === 1) {
+    return 1;
+  } else {
+    return fib(num - 1) + fib(num - 2);
+  }
+}
+console.log(fib(6));
 
 // deepDup(arr)
 
