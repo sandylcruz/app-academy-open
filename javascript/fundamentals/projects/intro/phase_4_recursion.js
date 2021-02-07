@@ -1,17 +1,28 @@
-// range(start, end)
-
+// range(start, end);
 function range(startNum, endNum) {
-  let list = [];
-
-  if (startNum - endNum === 0) {
-    return endNum;
+  if (startNum === endNum) {
+    return [endNum];
   } else {
     let list = range(startNum, endNum - 1);
     list.push(endNum);
     return list;
   }
 }
-// console.log(range(1, 5));
+
+function range(start, end) {
+  function rangeAccumulator(innerStart, innerEnd, acc) {
+    acc.push(innerStart);
+
+    if (innerStart === innerEnd) {
+      return acc;
+    }
+
+    return rangeAccumulator(innerStart + 1, innerEnd, acc);
+  }
+
+  return rangeAccumulator(start, end, []);
+}
+console.log(range(1, 10));
 
 //sumRec(arr)
 function sumRec(arr) {
