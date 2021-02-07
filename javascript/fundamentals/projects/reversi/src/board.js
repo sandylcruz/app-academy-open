@@ -86,7 +86,13 @@ Board.prototype.isMine = function (pos, color) {
 /**
  * Checks if a given position has a piece on it.
  */
-Board.prototype.isOccupied = function (pos) {};
+Board.prototype.isOccupied = function (pos) {
+  if ((piece = this.getPiece(pos))) {
+    return true;
+  } else {
+    return false;
+  }
+};
 
 /**
  * Recursively follows a direction away from a starting position, adding each
