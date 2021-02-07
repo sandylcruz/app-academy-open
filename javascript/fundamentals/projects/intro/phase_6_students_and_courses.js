@@ -24,7 +24,10 @@ function Course(courseName, department, numCredits) {
   this.students = [];
 }
 
-Course.prototype.addStudent = function () {};
+Course.prototype.addStudent = function () {
+  this.students.push(student);
+  student.enroll(this);
+};
 
 let callie = new Student("Callie", "Cat");
 let course1 = new Course("How to Cat", "Cats", 3);
