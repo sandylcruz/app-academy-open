@@ -87,11 +87,7 @@ Board.prototype.isMine = function (pos, color) {
  * Checks if a given position has a piece on it.
  */
 Board.prototype.isOccupied = function (pos) {
-  if ((piece = this.getPiece(pos))) {
-    return true;
-  } else {
-    return false;
-  }
+  return Boolean(this.getPiece(pos));
 };
 
 /**
@@ -107,14 +103,42 @@ Board.prototype.isOccupied = function (pos) {
  *
  * Returns empty array if no pieces of the opposite color are found.
  */
-Board.prototype._positionsToFlip = function (pos, color, dir, piecesToFlip) {};
+Board.prototype._positionsToFlip = function (
+  pos,
+  color,
+  dir,
+  piecesToFlip = []
+) {
+  if (!this.isValidPos(pos)) {
+    return piecesToFlip;
+  }
+  const [x, y] = pos;
+  const [nextX, nextY] = dir;
+  const nextPosition = [x + nextX, y + nextY];
+
+  if (!this.isOccupied(nextPosition)) {
+    return piecesToFlip;
+  }
+
+  if (this.isMine(nextPosition, color)) {
+    return piecesToFlip;
+  }
+  piecesToFlip.push(nextPosition);
+  return this._positionsToFlip(nextPosition, color, dir, piecesToFlip);
+};
 
 /**
  * Checks that a position is not already occupied and that the color
  * taking the position will result in some pieces of the opposite
  * color being flipped.
  */
-Board.prototype.validMove = function (pos, color) {};
+Board.prototype.validMove = function (pos, color) {
+  if ((piece = this.getPiece(pos))) {
+    return false;
+  } else {
+    return true;
+  }
+};
 
 /**
  * Adds a new piece of the given color to the given position, flipping the
@@ -122,13 +146,21 @@ Board.prototype.validMove = function (pos, color) {};
  *
  * Throws an error if the position represents an invalid move.
  */
-Board.prototype.placePiece = function (pos, color) {};
+Board.prototype.placePiece = function (pos, color) {
+  if (this.validMove(pos)) {
+    return true;
+  }
+};
 
 /**
  * Produces an array of all valid positions on
  * the Board for a given color.
  */
-Board.prototype.validMoves = function (color) {};
+Board.prototype.validMoves = function (color) {
+  if (!this.validMove(pos)) {
+    return false;
+  }
+};
 
 /**
  * Checks if there are any valid moves for the given color.
