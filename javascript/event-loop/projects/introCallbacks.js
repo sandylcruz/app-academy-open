@@ -69,7 +69,6 @@ function askIfGreaterThan(el1, el2, callback) {
 function innerBubbleSortLoop(array, i, madeAnySwaps, outerBubbleSortLoop) {
   if (i === array.length - 1) {
     outerBubbleSortLoop(madeAnySwaps);
-    console.log("Out of the loop");
     return;
   }
 
@@ -82,16 +81,22 @@ function innerBubbleSortLoop(array, i, madeAnySwaps, outerBubbleSortLoop) {
         madeAnySwaps = true;
       }
 
-      console.log("In the inner if loop");
       innerBubbleSortLoop(array, i + 1, madeAnySwaps, outerBubbleSortLoop);
     });
   }
 }
-innerBubbleSortLoop([3, 2, 1], 0, false, false);
-// reader.close();
 
-// function outerBubbleSortLoop(madeAnySwaps) {
-//   console.log("In the outer loop");
-// }
-
-// function absurdBubbleSort(array, sortCompletionCallback) {}
+function absurdBubbleSort(array, sortCompletionCallback) {
+  function outerBubbleSortLoop(madeAnySwaps) {
+    if (madeAnySwaps) {
+      innerBubbleSortLoop(array, 0, false, outerBubbleSortLoop);
+    } else {
+      sortCompletionCallback(array);
+    }
+  }
+  outerBubbleSortLoop(true);
+}
+absurdBubbleSort([3, 2, 1], function (arr) {
+  console.log("Sorted array: " + JSON.stringify(arr));
+  reader.close();
+});
