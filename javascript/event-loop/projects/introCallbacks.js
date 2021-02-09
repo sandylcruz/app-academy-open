@@ -25,23 +25,47 @@
 // const clock = new Clock();
 
 // addNumbers
+// const readline = require("readline");
+// reader = readline.createInterface({
+//   input: process.stdin,
+//   output: process.stdout,
+// });
+
+// function addNumbers(sum, numsLeft, completionCallback) {
+//   if (numsLeft > 0) {
+//     reader.question("Tell me a number", (answer) => {
+//       const number = parseInt(answer);
+//       const newSum = sum + number;
+//       console.log(`The new sum is ${newSum}`);
+//       addNumbers(newSum, numsLeft - 1, completionCallback);
+//     });
+//   } else if (numsLeft === 0) {
+//     completionCallback(sum);
+//     reader.close();
+//   }
+// }
+// addNumbers(0, 3, (sum) => console.log(`Total Sum: ${sum}`));
+
+// absurdBubbleSort
 const readline = require("readline");
 reader = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
 });
 
-function addNumbers(sum, numsLeft, completionCallback) {
-  if (numsLeft > 0) {
-    reader.question("Tell me a number", (answer) => {
-      const number = parseInt(answer);
-      const newSum = sum + number;
-      console.log(`The new sum is ${newSum}`);
-      addNumbers(newSum, numsLeft - 1, completionCallback);
-    });
-  } else if (numsLeft === 0) {
-    completionCallback(sum);
-    reader.close();
-  }
+function askIfGreaterThan(el1, el2, callback) {
+  reader.question(
+    "Is " + el1 + " greater than " + el2 + "?: ",
+    function (answer) {
+      if (answer == "yes") {
+        callback(true);
+      } else {
+        callback(false);
+      }
+    }
+  );
 }
-addNumbers(0, 3, (sum) => console.log(`Total Sum: ${sum}`));
+
+askIfGreaterThan(15, 5);
+
+// function absurbBubbleSort(array, sortCompletionCallback) {}
