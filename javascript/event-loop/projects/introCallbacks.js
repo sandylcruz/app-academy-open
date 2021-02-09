@@ -48,7 +48,7 @@
 
 // absurdBubbleSort
 const readline = require("readline");
-reader = readline.createInterface({
+const reader = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
 });
@@ -66,6 +66,32 @@ function askIfGreaterThan(el1, el2, callback) {
   );
 }
 
-askIfGreaterThan(15, 5);
+function innerBubbleSortLoop(array, i, madeAnySwaps, outerBubbleSortLoop) {
+  if (i === array.length - 1) {
+    outerBubbleSortLoop(madeAnySwaps);
+    console.log("Out of the loop");
+    return;
+  }
 
-// function absurbBubbleSort(array, sortCompletionCallback) {}
+  if (i < array.length - 1) {
+    askIfGreaterThan(array[i], array[i + 1], function (isGreaterThan) {
+      if (isGreaterThan) {
+        const firstValue = array[i];
+        array[i] = array[i + 1];
+        array[i + 1] = firstValue;
+        madeAnySwaps = true;
+      }
+
+      console.log("In the inner if loop");
+      innerBubbleSortLoop(array, i + 1, madeAnySwaps, outerBubbleSortLoop);
+    });
+  }
+}
+innerBubbleSortLoop([3, 2, 1], 0, false, false);
+// reader.close();
+
+// function outerBubbleSortLoop(madeAnySwaps) {
+//   console.log("In the outer loop");
+// }
+
+// function absurdBubbleSort(array, sortCompletionCallback) {}
