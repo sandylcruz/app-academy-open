@@ -1,1 +1,9 @@
 /* PHASE 0: Sidebar */
+
+#main-picture img {
+  display: block;
+  width: auto;
+  height: 200px;
+}
+
+#
