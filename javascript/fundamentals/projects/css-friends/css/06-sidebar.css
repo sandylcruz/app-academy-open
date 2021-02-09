@@ -1,9 +1,10 @@
 /* PHASE 0: Sidebar */
 
-#main-picture img {
+.profile-picture {
   display: block;
-  width: auto;
+  margin-top: 120px;
+  border: 1px solid black;
   height: 200px;
+  width: auto;
+  position: relative;
 }
-
-#
