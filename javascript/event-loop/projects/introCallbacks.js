@@ -47,56 +47,81 @@
 // addNumbers(0, 3, (sum) => console.log(`Total Sum: ${sum}`));
 
 // absurdBubbleSort
-const readline = require("readline");
-const reader = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-});
+// const readline = require("readline");
+// const reader = readline.createInterface({
+//   input: process.stdin,
+//   output: process.stdout,
+// });
 
-function askIfGreaterThan(el1, el2, callback) {
-  reader.question(
-    "Is " + el1 + " greater than " + el2 + "?: ",
-    function (answer) {
-      if (answer == "yes") {
-        callback(true);
-      } else {
-        callback(false);
-      }
-    }
-  );
+// function askIfGreaterThan(el1, el2, callback) {
+//   reader.question(
+//     "Is " + el1 + " greater than " + el2 + "?: ",
+//     function (answer) {
+//       if (answer == "yes") {
+//         callback(true);
+//       } else {
+//         callback(false);
+//       }
+//     }
+//   );
+// }
+
+// function innerBubbleSortLoop(array, i, madeAnySwaps, outerBubbleSortLoop) {
+//   if (i === array.length - 1) {
+//     outerBubbleSortLoop(madeAnySwaps);
+//     return;
+//   }
+
+//   if (i < array.length - 1) {
+//     askIfGreaterThan(array[i], array[i + 1], function (isGreaterThan) {
+//       if (isGreaterThan) {
+//         const firstValue = array[i];
+//         array[i] = array[i + 1];
+//         array[i + 1] = firstValue;
+//         madeAnySwaps = true;
+//       }
+
+//       innerBubbleSortLoop(array, i + 1, madeAnySwaps, outerBubbleSortLoop);
+//     });
+//   }
+// }
+
+// function absurdBubbleSort(array, sortCompletionCallback) {
+//   function outerBubbleSortLoop(madeAnySwaps) {
+//     if (madeAnySwaps) {
+//       innerBubbleSortLoop(array, 0, false, outerBubbleSortLoop);
+//     } else {
+//       sortCompletionCallback(array);
+//     }
+//   }
+//   outerBubbleSortLoop(true);
+// }
+// absurdBubbleSort([3, 2, 1], function (arr) {
+//   console.log("Sorted array: " + JSON.stringify(arr));
+//   reader.close();
+// });
+
+// myBind
+
+Function.prototype.myBind = function myBind(context) {
+  return () => this.apply(context);
+};
+
+class Lamp {
+  constructor() {
+    this.name = "a lamp";
+  }
 }
 
-function innerBubbleSortLoop(array, i, madeAnySwaps, outerBubbleSortLoop) {
-  if (i === array.length - 1) {
-    outerBubbleSortLoop(madeAnySwaps);
-    return;
-  }
+const turnOn = function () {
+  console.log("Turning on " + this.name);
+};
 
-  if (i < array.length - 1) {
-    askIfGreaterThan(array[i], array[i + 1], function (isGreaterThan) {
-      if (isGreaterThan) {
-        const firstValue = array[i];
-        array[i] = array[i + 1];
-        array[i + 1] = firstValue;
-        madeAnySwaps = true;
-      }
+const lamp = new Lamp();
+turnOn();
 
-      innerBubbleSortLoop(array, i + 1, madeAnySwaps, outerBubbleSortLoop);
-    });
-  }
-}
+const boundTurnOn = turnOn.bind(lamp);
+const myBoundTurnOn = turnOn.myBind(lamp);
 
-function absurdBubbleSort(array, sortCompletionCallback) {
-  function outerBubbleSortLoop(madeAnySwaps) {
-    if (madeAnySwaps) {
-      innerBubbleSortLoop(array, 0, false, outerBubbleSortLoop);
-    } else {
-      sortCompletionCallback(array);
-    }
-  }
-  outerBubbleSortLoop(true);
-}
-absurdBubbleSort([3, 2, 1], function (arr) {
-  console.log("Sorted array: " + JSON.stringify(arr));
-  reader.close();
-});
+boundTurnOn();
+myBoundTurnOn();
