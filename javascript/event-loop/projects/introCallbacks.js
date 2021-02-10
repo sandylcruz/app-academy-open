@@ -114,7 +114,7 @@ class Lamp {
 }
 
 const turnOn = function () {
-  console.log("Turning on " + this.name);
+  // console.log("Turning on " + this.name);
 };
 
 const lamp = new Lamp();
@@ -143,7 +143,7 @@ Function.prototype.myThrottle = function myThrottle(interval) {
 
 class Neuron {
   fire() {
-    console.log("Firing");
+    // console.log("Firing");
   }
 }
 const neuron = new Neuron();
@@ -164,6 +164,50 @@ class Neuron2 {
   }
 
   fire() {
-    console.log("Firing");
+    // console.log("Firing");
   }
 }
+
+// myDebounce
+
+Function.prototype.myDebounce = function myDebounce(interval) {
+  let timeout;
+  return (...args) => {
+    setTimeout(interval);
+  };
+};
+
+class SearchBar {
+  constructor() {
+    this.query = "";
+    this.type = this.type.bind(this);
+    this.search = this.search.bind(this);
+  }
+
+  type(letter) {
+    this.query += letter;
+    this.search();
+  }
+
+  search() {
+    console.log(`searching for ${this.query}`);
+  }
+}
+
+const searchBar = new SearchBar();
+
+const queryForHelloWorld = () => {
+  searchBar.type("h");
+  searchBar.type("e");
+  searchBar.type("l");
+  searchBar.type("l");
+  searchBar.type("o");
+  searchBar.type(" ");
+  searchBar.type("w");
+  searchBar.type("o");
+  searchBar.type("r");
+  searchBar.type("l");
+  searchBar.type("d");
+};
+
+queryForHelloWorld();
