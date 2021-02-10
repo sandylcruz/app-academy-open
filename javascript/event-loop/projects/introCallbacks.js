@@ -125,3 +125,45 @@ const myBoundTurnOn = turnOn.myBind(lamp);
 
 boundTurnOn();
 myBoundTurnOn();
+
+// myThrottle and myDebounce
+
+Function.prototype.myThrottle = function myThrottle(interval) {
+  let tooSoon = false;
+  return () => {
+    if (!tooSoon) {
+      tooSoon = true;
+      setTimeout(() => {
+        tooSoon = false;
+      }, interval);
+      this(...arguments);
+    }
+  };
+};
+
+class Neuron {
+  fire() {
+    console.log("Firing");
+  }
+}
+const neuron = new Neuron();
+const interval = setInterval(() => {
+  neuron.fire();
+}, 10);
+
+clearInterval(interval);
+neuron.fire = neuron.fire.myThrottle(500);
+
+setInterval(() => {
+  neuron.fire();
+}, 10);
+
+class Neuron2 {
+  constructor() {
+    this.fire = this.fire.myThrottle(500);
+  }
+
+  fire() {
+    console.log("Firing");
+  }
+}
