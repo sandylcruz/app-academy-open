@@ -11,134 +11,49 @@ function Game() {
 }
 
 Game.prototype.isValidMove = function (startTowerIdx, endTowerIdx) {
-  if (startTowerIdx < 0 || startTowerIdx >= 2) {
+  if (startTowerIdx < 0 || startTowerIdx > 2) {
     return false;
-  } else if (endTowerIdx < 0 || endTowerIdx >= 2) {
+  } else if (endTowerIdx < 0 || endTowerIdx > 2) {
     return false;
+  } else if (this.towers[startTowerIdx].length === 0) {
+    return false;
+  } else if (this.towers[endTowerIdx].length === 0) {
+    return true;
   }
 
-  const itemAtSource = this.towers[startTowerIdx].first;
-  const itemAtDestination = this.towers[endTowerIdx].first;
+  const itemAtSource = this.towers[startTowerIdx][0];
+  const itemAtDestination = this.towers[endTowerIdx][0];
 
-  return itemAtSource < itemAtDestination;
+  if (itemAtSource < itemAtDestination) {
+    return true;
+  } else {
+    return false;
+  }
 };
-
-Game.prototype.promptMove = function () {
-  console.log(this.towers);
-  reader = getReader();
-
-  reader.question("Where should we move from? To where?", (answer) => {
-    const numberArray = answer.split(" ").map((numberAsString) => {
-      return Number(numberAsString);
-    });
-
-    console.log(
-      `You would like to move from ${numberArray[0]} to ${numberArray[1]}`
-    );
-    startTowerIdx = numberArray[0];
-    endTowerIdx = numberArray[1];
-    console.log(startTowerIdx, endTowerIdx);
-    reader.close();
-  });
-};
-
 const game = new Game();
-const isValid = game.isValidMove(1, 2);
+console.log(game.isValidMove(3, 1));
+console.log(game.isValidMove(2, 0));
+console.log(game.isValidMove(0, 2));
+console.log(game.isValidMove(2, 1));
 
-console.log(isValid);
+// Game.prototype.promptMove = function () {
+//   console.log(this.towers);
+//   reader = getReader();
+
+//   reader.question("Where should we move from? To where?", (answer) => {
+//     const numberArray = answer.split(" ").map((numberAsString) => {
+//       return Number(numberAsString);
+//     });
+
+//     console.log(
+//       `You would like to move from ${numberArray[0]} to ${numberArray[1]}`
+//     );
+//     startTowerIdx = numberArray[0];
+//     endTowerIdx = numberArray[1];
+//     console.log(startTowerIdx, endTowerIdx);
+//     reader.close();
+//   });
+// };
+
 // const game = new Game();
 // game.promptMove();
-
-class A {
-  constructor(things) {
-    this.things = things;
-  }
-
-  myInstanceMethod() {
-    console.log("hi");
-  }
-
-  static myClassMethod() {}
-}
-
-function A(things) {
-  this.things = things;
-}
-
-A.prototype.myInstanceMethod = function () {
-  console.log("hi");
-};
-
-A.myClassMethod = function () {
-  //...
-};
-
-const a = new A([]);
-
-a.myInstanceMethod();
-
-class A {
-  constructor(things) {
-    this.things = things;
-  }
-
-  myInstanceMethod() {
-    console.log("hi");
-  }
-
-  static myClassMethod() {
-    //...
-  }
-}
-
-function A(things) {
-  this.things = things;
-}
-
-A.prototype.myInstanceMethod = function () {
-  console.log("hi");
-};
-
-A.myClassMethod = function () {
-  //...
-};
-
-class A {
-  constructor(things) {
-    this.things = things;
-  }
-
-  myInstanceMethod() {
-    console.log("hi");
-  }
-
-  static myClassMethod() {
-    //...
-  }
-}
-
-function A(things) {
-  this.things = things;
-}
-
-A.prototype.myInstanceMethod = function () {
-  console.log("hi");
-};
-
-A.myClassMethod = function () {
-  //..
-};
-
-class A {
-  constructor(things) {
-    this.things = things;
-  }
-
-  myInstanceMethod() {
-    console.log("hi");
-  }
-
-  static myClassMethod() {
-    //...
-  }
-}

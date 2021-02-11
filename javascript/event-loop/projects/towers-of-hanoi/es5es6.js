@@ -91,3 +91,16 @@ class A {
     //...
   }
 }
+
+class A
+  def initialize
+    @things = things
+  end
+
+  def myinstancemethod
+    puts "hi"
+  end
+
+  def self.myclassmethod
+  end
+end
