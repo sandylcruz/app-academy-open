@@ -67,12 +67,34 @@ Game.prototype.move = function (startTowerIdx, endTowerIdx) {
 };
 
 Game.prototype.print = function () {
-  console.log(JSON.stringify(this.towers));
+  return console.log(JSON.stringify(this.towers));
 };
 
-// Game.prototype.isWon () {
+Game.prototype.isWon () {
+  if (this.towers[1].length === 3 || this.towers[2].length === 3) {
+    return true
+  } else {
+    return false
+  }
+}
 
-// }
+Game.prototype.run = function (completionCallback) {
+  console.log(this.towers);
+
+  this.promptMove(startTowerIdx, endTowerIdx);
+  if (!this.Move) {
+    console.log("Invalid move");
+  }
+
+  if (!this.isWon) {
+    this.run(reader, completionCallback);
+  } else {
+    console.log(this.towers);
+    console.log("You won!");
+  }
+};
 const game = new Game();
-console.log(game.move(0, 1));
-console.log(this.towers);
+game.run;
+// console.log(game.move(0, 1));
+// console.log(game.print);
+console.log(game.run);
