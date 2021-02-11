@@ -43,8 +43,8 @@ Game.prototype.promptMove = function () {
     console.log(
       `You would like to move from ${numberArray[0]} to ${numberArray[1]}`
     );
-    startTowerIdx = numberArray[0];
-    endTowerIdx = numberArray[1];
+    const startTowerIdx = numberArray[0];
+    const endTowerIdx = numberArray[1];
     console.log(startTowerIdx, endTowerIdx);
     reader.close();
   });
@@ -57,7 +57,7 @@ Game.prototype.move = function (startTowerIdx, endTowerIdx) {
     const sourceStack = this.towers[startTowerIdx];
     const destinationStack = this.towers[endTowerIdx];
     const itemToMove = sourceStack.shift();
-    destinationStack.push(itemToMove);
+    destinationStack.unshift(itemToMove);
     console.log(this.towers);
 
     return true;
@@ -65,18 +65,22 @@ Game.prototype.move = function (startTowerIdx, endTowerIdx) {
     return false;
   }
 };
+const game = new Game();
+console.log(game.move(0, 2));
+console.log(game.move(0, 1));
+console.log(game.move(2, 1));
+console.log(game.move(0, 2));
+console.log(game.move(1, 0));
+console.log(game.move(1, 2));
+console.log(game.move(0, 2));
 
-Game.prototype.print = function () {
-  return console.log(JSON.stringify(this.towers));
+Game.prototype.isWon = function () {
+  return this.towers[1].length === 3 || this.towers[2].length === 3;
 };
 
-Game.prototype.isWon () {
-  if (this.towers[1].length === 3 || this.towers[2].length === 3) {
-    return true
-  } else {
-    return false
-  }
-}
+// const game = new Game();
+// game.move(0, 1);
+// console.log(game.isWon);
 
 Game.prototype.run = function (completionCallback) {
   console.log(this.towers);
@@ -93,8 +97,8 @@ Game.prototype.run = function (completionCallback) {
     console.log("You won!");
   }
 };
-const game = new Game();
-game.run;
+// const game = new Game();
+// game.run;
 // console.log(game.move(0, 1));
 // console.log(game.print);
-console.log(game.run);
+// console.log(game.run);
