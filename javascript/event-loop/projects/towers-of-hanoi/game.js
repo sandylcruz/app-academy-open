@@ -30,30 +30,49 @@ Game.prototype.isValidMove = function (startTowerIdx, endTowerIdx) {
     return false;
   }
 };
+
+Game.prototype.promptMove = function () {
+  console.log(this.towers);
+  reader = getReader();
+
+  reader.question("Where should we move from? To where?", (answer) => {
+    const numberArray = answer.split(" ").map((numberAsString) => {
+      return Number(numberAsString);
+    });
+
+    console.log(
+      `You would like to move from ${numberArray[0]} to ${numberArray[1]}`
+    );
+    startTowerIdx = numberArray[0];
+    endTowerIdx = numberArray[1];
+    console.log(startTowerIdx, endTowerIdx);
+    reader.close();
+  });
+};
+
+Game.prototype.move = function (startTowerIdx, endTowerIdx) {
+  console.log(this.towers);
+
+  if (this.isValidMove(startTowerIdx, endTowerIdx)) {
+    const sourceStack = this.towers[startTowerIdx];
+    const destinationStack = this.towers[endTowerIdx];
+    const itemToMove = sourceStack.shift();
+    destinationStack.push(itemToMove);
+    console.log(this.towers);
+
+    return true;
+  } else {
+    return false;
+  }
+};
+
+Game.prototype.print = function () {
+  console.log(JSON.stringify(this.towers));
+};
+
+// Game.prototype.isWon () {
+
+// }
 const game = new Game();
-console.log(game.isValidMove(3, 1));
-console.log(game.isValidMove(2, 0));
-console.log(game.isValidMove(0, 2));
-console.log(game.isValidMove(2, 1));
-
-// Game.prototype.promptMove = function () {
-//   console.log(this.towers);
-//   reader = getReader();
-
-//   reader.question("Where should we move from? To where?", (answer) => {
-//     const numberArray = answer.split(" ").map((numberAsString) => {
-//       return Number(numberAsString);
-//     });
-
-//     console.log(
-//       `You would like to move from ${numberArray[0]} to ${numberArray[1]}`
-//     );
-//     startTowerIdx = numberArray[0];
-//     endTowerIdx = numberArray[1];
-//     console.log(startTowerIdx, endTowerIdx);
-//     reader.close();
-//   });
-// };
-
-// const game = new Game();
-// game.promptMove();
+console.log(game.move(0, 1));
+console.log(this.towers);
