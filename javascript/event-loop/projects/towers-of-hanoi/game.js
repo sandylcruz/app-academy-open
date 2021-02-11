@@ -6,11 +6,22 @@ const getReader = () =>
     output: process.stdout,
   });
 
-class Game {
-  constructor() {
-    this.towers = [[1, 2, 3], [], []];
-  }
+function Game() {
+  this.towers = [[1, 2, 3], [], []];
 }
+
+Game.prototype.isValidMove = function (startTowerIdx, endTowerIdx) {
+  if (startTowerIdx < 0 || startTowerIdx >= 2) {
+    return false;
+  } else if (endTowerIdx < 0 || endTowerIdx >= 2) {
+    return false;
+  }
+
+  const itemAtSource = this.towers[startTowerIdx].first;
+  const itemAtDestination = this.towers[endTowerIdx].first;
+
+  return itemAtSource < itemAtDestination;
+};
 
 Game.prototype.promptMove = function () {
   console.log(this.towers);
@@ -32,4 +43,102 @@ Game.prototype.promptMove = function () {
 };
 
 const game = new Game();
-game.promptMove();
+const isValid = game.isValidMove(1, 2);
+
+console.log(isValid);
+// const game = new Game();
+// game.promptMove();
+
+class A {
+  constructor(things) {
+    this.things = things;
+  }
+
+  myInstanceMethod() {
+    console.log("hi");
+  }
+
+  static myClassMethod() {}
+}
+
+function A(things) {
+  this.things = things;
+}
+
+A.prototype.myInstanceMethod = function () {
+  console.log("hi");
+};
+
+A.myClassMethod = function () {
+  //...
+};
+
+const a = new A([]);
+
+a.myInstanceMethod();
+
+class A {
+  constructor(things) {
+    this.things = things;
+  }
+
+  myInstanceMethod() {
+    console.log("hi");
+  }
+
+  static myClassMethod() {
+    //...
+  }
+}
+
+function A(things) {
+  this.things = things;
+}
+
+A.prototype.myInstanceMethod = function () {
+  console.log("hi");
+};
+
+A.myClassMethod = function () {
+  //...
+};
+
+class A {
+  constructor(things) {
+    this.things = things;
+  }
+
+  myInstanceMethod() {
+    console.log("hi");
+  }
+
+  static myClassMethod() {
+    //...
+  }
+}
+
+function A(things) {
+  this.things = things;
+}
+
+A.prototype.myInstanceMethod = function () {
+  console.log("hi");
+};
+
+A.myClassMethod = function () {
+  //..
+};
+
+class A {
+  constructor(things) {
+    this.things = things;
+  }
+
+  myInstanceMethod() {
+    console.log("hi");
+  }
+
+  static myClassMethod() {
+    //...
+  }
+}
