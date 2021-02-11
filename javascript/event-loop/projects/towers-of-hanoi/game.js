@@ -31,9 +31,9 @@ Game.prototype.isValidMove = function (startTowerIdx, endTowerIdx) {
   }
 };
 
-Game.prototype.promptMove = function () {
+Game.prototype.promptMove = function (callback) {
   console.log(this.towers);
-  reader = getReader();
+  const reader = getReader();
 
   reader.question("Where should we move from? To where?", (answer) => {
     const numberArray = answer.split(" ").map((numberAsString) => {
@@ -45,14 +45,12 @@ Game.prototype.promptMove = function () {
     );
     const startTowerIdx = numberArray[0];
     const endTowerIdx = numberArray[1];
-    console.log(startTowerIdx, endTowerIdx);
     reader.close();
+    callback(startTowerIdx, endTowerIdx);
   });
 };
 
 Game.prototype.move = function (startTowerIdx, endTowerIdx) {
-  console.log(this.towers);
-
   if (this.isValidMove(startTowerIdx, endTowerIdx)) {
     const sourceStack = this.towers[startTowerIdx];
     const destinationStack = this.towers[endTowerIdx];
@@ -65,40 +63,39 @@ Game.prototype.move = function (startTowerIdx, endTowerIdx) {
     return false;
   }
 };
-const game = new Game();
-console.log(game.move(0, 2));
-console.log(game.move(0, 1));
-console.log(game.move(2, 1));
-console.log(game.move(0, 2));
-console.log(game.move(1, 0));
-console.log(game.move(1, 2));
-console.log(game.move(0, 2));
 
 Game.prototype.isWon = function () {
   return this.towers[1].length === 3 || this.towers[2].length === 3;
 };
 
-// const game = new Game();
-// game.move(0, 1);
-// console.log(game.isWon);
-
 Game.prototype.run = function (completionCallback) {
-  console.log(this.towers);
+  this.promptMove((startTowerIdx, endTowerIdx) => {
+    if (!this.move(startTowerIdx, endTowerIdx)) {
+      return console.log("Invalid move");
+    }
 
-  this.promptMove(startTowerIdx, endTowerIdx);
-  if (!this.Move) {
-    console.log("Invalid move");
-  }
-
-  if (!this.isWon) {
-    this.run(reader, completionCallback);
-  } else {
-    console.log(this.towers);
-    console.log("You won!");
-  }
+    if (!this.isWon()) {
+      return this.run(completionCallback);
+    } else {
+      console.log(this.towers);
+      completionCallback();
+      return console.log("You won!");
+    }
+  });
 };
-// const game = new Game();
-// game.run;
-// console.log(game.move(0, 1));
-// console.log(game.print);
+const game = new Game();
+
+const myFunction = () => {
+  console.log("done");
+};
+game.run(myFunction);
 // console.log(game.run);
+
+// console.log(game.move(0, 2));
+// console.log(game.move(0, 1));
+// console.log(game.move(2, 1));
+// console.log(game.move(0, 2));
+// console.log(game.move(1, 0));
+// console.log(game.move(1, 2));
+// console.log(game.move(0, 2));
+// console.log(game.isWon());
