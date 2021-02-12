@@ -32,12 +32,9 @@ Board.prototype.isEmpty = function (position) {
 };
 
 Board.prototype.placeMark = function (position, mark) {
-  console.log(this.grid);
-
   if (this.isEmpty(position) && this.validMove(position, mark)) {
-    console.log("position empty");
-
     this.grid[position[0]][position[1]] = mark;
+    console.log(this.grid);
     return true;
   } else {
     return false;
@@ -46,18 +43,21 @@ Board.prototype.placeMark = function (position, mark) {
 const board = new Board();
 Board.marks = ["x", "o"];
 // console.log(board.isEmpty([1, 0]));
-board.placeMark([1, 0], "x");
+// board.placeMark([1, 0], "x");
+// board.placeMark([0, 0], "o");
+// board.placeMark([1, 1], "x");
+// board.placeMark([2, 1], "o");
+// board.placeMark([1, 2], "x");
 
 // board.placeMark([1, 0], "x");
-// board.displayBoard();
 
-// Board.prototype.full = function() {
+// Board.prototype.full = function () {
+//   this.grid;
+// };
 
-// }
-
-// Board.prototype.won = function() {
-
-// }
+Board.prototype.won = function () {
+  const winningCombinations;
+};
 
 // Board.prototype.draw = function() {
 //   if (!this.won && this.full) {

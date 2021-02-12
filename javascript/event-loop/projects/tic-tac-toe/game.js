@@ -1,15 +1,27 @@
 const Board = require("./board");
 
-
-function Game () {
-  this.players = { :x => player1, :o => player2}
-  this.turn = :x
+function Game() {
+  this.players = ["x", "o"];
+  this.currentPlayer = "x";
 }
 
-Game.prototype.promptMove = function() {}
-Game.prototype.switchTurn = function() {}
-Game.prototype.winner = function() {}
+// Game.prototype.promptMove = function () {};
 
-Game.prototype.run = function(reader, completionCallback) {
-  until board.won || board.draw
-}
+Game.prototype.switchTurn = function () {
+  if (this.currentPlayer === "x") {
+    this.currentPlayer = "o";
+  } else {
+    this.currentPlayer = "x";
+  }
+};
+
+const gm = new Game();
+console.log(gm.currentPlayer);
+console.log(gm.switchTurn());
+console.log(gm.currentPlayer);
+
+// Game.prototype.winner = function() {}
+
+// Game.prototype.run = function(reader, completionCallback) {
+//   until board.won || board.draw
+// }
