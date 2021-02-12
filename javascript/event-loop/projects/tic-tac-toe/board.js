@@ -104,13 +104,6 @@ Board.prototype.won = function () {
     ],
   ];
 
-  return winningStreaks.some((winningStreak) => {
-    const [x, y] = winningStreak[0];
-    const firstElement = this.grid[x][y];
-
-    return winningStreak.every(([x, y]) => this.grid[x][y] === firstElement);
-  });
-
   for (let i = 0; i < winningStreaks.length; i++) {
     const winningStreak = winningStreaks[i];
 
@@ -142,6 +135,13 @@ Board.prototype.won = function () {
   }
   return false;
 };
+
+return winningStreaks.some((winningStreak) => {
+  const [x, y] = winningStreak[0];
+  const firstElement = this.grid[x][y];
+
+  return winningStreak.every(([x, y]) => this.grid[x][y] === firstElement);
+});
 
 const board = new Board();
 Board.marks = ["x", "o"];
