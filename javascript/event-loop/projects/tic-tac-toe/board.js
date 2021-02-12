@@ -58,6 +58,91 @@ Board.prototype.isFull = function () {
   return true;
 };
 
+Board.prototype.won = function () {
+  const winningStreaks = [
+    [
+      [0, 0],
+      [0, 1],
+      [0, 2],
+    ],
+    [
+      [1, 0],
+      [1, 1],
+      [1, 2],
+    ],
+    [
+      [2, 0],
+      [2, 1],
+      [2, 2],
+    ],
+    // verticals
+    [
+      [0, 0],
+      [1, 0],
+      [2, 0],
+    ],
+    [
+      [0, 1],
+      [1, 1],
+      [2, 1],
+    ],
+    [
+      [0, 2],
+      [1, 2],
+      [2, 2],
+    ],
+    // diagonals
+    [
+      [0, 0],
+      [1, 1],
+      [2, 2],
+    ],
+    [
+      [2, 0],
+      [1, 1],
+      [0, 2],
+    ],
+  ];
+
+  return winningStreaks.some((winningStreak) => {
+    const [x, y] = winningStreak[0];
+    const firstElement = this.grid[x][y];
+
+    return winningStreak.every(([x, y]) => this.grid[x][y] === firstElement);
+  });
+
+  for (let i = 0; i < winningStreaks.length; i++) {
+    const winningStreak = winningStreaks[i];
+
+    let firstValue;
+    let isWin = true;
+    for (let j = 0; j < winningStreak.length; j++) {
+      const coordinatePair = winningStreak[j];
+      const x = coordinatePair[0];
+      const y = coordinatePair[1];
+      const element = this.grid[x][y];
+
+      if (element === undefined) {
+        isWin = false;
+        break;
+      }
+
+      if (j === 0) {
+        firstValue = element;
+      }
+
+      if (element !== firstValue) {
+        isWin = false;
+        break;
+      }
+    }
+    if (isWin) {
+      return true;
+    }
+  }
+  return false;
+};
+
 const board = new Board();
 Board.marks = ["x", "o"];
 console.log(board.isEmpty([1, 0]));
