@@ -1,49 +1,52 @@
-function Board() {
-  this.grid = [[], [], [], [], [], [], [], [], []];
+function generateRow() {
+  return [undefined, undefined, undefined];
 }
-board = new Board();
-console.log(board);
 
-Board.prototype.displayBoard = function (board) {};
-Board.prototype.rows = function () {};
+function Board() {
+  this.grid = [generateRow(), generateRow(), generateRow()];
 
-Board.prototype.cols = function () {};
+  console.log(this.grid);
+}
 
-Board.prototype.diagonals = function () {
-  const downDiagonals = [
-    [0, 0],
-    [1, 1],
-    [2, 2],
-  ];
-  const upDiagonals = [
-    [0, 2],
-    [1, 1],
-    [2, 0],
-  ];
+Board.prototype.displayBoard = function (board) {
+  return console.log(this.grid);
 };
 
-Board.prototype.empty = function (position) {
-  this[position] === 0 || this[position] === undefined;
+Board.prototype.validMove = function (position, mark) {
+  if (position[0] >= 0 && position[0] <= 2) {
+    return true;
+  } else if (position[1] >= 0 && position[1] <= 2) {
+    return true;
+  } else if (this.grid[position[0]][position[1]].length === 0) {
+    return true;
+  } else {
+    return false;
+  }
 };
 
-// Board.prototype.validMove = function(position, mark) {
-//   if (position[0] >= 0 && position[0] <= 2) {
-//     return true
-//   } else if (position[1] >= 0 && position[1] <= 2) {
-//     return true
-//   } else {
-//     return false
-//   }
-// }
+Board.prototype.isEmpty = function (position) {
+  if (!this.validMove(position)) {
+    console.log("Is not valid position!");
+  }
 
-// Board.prototype.place_mark = function(position, mark) {
-//   if (this.grid.empty?(position)) {
-//     this.board[position] = mark;
-//     return true
-//   } else {
-//     return false
-//   }
-// }
+  return this.grid[position[0]][position[1]] === null;
+};
+
+Board.prototype.placeMark = function (position, mark) {
+  console.log(this.grid);
+  if (this.isEmpty(position) && this.validMove(position, mark)) {
+    this.grid[position[0]][position[1]] = mark;
+    return true;
+  } else {
+    console.log("position not empty");
+    return false;
+  }
+};
+const board = new Board();
+Board.marks = ["x", "o"];
+console.log(board.isEmpty([1, 0]));
+// board.placeMark([1, 0], "x");
+// board.displayBoard();
 
 // Board.prototype.full = function() {
 
@@ -68,3 +71,23 @@ Board.prototype.empty = function (position) {
 //     console.log("winner")
 //   }
 // }
+
+function meow() {}
+
+const bark = () => {};
+
+const getOne = () => 1;
+
+const getOne = () => {
+  return 1;
+};
+
+const getOneGetter = () => {
+  return () => {
+    return 1;
+  };
+};
+
+const getOneGetter = () => () => 1;
+
+const oneGetter = getOneGetter();
