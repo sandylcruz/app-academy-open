@@ -4,7 +4,6 @@ function generateRow() {
 
 function Board() {
   this.grid = [generateRow(), generateRow(), generateRow()];
-
   console.log(this.grid);
 }
 
@@ -29,22 +28,26 @@ Board.prototype.isEmpty = function (position) {
     console.log("Is not valid position!");
   }
 
-  return this.grid[position[0]][position[1]] === null;
+  return this.grid[position[0]][position[1]] === undefined;
 };
 
 Board.prototype.placeMark = function (position, mark) {
   console.log(this.grid);
+
   if (this.isEmpty(position) && this.validMove(position, mark)) {
+    console.log("position empty");
+
     this.grid[position[0]][position[1]] = mark;
     return true;
   } else {
-    console.log("position not empty");
     return false;
   }
 };
 const board = new Board();
 Board.marks = ["x", "o"];
-console.log(board.isEmpty([1, 0]));
+// console.log(board.isEmpty([1, 0]));
+board.placeMark([1, 0], "x");
+
 // board.placeMark([1, 0], "x");
 // board.displayBoard();
 
@@ -71,23 +74,3 @@ console.log(board.isEmpty([1, 0]));
 //     console.log("winner")
 //   }
 // }
-
-function meow() {}
-
-const bark = () => {};
-
-const getOne = () => 1;
-
-const getOne = () => {
-  return 1;
-};
-
-const getOneGetter = () => {
-  return () => {
-    return 1;
-  };
-};
-
-const getOneGetter = () => () => 1;
-
-const oneGetter = getOneGetter();
