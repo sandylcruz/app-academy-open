@@ -1,11 +1,19 @@
 const Board = require("./board");
 
 function Game() {
+  this.board = Board;
   this.players = ["x", "o"];
   this.currentPlayer = "x";
 }
 
-// Game.prototype.promptMove = function () {};
+Game.prototype.promptMove = function () {
+  const game = this;
+  console.log(this.board);
+  this.board.displayBoard();
+};
+
+g = new Game();
+g.promptMove;
 
 Game.prototype.switchTurn = function () {
   if (this.currentPlayer === "x") {
