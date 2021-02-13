@@ -7,14 +7,14 @@ then returns
 
 */
 
-function myEach(array) {
-  eachArray = [];
-  for (let i = 0; i < array.length; i++) {
-    eachArray.push(array[i]);
-  }
+// function myEach(array) {
+//   eachArray = [];
+//   for (let i = 0; i < array.length; i++) {
+//     eachArray.push(array[i]);
+//   }
 
-  return eachArray;
-}
+//   return eachArray;
+// }
 
 // console.log(myEach([1, 2, 3]));
 
@@ -83,14 +83,16 @@ function myJoin(array, separator) {
   let joinedString = "";
 
   for (let i = 0; i < array.length; i++) {
-    if (i === array.length - 1) {
+    if (i != array.length - 1) {
+      joinedString += array[i] + separator;
+    } else {
       joinedString += array[i];
-      return joinedString;
     }
-
-    return (joinedString += array[i] + separator);
   }
+
+  return joinedString;
 }
+console.log("myjoin test");
 console.log(myJoin(["callie", "squeaky"], "$"));
 
 /*
@@ -103,13 +105,13 @@ Example:
 [ 1 ].my_reverse               #=> [1]
 */
 
-function myReverse() {}
+// function myReverse() {}
 
-function myMap() {}
+// function myMap() {}
 
-function mySelect() {}
+// function mySelect() {}
 
-function myJoin() {}
+// function myJoin() {}
 
 /*
 # Write a `doubler` method that takes an array of integers 
@@ -117,7 +119,7 @@ and returns an
 # array with the original elements multiplied by two.
 */
 
-function doubler() {}
+// function doubler() {}
 
 /*
 # Create a method that takes in an `Array` of `String`s and 
@@ -129,49 +131,49 @@ function doubler() {}
 # # => "Yay for strings!"
 */
 
-function concatenate(array) {
-  let concatenated = "";
-  for (let i = 0; i < array.length; i++) {
-    concatenated += array[i];
-  }
-}
+// function concatenate(array) {
+//   let concatenated = "";
+//   for (let i = 0; i < array.length; i++) {
+//     concatenated += array[i];
+//   }
+// }
 // console.log("Concatenated tests:");
 // console.log("yay", "for", "strings");
 
-function factors(num) {
-  let factorsArray = [];
+// function factors(num) {
+//   let factorsArray = [];
 
-  for (let i = 0; i <= num; i++) {
-    if (num % i === 0) {
-      factorsArray.push(i);
-    }
-  }
+//   for (let i = 0; i <= num; i++) {
+//     if (num % i === 0) {
+//       factorsArray.push(i);
+//     }
+//   }
 
-  return factorsArray;
-}
+//   return factorsArray;
+// }
 // console.log("Factors tests:");
 // console.log(factors(10));
 // console.log(factors(7));
 // console.log(factors(30));
 
-function bubbleSort(array) {}
+// function bubbleSort(array) {}
 
-function substrings(string) {
-  let substring = [];
-  for (let i = 0; i <= string.length; i++) {
-    for (let j = i + 1; j <= string.length; j++) {
-      smallSubstring = string.slice(i, j);
-      if (!substring.includes(smallSubstring)) substring.push(smallSubstring);
-    }
-  }
+// function substrings(string) {
+//   let substring = [];
+//   for (let i = 0; i <= string.length; i++) {
+//     for (let j = i + 1; j <= string.length; j++) {
+//       smallSubstring = string.slice(i, j);
+//       if (!substring.includes(smallSubstring)) substring.push(smallSubstring);
+//     }
+//   }
 
-  return substring;
-}
+//   return substring;
+// }
 // console.log(substrings("cats"));
 // console.log(substrings("dogs"));
 // console.log(substrings("callie"));
 // console.log(substrings("squeaky"));
 
-function subwords(word, dictionary) {}
+// function subwords(word, dictionary) {}
 
-console.log(subwords("cat", ["catch", "can", "cat", "dog"]));
+// console.log(subwords("cat", ["catch", "can", "cat", "dog"]));
