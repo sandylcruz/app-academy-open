@@ -149,9 +149,11 @@ function substrings(string) {
 
   return substring;
 }
-console.log(substrings("cats"));
-console.log(substrings("dogs"));
-console.log(substrings("callie"));
-console.log(substrings("squeaky"));
+// console.log(substrings("cats"));
+// console.log(substrings("dogs"));
+// console.log(substrings("callie"));
+// console.log(substrings("squeaky"));
 
 function subwords(word, dictionary) {}
+
+console.log(subwords("cat", ["catch", "can", "cat", "dog"]));

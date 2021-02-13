@@ -142,10 +142,10 @@ Board.marks = ["x", "o"];
 board.placeMark([2, 0], "x");
 board.placeMark([1, 1], "x");
 board.placeMark([0, 2], "x");
-// board.placeMark([2, 1], "o");
-// board.placeMark([1, 2], "x");
-// board.placeMark([1, 0], "x");
-// board.placeMark([2, 0], "x");
+board.placeMark([2, 1], "o");
+board.placeMark([1, 2], "x");
+board.placeMark([1, 0], "x");
+board.placeMark([2, 0], "x");
 // board.placeMark([0, 1], "x");
 // board.placeMark([2, 2], "x");
 // board.placeMark([0, 2], "x");
@@ -153,19 +153,24 @@ board.displayBoard();
 console.log("+++++++");
 console.log("Is won?" + " " + board.won());
 
-Board.prototype.draw = function() {
-  if (!this.won && this.isFull) {
-    return true
-  } elsif !this.isFull && !this.won {
-    return false
-  } else {
-    return true
+Board.prototype.isOver = function () {
+  if (this.won()) {
+    return true;
   }
-}
-// console.log(board.draw());
 
-Board.prototype.winner = function () {
-  if (this.won) {
-    console.log("winner");
+  for (let rowIndex = 0; rowIndex < 3; rowIndex++) {
+    for (let colIndex = 0; colIndex < 3; colIndex++) {
+      if (!this.isFull([rowIndex][colIndex])) {
+        return false;
+      }
+    }
   }
 };
+console.log("is the game over?");
+console.log(board.isOver());
+
+// Board.prototype.winner = function () {
+//   if (this.won) {
+//     console.log("winner");
+//   }
+// };
