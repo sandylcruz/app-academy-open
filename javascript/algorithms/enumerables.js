@@ -117,8 +117,8 @@ function concatenate(array) {
     concatenated += array[i];
   }
 }
-console.log("Concatenated tests:");
-console.log("yay", "for", "strings");
+// console.log("Concatenated tests:");
+// console.log("yay", "for", "strings");
 
 function factors(num) {
   let factorsArray = [];
@@ -138,6 +138,20 @@ function factors(num) {
 
 function bubbleSort(array) {}
 
-function substrings(string) {}
+function substrings(string) {
+  let substring = [];
+  for (let i = 0; i <= string.length; i++) {
+    for (let j = i + 1; j <= string.length; j++) {
+      smallSubstring = string.slice(i, j);
+      if (!substring.includes(smallSubstring)) substring.push(smallSubstring);
+    }
+  }
+
+  return substring;
+}
+console.log(substrings("cats"));
+console.log(substrings("dogs"));
+console.log(substrings("callie"));
+console.log(substrings("squeaky"));
 
 function subwords(word, dictionary) {}
