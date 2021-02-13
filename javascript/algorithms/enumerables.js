@@ -16,7 +16,7 @@ function myEach(array) {
   return eachArray;
 }
 
-console.log(myEach([1, 2, 3]));
+// console.log(myEach([1, 2, 3]));
 
 /*
 my_flatten should return all elements of the array into a 
@@ -79,7 +79,19 @@ a.my_join         # => "abcd"
 a.my_join("$")    # => "a$b$c$d"
 */
 
-function myJoin() {}
+function myJoin(array, separator) {
+  let joinedString = "";
+
+  for (let i = 0; i < array.length; i++) {
+    if (i === array.length - 1) {
+      joinedString += array[i];
+      return joinedString;
+    }
+
+    return (joinedString += array[i] + separator);
+  }
+}
+console.log(myJoin(["callie", "squeaky"], "$"));
 
 /*
 Write a method that returns a new array containing all the 
