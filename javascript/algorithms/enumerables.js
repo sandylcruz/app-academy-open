@@ -111,12 +111,19 @@ function doubler() {}
 # # => "Yay for strings!"
 */
 
-function concatenate() {}
+function concatenate(array) {
+  let concatenated = "";
+  for (let i = 0; i < array.length; i++) {
+    concatenated += array[i];
+  }
+}
+console.log("Concatenated tests:");
+console.log("yay", "for", "strings");
 
 function factors(num) {
   let factorsArray = [];
 
-  for (let i = 0; i < num; i++) {
+  for (let i = 0; i <= num; i++) {
     if (num % i === 0) {
       factorsArray.push(i);
     }
@@ -124,9 +131,12 @@ function factors(num) {
 
   return factorsArray;
 }
-console.log(factors(10));
+// console.log("Factors tests:");
+// console.log(factors(10));
+// console.log(factors(7));
+// console.log(factors(30));
 
-function bubbleSort(ayrra) {}
+function bubbleSort(array) {}
 
 function substrings(string) {}
 
