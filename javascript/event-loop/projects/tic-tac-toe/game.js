@@ -12,8 +12,8 @@ Game.prototype.promptMove = function () {
   this.board.displayBoard();
 };
 
-g = new Game();
-g.promptMove;
+// g = new Game();
+// g.promptMove;
 
 Game.prototype.switchTurn = function () {
   if (this.currentPlayer === "x") {
@@ -23,10 +23,10 @@ Game.prototype.switchTurn = function () {
   }
 };
 
-const gm = new Game();
-console.log(gm.currentPlayer);
-console.log(gm.switchTurn());
-console.log(gm.currentPlayer);
+// const gm = new Game();
+// console.log(gm.currentPlayer);
+// console.log(gm.switchTurn());
+// console.log(gm.currentPlayer);
 
 // Game.prototype.winner = function() {}
 
