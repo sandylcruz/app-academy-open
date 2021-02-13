@@ -5,6 +5,9 @@ function Game() {
   this.players = ["x", "o"];
   this.currentPlayer = "x";
 }
+Game.prototype.isOver = function () {};
+g = new Game();
+g.isOver();
 
 Game.prototype.promptMove = function () {
   const game = this;
@@ -12,7 +15,6 @@ Game.prototype.promptMove = function () {
   this.board.displayBoard();
 };
 
-// g = new Game();
 // g.promptMove;
 
 Game.prototype.switchTurn = function () {
@@ -30,6 +32,9 @@ Game.prototype.switchTurn = function () {
 
 // Game.prototype.winner = function() {}
 
-// Game.prototype.run = function(reader, completionCallback) {
-//   until board.won || board.draw
-// }
+Game.prototype.run = function(reader, completionCallback) {
+  until (board.isOver) {
+    this.promptMove();
+    this.switchTurn();
+  }
+}

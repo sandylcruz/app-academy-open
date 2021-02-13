@@ -7,10 +7,16 @@ then returns
 
 */
 
-function myEach() {}
-/*
+function myEach(array) {
+  eachArray = [];
+  for (let i = 0; i < array.length; i++) {
+    eachArray.push(array[i]);
+  }
 
-*/
+  return eachArray;
+}
+
+console.log(myEach([1, 2, 3]));
 
 /*
 my_flatten should return all elements of the array into a 
