@@ -139,38 +139,30 @@ Board.prototype.won = function () {
 
 const board = new Board();
 Board.marks = ["x", "o"];
-board.placeMark([2, 0], "x");
-board.placeMark([1, 1], "x");
-board.placeMark([0, 2], "x");
-board.placeMark([2, 1], "o");
-board.placeMark([1, 2], "x");
-board.placeMark([1, 0], "x");
-board.placeMark([2, 0], "x");
+// board.placeMark([2, 0], "x");
+// board.placeMark([1, 1], "x");
+// board.placeMark([0, 2], "x");
+// board.placeMark([2, 1], "o");
+// board.placeMark([1, 2], "x");
+// board.placeMark([1, 0], "x");
+// board.placeMark([2, 0], "x");
 // board.placeMark([0, 1], "x");
 // board.placeMark([2, 2], "x");
 // board.placeMark([0, 2], "x");
-board.displayBoard();
-console.log("+++++++");
-console.log("Is won?" + " " + board.won());
+// board.displayBoard();
+// console.log("+++++++");
+// console.log("Is won?" + " " + board.won());
 
 Board.prototype.isOver = function () {
-  if (this.won()) {
-    return true;
-  }
+  return this.won() || this.isFull();
+};
+// console.log("is the game over?");
+// console.log(board.isOver());
 
-  for (let rowIndex = 0; rowIndex < 3; rowIndex++) {
-    for (let colIndex = 0; colIndex < 3; colIndex++) {
-      if (!this.isFull([rowIndex][colIndex])) {
-        return false;
-      }
-    }
+Board.prototype.winner = function () {
+  if (this.won) {
+    console.log("You won");
   }
 };
-console.log("is the game over?");
-console.log(board.isOver());
 
-// Board.prototype.winner = function () {
-//   if (this.won) {
-//     console.log("winner");
-//   }
-// };
+module.exports = Board;

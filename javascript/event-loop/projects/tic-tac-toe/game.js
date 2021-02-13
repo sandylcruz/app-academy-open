@@ -1,21 +1,25 @@
 const Board = require("./board");
 
 function Game() {
-  this.board = Board;
+  this.board = new Board();
   this.players = ["x", "o"];
   this.currentPlayer = "x";
 }
-Game.prototype.isOver = function () {};
-g = new Game();
-g.isOver();
 
-Game.prototype.promptMove = function () {
-  const game = this;
-  console.log(this.board);
-  this.board.displayBoard();
+Game.prototype.isOver = function () {
+  return this.board.isOver();
 };
 
-// g.promptMove;
+Game.prototype.promptMove = function (reader, callback) {
+  this.board.displayBoard();
+  reader.question("Where do you want to move to?", (answer) => {
+    const coordinatePair = answer.split(" ").map((string) => {
+      return Number(string);
+    });
+
+    callback(coordinatePair);
+  });
+};
 
 Game.prototype.switchTurn = function () {
   if (this.currentPlayer === "x") {
@@ -25,16 +29,17 @@ Game.prototype.switchTurn = function () {
   }
 };
 
-// const gm = new Game();
-// console.log(gm.currentPlayer);
-// console.log(gm.switchTurn());
-// console.log(gm.currentPlayer);
-
-// Game.prototype.winner = function() {}
-
-Game.prototype.run = function(reader, completionCallback) {
-  until (board.isOver) {
-    this.promptMove();
+Game.prototype.run = function (reader, completionCallback) {
+  this.promptMove(reader, (coordinatePair) => {
+    this.board.placeMark(coordinatePair, this.currentPlayer);
     this.switchTurn();
-  }
-}
+    this.board.displayBoard();
+    if (this.isOver()) {
+      completionCallback();
+    } else {
+      this.run(reader, completionCallback);
+    }
+  });
+};
+
+module.exports = Game;

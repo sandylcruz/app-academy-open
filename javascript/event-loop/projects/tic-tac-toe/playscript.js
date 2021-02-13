@@ -5,7 +5,7 @@ const reader = readline.createInterface({
   output: process.stdout,
 });
 
-let g = new Game();
+const g = new Game();
 g.run(reader, completion);
 
 function completion() {
