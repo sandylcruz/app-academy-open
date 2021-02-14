@@ -21,9 +21,9 @@ function sum(...nums) {
 // console.log(sum(1, 2, 3, 4, 5));
 
 Function.prototype.myBind = function (newThis) {
-  const boundFunction = this;
+  const that = this;
   return function boundFunction() {
-    return boundFunction.apply(newThis);
+    return that.apply(newThis);
   };
 };
 
@@ -52,14 +52,14 @@ function sumThree(num1, num2, num3) {
 }
 
 function curriedSum(numArgs) {
-  const numbers = [];
+  const numbersArray = [];
 
   function _curriedSum(number) {
-    numbers.push(number);
-    if (numbers.length === numArgs) {
+    numbersArray.push(number);
+    if (numbersArray.length === numArgs) {
       let sum = 0;
-      for (let i = 0; i < numbers.length; i++) {
-        sum += numbers[i];
+      for (let i = 0; i < numbersArray.length; i++) {
+        sum += numbersArray[i];
       }
 
       return sum;
@@ -70,23 +70,33 @@ function curriedSum(numArgs) {
 
   return _curriedSum;
 }
-const theSum = curriedSum(4);
-const csum = theSum(5)(30)(20)(1);
-console.log(csum);
+// const theSum = curriedSum(4);
+// const csum = theSum(5)(30)(20)(1);
+// console.log(csum);
 
-// Function.prototype.curry = function (numArgs) {
-//   const handler = function (argument) {
-//     this(argument);
-//   };
+Function.prototype.curry = function (numArgs) {
+  const argumentsArray = [];
+  const that = this;
 
-//   handler.bind(this);
+  function _innerCurry() {
+    for (let i = 0; i < arguments.length; i++) {
+      argumentsArray.push(arguments[i]);
+    }
 
-//   return handler;
-// };
+    if (argumentsArray.length < numArgs) {
+      return _innerCurry;
+    } else {
+      return that.apply(undefined, argumentsArray);
+    }
+  }
 
-// console.log(sumThree(4, 20, 6));
+  return _innerCurry;
+};
 
 //
 
-// const f1 = sumThree.curry(3);
-// console.log(f1(1));
+const f1 = sumThree.curry(3);
+console.log(f1(1)(2)(3));
+
+// sumThree.call(undefined, 1, 2, 3); // sumThree(1, 2, 3)
+// sumThree.apply(undefined, [1, 2, 3]); // sumThree(1, 2, 3)
