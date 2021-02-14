@@ -7,7 +7,6 @@ function sum(nums) {
 
   return accumulator;
 }
-// console.log(sum([1, 2, 3, 4, 5]));
 
 function sum(...nums) {
   let accumulator = 0;
@@ -18,7 +17,6 @@ function sum(...nums) {
 
   return accumulator;
 }
-// console.log(sum(1, 2, 3, 4, 5));
 
 Function.prototype.myBind = function (newThis) {
   const that = this;
@@ -44,9 +42,6 @@ const person = {
   fname: "Callie",
 };
 
-// const boundName = fullName.bind(person, "Miss");
-
-//
 function sumThree(num1, num2, num3) {
   return num1 + num2 + num3;
 }
@@ -70,9 +65,6 @@ function curriedSum(numArgs) {
 
   return _curriedSum;
 }
-// const theSum = curriedSum(4);
-// const csum = theSum(5)(30)(20)(1);
-// console.log(csum);
 
 Function.prototype.curry = function (numArgs) {
   const argumentsArray = [];
@@ -92,8 +84,6 @@ Function.prototype.curry = function (numArgs) {
 
   return _innerCurry;
 };
-
-//
 
 const f1 = sumThree.curry(3);
 console.log(f1(1)(2)(3));
