@@ -19,6 +19,16 @@ eval("const MovingObject = __webpack_require__(/*! ./moving_object.js */ \"./src
 
 /***/ }),
 
+/***/ "./src/game.js":
+/*!*********************!*\
+  !*** ./src/game.js ***!
+  \*********************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("const Asteroid = __webpack_require__(/*! ./asteroid */ \"./src/asteroid.js\");\n\nfunction Game({ height, width }) {\n  this.height = height;\n  this.width = width;\n  this.addAsteroids();\n}\n\nGame.NUM_ASTEROIDS = 15;\n\nGame.prototype.addAsteroids = function () {\n  const asteroids = [];\n\n  for (let i = 0; i < Game.NUM_ASTEROIDS; i++) {\n    const newAsteroid = new Asteroid({ pos: this.randomPosition() });\n    asteroids.push(newAsteroid);\n  }\n\n  this.asteroids = asteroids;\n};\n\nGame.prototype.randomPosition = function () {\n  const x = Math.random() * this.width;\n  const y = Math.random() * this.height;\n  const coordinatePair = [x, y];\n\n  return coordinatePair;\n};\n\nGame.prototype.draw = function (context) {\n  context.clearRect(0, 0, this.width, this.height);\n\n  for (let i = 0; i < this.asteroids.length; i++) {\n    const asteroid = this.asteroids[i];\n\n    asteroid.draw(context);\n  }\n};\n\nGame.prototype.moveObjects = function () {\n  this.asteroids.forEach((asteroid) => {\n    asteroid.move();\n  });\n};\n\nmodule.exports = Game;\n\n\n//# sourceURL=webpack:///./src/game.js?");
+
+/***/ }),
+
 /***/ "./src/moving_object.js":
 /*!******************************!*\
   !*** ./src/moving_object.js ***!
@@ -69,7 +79,7 @@ eval("function inherits(childClass, parentClass) {\n  function Surrogate() {}\n 
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
-eval("const MovingObject = __webpack_require__(/*! ./moving_object.js */ \"./src/moving_object.js\");\nconst Asteroid = __webpack_require__(/*! ./asteroid.js */ \"./src/asteroid.js\");\n\nwindow.addEventListener(\"DOMContentLoaded\", () => {\n  const canvasElement = document.getElementById(\"game-canvas\");\n  canvasElement.height = window.innerHeight;\n  canvasElement.width = window.innerWidth;\n  const context = canvasElement.getContext(\"2d\");\n  // const newObject = new MovingObject({\n  //   pos: [100, 50],\n  //   vel: [2, 5],\n  //   radius: 60,\n  //   color: \"red\",\n  // });\n\n  // newObject.draw(context);\n  // setTimeout(() => {\n  //   context.clearRect(0, 0, canvasElement.width, canvasElement.height);\n  //   newObject.move();\n  //   newObject.draw(context);\n  // }, 2000);\n\n  const asteroid = new Asteroid({ pos: [5, 5] });\n  asteroid.draw(context);\n});\n\nwindow.MovingObject = MovingObject;\n\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("const Game = __webpack_require__(/*! ./game.js */ \"./src/game.js\");\n\nwindow.addEventListener(\"DOMContentLoaded\", () => {\n  const canvasElement = document.getElementById(\"game-canvas\");\n  canvasElement.height = window.innerHeight;\n  canvasElement.width = window.innerWidth;\n  const context = canvasElement.getContext(\"2d\");\n  const game = new Game({\n    height: window.innerHeight,\n    width: window.innerWidth,\n  });\n  game.draw(context);\n});\n\n\n//# sourceURL=webpack:///./src/index.js?");
 })();
 
 /******/ })()
