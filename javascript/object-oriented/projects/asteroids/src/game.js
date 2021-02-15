@@ -12,7 +12,10 @@ Game.prototype.addAsteroids = function () {
   const asteroids = [];
 
   for (let i = 0; i < Game.NUM_ASTEROIDS; i++) {
-    const newAsteroid = new Asteroid({ pos: this.randomPosition() });
+    const newAsteroid = new Asteroid({
+      pos: this.randomPosition(),
+      game: this,
+    });
     asteroids.push(newAsteroid);
   }
 
@@ -41,6 +44,13 @@ Game.prototype.moveObjects = function () {
   this.asteroids.forEach((asteroid) => {
     asteroid.move();
   });
+};
+
+Game.prototype.wrap = function (position) {
+  const x = position[0];
+  const y = position[1];
+
+  return [x % this.width, y % this.height];
 };
 
 module.exports = Game;

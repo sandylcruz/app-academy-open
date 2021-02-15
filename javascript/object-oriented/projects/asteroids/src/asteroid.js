@@ -4,9 +4,10 @@ const utils = require("./utils.js");
 function Asteroid(options) {
   MovingObject.call(this, {
     pos: options.pos,
-    vel: utils.randomVec(20),
+    vel: utils.randomVec(3),
     radius: Asteroid.RADIUS,
     color: Asteroid.COLOR,
+    game: options.game,
   });
 }
 
