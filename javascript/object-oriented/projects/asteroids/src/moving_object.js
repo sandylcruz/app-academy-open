@@ -1,6 +1,6 @@
 function MovingObject(options) {
   this.pos = options.pos; // [100, 200]
-  this.vel = options.vel;
+  this.vel = options.vel; // [2, 3]
   this.radius = options.radius;
   this.color = options.color;
 }
@@ -14,7 +14,7 @@ MovingObject.prototype.draw = function (ctx) {
 };
 
 MovingObject.prototype.move = function () {
-  const nextPos = [this.pos[0] + this.vel, this.pos[1] + this.vel];
+  const nextPos = [this.pos[0] + this.vel[0], this.pos[1] + this.vel[1]];
   this.pos = nextPos;
 };
 
