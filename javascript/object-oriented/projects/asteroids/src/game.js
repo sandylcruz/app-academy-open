@@ -6,9 +6,14 @@ function Game({ height, width }) {
   this.height = height;
   this.width = width;
   this.addAsteroids();
+  this.ships = [];
 }
 
 Game.NUM_ASTEROIDS = 5;
+
+Game.prototype.allObjects = function () {
+  return [].concat(this.ships, this.asteroids);
+};
 
 Game.prototype.addAsteroids = function () {
   const asteroids = [];
