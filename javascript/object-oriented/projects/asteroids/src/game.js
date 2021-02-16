@@ -65,14 +65,25 @@ Game.prototype.checkCollisions = function () {
       const object2 = this.asteroids[j];
 
       if (object1.isCollidedWith(object2)) {
-        // alert("COLLISION");
-        console.log("COLLISION");
+        this.remove(object1);
+        this.remove(object2);
       }
     }
   }
 };
 
-Game.prototype.remove = function (asteroid) {};
+Game.prototype.remove = function (asteroidToRemove) {
+  const newAsteroids = [];
+
+  for (let i = 0; i < this.asteroids.length; i++) {
+    const asteroid = this.asteroids[i];
+    if (asteroidToRemove != asteroid) {
+      newAsteroids.push(asteroid);
+    }
+  }
+
+  this.asteroids = newAsteroids;
+};
 
 Game.prototype.step = function () {
   this.moveObjects();
