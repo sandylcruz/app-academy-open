@@ -1,4 +1,6 @@
 const Asteroid = require("./asteroid");
+const MovingObject = require("./moving_object.js");
+const Utils = require("./utils.js");
 
 function Game({ height, width }) {
   this.height = height;
@@ -6,7 +8,7 @@ function Game({ height, width }) {
   this.addAsteroids();
 }
 
-Game.NUM_ASTEROIDS = 15;
+Game.NUM_ASTEROIDS = 5;
 
 Game.prototype.addAsteroids = function () {
   const asteroids = [];
@@ -50,7 +52,31 @@ Game.prototype.wrap = function (position) {
   const x = position[0];
   const y = position[1];
 
-  return [x % this.width, y % this.height];
+  const nextX = x >= 0 ? x % this.width : x + this.width;
+  const nextY = y >= 0 ? y % this.height : y + this.height;
+
+  return [nextX, nextY];
+};
+
+Game.prototype.checkCollisions = function () {
+  for (let i = 0; i < this.asteroids.length; i++) {
+    for (let j = i + 1; j < this.asteroids.length; j++) {
+      const object1 = this.asteroids[i];
+      const object2 = this.asteroids[j];
+
+      if (object1.isCollidedWith(object2)) {
+        // alert("COLLISION");
+        console.log("COLLISION");
+      }
+    }
+  }
+};
+
+Game.prototype.remove = function (asteroid) {};
+
+Game.prototype.step = function () {
+  this.moveObjects();
+  this.checkCollisions();
 };
 
 module.exports = Game;

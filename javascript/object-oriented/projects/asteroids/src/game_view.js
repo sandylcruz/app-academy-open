@@ -10,7 +10,7 @@ function GameView(options) {
 
 GameView.prototype.start = function () {
   function tick() {
-    this.game.moveObjects();
+    this.game.step();
     this.game.draw(this.context);
   }
   const boundTick = tick.bind(this);
