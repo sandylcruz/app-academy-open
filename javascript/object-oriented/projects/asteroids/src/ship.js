@@ -18,6 +18,14 @@ Ship.prototype.relocate = function () {
   this.vel = [0, 0];
 };
 
+Ship.prototype.power = function (impulse) {
+  const x = this.vel[0];
+  const y = this.vel[1];
+
+  const newVelocity = [x + impulse[0], y + impulse[1]];
+  this.vel = newVelocity;
+};
+
 Ship.RADIUS = 15;
 Ship.COLOR = "red";
 
