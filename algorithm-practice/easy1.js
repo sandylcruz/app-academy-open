@@ -5,8 +5,8 @@ consonants of s in sorted order.
 */
 
 function vowelConsonantSort(string) {
-  let vowels = "";
-  let consonants = "";
+  let vowels = [];
+  let consonants = [];
 
   for (let i = 0; i < string.length; i++) {
     if (
@@ -17,16 +17,19 @@ function vowelConsonantSort(string) {
       string[i] === "u"
     ) {
       let vowelToMove = string[i];
-      vowels += vowelToMove;
+      vowels.push(vowelToMove);
     } else {
-      consonants += string[i];
+      consonants.push(string[i]);
     }
   }
 
-  return vowels + consonants;
+  let sortedVowels = vowels.sort();
+  let sortedConsonants = consonants.sort();
+  let sortedWord = sortedVowels.concat(sortedConsonants);
+  return sortedWord.join("");
 }
 
-console.log(vowelConsonantSort("decallin"));
-console.log(vowelConsonantSort("callie"));
+console.log(vowelConsonantSort("decalin"));
+// console.log(vowelConsonantSort("callie"));
 
 //
