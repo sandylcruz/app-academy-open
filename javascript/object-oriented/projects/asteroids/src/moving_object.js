@@ -23,11 +23,6 @@ MovingObject.prototype.move = function () {
   this.pos = wrappedNextPosition;
 };
 
-MovingObject.prototype.isCollidedWith = function (otherObject) {
-  const centerDistance = utils.dist(this.pos, otherObject.pos);
-  const totalDistance = this.radius + otherObject.radius;
-  // console.log("***", centerDistance);
-  return centerDistance < totalDistance;
-};
+MovingObject.prototype.isCollidedWith = function (otherObject) {};
 
 module.exports = MovingObject;

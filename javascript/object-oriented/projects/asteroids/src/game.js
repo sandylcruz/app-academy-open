@@ -1,18 +1,22 @@
 const Asteroid = require("./asteroid");
-const MovingObject = require("./moving_object.js");
-const Utils = require("./utils.js");
+const Ship = require("./ship.js");
 
 function Game({ height, width }) {
   this.height = height;
   this.width = width;
   this.addAsteroids();
-  this.ships = [];
+  console.log(Ship);
+
+  this.ship = new Ship({
+    pos: this.randomPosition(),
+    game: this,
+  });
 }
 
 Game.NUM_ASTEROIDS = 5;
 
-Game.prototype.allObjects = function () {
-  return [].concat(this.ships, this.asteroids);
+Game.prototype.allObjects = function allObjects() {
+  return [].concat(this.ship, this.asteroids);
 };
 
 Game.prototype.addAsteroids = function () {
@@ -38,17 +42,20 @@ Game.prototype.randomPosition = function () {
 };
 
 Game.prototype.draw = function (context) {
+  const allObjects = this.allObjects();
   context.clearRect(0, 0, this.width, this.height);
 
-  for (let i = 0; i < this.asteroids.length; i++) {
-    const asteroid = this.asteroids[i];
+  for (let i = 0; i < this.allObjects().length; i++) {
+    const asteroid = this.allObjects()[i];
 
     asteroid.draw(context);
   }
 };
 
 Game.prototype.moveObjects = function () {
-  this.asteroids.forEach((asteroid) => {
+  const allObjects = this.allObjects();
+
+  allObjects.forEach((asteroid) => {
     asteroid.move();
   });
 };
