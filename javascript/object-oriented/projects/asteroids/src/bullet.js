@@ -18,6 +18,8 @@ Bullet.RADIUS = 2;
 Bullet.COLOR = "purple";
 Bullet.SPEED = 15;
 
+Bullet.prototype.isWrappable = false;
+
 utils.inherits(Bullet, MovingObject);
 
 module.exports = Bullet;
