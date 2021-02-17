@@ -1,14 +1,15 @@
-var path = require('path');
+var path = require("path");
 module.exports = {
+  mode: "development",
   entry: {
-    app: ["./js/main.js"]
+    app: ["./js/main.js"],
   },
   output: {
-    path: path.join(__dirname, 'js'),
-    publicPath: '/js/',
-    filename: 'bundle.js',
-    devtoolModuleFilenameTemplate: '[resourcePath]',
-    devtoolFallbackModuleFilenameTemplate: '[resourcePath]?[hash]'
+    path: path.join(__dirname, "js"),
+    publicPath: "/js/",
+    filename: "bundle.js",
+    devtoolModuleFilenameTemplate: "[resourcePath]",
+    devtoolFallbackModuleFilenameTemplate: "[resourcePath]?[hash]",
   },
-  devtool: 'source-maps',
+  // devtool: 'source-maps',
 };

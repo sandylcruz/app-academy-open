@@ -1,160 +1,56 @@
-/******/ (function(modules) { // webpackBootstrap
+/*
+ * ATTENTION: The "eval" devtool has been used (maybe by default in mode: "development").
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
+/******/ (() => { // webpackBootstrap
+/******/ 	var __webpack_modules__ = ({
+
+/***/ "./js/view.js":
+/*!********************!*\
+  !*** ./js/view.js ***!
+  \********************/
+/***/ ((module) => {
+
+eval("/* jshint esversion: 6 */\n\nfunction View($el) {\n  this.$el = $el;\n  this.setupEasel();\n}\n\nwindow._randomColorString = function () {\n  return \"#\" + Math.random().toString(16).substr(-6);\n};\n\nView.prototype.exercise0 = function () {\n  //Challenge: (example) remove the 'square' class from every li\n  //Result: this should cause the grid to turn into a long list of undecorated lis\n  //just a list of dots\n\n  //this one completed as an example :) no additional code necessary\n  $(\"li\").removeClass(\"square\");\n};\n\nView.prototype.exercise1 = function () {\n  //Challenge: Give every square the class 'orange'\n  //Result: Every square should turn orange (we already have a CSS rule)\n\n  //your code here!\n  $(\"li\").addClass(\"orange\");\n};\n\nView.prototype.exercise2 = function () {\n  //Challenge: Remove every square\n  //Result: Every square vanishes\n  //your code here!\n};\n\nView.prototype.exercise3 = function () {\n  //Challenge: Add an <h1> with the text 'i love jquery' under the grid.\n  //Result: An <h1> with the text 'i love jquery' appears under the grid.\n  //your code here!\n};\n\nView.prototype.exercise4 = function () {\n  //Challenge: Write your first name in every other square.\n  //Result: Your name appears in every other square.\n  //your code here!\n};\n\nView.prototype.exercise5 = function () {\n  //Challenge: Alert the row and column of the square, when the square is clicked.\n  //Result: When a square is clicked, the row and column appear in an alert. for\n  //example: clicking the top left square should alert '0, 0'.\n  //hint: checkout the addRow function at the bottom of the file: we set the\n  //  'data-pos' of every square\n  //your code here!\n};\n\nView.prototype.exercise6 = function () {\n  //Challenge: Give every square a random color!\n  //Result: Every square becomes a color as soon as this code runs. The grid\n  //should become a beautiful rainbow of colors.\n  //hint: use window._randomColorString() (defined at top) to get a random color!\n  //your code here!\n};\n\nView.prototype.exercise7 = function () {\n  //Challenge: When your mouse goes over a square, console log its color.\n  //Result: When the mouse goes over a square its color should appear in the\n  //console. The color won't be the color's name, but its rbg value.\n  //You should push the button for exercise 6 first to try it on the\n  //rainbow.\n  //your code here!\n};\n\nView.prototype.setupEasel = function () {\n  const $addRowButton = $(\"<button>\").html(\"Add a row\");\n  this.$el.append($addRowButton);\n  $addRowButton.on(\"click\", this.addRow.bind(this));\n\n  for (let j = 0; j <= 7; j++) {\n    const $button = $(\"<button>\").html(\"Exercise \" + j);\n    $button.on(\"click\", this[\"exercise\" + j]);\n    this.$el.append($button);\n  }\n\n  for (let i = 0; i < 20; i++) {\n    this.addRow();\n  }\n};\n\nView.prototype.addRow = function () {\n  const rowIdx = this.$el.find(\".row\").length;\n  const $row = $(\"<ul>\").addClass(\"row\").addClass(\"group\");\n  for (let colIdx = 0; colIdx < 20; colIdx++) {\n    const $square = $(\"<li>\")\n      .addClass(\"square\")\n      .attr(\"data-pos\", [rowIdx, colIdx]);\n    $square.on(\"mouseenter\", (e) => {\n      const $square = $(e.currentTarget);\n      $square.css(\"background-color\", window._randomColorString());\n    });\n    $row.append($square);\n  }\n  this.$el.append($row);\n};\n\nmodule.exports = View;\n\n\n//# sourceURL=./js/view.js");
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
 /******/ 	// The module cache
-/******/ 	var installedModules = {};
-/******/
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
-/******/
 /******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId])
-/******/ 			return installedModules[moduleId].exports;
-/******/
+/******/ 		if(__webpack_module_cache__[moduleId]) {
+/******/ 			return __webpack_module_cache__[moduleId].exports;
+/******/ 		}
 /******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = installedModules[moduleId] = {
-/******/ 			exports: {},
-/******/ 			id: moduleId,
-/******/ 			loaded: false
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
 /******/ 		};
-/******/
+/******/ 	
 /******/ 		// Execute the module function
-/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/
-/******/ 		// Flag the module as loaded
-/******/ 		module.loaded = true;
-/******/
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-/******/
-/******/
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = modules;
-/******/
-/******/ 	// expose the module cache
-/******/ 	__webpack_require__.c = installedModules;
-/******/
-/******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "/js/";
-/******/
-/******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(0);
-/******/ })
+/******/ 	
 /************************************************************************/
-/******/ ([
-/* 0 */
-/***/ function(module, exports, __webpack_require__) {
+(() => {
+/*!********************!*\
+  !*** ./js/main.js ***!
+  \********************/
+eval("/* globals $ */\n\nvar View = __webpack_require__(/*! ./view */ \"./js/view.js\");\n\n$(function () {\n  var $easel = $(\"#easel\");\n  new View($easel);\n});\n\n\n//# sourceURL=./js/main.js");
+})();
 
-	module.exports = __webpack_require__(1);
-
-
-/***/ },
-/* 1 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* globals $ */
-	
-	var View = __webpack_require__(2);
-	
-	$(function () {
-	  var $easel = $("#easel");
-	  new View($easel);
-	});
-
-
-/***/ },
-/* 2 */
-/***/ function(module, exports) {
-
-	/* jshint esversion: 6 */
-	
-	function View($el) {
-	  this.$el = $el;
-	  this.setupEasel();
-	}
-	
-	window._randomColorString = function(){
-	  return '#' + Math.random().toString(16).substr(-6);
-	};
-	
-	View.prototype.exercise0 = function () {
-	  $('li').removeClass("square");
-	};
-	
-	View.prototype.exercise1 = function() {
-	  $("li").addClass("orange");
-	};
-	
-	View.prototype.exercise2 = function() {
-	  $('.square').remove();
-	};
-	
-	View.prototype.exercise3 = function() {
-	  const h1 = $("<h1>").text("I love jQuery");
-	  $("#easel").append(h1);
-	};
-	
-	View.prototype.exercise4 = function() {
-	  $(".square:nth-child(even)").text("Jeff");
-	  //this could also be solved using iteration and %
-	};
-	
-	View.prototype.exercise5 = function() {
-	  //hint: look at line 98 of this file: we set the 'data-pos' of every square
-	  $('.square').on("click", e => {
-	    const $sq = $(e.currentTarget);
-	    alert($sq.attr("data-pos"));
-	  });
-	};
-	
-	View.prototype.exercise6 = function() {
-	  $('.square').each( (idx, el) => {
-	    var $sq = $(el);
-	    $sq.css("background-color", _randomColorString());
-	  })
-	};
-	
-	View.prototype.exercise7 = function() {
-	  $('#easel').on("mouseenter", ".square", e => {
-	    const $sq = $(e.currentTarget);
-	    console.log($sq.css("background-color"));
-	  });
-	};
-	
-	
-	
-	View.prototype.setupEasel = function() {
-	  const $addRowButton = $('<button>').html('Add a row');
-	  this.$el.append($addRowButton);
-	  $addRowButton.on("click", this.addRow.bind(this));
-	
-	  for(let j = 0; j <= 7; j++){
-	    const $button = $("<button>").html("Exercise " + j);
-	    $button.on("click", this["exercise" + j]);
-	    this.$el.append($button);
-	  }
-	
-	  for(let i = 0; i < 20; i ++) {
-	    this.addRow();
-	  }
-	};
-	
-	View.prototype.addRow = function() {
-	  const rowIdx = this.$el.find(".row").length;
-	  const $row = $("<ul>").addClass("row").addClass("group");
-	  for(let colIdx = 0; colIdx < 20; colIdx++) {
-	    const $square = $("<li>").addClass("square").attr("data-pos", [rowIdx, colIdx]);
-	    $square.on("mouseenter", (e) => {
-	      const $square = $(e.currentTarget);
-	      $square.css("background-color", window._randomColorString());
-	    });
-	    $row.append($square);
-	  }
-	  this.$el.append($row);
-	};
-	
-	module.exports = View;
-
-
-/***/ }
-/******/ ]);
-//# sourceMappingURL=bundle.js.map
+/******/ })()
+;
