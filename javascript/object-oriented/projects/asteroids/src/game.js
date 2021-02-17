@@ -85,16 +85,6 @@ Game.prototype.wrap = function (position) {
 };
 
 Game.prototype.checkCollisions = function () {
-  // for (let i = 0; i < this.asteroids.length; i++) {
-  //   for (let j = i + 1; j < this.asteroids.length; j++) {
-  //     const object1 = this.asteroids[i];
-  //     const object2 = this.asteroids[j];
-  //     if (object1.isCollidedWith(object2)) {
-  //       this.remove(object1);
-  //       this.remove(object2);
-  //     }
-  //   }
-  // }
   for (let i = 0; i < this.asteroids.length; i++) {
     const asteroid = this.asteroids[i];
 
@@ -130,7 +120,6 @@ Game.prototype.step = function () {
 };
 
 Game.prototype.isOutOfBounds = function (pos) {
-  // console.log("***********", pos, this.width, this.height);
   return (
     pos[0] < 0 || pos[1] < 0 || pos[0] > this.width || pos[1] > this.height
   );

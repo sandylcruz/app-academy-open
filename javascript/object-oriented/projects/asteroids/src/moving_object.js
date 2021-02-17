@@ -1,8 +1,7 @@
 const utils = require("./utils.js");
-// const Bullet = require("./bullet.js");
 function MovingObject(options) {
-  this.pos = options.pos; // [100, 200]
-  this.vel = options.vel; // [2, 3]
+  this.pos = options.pos;
+  this.vel = options.vel;
   this.radius = options.radius;
   this.color = options.color;
   this.game = options.game;
