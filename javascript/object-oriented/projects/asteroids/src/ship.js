@@ -26,6 +26,17 @@ Ship.prototype.power = function (impulse) {
   this.vel = newVelocity;
 };
 
+Ship.prototype.fireBullet = function () {
+  const bullet = new Bullet({
+    pos: this.pos,
+    vel: bulletVelocity,
+    color: this.color,
+    game: this.game,
+  });
+
+  this.game.push(bullet);
+};
+
 Ship.RADIUS = 15;
 Ship.COLOR = "red";
 

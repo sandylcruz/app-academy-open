@@ -1,9 +1,11 @@
 const Asteroid = require("./asteroid");
 const Ship = require("./ship.js");
+const Bullet = require("./bullet.js");
 
 function Game({ height, width }) {
   this.height = height;
   this.width = width;
+  this.bullets = [];
   this.addAsteroids();
   console.log(Ship);
 
@@ -16,7 +18,7 @@ function Game({ height, width }) {
 Game.NUM_ASTEROIDS = 5;
 
 Game.prototype.allObjects = function allObjects() {
-  return [].concat(this.ship, this.asteroids);
+  return [].concat(this.ship, this.asteroids, this.bullets);
 };
 
 Game.prototype.addAsteroids = function () {
