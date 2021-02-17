@@ -101,6 +101,14 @@ Game.prototype.checkCollisions = function () {
     if (asteroid.isCollidedWith(this.ship)) {
       asteroid.collideWith(this.ship);
     }
+
+    for (let j = 0; j < this.bullets.length; j++) {
+      const bullet = this.bullets[j];
+
+      if (bullet.isCollidedWith(asteroid)) {
+        asteroid.collideWith(bullet);
+      }
+    }
   }
 };
 
