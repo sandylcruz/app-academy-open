@@ -8,7 +8,6 @@ function Game({ height, width }) {
   this.bullets = [];
   this.asteroids = [];
   this.addAsteroids();
-  console.log(Ship);
 
   this.ship = new Ship({
     pos: this.randomPosition(),
@@ -17,11 +16,21 @@ function Game({ height, width }) {
 }
 Game.BG_COLOR = "#000000";
 Game.NUM_ASTEROIDS = 10;
-Game.DIM_X = 1000;
-Game.DIM_Y = 600;
 
 Game.prototype.allObjects = function allObjects() {
   return [].concat(this.ship, this.asteroids, this.bullets);
+};
+
+Game.prototype.add = function add(object) {
+  if (object instanceof Asteroid) {
+    this.asteroids.push(object);
+  } else if (object instanceof Bullet) {
+    this.bullets.push(object);
+  } else if (object instanceof Ship) {
+    this.ships.push(object);
+  } else {
+    throw new Error("unknown type of object");
+  }
 };
 
 Game.prototype.addAsteroids = function () {
@@ -107,26 +116,16 @@ Game.prototype.remove = function remove(object) {
   }
 };
 
-// Game.prototype.remove = function (asteroidToRemove) {
-//   const newAsteroids = [];
-
-//   for (let i = 0; i < this.asteroids.length; i++) {
-//     const asteroid = this.asteroids[i];
-//     if (asteroidToRemove != asteroid) {
-//       newAsteroids.push(asteroid);
-//     }
-//   }
-
-//   this.asteroids = newAsteroids;
-// };
-
 Game.prototype.step = function () {
   this.moveObjects();
   this.checkCollisions();
 };
 
 Game.prototype.isOutOfBounds = function (pos) {
-  return pos[0] < 0 || pos[1] < 0 || pos[0] > Game.DIM_X || pos[1] > Game.DIM_Y;
+  // console.log("***********", pos, this.width, this.height);
+  return (
+    pos[0] < 0 || pos[1] < 0 || pos[0] > this.width || pos[1] > this.height
+  );
 };
 
 module.exports = Game;

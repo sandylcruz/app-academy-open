@@ -18,14 +18,16 @@ Asteroid.RADIUS = 15;
 
 utils.inherits(Asteroid, MovingObject);
 
-Asteroid.prototype.collideWith = function (otherObject) {
+Asteroid.prototype.collideWith = function collideWith(otherObject) {
   if (otherObject instanceof Ship) {
     otherObject.relocate();
+    return true;
   } else if (otherObject instanceof Bullet) {
     this.remove();
+    otherObject.remove();
+    return true;
   }
+  return false;
 };
-
-Asteroid.prototype.remove = function () {};
 
 module.exports = Asteroid;
