@@ -35,15 +35,21 @@ GameView.prototype.bindKeyHandlers = function () {
     this.game.ship.power([0, 1]);
   }
 
+  function handleFireBullet() {
+    this.game.ship.fireBullet();
+  }
+
   const boundHandleUp = handleUp.bind(this);
   const boundHandleRight = handleRight.bind(this);
   const boundHandleLeft = handleLeft.bind(this);
   const boundHandleDown = handleDown.bind(this);
+  const boundFireBullet = handleFireBullet.bind(this);
 
   window.key("w", boundHandleUp);
   window.key("d", boundHandleRight);
   window.key("a", boundHandleLeft);
   window.key("s", boundHandleDown);
+  window.key("space", boundFireBullet);
 };
 
 module.exports = GameView;

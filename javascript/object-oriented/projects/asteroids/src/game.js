@@ -6,6 +6,7 @@ function Game({ height, width }) {
   this.height = height;
   this.width = width;
   this.bullets = [];
+  this.asteroids = [];
   this.addAsteroids();
   console.log(Ship);
 
@@ -14,7 +15,7 @@ function Game({ height, width }) {
     game: this,
   });
 }
-
+Game.BG_COLOR = "#000000";
 Game.NUM_ASTEROIDS = 5;
 
 Game.prototype.allObjects = function allObjects() {
@@ -44,13 +45,13 @@ Game.prototype.randomPosition = function () {
 };
 
 Game.prototype.draw = function (context) {
-  const allObjects = this.allObjects();
   context.clearRect(0, 0, this.width, this.height);
+  context.fillStyle = Game.BG_COLOR;
 
   for (let i = 0; i < this.allObjects().length; i++) {
-    const asteroid = this.allObjects()[i];
+    const movingObject = this.allObjects()[i];
 
-    asteroid.draw(context);
+    movingObject.draw(context);
   }
 };
 
