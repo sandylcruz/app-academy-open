@@ -3,6 +3,7 @@
 function View($el) {
   this.$el = $el;
   this.setupEasel();
+  console.log(this.$el);
 }
 
 window._randomColorString = function () {
@@ -37,6 +38,8 @@ View.prototype.exercise3 = function () {
   //Challenge: Add an <h1> with the text 'i love jquery' under the grid.
   //Result: An <h1> with the text 'i love jquery' appears under the grid.
   //your code here!
+  console.log("!!!", this);
+  $("#easel").append("<h1>I love jquery</h1>");
 };
 
 View.prototype.exercise4 = function () {
@@ -86,6 +89,12 @@ View.prototype.setupEasel = function () {
     this.addRow();
   }
 };
+
+// function xfunction(a, b) {}
+
+// xfunction(1, 2);
+// xfunction.call(undefined, 1, 2);
+// xfunction.apply(undefined, [1, 2]);
 
 View.prototype.addRow = function () {
   const rowIdx = this.$el.find(".row").length;
