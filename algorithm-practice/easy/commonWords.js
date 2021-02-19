@@ -5,8 +5,13 @@ the two sentences
 */
 
 function commonWords(sentence1, sentence2) {
-  sentence1Array = sentence1.split(" ");
-  sentence2Array = sentence2.split(" ");
+  if (sentence1.length === 0 || sentence2.length === 0) {
+    return 0;
+  }
+
+  const sentence1Array = sentence1.split(" ").map((word) => word.toLowerCase());
+  const sentence2Array = sentence2.split(" ").map((word) => word.toLowerCase());
+
   let count = 0;
 
   for (let i = 0; i < sentence1Array.length; i++) {
@@ -21,3 +26,6 @@ function commonWords(sentence1, sentence2) {
 }
 
 console.log(commonWords("hello world hello oyster", "world is your oyster"));
+console.log(commonWords("Hello world hello oyster", "world is your oyster"));
+console.log(commonWords("hello hello", "hello hello"));
+console.log(commonWords("", ""));
