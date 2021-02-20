@@ -61,12 +61,17 @@ View.prototype.exercise5 = function () {
   });
 };
 
+//Challenge: Give every square a random color!
+//Result: Every square becomes a color as soon as this code runs. The grid
+//should become a beautiful rainbow of colors.
+//hint: use window._randomColorString() (defined at top) to get a random color!
+//your code here!
+
 View.prototype.exercise6 = function () {
-  //Challenge: Give every square a random color!
-  //Result: Every square becomes a color as soon as this code runs. The grid
-  //should become a beautiful rainbow of colors.
-  //hint: use window._randomColorString() (defined at top) to get a random color!
-  //your code here!
+  $(".square").each((idx, el) => {
+    var $sq = $(el);
+    $sq.css("background-color", _randomColorString());
+  });
 };
 
 View.prototype.exercise7 = function () {
