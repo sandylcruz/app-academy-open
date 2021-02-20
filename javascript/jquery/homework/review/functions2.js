@@ -1,13 +1,13 @@
 // Ways to call a function
 
 // Function-style when unbound
-function(arg1, arg2) { 
+greet(arg1, arg2) { 
   // "this" = "window" or "global"
 } 
 
 // Method-style
 callie = new Cat("callie");
-callie.method(arg1, arg2) {
+callie.greet(arg1, arg2) {
   // this = "callie" object
 }
 
