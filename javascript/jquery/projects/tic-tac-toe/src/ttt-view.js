@@ -1,11 +1,25 @@
+const Game = require("../game");
+
 class View {
   constructor(game, $el) {
     this.game = game;
     this.$el = $el;
     this.setupBoard();
+    this.bindEvents();
   }
 
-  bindEvents() {}
+  bindEvents() {
+    $("li").on("click", (event) => {
+      console.log(event);
+      const $clickedItem = $(event.target);
+      $clickedItem.text(this.game.currentPlayer);
+      const position = $clickedItem.attr("data-position");
+      const coordinatePair = position.split("");
+
+      console.log(position); // turn position into coordinate pair, then pass coordinate pair to this.game.playMove
+      this.game.playMove(position);
+    });
+  }
 
   makeMove($square) {}
 
@@ -24,8 +38,9 @@ class View {
       for (let j = 0; j < row.length; j++) {
         const item = row[j];
         const $liItem = $("<li />");
+        const position = `${i}, ${j}`;
+        $liItem.attr("data-position", position);
 
-        // check if li item is x or o
         $ulItem.append($liItem);
       }
     }
