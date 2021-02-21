@@ -55,7 +55,7 @@ eval("const View = __webpack_require__(/*! ./ttt-view.js */ \"./src/ttt-view.js\
   \*************************/
 /***/ ((module) => {
 
-eval("class View {\n  constructor(game, $el) {\n    this.game = game;\n    this.$el = $el;\n  }\n\n  bindEvents() {}\n\n  makeMove($square) {}\n\n  generateRow() {\n    return [undefined, undefined, undefined];\n  }\n\n  setupBoard() {\n    const grid = [this.generateRow(), this.generateRow(), this.generateRow()];\n  }\n}\n\nmodule.exports = View;\n\n\n//# sourceURL=webpack:///./src/ttt-view.js?");
+eval("class View {\n  constructor(game, $el) {\n    this.game = game;\n    this.$el = $el;\n    this.setupBoard();\n  }\n\n  bindEvents() {}\n\n  makeMove($square) {}\n\n  generateRow() {\n    return [undefined, undefined, undefined];\n  }\n\n  setupBoard() {\n    const grid = [this.generateRow(), this.generateRow(), this.generateRow()];\n\n    const $ulItem = $(\"<ul />\");\n\n    for (let i = 0; i < grid.length; i++) {\n      const row = grid[i];\n\n      for (let j = 0; j < row.length; j++) {\n        const item = row[j];\n        const $liItem = $(\"<li />\");\n\n        // check if li item is x or o\n        $ulItem.append($liItem);\n      }\n    }\n\n    this.$el.append($ulItem);\n  }\n}\n\nmodule.exports = View;\n\n\n//# sourceURL=webpack:///./src/ttt-view.js?");
 
 /***/ })
 
