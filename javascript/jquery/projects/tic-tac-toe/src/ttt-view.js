@@ -10,18 +10,53 @@ class View {
 
   bindEvents() {
     $("li").on("click", (event) => {
-      console.log(event);
-      const $clickedItem = $(event.target);
-      $clickedItem.text(this.game.currentPlayer);
-      const position = $clickedItem.attr("data-position");
-      const coordinatePair = JSON.parse("[" + position + "]");
+      if (this.game.isOver()) {
+        return;
+      }
 
-      console.log(coordinatePair); // turn position into coordinate pair, then pass coordinate pair to this.game.playMove
-      this.game.playMove(coordinatePair);
+      const $clickedItem = $(event.target); //html element that is clicked
+      this.makeMove($clickedItem);
     });
   }
 
-  makeMove($square) {}
+  makeMove($clickedItem) {
+    const {
+      game: { currentPlayer },
+    } = this;
+
+    // Update game logic via playMove with the parsed position
+    const position = $clickedItem.attr("data-position");
+    const newPosition = position.split(", "); // ["0", "1"]
+    const coordinatePair = newPosition.map((string) => {
+      const newNumber = Number(string);
+      return newNumber;
+    });
+
+    this.game.playMove(coordinatePair);
+
+    // This shit updates the DOM
+    $clickedItem.addClass(currentPlayer);
+    $clickedItem.text(currentPlayer);
+    $clickedItem.attr("data-is-clicked", true);
+
+    // Handle end game states
+    if (this.game.isOver()) {
+      const gameWinner = this.game.winner();
+      if (gameWinner === "x" || gameWinner === "o") {
+        const $node = $(`<h1>You win, ${gameWinner}</h1>`);
+        this.$el.append($node);
+        if (gameWinner === "x") {
+          this.$el.addClass("is-won-x");
+        } else {
+          this.$el.addClass("is-won-o");
+        }
+      } else if (gameWinner === null) {
+        const $node = $("<h1>It's a draw</h1>");
+        this.$el.append($node);
+        this.$el.addClass("draw");
+      }
+    }
+  }
 
   generateRow() {
     return [undefined, undefined, undefined];
@@ -40,6 +75,7 @@ class View {
         const $liItem = $("<li />");
         const position = `${i}, ${j}`;
         $liItem.attr("data-position", position);
+        $liItem.attr("data-is-clicked", false);
 
         $ulItem.append($liItem);
       }
