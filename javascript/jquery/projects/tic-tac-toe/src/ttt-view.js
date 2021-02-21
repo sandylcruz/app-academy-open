@@ -14,9 +14,9 @@ class View {
       const $clickedItem = $(event.target);
       $clickedItem.text(this.game.currentPlayer);
       const position = $clickedItem.attr("data-position");
-      const coordinatePair = position.split("");
+      const coordinatePair = JSON.parse("[" + position + "]");
 
-      console.log(position); // turn position into coordinate pair, then pass coordinate pair to this.game.playMove
+      console.log(coordinatePair); // turn position into coordinate pair, then pass coordinate pair to this.game.playMove
       this.game.playMove(position);
     });
   }
