@@ -17,7 +17,7 @@ class View {
       const coordinatePair = JSON.parse("[" + position + "]");
 
       console.log(coordinatePair); // turn position into coordinate pair, then pass coordinate pair to this.game.playMove
-      this.game.playMove(position);
+      this.game.playMove(coordinatePair);
     });
   }
 
