@@ -34,7 +34,7 @@ class View {
 
     this.game.playMove(coordinatePair);
 
-    // This shit updates the DOM
+    // This updates the DOM
     $clickedItem.addClass(currentPlayer);
     $clickedItem.text(currentPlayer);
     $clickedItem.attr("data-is-clicked", true);
