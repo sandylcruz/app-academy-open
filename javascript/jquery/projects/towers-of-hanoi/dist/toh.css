@@ -1,23 +1,30 @@
 h1 {
   font-family: helvetica;
-  font-size: 40px;
+  font-size: 60px;
   text-align: center;
 }
 
 ul {
   display: flex;
+  flex-wrap: wrap;
   border-bottom: 10px solid black;
   list-style: none;
-  width: 180px;
+  width: 150px;
   float: left;
   margin-right: 20px;
-  cursor: pointer;
+  align-items: center;
+  justify-content: center;
 }
 
-ul li:hover {
-  background-color: blue;
+ul:hover {
+  border-color: blue;
+  cursor: pointer;
 }
 
 li {
   list-style: none;
+}
+
+.hanoi-group {
+  min-width: 800px;
 }
