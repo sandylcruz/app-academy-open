@@ -32,6 +32,10 @@ class View {
 
       for (let j = 0; j < towers.length; j++) {
         const $liItem = $("<li />");
+        if (i === 0) {
+          const classToUse = `disk-${j}`;
+          $liItem.addClass(classToUse);
+        }
         $ulItem.append($liItem);
       }
       this.$rootEl.append($ulItem);
