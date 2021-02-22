@@ -1,4 +1,4 @@
-const View = require("./toh-views.js");
+const View = require("./hanoi-view.js");
 const Game = require("../game.js");
 
 $(() => {

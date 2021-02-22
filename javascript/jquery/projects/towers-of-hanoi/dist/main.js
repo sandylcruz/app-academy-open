@@ -15,7 +15,17 @@
   \*****************/
 /***/ ((module) => {
 
-eval("class Game {\n  constructor() {\n    this.towers = [[3, 2, 1], [], []];\n  }\n\n  isValidMove(startTowerIdx, endTowerIdx) {\n    const startTower = this.towers[startTowerIdx];\n    const endTower = this.towers[endTowerIdx];\n\n    if (startTower.length === 0) {\n      return false;\n    } else if (endTower.length == 0) {\n      return true;\n    } else {\n      const topStartDisc = startTower[startTower.length - 1];\n      const topEndDisc = endTower[endTower.length - 1];\n      return topStartDisc < topEndDisc;\n    }\n  }\n\n  isWon() {\n    // move all the discs to the last or second tower\n    return this.towers[2].length == 3 || this.towers[1].length == 3;\n  }\n\n  move(startTowerIdx, endTowerIdx) {\n    if (this.isValidMove(startTowerIdx, endTowerIdx)) {\n      this.towers[endTowerIdx].push(this.towers[startTowerIdx].pop());\n      return true;\n    } else {\n      return false;\n    }\n  }\n\n  print() {\n    console.log(JSON.stringify(this.towers));\n  }\n\n  promptMove(reader, callback) {\n    this.print();\n    reader.question(\"Enter a starting tower: \", (start) => {\n      const startTowerIdx = parseInt(start);\n      reader.question(\"Enter an ending tower: \", (end) => {\n        const endTowerIdx = parseInt(end);\n        callback(startTowerIdx, endTowerIdx);\n      });\n    });\n  }\n\n  run(reader, gameCompletionCallback) {\n    this.promptMove(reader, (startTowerIdx, endTowerIdx) => {\n      if (!this.move(startTowerIdx, endTowerIdx)) {\n        console.log(\"Invalid move!\");\n      }\n\n      if (!this.isWon()) {\n        // Continue to play!\n        this.run(reader, gameCompletionCallback);\n      } else {\n        this.print();\n        console.log(\"You win!\");\n        gameCompletionCallback();\n      }\n    });\n  }\n}\n\nmodule.exports = Game;\n\n\n//# sourceURL=webpack:///./game.js?");
+eval("class Game {\n  constructor() {\n    this.towers = [[1, 2, 3], [], []];\n  }\n\n  isValidMove(startTowerIdx, endTowerIdx) {\n    const startTower = this.towers[startTowerIdx];\n    const endTower = this.towers[endTowerIdx];\n\n    if (startTower.length === 0) {\n      return false;\n    } else if (endTower.length == 0) {\n      return true;\n    } else {\n      const topStartDisc = startTower[startTower.length - 1];\n      const topEndDisc = endTower[endTower.length - 1];\n      return topStartDisc < topEndDisc;\n    }\n  }\n\n  isWon() {\n    // move all the discs to the last or second tower\n    return this.towers[2].length == 3 || this.towers[1].length == 3;\n  }\n\n  move(startTowerIdx, endTowerIdx) {\n    if (this.isValidMove(startTowerIdx, endTowerIdx)) {\n      this.towers[endTowerIdx].push(this.towers[startTowerIdx].pop());\n      return true;\n    } else {\n      return false;\n    }\n  }\n\n  print() {\n    console.log(JSON.stringify(this.towers));\n  }\n\n  promptMove(reader, callback) {\n    this.print();\n    reader.question(\"Enter a starting tower: \", (start) => {\n      const startTowerIdx = parseInt(start);\n      reader.question(\"Enter an ending tower: \", (end) => {\n        const endTowerIdx = parseInt(end);\n        callback(startTowerIdx, endTowerIdx);\n      });\n    });\n  }\n\n  run(reader, gameCompletionCallback) {\n    this.promptMove(reader, (startTowerIdx, endTowerIdx) => {\n      if (!this.move(startTowerIdx, endTowerIdx)) {\n        console.log(\"Invalid move!\");\n      }\n\n      if (!this.isWon()) {\n        // Continue to play!\n        this.run(reader, gameCompletionCallback);\n      } else {\n        this.print();\n        console.log(\"You win!\");\n        gameCompletionCallback();\n      }\n    });\n  }\n}\n\nmodule.exports = Game;\n\n\n//# sourceURL=webpack:///./game.js?");
+
+/***/ }),
+
+/***/ "./src/hanoi-view.js":
+/*!***************************!*\
+  !*** ./src/hanoi-view.js ***!
+  \***************************/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("const Game = __webpack_require__(/*! ../game.js */ \"./game.js\");\n\nclass View {\n  constructor(game, $rootEl) {\n    this.game = game;\n    this.$rootEl = $rootEl;\n    this.setupTowers();\n    this.render();\n  }\n\n  bindEvents() {\n    $(\"li\").on(\"click\", (event) => {\n      if (this.game.isOver()) {\n        return;\n      }\n\n      const $clickedItem = $(event.target);\n      this.makeMove($clickedItem);\n    });\n  }\n\n  makeMove() {}\n\n  setupTowers() {\n    const towers = [[1, 2, 3], [], []];\n  }\n\n  render() {}\n}\n\n\n//# sourceURL=webpack:///./src/hanoi-view.js?");
 
 /***/ }),
 
@@ -25,17 +35,7 @@ eval("class Game {\n  constructor() {\n    this.towers = [[3, 2, 1], [], []];\n 
   \**********************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("const View = __webpack_require__(/*! ./toh-views.js */ \"./src/toh-views.js\");\nconst Game = __webpack_require__(/*! ../game.js */ \"./game.js\");\n\n$(() => {\n  const $rootEl = $(\".hanoi\");\n  const game = new Game();\n  const view = new View(game, $rootEl);\n});\n\n// document.addEventListener(\"DOMContentLoaded\", () => {});\n\n\n//# sourceURL=webpack:///./src/index.js?");
-
-/***/ }),
-
-/***/ "./src/toh-views.js":
-/*!**************************!*\
-  !*** ./src/toh-views.js ***!
-  \**************************/
-/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
-
-eval("const Game = __webpack_require__(/*! ../game.js */ \"./game.js\");\n\nclass View {\n  constructor(game, $rootEl) {\n    this.game = game;\n    this.rootEl = $rootEl;\n  }\n}\n\n\n//# sourceURL=webpack:///./src/toh-views.js?");
+eval("const View = __webpack_require__(/*! ./hanoi-view.js */ \"./src/hanoi-view.js\");\nconst Game = __webpack_require__(/*! ../game.js */ \"./game.js\");\n\n$(() => {\n  const $rootEl = $(\".hanoi\");\n  const game = new Game();\n  const view = new View(game, $rootEl);\n});\n\n// document.addEventListener(\"DOMContentLoaded\", () => {});\n\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ })
 

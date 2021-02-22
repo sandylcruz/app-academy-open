@@ -1,6 +1,6 @@
 class Game {
   constructor() {
-    this.towers = [[3, 2, 1], [], []];
+    this.towers = [[1, 2, 3], [], []];
   }
 
   isValidMove(startTowerIdx, endTowerIdx) {
