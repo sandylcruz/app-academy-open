@@ -2,7 +2,7 @@ const View = require("./hanoi-view.js");
 const Game = require("../game.js");
 
 $(() => {
-  const $rootEl = $(".hanoi");
+  const $rootEl = $(".hanoi-group");
   const game = new Game();
   const view = new View(game, $rootEl);
 });

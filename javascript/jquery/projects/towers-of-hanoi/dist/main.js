@@ -25,7 +25,7 @@ eval("class Game {\n  constructor() {\n    this.towers = [[1, 2, 3], [], []];\n 
   \***************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("const Game = __webpack_require__(/*! ../game.js */ \"./game.js\");\n\nclass View {\n  constructor(game, $rootEl) {\n    this.game = game;\n    this.$rootEl = $rootEl;\n    this.setupTowers();\n    this.render();\n    console.log(this.$rootEl);\n  }\n\n  bindEvents() {\n    $(\"li\").on(\"click\", (event) => {\n      if (this.game.isOver()) {\n        return;\n      }\n\n      const $clickedItem = $(event.target);\n      this.makeMove($clickedItem);\n    });\n  }\n\n  makeMove($clickedItem) {}\n\n  setupTowers() {\n    const towers = [[], [], []];\n    const $ulItem = $(\"<ul />\");\n\n    for (let i = 0; i < towers.length; i++) {\n      const tower = towers[i];\n      const $liItem = $(\"<li />\");\n\n      $ulItem.append($liItem);\n    }\n\n    this.$rootEl.append($ulItem);\n  }\n\n  render() {}\n}\n\nmodule.exports = View;\n\n\n//# sourceURL=webpack:///./src/hanoi-view.js?");
+eval("const Game = __webpack_require__(/*! ../game.js */ \"./game.js\");\n\nclass View {\n  constructor(game, $rootEl) {\n    this.game = game;\n    this.$rootEl = $rootEl;\n    this.setupTowers();\n    this.render();\n    console.log(this.$rootEl);\n  }\n\n  bindEvents() {\n    $(\"li\").on(\"click\", (event) => {\n      if (this.game.isOver()) {\n        return;\n      }\n\n      const $clickedItem = $(event.target);\n      this.makeMove($clickedItem);\n    });\n  }\n\n  makeMove($clickedItem) {}\n\n  setupTowers() {\n    const towers = [[undefined], [undefined], [undefined]];\n\n    for (let i = 0; i < towers.length; i++) {\n      const $ulItem = $(\"<ul />\");\n\n      const tower = towers[i];\n\n      for (let j = 0; j < towers.length; j++) {\n        const $liItem = $(\"<li />\");\n        $ulItem.append($liItem);\n      }\n      this.$rootEl.append($ulItem);\n    }\n  }\n\n  render() {}\n}\n\nmodule.exports = View;\n\n\n//# sourceURL=webpack:///./src/hanoi-view.js?");
 
 /***/ }),
 
@@ -35,7 +35,7 @@ eval("const Game = __webpack_require__(/*! ../game.js */ \"./game.js\");\n\nclas
   \**********************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("const View = __webpack_require__(/*! ./hanoi-view.js */ \"./src/hanoi-view.js\");\nconst Game = __webpack_require__(/*! ../game.js */ \"./game.js\");\n\n$(() => {\n  const $rootEl = $(\".hanoi\");\n  const game = new Game();\n  const view = new View(game, $rootEl);\n});\n\n// document.addEventListener(\"DOMContentLoaded\", () => {});\n\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("const View = __webpack_require__(/*! ./hanoi-view.js */ \"./src/hanoi-view.js\");\nconst Game = __webpack_require__(/*! ../game.js */ \"./game.js\");\n\n$(() => {\n  const $rootEl = $(\".hanoi-group\");\n  const game = new Game();\n  const view = new View(game, $rootEl);\n});\n\n// document.addEventListener(\"DOMContentLoaded\", () => {});\n\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ })
 

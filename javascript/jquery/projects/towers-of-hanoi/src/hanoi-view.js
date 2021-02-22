@@ -23,17 +23,19 @@ class View {
   makeMove($clickedItem) {}
 
   setupTowers() {
-    const towers = [[], [], []];
-    const $ulItem = $("<ul />");
+    const towers = [[undefined], [undefined], [undefined]];
 
     for (let i = 0; i < towers.length; i++) {
+      const $ulItem = $("<ul />");
+
       const tower = towers[i];
-      const $liItem = $("<li />");
 
-      $ulItem.append($liItem);
+      for (let j = 0; j < towers.length; j++) {
+        const $liItem = $("<li />");
+        $ulItem.append($liItem);
+      }
+      this.$rootEl.append($ulItem);
     }
-
-    this.$rootEl.append($ulItem);
   }
 
   render() {}

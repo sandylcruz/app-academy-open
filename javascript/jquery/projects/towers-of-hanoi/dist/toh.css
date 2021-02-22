@@ -6,5 +6,18 @@ h1 {
 
 ul {
   display: flex;
-  border: 2px solid black;
+  border-bottom: 10px solid black;
+  list-style: none;
+  width: 180px;
+  float: left;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+ul li:hover {
+  background-color: blue;
+}
+
+li {
+  list-style: none;
 }
