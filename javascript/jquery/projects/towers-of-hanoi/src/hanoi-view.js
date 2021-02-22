@@ -19,11 +19,23 @@ class View {
     });
   }
 
-  makeMove() {}
+  makeMove($clickedItem) {}
 
   setupTowers() {
-    const towers = [[1, 2, 3], [], []];
+    const towers = [[], [], []];
+    const $ulItem = $("<ul />");
+
+    for (let i = 0; i < towers.length; i++) {
+      const tower = towers[i];
+      const $liItem = $("<li />");
+
+      $ulItem.append($liItem);
+    }
+
+    this.$rootEl.append($ulItem);
   }
 
   render() {}
 }
+
+module.exports = View;
