@@ -6,6 +6,7 @@ class View {
     this.$rootEl = $rootEl;
     this.setupTowers();
     this.render();
+    console.log(this.$rootEl);
   }
 
   bindEvents() {
