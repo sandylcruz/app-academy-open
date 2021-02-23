@@ -16,33 +16,30 @@ class View {
       if (this.game.isWon()) {
         return;
       }
-
-      const $clickedItem = $(event.target);
+      const $clickedItem = $(event.currentTarget);
       const towerIndex = $clickedItem.attr("data-position");
 
       if (startTowerIndex === null) {
         startTowerIndex = towerIndex;
       } else if (startTowerIndex === towerIndex) {
-        alert("invalid move");
+        alert("Invalid move");
       } else {
         this.makeMove(startTowerIndex, towerIndex);
         startTowerIndex = null;
       }
-
-      // this.makeMove($clickedItem);
     });
   }
 
-  makeMove($clickedItem) {
+  makeMove(startTowerIndex, endTowerIndex) {
     // Update game logic
-    let startTowerIndex = $clickedItem.attr("data-position");
-    let endTowerIndex = $clickedItem.attr("data-position");
-    console.log(startTowerIndex);
-    console.log(endTowerIndex);
+    // let startTowerIndex = $clickedItem.attr("data-position");
+    // let endTowerIndex = $clickedItem.attr("data-position");
+    console.log(`start tower = ${startTowerIndex}`);
+    console.log(`end tower = ${endTowerIndex}`);
     this.game.move(startTowerIndex, endTowerIndex);
 
     // Update DOM
-    $clickedItem.addClass(selected);
+    // $clickedItem.addClass(selected);
 
     // Handle end game state
     if (this.game.isWon()) {
@@ -63,13 +60,13 @@ class View {
         if (i === 0) {
           const classToUse = `disk-${j}`;
           const position = `${j}`;
-          console.log(position);
           $liItem.addClass(classToUse);
 
           $liItem.attr("data-position", position);
         }
 
         $ulItem.append($liItem);
+        $ulItem.attr("data-position", i);
       }
 
       this.$rootEl.append($ulItem);
