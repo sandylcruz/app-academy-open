@@ -1,10 +1,10 @@
-const View = require("./hanoi-view.js");
-const Game = require("../game.js");
+const HnaoiView = require("./hanoi-view.js");
+const HanoiGame = require("../game.js");
 
 $(() => {
-  const $rootEl = $(".hanoi-group");
-  const game = new Game();
-  const view = new View(game, $rootEl);
+  const $rootEl = $(".hanoi");
+  const game = new HanoiGame();
+  const view = new HanoiView(game, rootEl);
 });
 
 // document.addEventListener("DOMContentLoaded", () => {});
