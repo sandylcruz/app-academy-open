@@ -1,4 +1,4 @@
-require("./board.js");
+const Board = require("./board.js");
 
 class View {
   constructor($el) {
@@ -6,6 +6,12 @@ class View {
     this.board = new Board();
     setInterval();
   }
+
+  handleKeyEvent() {}
+  render() {}
+  setupGrid() {}
+  updateClasses() {}
+  step() {}
 }
 
 module.exports = View;

@@ -13,9 +13,9 @@
 /*!**********************!*\
   !*** ./src/board.js ***!
   \**********************/
-/***/ ((module) => {
+/***/ (() => {
 
-eval("class Board {\n  constructor(dimension) {\n    this.dimension = dimension;\n  }\n\n  blankGrid() {}\n\n  render() {}\n\n  validPosition(coordinate) {}\n}\n\nmodule.exports = Board;\n\n\n//# sourceURL=webpack:///./src/board.js?");
+eval("class Board {\n  constructor() {}\n}\n\n\n//# sourceURL=webpack:///./src/board.js?");
 
 /***/ }),
 

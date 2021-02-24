@@ -6,6 +6,6 @@ window.addEventListener("DOMContentLoaded", () => {
   canvasElement.height = window.innerHeight;
   canvasElement.width = window.innerWidth;
   const context = canvasElement.getContext("2d");
-  const gameView = new View({ context: context });
+  const gameView = new GameView({ context: context });
   gameView.start();
 });
