@@ -12,8 +12,23 @@ h1 {
 
 .snake {
   background: green;
+  border-radius: 100%;
 }
 
 .snake-game {
   border: 7px solid black;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+li {
+  list-style: none;
+  padding: 0;
+  flex: 1;
+  height: 30px;
 }
