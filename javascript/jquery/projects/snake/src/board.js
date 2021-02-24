@@ -17,7 +17,6 @@ class Board {
 
       grid.push(row);
     }
-
     return grid;
   }
 

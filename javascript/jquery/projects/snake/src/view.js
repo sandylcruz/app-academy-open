@@ -27,17 +27,16 @@ class View {
   }
 
   setupGrid() {
-    // const grid = [this.generateRow(), this.generateRow(), this.generateRow(), this.generateRow(), this.generateRow(), this.generateRow(), this.generateRow(), this.generateRow(), this.generateRow(), this.generateRow()];
-    // const $ulItem = $("<ul />")
+    // const html = ""
     // for (let i = 0; i < 10; i++) {
-    //   const row = grid[i]
+    //   html += "<ul/>";
     //   for (let j = 0; j < 10 j++) {
-    //     const square = row[j];
-    //     const $liItem = $("<li >");
-    //     $ulItem.append($liItem)
+    //     html += "<li/>"
     //   }
+    //   html += "<ul/>"
     // }
-    // this.$el.append($ulItem)
+    // this.$el.html(html)
+    // this.$li = this.$el.find("li");
   }
 
   updateClasses() {}

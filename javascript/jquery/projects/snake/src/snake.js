@@ -11,6 +11,7 @@ class Snake {
   constructor(board) {
     this.direction = "N";
     this.segments = [[5, 5]];
+    console.log(this.segments);
     this.board = board;
   }
 
