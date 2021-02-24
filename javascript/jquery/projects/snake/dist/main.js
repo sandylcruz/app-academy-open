@@ -25,7 +25,7 @@ eval("class Board {\n  constructor() {}\n}\n\n\n//# sourceURL=webpack:///./src/b
   \**********************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("const View = __webpack_require__(/*! ./snake-view.js */ \"./src/snake-view.js\");\nconst Board = __webpack_require__(/*! ./board.js */ \"./src/board.js\");\n\n() => {\n  const board = new Board();\n};\n\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("const GameView = __webpack_require__(/*! ./snake-view.js */ \"./src/snake-view.js\");\nconst Board = __webpack_require__(/*! ./board.js */ \"./src/board.js\");\n\nwindow.addEventListener(\"DOMContentLoaded\", () => {\n  const canvasElement = document.getElementById(\"game-canvas\");\n  canvasElement.height = window.innerHeight;\n  canvasElement.width = window.innerWidth;\n  const context = canvasElement.getContext(\"2d\");\n  const gameView = new View({ context: context });\n  gameView.start();\n});\n\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ }),
 
