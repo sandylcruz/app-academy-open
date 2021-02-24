@@ -1,4 +1,5 @@
 const Snake = require("./snake.js");
+const Apple = require("./apple.js");
 
 class Board {
   constructor(dimension) {

@@ -9,13 +9,23 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/apple.js":
+/*!**********************!*\
+  !*** ./src/apple.js ***!
+  \**********************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("const Board = __webpack_require__(/*! ./board.js */ \"./src/board.js\");\nconst Coord = __webpack_require__(/*! ./coord.js */ \"./src/coord.js\");\n\nclass Apple {\n  constructor(board) {\n    this.board = board;\n    this.replace();\n  }\n\n  replace() {\n    const x = Math.floor(Math.random() * this.board.dimension);\n    const y = Math.floor(Math.random() * this.board.dimension);\n\n    this.position = new Coord(x, y);\n  }\n}\n\nmodule.exports = Apple;\n\n\n//# sourceURL=webpack:///./src/apple.js?");
+
+/***/ }),
+
 /***/ "./src/board.js":
 /*!**********************!*\
   !*** ./src/board.js ***!
   \**********************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("const Snake = __webpack_require__(/*! ./snake.js */ \"./src/snake.js\");\n\nclass Board {\n  constructor(dimension) {\n    this.dimension = dimension;\n    this.snake = new Snake(this);\n    this.apple = new Apple(this);\n  }\n\n  blankGrid(dimension) {\n    const grid = [];\n    for (let i = 0; i < this.dimension; i++) {\n      const row = grid[i];\n      for (let j = 0; j < this.dimension; j++) {\n        row.push(\".\");\n      }\n\n      grid.push(row);\n    }\n    return grid;\n  }\n\n  render(dimension) {\n    const grid = this.blankGrid(this.dimension);\n  }\n\n  validPosition(coordinate) {\n    return (\n      coordinate.i >= 0 &&\n      coordinate.i < this.dimension &&\n      coordinate.j >= 0 &&\n      coordinate.j < this.dimension\n    );\n  }\n}\n\nmodule.exports = Board;\n\n\n//# sourceURL=webpack:///./src/board.js?");
+eval("const Snake = __webpack_require__(/*! ./snake.js */ \"./src/snake.js\");\nconst Apple = __webpack_require__(/*! ./apple.js */ \"./src/apple.js\");\n\nclass Board {\n  constructor(dimension) {\n    this.dimension = dimension;\n    this.snake = new Snake(this);\n    this.apple = new Apple(this);\n  }\n\n  blankGrid(dimension) {\n    const grid = [];\n    for (let i = 0; i < this.dimension; i++) {\n      const row = grid[i];\n      for (let j = 0; j < this.dimension; j++) {\n        row.push(\".\");\n      }\n\n      grid.push(row);\n    }\n    return grid;\n  }\n\n  render(dimension) {\n    const grid = this.blankGrid(this.dimension);\n  }\n\n  validPosition(coordinate) {\n    return (\n      coordinate.i >= 0 &&\n      coordinate.i < this.dimension &&\n      coordinate.j >= 0 &&\n      coordinate.j < this.dimension\n    );\n  }\n}\n\nmodule.exports = Board;\n\n\n//# sourceURL=webpack:///./src/board.js?");
 
 /***/ }),
 

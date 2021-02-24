@@ -4,6 +4,7 @@ const Coord = require("./coord.js");
 class Apple {
   constructor(board) {
     this.board = board;
+    this.replace();
   }
 
   replace() {

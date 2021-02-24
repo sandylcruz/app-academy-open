@@ -13,3 +13,7 @@ h1 {
 .snake {
   background: green;
 }
+
+.snake-game {
+  border: 7px solid black;
+}
