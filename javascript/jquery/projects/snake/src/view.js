@@ -17,45 +17,54 @@ class View {
 
     $(window).on("keydown", this.handleKeyEvent);
 
-    setInterval;
+    window.setInterval(this.step(), 1000);
   }
 
   handleKeyEvent(event) {
-    // console.log(event);
-    // console.log(this);
-
     if (event.key === "ArrowRight") {
-      // console.log("Right");
       this.board.snake.turn("E");
     } else if (event.key === "ArrowLeft") {
-      // console.log("Left");
       this.board.snake.turn("W");
     } else if (event.key === "ArrowUp") {
-      // console.log("Up");
       this.board.snake.turn("N");
     } else if (event.key === "ArrowDown") {
-      // console.log("Down");
       this.board.snake.turn("S");
     }
   }
 
-  render() {}
+  setupElements() {
+    // inject 10 ul's, inject 10 li's in each ul
+  }
+
+  render() {
+    for (let i = 0; i < this.board.dimension; i++) {
+      const row = [];
+
+      for (let j = 0; j < this.board.dimension; j++) {
+        // console.log(`${i}, ${j}`);
+      }
+    }
+  }
 
   setupGrid() {
-    // const html = ""
+    // length html = ""
     // for (let i = 0; i < 10; i++) {
-    //   html += "<ul/>";
+    //   html += "<ul>";
     //   for (let j = 0; j < 10 j++) {
-    //     html += "<li/>"
+    //     html += "<li>"
     //   }
-    //   html += "<ul/>"
+    //   html += "<ul>"
     // }
     // this.$el.html(html)
     // this.$li = this.$el.find("li");
   }
 
   updateClasses() {}
-  step() {}
+
+  step() {
+    this.board.snake.move();
+    this.board.render();
+  }
 }
 
 module.exports = View;
