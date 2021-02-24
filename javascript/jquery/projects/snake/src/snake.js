@@ -21,7 +21,9 @@ class Snake {
     this.segments.unshift(newHead);
   }
 
-  turn(newDirection) {}
+  turn(newDirection) {
+    this.direction = newDirection;
+  }
 
   eatApple() {}
 
