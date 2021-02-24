@@ -45,7 +45,7 @@ eval("class Coord {\n  constructor(i, j) {\n    this.i = i;\n    this.j = j;\n  
   \**********************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("const View = __webpack_require__(/*! ./view.js */ \"./src/view.js\");\nconst Board = __webpack_require__(/*! ./board.js */ \"./src/board.js\");\n\n$(function () {\n  const rootEl = $(\".snake-game\");\n  new View(rootEl);\n});\n\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("const View = __webpack_require__(/*! ./view.js */ \"./src/view.js\");\nconst Board = __webpack_require__(/*! ./board.js */ \"./src/board.js\");\n\n$(() => {\n  const rootEl = $(\".snake-game\");\n  const board = new Board(10);\n  new View(rootEl);\n});\n\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ }),
 
@@ -55,7 +55,7 @@ eval("const View = __webpack_require__(/*! ./view.js */ \"./src/view.js\");\ncon
   \**********************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("const Coord = __webpack_require__(/*! ./coord.js */ \"./src/coord.js\");\n\nconst DIRECTIONS = {\n  N: new Coord(-1, 0),\n  E: new Coord(0, 1),\n  S: new Coord(1, 0),\n  W: new Coord(0, -1),\n};\n\nclass Snake {\n  constructor(board) {\n    this.direction = \"N\";\n    this.segments = [[5, 5]];\n    console.log(this.segments);\n    this.board = board;\n  }\n\n  move() {\n    this.segments.pop(); // remove tail\n    const directionCoordinate = DIRECTIONS[this.direction];\n    const newHead = this.head().plus(directionCoordinate);\n    this.segments.unshift(newHead);\n  }\n\n  turn(newDirection) {\n    this.direction = newDirection;\n  }\n\n  eatApple() {}\n\n  isOccupying() {}\n\n  head() {\n    return this.segments[0];\n  }\n\n  isValid() {}\n}\n\nmodule.exports = Snake;\n\n\n//# sourceURL=webpack:///./src/snake.js?");
+eval("const Coord = __webpack_require__(/*! ./coord.js */ \"./src/coord.js\");\n\nconst DIRECTIONS = {\n  N: new Coord(-1, 0),\n  E: new Coord(0, 1),\n  S: new Coord(1, 0),\n  W: new Coord(0, -1),\n};\n\nclass Snake {\n  constructor(board) {\n    this.direction = \"N\";\n    this.segments = [[5, 5]];\n    this.board = board;\n  }\n\n  move() {\n    this.segments.pop(); // remove tail\n    const directionCoordinate = DIRECTIONS[this.direction];\n    const newHead = this.head().plus(directionCoordinate);\n    this.segments.unshift(newHead);\n  }\n\n  turn(newDirection) {\n    this.direction = newDirection;\n  }\n\n  eatApple() {}\n\n  isOccupying() {}\n\n  head() {\n    return this.segments[0];\n  }\n\n  isValid() {}\n}\n\nmodule.exports = Snake;\n\n\n//# sourceURL=webpack:///./src/snake.js?");
 
 /***/ }),
 
@@ -65,7 +65,7 @@ eval("const Coord = __webpack_require__(/*! ./coord.js */ \"./src/coord.js\");\n
   \*********************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("const Board = __webpack_require__(/*! ./board.js */ \"./src/board.js\");\n\nclass View {\n  constructor($el) {\n    this.$el = $el;\n    this.board = new Board();\n    // setInterval();\n    this.setupGrid();\n  }\n\n  handleKeyEvent() {}\n  render() {}\n\n  generateRow() {\n    // return [\n    //   undefined,\n    //   undefined,\n    //   undefined,\n    //   undefined,\n    //   undefined,\n    //   undefined,\n    //   undefined,\n    //   undefined,\n    //   undefined,\n    //   undefined,\n    // ];\n  }\n\n  setupGrid() {\n    // const html = \"\"\n    // for (let i = 0; i < 10; i++) {\n    //   html += \"<ul/>\";\n    //   for (let j = 0; j < 10 j++) {\n    //     html += \"<li/>\"\n    //   }\n    //   html += \"<ul/>\"\n    // }\n    // this.$el.html(html)\n    // this.$li = this.$el.find(\"li\");\n  }\n\n  updateClasses() {}\n  step() {}\n}\n\nmodule.exports = View;\n\n\n//# sourceURL=webpack:///./src/view.js?");
+eval("const Board = __webpack_require__(/*! ./board.js */ \"./src/board.js\");\n\nKEYS = {\n  38: \"N\",\n  39: \"E\",\n  40: \"S\",\n  37: \"W\",\n};\n\nclass View {\n  constructor($el) {\n    this.$el = $el;\n    this.board = new Board(10);\n    this.setupGrid();\n    this.render();\n    this.handleKeyEvent = this.handleKeyEvent.bind(this);\n\n    $(window).on(\"keydown\", this.handleKeyEvent);\n\n    setInterval;\n  }\n\n  handleKeyEvent(event) {\n    // console.log(event);\n    // console.log(this);\n\n    if (event.key === \"ArrowRight\") {\n      // console.log(\"Right\");\n      this.board.snake.turn(\"E\");\n    } else if (event.key === \"ArrowLeft\") {\n      // console.log(\"Left\");\n      this.board.snake.turn(\"W\");\n    } else if (event.key === \"ArrowUp\") {\n      // console.log(\"Up\");\n      this.board.snake.turn(\"N\");\n    } else if (event.key === \"ArrowDown\") {\n      // console.log(\"Down\");\n      this.board.snake.turn(\"S\");\n    }\n  }\n\n  render() {}\n\n  setupGrid() {\n    // const html = \"\"\n    // for (let i = 0; i < 10; i++) {\n    //   html += \"<ul/>\";\n    //   for (let j = 0; j < 10 j++) {\n    //     html += \"<li/>\"\n    //   }\n    //   html += \"<ul/>\"\n    // }\n    // this.$el.html(html)\n    // this.$li = this.$el.find(\"li\");\n  }\n\n  updateClasses() {}\n  step() {}\n}\n\nmodule.exports = View;\n\n\n//# sourceURL=webpack:///./src/view.js?");
 
 /***/ })
 
