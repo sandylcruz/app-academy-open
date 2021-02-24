@@ -1,14 +1,14 @@
 const Coord = require("./coord.js");
 
-class Snake {
-  DIRECTIONS = {
-    N: new Coord(-1, 0),
-    E: new Coord(0, 1),
-    S: new Coord(1, 0),
-    W: new Coord(0, -1),
-  };
+const DIRECTIONS = {
+  N: new Coord(-1, 0),
+  E: new Coord(0, 1),
+  S: new Coord(1, 0),
+  W: new Coord(0, -1),
+};
 
-  constructor() {
+class Snake {
+  constructor(board) {
     this.direction = "N";
     this.segments = [[5, 5]];
     this.board = board;

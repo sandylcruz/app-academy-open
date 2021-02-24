@@ -1,2 +1,2 @@
-const GameView = require("./snake-view.js");
+const GameView = require("./view.js");
 const Board = require("./board.js");
