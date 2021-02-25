@@ -1,0 +1,20 @@
+<form id="cat-form">
+  <input type="text" name="cat[name]" />
+  <input type="text" name="cat[color]" />
+  <input type="submit" />
+</form>
+
+<script>
+  $("#cat-form").on("submit", (event) => {
+    event.preventDefault();
+    var formData = $(event.currentTarget).serialize();
+    $.ajax({
+      url: "/cats",
+      type: "POST",
+      data: formData,
+      success() {
+        console.log("Success");
+      },
+    });
+  });
+</script>
