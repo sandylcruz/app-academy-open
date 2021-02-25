@@ -13,17 +13,20 @@ class Snake {
     this.direction = "N";
     this.segments = [new Coord(5, 5)];
     this.board = board;
-
-    const x = Math.floor(Math.random() * this.board.dimension);
-    const y = Math.floor(Math.random() * this.board.dimension);
-    this.position = new Coord(x, y);
   }
 
   move() {
-    const head = this.segments.pop(); // remove tail
+    const head = this.segments[0]; // remove tail
+
     const directionCoordinate = DIRECTIONS[this.direction];
     const newHead = head.plus(directionCoordinate);
-    this.segments.unshift(newHead);
+    if (this.isValid(newHead)) {
+      this.segments.pop();
+      this.segments.unshift(newHead);
+      return true;
+    } else {
+      return false;
+    }
   }
 
   turn(newDirection) {
@@ -45,7 +48,9 @@ class Snake {
     return this.segments[0];
   }
 
-  isValid() {}
+  isValid(coordinate) {
+    return coordinate.isValid(this.board.dimension);
+  }
 }
 
 module.exports = Snake;

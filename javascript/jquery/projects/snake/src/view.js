@@ -20,7 +20,7 @@ class View {
 
     $(window).on("keydown", this.handleKeyEvent);
     this.step();
-    window.setInterval(this.step, 1000);
+    this.interval = window.setInterval(this.step, 1000);
   }
 
   handleKeyEvent(event) {
@@ -70,20 +70,30 @@ class View {
           const appleCoordinate = this.coordinateAsString(coordinate);
           const $appleElement = $(`li[data-coordinate="${appleCoordinate}"]`);
           $appleElement.addClass("apple");
-        } else if (coordinate.equals(snake.position)) {
-          const snakeCoordinate = this.coordinateAsString(coordinate);
-          const $snakeElement = $(`li[data-coordinate="${snakeCoordinate}"]`);
-          $snakeElement.addClass("snake");
+        } else {
+          const isCoordinatePartOfSnakeBody = this.board.snake.segments.some(
+            (segment) => {
+              return segment.equals(coordinate);
+            }
+          );
+
+          if (isCoordinatePartOfSnakeBody) {
+            const snakeCoordinate = this.coordinateAsString(coordinate);
+            const $snakeElement = $(`li[data-coordinate="${snakeCoordinate}"]`);
+            $snakeElement.addClass("snake");
+          }
         }
       }
     }
   }
 
-  updateClasses() {}
-
   step() {
-    this.board.snake.move();
-    this.render();
+    if (this.board.snake.move()) {
+      this.render();
+    } else {
+      alert("You lose");
+      window.clearInterval(this.interval);
+    }
   }
 }
 

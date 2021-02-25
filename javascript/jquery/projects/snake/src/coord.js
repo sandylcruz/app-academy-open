@@ -8,9 +8,11 @@ class Coord {
     return this.i === coordinate2.i && this.j === coordinate2.j;
   }
 
-  // isOpposite(coordinate2) {
-
-  // }
+  isValid(dimension) {
+    return (
+      this.i >= 0 && this.i < dimension && this.j >= 0 && this.j < dimension
+    );
+  }
 
   plus(coordinate2) {
     const i = this.i + coordinate2.i;
