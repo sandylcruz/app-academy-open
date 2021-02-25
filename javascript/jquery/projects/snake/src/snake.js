@@ -11,14 +11,15 @@ const DIRECTIONS = {
 class Snake {
   constructor(board) {
     this.direction = "N";
-    this.segments = [[5, 5]];
+    this.segments = [new Coord(5, 5)];
     this.board = board;
+    console.log(this.segments);
   }
 
   move() {
-    this.segments.pop(); // remove tail
+    const head = this.segments.pop(); // remove tail
     const directionCoordinate = DIRECTIONS[this.direction];
-    const newHead = this.head().plus(directionCoordinate);
+    const newHead = head.plus(directionCoordinate);
     this.segments.unshift(newHead);
   }
 
@@ -37,6 +38,7 @@ class Snake {
   isOccupying() {}
 
   head() {
+    console.log(this.segments);
     return this.segments[0];
   }
 

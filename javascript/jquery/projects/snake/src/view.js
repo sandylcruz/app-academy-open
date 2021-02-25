@@ -16,10 +16,11 @@ class View {
     this.render();
 
     this.handleKeyEvent = this.handleKeyEvent.bind(this);
+    this.step = this.step.bind(this);
 
     $(window).on("keydown", this.handleKeyEvent);
-
-    window.setInterval(this.step(), 1000);
+    this.step();
+    window.setInterval(this.step, 1000);
   }
 
   handleKeyEvent(event) {
@@ -69,10 +70,6 @@ class View {
 
           const $appleElement = $(`li[data-coordinate="${appleCoordinate}"]`);
           $appleElement.addClass("apple");
-
-          console.log($appleElement);
-
-          console.log(coordinate);
         }
       }
     }
@@ -82,7 +79,7 @@ class View {
 
   step() {
     this.board.snake.move();
-    this.board.render();
+    this.render();
   }
 }
 
