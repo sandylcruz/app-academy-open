@@ -21,8 +21,12 @@ class Snake {
     const directionCoordinate = DIRECTIONS[this.direction];
     const newHead = head.plus(directionCoordinate);
     if (this.isValid(newHead)) {
-      this.segments.pop();
       this.segments.unshift(newHead);
+      if (!this.eatApple()) {
+        this.segments.pop();
+      } else {
+        this.board.resetApple();
+      }
       return true;
     } else {
       return false;
@@ -34,17 +38,14 @@ class Snake {
   }
 
   eatApple() {
-    if (this.head() === this.board.apple.position) {
+    if (this.head().equals(this.board.apple.position)) {
       return true;
     } else {
       return false;
     }
   }
 
-  isOccupying() {}
-
   head() {
-    console.log(this.segments);
     return this.segments[0];
   }
 

@@ -11,7 +11,7 @@ KEYS = {
 class View {
   constructor($el) {
     this.$el = $el;
-    this.board = new Board(15);
+    this.board = new Board(50);
     this.setupElements();
     this.render();
 
@@ -20,7 +20,7 @@ class View {
 
     $(window).on("keydown", this.handleKeyEvent);
     this.step();
-    this.interval = window.setInterval(this.step, 1000);
+    this.interval = window.setInterval(this.step, 100);
   }
 
   handleKeyEvent(event) {

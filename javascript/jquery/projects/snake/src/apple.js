@@ -10,6 +10,12 @@ class Apple {
 
     this.position = new Coord(x, y);
   }
+
+  replace() {
+    let x = Math.floor(Math.random() * this.board.dim);
+    let y = Math.floor(Math.random() * this.board.dim);
+    this.position = new Coord(x, y);
+  }
 }
 
 module.exports = Apple;

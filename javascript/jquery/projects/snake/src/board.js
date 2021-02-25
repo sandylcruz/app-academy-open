@@ -16,6 +16,10 @@ class Board {
       coordinate.j < this.dimension
     );
   }
+
+  resetApple() {
+    this.apple = new Apple(this);
+  }
 }
 
 module.exports = Board;
