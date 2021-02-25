@@ -11,7 +11,7 @@ KEYS = {
 class View {
   constructor($el) {
     this.$el = $el;
-    this.board = new Board(20);
+    this.board = new Board(15);
     this.setupElements();
     this.render();
 
