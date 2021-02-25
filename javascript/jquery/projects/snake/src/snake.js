@@ -13,7 +13,10 @@ class Snake {
     this.direction = "N";
     this.segments = [new Coord(5, 5)];
     this.board = board;
-    console.log(this.segments);
+
+    const x = Math.floor(Math.random() * this.board.dimension);
+    const y = Math.floor(Math.random() * this.board.dimension);
+    this.position = new Coord(x, y);
   }
 
   move() {

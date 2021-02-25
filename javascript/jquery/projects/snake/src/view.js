@@ -63,13 +63,17 @@ class View {
 
       for (let j = 0; j < this.board.dimension; j++) {
         const coordinate = new Coord(i, j);
+        const snake = this.board.snake;
         const apple = this.board.apple;
 
         if (coordinate.equals(apple.position)) {
           const appleCoordinate = this.coordinateAsString(coordinate);
-
           const $appleElement = $(`li[data-coordinate="${appleCoordinate}"]`);
           $appleElement.addClass("apple");
+        } else if (coordinate.equals(snake.position)) {
+          const snakeCoordinate = this.coordinateAsString(coordinate);
+          const $snakeElement = $(`li[data-coordinate="${snakeCoordinate}"]`);
+          $snakeElement.addClass("snake");
         }
       }
     }
