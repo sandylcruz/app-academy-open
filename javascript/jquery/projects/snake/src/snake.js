@@ -1,3 +1,4 @@
+const Apple = require("./apple.js");
 const Coord = require("./coord.js");
 
 const DIRECTIONS = {
@@ -25,7 +26,13 @@ class Snake {
     this.direction = newDirection;
   }
 
-  eatApple() {}
+  eatApple() {
+    if (this.head() === this.board.apple.position) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 
   isOccupying() {}
 

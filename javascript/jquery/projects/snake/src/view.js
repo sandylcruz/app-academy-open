@@ -1,4 +1,5 @@
 const Board = require("./board.js");
+const Coord = require("./coord.js");
 
 KEYS = {
   38: "N",
@@ -10,9 +11,10 @@ KEYS = {
 class View {
   constructor($el) {
     this.$el = $el;
-    this.board = new Board(10);
-    this.render();
+    this.board = new Board(20);
     this.setupElements();
+    this.render();
+
     this.handleKeyEvent = this.handleKeyEvent.bind(this);
 
     $(window).on("keydown", this.handleKeyEvent);
@@ -39,7 +41,7 @@ class View {
     for (let i = 0; i < this.board.dimension; i++) {
       html += "<ul>";
       for (let j = 0; j < this.board.dimension; j++) {
-        html += "<li></li>";
+        html += `<li data-coordinate="${i}, ${j}"></li>`;
       }
       html += "</ul>";
     }
@@ -48,12 +50,30 @@ class View {
     this.$li = this.$el.find("li");
   }
 
+  coordinateAsString(coordinate) {
+    return `${coordinate.i}, ${coordinate.j}`;
+  }
+
   render() {
+    $("li").removeClass();
+
     for (let i = 0; i < this.board.dimension; i++) {
       const row = [];
 
       for (let j = 0; j < this.board.dimension; j++) {
-        // console.log(`${i}, ${j}`);
+        const coordinate = new Coord(i, j);
+        const apple = this.board.apple;
+
+        if (coordinate.equals(apple.position)) {
+          const appleCoordinate = this.coordinateAsString(coordinate);
+
+          const $appleElement = $(`li[data-coordinate="${appleCoordinate}"]`);
+          $appleElement.addClass("apple");
+
+          console.log($appleElement);
+
+          console.log(coordinate);
+        }
       }
     }
   }
