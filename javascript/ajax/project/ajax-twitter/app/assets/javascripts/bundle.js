@@ -120,31 +120,9 @@ module.exports = FollowToggle;
 /*!**********************************!*\
   !*** ./frontend/users_search.js ***!
   \**********************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+/***/ (() => {
 
-const APIUtil = __webpack_require__(/*! ./api_util.js */ "./frontend/api_util.js");
-
-class UsersSearch {
-  constructor(el) {
-    this.$el = $(el);
-    this.$input = this.$el.find("input");
-    this.$ul = this.$el.find("ul");
-
-    this.handleInput = this.handleInput.bind(this);
-
-    this.$input.on("input", this.handleInput);
-  }
-
-  handleInput(event) {
-    console.log(event.target.value);
-    APIUtil.searchUsers(event.target.value).then((data) => {
-      console.log(data);
-    });
-  }
-}
-
-module.exports = UsersSearch;
-
+throw new Error("Module parse failed: Unexpected token (25:36)\nYou may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders\n|     this.$ul.empty();\n| \n>     for (let i = 0; i < users.length) {\n|       const user = users[i];\n| ");
 
 /***/ })
 

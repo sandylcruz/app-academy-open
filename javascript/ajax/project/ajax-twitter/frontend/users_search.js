@@ -1,4 +1,5 @@
 const APIUtil = require("./api_util.js");
+const FollowToggle = require("./follow_toggle.js")
 
 class UsersSearch {
   constructor(el) {
@@ -12,10 +13,26 @@ class UsersSearch {
   }
 
   handleInput(event) {
-    console.log(event.target.value);
+    // console.log(event.target.value);
     APIUtil.searchUsers(event.target.value).then((data) => {
       console.log(data);
-    });
+    }).then(renderResults(users));
+  }
+
+  renderResults(users) {
+    this.$ul.empty();
+
+    for (let i = 0; i < users.length) {
+      const user = users[i];
+
+      const $a = $("<a></a>")
+      $a.text(`@${user.username}`);
+      $a.attr()
+
+      const $li = $("<li></li>")
+      $li.append($a)
+      this.$ul.append($li)
+    }
   }
 }
 
