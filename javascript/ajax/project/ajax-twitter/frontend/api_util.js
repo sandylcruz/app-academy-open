@@ -1,6 +1,6 @@
 const APIUtil = {
   followUser: (id) => {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
       $.ajax({
         url: `/users/${id}/follow`,
         dataType: "json",
@@ -13,13 +13,26 @@ const APIUtil = {
   },
 
   unfollowUser: (id) => {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
       $.ajax({
         url: `/users/${id}/follow`,
         dataType: "json",
         type: "DELETE",
         success: () => {
           resolve();
+        },
+      });
+    });
+  },
+
+  searchUsers: (queryVal) => {
+    return new Promise((resolve) => {
+      $.ajax({
+        url: `/users/search?query=${queryVal}`,
+        dataType: "json",
+        type: "GET",
+        success: (data) => {
+          resolve(data);
         },
       });
     });

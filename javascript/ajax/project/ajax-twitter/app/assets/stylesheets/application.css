@@ -72,9 +72,19 @@ h2 {
   position: relative;
 }
 
-.links a:hover, .logout_button:hover {
-  color: purple;
+.links a:hover {
+  text-decoration: hover;
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+}
 
+.logout_button:hover {
+  /* background-color: grey; */
+  /* border-color: blue; */
+  text-decoration: hover;
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  /* transform: scale(1.2); */
 }
 
 .logout_button {
