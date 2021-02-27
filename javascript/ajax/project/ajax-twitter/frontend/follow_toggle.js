@@ -5,21 +5,20 @@ class FollowToggle {
     this.followState = this.$el.data("initial-follow-state");
     this.render();
 
-    this.$el.on("click", this.handleClick.bind(this);
+    this.$el.on("click", this.handleClick.bind(this));
   }
 
   handleClick(event) {
     const followToggle = this;
-    const formData = $(event.currentTarget).serialize();
+    const eventUserId = event.target.getAttribute("data-user-id");
 
     event.preventDefault();
 
     $.ajax({
-      url: `/users/${id}/follow`,
+      url: `/users/${eventUserId}/follow`,
       dataType: "json",
-      type: this.followState === "followed" ? "POST" : "DELETE",
-      data: formData,
-      success: function (formData) {
+      type: this.followState === "unfollowed" ? "POST" : "DELETE",
+      success: () => {
         if (this.followState === "followed") {
           this.followState = "unfollowed";
           this.render();
@@ -34,7 +33,7 @@ class FollowToggle {
   render() {
     if (this.followState === "unfollowed") {
       this.$el.html("Follow");
-    } else if (this.followState === "follow") {
+    } else if (this.followState === "followed") {
       this.$el.html("Unfollowed");
     }
   }
