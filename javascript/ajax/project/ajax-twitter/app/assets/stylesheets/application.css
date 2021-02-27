@@ -68,6 +68,15 @@ h2 {
   max-width: 300px;
 }
 
+.links a:hover, .logout_button {
+  position: relative;
+}
+
+.links a:hover, .logout_button:hover {
+  color: purple;
+
+}
+
 .logout_button {
   background: none !important;
   border: none;
@@ -80,12 +89,14 @@ h2 {
 
 }
 
-.logout_button:hover {
-  color: purple;
-}
+
 
 ul {
   list-style: none;
+}
+
+.links a {
+  text-decoration: none;
 }
 
 a:visited {
@@ -94,10 +105,10 @@ a:visited {
   font-size: 20px;
 }
 
-.links a:hover {
+/* .links a:hover {
   text-decoration: underline;
   transition: 1s;
-}
+} */
 
 .logo {
   font-size: 50px;
