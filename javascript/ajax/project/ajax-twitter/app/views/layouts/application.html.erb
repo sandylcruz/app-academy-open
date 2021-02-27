@@ -10,11 +10,12 @@
 
   <body>
     <nav class="main-nav">
+      <h1 class="logo">Cat Twitter</h1>
       <ul class="links">
         <li><a href="<%= feed_url %>">Feed</a></li>
         <li><a href="<%= search_users_url %>">User Search</a></li>
-      </ul>
-    
+      
+    <li>
     <% if current_user %>
       <form action="/session" method="POST">
         <input type="hidden" name="_method" value="DELETE">
@@ -23,9 +24,11 @@
           name="authenticity_token"
           value="<%= form_authenticity_token %>">
 
-        <input type="submit" value="Logout!">
+        <input type="submit" value="Logout!" class="logout_button">
+      </li>
       </form>
     <% end %>
+    </ul>
     </nav>
 
     <%= yield %>

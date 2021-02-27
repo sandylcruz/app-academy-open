@@ -30,6 +30,7 @@ body {
   font-family: "Roboto", sans-serif;
   background-color: #e6ecf0;
   color: #657786;
+  font-weight: bolder;
 }
 
 h1 {
@@ -46,20 +47,52 @@ h2 {
 
 .main-nav {
   background-color: white;
-  display: block;
+  display: flex;
   width: 100%;
+  height: 100%;
+  justify-content: space-between;
 }
 
-button {
+.links {
+  background-color: purple;
+}
+
+.logout_button {
+  background: none !important;
+  border: none;
+  padding: 0 !important;
+  cursor: pointer;
+  font-family: "Roboto", sans-serif;
+  color: #657786;
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+.logout_button:hover {
+  text-decoration: underline;
+  transition: 1s;
 }
 
 ul {
   list-style: none;
 }
 
-a. {
+a:visited {
   text-decoration: none;
   color: #657786;
-  font-color: #657786;
   font-size: 20px;
+}
+
+.links a {
+  text-decoration: none;
+  color: #657786;
+  font-size: 20px;
+  font-weight: bolder;
+  float: left;
+  display: block;
+}
+
+.links a:hover {
+  text-decoration: underline;
+  transition: 1s;
 }
