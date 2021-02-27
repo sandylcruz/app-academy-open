@@ -54,7 +54,18 @@ h2 {
 }
 
 .links {
-  background-color: purple;
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+  padding: 10px;
+  text-decoration: none;
+  color: #657786;
+  font-size: 20px;
+  font-weight: bolder;
+  float: left;
+  display: flex;
+  flex: 1;
+  max-width: 300px;
 }
 
 .logout_button {
@@ -66,11 +77,11 @@ h2 {
   color: #657786;
   font-size: 20px;
   font-weight: bolder;
+
 }
 
 .logout_button:hover {
-  text-decoration: underline;
-  transition: 1s;
+  color: purple;
 }
 
 ul {
@@ -83,16 +94,13 @@ a:visited {
   font-size: 20px;
 }
 
-.links a {
-  text-decoration: none;
-  color: #657786;
-  font-size: 20px;
-  font-weight: bolder;
-  float: left;
-  display: block;
-}
-
 .links a:hover {
   text-decoration: underline;
   transition: 1s;
+}
+
+.logo {
+  font-size: 50px;
+  background-color: purple
+  font-weight: 50;
 }
