@@ -46,6 +46,20 @@ const APIUtil = {
       });
     });
   },
+
+  createTweet: (data) => {
+    return new Promise((resolve) => {
+      $.ajax({
+        url: "/tweets",
+        dataType: "json",
+        type: "POST",
+        data: data,
+        success: (data) => {
+          resolve(data);
+        },
+      });
+    });
+  },
 };
 
 module.exports = APIUtil;
@@ -110,6 +124,75 @@ class FollowToggle {
 }
 
 module.exports = FollowToggle;
+
+
+/***/ }),
+
+/***/ "./frontend/tweet_compose.js":
+/*!***********************************!*\
+  !*** ./frontend/tweet_compose.js ***!
+  \***********************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+const APIUtil = __webpack_require__(/*! ./api_util */ "./frontend/api_util.js");
+
+// class JQUERY {
+//   on(eventName, callback) {
+//     this.addEventListener(eventName, (event) => {
+//       callback(event);
+//     });
+//   }
+// }
+
+class TweetCompose {
+  constructor(el) {
+    // form is el
+    this.$el = $(el);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.$el.on("submit", this.handleSubmit);
+    this.$textArea = this.$el.find("textarea");
+    this.handleTextAreaInput = this.handleTextAreaInput.bind(this);
+    this.$textArea.on("input", this.handleTextAreaInput);
+  }
+
+  handleTextAreaInput(event) {
+    const $strong = this.$el.find("strong");
+    const maximumCharacters = 140;
+    const numCharactersTextArea = event.target.value.length;
+    const numRemainingCharacters = maximumCharacters - numCharactersTextArea;
+    const textCountdown = `Number of remaining characters: ${numRemainingCharacters}`;
+    $strong.html(textCountdown);
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+
+    const data = this.$el.serializeJSON();
+    APIUtil.createTweet(data).then((data) => {
+      console.log("It works");
+      this.handleSuccess(data);
+    });
+
+    const $inputs = this.$el.find(":input");
+    $inputs.attr("disabled", true);
+  }
+
+  clearInput() {
+    const $inputs = this.$el.find(":input").not("[type='Submit']");
+    $inputs.val("");
+  }
+
+  handleSuccess(data) {
+    const $inputs = this.$el.find(":input");
+    $inputs.attr("disabled", false);
+    this.clearInput();
+    const $ul = $(this.$el.attr("data-tweets-ul"));
+    const $li = $(`<li>${data.content}</li>`);
+    $ul.prepend($li);
+  }
+}
+
+module.exports = TweetCompose;
 
 
 /***/ }),
@@ -206,6 +289,7 @@ var __webpack_exports__ = {};
   \*****************************/
 const FollowToggle = __webpack_require__(/*! ./follow_toggle.js */ "./frontend/follow_toggle.js");
 const UsersSearch = __webpack_require__(/*! ./users_search.js */ "./frontend/users_search.js");
+const TweetCompose = __webpack_require__(/*! ./tweet_compose.js */ "./frontend/tweet_compose.js");
 
 $(() => {
   const $buttons = $("button.follow-toggle");
@@ -215,6 +299,10 @@ $(() => {
   const $usersSearches = $("nav.users-search");
   $usersSearches.each((index, $usersSearch) => {
     new UsersSearch($usersSearch);
+  });
+  const $composeTweets = $(".tweet-compose");
+  $composeTweets.each((index, $composeTweet) => {
+    new TweetCompose($composeTweet);
   });
 });
 

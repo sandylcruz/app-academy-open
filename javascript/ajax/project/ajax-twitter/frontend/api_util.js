@@ -37,6 +37,20 @@ const APIUtil = {
       });
     });
   },
+
+  createTweet: (data) => {
+    return new Promise((resolve) => {
+      $.ajax({
+        url: "/tweets",
+        dataType: "json",
+        type: "POST",
+        data: data,
+        success: (data) => {
+          resolve(data);
+        },
+      });
+    });
+  },
 };
 
 module.exports = APIUtil;

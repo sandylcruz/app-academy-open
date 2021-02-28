@@ -12,7 +12,6 @@ class TweetsController < ApplicationController
         format.html { render :show }
         format.json { render :show }
       end
-      redirect_to request.referrer
     else
       # Lazy: even respond with JSON to invalid HTML request.
       render json: @tweet.errors.full_messages, status: 422
