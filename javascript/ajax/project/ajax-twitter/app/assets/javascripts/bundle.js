@@ -60,7 +60,6 @@ module.exports = APIUtil;
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 const APIUtil = __webpack_require__(/*! ./api_util.js */ "./frontend/api_util.js");
-const UsersSearch = __webpack_require__(/*! ./users_search.js */ "./frontend/users_search.js");
 
 class FollowToggle {
   constructor(el, options) {
@@ -74,13 +73,10 @@ class FollowToggle {
   }
 
   handleClick(event) {
-    const followToggle = this;
-    const eventUserId = event.target.getAttribute("data-user-id");
-
     event.preventDefault();
 
     if (this.followState === "unfollowed") {
-      APIUtil.followUser(eventUserId).then(() => {
+      APIUtil.followUser(this.userId).then(() => {
         this.followState = "followed";
         this.render();
       });
@@ -88,7 +84,7 @@ class FollowToggle {
       this.followState = "following";
       this.render();
     } else {
-      APIUtil.unfollowUser(eventUserId).then(() => {
+      APIUtil.unfollowUser(this.userId).then(() => {
         this.followState = "unfollowed";
         this.render();
       });
@@ -122,9 +118,57 @@ module.exports = FollowToggle;
 /*!**********************************!*\
   !*** ./frontend/users_search.js ***!
   \**********************************/
-/***/ (() => {
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-throw new Error("Module parse failed: Unexpected token (38:36)\nYou may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders\n| \n|       const $followToggleButton = $(\"<button></button>\");\n>       new FollowToggle(el, options) {\n| \n|       }");
+const APIUtil = __webpack_require__(/*! ./api_util.js */ "./frontend/api_util.js");
+const FollowToggle = __webpack_require__(/*! ./follow_toggle.js */ "./frontend/follow_toggle.js");
+
+class UsersSearch {
+  constructor(el) {
+    this.$el = $(el);
+    this.$input = this.$el.find("input");
+    this.$ul = this.$el.find("ul");
+
+    this.handleInput = this.handleInput.bind(this);
+
+    this.$input.on("input", this.handleInput);
+  }
+
+  handleInput(event) {
+    APIUtil.searchUsers(event.target.value).then((users) => {
+      this.renderResults(users);
+    });
+  }
+
+  renderResults(users) {
+    this.$ul.empty();
+
+    for (let i = 0; i < users.length; i++) {
+      const user = users[i];
+
+      const $a = $("<a></a>");
+      $a.text(`@${user.username}`);
+
+      const userId = user.id;
+      $a.attr("href", `/users/${userId}`);
+
+      const $followToggle = $("<button></button>");
+      console.log(FollowToggle);
+      new FollowToggle($followToggle, {
+        userId: user.id,
+        followState: user.followed ? "followed" : "unfollowed",
+      });
+
+      const $li = $("<li></li>");
+      $li.append($a);
+      $li.append($followToggle);
+      this.$ul.append($li);
+    }
+  }
+}
+
+module.exports = UsersSearch;
+
 
 /***/ })
 

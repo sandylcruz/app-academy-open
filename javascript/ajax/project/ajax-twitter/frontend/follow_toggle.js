@@ -1,5 +1,4 @@
 const APIUtil = require("./api_util.js");
-const UsersSearch = require("./users_search.js");
 
 class FollowToggle {
   constructor(el, options) {
@@ -13,13 +12,10 @@ class FollowToggle {
   }
 
   handleClick(event) {
-    const followToggle = this;
-    const eventUserId = event.target.getAttribute("data-user-id");
-
     event.preventDefault();
 
     if (this.followState === "unfollowed") {
-      APIUtil.followUser(eventUserId).then(() => {
+      APIUtil.followUser(this.userId).then(() => {
         this.followState = "followed";
         this.render();
       });
@@ -27,7 +23,7 @@ class FollowToggle {
       this.followState = "following";
       this.render();
     } else {
-      APIUtil.unfollowUser(eventUserId).then(() => {
+      APIUtil.unfollowUser(this.userId).then(() => {
         this.followState = "unfollowed";
         this.render();
       });

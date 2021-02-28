@@ -13,8 +13,8 @@ class UsersSearch {
   }
 
   handleInput(event) {
-    APIUtil.searchUsers(event.target.value).then((data) => {
-      this.renderResults(data);
+    APIUtil.searchUsers(event.target.value).then((users) => {
+      this.renderResults(users);
     });
   }
 
@@ -30,14 +30,17 @@ class UsersSearch {
       const userId = user.id;
       $a.attr("href", `/users/${userId}`);
 
+      const $followToggle = $("<button></button>");
+      console.log(FollowToggle);
+      new FollowToggle($followToggle, {
+        userId: user.id,
+        followState: user.followed ? "followed" : "unfollowed",
+      });
+
       const $li = $("<li></li>");
       $li.append($a);
+      $li.append($followToggle);
       this.$ul.append($li);
-
-      const $followToggleButton = $("<button></button>");
-      new FollowToggle(el, options) {
-
-      }
     }
   }
 }
