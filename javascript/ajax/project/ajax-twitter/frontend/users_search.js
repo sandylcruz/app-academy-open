@@ -34,6 +34,8 @@ class UsersSearch {
       const $li = $("<li></li>");
       $li.append($a);
       this.$ul.append($li);
+
+      const $followToggleButton = $("<button></button>");
     }
   }
 }

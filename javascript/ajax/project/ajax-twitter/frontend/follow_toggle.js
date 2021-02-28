@@ -1,4 +1,5 @@
 const APIUtil = require("./api_util.js");
+const UsersSearch = require("./users_search.js");
 
 class FollowToggle {
   constructor(el, options) {
@@ -41,7 +42,7 @@ class FollowToggle {
       this.$el.html("Follow");
       this.$el.attr("disabled", false);
     } else if (this.followState === "followed") {
-      this.$el.html("Unfollowed");
+      this.$el.html("Unfollow");
       this.$el.attr("disabled", false);
     } else if (this.followState === "following") {
       this.$el.attr("disabled", true);

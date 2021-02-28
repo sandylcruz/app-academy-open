@@ -60,6 +60,7 @@ module.exports = APIUtil;
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 const APIUtil = __webpack_require__(/*! ./api_util.js */ "./frontend/api_util.js");
+const UsersSearch = __webpack_require__(/*! ./users_search.js */ "./frontend/users_search.js");
 
 class FollowToggle {
   constructor(el, options) {
@@ -102,7 +103,7 @@ class FollowToggle {
       this.$el.html("Follow");
       this.$el.attr("disabled", false);
     } else if (this.followState === "followed") {
-      this.$el.html("Unfollowed");
+      this.$el.html("Unfollow");
       this.$el.attr("disabled", false);
     } else if (this.followState === "following") {
       this.$el.attr("disabled", true);
@@ -159,6 +160,8 @@ class UsersSearch {
       const $li = $("<li></li>");
       $li.append($a);
       this.$ul.append($li);
+
+      const $followToggleButton = $("<button></button>");
     }
   }
 }
