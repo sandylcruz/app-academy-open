@@ -69,7 +69,8 @@ h2 {
   max-width: 300px;
 }
 
-.links a:hover, .logout_button {
+.links a:hover,
+.logout_button {
   position: relative;
 }
 
@@ -97,10 +98,7 @@ h2 {
   color: #657786;
   font-size: 20px;
   font-weight: bolder;
-
 }
-
-
 
 ul {
   list-style: none;
@@ -123,6 +121,19 @@ a:visited {
 
 .logo {
   font-size: 50px;
-  background-color: purple
+  background-color: purple;
   font-weight: 50;
+}
+
+.tweet-compose textarea {
+  padding: 20px;
+  margin: 20px;
+}
+
+.tweet-compose {
+  height: 200px;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 }
