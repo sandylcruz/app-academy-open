@@ -5,6 +5,9 @@
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
+    <script type="text/javascript">
+      window.users = <%= render("users/users.json.jbuilder", users: User.all).html_safe %>; 
+    </script>
     <%= javascript_include_tag 'application' %>
   </head>
 

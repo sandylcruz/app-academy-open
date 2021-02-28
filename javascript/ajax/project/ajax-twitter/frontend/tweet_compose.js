@@ -7,6 +7,23 @@ const APIUtil = require("./api_util");
 //     });
 //   }
 // }
+// const options = [
+//   {
+//     id: 1,
+//     username: "name",
+//   },
+// ];
+
+const newUserSelect = () => {
+  const $select = $("<select></select>");
+  const users = window.users;
+
+  users.forEach((user) => {
+    const $option = $(`<option>${user.username}</option>`);
+    $select.append($option);
+  });
+  return $select;
+};
 
 class TweetCompose {
   constructor(el) {
