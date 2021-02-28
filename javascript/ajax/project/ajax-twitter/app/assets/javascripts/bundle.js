@@ -122,52 +122,9 @@ module.exports = FollowToggle;
 /*!**********************************!*\
   !*** ./frontend/users_search.js ***!
   \**********************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+/***/ (() => {
 
-const APIUtil = __webpack_require__(/*! ./api_util.js */ "./frontend/api_util.js");
-const FollowToggle = __webpack_require__(/*! ./follow_toggle.js */ "./frontend/follow_toggle.js");
-
-class UsersSearch {
-  constructor(el) {
-    this.$el = $(el);
-    this.$input = this.$el.find("input");
-    this.$ul = this.$el.find("ul");
-
-    this.handleInput = this.handleInput.bind(this);
-
-    this.$input.on("input", this.handleInput);
-  }
-
-  handleInput(event) {
-    // console.log(event.target.value);
-    APIUtil.searchUsers(event.target.value).then((data) => {
-      this.renderResults(data);
-    });
-  }
-
-  renderResults(users) {
-    this.$ul.empty();
-
-    for (let i = 0; i < users.length; i++) {
-      const user = users[i];
-
-      const $a = $("<a></a>");
-      $a.text(`@${user.username}`);
-
-      const userId = user.id;
-      $a.attr("href", `/users/${userId}`);
-
-      const $li = $("<li></li>");
-      $li.append($a);
-      this.$ul.append($li);
-
-      const $followToggleButton = $("<button></button>");
-    }
-  }
-}
-
-module.exports = UsersSearch;
-
+throw new Error("Module parse failed: Unexpected token (38:36)\nYou may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders\n| \n|       const $followToggleButton = $(\"<button></button>\");\n>       new FollowToggle(el, options) {\n| \n|       }");
 
 /***/ })
 

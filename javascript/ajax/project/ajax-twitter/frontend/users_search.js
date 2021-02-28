@@ -13,7 +13,6 @@ class UsersSearch {
   }
 
   handleInput(event) {
-    // console.log(event.target.value);
     APIUtil.searchUsers(event.target.value).then((data) => {
       this.renderResults(data);
     });
@@ -36,6 +35,9 @@ class UsersSearch {
       this.$ul.append($li);
 
       const $followToggleButton = $("<button></button>");
+      new FollowToggle(el, options) {
+
+      }
     }
   }
 }
