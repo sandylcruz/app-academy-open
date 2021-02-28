@@ -16,10 +16,11 @@ const APIUtil = require("./api_util");
 
 const newUserSelect = () => {
   const $select = $("<select></select>");
+  $select.attr("name", "tweet[mentioned_user_ids][]");
   const users = window.users;
 
   users.forEach((user) => {
-    const $option = $(`<option>${user.username}</option>`);
+    const $option = $(`<option value="${user.id}">${user.username}</option>`);
     $select.append($option);
   });
   return $select;
@@ -29,11 +30,23 @@ class TweetCompose {
   constructor(el) {
     // form is el
     this.$el = $(el);
+    this.$addMentions = this.$el.find(".add-mentions");
+
     this.handleSubmit = this.handleSubmit.bind(this);
     this.$el.on("submit", this.handleSubmit);
     this.$textArea = this.$el.find("textarea");
     this.handleTextAreaInput = this.handleTextAreaInput.bind(this);
     this.$textArea.on("input", this.handleTextAreaInput);
+    this.$addMention = this.$el.find(".add-mention");
+
+    this.handleAddMentionClick = this.handleAddMentionClick.bind(this);
+    this.$addMention.on("click", this.handleAddMentionClick);
+  }
+
+  handleAddMentionClick(event) {
+    const $select = newUserSelect();
+    this.$addMentions.append($select);
+    // $select.insertBefore(this.$addMention);
   }
 
   handleTextAreaInput(event) {
@@ -59,8 +72,15 @@ class TweetCompose {
   }
 
   clearInput() {
-    const $inputs = this.$el.find(":input").not("[type='Submit']");
+    const $inputs = this.$el
+      .find(":input")
+      .not("[type='submit']")
+      .not("[type='button']");
+
     $inputs.val("");
+    const $strong = this.$el.find("strong");
+    $strong.html("");
+    this.$addMentions.html("");
   }
 
   handleSuccess(data) {

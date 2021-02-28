@@ -10,18 +10,10 @@
     <textarea name="tweet[content]" placeholder="Write something..."></textarea>
     <strong class="chars-left"></strong>
   </label>
+
+  <ul class="add-mentions"></ul>
+  <input class="add-mention" type="button" value="Add mention" />
   <br>
 
-  <label>
-    Mention
-    <select name="tweet[mentioned_user_ids][]">
-      <option></option>
-      <% User.all.each do |user| %>
-        <option value="<%= user.id %>"><%= user.username %></option>
-      <% end %>
-    </select>
-  </label>
-  <br>
-
-  <input type="Submit" value="Post Tweet!">
+  <input type="submit" value="Post Tweet!">
 </form>
