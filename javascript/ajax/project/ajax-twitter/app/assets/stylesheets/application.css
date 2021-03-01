@@ -40,7 +40,7 @@ h1 {
 }
 
 h2 {
-  font-size: 20px;
+  font-size: 30px;
   font-family: "Fredoka One", cursive;
   color: #1da1f2;
 }
@@ -81,12 +81,9 @@ h2 {
 }
 
 .logout_button:hover {
-  /* background-color: grey; */
-  /* border-color: blue; */
   text-decoration: hover;
   -webkit-transform: scale(1.2);
   -ms-transform: scale(1.2);
-  /* transform: scale(1.2); */
 }
 
 .logout_button {
@@ -135,4 +132,35 @@ a:visited {
   display: flex;
   flex-direction: column;
   text-align: center;
+}
+
+.infinite-tweets ul li {
+  background-color: white;
+  border-bottom: 1px solid #657786;
+  width: 300px;
+  height: 150px;
+  padding: 20px;
+}
+
+.add-mention {
+  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 20px;
+  color: white;
+  background-color: #1da1f2;
+}
+
+.submit {
+  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 20px;
+  color: white;
+  background-color: #1da1f2;
+}
+
+.textbox {
+  border-radius: 20px;
+  width: 300px;
+  height: 200px;
+  margin: 20px;
 }
