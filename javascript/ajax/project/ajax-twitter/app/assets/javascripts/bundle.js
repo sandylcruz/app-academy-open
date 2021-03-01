@@ -60,6 +60,19 @@ const APIUtil = {
       });
     });
   },
+
+  getTweets: () => {
+    return new Promise((resolve) => {
+      $.ajax({
+        url: "/feed",
+        dataType: "json",
+        type: "GET",
+        success: (data) => {
+          resolve(data);
+        },
+      });
+    });
+  },
 };
 
 module.exports = APIUtil;
@@ -124,6 +137,35 @@ class FollowToggle {
 }
 
 module.exports = FollowToggle;
+
+
+/***/ }),
+
+/***/ "./frontend/infinite_tweets.js":
+/*!*************************************!*\
+  !*** ./frontend/infinite_tweets.js ***!
+  \*************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+const APIUtil = __webpack_require__(/*! ./api_util.js */ "./frontend/api_util.js");
+
+class InfiniteTweets {
+  constructor(el) {
+    this.$el = $(el);
+
+    this.handleClick = this.handleClick.bind(this);
+    this.$el.on("click", this.handleClick);
+  }
+
+  handleClick(event) {
+    this.fetchTweets();
+    APIUtil.getTweets();
+  }
+
+  fetchTweets() {}
+}
+
+module.exports = InfiniteTweets;
 
 
 /***/ }),
@@ -336,6 +378,7 @@ var __webpack_exports__ = {};
 const FollowToggle = __webpack_require__(/*! ./follow_toggle.js */ "./frontend/follow_toggle.js");
 const UsersSearch = __webpack_require__(/*! ./users_search.js */ "./frontend/users_search.js");
 const TweetCompose = __webpack_require__(/*! ./tweet_compose.js */ "./frontend/tweet_compose.js");
+const InfiniteTweets = __webpack_require__(/*! ./infinite_tweets.js */ "./frontend/infinite_tweets.js");
 
 $(() => {
   const $buttons = $("button.follow-toggle");
@@ -349,6 +392,11 @@ $(() => {
   const $composeTweets = $(".tweet-compose");
   $composeTweets.each((index, $composeTweet) => {
     new TweetCompose($composeTweet);
+  });
+
+  const $fetchMores = $(".fetch-more");
+  $fetchMores.each((index, $fetchMore) => {
+    new InfiniteTweets($fetchMore);
   });
 });
 

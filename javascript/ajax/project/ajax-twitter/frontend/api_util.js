@@ -51,6 +51,19 @@ const APIUtil = {
       });
     });
   },
+
+  getTweets: () => {
+    return new Promise((resolve) => {
+      $.ajax({
+        url: "/feed",
+        dataType: "json",
+        type: "GET",
+        success: (data) => {
+          resolve(data);
+        },
+      });
+    });
+  },
 };
 
 module.exports = APIUtil;
