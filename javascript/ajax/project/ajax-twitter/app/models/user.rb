@@ -60,13 +60,15 @@ class User < ApplicationRecord
       .order('tweets.created_at DESC')
       .distinct
 
-    unless limit.nil? || max_created_at.nil? 
-      @tweets
-        .limit(limit)
-        .where("tweets.created_at < :max_created_at", max_created_at: max_created_at)
-    else
-      @tweets
+    unless limit.nil?
+      @tweets = @tweets.limit(limit)
     end
+
+    unless max_created_at.nil?
+      @tweets = @tweets.where("tweets.created_at < :max_created_at", max_created_at: max_created_at)
+    end
+
+    @tweets
   end
 
   def followed_user_ids

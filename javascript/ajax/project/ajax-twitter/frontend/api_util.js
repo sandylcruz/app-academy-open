@@ -52,16 +52,22 @@ const APIUtil = {
     });
   },
 
-  getTweets: () => {
+  getTweets: (maxCreatedAt) => {
     return new Promise((resolve) => {
-      $.ajax({
+      const options = {
         url: "/feed",
         dataType: "json",
         type: "GET",
         success: (data) => {
           resolve(data);
         },
-      });
+      };
+      if (maxCreatedAt) {
+        options.data = {
+          max_created_at: maxCreatedAt,
+        };
+      }
+      $.ajax(options);
     });
   },
 };

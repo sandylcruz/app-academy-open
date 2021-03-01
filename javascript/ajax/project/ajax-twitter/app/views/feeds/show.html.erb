@@ -3,9 +3,7 @@
 <b>Your Feed!</b>
 <div class="infinite-tweets">
   <ul id="feed">
-    <% @feed_tweets.each do |tweet| %>
-      <li><%= render 'tweets/tweet', tweet: tweet %></li>
-    <% end %>
+
   </ul>
 
   <a class="fetch-more" href="#fetch-more">Fetch More</a>
