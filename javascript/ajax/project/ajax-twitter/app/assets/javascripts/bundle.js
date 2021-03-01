@@ -136,20 +136,6 @@ module.exports = FollowToggle;
 
 const APIUtil = __webpack_require__(/*! ./api_util */ "./frontend/api_util.js");
 
-// class JQUERY {
-//   on(eventName, callback) {
-//     this.addEventListener(eventName, (event) => {
-//       callback(event);
-//     });
-//   }
-// }
-// const options = [
-//   {
-//     id: 1,
-//     username: "name",
-//   },
-// ];
-
 const newUserSelect = () => {
   const $select = $("<select></select>");
   $select.attr("name", "tweet[mentioned_user_ids][]");
@@ -159,7 +145,15 @@ const newUserSelect = () => {
     const $option = $(`<option value="${user.id}">${user.username}</option>`);
     $select.append($option);
   });
-  return $select;
+
+  const $div = $("<div></div>");
+  const $a = $(
+    "<a href='#remove-mentioned-user' class='remove-mentioned-user'>Remove</a>"
+  );
+  $div.append($select);
+  $div.append($a);
+
+  return $div;
 };
 
 class TweetCompose {
@@ -167,6 +161,9 @@ class TweetCompose {
     // form is el
     this.$el = $(el);
     this.$addMentions = this.$el.find(".add-mentions");
+
+    this.handleAddMentionsClick = this.handleAddMentionsClick.bind(this);
+    this.$addMentions.on("click", this.handleAddMentionsClick);
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.$el.on("submit", this.handleSubmit);
@@ -177,6 +174,18 @@ class TweetCompose {
 
     this.handleAddMentionClick = this.handleAddMentionClick.bind(this);
     this.$addMention.on("click", this.handleAddMentionClick);
+  }
+
+  handleAddMentionsClick(event) {
+    const $targetElement = $(event.target);
+
+    if ($(event.currentTarget).find("a").is($targetElement)) {
+      this.removeMentionedUser($targetElement);
+    }
+  }
+
+  removeMentionedUser($clickedATag) {
+    $clickedATag.parent().remove();
   }
 
   handleAddMentionClick(event) {
