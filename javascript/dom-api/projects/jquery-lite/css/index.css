@@ -1,0 +1,23 @@
+body,
+h1,
+h2,
+p {
+  font-family: helvetica;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-size: 40px;
+  text-align: center;
+  margin: 20px;
+}
+
+h2 {
+  font-size: 25px;
+  margin: 15px;
+}
+
+p {
+  margin: 15px;
+}
