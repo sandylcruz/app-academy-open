@@ -20,6 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const favoriteInput = document.querySelector(".favorite-input");
     const favorite = favoriteInput.value;
+    favorite.value = "";
 
     const newListLi = document.createElement("li");
     newListLi.textContent = favorite;
@@ -33,8 +34,31 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // adding new photos
 
-  const handlePhotoSubmit = (event) => {};
+  const showPhotoForm = (event) => {
+    const formContainer = document.querySelector(".photo-form-container");
+    formContainer.classList.remove("hidden");
+  };
+
+  const photoFormShowButton = document.querySelector(".photo-show-button");
+  photoFormShowButton.addEventListener("click", showPhotoForm);
+
+  const handlePhotoSubmit = (event) => {
+    event.preventDefault();
+
+    const photoInput = document.querySelector("");
+    const photoValue = photoInput.value;
+    photoValue.value = "";
+
+    const newImg = document.createElement("img");
+    newImg.src = photoUrl;
+
+    const newLi = document.createElement("li");
+    newLi.appendChild(newImg);
+
+    const allPhotos = document.getElementById(".dog-photos");
+    allPhotos.appendChild(newLi);
+  };
 
   const photoSubmitButton = document.querySelector(".photo-show-button");
-  photoSubmitButton.addEventListener("click");
+  photoSubmitButton.addEventListener("click", handlePhotoSubmit);
 });
