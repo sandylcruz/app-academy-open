@@ -17,8 +17,6 @@ function $l(argument) {
   }
 
   $l.ajax(options) {
-    const request = new XMLHttpRequest();
-
     const defaults = {  
       type: 'application/x-www-form-urlencoded; charset=UTF-8',
       method: "GET",
@@ -27,12 +25,16 @@ function $l(argument) {
       error: () => {},
       data: ""
     } 
-
-    request.onreadystatechange = function (data) {}
-
-    request.setRequestHeader(type);
+    const request = new XMLHttpRequest();
     request.open(method, url);
-    request.send()
+
+    request.onload = function () {
+      console.log(xhr.status)
+      console.log(xhr.responseType)
+      console.log(xhr.response)
+    }
+
+    request.send(defaults)
   }
 }
 
