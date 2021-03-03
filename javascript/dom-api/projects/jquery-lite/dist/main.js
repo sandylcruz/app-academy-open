@@ -15,7 +15,7 @@
   \************************************/
 /***/ ((module) => {
 
-eval("class DomNodeCollection {\n  constructor(nodes) {\n    this.nodes = nodes;\n  }\n\n  // $l(\"...\").html(\"hello\")\n  // $l(\"...\").html() (first case)\n\n  html(htmlString) {\n    if (htmlString) {\n      const innerHTML = htmlString;\n\n      this.nodes.forEach((node) => {\n        node.innerHTML = htmlString;\n      });\n    } else {\n      const innerHTML = this.nodes[0];\n      return innerHTML;\n    }\n  }\n\n  empty() {\n    this.nodes.forEach((node) => {\n      node.html = \"\";\n    });\n  }\n\n  append() {}\n\n  attr() {}\n  addClass() {}\n  removeClass() {}\n}\n\nmodule.exports = DomNodeCollection;\n\n\n//# sourceURL=webpack:///./src/dom_node_collection.js?");
+eval("class DOMNodeCollection {\n  constructor(nodes) {\n    this.nodes = nodes;\n  }\n\n  // $l(\"...\").html(\"hello\")\n  // $l(\"...\").html() (first case)\n\n  html(htmlString) {\n    if (htmlString) {\n      const innerHTML = htmlString;\n\n      this.nodes.forEach((node) => {\n        node.innerHTML = htmlString;\n      });\n    } else {\n      const innerHTML = this.nodes[0];\n      return innerHTML;\n    }\n  }\n\n  empty() {\n    this.nodes.forEach((node) => {\n      node.html = \"\";\n    });\n  }\n\n  append(children) {\n    this.nodes.forEach((node) => {\n      node.innerHTML += children;\n    });\n  }\n\n  attr() {}\n  addClass() {}\n  removeClass() {}\n}\n\nmodule.exports = DOMNodeCollection;\n\n\n//# sourceURL=webpack:///./src/dom_node_collection.js?");
 
 /***/ }),
 
@@ -25,7 +25,7 @@ eval("class DomNodeCollection {\n  constructor(nodes) {\n    this.nodes = nodes;
   \**********************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("const DomNodeCollection = __webpack_require__(/*! ./dom_node_collection.js */ \"./src/dom_node_collection.js\");\n\nfunction $l(argument) {\n  if (typeof argument === \"string\") {\n    const foundElements = document.querySelectorAll(argument);\n    const foundElementsArray = Array.from(foundElements);\n  } else if (argument instanceof HTMLElement) {\n    return new DomNodeCollection([argument]);\n  }\n}\n\nwindow.$l = $l;\n\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("const DOMNodeCollection = __webpack_require__(/*! ./dom_node_collection.js */ \"./src/dom_node_collection.js\");\n\nfunction $l(argument) {\n  if (typeof argument === \"string\") {\n    const foundElements = document.querySelectorAll(argument);\n    const foundElementsArray = Array.from(foundElements);\n  } else if (argument instanceof HTMLElement) {\n    return new DOMNodeCollection([argument]);\n  }\n}\n\nwindow.$l = $l;\n\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ })
 

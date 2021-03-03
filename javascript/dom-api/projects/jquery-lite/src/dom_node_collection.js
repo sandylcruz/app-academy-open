@@ -1,4 +1,4 @@
-class DomNodeCollection {
+class DOMNodeCollection {
   constructor(nodes) {
     this.nodes = nodes;
   }
@@ -25,11 +25,15 @@ class DomNodeCollection {
     });
   }
 
-  append() {}
+  append(children) {
+    this.nodes.forEach((node) => {
+      node.innerHTML += children;
+    });
+  }
 
   attr() {}
   addClass() {}
   removeClass() {}
 }
 
-module.exports = DomNodeCollection;
+module.exports = DOMNodeCollection;
