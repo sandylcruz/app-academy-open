@@ -15,7 +15,7 @@
   \**********************/
 /***/ (() => {
 
-eval("document.addEventListener(\"DOMContentLoaded\", () => {\n  let navItems = Array.from(document.getElementById(\".sidebar-nav li\"));\n  let content = document.querySelector(\".content\");\n\n  window.location.hash = \"#inbox\";\n\n  navItems.forEach((navItem) => {\n    navItem.addEventListener(\"click\", () => {\n      let name = navItem.innerText.toLowerCase;\n      window.location = name;\n    });\n  });\n});\n\n\n//# sourceURL=webpack://mail/./src/index.js?");
+eval("document.addEventListener(\"DOMContentLoaded\", () => {\n  let content = document.querySelector(\".content\");\n\n  window.location.hash = \"#inbox\";\n  let navItems = Array.from(document.querySelectorAll(\".sidebar-nav li\"));\n\n  navItems.forEach((navItem) => {\n    navItem.addEventListener(\"click\", () => {\n      let name = navItem.innerText.toLowerCase;\n      location.hash = name;\n    });\n  });\n});\n\n\n//# sourceURL=webpack://mail/./src/index.js?");
 
 /***/ })
 

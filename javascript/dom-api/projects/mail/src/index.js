@@ -1,13 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
-  let navItems = Array.from(document.getElementById(".sidebar-nav li"));
   let content = document.querySelector(".content");
 
   window.location.hash = "#inbox";
+  let navItems = Array.from(document.querySelectorAll(".sidebar-nav li"));
 
   navItems.forEach((navItem) => {
     navItem.addEventListener("click", () => {
       let name = navItem.innerText.toLowerCase;
-      window.location = name;
+      location.hash = name;
     });
   });
 });
