@@ -1,12 +1,17 @@
+const Router = require("./router.js");
+
 document.addEventListener("DOMContentLoaded", () => {
-  let content = document.querySelector(".content");
+  const content = document.querySelector(".content");
+
+  const router = new Router(content);
+  router.start();
 
   window.location.hash = "#inbox";
-  let navItems = Array.from(document.querySelectorAll(".sidebar-nav li"));
+  const navItems = Array.from(document.querySelectorAll(".sidebar-nav li"));
 
   navItems.forEach((navItem) => {
     navItem.addEventListener("click", () => {
-      let name = navItem.innerText.toLowerCase;
+      const name = navItem.innerText.toLowerCase();
       location.hash = name;
     });
   });
