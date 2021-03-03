@@ -9,6 +9,12 @@ function $l(argument) {
   } else if (argument instanceof HTMLElement) {
     return new DOMNodeCollection([argument]);
   }
+
+  $l.extend(base, ..otherArgs) {
+    otherArgs.forEach((otherArg) => {
+      base[prop] = otherArgs[prop]
+    })
+  }
 }
 
 window.$l = $l;
