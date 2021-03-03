@@ -1,9 +1,14 @@
 const Router = require("./router.js");
+const Inbox = require("./inbox.js");
+
+const routes = {
+  inbox: Inbox,
+};
 
 document.addEventListener("DOMContentLoaded", () => {
   const content = document.querySelector(".content");
 
-  const router = new Router(content);
+  const router = new Router(content, routes);
   router.start();
 
   window.location.hash = "#inbox";
