@@ -83,6 +83,38 @@ class DOMNodeCollection {
       node.parentNode.removeChildNode(node);
     });
   }
+
+  on(event, callback) {
+    this.nodes.forEach((node) => {
+      node.addEventListener(event, callback);
+      if (!node.callbacks) {
+        node.callbacks = {};
+      }
+
+      if (!node.callbacks[event]) {
+        node.callbacks[event] = [];
+      }
+      node.callbacks[event].push(callback);
+    });
+  }
+
+  off(event) {
+    this.nodes.forEach((node) => {
+      if (!node.callbacks) {
+        return;
+      }
+
+      const eventCallbacks = node.callbacks[event];
+
+      if (eventCallbacks) {
+        eventCallbacks.forEach((callback) => {
+          node.removeEventListener(event, callback);
+        });
+
+        node.callbacks[event] = [];
+      }
+    });
+  }
 }
 
 module.exports = DOMNodeCollection;
