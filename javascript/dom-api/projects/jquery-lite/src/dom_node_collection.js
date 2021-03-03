@@ -3,9 +3,6 @@ class DOMNodeCollection {
     this.nodes = nodes;
   }
 
-  // $l("...").html("hello")
-  // $l("...").html() (first case)
-
   html(htmlString) {
     if (htmlString) {
       const innerHTML = htmlString;
@@ -31,7 +28,11 @@ class DOMNodeCollection {
     });
   }
 
-  attr(key, value) {}
+  attr(key, value) {
+    this.nodes.forEach((node) => {
+      node.setAttribute(key, value);
+    });
+  }
 
   addClass(newClass) {
     this.nodes.forEach((node) => {
@@ -41,6 +42,45 @@ class DOMNodeCollection {
   removeClass(oldClass) {
     this.nodes.forEach((node) => {
       node.classList.remove(oldClass);
+    });
+  }
+
+  children() {
+    let childNodes = [];
+
+    this.nodes.forEach((node) => {
+      let childNodeList = node.children;
+      childNodes = childNodes.concat(childNodeList);
+    });
+
+    return new DOMNodeCollection(childNodes);
+  }
+
+  parent() {
+    let parentNodes = [];
+
+    this.nodes.forEach((node) => {
+      let parentNodeList = node.parent;
+      parentNodes = parentNodes.concat(parentNodeList);
+    });
+
+    return new DOMNodeCollection(parentNodes);
+  }
+
+  find(selector) {
+    let matches = [];
+
+    this.nodes.forEach((node) => {
+      let nodeList = node.querySelectorAll(selector);
+      matches = matches.concat(nodeList);
+    });
+
+    return new DOMNodeCollection(matches);
+  }
+
+  remove() {
+    this.nodes.forEach((node) => {
+      node.parentNode.removeChildNode(node);
     });
   }
 }
