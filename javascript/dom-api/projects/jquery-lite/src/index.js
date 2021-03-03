@@ -15,6 +15,25 @@ function $l(argument) {
       base[prop] = otherArgs[prop]
     })
   }
+
+  $l.ajax(options) {
+    const request = new XMLHttpRequest();
+
+    const defaults = {  
+      type: 'application/x-www-form-urlencoded; charset=UTF-8',
+      method: "GET",
+      url: "",
+      success: () => {},
+      error: () => {},
+      data: ""
+    } 
+
+    request.onreadystatechange = function (data) {}
+
+    request.setRequestHeader(type);
+    request.open(method, url);
+    request.send()
+  }
 }
 
 window.$l = $l;
