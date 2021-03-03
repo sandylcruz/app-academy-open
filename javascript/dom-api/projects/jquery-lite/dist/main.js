@@ -15,7 +15,7 @@
   \************************************/
 /***/ ((module) => {
 
-eval("class DomNodeCollection {\n  constructor(nodes) {\n    this.nodes = nodes;\n  }\n\n  // $l(\"...\").html(\"hello\")\n  // $l(\"...\").html() (first case)\n\n  html(htmlString) {\n    if (htmlString) {\n      const innerHTML = htmlString;\n\n      this.nodes.forEach((node) => {\n        node.innerHTML = htmlString;\n      });\n    } else {\n      const innerHTML = this.nodes[0];\n      return innerHTML;\n    }\n  }\n\n  empty() {}\n\n  append() {}\n\n  attr() {}\n  addClass() {}\n  removeClass() {}\n}\n\nmodule.exports = DomNodeCollection;\n\n\n//# sourceURL=webpack:///./src/dom_node_collection.js?");
+eval("class DomNodeCollection {\n  constructor(nodes) {\n    this.nodes = nodes;\n  }\n\n  // $l(\"...\").html(\"hello\")\n  // $l(\"...\").html() (first case)\n\n  html(htmlString) {\n    if (htmlString) {\n      const innerHTML = htmlString;\n\n      this.nodes.forEach((node) => {\n        node.innerHTML = htmlString;\n      });\n    } else {\n      const innerHTML = this.nodes[0];\n      return innerHTML;\n    }\n  }\n\n  empty() {\n    this.nodes.forEach((node) => {\n      node.html = \"\";\n    });\n  }\n\n  append() {}\n\n  attr() {}\n  addClass() {}\n  removeClass() {}\n}\n\nmodule.exports = DomNodeCollection;\n\n\n//# sourceURL=webpack:///./src/dom_node_collection.js?");
 
 /***/ }),
 

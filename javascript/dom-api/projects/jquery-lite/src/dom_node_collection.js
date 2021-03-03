@@ -19,7 +19,11 @@ class DomNodeCollection {
     }
   }
 
-  empty() {}
+  empty() {
+    this.nodes.forEach((node) => {
+      node.html = "";
+    });
+  }
 
   append() {}
 
