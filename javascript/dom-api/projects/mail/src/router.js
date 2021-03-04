@@ -30,10 +30,6 @@ class Router {
     } else {
       this.node.innerHTML = "";
     }
-
-    const pTag = document.createElement("p");
-    pTag.innerHTML = this.activeRoute();
-    this.node.appendChild(pTag);
   }
 }
 
