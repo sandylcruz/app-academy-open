@@ -1,3 +1,37 @@
+class Message {
+  constructor(from = "", to = "", subject = "", body = "") {
+    this.from = from;
+    this.to = to;
+    this.subject = subject;
+    this.body = body;
+  }
+}
+
+let messageDraft = new Message();
+
+const MessageStore = {
+  getInboxMessages() {
+    return messages.inbox.slice();
+  },
+
+  getSentMessages() {
+    return messages.sent.slice();
+  },
+
+  getMessageDraft() {
+    return messageDraft;
+  },
+
+  updateDraftField(field, value) {
+    messageDraft[field] = value;
+  },
+
+  sendDraft() {
+    messages.sent.push(messageDraft);
+    messageDraft = new Message();
+  },
+};
+
 const messages = {
   sent: [
     {
@@ -23,16 +57,6 @@ const messages = {
       body: "Take this free quiz to find out I won't be your friend",
     },
   ],
-};
-
-const MessageStore = {
-  getInboxMessages() {
-    return messages.inbox.slice();
-  },
-
-  getSentMessages() {
-    return messages.sent.slice();
-  },
 };
 
 module.exports = MessageStore;
