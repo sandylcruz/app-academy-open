@@ -12,6 +12,12 @@ module.exports = {
       MessageStore.updateDraftField(nameField, valueField);
     });
 
+    container.addEventListener("submit", (event) => {
+      event.preventDefault();
+      MessageStore.sendDraft();
+      window.location.hash = "#inbox";
+    });
+
     return container;
   },
 
