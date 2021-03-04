@@ -2,11 +2,17 @@ const MessageStore = require("./message_store.js");
 
 module.exports = {
   render() {
-    const div = document.createElement("div");
-    div.className = "new-message";
-    div.innerHTML = this.renderForm();
+    const container = document.createElement("div");
+    container.className = "new-message";
+    container.innerHTML = this.renderForm();
+    container.addEventListener("change", (event) => {
+      const currentTarget = event.target;
+      const nameField = event.target.name;
+      const valueField = event.target.value;
+      MessageStore.updateDraftField(nameField, valueField);
+    });
 
-    return div;
+    return container;
   },
 
   renderForm() {
