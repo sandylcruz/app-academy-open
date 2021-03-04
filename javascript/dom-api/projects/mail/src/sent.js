@@ -1,12 +1,12 @@
-const MessageStore = require("./message_store.js");
+const MessageStore = require("./message_store");
 
 module.exports = {
   render() {
     const ul = document.createElement("ul");
     ul.className = "messages";
-    const allMessages = MessageStore.getInboxMessages();
+    const allSentMessages = MessageStore.getSentMessages();
 
-    allMessages.forEach((message) => {
+    allSentMessages.forEach((message) => {
       const currentMessage = this.renderMessage(message);
       ul.appendChild(currentMessage);
     });
@@ -19,11 +19,10 @@ module.exports = {
 
     li.className = "message";
     li.innerHTML = `
-      <span class="from">${message.from}</span>
+      <span class="to">${message.to}</span>
       <span class="subject">${message.subject}</span>
       <span class="body">${message.body}</span>
     `;
-
     return li;
   },
 };

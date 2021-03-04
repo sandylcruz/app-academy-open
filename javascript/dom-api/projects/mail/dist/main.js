@@ -15,7 +15,7 @@
   \**********************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("const MessageStore = __webpack_require__(/*! ./message_store.js */ \"./src/message_store.js\");\n\nmodule.exports = {\n  render() {\n    const ul = document.createElement(\"ul\");\n    ul.className = \"messages\";\n    const allMessages = MessageStore.getInboxMessages();\n    console.log(allMessages);\n\n    allMessages.forEach((message) => {\n      const currentMessage = this.renderMessage(message);\n      ul.appendChild(currentMessage);\n    });\n\n    return ul;\n  },\n\n  renderMessage(message) {\n    const li = document.createElement(\"li\");\n\n    li.className = \"message\";\n    li.innerHTML = `\n      <span class=\"from\">${message.from}</span>\n      <span class=\"subject\">${message.subject}</span>\n      <span class=\"body\">${message.body}</span>\n    `;\n\n    return li;\n  },\n};\n\n\n//# sourceURL=webpack://mail/./src/inbox.js?");
+eval("const MessageStore = __webpack_require__(/*! ./message_store.js */ \"./src/message_store.js\");\n\nmodule.exports = {\n  render() {\n    const ul = document.createElement(\"ul\");\n    ul.className = \"messages\";\n    const allMessages = MessageStore.getInboxMessages();\n\n    allMessages.forEach((message) => {\n      const currentMessage = this.renderMessage(message);\n      ul.appendChild(currentMessage);\n    });\n\n    return ul;\n  },\n\n  renderMessage(message) {\n    const li = document.createElement(\"li\");\n\n    li.className = \"message\";\n    li.innerHTML = `\n      <span class=\"from\">${message.from}</span>\n      <span class=\"subject\">${message.subject}</span>\n      <span class=\"body\">${message.body}</span>\n    `;\n\n    return li;\n  },\n};\n\n\n//# sourceURL=webpack://mail/./src/inbox.js?");
 
 /***/ }),
 
@@ -25,7 +25,7 @@ eval("const MessageStore = __webpack_require__(/*! ./message_store.js */ \"./src
   \**********************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("const Router = __webpack_require__(/*! ./router.js */ \"./src/router.js\");\nconst Inbox = __webpack_require__(/*! ./inbox.js */ \"./src/inbox.js\");\n\nconst routes = {\n  inbox: Inbox,\n};\n\ndocument.addEventListener(\"DOMContentLoaded\", () => {\n  const content = document.querySelector(\".content\");\n\n  const router = new Router(content, routes);\n  router.start();\n\n  window.location.hash = \"#inbox\";\n  const navItems = Array.from(document.querySelectorAll(\".sidebar-nav li\"));\n\n  navItems.forEach((navItem) => {\n    navItem.addEventListener(\"click\", () => {\n      const name = navItem.innerText.toLowerCase();\n      location.hash = name;\n    });\n  });\n});\n\n\n//# sourceURL=webpack://mail/./src/index.js?");
+eval("const Router = __webpack_require__(/*! ./router.js */ \"./src/router.js\");\nconst Inbox = __webpack_require__(/*! ./inbox.js */ \"./src/inbox.js\");\nconst Sent = __webpack_require__(/*! ./sent.js */ \"./src/sent.js\");\n\nconst routes = {\n  inbox: Inbox,\n  sent: Sent,\n};\n\ndocument.addEventListener(\"DOMContentLoaded\", () => {\n  const content = document.querySelector(\".content\");\n\n  const router = new Router(content, routes);\n  router.start();\n\n  window.location.hash = \"#inbox\";\n  const navItems = Array.from(document.querySelectorAll(\".sidebar-nav li\"));\n\n  navItems.forEach((navItem) => {\n    navItem.addEventListener(\"click\", () => {\n      const name = navItem.innerText.toLowerCase();\n      location.hash = name;\n    });\n  });\n});\n\n\n//# sourceURL=webpack://mail/./src/index.js?");
 
 /***/ }),
 
@@ -46,6 +46,16 @@ eval("const messages = {\n  sent: [\n    {\n      to: \"callie@gmail.com\",\n   
 /***/ ((module) => {
 
 eval("class Router {\n  constructor(node, routes) {\n    this.node = node;\n    this.routes = routes;\n  }\n\n  start() {\n    this.render();\n\n    window.addEventListener(\"hashchange\", () => {\n      this.render();\n    });\n  }\n\n  activeRoute() {\n    const hash = window.location.hash.substr(1);\n    const component = this.routes[hash];\n    return component;\n  }\n\n  render() {\n    this.node.innerHTML = \"\";\n\n    const component = this.activeRoute();\n\n    if (component) {\n      this.node.innerHTML = \"\";\n      const componentNode = component.render();\n      this.node.appendChild(componentNode);\n    } else {\n      this.node.innerHTML = \"\";\n    }\n\n    const pTag = document.createElement(\"p\");\n    pTag.innerHTML = this.activeRoute();\n    this.node.appendChild(pTag);\n  }\n}\n\nmodule.exports = Router;\n\n\n//# sourceURL=webpack://mail/./src/router.js?");
+
+/***/ }),
+
+/***/ "./src/sent.js":
+/*!*********************!*\
+  !*** ./src/sent.js ***!
+  \*********************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("const MessageStore = __webpack_require__(/*! ./message_store */ \"./src/message_store.js\");\n\nmodule.exports = {\n  render() {\n    const ul = document.createElement(\"ul\");\n    ul.className = \"messages\";\n    const allSentMessages = MessageStore.getSentMessages();\n\n    allSentMessages.forEach((message) => {\n      const currentMessage = this.renderMessage(message);\n      ul.appendChild(currentMessage);\n    });\n\n    return ul;\n  },\n\n  renderMessage(message) {\n    const li = document.createElement(\"li\");\n\n    li.className = \"message\";\n    li.innerHTML = `\n      <span class=\"to\">${message.to}</span>\n      <span class=\"subject\">${message.subject}</span>\n      <span class=\"body\">${message.body}</span>\n    `;\n    return li;\n  },\n};\n\n\n//# sourceURL=webpack://mail/./src/sent.js?");
 
 /***/ })
 
