@@ -153,6 +153,10 @@ function (_React$Component) {
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Calculator).call(this, props));
     _this.setNum1 = _this.setNum1.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     _this.setNum2 = _this.setNum2.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.add = _this.add.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.subtract = _this.subtract.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.divide = _this.divide.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.multiply = _this.multiply.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     _this.state = {
       result: 0,
       num1: "",
@@ -162,6 +166,42 @@ function (_React$Component) {
   }
 
   _createClass(Calculator, [{
+    key: "add",
+    value: function add(e) {
+      e.preventDefault();
+      var result = this.state.num1 + this.state.num2;
+      this.setState({
+        result: result
+      });
+    }
+  }, {
+    key: "subtract",
+    value: function subtract(e) {
+      e.preventDefault();
+      var result = this.state.num1 - this.state.num2;
+      this.setState({
+        result: result
+      });
+    }
+  }, {
+    key: "divide",
+    value: function divide(e) {
+      e.preventDefault();
+      var result = this.state.num1 / this.state.num2;
+      this.setState({
+        result: result
+      });
+    }
+  }, {
+    key: "multiply",
+    value: function multiply(e) {
+      e.preventDefault();
+      var result = this.state.num1 * this.state.num2;
+      this.setState({
+        result: result
+      });
+    }
+  }, {
     key: "setNum1",
     value: function setNum1(e) {
       var num1;
@@ -200,7 +240,19 @@ function (_React$Component) {
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         onChange: this.setNum2,
         value: this.state.num2
-      }));
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: this.add,
+        value: this.state.result
+      }, "+"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: this.subtract,
+        value: this.state.result
+      }, "-"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: this.multiply,
+        value: this.state.result
+      }, "*"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: this.divide,
+        value: this.state.result
+      }, "/"));
     }
   }]);
 
