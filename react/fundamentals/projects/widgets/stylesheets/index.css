@@ -1,0 +1,45 @@
+html,
+body,
+h1,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Open Sans;
+  line-height: 1.2;
+}
+
+h1 {
+  font-family: Helvetica;
+  background-position-y: 20%;
+  display: block;
+}
+
+div {
+  display: block;
+}
+.clock {
+  font-family: Orbitron;
+  font-size: 28px;
+  background-color: orange;
+  border: 2 px solid black;
+  color: white;
+  margin: 0 20px 20px 20px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  width: 550px;
+  height: 94px;
+  background-position-y: 20%;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.clock > span {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
