@@ -10,8 +10,6 @@ const tabs = [
   { title: "Three", content: "Third pane here" },
 ];
 
-console.log(OPEN_WEATHER_API_KEY);
-
 function Root() {
   return (
     <div>
@@ -24,4 +22,5 @@ function Root() {
 
 document.addEventListener("DOMContentLoaded", () => {
   ReactDOM.render(<Root />, document.getElementById("main"));
+  console.log(OPEN_WEATHER_API_KEY);
 });

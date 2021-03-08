@@ -14,13 +14,15 @@ class Header extends React.Component {
     const tab = this.props.tab;
 
     return (
-      <li
-        key={tab.title}
-        onClick={this.handleClick}
-        className={this.props.isActive ? "active" : ""}
-      >
-        {tab.title}
-      </li>
+      <div className="headers">
+        <li
+          key={tab.title}
+          onClick={this.handleClick}
+          className={this.props.isActive ? "active" : ""}
+        >
+          {tab.title}
+        </li>
+      </div>
     );
   }
 }
@@ -51,15 +53,13 @@ class Tabs extends React.Component {
         <div className="tabs-container">
           <div className="tabs-class">
             {this.props.tabs.map((tab, index) => (
-              <div class="headers">
-                <Header
-                  key={tab}
-                  tab={tab}
-                  onClick={this.handleClick}
-                  index={index}
-                  isActive={this.state.currentTab === index}
-                />
-              </div>
+              <Header
+                key={tab.title}
+                tab={tab}
+                onClick={this.handleClick}
+                index={index}
+                isActive={this.state.currentTab === index}
+              />
             ))}
           </div>
 
