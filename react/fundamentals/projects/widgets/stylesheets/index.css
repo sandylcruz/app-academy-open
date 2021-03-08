@@ -12,6 +12,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-width: 630px;
 }
 
 h1 {
@@ -48,4 +49,20 @@ div {
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
+}
+
+.tabs-class > ul {
+  color: purple;
+  border: 2px solid black;
+  width: 150px;
+  height: 192px;
+  list-style: none;
+  background-position-y: 20%;
+  /* display: block; */
+  margin: 20px;
+}
+
+.tabs-class > ul {
+  display: flex;
+  flex-direction: row;
 }

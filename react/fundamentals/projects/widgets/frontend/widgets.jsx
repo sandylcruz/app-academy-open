@@ -4,9 +4,9 @@ import Clock from "./clock";
 import Tabs from "./tabs";
 
 const tabs = [
-  { title: "Tab 1", content: "First pane here" },
-  { title: "Tab 2", content: "Second pane here" },
-  { title: "Tab 3", content: "Third pane here" },
+  { title: "One", content: "First pane here" },
+  { title: "Two", content: "Second pane here" },
+  { title: "Three", content: "Third pane here" },
 ];
 
 function Root() {

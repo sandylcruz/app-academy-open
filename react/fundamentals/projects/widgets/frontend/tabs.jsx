@@ -44,8 +44,8 @@ class Tabs extends React.Component {
     console.log(currentTab);
 
     return (
-      <div>
-        <h1>Tabs</h1>
+      <div class="tabs-class">
+        <h1 class="tabs">Tabs</h1>
         <ul>
           {this.props.tabs.map((tab, index) => (
             <Header
@@ -56,8 +56,6 @@ class Tabs extends React.Component {
             />
           ))}
         </ul>
-
-        <div className="tabs"></div>
       </div>
     );
   }
