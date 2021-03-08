@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Clock from "./clock";
 import Tabs from "./tabs";
+import Weather from "./weather";
 
 const tabs = [
   { title: "One", content: "I am the first" },
@@ -14,6 +15,7 @@ function Root() {
     <div>
       <Clock />
       <Tabs tabs={tabs} />
+      <Weather />
     </div>
   );
 }

@@ -30,7 +30,6 @@ class Tabs extends React.Component {
     const headers = {};
 
     super(props);
-    console.log(this.props.tabs);
 
     this.state = {
       currentTab: 0,
@@ -45,7 +44,6 @@ class Tabs extends React.Component {
 
   render() {
     const currentTab = this.props.tabs[this.state.currentTab];
-    console.log(currentTab);
 
     return (
       <div>

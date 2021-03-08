@@ -125,3 +125,19 @@ div {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
+
+.weather-container {
+  width: 550px;
+  height: 94px;
+  background-color: lightgreen;
+  border: 2px solid black;
+  margin: 0 20px 20px 20px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  width: 550px;
+  height: 94px;
+  background-position-y: 20%;
+  justify-content: space-between;
+  text-align: center;
+}
