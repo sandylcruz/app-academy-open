@@ -14,7 +14,11 @@ class Header extends React.Component {
     const tab = this.props.tab;
 
     return (
-      <li key={tab.title} onClick={this.handleClick}>
+      <li
+        key={tab.title}
+        onClick={this.handleClick}
+        className={this.props.isActive ? "active" : ""}
+      >
         {tab.title}
       </li>
     );
@@ -55,6 +59,7 @@ class Tabs extends React.Component {
                   tab={tab}
                   onClick={this.handleClick}
                   index={index}
+                  isActive={this.state.currentTab === index}
                 />
               </div>
             ))}

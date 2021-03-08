@@ -52,7 +52,6 @@ div {
 }
 
 .tabs-container {
-  border: 2px solid black;
   width: 100px;
   height: 192px;
   list-style: none;
@@ -60,14 +59,23 @@ div {
   margin: 20px;
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
-  background-color: lightblue;
+  display: flex;
+  flex-direction: column;
 }
 
 .tabs-content {
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+  border-bottom: 2px solid black;
+  /* border-top: 2px solid black; */
   text-align: center;
   color: white;
   font-weight: bold;
-  margin-top: 60px;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: lightblue;
 }
 
 .tabs-class {
@@ -75,35 +83,41 @@ div {
   flex-direction: row;
   align-items: space-between;
   cursor: pointer;
-  background-color: green;
+  /* background-color: green; */
   width: 100%;
-  height: 50px;
+  height: 30px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  /* border-bottom: 2px solid black; */
 }
 
 .headers {
   /* background-color: purple; */
   display: flex;
   flex-direction: column;
-  align-items: space-between;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
   width: 100%;
-  height: 50px;
+  height: 30px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-top: 2px solid black;
+  border-right: 2px solid black;
+  border-left: 2px solid black;
+  border-bottom: 2px solid black;
+  box-sizing: border-box;
+  background-color: lightBlue;
 }
 
-/* .tabs-class > li {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 100%;
-  cursor: pointer;
-  margin-top: 5px;
-  margin-left: 5px;
-  height: 30px;
-} */
-
-.headers > li:hover {
+.headers:hover {
   background-color: black;
   color: white;
+  font-weight: bold;
+}
+
+.active {
+  font-weight: bold;
 }
 
 .tabs-container {
