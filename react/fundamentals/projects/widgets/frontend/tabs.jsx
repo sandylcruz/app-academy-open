@@ -1,14 +1,42 @@
 import React from "react";
 
+class Header extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    this.props.onClick(this.props.index);
+  }
+
+  render() {
+    const tab = this.props.tab;
+
+    return (
+      <li key={tab.title} onClick={this.handleClick}>
+        {tab.title}: {tab.content}
+      </li>
+    );
+  }
+}
+
 class Tabs extends React.Component {
   constructor(props) {
+    const headers = {};
+
     super(props);
     console.log(this.props.tabs);
 
     this.state = {
-      title: "",
       currentTab: 0,
     };
+
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick(index) {
+    this.setState({ currentTab: index });
   }
 
   render() {
@@ -20,16 +48,15 @@ class Tabs extends React.Component {
         <h1>Tabs</h1>
         <ul>
           {this.props.tabs.map((tab, index) => (
-            <li
-              key={tab.title}
-              onClick={() => {
-                this.setState({ currentTab: index });
-              }}
-            >
-              {tab.title}
-            </li>
+            <Header
+              key={tab}
+              tab={tab}
+              onClick={this.handleClick}
+              index={index}
+            />
           ))}
         </ul>
+
         <div className="tabs"></div>
       </div>
     );
