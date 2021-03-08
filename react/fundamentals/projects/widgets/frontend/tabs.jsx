@@ -44,20 +44,25 @@ class Tabs extends React.Component {
     console.log(currentTab);
 
     return (
-      <div class="tabs-class">
-        <h1 class="tabs">Tabs</h1>
-        <ul>
-          {this.props.tabs.map((tab, index) => (
-            <Header
-              key={tab}
-              tab={tab}
-              onClick={this.handleClick}
-              index={index}
-            />
-          ))}
-        </ul>
-
-        <p>{currentTab.content}</p>
+      <div>
+        <h1>Tabs</h1>
+        <div className="tabs-container">
+          <div className="tabs-class">
+            {this.props.tabs.map((tab, index) => (
+              <div class="headers">
+                <Header
+                  key={tab}
+                  tab={tab}
+                  onClick={this.handleClick}
+                  index={index}
+                />
+              </div>
+            ))}
+            <div className="tabs-content">
+              <article>{currentTab.content}</article>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }

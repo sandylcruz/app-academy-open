@@ -51,10 +51,9 @@ div {
   width: 100%;
 }
 
-.tabs-class > ul {
-  color: purple;
+.tabs-container {
   border: 2px solid black;
-  width: 150px;
+  width: 100px;
   height: 192px;
   list-style: none;
   background-position-y: 20%;
@@ -63,18 +62,38 @@ div {
   border-top-right-radius: 25px;
   display: flex;
   align-items: space-between;
+  background-color: lightblue;
 }
 
-.tabs-class > header {
+.headers {
+  background-color: purple;
+  display: flex;
+  flex-direction: column;
   cursor: pointer;
 }
 
-.tabs-class > ul > li {
+/* .tabs-class > li {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  cursor: pointer;
+  margin-top: 5px;
+  margin-left: 5px;
+  height: 30px;
+} */
+
+.headers > li:hover {
+  background-color: black;
+  color: white;
 }
 
-.tabs-class > p {
-  color: purple;
+.tabs-container {
+  width: 100%;
+  /* border-top: 2px solid black;
+  border-left: 1px solid black;
+  border-right: 1px solid black; */
+  /* border-bottom: 2px solid black; */
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
