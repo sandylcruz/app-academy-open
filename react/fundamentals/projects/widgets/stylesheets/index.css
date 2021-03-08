@@ -25,11 +25,12 @@ h1 {
 div {
   display: block;
 }
+
 .clock {
   font-family: Orbitron;
   font-size: 28px;
   background-color: orange;
-  border: 2 px solid black;
+  border: 2px solid black;
   color: white;
   margin: 0 20px 20px 20px;
   padding: 10px;
