@@ -58,11 +58,23 @@ div {
   height: 192px;
   list-style: none;
   background-position-y: 20%;
-  /* display: block; */
   margin: 20px;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  display: flex;
+  align-items: space-between;
 }
 
-.tabs-class > ul {
+.tabs-class > header {
+  cursor: pointer;
+}
+
+.tabs-class > ul > li {
   display: flex;
-  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.tabs-class > p {
+  color: purple;
 }

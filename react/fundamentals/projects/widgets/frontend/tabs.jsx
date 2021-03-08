@@ -15,7 +15,7 @@ class Header extends React.Component {
 
     return (
       <li key={tab.title} onClick={this.handleClick}>
-        {tab.title}: {tab.content}
+        {tab.title}
       </li>
     );
   }
@@ -56,6 +56,8 @@ class Tabs extends React.Component {
             />
           ))}
         </ul>
+
+        <p>{currentTab.content}</p>
       </div>
     );
   }
