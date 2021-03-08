@@ -1,4 +1,6 @@
 const path = require("path");
+console.log("******", process.env.OPEN_WEATHER_API_KEY);
+const webpack = require("webpack");
 
 module.exports = {
   context: __dirname,
@@ -25,4 +27,9 @@ module.exports = {
   resolve: {
     extensions: [".js", ".jsx", "*"],
   },
+  plugins: [
+    new webpack.DefinePlugin({
+      OPEN_WEATHER_API_KEY: JSON.stringify(process.env.OPEN_WEATHER_API_KEY),
+    }),
+  ],
 };

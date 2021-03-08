@@ -10,12 +10,14 @@ const tabs = [
   { title: "Three", content: "Third pane here" },
 ];
 
+console.log(OPEN_WEATHER_API_KEY);
+
 function Root() {
   return (
     <div>
       <Clock />
-      <Tabs tabs={tabs} />
       <Weather />
+      <Tabs tabs={tabs} />
     </div>
   );
 }

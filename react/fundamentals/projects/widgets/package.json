@@ -4,7 +4,7 @@
   "description": "",
   "main": "webpack.config.js",
   "scripts": {
-    "start": "webpack --mode=development --watch",
+    "start": "OPEN_WEATHER_API_KEY=$OPEN_WEATHER_API_KEY webpack --mode=development --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
