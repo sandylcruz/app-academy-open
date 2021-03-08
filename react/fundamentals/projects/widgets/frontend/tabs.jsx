@@ -58,9 +58,10 @@ class Tabs extends React.Component {
                 />
               </div>
             ))}
-            <div className="tabs-content">
-              <article>{currentTab.content}</article>
-            </div>
+          </div>
+
+          <div className="tabs-content">
+            <article>{currentTab.content}</article>
           </div>
         </div>
       </div>
