@@ -4,7 +4,7 @@ import Clock from "./clock";
 import Tabs from "./tabs";
 
 const tabs = [
-  { title: "One", content: "First pane here" },
+  { title: "One", content: "I am the first" },
   { title: "Two", content: "Second pane here" },
   { title: "Three", content: "Third pane here" },
 ];
