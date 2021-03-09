@@ -3,9 +3,9 @@ import React from "react";
 class Autocomplete extends React.Component {
   constructor(props) {
     super(props);
-    // this.state {
-
-    // }
+    this.state = {
+      inputVal: "",
+    };
     this.render();
   }
 
@@ -15,7 +15,8 @@ class Autocomplete extends React.Component {
         <h1>Autocomplete</h1>
 
         <div className="autocomplete-container">
-          <p>Autocomplete body</p>
+          <input type="text" placeholder="Search..."></input>
+          <ul></ul>
         </div>
       </div>
     );

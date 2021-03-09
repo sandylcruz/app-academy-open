@@ -155,8 +155,8 @@ div {
 .autocomplete-container {
   font-family: Open sans;
   font-size: 28px;
-  width: 550px;
-  height: 94px;
+  width: 50%;
+  height: 192px;
   background-color: pink;
   border: 2px solid black;
   margin: 0 20px 20px 20px;
