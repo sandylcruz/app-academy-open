@@ -14,17 +14,6 @@ class Autocomplete extends React.Component {
   }
 
   matches() {
-    // const filteredPeople = [];
-    // const lowercaseInput = this.state.inputVal.toLowerCase();
-
-    // this.props.people.forEach((person) => {
-    //   const lowercaseName = person.name.toLowerCase();
-    //   if (lowercaseName.indexOf(lowercaseInput) !== -1) {
-    //     filteredPeople.push(person);
-    //   }
-    // });
-
-    // return filteredPeople;
     const lowercaseInput = this.state.inputVal.toLowerCase();
 
     return this.props.people.filter((person) => {
@@ -46,7 +35,7 @@ class Autocomplete extends React.Component {
             placeholder="Search..."
             onChange={this.handleInput}
           ></input>
-          <ul>
+          <ul class="matches-list">
             {this.matches().map((person) => (
               <li key={person.name}>{person.name}</li>
             ))}
