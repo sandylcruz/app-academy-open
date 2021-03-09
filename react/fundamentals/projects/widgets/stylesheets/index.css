@@ -152,11 +152,10 @@ div {
 }
 
 .autocomplete-container:before {
-  content: ''
+  content: "";
   float: left;
-  height: 100%
+  height: 100%;
 }
-
 
 .autocomplete-container {
   font-family: Open sans;
