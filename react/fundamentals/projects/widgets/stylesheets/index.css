@@ -107,6 +107,10 @@ div {
   background-color: lightBlue;
 }
 
+.headers.active {
+  border-bottom: none;
+}
+
 .headers:hover {
   background-color: black;
   color: white;

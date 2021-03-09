@@ -13,13 +13,10 @@ class Header extends React.Component {
   render() {
     const tab = this.props.tab;
 
+    const className = `headers ${this.props.isActive ? "active" : ""}`;
     return (
-      <div className="headers">
-        <li
-          key={tab.title}
-          onClick={this.handleClick}
-          className={this.props.isActive ? "active" : ""}
-        >
+      <div className={className}>
+        <li key={tab.title} onClick={this.handleClick}>
           {tab.title}
         </li>
       </div>
