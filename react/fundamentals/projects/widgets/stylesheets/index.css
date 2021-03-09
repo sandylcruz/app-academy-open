@@ -155,16 +155,14 @@ div {
 .autocomplete-container {
   font-family: Open sans;
   font-size: 28px;
-  width: 50px;
-  height: 300px;
+  width: 150px;
+  height: 200px;
   background-color: pink;
   border: 2px solid black;
   margin: 0 20px 20px 20px;
   padding: 10px;
   display: flex;
   flex-direction: column;
-  width: 550px;
-  height: 94px;
   background-position-y: 20%;
   justify-content: space-between;
 }
