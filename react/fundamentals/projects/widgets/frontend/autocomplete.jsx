@@ -10,7 +10,15 @@ class Autocomplete extends React.Component {
   }
 
   render() {
-    return <h1>Autocomplete</h1>;
+    return (
+      <div>
+        <h1>Autocomplete</h1>
+
+        <div className="autocomplete-container">
+          <p>Autocomplete body</p>
+        </div>
+      </div>
+    );
   }
 }
 export default Autocomplete;

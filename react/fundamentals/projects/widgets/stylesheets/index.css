@@ -150,5 +150,21 @@ div {
   height: 94px;
   background-position-y: 20%;
   justify-content: space-between;
-  /* text-align: center; */
+}
+
+.autocomplete-container {
+  font-family: Open sans;
+  font-size: 28px;
+  width: 550px;
+  height: 94px;
+  background-color: pink;
+  border: 2px solid black;
+  margin: 0 20px 20px 20px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  width: 550px;
+  height: 94px;
+  background-position-y: 20%;
+  justify-content: space-between;
 }
