@@ -11,7 +11,7 @@ const tabs = [
   { title: "Three", content: "Third pane here" },
 ];
 
-const names = [
+const people = [
   { name: "Callie" },
   { name: "Squeaky" },
   { name: "Linus" },
@@ -25,7 +25,7 @@ function Root() {
       <Clock />
       <Weather />
       <Tabs tabs={tabs} />
-      <Autocomplete names={names} />
+      <Autocomplete people={people} />
     </div>
   );
 }
