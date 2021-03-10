@@ -3,15 +3,20 @@ import React from "react";
 class Tiles extends React.Component {
   constructor(props) {
     super(props);
-    this.render = this.render.bind(this);
+  }
+
+  handleClick(event) {
+    const currentTile = event.target;
+
+    // if (currentTile.bombed) {
+    //   // you lose
+    // } else if
   }
 
   render() {
     return (
       <div>
-        <h2>Hi</h2>
-        console.log("hi")
-        <div className="tiles">"T"</div>
+        <div className="tile"></div>
       </div>
     );
   }

@@ -12,9 +12,25 @@ body {
   padding: 10px;
 }
 
-p {
+.board {
+  margin: 10px;
+  padding: 10px;
 }
 
-.tiles {
-  background-color: purple;
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.tile {
+  background-color: lightblue;
+  display: flex;
+  flex-direction: row;
+  border: 1px solid pink;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
 }
