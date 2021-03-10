@@ -3,9 +3,10 @@ const webpack = require("webpack");
 
 module.exports = {
   context: __dirname,
-  entry: "./components/game.jsx",
+  entry: "./src/game.jsx",
   output: {
-    path: path.resolve(__dirname),
+    // path: path.join(path.resolve(__dirname), "",
+    path: path.resolve(path.join(__dirname, "./dist")),
     filename: "bundle.js",
   },
   module: {
