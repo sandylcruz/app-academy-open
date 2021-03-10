@@ -1,12 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import Board from "./board.jsx";
+import { Board as MinesweeperBoard } from "../minesweeper.js";
 
 class Game extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      board: new Minesweeper.Board(),
+      board: new MinesweeperBoard(9, 10),
     };
 
     this.render = this.render.bind(this);
@@ -18,7 +19,12 @@ class Game extends React.Component {
   updateGame() {}
 
   render() {
-    return <h1>Hi</h1>;
+    return (
+      <div>
+        <Board board={this.state.board} updateGame={this.updateGame} />
+        <p>Click to explore a tile. Alt + click to flag a tile</p>
+      </div>
+    );
   }
 }
 
