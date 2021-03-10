@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import Board from "./board.jsx";
+import Tiles from "./tiles.jsx";
 import { Board as MinesweeperBoard } from "../minesweeper.js";
 
 class Game extends React.Component {
@@ -22,12 +23,13 @@ class Game extends React.Component {
     return (
       <div>
         <Board board={this.state.board} updateGame={this.updateGame} />
-        <p>Click to explore a tile. Alt + click to flag a tile</p>
+
+        <div className="game-elements">
+          <Tiles />
+        </div>
       </div>
     );
   }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  ReactDOM.render(<Game />, document.getElementById("main"));
-});
+export default Game;

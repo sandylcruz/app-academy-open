@@ -3,9 +3,8 @@ const webpack = require("webpack");
 
 module.exports = {
   context: __dirname,
-  entry: "./src/game.jsx",
+  entry: "./react_minesweeper.jsx",
   output: {
-    // path: path.join(path.resolve(__dirname), "",
     path: path.resolve(path.join(__dirname, "./dist")),
     filename: "bundle.js",
   },
