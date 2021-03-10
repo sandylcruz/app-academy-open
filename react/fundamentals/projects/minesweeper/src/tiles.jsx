@@ -16,7 +16,12 @@ class Tiles extends React.Component {
   render() {
     return (
       <div>
-        <div className="tile"></div>
+        <div
+          className="tile"
+          bombed="false"
+          revealed="false"
+          flagged="false"
+        ></div>
       </div>
     );
   }

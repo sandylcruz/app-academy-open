@@ -24,9 +24,7 @@ class Game extends React.Component {
       <div>
         <Board board={this.state.board} updateGame={this.updateGame} />
 
-        <div className="game-elements">
-          <Tiles />
-        </div>
+        <div></div>
       </div>
     );
   }

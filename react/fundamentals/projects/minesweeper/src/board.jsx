@@ -1,5 +1,6 @@
 import React from "react";
 import Tiles from "./tiles";
+import Game from "./game";
 
 class Board extends React.Component {
   constructor(props) {
@@ -14,7 +15,7 @@ class Board extends React.Component {
 
     return board.grid.map((row, index) => {
       return (
-        <div className="row" key="index">
+        <div className="row" key={`row-${index}`}>
           {this.renderTiles(row, index)}
         </div>
       );
@@ -25,9 +26,11 @@ class Board extends React.Component {
     const board = this.props.board;
     return row.map((tile, index) => {
       return (
-        <div className="tile" key="{row{index}}">
-          Tile
-        </div>
+        <div
+          className="tile"
+          key={`tile-${index}`}
+          updategame={this.props.updateGame}
+        ></div>
       );
     });
   }
