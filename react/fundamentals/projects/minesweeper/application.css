@@ -48,4 +48,8 @@ body {
 
 .tile-bombed {
   background-color: red;
+  border-style: inset;
+
+  width: 40px;
+  height: 40px;
 }

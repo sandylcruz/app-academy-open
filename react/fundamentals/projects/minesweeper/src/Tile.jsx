@@ -15,7 +15,7 @@ class Tile extends React.Component {
   render() {
     const tile = this.props.tile;
     let text = "";
-    let className = "tile";
+    let className = "tile tile";
 
     if (tile.explored) {
       if (tile.bombed) {
@@ -27,15 +27,17 @@ class Tile extends React.Component {
         if (tile.neighbors > 0) {
           text = neighbors.count;
         }
+      } else {
+        className += "-explored";
       }
     } else if (tile.flagged) {
       className += "-flagged";
       text = "🚩";
     }
 
-    if (tile.explored) {
-      className += "-explored";
-    }
+    // if (tile.explored) {
+    //   className += "-explored";
+    // }
 
     return <div className={className} onClick={this.handleClick}></div>;
   }
