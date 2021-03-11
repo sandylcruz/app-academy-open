@@ -6,14 +6,19 @@ class Game extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      board: new MinesweeperBoard(9, 20),
+      board: new MinesweeperBoard(9, 10),
     };
 
     this.updateGame = this.updateGame.bind(this);
+    this.restartGame = this.restartGame.bind(this);
+  }
+
+  restartGame() {
+    const board = new MinesweeperBoard(9, 10);
+    this.setState({ board: board });
   }
 
   updateGame(tile, altKeyPress) {
-    console.log(tile, altKeyPress);
     if (altKeyPress) {
       tile.toggleFlag();
     } else {
@@ -24,8 +29,24 @@ class Game extends React.Component {
   }
 
   render() {
+    let modal;
+    let text;
+
+    if (this.state.board.won() || this.state.board.lost()) {
+      text = this.state.board.won() ? "You won" : "You lost";
+      modal = (
+        <div className="modal-screen">
+          <div className="modal-content">
+            <p>{text}</p>
+            <button onClick={this.restartGame}>Play Again</button>
+          </div>
+        </div>
+      );
+    }
+
     return (
       <div>
+        {modal}
         <Board board={this.state.board} updateGame={this.updateGame} />
       </div>
     );

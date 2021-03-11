@@ -8,10 +8,20 @@ h2 {
 }
 
 body {
-  font-family: raleway;
+  font-family: uni sans;
   text-align: center;
   padding: 10px;
-  /* background: linear-gradient(90deg, #00d2ff 0%, #3a47d5 100%); */
+  background: linear-gradient(90deg, #00d2ff 0%, #3a47d5 100%);
+}
+
+h1 {
+  /* color: white; */
+}
+
+p {
+  font-weight: bold;
+  font-size: 20px;
+  /* color: white; */
 }
 
 .board {
@@ -28,7 +38,7 @@ body {
 }
 
 .tile {
-  background-color: lightgray;
+  background-color: #3a47d5;
   display: flex;
   flex-direction: row;
   text-align: center;
@@ -43,19 +53,19 @@ body {
 }
 
 .tile-explored {
-  /* background-color: purple; */
   border-style: inset;
   width: 40px;
   height: 40px;
   font-size: 30px;
-  font-family: montserrat;
+  font-family: uni sans;
+  font-weight: bold;
+  /* color: white; */
 }
 
 .tile-bombed {
   background-color: red;
   border-style: inset;
   font-size: 25px;
-
   width: 40px;
   height: 40px;
 }
