@@ -13,6 +13,7 @@ class Game extends React.Component {
   }
 
   updateGame(tile, altKeyPress) {
+    console.log(tile, altKeyPress);
     if (altKeyPress) {
       tile.toggleFlag();
     } else {
