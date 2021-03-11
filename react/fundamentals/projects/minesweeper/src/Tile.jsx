@@ -1,4 +1,5 @@
 import React from "react";
+import Emoji from "./Emoji.jsx";
 
 class Tile extends React.Component {
   constructor(props) {
@@ -20,7 +21,6 @@ class Tile extends React.Component {
     if (tile.explored) {
       if (tile.bombed) {
         className += "-bombed";
-        text = "\u2622";
       } else if (tile.revealed) {
         className += "-explored";
 
@@ -32,7 +32,6 @@ class Tile extends React.Component {
       }
     } else if (tile.flagged) {
       className += "-flagged";
-      text = "U+1F6A9";
     }
 
     // if (tile.explored) {
@@ -41,7 +40,8 @@ class Tile extends React.Component {
 
     return (
       <div className={className} onClick={this.handleClick}>
-        {text}
+        {tile.bombed && tile.explored && <Emoji symbol="💣" label="bomb" />}
+        {tile.flagged && <Emoji symbol="🚩" label="flag" />}
       </div>
     );
   }
