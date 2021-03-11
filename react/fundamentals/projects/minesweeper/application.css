@@ -78,7 +78,7 @@ p {
 }
 
 .modal-screen {
-  z-index: 998;
+  z-index: 1;
   position: absolute;
   top: 0%;
   bottom: 0%;
@@ -88,14 +88,14 @@ p {
 }
 
 .modal-content {
-  z-index: 999;
+  z-index: 2;
   position: absolute;
   background: white;
   border-radius: 5px;
   border: 1px solid black;
-  font-size: 20px;
-  width: 200px;
-  height: 120px;
+  font-size: 40px;
+  width: 300px;
+  height: 200px;
   top: 50%;
   left: 50%;
   text-align: center;

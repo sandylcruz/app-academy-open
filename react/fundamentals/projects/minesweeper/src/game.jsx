@@ -1,5 +1,6 @@
 import React from "react";
 import Board from "./Board.jsx";
+import Modal from "./Modal.jsx";
 import { Board as MinesweeperBoard } from "../minesweeper.js";
 
 class Game extends React.Component {
@@ -29,24 +30,19 @@ class Game extends React.Component {
   }
 
   render() {
-    let modal;
-    let text;
+    const {
+      state: { board },
+    } = this;
 
-    if (this.state.board.won() || this.state.board.lost()) {
-      text = this.state.board.won() ? "You won" : "You lost";
-      modal = (
-        <div className="modal-screen">
-          <div className="modal-content">
-            <p>{text}</p>
-            <button onClick={this.restartGame}>Play Again</button>
-          </div>
-        </div>
-      );
-    }
+    const shouldShowModal = board.won() || board.lost();
 
     return (
       <div>
-        {modal}
+        {shouldShowModal && (
+          <Modal restartGame={this.restartGame}>
+            {board.won() ? "You won" : "You lost"}
+          </Modal>
+        )}
         <Board board={this.state.board} updateGame={this.updateGame} />
       </div>
     );
