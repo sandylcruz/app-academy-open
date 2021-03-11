@@ -20,7 +20,7 @@ class Tile extends React.Component {
     if (tile.explored) {
       if (tile.bombed) {
         className += "-bombed";
-        text = "💣";
+        text = "\u2622";
       } else if (tile.revealed) {
         className += "-explored";
 
@@ -32,14 +32,18 @@ class Tile extends React.Component {
       }
     } else if (tile.flagged) {
       className += "-flagged";
-      text = "🚩";
+      text = "U+1F6A9";
     }
 
     // if (tile.explored) {
     //   className += "-explored";
     // }
 
-    return <div className={className} onClick={this.handleClick}></div>;
+    return (
+      <div className={className} onClick={this.handleClick}>
+        {text}
+      </div>
+    );
   }
 }
 
