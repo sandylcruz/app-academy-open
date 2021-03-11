@@ -1,6 +1,5 @@
 import React from "react";
 import Tile from "./Tile";
-import Game from "./Game";
 
 class Board extends React.Component {
   constructor(props) {

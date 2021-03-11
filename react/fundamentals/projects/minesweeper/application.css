@@ -14,14 +14,9 @@ body {
   background: linear-gradient(90deg, #00d2ff 0%, #3a47d5 100%);
 }
 
-h1 {
-  /* color: white; */
-}
-
 p {
   font-weight: bold;
   font-size: 20px;
-  /* color: white; */
 }
 
 .board {
@@ -42,7 +37,6 @@ p {
   display: flex;
   flex-direction: row;
   text-align: center;
-  /* border: 1px solid #3a47d5; */
   align-items: center;
   justify-content: center;
   width: 40px;
@@ -59,7 +53,6 @@ p {
   font-size: 30px;
   font-family: uni sans;
   font-weight: bold;
-  /* color: white; */
 }
 
 .tile-bombed {
