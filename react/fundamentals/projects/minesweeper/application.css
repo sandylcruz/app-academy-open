@@ -36,6 +36,16 @@ body {
   justify-content: center;
   width: 40px;
   height: 40px;
+  border-style: outset;
+}
+
+.tile-explored {
+  /* background-color: purple; */
   border-style: inset;
-  /* border-style: outset; */
+  width: 40px;
+  height: 40px;
+}
+
+.tile-bombed {
+  background-color: red;
 }

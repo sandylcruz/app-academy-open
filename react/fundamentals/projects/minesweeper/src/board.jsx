@@ -23,16 +23,10 @@ class Board extends React.Component {
   }
 
   renderTiles(row, index) {
-    console.log(row);
     return row.map((tile, index) => {
-      return <Tile tile={tile} updateGame={this.props.updateGame} />;
-      // return (
-      //   <div
-      //     className="tile"
-      //     key={`tile-${index}`}
-      //     updategame={this.props.updateGame()}
-      //   ></div>
-      // );
+      return (
+        <Tile tile={tile} updateGame={this.props.updateGame} key={index} />
+      );
     });
   }
 

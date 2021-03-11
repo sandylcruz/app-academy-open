@@ -13,8 +13,13 @@ class Game extends React.Component {
   }
 
   updateGame(tile, altKeyPress) {
-    console.log(tile);
-    console.log(altKeyPress);
+    if (altKeyPress) {
+      tile.toggleFlag();
+    } else {
+      tile.explore();
+    }
+
+    this.setState({ board: this.state.board });
   }
 
   render() {
