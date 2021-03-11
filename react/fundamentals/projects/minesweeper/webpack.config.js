@@ -3,7 +3,7 @@ const webpack = require("webpack");
 
 module.exports = {
   context: __dirname,
-  entry: "./react_minesweeper.jsx",
+  entry: "./src/index.jsx",
   output: {
     path: path.resolve(path.join(__dirname, "./dist")),
     filename: "bundle.js",

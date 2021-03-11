@@ -1,7 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import Board from "./board.jsx";
-import Tiles from "./tiles.jsx";
+import Board from "./Board.jsx";
 import { Board as MinesweeperBoard } from "../minesweeper.js";
 
 class Game extends React.Component {
@@ -11,20 +9,18 @@ class Game extends React.Component {
       board: new MinesweeperBoard(9, 10),
     };
 
-    this.render = this.render.bind(this);
     this.updateGame = this.updateGame.bind(this);
-
-    this.render();
   }
 
-  updateGame() {}
+  updateGame(tile, altKeyPress) {
+    console.log(tile);
+    console.log(altKeyPress);
+  }
 
   render() {
     return (
       <div>
         <Board board={this.state.board} updateGame={this.updateGame} />
-
-        <div></div>
       </div>
     );
   }

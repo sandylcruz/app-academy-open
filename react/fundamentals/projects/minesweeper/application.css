@@ -4,13 +4,14 @@ p,
 h2 {
   margin: 0;
   padding: 0;
+  border: 0;
 }
 
 body {
   font-family: helvetica;
   text-align: center;
   padding: 10px;
-  background: linear-gradient(90deg, #00d2ff 0%, #3a47d5 100%);
+  /* background: linear-gradient(90deg, #00d2ff 0%, #3a47d5 100%); */
 }
 
 .board {
@@ -23,17 +24,18 @@ body {
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  border: 1 px solid #3a47d5;
 }
 
 .tile {
   background-color: lightgray;
   display: flex;
   flex-direction: row;
-  border: 1px solid #3a47d5;
+  /* border: 1px solid #3a47d5; */
   align-items: center;
   justify-content: center;
   width: 40px;
   height: 40px;
   border-style: inset;
-  border-style: outset;
+  /* border-style: outset; */
 }
