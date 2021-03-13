@@ -3,7 +3,7 @@ const webpack = require("webpack");
 
 module.exports = {
   context: __dirname,
-  entry: "./frontend/src/index.js",
+  entry: "./todo_redux.jsx",
   output: {
     path: path.resolve(__dirname),
     filename: "./frontend/dist/bundle.js",
