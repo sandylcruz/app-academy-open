@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import store from "./store/store.js";
+import configureStore from "./store/store.js";
 
 function Root() {
   return (
@@ -12,5 +12,6 @@ function Root() {
 
 document.addEventListener("DOMContentLoaded", () => {
   ReactDOM.render(<Root />, document.getElementById("main"));
+  const store = configureStore();
   window.store = store;
 });
