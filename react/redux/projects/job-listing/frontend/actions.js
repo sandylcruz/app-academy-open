@@ -5,5 +5,4 @@ export const selectLocation = (city, jobsArray) => {
     jobs: jobsArray,
   };
 };
-
 window.selectLocation = selectLocation;

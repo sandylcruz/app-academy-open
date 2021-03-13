@@ -4,7 +4,19 @@ const initialState = {
 };
 
 const reducer = (state = initialState, action) => {
-  return state; // remove this and fill out the body of the reducer function
+  const initialState = { city: "Please Select", job: [] };
+
+  switch (action.type) {
+    case "SWITCH_LOCATION":
+      return {
+        city: action.city,
+        jobs: action.jobs,
+      };
+    default:
+      return state;
+  }
 };
 
 export default reducer;
+
+window.reducer = reducer;

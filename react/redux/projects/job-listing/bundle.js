@@ -308,10 +308,27 @@ var initialState = {
 var reducer = function reducer() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
   var action = arguments.length > 1 ? arguments[1] : undefined;
-  return state; // remove this and fill out the body of the reducer function
+  return function () {
+    var initialState = {
+      city: "Please Select",
+      job: []
+    };
+
+    switch (action.type) {
+      case "SWITCH_LOCATION":
+        return {
+          city: action.city,
+          jobs: action.jobs
+        };
+
+      default:
+        return state;
+    }
+  }();
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (reducer);
+window.reducer = reducer;
 
 /***/ }),
 
