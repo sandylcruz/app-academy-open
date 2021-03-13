@@ -96,11 +96,14 @@
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "selectLocation", function() { return selectLocation; });
-var selectLocation = function selectLocation() {
+var selectLocation = function selectLocation(city, jobsArray) {
   return {
-    type: "SELECT_LOCATION"
+    type: "SELECT_LOCATION",
+    city: city,
+    jobs: jobsArray
   };
 };
+window.selectLocation = selectLocation;
 
 /***/ }),
 
