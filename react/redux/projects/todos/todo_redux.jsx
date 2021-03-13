@@ -6,7 +6,7 @@ import ReactDOM from "react-dom";
 function Root() {
   return (
     <div className="content">
-      <h1>Todos App</h1>
+      <h1>Super Awesome Todo List</h1>
     </div>
   );
 }
