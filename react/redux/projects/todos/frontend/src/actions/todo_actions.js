@@ -6,16 +6,13 @@ export const receiveTodos = (todos) => ({
   type: RECEIVE_TODOS,
   todos,
 });
-window.receiveTodo = receiveTodo;
 
 export const receiveTodo = (todo) => ({
   type: RECEIVE_TODO,
   todo,
 });
-window.receiveTodos = receiveTodos;
 
 export const removeTodo = (todo) => ({
   type: REMOVE_TODO,
   todo,
 });
-window.removeTodo = removeTodo;
