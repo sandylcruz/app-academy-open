@@ -1,0 +1,23 @@
+html,
+body,
+article,
+h1,
+h2,
+title,
+p,
+a {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #b2ebf2;
+  text-align: center;
+  margin: 10px;
+}
+
+h1 {
+  color: #0097a7;
+}
