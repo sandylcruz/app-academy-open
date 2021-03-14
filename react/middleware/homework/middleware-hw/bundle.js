@@ -1218,23 +1218,20 @@ __webpack_require__.r(__webpack_exports__);
 document.addEventListener("DOMContentLoaded", function () {
   var preloadedState = localStorage.state ? JSON.parse(localStorage.state) : {};
   var store = Object(_store_store__WEBPACK_IMPORTED_MODULE_2__["default"])(preloadedState);
+  store.dispatch = addLoggingToDispatch(store);
   var root = document.getElementById("content");
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_root__WEBPACK_IMPORTED_MODULE_3__["default"], {
     store: store
   }), root);
 });
 
-var addLoggingtoDispatch = function addLoggingtoDispatch(store) {
-  return function (next) {
-    return function (action) {
-      var localStore = store.dispatch(action);
-      console.log("Old state:", store.getState());
-      console.log("Action:", action);
-      console.log("Store.dispatch:", localStore);
-      var result = next(action);
-      console.log("New state:", store.getState());
-      return result;
-    };
+var addLoggingToDispatch = function addLoggingToDispatch(store) {
+  var originalStore = store.dispatch;
+  return function (action) {
+    console.log("Old state:", store.getState());
+    console.log("Action:", action);
+    console.log("Original dispatch:", originalStore(action));
+    console.log("New state:", store.getState());
   };
 };
 

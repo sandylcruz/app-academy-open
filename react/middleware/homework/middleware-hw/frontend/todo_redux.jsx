@@ -8,21 +8,20 @@ document.addEventListener("DOMContentLoaded", () => {
   const preloadedState = localStorage.state
     ? JSON.parse(localStorage.state)
     : {};
-  const store = configureStore(preloadedState);
+  let store = configureStore(preloadedState);
+  store.dispatch = addLoggingToDispatch(store);
 
   const root = document.getElementById("content");
   ReactDOM.render(<Root store={store} />, root);
 });
 
-const addLoggingtoDispatch = (store) => (next) => (action) => {
-  const localStore = store.dispatch(action);
+const addLoggingToDispatch = (store) => {
+  const originalStore = store.dispatch;
 
-  console.log("Old state:", store.getState());
-  console.log("Action:", action);
-  console.log("Store.dispatch:", localStore);
-
-  let result = next(action);
-
-  console.log("New state:", store.getState());
-  return result;
+  return (action) => {
+    console.log("Old state:", store.getState());
+    console.log("Action:", action);
+    console.log("Original dispatch:", originalStore(action));
+    console.log("New state:", store.getState());
+  };
 };
