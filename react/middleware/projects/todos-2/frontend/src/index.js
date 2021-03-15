@@ -14,18 +14,12 @@ import {
 } from "./actions/steps_actions.js";
 
 import { allTodos } from "./reducers/selectors.js";
-
-function Root() {
-  return (
-    <div className="content">
-      <h1>Super Awesome Todo List</h1>
-    </div>
-  );
-}
+import App from "./components/app.jsx";
+import Root from "./components/root.jsx";
 
 document.addEventListener("DOMContentLoaded", () => {
-  ReactDOM.render(<Root />, document.getElementById("main"));
   const store = configureStore();
+  ReactDOM.render(<Root store={store} />, document.getElementById("main"));
   window.store = store;
   window.actions = {
     receiveTodo,
