@@ -29,9 +29,69 @@ h1 {
   justify-content: center;
 }
 
+li {
+  list-style: none;
+}
+
+label {
+  margin: 20px;
+}
+
+button {
+  background-color: #00bcd4;
+  color: white;
+  margin: 10px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-family: Roboto;
+  font-weight: bolder;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0097a7;
+}
+
+.todoForm label {
+  margin: 5px;
+}
+
+.todoForm {
+  display: flex;
+  text-align: left;
+  flex-direction: column;
+  font-size: 17px;
+  margin: 10px 20px;
+}
+
+.todo-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: -20px;
+}
+
+.todo-container {
+  display: block;
+}
+
+.todo-list > li {
+  padding: 20px;
+  margin: 10px 10px;
+  border: 1px solid #0097a7;
+  background-color: white;
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+
 .app {
   width: 40%;
   min-width: 400px;
   margin-bottom: 40px;
-  /* border: 1px solid #0097a7; */
 }
