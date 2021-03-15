@@ -3,7 +3,7 @@ import TodoListContainer from "./todos/todo_list_container.jsx";
 
 const App = () => (
   <div className="app">
-    <h1>App title</h1>
+    <h1>Super Awesome Todo List</h1>
     <TodoListContainer />
   </div>
 );
