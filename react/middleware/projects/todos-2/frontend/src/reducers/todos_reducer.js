@@ -7,15 +7,15 @@ import {
 const initialState = {
   1: {
     id: 1,
-    title: "wash car",
+    title: "Wash Callie",
     body: "with soap",
     done: false,
   },
 
   2: {
     id: 2,
-    title: "wash dog",
-    body: "wish shampoo",
+    title: "Give Linus a bath",
+    body: "with shampoo",
     done: true,
   },
 };

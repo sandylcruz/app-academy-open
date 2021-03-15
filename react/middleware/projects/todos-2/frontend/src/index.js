@@ -13,6 +13,8 @@ import {
   removeStep,
 } from "./actions/steps_actions.js";
 
+import { allTodos } from "./reducers/selectors.js";
+
 function Root() {
   return (
     <div className="content">
@@ -32,6 +34,9 @@ document.addEventListener("DOMContentLoaded", () => {
     receiveStep,
     receiveSteps,
     removeStep,
+  };
+  window.selectors = {
+    allTodos,
   };
 });
 
