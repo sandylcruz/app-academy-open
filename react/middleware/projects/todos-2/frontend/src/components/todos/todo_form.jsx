@@ -9,36 +9,40 @@ class TodoForm extends React.Component {
       done: false,
     };
 
+    this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  // update(property) {
-  //   this.setState((property: event.target.value));
-  // }
+  handleChange(property) {
+    this.setState({ property: event.target.value });
+  }
 
-  handleSubmit(event) {}
+  handleSubmit(event) {
+    event.preventDefault();
+    this.handleChange(event);
+  }
 
   render() {
     return (
-      <div className="todoForm">
-        <label for="title">Title:</label>
+      <form className="todoForm">
+        <label id="title">Title:</label>
         <input id="title" type="text" placeholder="Give cats a bath"></input>
 
-        <label for="body">Body:</label>
+        <label id="body">Body:</label>
         <textarea
-          class="body"
+          className="textbox-body"
           cols="20"
           rows="5"
           placeholder="Use extra soap..."
         />
 
-        <label for="tags">Tags:</label>
+        <label id="tags">Tags:</label>
         <input id="tags" type="text" placeholder="Enter a new tag"></input>
 
         <button id="submit" type="submit" onChange={this.handleSubmit}>
           Create Todo!
         </button>
-      </div>
+      </form>
     );
   }
 }
