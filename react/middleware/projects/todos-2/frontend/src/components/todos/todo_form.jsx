@@ -25,6 +25,7 @@ class TodoForm extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     const todo = Object.assign({}, this.state, uniqueId);
+    this.props.receiveTodo(todo);
   }
 
   handleTitleChange(event) {
