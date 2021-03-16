@@ -6,7 +6,6 @@ const App = () => (
   <div className="app">
     <h1>Super Awesome Todo List</h1>
 
-    <TodoForm />
     <TodoListContainer />
   </div>
 );
