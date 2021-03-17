@@ -114,3 +114,24 @@ textarea {
   min-width: 400px;
   margin-bottom: 40px;
 }
+
+.done,
+.undone {
+  width: 70px;
+}
+
+.done:hover {
+  background-color: #0097a7;
+}
+
+.deleteButton {
+  background-color: #ff4081;
+}
+
+.deleteButton:hover {
+  background-color: #757575;
+}
+
+.submit:hover {
+  background-color: #0097a7;
+}

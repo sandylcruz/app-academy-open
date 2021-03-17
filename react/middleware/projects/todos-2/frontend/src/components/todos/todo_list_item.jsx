@@ -30,7 +30,7 @@ class TodoListItem extends React.Component {
             {this.props.todo.done ? "Done" : "Undone"}
           </button>
 
-          <button className="removeTodo" onClick={this.props.removeTodo}>
+          <button className="deleteButton" onClick={this.props.removeTodo}>
             Delete
           </button>
         </div>
