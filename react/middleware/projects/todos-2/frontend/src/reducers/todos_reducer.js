@@ -15,7 +15,7 @@ const initialState = {
   2: {
     id: 2,
     title: "Give Linus a bath",
-    body: "wit h shampoo",
+    body: "with shampoo",
     done: true,
   },
 };

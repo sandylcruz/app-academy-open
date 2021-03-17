@@ -1,13 +1,13 @@
-import { connect } from "react-redux";
+import React from "react";
 
 class TodoDetailView extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+  render() {
+    return <div className="todo-body">{this.props.todo.body}</div>;
 
-  mapDispatchToProps = (dispatch) => ({
-    removeTodo: (todo) => dispatch(removeTodo(todo)),
-  });
+    <button className="deleteButton" onClick={this.props.removeTodo}>
+      Delete Todo
+    </button>;
+  }
 }
 
-export default connect(null, mapDispatchToProps)(TodoDetailView);
+export default TodoDetailView;

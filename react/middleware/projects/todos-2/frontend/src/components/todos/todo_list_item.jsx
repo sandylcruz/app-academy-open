@@ -1,4 +1,5 @@
 import React from "react";
+import TodoDetailViewContainer from "./todo_detail_view_container.jsx";
 
 class TodoListItem extends React.Component {
   constructor(props) {
@@ -7,6 +8,20 @@ class TodoListItem extends React.Component {
       detail: false,
     };
     this.toggleTodo = this.toggleTodo.bind(this);
+    this.toggleDetail = this.toggleDetail.bind(this);
+  }
+
+  toggleDetail(event) {
+    event.preventDefault();
+    this.setState((oldState) => ({
+      ...oldState,
+      detail: !oldState.detail,
+    }));
+    console.log("it worked");
+
+    // this.setState({ // bad because multiple set states can be batched
+    //   // detail: !this.state.detail,
+    // });
   }
 
   toggleTodo(event) {
@@ -20,13 +35,13 @@ class TodoListItem extends React.Component {
   }
 
   render() {
-    if (this.state.detail) {
-      <TodoDetailView></TodoDetailView>;
-    }
     return (
       <li className="todo-list-item">
         <div className="todo-header">
-          {this.props.todo.title}
+          {/* {this.props.todo.title} */}
+          <h3>
+            <a onClick={this.toggleDetail}>{this.props.todo.title}</a>
+          </h3>
 
           <button
             className={this.props.todo.done ? "done" : "undone"}
@@ -34,12 +49,10 @@ class TodoListItem extends React.Component {
           >
             {this.props.todo.done ? "Done" : "Undone"}
           </button>
-          {/* 
-          <button className="deleteButton" onClick={this.props.removeTodo}>
-            Delete
-          </button> */}
         </div>
-        {this.state.detail}
+        {this.state.detail && (
+          <TodoDetailViewContainer todo={this.props.todo} />
+        )}
       </li>
     );
   }
