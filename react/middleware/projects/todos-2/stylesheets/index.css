@@ -104,6 +104,11 @@ textarea {
   flex-direction: column;
 }
 
+.todo-header {
+  display: flex;
+  justify-content: space-between;
+}
+
 .app {
   width: 40%;
   min-width: 400px;
