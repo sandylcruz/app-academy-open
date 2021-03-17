@@ -5,15 +5,16 @@ class TodoListItem extends React.Component {
     super(props);
 
     this.toggleTodo = this.toggleTodo.bind(this);
-    this.toggleDetail = this.toggleDetail.bind(this);
   }
 
   toggleTodo(event) {
     event.preventDefault();
-  }
+    const newTodo = {
+      ...this.props.todo,
+      done: !this.props.todo.done,
+    };
 
-  toggleDetail(event) {
-    event.preventDefault();
+    this.props.receiveTodo(newTodo);
   }
 
   render() {
@@ -23,10 +24,13 @@ class TodoListItem extends React.Component {
           {this.props.todo.title}
 
           <button
-            className="delete-todo"
-            type="submit"
-            onChange={this.props.removeTodo}
+            className={this.props.todo.done ? "done" : "undone"}
+            onClick={this.toggleTodo}
           >
+            {this.props.todo.done ? "Done" : "Undone"}
+          </button>
+
+          <button className="removeTodo" onClick={this.props.removeTodo}>
             Delete
           </button>
         </div>
