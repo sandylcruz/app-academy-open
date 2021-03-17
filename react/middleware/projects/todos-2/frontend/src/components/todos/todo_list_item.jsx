@@ -17,11 +17,6 @@ class TodoListItem extends React.Component {
       ...oldState,
       detail: !oldState.detail,
     }));
-    console.log("it worked");
-
-    // this.setState({ // bad because multiple set states can be batched
-    //   // detail: !this.state.detail,
-    // });
   }
 
   toggleTodo(event) {
