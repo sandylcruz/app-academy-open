@@ -3,7 +3,9 @@ import React from "react";
 class TodoListItem extends React.Component {
   constructor(props) {
     super(props);
-
+    this.state = {
+      detail: false,
+    };
     this.toggleTodo = this.toggleTodo.bind(this);
   }
 
@@ -18,6 +20,9 @@ class TodoListItem extends React.Component {
   }
 
   render() {
+    if (this.state.detail) {
+      <TodoDetailView></TodoDetailView>;
+    }
     return (
       <li className="todo-list-item">
         <div className="todo-header">
@@ -29,11 +34,12 @@ class TodoListItem extends React.Component {
           >
             {this.props.todo.done ? "Done" : "Undone"}
           </button>
-
+          {/* 
           <button className="deleteButton" onClick={this.props.removeTodo}>
             Delete
-          </button>
+          </button> */}
         </div>
+        {this.state.detail}
       </li>
     );
   }
