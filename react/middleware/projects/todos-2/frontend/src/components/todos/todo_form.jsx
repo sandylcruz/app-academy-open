@@ -50,6 +50,7 @@ class TodoForm extends React.Component {
           value={this.state.title}
           placeholder="Give cats a bath"
           onChange={this.handleTitleChange}
+          required
         ></input>
 
         <label className="body">Body:</label>
@@ -60,6 +61,7 @@ class TodoForm extends React.Component {
           value={this.state.body}
           placeholder="Use extra soap..."
           onChange={this.handleBodyChange}
+          required
         ></textarea>
 
         <label className="tags">Tags:</label>
