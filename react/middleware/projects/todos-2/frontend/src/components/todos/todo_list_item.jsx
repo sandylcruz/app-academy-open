@@ -33,7 +33,6 @@ class TodoListItem extends React.Component {
     return (
       <li className="todo-list-item">
         <div className="todo-header">
-          {/* {this.props.todo.title} */}
           <h3>
             <a onClick={this.toggleDetail}>{this.props.todo.title}</a>
           </h3>
