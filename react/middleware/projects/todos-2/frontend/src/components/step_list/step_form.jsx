@@ -8,6 +8,7 @@ class StepForm extends React.Component {
       title: "",
       description: "",
       done: false,
+      todo_id: this.props.todo_id,
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -23,8 +24,14 @@ class StepForm extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    const step = Object.assign({}, this.state, uniqueId);
+
+    const step = Object.assign({}, this.state, { id: uniqueId });
     this.props.receiveStep(step);
+
+    this.setState({
+      title: "",
+      body: "",
+    });
   }
 
   handleTitleChange(event) {

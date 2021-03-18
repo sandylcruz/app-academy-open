@@ -17,11 +17,9 @@ class TodoDetailView extends React.Component {
       <div className="todo-body">
         {this.props.todo.body}
 
-        <StepListItemContainer
-          step={{
-            title: "Cat title",
-          }}
-        />
+        {this.props.todo.steps && (
+          <StepListItemContainer step={this.props.todo.steps} />
+        )}
 
         <StepForm receiveStep={this.props.receiveStep} />
 

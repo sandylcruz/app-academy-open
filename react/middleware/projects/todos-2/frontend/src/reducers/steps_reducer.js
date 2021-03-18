@@ -4,21 +4,7 @@ import {
   REMOVE_STEP,
 } from "../actions/steps_actions.js";
 
-const initialState = {
-  1: {
-    id: 1,
-    title: "Pick up callie",
-    description: "With Ovegloves",
-    done: false,
-  },
-
-  2: {
-    id: 2,
-    title: "Put Callie in the sink",
-    description: "carefully",
-    done: false,
-  },
-};
+const initialState = {};
 
 const stepsReducer = (state = initialState, action) => {
   let nextState = Object.assign({}, state);
