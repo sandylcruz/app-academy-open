@@ -109,6 +109,13 @@ textarea {
   justify-content: space-between;
 }
 
+.step-form {
+  background-color: #b2ebf2;
+  border-radius: 5px;
+  padding: 20px;
+  margin: 20px 0;
+}
+
 .app {
   width: 40%;
   min-width: 400px;
