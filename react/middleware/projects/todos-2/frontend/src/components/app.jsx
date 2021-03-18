@@ -11,7 +11,6 @@ const App = () => (
     <h1>Super Awesome Todo List</h1>
 
     <TodoListContainer />
-    <StepForm />
   </div>
 );
 

@@ -1,7 +1,5 @@
 import React from "react";
 import TodoDetailViewContainer from "./todo_detail_view_container.jsx";
-import StepListItemContainer from "../step_list/step_list_item_container.jsx";
-import StepForm from "../step_list/step_form.jsx";
 
 class TodoListItem extends React.Component {
   constructor(props) {
@@ -49,14 +47,6 @@ class TodoListItem extends React.Component {
         {this.state.detail && (
           <TodoDetailViewContainer todo={this.props.todo} />
         )}
-
-        {/* <StepListItemContainer
-          step={{
-            title: "Cat title",
-          }}
-        />
-
-        <StepForm /> */}
       </li>
     );
   }

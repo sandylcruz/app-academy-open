@@ -5,10 +5,20 @@ import StepForm from "./step_form.jsx";
 
 class StepList extends React.Component {
   render() {
-    <ul className="step-container">
-      <StepForm receiveTodo={this.props.receiveTodo} />
-      <ul className="step-list"></ul>
-    </ul>;
+    return (
+      <ul className="step-container">
+        <StepForm receiveStep={this.props.receiveStep} />
+        <ul className="step-list"></ul>
+        {this.props.allSteps.map((step) => (
+          <StepListItem
+            key={step.id}
+            todo={step}
+            removeStep={this.props.removeStep}
+            receiveStep={this.props.receiveStep}
+          />
+        ))}
+      </ul>
+    );
   }
 }
 

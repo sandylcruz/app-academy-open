@@ -23,7 +23,7 @@ class TodoDetailView extends React.Component {
           }}
         />
 
-        <StepForm />
+        <StepForm receiveStep={this.props.receiveStep} />
 
         <button className="deleteButton" onClick={this.handleClick}>
           Delete Todo
