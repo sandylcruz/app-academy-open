@@ -7,14 +7,15 @@ import {
 const initialState = {
   1: {
     id: 1,
-    title: "Dispatch actions",
+    title: "Pick up callie carefully",
+    description: "asdfasdf",
     done: false,
     todo_id: 1,
   },
 
   2: {
     id: 2,
-    title: "Reload",
+    title: "Get extra shampoo",
     done: false,
     todo_id: 2,
   },
@@ -51,11 +52,3 @@ const stepsReducer = (state = initialState, action) => {
 };
 
 export default stepsReducer;
-
-const newSteps = { id: 1, title: "Dispatch actions", done: false, todo_id: 1 };
-const newTodos = {
-  id: 1,
-  title: "Learn Redux",
-  body: "It is fundamental",
-  done: false,
-};
