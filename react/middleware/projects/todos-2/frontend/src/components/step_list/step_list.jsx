@@ -17,19 +17,23 @@ class StepList extends React.Component {
   }
 
   render() {
+    console.log("hi");
+
     return (
-      <ul className="step-container">
-        <StepForm receiveStep={this.props.receiveStep} />
-        <ul className="step-list"></ul>
-        {this.props.allSteps.map((step) => (
-          <StepListItem
-            key={step.id}
-            todo={step}
-            removeStep={this.props.removeStep}
-            receiveStep={this.props.receiveStep}
-          />
-        ))}
-      </ul>
+      <div>
+        <ul className="step-list">
+          {this.props.allSteps.map((step) => (
+            <StepListItemContainer
+              key={step.id}
+              step={step}
+              todo_id={todo_id}
+              removeStep={this.props.removeStep}
+              receiveStep={this.props.receiveStep}
+            />
+          ))}
+        </ul>
+        <StepForm todo_id={todo_id} receiveStep={this.props.receiveStep} />
+      </div>
     );
   }
 }

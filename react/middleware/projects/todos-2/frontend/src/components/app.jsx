@@ -9,7 +9,6 @@ import StepForm from "./step_list/step_form.jsx";
 const App = () => (
   <div className="app">
     <h1>Super Awesome Todo List</h1>
-
     <TodoListContainer />
   </div>
 );

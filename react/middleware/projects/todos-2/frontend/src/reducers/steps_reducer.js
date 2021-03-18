@@ -4,7 +4,21 @@ import {
   REMOVE_STEP,
 } from "../actions/steps_actions.js";
 
-const initialState = {};
+const initialState = {
+  1: {
+    id: 1,
+    title: "Dispatch actions",
+    done: false,
+    todo_id: 1,
+  },
+
+  2: {
+    id: 2,
+    title: "Reload",
+    done: false,
+    todo_id: 2,
+  },
+};
 
 const stepsReducer = (state = initialState, action) => {
   let nextState = Object.assign({}, state);
@@ -37,13 +51,3 @@ const stepsReducer = (state = initialState, action) => {
 };
 
 export default stepsReducer;
-
-const newTodos = [
-  { id: 1, title: "Learn Redux", body: "It is fundamental", done: false },
-  { id: 2, title: "Learn js", body: "Also essential", done: false },
-];
-
-const newSteps = [
-  { id: 1, title: "Dispatch actions", done: false, todo_id: 1 },
-  { id: 2, title: "Reload", done: false, todo_id: 2 },
-];
