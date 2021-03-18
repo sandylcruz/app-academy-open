@@ -5,8 +5,8 @@ class StepListItem extends React.Component {
     return (
       <li className="step-header">
         <ul className="step-info">
-          <h3>Step title: {this.props.step.title}</h3>
-          <p>Step description:{this.props.step.body} </p>
+          <h3>{this.props.step.title}</h3>
+          <p>{this.props.step.description} </p>
         </ul>
 
         <div className="step-button">

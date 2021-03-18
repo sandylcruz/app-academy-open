@@ -1,10 +1,14 @@
 import { connect } from "react-redux";
-import { removeStep, receiveStep } from "../../actions/step_actions.js";
-import StepListItem from "./step_list_item.jsx";
+import StepListItem from "./step_list_item";
+// Actions
+import { receiveStep, removeStep } from "../../actions/step_actions";
 
-const mapDispatchToProps = (dispatch) => ({
-  removeStep: (step) => dispatch(removeStep),
-  receiveStep: (step) => dispatch(receiveStep),
+const mapDispatchToProps = (dispatch, { step }) => ({
+  removeStep: () => dispatch(removeStep(step)),
+  receiveStep: (step) => dispatch(receiveStep(step)),
 });
 
-export default connect(null, mapDispatchToProps)(StepListItem);
+export default connect(
+  null, // step prop is already passed in
+  mapDispatchToProps
+)(StepListItem);
