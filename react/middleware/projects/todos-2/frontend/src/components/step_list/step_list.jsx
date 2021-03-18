@@ -1,8 +1,14 @@
 import { render } from "react-dom";
+import StepListItem from "./step_list_item.jsx";
+import StepForm from "./step_form.jsx";
 
-const StepList = () => {
-  <ul className="step-items">
-    <StepListItemContainers />
-    <StepForm />
-  </ul>;
-};
+class StepList extends React.Component {
+  render() {
+    <ul className="step-list">
+      <StepListItemContainers />
+      <StepForm />
+    </ul>;
+  }
+}
+
+export default StepList;
