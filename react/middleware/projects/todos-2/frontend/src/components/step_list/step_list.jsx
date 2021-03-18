@@ -4,6 +4,18 @@ import StepListItem from "./step_list_item.jsx";
 import StepForm from "./step_form.jsx";
 
 class StepList extends React.Component {
+  constructor(props) {
+    super(props);
+    this.toggleStep = this.toggleStep.bind(this);
+  }
+
+  toggleStep(event) {
+    const toggledStep = Object.assign({}, this.props.step, {
+      done: !this.props.step.done,
+    });
+    this.props.receiveStep(toggledStep);
+  }
+
   render() {
     return (
       <ul className="step-container">
