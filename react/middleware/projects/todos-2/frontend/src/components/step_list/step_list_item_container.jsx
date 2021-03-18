@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { removeStep, receiveStep } from "../../actions/steps_actions.js";
+import { removeStep, receiveStep } from "../../actions/step_actions.js";
 import StepListItem from "./step_list_item.jsx";
 
 const mapDispatchToProps = (dispatch) => ({

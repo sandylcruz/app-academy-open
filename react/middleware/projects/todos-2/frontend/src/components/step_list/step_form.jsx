@@ -1,73 +1,59 @@
-import React from "react";
 import { uniqueId } from "../../util/util.js";
+import React from "react";
 
 class StepForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       title: "",
-      description: "",
+      body: "",
       done: false,
       todo_id: this.props.todo_id,
     };
 
-    this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-
-    this.handleTitleChange = this.handleTitleChange.bind(this);
-    this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
   }
 
-  handleChange(property, event) {
-    this.setState({ [property]: event.target.value });
+  update(property) {
+    return (e) => this.setState({ [property]: e.target.value });
   }
 
-  handleSubmit(event) {
-    event.preventDefault();
-
-    const step = Object.assign({}, this.state, { id: uniqueId });
+  handleSubmit(e) {
+    e.preventDefault();
+    const step = Object.assign({}, this.state, { id: uniqueId() });
     this.props.receiveStep(step);
-
     this.setState({
       title: "",
       body: "",
     });
   }
 
-  handleTitleChange(event) {
-    this.handleChange("title", event);
-  }
-
-  handleDescriptionChange(event) {
-    this.handleChange("description", event);
-  }
-
   render() {
     return (
       <form className="step-form" onSubmit={this.handleSubmit}>
-        <label className="step-form-title">Title:</label>
-        <input
-          className="step-title"
-          type="text"
-          value={this.state.title}
-          placeholder="Pick up Callie"
-          onChange={this.handleTitleChange}
-          required
-        />
-
-        <label className="step-form-description">Description:</label>
-        <input
-          className="step-description"
-          type="text"
-          value={this.state.description}
-          placeholder="Very carefully..."
-          onChange={this.handleDescriptionChange}
-          required
-        />
-
-        <button className="submit" type="submit" onChange={this.handleSubmit}>
-          Create Step!
-        </button>
+        <label>
+          Title:
+          <input
+            className="input"
+            ref="title"
+            value={this.state.title}
+            placeholder="walk to store"
+            onChange={this.update("title")}
+            required
+          />
+        </label>
+        <label>
+          Description:
+          <input
+            className="input"
+            ref="body"
+            value={this.state.body}
+            placeholder="google store directions"
+            onChange={this.update("body")}
+            required
+          />
+        </label>
+        <button className="create-button">Create Step!</button>
       </form>
     );
   }

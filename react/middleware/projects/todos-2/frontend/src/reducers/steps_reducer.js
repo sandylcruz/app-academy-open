@@ -2,7 +2,7 @@ import {
   RECEIVE_STEPS,
   RECEIVE_STEP,
   REMOVE_STEP,
-} from "../actions/steps_actions.js";
+} from "../actions/step_actions.js";
 
 const initialState = {
   1: {
@@ -51,3 +51,11 @@ const stepsReducer = (state = initialState, action) => {
 };
 
 export default stepsReducer;
+
+const newSteps = { id: 1, title: "Dispatch actions", done: false, todo_id: 1 };
+const newTodos = {
+  id: 1,
+  title: "Learn Redux",
+  body: "It is fundamental",
+  done: false,
+};

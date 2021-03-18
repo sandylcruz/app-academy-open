@@ -11,7 +11,7 @@ import {
   receiveStep,
   receiveSteps,
   removeStep,
-} from "./actions/steps_actions.js";
+} from "./actions/step_actions.js";
 
 import { allTodos } from "./reducers/selectors.js";
 import App from "./components/app.jsx";
