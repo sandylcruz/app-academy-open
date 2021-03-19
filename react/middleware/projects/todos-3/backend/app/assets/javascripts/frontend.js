@@ -183,9 +183,11 @@ var fetchTodos = function fetchTodos() {
 
 var createTodo = function createTodo(todo) {
   return function (dispatch) {
-    return _util_todo_api_util_js__WEBPACK_IMPORTED_MODULE_0__.createTodo(todo).then(function (todo) {
+    _util_todo_api_util_js__WEBPACK_IMPORTED_MODULE_0__.createTodo(todo).then(function (todo) {
       return dispatch(receiveTodo(todo));
-    });
+    }), function (error) {
+      return dispatch(receiveErrors(error.respondJSON));
+    };
   };
 };
 
@@ -1152,53 +1154,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_step_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/step_actions */ "./frontend/src/actions/step_actions.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-// import {
-//   RECEIVE_STEPS,
-//   RECEIVE_STEP,
-//   REMOVE_STEP,
-// } from "../actions/step_actions.js";
-// const initialState = {
-//   1: {
-//     id: 1,
-//     title: "Pick up callie carefully",
-//     description: "With ovegloves",
-//     done: false,
-//     todo_id: 1,
-//   },
-//   2: {
-//     id: 2,
-//     title: "Get extra shampoo",
-//     description: "Might need callie's help",
-//     done: false,
-//     todo_id: 2,
-//   },
-// };
-// const stepsReducer = (state = initialState, action) => {
-//   let nextState = Object.assign({}, state);
-//   Object.freeze(state);
-//   switch (action.type) {
-//     case RECEIVE_STEPS:
-//       action.steps.forEach((step) => {
-//         nextState[step.id] = step;
-//       });
-//       return nextState;
-//     case RECEIVE_STEP:
-//       const newStep = { [action.step.id]: action.step };
-//       return Object.assign({}, state, newStep);
-//     case REMOVE_STEP:
-//       const stepToDelete = action.step;
-//       Object.keys(state).forEach((key) => {
-//         const currentStep = state[key];
-//         if (currentStep.id !== stepToDelete.id) {
-//           nextState[key] = currentStep;
-//         }
-//       });
-//       return nextState;
-//     default:
-//       return state;
-//   }
-// };
-// export default stepsReducer;
 
 
 var stepsReducer = function stepsReducer() {
