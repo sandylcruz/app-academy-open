@@ -12,3 +12,5 @@ export const fetchTodos = () => {
     });
   });
 };
+
+export const createTodo = () => {};

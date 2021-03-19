@@ -10,13 +10,14 @@ import {
 const mapStateToProps = (state) => {
   return {
     allTodos: allTodos(state),
-    fetchTodos: fetchTodos(),
+    fetchTodos: fetchTodos(state),
   };
 };
 
 const mapDispatchToProps = (dispatch) => ({
   receiveTodo: (todo) => dispatch(receiveTodo(todo)),
   removeTodo: (todo) => dispatch(removeTodo(todo)),
+  fetchTodos: (todo) => dispatch(fetchTodos(todo)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TodoList);
