@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(version: 2021_03_18_230919) do
   enable_extension "plpgsql"
 
   create_table "todos", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "body"
+    t.string "title", null: false
+    t.string "body", null: false
     t.boolean "done"
   end
 

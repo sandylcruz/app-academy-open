@@ -60,6 +60,35 @@ function _objectWithoutPropertiesLoose(source, excluded) {
 
 /***/ }),
 
+/***/ "./frontend/middleware/thunk.js":
+/*!**************************************!*\
+  !*** ./frontend/middleware/thunk.js ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+var thunk = function thunk(_ref) {
+  var dispatch = _ref.dispatch,
+      getState = _ref.getState;
+  return function (next) {
+    return function (action) {
+      if (typeof action === "function") {
+        return action(dispatch, getState);
+      }
+
+      return next(action);
+    };
+  };
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (thunk);
+
+/***/ }),
+
 /***/ "./frontend/src/actions/step_actions.js":
 /*!**********************************************!*\
   !*** ./frontend/src/actions/step_actions.js ***!
@@ -1227,23 +1256,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
-/* harmony import */ var _reducers_root_reducer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../reducers/root_reducer.js */ "./frontend/src/reducers/root_reducer.js");
+/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
+/* harmony import */ var _middleware_thunk_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../middleware/thunk.js */ "./frontend/middleware/thunk.js");
+/* harmony import */ var _reducers_root_reducer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../reducers/root_reducer.js */ "./frontend/src/reducers/root_reducer.js");
+
+
 
 
 
 var configureStore = function configureStore() {
   var preloadedState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-  var store = (0,redux__WEBPACK_IMPORTED_MODULE_1__.createStore)(_reducers_root_reducer_js__WEBPACK_IMPORTED_MODULE_0__.default, preloadedState);
+  var store = (0,redux__WEBPACK_IMPORTED_MODULE_2__.createStore)(_reducers_root_reducer_js__WEBPACK_IMPORTED_MODULE_1__.default, preloadedState, (0,redux__WEBPACK_IMPORTED_MODULE_2__.applyMiddleware)(_middleware_thunk_js__WEBPACK_IMPORTED_MODULE_0__.default));
   store.subscribe(function () {
     localStorage.state = JSON.stringify(store.getState());
   });
+  store.dispatch(function (dispatch) {
+    console.log("If this prints out, the thunk middleware is working!");
+  });
   return store;
-}; // const configureStore = () => {
-//   const store = createStore(rootReducer);
-//   return store;
-// };
-
+};
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (configureStore);
 
