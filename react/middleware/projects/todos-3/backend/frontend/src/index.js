@@ -5,6 +5,7 @@ import {
   receiveTodo,
   receiveTodos,
   removeTodo,
+  fetchTodos,
 } from "./actions/todo_actions.js";
 
 import {
@@ -16,6 +17,7 @@ import {
 import { allTodos } from "./reducers/selectors.js";
 import App from "./components/app.jsx";
 import Root from "./components/root.jsx";
+import thunk from "../middleware/thunk.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const store = configureStore();
@@ -31,6 +33,8 @@ document.addEventListener("DOMContentLoaded", () => {
   };
   window.selectors = {
     allTodos,
+    thunk,
+    fetchTodos,
   };
 });
 

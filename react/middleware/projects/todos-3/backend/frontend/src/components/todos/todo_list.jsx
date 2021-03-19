@@ -1,8 +1,13 @@
 import React from "react";
 import TodoListItem from "./todo_list_item.jsx";
 import TodoForm from "./todo_form.jsx";
+import { fetchTodos } from "../../actions/todo_actions.js";
 
 class TodoList extends React.Component {
+  // componentDidMount() {
+  //   this.props.fetchTodos();
+  // }
+
   render() {
     return (
       <div className="todo-container">

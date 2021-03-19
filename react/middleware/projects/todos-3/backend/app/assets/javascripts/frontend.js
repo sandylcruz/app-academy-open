@@ -141,13 +141,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "RECEIVE_TODOS": () => (/* binding */ RECEIVE_TODOS),
 /* harmony export */   "RECEIVE_TODO": () => (/* binding */ RECEIVE_TODO),
 /* harmony export */   "REMOVE_TODO": () => (/* binding */ REMOVE_TODO),
+/* harmony export */   "FETCH_TODOS": () => (/* binding */ FETCH_TODOS),
 /* harmony export */   "receiveTodos": () => (/* binding */ receiveTodos),
 /* harmony export */   "receiveTodo": () => (/* binding */ receiveTodo),
-/* harmony export */   "removeTodo": () => (/* binding */ removeTodo)
+/* harmony export */   "removeTodo": () => (/* binding */ removeTodo),
+/* harmony export */   "fetchTodos": () => (/* binding */ fetchTodos)
 /* harmony export */ });
+/* harmony import */ var _util_todo_api_util_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/todo_api_util.js */ "./frontend/src/util/todo_api_util.js");
 var RECEIVE_TODOS = "RECEIVE_TODOS";
 var RECEIVE_TODO = "RECEIVE_TODO";
 var REMOVE_TODO = "REMOVE_TODO";
+var FETCH_TODOS = "FETCH_TODOS";
+
 var receiveTodos = function receiveTodos(todos) {
   return {
     type: RECEIVE_TODOS,
@@ -166,6 +171,14 @@ var removeTodo = function removeTodo(todo) {
     todo: todo
   };
 };
+var fetchTodos = function fetchTodos() {
+  return function (dispatch) {
+    return _util_todo_api_util_js__WEBPACK_IMPORTED_MODULE_0__.fetchTodos().then(function (todos) {
+      return dispatch(receiveTodos(todos));
+    });
+  };
+}; // fetchTodos() returns a promise that resolve to an array todo objects
+// (todos) is the return value of the fetchTodos() promise
 
 /***/ }),
 
@@ -812,6 +825,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _todo_list_item_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./todo_list_item.jsx */ "./frontend/src/components/todos/todo_list_item.jsx");
 /* harmony import */ var _todo_form_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./todo_form.jsx */ "./frontend/src/components/todos/todo_form.jsx");
+/* harmony import */ var _actions_todo_actions_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/todo_actions.js */ "./frontend/src/actions/todo_actions.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -838,6 +852,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
 var TodoList = /*#__PURE__*/function (_React$Component) {
   _inherits(TodoList, _React$Component);
 
@@ -851,7 +866,10 @@ var TodoList = /*#__PURE__*/function (_React$Component) {
 
   _createClass(TodoList, [{
     key: "render",
-    value: function render() {
+    value: // componentDidMount() {
+    //   this.props.fetchTodos();
+    // }
+    function render() {
       var _this = this;
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -900,7 +918,8 @@ __webpack_require__.r(__webpack_exports__);
 
 var mapStateToProps = function mapStateToProps(state) {
   return {
-    allTodos: (0,_reducers_selectors_js__WEBPACK_IMPORTED_MODULE_2__.allTodos)(state)
+    allTodos: (0,_reducers_selectors_js__WEBPACK_IMPORTED_MODULE_2__.allTodos)(state),
+    fetchTodos: (0,_actions_todo_actions_js__WEBPACK_IMPORTED_MODULE_3__.fetchTodos)()
   };
 };
 
@@ -1270,13 +1289,40 @@ var configureStore = function configureStore() {
   store.subscribe(function () {
     localStorage.state = JSON.stringify(store.getState());
   });
-  store.dispatch(function (dispatch) {
-    console.log("If this prints out, the thunk middleware is working!");
+  store.dispatch(function (dispatch) {// console.log("If this prints out, the thunk middleware is working!");
   });
   return store;
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (configureStore);
+
+/***/ }),
+
+/***/ "./frontend/src/util/todo_api_util.js":
+/*!********************************************!*\
+  !*** ./frontend/src/util/todo_api_util.js ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "fetchTodos": () => (/* binding */ fetchTodos)
+/* harmony export */ });
+var fetchTodos = function fetchTodos() {
+  return new Promise(function (resolve, reject) {
+    $.ajax({
+      method: "GET",
+      url: "/api/todos",
+      success: function success(data) {
+        resolve(data);
+      },
+      error: function error() {
+        reject();
+      }
+    });
+  });
+};
 
 /***/ }),
 
@@ -34916,6 +34962,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _reducers_selectors_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./reducers/selectors.js */ "./frontend/src/reducers/selectors.js");
 /* harmony import */ var _components_app_jsx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/app.jsx */ "./frontend/src/components/app.jsx");
 /* harmony import */ var _components_root_jsx__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/root.jsx */ "./frontend/src/components/root.jsx");
+/* harmony import */ var _middleware_thunk_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../middleware/thunk.js */ "./frontend/middleware/thunk.js");
+
 
 
 
@@ -34939,7 +34987,9 @@ document.addEventListener("DOMContentLoaded", function () {
     removeStep: _actions_step_actions_js__WEBPACK_IMPORTED_MODULE_4__.removeStep
   };
   window.selectors = {
-    allTodos: _reducers_selectors_js__WEBPACK_IMPORTED_MODULE_5__.allTodos
+    allTodos: _reducers_selectors_js__WEBPACK_IMPORTED_MODULE_5__.allTodos,
+    thunk: _middleware_thunk_js__WEBPACK_IMPORTED_MODULE_8__.default,
+    fetchTodos: _actions_todo_actions_js__WEBPACK_IMPORTED_MODULE_3__.fetchTodos
   };
 }); // store.dispatch(actions.receiveTodos(newTodos));
 })();
