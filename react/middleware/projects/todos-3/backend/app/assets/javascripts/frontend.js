@@ -146,7 +146,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "receiveTodo": () => (/* binding */ receiveTodo),
 /* harmony export */   "removeTodo": () => (/* binding */ removeTodo),
 /* harmony export */   "fetchTodos": () => (/* binding */ fetchTodos),
-/* harmony export */   "createTodos": () => (/* binding */ createTodos)
+/* harmony export */   "createTodo": () => (/* binding */ createTodo)
 /* harmony export */ });
 /* harmony import */ var _util_todo_api_util_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/todo_api_util.js */ "./frontend/src/util/todo_api_util.js");
 var RECEIVE_TODOS = "RECEIVE_TODOS";
@@ -181,9 +181,9 @@ var fetchTodos = function fetchTodos() {
 }; // fetchTodos() returns a promise that resolve to an array todo objects
 // (todos) is the return value of the fetchTodos() promise
 
-var createTodos = function createTodos() {
+var createTodo = function createTodo(todo) {
   return function (dispatch) {
-    return _util_todo_api_util_js__WEBPACK_IMPORTED_MODULE_0__.createTodo().then(function (todo) {
+    return _util_todo_api_util_js__WEBPACK_IMPORTED_MODULE_0__.createTodo(todo).then(function (todo) {
       return dispatch(receiveTodo(todo));
     });
   };
@@ -753,9 +753,18 @@ var TodoForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "handleSubmit",
     value: function handleSubmit(event) {
+      var _this2 = this;
+
       event.preventDefault();
       var todo = Object.assign({}, this.state, _util_util_js__WEBPACK_IMPORTED_MODULE_1__.uniqueId);
-      this.props.receiveTodo(todo);
+      this.props.createTodo({
+        todo: todo
+      }).then(function () {
+        return _this2.setState({
+          title: "",
+          body: ""
+        });
+      });
     }
   }, {
     key: "handleTitleChange",
@@ -942,9 +951,22 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     removeTodo: function removeTodo(todo) {
       return dispatch((0,_actions_todo_actions_js__WEBPACK_IMPORTED_MODULE_3__.removeTodo)(todo));
     },
-    fetchTodos: function fetchTodos(todo) {
-      return dispatch((0,_actions_todo_actions_js__WEBPACK_IMPORTED_MODULE_3__.fetchTodos)(todo));
-    }
+    fetchTodos: function fetchTodos() {
+      return dispatch((0,_actions_todo_actions_js__WEBPACK_IMPORTED_MODULE_3__.fetchTodos)());
+    },
+    createTodo: function (_createTodo) {
+      function createTodo(_x) {
+        return _createTodo.apply(this, arguments);
+      }
+
+      createTodo.toString = function () {
+        return _createTodo.toString();
+      };
+
+      return createTodo;
+    }(function (todo) {
+      return dispatch(createTodo(todo));
+    })
   };
 };
 
@@ -1338,7 +1360,20 @@ var fetchTodos = function fetchTodos() {
     });
   });
 };
-var createTodo = function createTodo() {};
+var createTodo = function createTodo(todo) {
+  return new Promise(function (resolve, reject) {
+    $.ajax({
+      method: "POST",
+      url: "/api/todos",
+      success: function success(data) {
+        resolve(data);
+      },
+      error: function error() {
+        reject();
+      }
+    });
+  });
+};
 
 /***/ }),
 

@@ -13,4 +13,17 @@ export const fetchTodos = () => {
   });
 };
 
-export const createTodo = () => {};
+export const createTodo = (todo) => {
+  return new Promise((resolve, reject) => {
+    $.ajax({
+      method: "POST",
+      url: "/api/todos",
+      success: (data) => {
+        resolve(data);
+      },
+      error: () => {
+        reject();
+      },
+    });
+  });
+};
