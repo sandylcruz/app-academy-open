@@ -13,3 +13,169 @@
  *= require_tree .
  *= require_self
  */
+
+html,
+body,
+article,
+h1,
+h2,
+title,
+p,
+a {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #b2ebf2;
+  text-align: center;
+  margin: 10px;
+  border-radius: 5px;
+}
+
+h1 {
+  color: #0097a7;
+  margin-top: 40px;
+  text-align: center;
+}
+
+p {
+  font-size: 14px;
+}
+
+#main {
+  display: flex;
+  justify-content: center;
+}
+
+li {
+  list-style: none;
+}
+
+label {
+  padding: 10px;
+}
+
+button {
+  background-color: #00bcd4;
+  color: white;
+  margin: 10px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-family: Roboto;
+  font-weight: bolder;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #00bcd4;
+}
+
+input {
+  border-radius: 5px;
+  border: 1px solid #00bcd4;
+}
+textarea {
+  border-radius: 5px;
+  border: 1px solid #00bcd4;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+.todoForm label {
+  margin: 5px;
+}
+
+.todoForm {
+  display: flex;
+  text-align: left;
+  flex-direction: column;
+  font-size: 17px;
+  margin: 10px 20px;
+}
+
+.todo-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: -20px;
+  width: 100%;
+}
+
+.todo-list-item {
+  cursor: pointer;
+}
+
+.todo-container {
+  display: block;
+}
+
+.todo-list > li {
+  padding: 20px;
+  margin: 10px 10px;
+  border: 1px solid #0097a7;
+  background-color: white;
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+
+.todo-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.todo-body {
+  font-size: 16px;
+  margin: 10px;
+  font-weight: normal;
+}
+
+.step-form {
+  display: flex;
+  flex-direction: column;
+  background-color: #b2ebf2;
+  border-radius: 5px;
+  padding: 20px;
+  margin: 20px 0;
+  width: 300px;
+  height: 200px;
+  align-items: center;
+  margin-left: -10px;
+}
+
+.app {
+  width: 40%;
+  min-width: 400px;
+  margin-bottom: 40px;
+}
+
+.done,
+.undone {
+  width: 70px;
+}
+
+.done:hover {
+  background-color: #0097a7;
+}
+
+.deleteButton {
+  background-color: #ff4081;
+}
+
+.deleteButton:hover {
+  background-color: #757575;
+}
+
+.submit:hover {
+  background-color: #0097a7;
+}
