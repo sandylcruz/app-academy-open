@@ -26,7 +26,7 @@ class TodoForm extends React.Component {
     event.preventDefault();
     const todo = Object.assign({}, this.state, uniqueId);
     this.props
-      .createTodo({ todo })
+      .createTodo(todo)
       .then(() => this.setState({ title: "", body: "" }));
   }
 
@@ -43,8 +43,11 @@ class TodoForm extends React.Component {
   }
 
   render() {
+    console.log("***", this.props.errors);
     return (
       <form className="todoForm" onSubmit={this.handleSubmit}>
+        {this.props.errors &&
+          this.props.errors.map((error) => <div key={error}>{error}</div>)}
         <label className="title">Title:</label>
         <input
           className="title"

@@ -11,7 +11,11 @@ class TodoList extends React.Component {
   render() {
     return (
       <div className="todo-container">
-        <TodoForm receiveTodo={this.props.receiveTodo} />
+        <TodoForm
+          receiveTodo={this.props.receiveTodo}
+          createTodo={this.props.createTodo}
+          errors={this.props.errors}
+        />
         <ul className="todo-list">
           {this.props.allTodos.map((todo) => (
             <TodoListItem

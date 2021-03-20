@@ -9,3 +9,5 @@ export const stepsByTodoId = ({ steps }, todo_id) => {
   });
   return stepsByTodoId;
 };
+
+export const allErrors = ({ errors }) => errors;
