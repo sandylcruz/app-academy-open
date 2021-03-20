@@ -669,13 +669,22 @@ var TodoDetailView = /*#__PURE__*/function (_React$Component) {
 
   var _super = _createSuper(TodoDetailView);
 
-  function TodoDetailView() {
+  function TodoDetailView(props) {
+    var _this;
+
     _classCallCheck(this, TodoDetailView);
 
-    return _super.apply(this, arguments);
+    _this = _super.call(this, props);
+    _this.handleDelete = _this.handleDelete.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(TodoDetailView, [{
+    key: "handleDelete",
+    value: function handleDelete() {
+      this.props.deleteTodo(this.props.todo);
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this$props = this.props,
@@ -687,7 +696,7 @@ var TodoDetailView = /*#__PURE__*/function (_React$Component) {
         todo_id: todo.id
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         className: "delete-button",
-        onClick: removeTodo
+        onClick: this.handleDelete
       }, "Delete Todo"));
     }
   }]);
@@ -739,6 +748,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     }),
     receiveStep: function receiveStep(step) {
       return dispatch((0,_actions_step_actions_js__WEBPACK_IMPORTED_MODULE_3__.receiveStep)(step));
+    },
+    deleteTodo: function deleteTodo(todo) {
+      return dispatch((0,_actions_todo_actions_js__WEBPACK_IMPORTED_MODULE_2__.deleteTodo)(todo));
     }
   };
 };
