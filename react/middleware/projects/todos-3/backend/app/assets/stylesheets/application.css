@@ -56,6 +56,7 @@ li {
 
 label {
   padding: 10px;
+  font-size: 15px;
 }
 
 button {
@@ -177,5 +178,9 @@ h3 {
 }
 
 .submit:hover {
+  background-color: #0097a7;
+}
+
+.create-button:hover {
   background-color: #0097a7;
 }

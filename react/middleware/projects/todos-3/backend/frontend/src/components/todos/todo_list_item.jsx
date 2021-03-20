@@ -17,6 +17,7 @@ class TodoListItem extends React.Component {
       ...oldState,
       detail: !oldState.detail,
     }));
+    this.props.fetchSteps(this.props.todo.id);
   }
 
   toggleTodo(event) {

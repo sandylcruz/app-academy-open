@@ -6,7 +6,7 @@ class StepListItem extends React.Component {
       <li className="step-header">
         <ul className="step-info">
           <h3>{this.props.step.title}</h3>
-          <p>{this.props.step.description} </p>
+          <p>{this.props.step.body} </p>
         </ul>
 
         <div className="step-button">

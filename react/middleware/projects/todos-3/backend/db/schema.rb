@@ -17,7 +17,8 @@ ActiveRecord::Schema.define(version: 2021_03_20_182622) do
 
   create_table "steps", force: :cascade do |t|
     t.string "title", null: false
-    t.string "description", null: false
+    t.string "body", null: false
+    t.integer "todo_id", null: false
     t.boolean "done"
   end
 

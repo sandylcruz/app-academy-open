@@ -10,6 +10,8 @@ import {
   deleteTodo,
 } from "../../actions/todo_actions.js";
 
+import { fetchSteps } from "../../actions/step_actions.js";
+
 const mapStateToProps = (state) => {
   return {
     allTodos: allTodos(state),
@@ -24,6 +26,12 @@ const mapDispatchToProps = (dispatch) => ({
   createTodo: (todo) => dispatch(createTodo(todo)),
   updateTodo: (todo) => dispatch(updateTodo(todo)),
   deleteTodo: (todo) => dispatch(deleteTodo(todo)),
+  fetchSteps: (todoId) => dispatch(fetchSteps(todoId)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TodoList);
+// connect has reference to store
+// creates new component that internally calls store.getState
+// and runs that =through mapstatetoprops
+// renders child component (todolist) with the props
+// connect is a wrapper component

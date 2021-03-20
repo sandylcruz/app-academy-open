@@ -134,8 +134,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "REMOVE_STEP": () => (/* binding */ REMOVE_STEP),
 /* harmony export */   "receiveSteps": () => (/* binding */ receiveSteps),
 /* harmony export */   "receiveStep": () => (/* binding */ receiveStep),
-/* harmony export */   "removeStep": () => (/* binding */ removeStep)
+/* harmony export */   "removeStep": () => (/* binding */ removeStep),
+/* harmony export */   "fetchSteps": () => (/* binding */ fetchSteps),
+/* harmony export */   "createStep": () => (/* binding */ createStep)
 /* harmony export */ });
+/* harmony import */ var _util_step_api_util_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/step_api_util.js */ "./frontend/src/util/step_api_util.js");
+
 var RECEIVE_STEPS = "RECEIVE_STEPS";
 var RECEIVE_STEP = "RECEIVE_STEP";
 var REMOVE_STEP = "REMOVE_STEP";
@@ -155,6 +159,20 @@ var removeStep = function removeStep(step) {
   return {
     type: REMOVE_STEP,
     step: step
+  };
+};
+var fetchSteps = function fetchSteps(todoId) {
+  return function (dispatch) {
+    return _util_step_api_util_js__WEBPACK_IMPORTED_MODULE_0__.fetchSteps(todoId).then(function (steps) {
+      return dispatch(receiveSteps(steps));
+    });
+  };
+};
+var createStep = function createStep(step) {
+  return function (dispatch) {
+    return _util_step_api_util_js__WEBPACK_IMPORTED_MODULE_0__.createStep(step).then(function (step) {
+      return dispatch(receiveStep(step));
+    });
   };
 };
 
@@ -395,7 +413,7 @@ var StepForm = /*#__PURE__*/function (_React$Component) {
       var step = Object.assign({}, this.state, {
         id: (0,_util_util_js__WEBPACK_IMPORTED_MODULE_0__.uniqueId)()
       });
-      this.props.receiveStep(step);
+      this.props.createStep(step);
       this.setState({
         title: "",
         body: ""
@@ -414,7 +432,7 @@ var StepForm = /*#__PURE__*/function (_React$Component) {
         placeholder: "walk to store",
         onChange: this.update("title"),
         required: true
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("label", null, "Description:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("input", {
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("label", null, "Body:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("input", {
         className: "input",
         ref: "body",
         value: this.state.body,
@@ -456,7 +474,8 @@ __webpack_require__.r(__webpack_exports__);
 var StepList = function StepList(_ref) {
   var steps = _ref.steps,
       todo_id = _ref.todo_id,
-      receiveStep = _ref.receiveStep;
+      receiveStep = _ref.receiveStep,
+      createStep = _ref.createStep;
   var stepItems = steps.map(function (step) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_step_list_item_container__WEBPACK_IMPORTED_MODULE_1__.default, {
       key: step.id,
@@ -467,7 +486,8 @@ var StepList = function StepList(_ref) {
     className: "step-list"
   }, stepItems), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_step_form__WEBPACK_IMPORTED_MODULE_2__.default, {
     todo_id: todo_id,
-    receiveStep: receiveStep
+    receiveStep: receiveStep,
+    createStep: createStep
   }));
 };
 
@@ -508,7 +528,16 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     receiveStep: function receiveStep(step) {
       return dispatch((0,_actions_step_actions__WEBPACK_IMPORTED_MODULE_3__.receiveStep)(step));
-    }
+    },
+    fetchSteps: function fetchSteps(steps) {
+      return dispatch((0,_actions_step_actions__WEBPACK_IMPORTED_MODULE_3__.fetchSteps)(step));
+    },
+    // removeStep: (step) => dispatch(removeStep(step)),
+    createStep: function createStep(step) {
+      return dispatch((0,_actions_step_actions__WEBPACK_IMPORTED_MODULE_3__.createStep)(step));
+    } // updateStep: (step) => dispatch(updateStep(step)),
+    // deleteStep: (step) => dispatch(deleteStep(step)),
+
   };
 };
 
@@ -570,7 +599,7 @@ var StepListItem = /*#__PURE__*/function (_React$Component) {
         className: "step-header"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", {
         className: "step-info"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, this.props.step.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, this.props.step.description, " ")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, this.props.step.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, this.props.step.body, " ")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "step-button"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         className: this.props.step.done ? "done" : "undone",
@@ -988,7 +1017,8 @@ var TodoList = /*#__PURE__*/function (_React$Component) {
           removeTodo: _this.props.removeTodo,
           receiveTodo: _this.props.receiveTodo,
           updateTodo: _this.props.updateTodo,
-          deleteTodo: _this.props.deleteTodo
+          deleteTodo: _this.props.deleteTodo,
+          fetchSteps: _this.props.fetchSteps
         });
       })));
     }
@@ -1016,7 +1046,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _reducers_selectors_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../reducers/selectors.js */ "./frontend/src/reducers/selectors.js");
 /* harmony import */ var _actions_todo_actions_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/todo_actions.js */ "./frontend/src/actions/todo_actions.js");
+/* harmony import */ var _actions_step_actions_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../actions/step_actions.js */ "./frontend/src/actions/step_actions.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -1050,10 +1082,16 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     return dispatch((0,_actions_todo_actions_js__WEBPACK_IMPORTED_MODULE_3__.updateTodo)(todo));
   }), _defineProperty(_ref, "deleteTodo", function deleteTodo(todo) {
     return dispatch((0,_actions_todo_actions_js__WEBPACK_IMPORTED_MODULE_3__.deleteTodo)(todo));
+  }), _defineProperty(_ref, "fetchSteps", function fetchSteps(todoId) {
+    return dispatch((0,_actions_step_actions_js__WEBPACK_IMPORTED_MODULE_4__.fetchSteps)(todoId));
   }), _ref;
 };
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_1__.connect)(mapStateToProps, mapDispatchToProps)(_todo_list_jsx__WEBPACK_IMPORTED_MODULE_0__.default));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_1__.connect)(mapStateToProps, mapDispatchToProps)(_todo_list_jsx__WEBPACK_IMPORTED_MODULE_0__.default)); // connect has reference to store
+// creates new component that internally calls store.getState
+// and runs that =through mapstatetoprops
+// renders child component (todolist) with the props
+// connect is a wrapper component
 
 /***/ }),
 
@@ -1129,6 +1167,7 @@ var TodoListItem = /*#__PURE__*/function (_React$Component) {
           detail: !oldState.detail
         });
       });
+      this.props.fetchSteps(this.props.todo.id);
     }
   }, {
     key: "toggleTodo",
@@ -1247,7 +1286,8 @@ var allTodos = function allTodos(_ref) {
   return Object.keys(todos).map(function (id) {
     return todos[id];
   });
-};
+}; // array of todo objects
+
 var stepsByTodoId = function stepsByTodoId(_ref2, todo_id) {
   var steps = _ref2.steps;
   var stepsByTodoId = [];
@@ -1290,7 +1330,7 @@ var stepsReducer = function stepsReducer() {
     case _actions_step_actions__WEBPACK_IMPORTED_MODULE_0__.RECEIVE_STEPS:
       nextState = Object.assign({}, state);
       action.steps.forEach(function (step) {
-        return nextState[step.id] = step;
+        nextState[step.id] = step;
       });
       return nextState;
 
@@ -1396,6 +1436,52 @@ var configureStore = function configureStore() {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (configureStore);
+
+/***/ }),
+
+/***/ "./frontend/src/util/step_api_util.js":
+/*!********************************************!*\
+  !*** ./frontend/src/util/step_api_util.js ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "fetchSteps": () => (/* binding */ fetchSteps),
+/* harmony export */   "createStep": () => (/* binding */ createStep)
+/* harmony export */ });
+var fetchSteps = function fetchSteps(todoId) {
+  return new Promise(function (resolve, reject) {
+    $.ajax({
+      method: "GET",
+      url: "/api/todos/".concat(todoId, "/steps"),
+      success: function success(data) {
+        resolve(data);
+      },
+      error: function error() {
+        reject();
+      }
+    });
+  });
+};
+var createStep = function createStep(step) {
+  return new Promise(function (resolve, reject) {
+    $.ajax({
+      method: "POST",
+      url: "/api/steps",
+      data: {
+        step: step
+      },
+      success: function success(data) {
+        resolve(data);
+      },
+      error: function error() {
+        reject("Failed to make step");
+      }
+    });
+  });
+};
 
 /***/ }),
 
@@ -35136,7 +35222,8 @@ document.addEventListener("DOMContentLoaded", function () {
     removeTodo: _actions_todo_actions_js__WEBPACK_IMPORTED_MODULE_3__.removeTodo,
     receiveStep: _actions_step_actions_js__WEBPACK_IMPORTED_MODULE_4__.receiveStep,
     receiveSteps: _actions_step_actions_js__WEBPACK_IMPORTED_MODULE_4__.receiveSteps,
-    removeStep: _actions_step_actions_js__WEBPACK_IMPORTED_MODULE_4__.removeStep
+    removeStep: _actions_step_actions_js__WEBPACK_IMPORTED_MODULE_4__.removeStep,
+    fetchSteps: _actions_step_actions_js__WEBPACK_IMPORTED_MODULE_4__.fetchSteps
   };
   window.selectors = {
     allTodos: _reducers_selectors_js__WEBPACK_IMPORTED_MODULE_5__.allTodos,

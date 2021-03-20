@@ -21,7 +21,7 @@ class StepForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const step = Object.assign({}, this.state, { id: uniqueId() });
-    this.props.receiveStep(step);
+    this.props.createStep(step);
     this.setState({
       title: "",
       body: "",
@@ -43,7 +43,7 @@ class StepForm extends React.Component {
           />
         </label>
         <label>
-          Description:
+          Body:
           <input
             className="input"
             ref="body"

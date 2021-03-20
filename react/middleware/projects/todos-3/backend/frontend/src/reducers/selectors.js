@@ -1,5 +1,5 @@
 export const allTodos = ({ todos }) =>
-  Object.keys(todos).map((id) => todos[id]);
+  Object.keys(todos).map((id) => todos[id]); // array of todo objects
 
 export const stepsByTodoId = ({ steps }, todo_id) => {
   const stepsByTodoId = [];

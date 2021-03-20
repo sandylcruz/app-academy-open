@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   defaults format: :json do
     namespace :api do 
-      resources :todos, only: [:index, :show, :create, :destroy, :update]
+      resources :todos, only: [:index, :show, :create, :destroy, :update] do 
+        resources :steps, only: [:index]
+      end
+      
+      resources :steps, only: [:create, :destroy, :update]
     end
   end
 

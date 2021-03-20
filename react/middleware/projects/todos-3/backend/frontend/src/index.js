@@ -12,6 +12,7 @@ import {
   receiveStep,
   receiveSteps,
   removeStep,
+  fetchSteps,
 } from "./actions/step_actions.js";
 
 import { allTodos } from "./reducers/selectors.js";
@@ -30,6 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
     receiveStep,
     receiveSteps,
     removeStep,
+    fetchSteps,
   };
   window.selectors = {
     allTodos,
