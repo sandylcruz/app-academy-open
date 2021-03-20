@@ -19,14 +19,14 @@ class Api::TodosController < ApplicationController
   end
 
   def update
-    @todo = Todo.find_by(id: params[:id])
+    @todo = Todo.find_by(id: params[:todo][:id])
     
     if @todo.nil?
-      render json: @todo.errors.fullMessages, status: 422
+      head :unprocessable_entity
     elsif @todo.update_attributes(todo_params)
       render json: @todo
     else
-      render json: @todo.errors.fullMessages, status: 422
+      render json: @todo.errors.full_messages, status: 422
     end
   end
 

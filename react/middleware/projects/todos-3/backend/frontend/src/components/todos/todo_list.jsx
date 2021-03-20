@@ -14,6 +14,7 @@ class TodoList extends React.Component {
         <TodoForm
           receiveTodo={this.props.receiveTodo}
           createTodo={this.props.createTodo}
+          updateTodo={this.props.updateTodo}
           errors={this.props.errors}
         />
         <ul className="todo-list">
@@ -23,6 +24,7 @@ class TodoList extends React.Component {
               todo={todo}
               removeTodo={this.props.removeTodo}
               receiveTodo={this.props.receiveTodo}
+              updateTodo={this.props.updateTodo}
             />
           ))}
         </ul>

@@ -23,7 +23,6 @@ export const createTodo = (todo) => {
       },
 
       success: (data) => {
-        console.log(data);
         resolve(data);
       },
       error: () => {
@@ -35,14 +34,11 @@ export const createTodo = (todo) => {
 
 export const updateTodo = (todo) => {
   return new Promise((resolve, reject) => {
-    $ajax({
+    $.ajax({
       method: "PATCH",
       url: "api/todos/{todo.id}",
-      success: (data) => {
-        receiveTodo;
-      },
-      error: () => {
-        receiveError;
+      data: {
+        todo,
       },
     });
   });

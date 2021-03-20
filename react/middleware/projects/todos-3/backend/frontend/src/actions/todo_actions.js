@@ -2,6 +2,7 @@ export const RECEIVE_TODOS = "RECEIVE_TODOS";
 export const RECEIVE_TODO = "RECEIVE_TODO";
 export const REMOVE_TODO = "REMOVE_TODO";
 export const FETCH_TODOS = "FETCH_TODOS";
+export const UPDATE_TODO = "UPDATE_TODO";
 import { receiveError } from "./error_actions.js";
 import * as APIUtil from "../util/todo_api_util.js";
 
@@ -39,6 +40,8 @@ export const createTodo = (todo) => (dispatch) =>
     (error) => dispatch(receiveError(error))
   );
 
-export const updateTodo = (todo) => (dispatch) => {
-  APIUtil.updateTodo(todo).then((todo) => dispatch(receiveTodo(todo)));
-};
+export const updateTodo = (todo) => (dispatch) =>
+  APIUtil.updateTodo(todo).then(
+    (todo) => dispatch(receiveTodo(todo)),
+    (error) => dispatch(receiveError(error))
+  );

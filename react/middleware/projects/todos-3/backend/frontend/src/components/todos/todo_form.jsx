@@ -43,7 +43,6 @@ class TodoForm extends React.Component {
   }
 
   render() {
-    console.log("***", this.props.errors);
     return (
       <form className="todoForm" onSubmit={this.handleSubmit}>
         {this.props.errors &&
