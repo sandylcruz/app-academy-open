@@ -168,11 +168,11 @@ h3 {
   background-color: #0097a7;
 }
 
-.deleteButton {
+.delete-button {
   background-color: #ff4081;
 }
 
-.deleteButton:hover {
+.delete-button:hover {
   background-color: #757575;
 }
 
