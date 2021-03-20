@@ -5,7 +5,6 @@ import { stepsByTodoId } from "../../reducers/selectors";
 import {
   receiveStep,
   fetchSteps,
-  removeStep,
   createStep,
   updateStep,
   deleteStep,
@@ -19,10 +18,9 @@ const mapStateToProps = (state, { todo_id }) => ({
 const mapDispatchToProps = (dispatch) => ({
   receiveStep: (step) => dispatch(receiveStep(step)),
   fetchSteps: (steps) => dispatch(fetchSteps(step)),
-  // removeStep: (step) => dispatch(removeStep(step)),
   createStep: (step) => dispatch(createStep(step)),
   // updateStep: (step) => dispatch(updateStep(step)),
-  // deleteStep: (step) => dispatch(deleteStep(step)),
+  deleteStep: (step) => dispatch(deleteStep(step)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(StepList);

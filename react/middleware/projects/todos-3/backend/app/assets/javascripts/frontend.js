@@ -136,7 +136,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "receiveStep": () => (/* binding */ receiveStep),
 /* harmony export */   "removeStep": () => (/* binding */ removeStep),
 /* harmony export */   "fetchSteps": () => (/* binding */ fetchSteps),
-/* harmony export */   "createStep": () => (/* binding */ createStep)
+/* harmony export */   "createStep": () => (/* binding */ createStep),
+/* harmony export */   "deleteStep": () => (/* binding */ deleteStep)
 /* harmony export */ });
 /* harmony import */ var _util_step_api_util_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/step_api_util.js */ "./frontend/src/util/step_api_util.js");
 
@@ -172,6 +173,13 @@ var createStep = function createStep(step) {
   return function (dispatch) {
     return _util_step_api_util_js__WEBPACK_IMPORTED_MODULE_0__.createStep(step).then(function (step) {
       return dispatch(receiveStep(step));
+    });
+  };
+};
+var deleteStep = function deleteStep(step) {
+  return function (dispatch) {
+    return _util_step_api_util_js__WEBPACK_IMPORTED_MODULE_0__.deleteStep(step).then(function () {
+      return dispatch(removeStep(step));
     });
   };
 };
@@ -475,11 +483,13 @@ var StepList = function StepList(_ref) {
   var steps = _ref.steps,
       todo_id = _ref.todo_id,
       receiveStep = _ref.receiveStep,
-      createStep = _ref.createStep;
+      createStep = _ref.createStep,
+      deleteStep = _ref.deleteStep;
   var stepItems = steps.map(function (step) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_step_list_item_container__WEBPACK_IMPORTED_MODULE_1__.default, {
       key: step.id,
-      step: step
+      step: step,
+      deleteStep: deleteStep
     });
   });
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", {
@@ -532,12 +542,13 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     fetchSteps: function fetchSteps(steps) {
       return dispatch((0,_actions_step_actions__WEBPACK_IMPORTED_MODULE_3__.fetchSteps)(step));
     },
-    // removeStep: (step) => dispatch(removeStep(step)),
     createStep: function createStep(step) {
       return dispatch((0,_actions_step_actions__WEBPACK_IMPORTED_MODULE_3__.createStep)(step));
-    } // updateStep: (step) => dispatch(updateStep(step)),
-    // deleteStep: (step) => dispatch(deleteStep(step)),
-
+    },
+    // updateStep: (step) => dispatch(updateStep(step)),
+    deleteStep: function deleteStep(step) {
+      return dispatch((0,_actions_step_actions__WEBPACK_IMPORTED_MODULE_3__.deleteStep)(step));
+    }
   };
 };
 
@@ -586,13 +597,22 @@ var StepListItem = /*#__PURE__*/function (_React$Component) {
 
   var _super = _createSuper(StepListItem);
 
-  function StepListItem() {
+  function StepListItem(props) {
+    var _this;
+
     _classCallCheck(this, StepListItem);
 
-    return _super.apply(this, arguments);
+    _this = _super.call(this, props);
+    _this.handleDelete = _this.handleDelete.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(StepListItem, [{
+    key: "handleDelete",
+    value: function handleDelete() {
+      this.props.deleteStep(this.props.step);
+    }
+  }, {
     key: "render",
     value: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
@@ -606,7 +626,7 @@ var StepListItem = /*#__PURE__*/function (_React$Component) {
         onClick: this.toggleStep
       }, this.props.step.done ? "Undone" : "Done"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         className: "delete-button",
-        onClick: this.props.removeStep
+        onClick: this.handleDelete
       }, "Delete")));
     }
   }]);
@@ -1250,18 +1270,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
-/* harmony import */ var _todos_reducer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./todos_reducer.js */ "./frontend/src/reducers/todos_reducer.js");
-/* harmony import */ var _steps_reducer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./steps_reducer.js */ "./frontend/src/reducers/steps_reducer.js");
-/* harmony import */ var _errors_reducer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./errors_reducer.js */ "./frontend/src/reducers/errors_reducer.js");
+/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
+/* harmony import */ var _todos_reducer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./todos_reducer.js */ "./frontend/src/reducers/todos_reducer.js");
+/* harmony import */ var _steps_reducer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./steps_reducer.js */ "./frontend/src/reducers/steps_reducer.js");
+/* harmony import */ var _errors_reducer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./errors_reducer.js */ "./frontend/src/reducers/errors_reducer.js");
 
 
 
 
-var rootReducer = (0,redux__WEBPACK_IMPORTED_MODULE_3__.combineReducers)({
-  todos: _todos_reducer_js__WEBPACK_IMPORTED_MODULE_0__.default,
-  steps: _steps_reducer_js__WEBPACK_IMPORTED_MODULE_1__.default,
-  errors: _errors_reducer_js__WEBPACK_IMPORTED_MODULE_2__.default // points to array of strings that can be empty
+var rootReducer = (0,redux__WEBPACK_IMPORTED_MODULE_0__.combineReducers)({
+  todos: _todos_reducer_js__WEBPACK_IMPORTED_MODULE_1__.default,
+  steps: _steps_reducer_js__WEBPACK_IMPORTED_MODULE_2__.default,
+  errors: _errors_reducer_js__WEBPACK_IMPORTED_MODULE_3__.default // points to array of strings that can be empty
 
 });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (rootReducer);
@@ -1449,7 +1469,8 @@ var configureStore = function configureStore() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "fetchSteps": () => (/* binding */ fetchSteps),
-/* harmony export */   "createStep": () => (/* binding */ createStep)
+/* harmony export */   "createStep": () => (/* binding */ createStep),
+/* harmony export */   "deleteStep": () => (/* binding */ deleteStep)
 /* harmony export */ });
 var fetchSteps = function fetchSteps(todoId) {
   return new Promise(function (resolve, reject) {
@@ -1478,6 +1499,20 @@ var createStep = function createStep(step) {
       },
       error: function error() {
         reject("Failed to make step");
+      }
+    });
+  });
+};
+var deleteStep = function deleteStep(step) {
+  return new Promise(function (resolve, reject) {
+    $.ajax({
+      method: "DELETE",
+      url: "/api/steps/".concat(step.id),
+      success: function success() {
+        resolve();
+      },
+      error: function error() {
+        reject("Did not delete");
       }
     });
   });

@@ -1,6 +1,15 @@
 import React from "react";
 
 class StepListItem extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleDelete = this.handleDelete.bind(this);
+  }
+
+  handleDelete() {
+    this.props.deleteStep(this.props.step);
+  }
+
   render() {
     return (
       <li className="step-header">
@@ -17,7 +26,7 @@ class StepListItem extends React.Component {
             {this.props.step.done ? "Undone" : "Done"}
           </button>
 
-          <button className="delete-button" onClick={this.props.removeStep}>
+          <button className="delete-button" onClick={this.handleDelete}>
             Delete
           </button>
         </div>

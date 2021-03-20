@@ -24,3 +24,6 @@ export const fetchSteps = (todoId) => (dispatch) =>
 
 export const createStep = (step) => (dispatch) =>
   APIUtil.createStep(step).then((step) => dispatch(receiveStep(step)));
+
+export const deleteStep = (step) => (dispatch) =>
+  APIUtil.deleteStep(step).then(() => dispatch(removeStep(step)));

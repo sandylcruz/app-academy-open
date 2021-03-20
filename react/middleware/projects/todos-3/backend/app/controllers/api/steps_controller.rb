@@ -15,11 +15,11 @@ class Api::StepsController < ApplicationController
   end
 
   def update
-    @step = step.find_by(id: params[:id])
+    @step = Step.find_by(id: params[:id])
   end
 
   def destroy
-    @step = step.find_by(id: params[:id])
+    @step = Step.find_by(id: params[:id])
     @step.destroy!
   end
 

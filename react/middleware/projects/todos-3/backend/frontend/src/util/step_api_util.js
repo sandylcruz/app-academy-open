@@ -28,3 +28,17 @@ export const createStep = (step) =>
       },
     });
   });
+
+export const deleteStep = (step) =>
+  new Promise((resolve, reject) => {
+    $.ajax({
+      method: "DELETE",
+      url: `/api/steps/${step.id}`,
+      success: () => {
+        resolve();
+      },
+      error: () => {
+        reject("Did not delete");
+      },
+    });
+  });
