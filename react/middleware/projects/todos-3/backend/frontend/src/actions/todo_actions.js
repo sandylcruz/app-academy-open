@@ -42,6 +42,9 @@ export const createTodo = (todo) => (dispatch) =>
 
 export const updateTodo = (todo) => (dispatch) =>
   APIUtil.updateTodo(todo).then(
-    (todo) => dispatch(receiveTodo(todo)),
+    (todo) => {
+      console.log(todo);
+      return dispatch(receiveTodo(todo));
+    },
     (error) => dispatch(receiveError(error))
   );

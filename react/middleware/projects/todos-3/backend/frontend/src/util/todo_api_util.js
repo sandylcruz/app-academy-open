@@ -40,6 +40,13 @@ export const updateTodo = (todo) => {
       data: {
         todo,
       },
+
+      success: (data) => {
+        resolve(data);
+      },
+      error: () => {
+        reject("something went wrong");
+      },
     });
   });
 };

@@ -238,6 +238,7 @@ var createTodo = function createTodo(todo) {
 var updateTodo = function updateTodo(todo) {
   return function (dispatch) {
     return _util_todo_api_util_js__WEBPACK_IMPORTED_MODULE_1__.updateTodo(todo).then(function (todo) {
+      console.log(todo);
       return dispatch(receiveTodo(todo));
     }, function (error) {
       return dispatch((0,_error_actions_js__WEBPACK_IMPORTED_MODULE_0__.receiveError)(error));
@@ -1107,12 +1108,10 @@ var TodoListItem = /*#__PURE__*/function (_React$Component) {
     key: "toggleTodo",
     value: function toggleTodo(event) {
       event.preventDefault();
-
-      var newTodo = _objectSpread(_objectSpread({}, this.props.todo), {}, {
+      var toggledTodo = Object.assign({}, this.props.todo, {
         done: !this.props.todo.done
       });
-
-      this.props.updateTodo(newTodo);
+      this.props.updateTodo(toggledTodo);
     }
   }, {
     key: "render",
@@ -1126,7 +1125,7 @@ var TodoListItem = /*#__PURE__*/function (_React$Component) {
       }, this.props.todo.title)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         className: this.props.todo.done ? "done" : "undone",
         onClick: this.toggleTodo
-      }, this.props.todo.done ? "Done" : "Undone")), this.state.detail && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_todo_detail_view_container_jsx__WEBPACK_IMPORTED_MODULE_1__.default, {
+      }, this.props.todo.done ? "Undo" : "Done")), this.state.detail && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_todo_detail_view_container_jsx__WEBPACK_IMPORTED_MODULE_1__.default, {
         todo: this.props.todo
       }));
     }
@@ -1425,6 +1424,12 @@ var updateTodo = function updateTodo(todo) {
       url: "api/todos/{todo.id}",
       data: {
         todo: todo
+      },
+      success: function success(data) {
+        resolve(data);
+      },
+      error: function error() {
+        reject("something went wrong");
       }
     });
   });

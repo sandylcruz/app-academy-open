@@ -21,12 +21,10 @@ class TodoListItem extends React.Component {
 
   toggleTodo(event) {
     event.preventDefault();
-    const newTodo = {
-      ...this.props.todo,
+    const toggledTodo = Object.assign({}, this.props.todo, {
       done: !this.props.todo.done,
-    };
-
-    this.props.updateTodo(newTodo);
+    });
+    this.props.updateTodo(toggledTodo);
   }
 
   render() {
@@ -41,7 +39,7 @@ class TodoListItem extends React.Component {
             className={this.props.todo.done ? "done" : "undone"}
             onClick={this.toggleTodo}
           >
-            {this.props.todo.done ? "Done" : "Undone"}
+            {this.props.todo.done ? "Undo" : "Done"}
           </button>
         </div>
         {this.state.detail && (
