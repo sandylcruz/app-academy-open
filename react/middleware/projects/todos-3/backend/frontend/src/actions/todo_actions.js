@@ -50,8 +50,6 @@ export const updateTodo = (todo) => (dispatch) =>
 
 export const deleteTodo = (todo) => (dispatch) =>
   APIUtil.deleteTodo(todo).then(
-    (todo) => {
-      return dispatch(deleteTodo(todo));
-    },
+    (todo) => dispatch(removeTodo(todo)),
     (error) => dispatch(receiveError(error))
   );

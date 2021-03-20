@@ -55,10 +55,7 @@ export const deleteTodo = (todo) => {
   return new Promise((resolve, reject) => {
     $.ajax({
       method: "DELETE",
-      url: "api/todos/{todo.id}",
-      data: {
-        todo,
-      },
+      url: `api/todos/${todo.id}`,
 
       success: (data) => {
         resolve(data);

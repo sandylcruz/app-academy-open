@@ -248,7 +248,7 @@ var updateTodo = function updateTodo(todo) {
 var deleteTodo = function deleteTodo(todo) {
   return function (dispatch) {
     return _util_todo_api_util_js__WEBPACK_IMPORTED_MODULE_1__.deleteTodo(todo).then(function (todo) {
-      return dispatch(deleteTodo(todo));
+      return dispatch(removeTodo(todo));
     }, function (error) {
       return dispatch((0,_error_actions_js__WEBPACK_IMPORTED_MODULE_0__.receiveError)(error));
     });
@@ -1465,10 +1465,7 @@ var deleteTodo = function deleteTodo(todo) {
   return new Promise(function (resolve, reject) {
     $.ajax({
       method: "DELETE",
-      url: "api/todos/{todo.id}",
-      data: {
-        todo: todo
-      },
+      url: "api/todos/".concat(todo.id),
       success: function success(data) {
         resolve(data);
       },
