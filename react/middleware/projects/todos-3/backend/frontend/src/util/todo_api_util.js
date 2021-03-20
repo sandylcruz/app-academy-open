@@ -50,3 +50,22 @@ export const updateTodo = (todo) => {
     });
   });
 };
+
+export const deleteTodo = (todo) => {
+  return new Promise((resolve, reject) => {
+    $.ajax({
+      method: "DELETE",
+      url: "api/todos/{todo.id}",
+      data: {
+        todo,
+      },
+
+      success: (data) => {
+        resolve(data);
+      },
+      error: () => {
+        "something went wrong";
+      },
+    });
+  });
+};

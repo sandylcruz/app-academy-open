@@ -7,6 +7,7 @@ import {
   fetchTodos,
   createTodo,
   updateTodo,
+  deleteTodo,
 } from "../../actions/todo_actions.js";
 
 const mapStateToProps = (state) => {
@@ -22,6 +23,7 @@ const mapDispatchToProps = (dispatch) => ({
   fetchTodos: () => dispatch(fetchTodos()),
   createTodo: (todo) => dispatch(createTodo(todo)),
   updateTodo: (todo) => dispatch(updateTodo(todo)),
+  deleteTodo: (todo) => dispatch(deleteTodo(todo)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TodoList);

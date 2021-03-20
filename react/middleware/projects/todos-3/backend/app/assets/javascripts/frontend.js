@@ -180,7 +180,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "todoError": () => (/* binding */ todoError),
 /* harmony export */   "fetchTodos": () => (/* binding */ fetchTodos),
 /* harmony export */   "createTodo": () => (/* binding */ createTodo),
-/* harmony export */   "updateTodo": () => (/* binding */ updateTodo)
+/* harmony export */   "updateTodo": () => (/* binding */ updateTodo),
+/* harmony export */   "deleteTodo": () => (/* binding */ deleteTodo)
 /* harmony export */ });
 /* harmony import */ var _error_actions_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./error_actions.js */ "./frontend/src/actions/error_actions.js");
 /* harmony import */ var _util_todo_api_util_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../util/todo_api_util.js */ "./frontend/src/util/todo_api_util.js");
@@ -238,8 +239,16 @@ var createTodo = function createTodo(todo) {
 var updateTodo = function updateTodo(todo) {
   return function (dispatch) {
     return _util_todo_api_util_js__WEBPACK_IMPORTED_MODULE_1__.updateTodo(todo).then(function (todo) {
-      console.log(todo);
       return dispatch(receiveTodo(todo));
+    }, function (error) {
+      return dispatch((0,_error_actions_js__WEBPACK_IMPORTED_MODULE_0__.receiveError)(error));
+    });
+  };
+};
+var deleteTodo = function deleteTodo(todo) {
+  return function (dispatch) {
+    return _util_todo_api_util_js__WEBPACK_IMPORTED_MODULE_1__.deleteTodo(todo).then(function (todo) {
+      return dispatch(deleteTodo(todo));
     }, function (error) {
       return dispatch((0,_error_actions_js__WEBPACK_IMPORTED_MODULE_0__.receiveError)(error));
     });
@@ -966,7 +975,8 @@ var TodoList = /*#__PURE__*/function (_React$Component) {
           todo: todo,
           removeTodo: _this.props.removeTodo,
           receiveTodo: _this.props.receiveTodo,
-          updateTodo: _this.props.updateTodo
+          updateTodo: _this.props.updateTodo,
+          deleteTodo: _this.props.deleteTodo
         });
       })));
     }
@@ -1009,7 +1019,9 @@ var mapStateToProps = function mapStateToProps(state) {
 };
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-  return _defineProperty({
+  var _ref;
+
+  return _ref = {
     removeTodo: function removeTodo(todo) {
       return dispatch((0,_actions_todo_actions_js__WEBPACK_IMPORTED_MODULE_3__.removeTodo)(todo));
     },
@@ -1022,9 +1034,11 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     createTodo: function createTodo(todo) {
       return dispatch((0,_actions_todo_actions_js__WEBPACK_IMPORTED_MODULE_3__.createTodo)(todo));
     }
-  }, "updateTodo", function updateTodo(todo) {
+  }, _defineProperty(_ref, "updateTodo", function updateTodo(todo) {
     return dispatch((0,_actions_todo_actions_js__WEBPACK_IMPORTED_MODULE_3__.updateTodo)(todo));
-  });
+  }), _defineProperty(_ref, "deleteTodo", function deleteTodo(todo) {
+    return dispatch((0,_actions_todo_actions_js__WEBPACK_IMPORTED_MODULE_3__.deleteTodo)(todo));
+  }), _ref;
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_1__.connect)(mapStateToProps, mapDispatchToProps)(_todo_list_jsx__WEBPACK_IMPORTED_MODULE_0__.default));
@@ -1384,7 +1398,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "fetchTodos": () => (/* binding */ fetchTodos),
 /* harmony export */   "createTodo": () => (/* binding */ createTodo),
-/* harmony export */   "updateTodo": () => (/* binding */ updateTodo)
+/* harmony export */   "updateTodo": () => (/* binding */ updateTodo),
+/* harmony export */   "deleteTodo": () => (/* binding */ deleteTodo)
 /* harmony export */ });
 var fetchTodos = function fetchTodos() {
   return new Promise(function (resolve, reject) {
@@ -1430,6 +1445,23 @@ var updateTodo = function updateTodo(todo) {
       },
       error: function error() {
         reject("something went wrong");
+      }
+    });
+  });
+};
+var deleteTodo = function deleteTodo(todo) {
+  return new Promise(function (resolve, reject) {
+    $.ajax({
+      method: "DELETE",
+      url: "api/todos/{todo.id}",
+      data: {
+        todo: todo
+      },
+      success: function success(data) {
+        resolve(data);
+      },
+      error: function error() {
+        "something went wrong";
       }
     });
   });
