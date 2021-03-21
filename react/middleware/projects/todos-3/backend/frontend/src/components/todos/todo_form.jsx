@@ -1,6 +1,21 @@
 import React from "react";
 import { uniqueId } from "../../util/util.js";
 
+class Tag extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleRemove = this.handleRemove.bind(this);
+  }
+
+  handleRemove() {
+    this.props.onRemove(this.props.tag);
+  }
+
+  render() {
+    return <li onClick={this.handleRemove}>{this.props.tag}</li>;
+  }
+}
+
 class TodoForm extends React.Component {
   constructor(props) {
     super(props);
@@ -21,6 +36,7 @@ class TodoForm extends React.Component {
     this.addTag = this.addTag.bind(this);
 
     this.handleAddTag = this.handleAddTag.bind(this);
+    this.handleRemoveTag = this.handleRemoveTag.bind(this);
   }
 
   addTag(event) {
@@ -66,11 +82,17 @@ class TodoForm extends React.Component {
     });
   }
 
-  render() {
-    const tag_names = this.state.tags.map((tag, index) => {
-      return <li key={index}>{tag}</li>;
+  handleRemoveTag(tagToRemove) {
+    this.setState((oldState) => {
+      const nextTags = oldState.tags.filter((tag) => tag !== tagToRemove);
+      return {
+        ...oldState,
+        tags: nextTags,
+      };
     });
+  }
 
+  render() {
     return (
       <form className="todoForm" onSubmit={this.handleSubmit}>
         {this.props.errors &&
@@ -112,7 +134,11 @@ class TodoForm extends React.Component {
           Add tag
         </button>
 
-        <ul className="tag-list">{tag_names}</ul>
+        <ul className="tag-list">
+          {this.state.tags.map((tag) => (
+            <Tag key={tag} tag={tag} onRemove={this.handleRemoveTag} />
+          ))}
+        </ul>
 
         <button className="submit" type="submit">
           Create Todo!

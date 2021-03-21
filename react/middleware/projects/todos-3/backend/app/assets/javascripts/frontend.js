@@ -864,32 +864,65 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
-var TodoForm = /*#__PURE__*/function (_React$Component) {
-  _inherits(TodoForm, _React$Component);
+var Tag = /*#__PURE__*/function (_React$Component) {
+  _inherits(Tag, _React$Component);
 
-  var _super = _createSuper(TodoForm);
+  var _super = _createSuper(Tag);
+
+  function Tag(props) {
+    var _this;
+
+    _classCallCheck(this, Tag);
+
+    _this = _super.call(this, props);
+    _this.handleRemove = _this.handleRemove.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(Tag, [{
+    key: "handleRemove",
+    value: function handleRemove() {
+      this.props.onRemove(this.props.tag);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
+        onClick: this.handleRemove
+      }, this.props.tag);
+    }
+  }]);
+
+  return Tag;
+}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
+
+var TodoForm = /*#__PURE__*/function (_React$Component2) {
+  _inherits(TodoForm, _React$Component2);
+
+  var _super2 = _createSuper(TodoForm);
 
   function TodoForm(props) {
-    var _this;
+    var _this2;
 
     _classCallCheck(this, TodoForm);
 
-    _this = _super.call(this, props);
-    _this.state = {
+    _this2 = _super2.call(this, props);
+    _this2.state = {
       title: "",
       body: "",
       done: false,
       newTag: "",
       tags: []
     };
-    _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
-    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
-    _this.handleTitleChange = _this.handleTitleChange.bind(_assertThisInitialized(_this));
-    _this.handleBodyChange = _this.handleBodyChange.bind(_assertThisInitialized(_this));
-    _this.handleNewTagChange = _this.handleNewTagChange.bind(_assertThisInitialized(_this));
-    _this.addTag = _this.addTag.bind(_assertThisInitialized(_this));
-    _this.handleAddTag = _this.handleAddTag.bind(_assertThisInitialized(_this));
-    return _this;
+    _this2.handleChange = _this2.handleChange.bind(_assertThisInitialized(_this2));
+    _this2.handleSubmit = _this2.handleSubmit.bind(_assertThisInitialized(_this2));
+    _this2.handleTitleChange = _this2.handleTitleChange.bind(_assertThisInitialized(_this2));
+    _this2.handleBodyChange = _this2.handleBodyChange.bind(_assertThisInitialized(_this2));
+    _this2.handleNewTagChange = _this2.handleNewTagChange.bind(_assertThisInitialized(_this2));
+    _this2.addTag = _this2.addTag.bind(_assertThisInitialized(_this2));
+    _this2.handleAddTag = _this2.handleAddTag.bind(_assertThisInitialized(_this2));
+    _this2.handleRemoveTag = _this2.handleRemoveTag.bind(_assertThisInitialized(_this2));
+    return _this2;
   }
 
   _createClass(TodoForm, [{
@@ -907,12 +940,12 @@ var TodoForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "handleSubmit",
     value: function handleSubmit(event) {
-      var _this2 = this;
+      var _this3 = this;
 
       event.preventDefault();
       var todo = Object.assign({}, this.state, _util_util_js__WEBPACK_IMPORTED_MODULE_1__.uniqueId);
       this.props.createTodo(todo).then(function () {
-        return _this2.setState({
+        return _this3.setState({
           title: "",
           body: "",
           tag_names: []
@@ -947,13 +980,22 @@ var TodoForm = /*#__PURE__*/function (_React$Component) {
       });
     }
   }, {
+    key: "handleRemoveTag",
+    value: function handleRemoveTag(tagToRemove) {
+      this.setState(function (oldState) {
+        var nextTags = oldState.tags.filter(function (tag) {
+          return tag !== tagToRemove;
+        });
+        return _objectSpread(_objectSpread({}, oldState), {}, {
+          tags: nextTags
+        });
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
-      var tag_names = this.state.tags.map(function (tag, index) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
-          key: index
-        }, tag);
-      });
+      var _this4 = this;
+
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
         className: "todoForm",
         onSubmit: this.handleSubmit
@@ -994,7 +1036,13 @@ var TodoForm = /*#__PURE__*/function (_React$Component) {
         onClick: this.handleAddTag
       }, "Add tag"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", {
         className: "tag-list"
-      }, tag_names), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+      }, this.state.tags.map(function (tag) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(Tag, {
+          key: tag,
+          tag: tag,
+          onRemove: _this4.handleRemoveTag
+        });
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         className: "submit",
         type: "submit"
       }, "Create Todo!"));
