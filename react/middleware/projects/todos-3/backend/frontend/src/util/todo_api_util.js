@@ -13,13 +13,18 @@ export const fetchTodos = () => {
   });
 };
 
-export const createTodo = (todo) => {
+export const createTodo = (todo, tags) => {
   return new Promise((resolve, reject) => {
     $.ajax({
       method: "POST",
       url: "/api/todos",
       data: {
-        todo,
+        todo: {
+          title: todo.title,
+          body: todo.body,
+          done: todo.done,
+          tag_names: tags,
+        },
       },
 
       success: (data) => {

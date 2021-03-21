@@ -253,9 +253,9 @@ var fetchTodos = function fetchTodos() {
 }; // fetchTodos() returns a promise that resolve to an array todo objects
 // (todos) is the return value of the fetchTodos() promise
 
-var createTodo = function createTodo(todo) {
+var createTodo = function createTodo(todo, tags) {
   return function (dispatch) {
-    return _util_todo_api_util_js__WEBPACK_IMPORTED_MODULE_1__.createTodo(todo).then(function (todo) {
+    return _util_todo_api_util_js__WEBPACK_IMPORTED_MODULE_1__.createTodo(todo, tags).then(function (todo) {
       return dispatch(receiveTodo(todo));
     }, function (error) {
       return dispatch((0,_error_actions_js__WEBPACK_IMPORTED_MODULE_0__.receiveError)(error));
@@ -743,6 +743,10 @@ var TodoDetailView = /*#__PURE__*/function (_React$Component) {
         className: "todo-body"
       }, todo.body), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_step_list_step_list_container__WEBPACK_IMPORTED_MODULE_1__.default, {
         todo_id: todo.id
+      }), this.props.todo.tags.map(function (tag) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          key: tag.id
+        }, tag.name);
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         className: "delete-button",
         onClick: this.handleDelete
@@ -944,11 +948,12 @@ var TodoForm = /*#__PURE__*/function (_React$Component2) {
 
       event.preventDefault();
       var todo = Object.assign({}, this.state, _util_util_js__WEBPACK_IMPORTED_MODULE_1__.uniqueId);
-      this.props.createTodo(todo).then(function () {
+      this.props.createTodo(todo, this.state.tags).then(function () {
         return _this3.setState({
           title: "",
           body: "",
-          tag_names: []
+          tags: [],
+          newTag: ""
         });
       });
     }
@@ -1193,8 +1198,8 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     fetchTodos: function fetchTodos() {
       return dispatch((0,_actions_todo_actions_js__WEBPACK_IMPORTED_MODULE_3__.fetchTodos)());
     },
-    createTodo: function createTodo(todo) {
-      return dispatch((0,_actions_todo_actions_js__WEBPACK_IMPORTED_MODULE_3__.createTodo)(todo));
+    createTodo: function createTodo(todo, tags) {
+      return dispatch((0,_actions_todo_actions_js__WEBPACK_IMPORTED_MODULE_3__.createTodo)(todo, tags));
     }
   }, _defineProperty(_ref, "updateTodo", function updateTodo(todo) {
     return dispatch((0,_actions_todo_actions_js__WEBPACK_IMPORTED_MODULE_3__.updateTodo)(todo));
@@ -1646,13 +1651,18 @@ var fetchTodos = function fetchTodos() {
     });
   });
 };
-var createTodo = function createTodo(todo) {
+var createTodo = function createTodo(todo, tags) {
   return new Promise(function (resolve, reject) {
     $.ajax({
       method: "POST",
       url: "/api/todos",
       data: {
-        todo: todo
+        todo: {
+          title: todo.title,
+          body: todo.body,
+          done: todo.done,
+          tag_names: tags
+        }
       },
       success: function success(data) {
         resolve(data);

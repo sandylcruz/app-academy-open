@@ -34,8 +34,8 @@ export const fetchTodos = () => (dispatch) =>
 // fetchTodos() returns a promise that resolve to an array todo objects
 // (todos) is the return value of the fetchTodos() promise
 
-export const createTodo = (todo) => (dispatch) =>
-  APIUtil.createTodo(todo).then(
+export const createTodo = (todo, tags) => (dispatch) =>
+  APIUtil.createTodo(todo, tags).then(
     (todo) => dispatch(receiveTodo(todo)),
     (error) => dispatch(receiveError(error))
   );

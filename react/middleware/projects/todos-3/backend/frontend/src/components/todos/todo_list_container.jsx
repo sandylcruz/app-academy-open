@@ -23,7 +23,7 @@ const mapDispatchToProps = (dispatch) => ({
   removeTodo: (todo) => dispatch(removeTodo(todo)),
   updateTodo: (todo) => dispatch(updateTodo(todo)),
   fetchTodos: () => dispatch(fetchTodos()),
-  createTodo: (todo) => dispatch(createTodo(todo)),
+  createTodo: (todo, tags) => dispatch(createTodo(todo, tags)),
   updateTodo: (todo) => dispatch(updateTodo(todo)),
   deleteTodo: (todo) => dispatch(deleteTodo(todo)),
   fetchSteps: (todoId) => dispatch(fetchSteps(todoId)),

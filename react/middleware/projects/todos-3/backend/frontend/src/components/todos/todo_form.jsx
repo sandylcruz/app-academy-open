@@ -54,8 +54,8 @@ class TodoForm extends React.Component {
     event.preventDefault();
     const todo = Object.assign({}, this.state, uniqueId);
     this.props
-      .createTodo(todo)
-      .then(() => this.setState({ title: "", body: "", tag_names: [] }));
+      .createTodo(todo, this.state.tags)
+      .then(() => this.setState({ title: "", body: "", tags: [], newTag: "" }));
   }
 
   handleTitleChange(event) {
