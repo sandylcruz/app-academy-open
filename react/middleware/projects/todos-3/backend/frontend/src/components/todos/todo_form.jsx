@@ -136,7 +136,9 @@ class TodoForm extends React.Component {
 
         <ul className="tag-list">
           {this.state.tags.map((tag) => (
-            <Tag key={tag} tag={tag} onRemove={this.handleRemoveTag} />
+            <button className="tagButton">
+              <Tag key={tag} tag={tag} onRemove={this.handleRemoveTag} />
+            </button>
           ))}
         </ul>
 

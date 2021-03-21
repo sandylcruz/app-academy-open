@@ -1042,11 +1042,13 @@ var TodoForm = /*#__PURE__*/function (_React$Component2) {
       }, "Add tag"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", {
         className: "tag-list"
       }, this.state.tags.map(function (tag) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(Tag, {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+          className: "tagButton"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(Tag, {
           key: tag,
           tag: tag,
           onRemove: _this4.handleRemoveTag
-        });
+        }));
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         className: "submit",
         type: "submit"

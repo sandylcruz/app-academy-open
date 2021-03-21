@@ -76,6 +76,10 @@ button:hover {
   background-color: #00bcd4;
 }
 
+tagButton:hover {
+  background-color: #00bcd4;
+}
+
 input {
   border-radius: 5px;
   border: 1px solid #00bcd4;
