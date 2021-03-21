@@ -823,6 +823,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _util_util_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../util/util.js */ "./frontend/src/util/util.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -862,17 +878,28 @@ var TodoForm = /*#__PURE__*/function (_React$Component) {
     _this.state = {
       title: "",
       body: "",
-      done: false
+      done: false,
+      newTag: "",
+      tags: []
     };
     _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     _this.handleTitleChange = _this.handleTitleChange.bind(_assertThisInitialized(_this));
     _this.handleBodyChange = _this.handleBodyChange.bind(_assertThisInitialized(_this));
-    _this.handleTagChange = _this.handleTagChange.bind(_assertThisInitialized(_this));
+    _this.handleNewTagChange = _this.handleNewTagChange.bind(_assertThisInitialized(_this));
+    _this.addTag = _this.addTag.bind(_assertThisInitialized(_this));
+    _this.handleAddTag = _this.handleAddTag.bind(_assertThisInitialized(_this));
     return _this;
   }
 
   _createClass(TodoForm, [{
+    key: "addTag",
+    value: function addTag(event) {// this.setState({
+      //   tag_names: [this.state.tag_names, this.state.newTag],
+      //   newTag: "",
+      // });
+    }
+  }, {
     key: "handleChange",
     value: function handleChange(property, event) {
       this.setState(_defineProperty({}, property, event.target.value));
@@ -887,7 +914,8 @@ var TodoForm = /*#__PURE__*/function (_React$Component) {
       this.props.createTodo(todo).then(function () {
         return _this2.setState({
           title: "",
-          body: ""
+          body: "",
+          tag_names: []
         });
       });
     }
@@ -902,13 +930,30 @@ var TodoForm = /*#__PURE__*/function (_React$Component) {
       this.handleChange("body", event);
     }
   }, {
-    key: "handleTagChange",
-    value: function handleTagChange(event) {
-      this.handleChange("tag", event);
+    key: "handleNewTagChange",
+    value: function handleNewTagChange(event) {
+      this.handleChange("newTag", event);
+    }
+  }, {
+    key: "handleAddTag",
+    value: function handleAddTag() {
+      this.setState(function (oldState) {
+        var newTag = oldState.newTag;
+        var nextTags = [].concat(_toConsumableArray(oldState.tags), [newTag]);
+        return _objectSpread(_objectSpread({}, oldState), {}, {
+          tags: nextTags,
+          newTag: ""
+        });
+      });
     }
   }, {
     key: "render",
     value: function render() {
+      var tag_names = this.state.tags.map(function (tag, index) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
+          key: index
+        }, tag);
+      });
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
         className: "todoForm",
         onSubmit: this.handleSubmit
@@ -940,13 +985,18 @@ var TodoForm = /*#__PURE__*/function (_React$Component) {
       }, "Tags:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
         className: "tags",
         type: "text",
-        value: this.state.tags,
+        value: this.state.newTag,
         placeholder: "Enter a new tag",
-        onChange: this.handleTagChange
+        onChange: this.handleNewTagChange
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+        className: "addTagButton",
+        type: "button",
+        onClick: this.handleAddTag
+      }, "Add tag"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", {
+        className: "tag-list"
+      }, tag_names), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         className: "submit",
-        type: "submit",
-        onChange: this.handleSubmit
+        type: "submit"
       }, "Create Todo!"));
     }
   }]);

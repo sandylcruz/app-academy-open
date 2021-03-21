@@ -8,6 +8,8 @@ class TodoForm extends React.Component {
       title: "",
       body: "",
       done: false,
+      newTag: "",
+      tags: [],
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -15,7 +17,17 @@ class TodoForm extends React.Component {
 
     this.handleTitleChange = this.handleTitleChange.bind(this);
     this.handleBodyChange = this.handleBodyChange.bind(this);
-    this.handleTagChange = this.handleTagChange.bind(this);
+    this.handleNewTagChange = this.handleNewTagChange.bind(this);
+    this.addTag = this.addTag.bind(this);
+
+    this.handleAddTag = this.handleAddTag.bind(this);
+  }
+
+  addTag(event) {
+    // this.setState({
+    //   tag_names: [this.state.tag_names, this.state.newTag],
+    //   newTag: "",
+    // });
   }
 
   handleChange(property, event) {
@@ -27,7 +39,7 @@ class TodoForm extends React.Component {
     const todo = Object.assign({}, this.state, uniqueId);
     this.props
       .createTodo(todo)
-      .then(() => this.setState({ title: "", body: "" }));
+      .then(() => this.setState({ title: "", body: "", tag_names: [] }));
   }
 
   handleTitleChange(event) {
@@ -38,11 +50,27 @@ class TodoForm extends React.Component {
     this.handleChange("body", event);
   }
 
-  handleTagChange(event) {
-    this.handleChange("tag", event);
+  handleNewTagChange(event) {
+    this.handleChange("newTag", event);
+  }
+
+  handleAddTag() {
+    this.setState((oldState) => {
+      const newTag = oldState.newTag;
+      const nextTags = [...oldState.tags, newTag];
+      return {
+        ...oldState,
+        tags: nextTags,
+        newTag: "",
+      };
+    });
   }
 
   render() {
+    const tag_names = this.state.tags.map((tag, index) => {
+      return <li key={index}>{tag}</li>;
+    });
+
     return (
       <form className="todoForm" onSubmit={this.handleSubmit}>
         {this.props.errors &&
@@ -72,12 +100,21 @@ class TodoForm extends React.Component {
         <input
           className="tags"
           type="text"
-          value={this.state.tags}
+          value={this.state.newTag}
           placeholder="Enter a new tag"
-          onChange={this.handleTagChange}
+          onChange={this.handleNewTagChange}
         ></input>
+        <button
+          className="addTagButton"
+          type="button"
+          onClick={this.handleAddTag}
+        >
+          Add tag
+        </button>
 
-        <button className="submit" type="submit" onChange={this.handleSubmit}>
+        <ul className="tag-list">{tag_names}</ul>
+
+        <button className="submit" type="submit">
           Create Todo!
         </button>
       </form>
