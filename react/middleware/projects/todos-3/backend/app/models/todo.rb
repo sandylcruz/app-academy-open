@@ -8,4 +8,11 @@ class Todo < ApplicationRecord
     foreign_key: :todo_id,
     primary_key: :id
 
+  has_many :taggings,
+    class_name: "Tagging"
+    foreign_key: :todo_id,
+    primary_key: :id
+
+  has_many :tags, through :taggings, source: :tag
+
 end
