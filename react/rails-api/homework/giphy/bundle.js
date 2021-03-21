@@ -203,6 +203,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+document.addEventListener("DOMContentLoaded", function () {
+  console.log("hello world");
+  console.log("ucNMwJlAaO26alYcDx8mqofeCJ4pp9aD");
+});
 
 /***/ }),
 

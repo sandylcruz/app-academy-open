@@ -1,11 +1,14 @@
-const path = require('path');
+require("dotenv").config();
+
+const path = require("path");
+const webpack = require("webpack");
 
 module.exports = {
   context: __dirname,
   entry: "./giphy_search.jsx",
   output: {
     path: path.resolve(__dirname),
-    filename: "bundle.js"
+    filename: "bundle.js",
   },
   module: {
     rules: [
@@ -13,16 +16,22 @@ module.exports = {
         test: /\.jsx?$/,
         exclude: /(node_modules)/,
         use: {
-          loader: 'babel-loader',
+          loader: "babel-loader",
           query: {
-            presets: ['@babel/env', '@babel/react']
-          }
+            presets: ["@babel/env", "@babel/react"],
+          },
         },
-      }
-    ]
+      },
+    ],
   },
-  devtool: 'source-map',
+  devtool: "source-map",
   resolve: {
-    extensions: [".js", ".jsx", "*"]
-  }
+    extensions: [".js", ".jsx", "*"],
+  },
+
+  plugins: [
+    new webpack.DefinePlugin({
+      GIPHY_API_KEY: JSON.stringify(process.env.GIPHY_API_KEY),
+    }),
+  ],
 };
