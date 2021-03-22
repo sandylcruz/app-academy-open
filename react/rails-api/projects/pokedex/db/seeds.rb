@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
@@ -6,24 +8,20 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-def candidate_item 
-  %w(
+def candidate_item
+  %w[
     /assets/pokemon_berry.svg
     /assets/pokemon_egg.svg
     /assets/pokemon_potion.svg
     /assets/pokemon_super_potion.svg
-  ).sample
+  ].sample
 end
 
-def find_unique_item(pokemon) 
-  candidate = candidate_item()
-  while Pokemon.find(pokemon.id).items.any?{|item| item.image_url == candidate}
-    candidate = candidate_item()
-  end
-  return candidate
+def find_unique_item(pokemon)
+  candidate = candidate_item
+  candidate = candidate_item while Pokemon.find(pokemon.id).items.any? { |item| item.image_url == candidate }
+  candidate
 end
-
-
 
 def create_random_item!(pokemon)
   Item.create!(
@@ -35,10 +33,7 @@ def create_random_item!(pokemon)
   )
 end
 
-
-
-ActiveRecord::Base.transaction do
-  
+ActiveRecord::Base.transaction do # rubocop:todo Metrics/BlockLength
   PokeMove.destroy_all
   PokeMove.reset_pk_sequence
   Move.destroy_all
@@ -47,7 +42,6 @@ ActiveRecord::Base.transaction do
   Pokemon.reset_pk_sequence
   Item.destroy_all
   Item.reset_pk_sequence
- 
 
   pokemon = {
     '1' => {
@@ -56,9 +50,9 @@ ActiveRecord::Base.transaction do
       'defense' => 49,
       'poke_type' => 'grass',
       'moves' => [
-         'tackle',
-         'vine whip'
-      ],
+        'tackle',
+        'vine whip'
+      ]
     },
     '2' => {
       'name' => 'Ivysaur',
@@ -66,10 +60,10 @@ ActiveRecord::Base.transaction do
       'defense' => 63,
       'poke_type' => 'grass',
       'moves' => [
-         'tackle',
-         'vine whip',
-         'razor leaf'
-      ],
+        'tackle',
+        'vine whip',
+        'razor leaf'
+      ]
     },
     '3' => {
       'name' => 'Venusaur',
@@ -77,10 +71,10 @@ ActiveRecord::Base.transaction do
       'defense' => 83,
       'poke_type' => 'grass',
       'moves' => [
-         'tackle',
-         'vine whip',
-         'razor leaf'
-      ],
+        'tackle',
+        'vine whip',
+        'razor leaf'
+      ]
     },
     '4' => {
       'name' => 'Charmander',
@@ -88,10 +82,10 @@ ActiveRecord::Base.transaction do
       'defense' => 43,
       'poke_type' => 'fire',
       'moves' => [
-         'scratch',
-         'ember',
-         'metal claw'
-      ],
+        'scratch',
+        'ember',
+        'metal claw'
+      ]
     },
     '5' => {
       'name' => 'Charmeleon',
@@ -99,11 +93,11 @@ ActiveRecord::Base.transaction do
       'defense' => 58,
       'poke_type' => 'fire',
       'moves' => [
-         'scratch',
-         'ember',
-         'metal claw',
-         'flamethrower'
-      ],
+        'scratch',
+        'ember',
+        'metal claw',
+        'flamethrower'
+      ]
     },
     '6' => {
       'name' => 'Charizard',
@@ -111,11 +105,11 @@ ActiveRecord::Base.transaction do
       'defense' => 78,
       'poke_type' => 'fire',
       'moves' => [
-         'flamethrower',
-         'wing attack',
-         'slash',
-         'metal claw'
-      ],
+        'flamethrower',
+        'wing attack',
+        'slash',
+        'metal claw'
+      ]
     },
     '7' => {
       'name' => 'Squirtle',
@@ -123,10 +117,10 @@ ActiveRecord::Base.transaction do
       'defense' => 65,
       'poke_type' => 'water',
       'moves' => [
-         'tackle',
-         'bubble',
-         'water gun'
-      ],
+        'tackle',
+        'bubble',
+        'water gun'
+      ]
     },
     '8' => {
       'name' => 'Wartortle',
@@ -134,11 +128,11 @@ ActiveRecord::Base.transaction do
       'defense' => 80,
       'poke_type' => 'water',
       'moves' => [
-         'tackle',
-         'bubble',
-         'water gun',
-         'bite'
-      ],
+        'tackle',
+        'bubble',
+        'water gun',
+        'bite'
+      ]
     },
     '9' => {
       'name' => 'Blastoise',
@@ -146,11 +140,11 @@ ActiveRecord::Base.transaction do
       'defense' => 100,
       'poke_type' => 'water',
       'moves' => [
-         'hydro pump',
-         'bubble',
-         'water gun',
-         'bite'
-      ],
+        'hydro pump',
+        'bubble',
+        'water gun',
+        'bite'
+      ]
     },
     '10' => {
       'name' => 'Caterpie',
@@ -158,8 +152,8 @@ ActiveRecord::Base.transaction do
       'defense' => 35,
       'poke_type' => 'bug',
       'moves' => [
-         'tackle'
-      ],
+        'tackle'
+      ]
     },
     '11' => {
       'name' => 'Butterfree',
@@ -167,11 +161,11 @@ ActiveRecord::Base.transaction do
       'defense' => 50,
       'poke_type' => 'bug',
       'moves' => [
-         'confusion',
-         'gust',
-         'psybeam',
-         'silver wind'
-      ],
+        'confusion',
+        'gust',
+        'psybeam',
+        'silver wind'
+      ]
     },
     '12' => {
       'name' => 'Weedle',
@@ -179,18 +173,18 @@ ActiveRecord::Base.transaction do
       'defense' => 30,
       'poke_type' => 'bug',
       'moves' => [
-         'poison sting'
-      ],
+        'poison sting'
+      ]
     },
     '13' => {
       'name' => 'Pidgey',
       'attack' => 45,
       'defense' => 40,
       'poke_type' => 'normal',
-      'moves' => [
-         'tackle',
-         'gust'
-      ],
+      'moves' => %w[
+        tackle
+        gust
+      ]
     },
     '14' => {
       'name' => 'Pidgeotto',
@@ -198,10 +192,10 @@ ActiveRecord::Base.transaction do
       'defense' => 55,
       'poke_type' => 'normal',
       'moves' => [
-         'tackle',
-         'gust',
-         'wing attack'
-      ],
+        'tackle',
+        'gust',
+        'wing attack'
+      ]
     },
     '15' => {
       'name' => 'Pidgeot',
@@ -209,10 +203,10 @@ ActiveRecord::Base.transaction do
       'defense' => 75,
       'poke_type' => 'normal',
       'moves' => [
-         'tackle',
-         'gust',
-         'wing attack'
-      ],
+        'tackle',
+        'gust',
+        'wing attack'
+      ]
     },
     '16' => {
       'name' => 'Rattata',
@@ -220,9 +214,9 @@ ActiveRecord::Base.transaction do
       'defense' => 35,
       'poke_type' => 'normal',
       'moves' => [
-         'tackle',
-         'hyper fang'
-      ],
+        'tackle',
+        'hyper fang'
+      ]
     },
     '17' => {
       'name' => 'Raticate',
@@ -230,9 +224,9 @@ ActiveRecord::Base.transaction do
       'defense' => 60,
       'poke_type' => 'normal',
       'moves' => [
-         'tackle',
-         'hyper fang'
-      ],
+        'tackle',
+        'hyper fang'
+      ]
     },
     '18' => {
       'name' => 'Spearow',
@@ -240,8 +234,8 @@ ActiveRecord::Base.transaction do
       'defense' => 30,
       'poke_type' => 'normal',
       'moves' => [
-         'peck'
-      ],
+        'peck'
+      ]
     },
     '19' => {
       'name' => 'Fearow',
@@ -249,9 +243,9 @@ ActiveRecord::Base.transaction do
       'defense' => 65,
       'poke_type' => 'normal',
       'moves' => [
-         'peck',
-         'drill peck'
-      ],
+        'peck',
+        'drill peck'
+      ]
     },
     '20' => {
       'name' => 'Ekans',
@@ -259,9 +253,9 @@ ActiveRecord::Base.transaction do
       'defense' => 44,
       'poke_type' => 'poison',
       'moves' => [
-         'poison sting',
-         'bite'
-      ],
+        'poison sting',
+        'bite'
+      ]
     },
     '21' => {
       'name' => 'Arbok',
@@ -269,10 +263,10 @@ ActiveRecord::Base.transaction do
       'defense' => 69,
       'poke_type' => 'poison',
       'moves' => [
-         'poison sting',
-         'bite',
-         'acid'
-      ],
+        'poison sting',
+        'bite',
+        'acid'
+      ]
     },
     '22' => {
       'name' => 'Pikachu',
@@ -290,10 +284,10 @@ ActiveRecord::Base.transaction do
       'attack' => 90,
       'defense' => 55,
       'poke_type' => 'electric',
-      'moves' => [
-         'thundershock',
-         'thunderbolt'
-      ],
+      'moves' => %w[
+        thundershock
+        thunderbolt
+      ]
     },
     '24' => {
       'name' => 'Sandshrew',
@@ -301,9 +295,9 @@ ActiveRecord::Base.transaction do
       'defense' => 85,
       'poke_type' => 'ground',
       'moves' => [
-         'scratch',
-         'poison sting'
-      ],
+        'scratch',
+        'poison sting'
+      ]
     },
     '25' => {
       'name' => 'Sandslash',
@@ -311,11 +305,11 @@ ActiveRecord::Base.transaction do
       'defense' => 110,
       'poke_type' => 'ground',
       'moves' => [
-         'scratch',
-         'poison sting',
-         'slash',
-         'swift'
-      ],
+        'scratch',
+        'poison sting',
+        'slash',
+        'swift'
+      ]
     },
     '26' => {
       'name' => 'Nidorana',
@@ -323,8 +317,8 @@ ActiveRecord::Base.transaction do
       'defense' => 52,
       'poke_type' => 'poison',
       'moves' => [
-         'scratch'
-      ],
+        'scratch'
+      ]
     },
     '27' => {
       'name' => 'Nidoqueen',
@@ -332,11 +326,11 @@ ActiveRecord::Base.transaction do
       'defense' => 87,
       'poke_type' => 'poison',
       'moves' => [
-         'scratch',
-         'poison sting',
-         'body slam',
-         'superpower'
-      ],
+        'scratch',
+        'poison sting',
+        'body slam',
+        'superpower'
+      ]
     },
     '28' => {
       'name' => 'Nidoran',
@@ -344,8 +338,8 @@ ActiveRecord::Base.transaction do
       'defense' => 40,
       'poke_type' => 'poison',
       'moves' => [
-         'peck'
-      ],
+        'peck'
+      ]
     },
     '29' => {
       'name' => 'Nidoking',
@@ -353,10 +347,10 @@ ActiveRecord::Base.transaction do
       'defense' => 77,
       'poke_type' => 'poison',
       'moves' => [
-         'peck',
-         'poison sting',
-         'megahorn'
-      ],
+        'peck',
+        'poison sting',
+        'megahorn'
+      ]
     },
     '30' => {
       'name' => 'Ninetales',
@@ -364,8 +358,8 @@ ActiveRecord::Base.transaction do
       'defense' => 75,
       'poke_type' => 'fire',
       'moves' => [
-         'ember'
-      ],
+        'ember'
+      ]
     },
     '31' => {
       'name' => 'Zubat',
@@ -373,10 +367,10 @@ ActiveRecord::Base.transaction do
       'defense' => 35,
       'poke_type' => 'poison',
       'moves' => [
-         'astonish',
-         'bite',
-         'wing attack'
-      ],
+        'astonish',
+        'bite',
+        'wing attack'
+      ]
     },
     '32' => {
       'name' => 'Golbat',
@@ -384,11 +378,11 @@ ActiveRecord::Base.transaction do
       'defense' => 70,
       'poke_type' => 'poison',
       'moves' => [
-         'poison fang',
-         'bite',
-         'wing attack',
-         'air cutter'
-      ],
+        'poison fang',
+        'bite',
+        'wing attack',
+        'air cutter'
+      ]
     },
     '33' => {
       'name' => 'Paras',
@@ -396,40 +390,40 @@ ActiveRecord::Base.transaction do
       'defense' => 55,
       'poke_type' => 'bug',
       'moves' => [
-         'scratch'
-      ],
+        'scratch'
+      ]
     },
     '34' => {
       'name' => 'Parasect',
       'attack' => 95,
       'defense' => 80,
       'poke_type' => 'bug',
-      'moves' => [
-         'scratch',
-         'slash'
-      ],
+      'moves' => %w[
+        scratch
+        slash
+      ]
     },
     '35' => {
       'name' => 'Venonat',
       'attack' => 55,
       'defense' => 50,
       'poke_type' => 'bug',
-      'moves' => [
-         'tackle',
-         'confusion'
-      ],
+      'moves' => %w[
+        tackle
+        confusion
+      ]
     },
     '36' => {
       'name' => 'Venomoth',
       'attack' => 65,
       'defense' => 60,
       'poke_type' => 'bug',
-      'moves' => [
-         'psybeam',
-         'psychic',
-         'confusion',
-         'gust'
-      ],
+      'moves' => %w[
+        psybeam
+        psychic
+        confusion
+        gust
+      ]
     },
     '37' => {
       'name' => 'Diglett',
@@ -437,50 +431,50 @@ ActiveRecord::Base.transaction do
       'defense' => 25,
       'poke_type' => 'ground',
       'moves' => [
-         'scratch'
-      ],
+        'scratch'
+      ]
     },
     '38' => {
       'name' => 'Dugtrio',
       'attack' => 80,
       'defense' => 50,
       'poke_type' => 'ground',
-      'moves' => [
-         'scratch',
-         'slash',
-         'earthquake'
-      ],
+      'moves' => %w[
+        scratch
+        slash
+        earthquake
+      ]
     },
     '39' => {
       'name' => 'Meowth',
       'attack' => 45,
       'defense' => 35,
       'poke_type' => 'normal',
-      'moves' => [
-         'scratch',
-         'bite'
-      ],
+      'moves' => %w[
+        scratch
+        bite
+      ]
     },
     '40' => {
       'name' => 'Persian',
       'attack' => 70,
       'defense' => 60,
       'poke_type' => 'normal',
-      'moves' => [
-         'scratch',
-         'bite',
-         'slash'
-      ],
+      'moves' => %w[
+        scratch
+        bite
+        slash
+      ]
     },
     '41' => {
       'name' => 'Psyduck',
       'attack' => 52,
       'defense' => 48,
       'poke_type' => 'water',
-      'moves' => [
-         'scratch',
-         'confusion'
-      ],
+      'moves' => %w[
+        scratch
+        confusion
+      ]
     },
     '42' => {
       'name' => 'Golduck',
@@ -488,10 +482,10 @@ ActiveRecord::Base.transaction do
       'defense' => 78,
       'poke_type' => 'water',
       'moves' => [
-         'scratch',
-         'confusion',
-         'hydro pump'
-      ],
+        'scratch',
+        'confusion',
+        'hydro pump'
+      ]
     },
     '43' => {
       'name' => 'Mankey',
@@ -499,10 +493,10 @@ ActiveRecord::Base.transaction do
       'defense' => 35,
       'poke_type' => 'fighting',
       'moves' => [
-         'scratch',
-         'low kick',
-         'karate chop'
-      ],
+        'scratch',
+        'low kick',
+        'karate chop'
+      ]
     },
     '44' => {
       'name' => 'Primeape',
@@ -510,21 +504,21 @@ ActiveRecord::Base.transaction do
       'defense' => 60,
       'poke_type' => 'fighting',
       'moves' => [
-         'scratch',
-         'low kick',
-         'karate chop',
-         'cross chop'
-      ],
+        'scratch',
+        'low kick',
+        'karate chop',
+        'cross chop'
+      ]
     },
     '45' => {
       'name' => 'Arcanine',
       'attack' => 110,
       'defense' => 80,
       'poke_type' => 'fire',
-      'moves' => [
-         'bite',
-         'ember'
-      ],
+      'moves' => %w[
+        bite
+        ember
+      ]
     },
     '46' => {
       'name' => 'Poliwag',
@@ -532,9 +526,9 @@ ActiveRecord::Base.transaction do
       'defense' => 40,
       'poke_type' => 'water',
       'moves' => [
-         'bubble',
-         'water gun'
-      ],
+        'bubble',
+        'water gun'
+      ]
     },
     '47' => {
       'name' => 'Poliwrath',
@@ -542,19 +536,19 @@ ActiveRecord::Base.transaction do
       'defense' => 95,
       'poke_type' => 'water',
       'moves' => [
-         'water gun'
-      ],
+        'water gun'
+      ]
     },
     '48' => {
       'name' => 'Alakazam',
       'attack' => 50,
       'defense' => 45,
       'poke_type' => 'psychic',
-      'moves' => [
-         'confusion',
-         'psybeam',
-         'psychic'
-      ],
+      'moves' => %w[
+        confusion
+        psybeam
+        psychic
+      ]
     },
     '49' => {
       'name' => 'Machop',
@@ -562,9 +556,9 @@ ActiveRecord::Base.transaction do
       'defense' => 50,
       'poke_type' => 'fighting',
       'moves' => [
-         'low kick',
-         'karate chop'
-      ],
+        'low kick',
+        'karate chop'
+      ]
     },
     '50' => {
       'name' => 'Machamp',
@@ -572,11 +566,11 @@ ActiveRecord::Base.transaction do
       'defense' => 80,
       'poke_type' => 'fighting',
       'moves' => [
-         'low kick',
-         'karate chop',
-         'cross chop',
-         'dynamicpunch'
-      ],
+        'low kick',
+        'karate chop',
+        'cross chop',
+        'dynamicpunch'
+      ]
     },
     '51' => {
       'name' => 'Bellsprout',
@@ -584,8 +578,8 @@ ActiveRecord::Base.transaction do
       'defense' => 35,
       'poke_type' => 'grass',
       'moves' => [
-         'vine whip'
-      ],
+        'vine whip'
+      ]
     },
     '52' => {
       'name' => 'Victreebel',
@@ -593,9 +587,9 @@ ActiveRecord::Base.transaction do
       'defense' => 65,
       'poke_type' => 'grass',
       'moves' => [
-         'vine whip',
-         'razor leaf'
-      ],
+        'vine whip',
+        'razor leaf'
+      ]
     },
     '53' => {
       'name' => 'Tentacool',
@@ -603,11 +597,11 @@ ActiveRecord::Base.transaction do
       'defense' => 35,
       'poke_type' => 'water',
       'moves' => [
-         'poison sting',
-         'constrict',
-         'acid',
-         'bubblebeam'
-      ],
+        'poison sting',
+        'constrict',
+        'acid',
+        'bubblebeam'
+      ]
     },
     '54' => {
       'name' => 'Tentacruel',
@@ -615,11 +609,11 @@ ActiveRecord::Base.transaction do
       'defense' => 65,
       'poke_type' => 'water',
       'moves' => [
-         'hydro pump',
-         'constrict',
-         'acid',
-         'bubblebeam'
-      ],
+        'hydro pump',
+        'constrict',
+        'acid',
+        'bubblebeam'
+      ]
     },
     '55' => {
       'name' => 'Geodude',
@@ -627,9 +621,9 @@ ActiveRecord::Base.transaction do
       'defense' => 100,
       'poke_type' => 'rock',
       'moves' => [
-         'tackle',
-         'rock throw'
-      ],
+        'tackle',
+        'rock throw'
+      ]
     },
     '56' => {
       'name' => 'Golem',
@@ -637,20 +631,20 @@ ActiveRecord::Base.transaction do
       'defense' => 130,
       'poke_type' => 'rock',
       'moves' => [
-         'tackle',
-         'rock throw',
-         'earthquake'
-      ],
+        'tackle',
+        'rock throw',
+        'earthquake'
+      ]
     },
     '57' => {
       'name' => 'Ponyta',
       'attack' => 85,
       'defense' => 55,
       'poke_type' => 'fire',
-      'moves' => [
-         'ember',
-         'stomp'
-      ],
+      'moves' => %w[
+        ember
+        stomp
+      ]
     },
     '58' => {
       'name' => 'Rapidash',
@@ -658,10 +652,10 @@ ActiveRecord::Base.transaction do
       'defense' => 70,
       'poke_type' => 'fire',
       'moves' => [
-         'ember',
-         'stomp',
-         'fire blast'
-      ],
+        'ember',
+        'stomp',
+        'fire blast'
+      ]
     },
     '59' => {
       'name' => 'Slowpoke',
@@ -669,11 +663,11 @@ ActiveRecord::Base.transaction do
       'defense' => 65,
       'poke_type' => 'water',
       'moves' => [
-         'tackle',
-         'water gun',
-         'confusion',
-         'headbutt'
-      ],
+        'tackle',
+        'water gun',
+        'confusion',
+        'headbutt'
+      ]
     },
     '60' => {
       'name' => 'Slowbro',
@@ -681,22 +675,22 @@ ActiveRecord::Base.transaction do
       'defense' => 110,
       'poke_type' => 'water',
       'moves' => [
-         'psychic',
-         'water gun',
-         'confusion',
-         'headbutt'
-      ],
+        'psychic',
+        'water gun',
+        'confusion',
+        'headbutt'
+      ]
     },
     '61' => {
       'name' => 'Magnemite',
       'attack' => 35,
       'defense' => 70,
       'poke_type' => 'electric',
-      'moves' => [
-         'tackle',
-         'thundershock',
-         'spark'
-      ],
+      'moves' => %w[
+        tackle
+        thundershock
+        spark
+      ]
     },
     '62' => {
       'name' => 'Magneton',
@@ -704,21 +698,21 @@ ActiveRecord::Base.transaction do
       'defense' => 95,
       'poke_type' => 'electric',
       'moves' => [
-         'tackle',
-         'thundershock',
-         'spark',
-         'zap cannon'
-      ],
+        'tackle',
+        'thundershock',
+        'spark',
+        'zap cannon'
+      ]
     },
     '63' => {
       'name' => 'Farfetch\'d',
       'attack' => 65,
       'defense' => 55,
       'poke_type' => 'normal',
-      'moves' => [
-         'peck',
-         'slash'
-      ],
+      'moves' => %w[
+        peck
+        slash
+      ]
     },
     '64' => {
       'name' => 'Doduo',
@@ -726,8 +720,8 @@ ActiveRecord::Base.transaction do
       'defense' => 45,
       'poke_type' => 'normal',
       'moves' => [
-         'peck'
-      ],
+        'peck'
+      ]
     },
     '65' => {
       'name' => 'Dodrio',
@@ -735,9 +729,9 @@ ActiveRecord::Base.transaction do
       'defense' => 70,
       'poke_type' => 'normal',
       'moves' => [
-         'peck',
-         'drill peck'
-      ],
+        'peck',
+        'drill peck'
+      ]
     },
     '66' => {
       'name' => 'Seel',
@@ -745,10 +739,10 @@ ActiveRecord::Base.transaction do
       'defense' => 55,
       'poke_type' => 'water',
       'moves' => [
-         'headbutt',
-         'icy wind',
-         'aurora beam'
-      ],
+        'headbutt',
+        'icy wind',
+        'aurora beam'
+      ]
     },
     '67' => {
       'name' => 'Dewgong',
@@ -756,21 +750,21 @@ ActiveRecord::Base.transaction do
       'defense' => 80,
       'poke_type' => 'water',
       'moves' => [
-         'ice beam',
-         'headbutt',
-         'icy wind',
-         'aurora beam'
-      ],
+        'ice beam',
+        'headbutt',
+        'icy wind',
+        'aurora beam'
+      ]
     },
     '68' => {
       'name' => 'Grimer',
       'attack' => 80,
       'defense' => 50,
       'poke_type' => 'poison',
-      'moves' => [
-         'pound',
-         'sludge'
-      ],
+      'moves' => %w[
+        pound
+        sludge
+      ]
     },
     '69' => {
       'name' => 'Muk',
@@ -778,10 +772,10 @@ ActiveRecord::Base.transaction do
       'defense' => 75,
       'poke_type' => 'poison',
       'moves' => [
-         'pound',
-         'sludge',
-         'sludge bomb'
-      ],
+        'pound',
+        'sludge',
+        'sludge bomb'
+      ]
     },
     '70' => {
       'name' => 'Cloyster',
@@ -789,18 +783,18 @@ ActiveRecord::Base.transaction do
       'defense' => 180,
       'poke_type' => 'water',
       'moves' => [
-         'aurora beam'
-      ],
+        'aurora beam'
+      ]
     },
     '71' => {
       'name' => 'Gastly',
       'attack' => 35,
       'defense' => 30,
       'poke_type' => 'ghost',
-      'moves' => [
-         'tackle',
-         'lick'
-      ],
+      'moves' => %w[
+        tackle
+        lick
+      ]
     },
     '72' => {
       'name' => 'Gengar',
@@ -808,11 +802,11 @@ ActiveRecord::Base.transaction do
       'defense' => 60,
       'poke_type' => 'ghost',
       'moves' => [
-         'tackle',
-         'lick',
-         'shadow punch',
-         'shadow ball'
-      ],
+        'tackle',
+        'lick',
+        'shadow punch',
+        'shadow ball'
+      ]
     },
     '73' => {
       'name' => 'Onix',
@@ -820,34 +814,34 @@ ActiveRecord::Base.transaction do
       'defense' => 160,
       'poke_type' => 'rock',
       'moves' => [
-         'iron tail',
-         'rock throw',
-         'dragonbreath',
-         'slam'
-      ],
+        'iron tail',
+        'rock throw',
+        'dragonbreath',
+        'slam'
+      ]
     },
     '74' => {
       'name' => 'Drowzee',
       'attack' => 48,
       'defense' => 45,
       'poke_type' => 'psychic',
-      'moves' => [
-         'pound',
-         'confusion',
-         'headbutt'
-      ],
+      'moves' => %w[
+        pound
+        confusion
+        headbutt
+      ]
     },
     '75' => {
       'name' => 'Hypno',
       'attack' => 73,
       'defense' => 70,
       'poke_type' => 'psychic',
-      'moves' => [
-         'pound',
-         'confusion',
-         'headbutt',
-         'psychic'
-      ],
+      'moves' => %w[
+        pound
+        confusion
+        headbutt
+        psychic
+      ]
     },
     '76' => {
       'name' => 'Krabby',
@@ -855,11 +849,11 @@ ActiveRecord::Base.transaction do
       'defense' => 90,
       'poke_type' => 'water',
       'moves' => [
-         'bubble',
-         'vicegrip',
-         'mud shot',
-         'stomp'
-      ],
+        'bubble',
+        'vicegrip',
+        'mud shot',
+        'stomp'
+      ]
     },
     '77' => {
       'name' => 'Kingler',
@@ -867,32 +861,32 @@ ActiveRecord::Base.transaction do
       'defense' => 115,
       'poke_type' => 'water',
       'moves' => [
-         'stomp',
-         'crabhammer',
-         'vicegrip',
-         'mud shot'
-      ],
+        'stomp',
+        'crabhammer',
+        'vicegrip',
+        'mud shot'
+      ]
     },
     '78' => {
       'name' => 'Voltorb',
       'attack' => 30,
       'defense' => 50,
       'poke_type' => 'electric',
-      'moves' => [
-         'tackle',
-         'spark'
-      ],
+      'moves' => %w[
+        tackle
+        spark
+      ]
     },
     '79' => {
       'name' => 'Electrode',
       'attack' => 50,
       'defense' => 70,
       'poke_type' => 'electric',
-      'moves' => [
-         'tackle',
-         'spark',
-         'swift'
-      ],
+      'moves' => %w[
+        tackle
+        spark
+        swift
+      ]
     },
     '80' => {
       'name' => 'Exeggutor',
@@ -900,10 +894,10 @@ ActiveRecord::Base.transaction do
       'defense' => 85,
       'poke_type' => 'grass',
       'moves' => [
-         'confusion',
-         'stomp',
-         'egg bomb'
-      ],
+        'confusion',
+        'stomp',
+        'egg bomb'
+      ]
     },
     '81' => {
       'name' => 'Cubone',
@@ -911,9 +905,9 @@ ActiveRecord::Base.transaction do
       'defense' => 95,
       'poke_type' => 'ground',
       'moves' => [
-         'bone club',
-         'headbutt'
-      ],
+        'bone club',
+        'headbutt'
+      ]
     },
     '82' => {
       'name' => 'Marowak',
@@ -921,9 +915,9 @@ ActiveRecord::Base.transaction do
       'defense' => 110,
       'poke_type' => 'ground',
       'moves' => [
-         'bone club',
-         'headbutt'
-      ],
+        'bone club',
+        'headbutt'
+      ]
     },
     '83' => {
       'name' => 'Hitmonlee',
@@ -931,8 +925,8 @@ ActiveRecord::Base.transaction do
       'defense' => 53,
       'poke_type' => 'fighting',
       'moves' => [
-         'rolling kick'
-      ],
+        'rolling kick'
+      ]
     },
     '84' => {
       'name' => 'Hitmonchan',
@@ -940,44 +934,44 @@ ActiveRecord::Base.transaction do
       'defense' => 79,
       'poke_type' => 'fighting',
       'moves' => [
-         'mega punch',
-         'ice punch',
-         'fire punch',
-         'sky uppercut'
-      ],
+        'mega punch',
+        'ice punch',
+        'fire punch',
+        'sky uppercut'
+      ]
     },
     '85' => {
       'name' => 'Lickitung',
       'attack' => 55,
       'defense' => 75,
       'poke_type' => 'normal',
-      'moves' => [
-         'lick',
-         'stomp',
-         'slam'
-      ],
+      'moves' => %w[
+        lick
+        stomp
+        slam
+      ]
     },
     '86' => {
       'name' => 'Koffing',
       'attack' => 65,
       'defense' => 95,
       'poke_type' => 'poison',
-      'moves' => [
-         'tackle',
-         'smog',
-         'sludge'
-      ],
+      'moves' => %w[
+        tackle
+        smog
+        sludge
+      ]
     },
     '87' => {
       'name' => 'Weezing',
       'attack' => 90,
       'defense' => 120,
       'poke_type' => 'poison',
-      'moves' => [
-         'tackle',
-         'smog',
-         'sludge'
-      ],
+      'moves' => %w[
+        tackle
+        smog
+        sludge
+      ]
     },
     '88' => {
       'name' => 'Rhyhorn',
@@ -985,9 +979,9 @@ ActiveRecord::Base.transaction do
       'defense' => 95,
       'poke_type' => 'ground',
       'moves' => [
-         'horn attack',
-         'stomp'
-      ],
+        'horn attack',
+        'stomp'
+      ]
     },
     '89' => {
       'name' => 'Rhydon',
@@ -995,11 +989,11 @@ ActiveRecord::Base.transaction do
       'defense' => 120,
       'poke_type' => 'ground',
       'moves' => [
-         'horn attack',
-         'stomp',
-         'earthquake',
-         'megahorn'
-      ],
+        'horn attack',
+        'stomp',
+        'earthquake',
+        'megahorn'
+      ]
     },
     '90' => {
       'name' => 'Chansey',
@@ -1007,9 +1001,9 @@ ActiveRecord::Base.transaction do
       'defense' => 5,
       'poke_type' => 'normal',
       'moves' => [
-         'pound',
-         'egg bomb'
-      ],
+        'pound',
+        'egg bomb'
+      ]
     },
     '91' => {
       'name' => 'Tangela',
@@ -1017,10 +1011,10 @@ ActiveRecord::Base.transaction do
       'defense' => 115,
       'poke_type' => 'grass',
       'moves' => [
-         'constrict',
-         'vine whip',
-         'slam'
-      ],
+        'constrict',
+        'vine whip',
+        'slam'
+      ]
     },
     '92' => {
       'name' => 'Kangaskhan',
@@ -1028,10 +1022,10 @@ ActiveRecord::Base.transaction do
       'defense' => 80,
       'poke_type' => 'normal',
       'moves' => [
-         'bite',
-         'mega punch',
-         'dizzy punch'
-      ],
+        'bite',
+        'mega punch',
+        'dizzy punch'
+      ]
     },
     '93' => {
       'name' => 'Horsea',
@@ -1039,10 +1033,10 @@ ActiveRecord::Base.transaction do
       'defense' => 70,
       'poke_type' => 'water',
       'moves' => [
-         'bubble',
-         'water gun',
-         'twister'
-      ],
+        'bubble',
+        'water gun',
+        'twister'
+      ]
     },
     '94' => {
       'name' => 'Seadra',
@@ -1050,11 +1044,11 @@ ActiveRecord::Base.transaction do
       'defense' => 95,
       'poke_type' => 'water',
       'moves' => [
-         'bubble',
-         'water gun',
-         'twister',
-         'hydro pump'
-      ],
+        'bubble',
+        'water gun',
+        'twister',
+        'hydro pump'
+      ]
     },
     '95' => {
       'name' => 'Goldeen',
@@ -1062,9 +1056,9 @@ ActiveRecord::Base.transaction do
       'defense' => 60,
       'poke_type' => 'water',
       'moves' => [
-         'peck',
-         'horn attack'
-      ],
+        'peck',
+        'horn attack'
+      ]
     },
     '96' => {
       'name' => 'Seaking',
@@ -1072,11 +1066,11 @@ ActiveRecord::Base.transaction do
       'defense' => 65,
       'poke_type' => 'water',
       'moves' => [
-         'peck',
-         'horn attack',
-         'waterfall',
-         'megahorn'
-      ],
+        'peck',
+        'horn attack',
+        'waterfall',
+        'megahorn'
+      ]
     },
     '97' => {
       'name' => 'Starmie',
@@ -1084,9 +1078,9 @@ ActiveRecord::Base.transaction do
       'defense' => 85,
       'poke_type' => 'water',
       'moves' => [
-         'water gun',
-         'swift'
-      ],
+        'water gun',
+        'swift'
+      ]
     },
     '98' => {
       'name' => 'Mr. mime',
@@ -1094,11 +1088,11 @@ ActiveRecord::Base.transaction do
       'defense' => 65,
       'poke_type' => 'psychic',
       'moves' => [
-         'confusion',
-         'magical leaf',
-         'psybeam',
-         'psychic'
-      ],
+        'confusion',
+        'magical leaf',
+        'psybeam',
+        'psychic'
+      ]
     },
     '99' => {
       'name' => 'Scyther',
@@ -1106,9 +1100,9 @@ ActiveRecord::Base.transaction do
       'defense' => 80,
       'poke_type' => 'bug',
       'moves' => [
-         'wing attack',
-         'slash'
-      ],
+        'wing attack',
+        'slash'
+      ]
     },
     '100' => {
       'name' => 'Jynx',
@@ -1116,23 +1110,23 @@ ActiveRecord::Base.transaction do
       'defense' => 35,
       'poke_type' => 'ice',
       'moves' => [
-         'body slam',
-         'blizzard',
-         'powder snow',
-         'ice punch'
-      ],
+        'body slam',
+        'blizzard',
+        'powder snow',
+        'ice punch'
+      ]
     },
     '101' => {
       'name' => 'Electabuzz',
       'attack' => 83,
       'defense' => 57,
       'poke_type' => 'electric',
-      'moves' => [
-         'thunderpunch',
-         'swift',
-         'thunderbolt',
-         'thunder'
-      ],
+      'moves' => %w[
+        thunderpunch
+        swift
+        thunderbolt
+        thunder
+      ]
     },
     '102' => {
       'name' => 'Magmar',
@@ -1140,11 +1134,11 @@ ActiveRecord::Base.transaction do
       'defense' => 57,
       'poke_type' => 'fire',
       'moves' => [
-         'fire blast',
-         'smog',
-         'fire punch',
-         'flamethrower'
-      ],
+        'fire blast',
+        'smog',
+        'fire punch',
+        'flamethrower'
+      ]
     },
     '103' => {
       'name' => 'Pinsir',
@@ -1152,8 +1146,8 @@ ActiveRecord::Base.transaction do
       'defense' => 100,
       'poke_type' => 'bug',
       'moves' => [
-         'vicegrip'
-      ],
+        'vicegrip'
+      ]
     },
     '104' => {
       'name' => 'Tauros',
@@ -1161,9 +1155,9 @@ ActiveRecord::Base.transaction do
       'defense' => 95,
       'poke_type' => 'normal',
       'moves' => [
-         'tackle',
-         'horn attack'
-      ],
+        'tackle',
+        'horn attack'
+      ]
     },
     '105' => {
       'name' => 'Magikarp',
@@ -1171,8 +1165,8 @@ ActiveRecord::Base.transaction do
       'defense' => 55,
       'poke_type' => 'water',
       'moves' => [
-         'tackle'
-      ],
+        'tackle'
+      ]
     },
     '106' => {
       'name' => 'Gyarados',
@@ -1180,10 +1174,10 @@ ActiveRecord::Base.transaction do
       'defense' => 79,
       'poke_type' => 'water',
       'moves' => [
-         'bite',
-         'twister',
-         'hydro pump'
-      ],
+        'bite',
+        'twister',
+        'hydro pump'
+      ]
     },
     '107' => {
       'name' => 'Lapras',
@@ -1191,44 +1185,44 @@ ActiveRecord::Base.transaction do
       'defense' => 80,
       'poke_type' => 'water',
       'moves' => [
-         'water gun',
-         'body slam',
-         'ice beam',
-         'hydro pump'
-      ],
+        'water gun',
+        'body slam',
+        'ice beam',
+        'hydro pump'
+      ]
     },
     '108' => {
       'name' => 'Eevee',
       'attack' => 55,
       'defense' => 50,
       'poke_type' => 'normal',
-      'moves' => [
-         'tackle',
-         'bite'
-      ],
+      'moves' => %w[
+        tackle
+        bite
+      ]
     },
     '109' => {
       'name' => 'Jolteon',
       'attack' => 65,
       'defense' => 60,
       'poke_type' => 'electric',
-      'moves' => [
-         'tackle',
-         'thundershock',
-         'thunder'
-      ],
+      'moves' => %w[
+        tackle
+        thundershock
+        thunder
+      ]
     },
     '110' => {
       'name' => 'Flareon',
       'attack' => 130,
       'defense' => 60,
       'poke_type' => 'fire',
-      'moves' => [
-         'flamethrower',
-         'ember',
-         'bite',
-         'smog'
-      ],
+      'moves' => %w[
+        flamethrower
+        ember
+        bite
+        smog
+      ]
     },
     '111' => {
       'name' => 'Porygon',
@@ -1236,10 +1230,10 @@ ActiveRecord::Base.transaction do
       'defense' => 70,
       'poke_type' => 'normal',
       'moves' => [
-         'tackle',
-         'psybeam',
-         'zap cannon'
-      ],
+        'tackle',
+        'psybeam',
+        'zap cannon'
+      ]
     },
     '112' => {
       'name' => 'Omanyte',
@@ -1247,11 +1241,11 @@ ActiveRecord::Base.transaction do
       'defense' => 100,
       'poke_type' => 'rock',
       'moves' => [
-         'constrict',
-         'bite',
-         'water gun',
-         'mud shot'
-      ],
+        'constrict',
+        'bite',
+        'water gun',
+        'mud shot'
+      ]
     },
     '113' => {
       'name' => 'Omastar',
@@ -1259,11 +1253,11 @@ ActiveRecord::Base.transaction do
       'defense' => 125,
       'poke_type' => 'rock',
       'moves' => [
-         'ancientpower',
-         'hydro pump',
-         'water gun',
-         'mud shot'
-      ],
+        'ancientpower',
+        'hydro pump',
+        'water gun',
+        'mud shot'
+      ]
     },
     '114' => {
       'name' => 'Kabuto',
@@ -1271,9 +1265,9 @@ ActiveRecord::Base.transaction do
       'defense' => 90,
       'poke_type' => 'rock',
       'moves' => [
-         'scratch',
-         'mud shot'
-      ],
+        'scratch',
+        'mud shot'
+      ]
     },
     '115' => {
       'name' => 'Kabutops',
@@ -1281,11 +1275,11 @@ ActiveRecord::Base.transaction do
       'defense' => 105,
       'poke_type' => 'rock',
       'moves' => [
-         'scratch',
-         'mud shot',
-         'slash',
-         'ancientpower'
-      ],
+        'scratch',
+        'mud shot',
+        'slash',
+        'ancientpower'
+      ]
     },
     '116' => {
       'name' => 'Aerodactyl',
@@ -1293,10 +1287,10 @@ ActiveRecord::Base.transaction do
       'defense' => 65,
       'poke_type' => 'rock',
       'moves' => [
-         'wing attack',
-         'bite',
-         'ancientpower'
-      ],
+        'wing attack',
+        'bite',
+        'ancientpower'
+      ]
     },
     '117' => {
       'name' => 'Snorlax',
@@ -1304,11 +1298,11 @@ ActiveRecord::Base.transaction do
       'defense' => 65,
       'poke_type' => 'normal',
       'moves' => [
-         'tackle',
-         'headbutt',
-         'snore',
-         'body slam'
-      ],
+        'tackle',
+        'headbutt',
+        'snore',
+        'body slam'
+      ]
     },
     '118' => {
       'name' => 'Articuno',
@@ -1316,11 +1310,11 @@ ActiveRecord::Base.transaction do
       'defense' => 100,
       'poke_type' => 'ice',
       'moves' => [
-         'gust',
-         'powder snow',
-         'ice beam',
-         'blizzard'
-      ],
+        'gust',
+        'powder snow',
+        'ice beam',
+        'blizzard'
+      ]
     },
     '119' => {
       'name' => 'Zapdos',
@@ -1328,11 +1322,11 @@ ActiveRecord::Base.transaction do
       'defense' => 85,
       'poke_type' => 'electric',
       'moves' => [
-         'peck',
-         'thundershock',
-         'drill peck',
-         'thunder'
-      ],
+        'peck',
+        'thundershock',
+        'drill peck',
+        'thunder'
+      ]
     },
     '120' => {
       'name' => 'Moltres',
@@ -1340,31 +1334,31 @@ ActiveRecord::Base.transaction do
       'defense' => 90,
       'poke_type' => 'fire',
       'moves' => [
-         'wing attack',
-         'ember',
-         'flamethrower',
-         'heat wave'
-      ],
+        'wing attack',
+        'ember',
+        'flamethrower',
+        'heat wave'
+      ]
     },
     '121' => {
       'name' => 'Dratini',
       'attack' => 64,
       'defense' => 45,
       'poke_type' => 'dragon',
-      'moves' => [
-         'twister',
-         'slam'
-      ],
+      'moves' => %w[
+        twister
+        slam
+      ]
     },
     '122' => {
       'name' => 'Dragonair',
       'attack' => 84,
       'defense' => 65,
       'poke_type' => 'dragon',
-      'moves' => [
-         'twister',
-         'slam'
-      ],
+      'moves' => %w[
+        twister
+        slam
+      ]
     },
     '123' => {
       'name' => 'Dragonite',
@@ -1372,21 +1366,21 @@ ActiveRecord::Base.transaction do
       'defense' => 95,
       'poke_type' => 'dragon',
       'moves' => [
-         'twister',
-         'slam',
-         'wing attack'
-      ],
+        'twister',
+        'slam',
+        'wing attack'
+      ]
     },
     '124' => {
       'name' => 'Mewtwo',
       'attack' => 110,
       'defense' => 90,
       'poke_type' => 'psychic',
-      'moves' => [
-         'confusion',
-         'swift',
-         'psychic'
-      ],
+      'moves' => %w[
+        confusion
+        swift
+        psychic
+      ]
     },
     '125' => {
       'name' => 'Mew',
@@ -1394,37 +1388,31 @@ ActiveRecord::Base.transaction do
       'defense' => 100,
       'poke_type' => 'psychic',
       'moves' => [
-         'pound',
-         'mega punch',
-         'psychic',
-         'ancientpower'
-      ],
+        'pound',
+        'mega punch',
+        'psychic',
+        'ancientpower'
+      ]
     }
   }
 
- 
-
- pokemon.map do |num, stats|
+  pokemon.map do |num, stats|
     poke = Pokemon.create!(
-      name: stats['name'], 
-      attack: stats['attack'], 
-      defense: stats['defense'], 
-      poke_type: stats['poke_type'], 
-      image_url: "#{num}.svg")
+      name: stats['name'],
+      attack: stats['attack'],
+      defense: stats['defense'],
+      poke_type: stats['poke_type'],
+      image_url: "#{num}.svg"
+    )
     stats['moves'].each do |move|
-      if !Move.where(name: move).present?
-        Move.create!(name: move)
-      end
+      Move.create!(name: move) if Move.where(name: move).blank?
       PokeMove.create!(pokemon_id: poke.id, move_id: Move.find_by(name: move).id)
     end
   end
 
-
-
-  
-  Pokemon.all.each do |pokemon|
-    3.times do  
-      create_random_item!(pokemon) 
+  Pokemon.all.each do |pokemon| # rubocop:todo Lint/ShadowingOuterLocalVariable
+    3.times do
+      create_random_item!(pokemon)
     end
   end
 end

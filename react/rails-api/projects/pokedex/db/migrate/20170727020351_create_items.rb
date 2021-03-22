@@ -1,4 +1,6 @@
-class CreateItems < ActiveRecord::Migration[5.1]
+# frozen_string_literal: true
+
+class CreateItems < ActiveRecord::Migration[5.1] # rubocop:todo Style/Documentation
   def change
     create_table :items do |t|
       t.integer :pokemon_id, null: false
