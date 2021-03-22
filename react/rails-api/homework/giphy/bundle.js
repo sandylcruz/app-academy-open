@@ -96,7 +96,6 @@
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _util_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/api_util */ "./util/api_util.js");
-/* harmony import */ var _util_api_util__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_util_api_util__WEBPACK_IMPORTED_MODULE_0__);
 
 
 /***/ }),
@@ -199,6 +198,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./store/store */ "./store/store.js");
 /* harmony import */ var _components_root__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/root */ "./components/root.jsx");
+/* harmony import */ var _util_api_util_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./util/api_util.js */ "./util/api_util.js");
+
 
 
 
@@ -206,6 +207,7 @@ __webpack_require__.r(__webpack_exports__);
 document.addEventListener("DOMContentLoaded", function () {
   console.log("hello world");
   console.log("ucNMwJlAaO26alYcDx8mqofeCJ4pp9aD");
+  window.fetchSearchGiphys = _util_api_util_js__WEBPACK_IMPORTED_MODULE_4__["fetchSearchGiphys"];
 });
 
 /***/ }),
@@ -23947,10 +23949,26 @@ __webpack_require__.r(__webpack_exports__);
 /*!**************************!*\
   !*** ./util/api_util.js ***!
   \**************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: fetchSearchGiphys */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchSearchGiphys", function() { return fetchSearchGiphys; });
+var fetchSearchGiphys = function fetchSearchGiphys(searchTerm) {
+  return new Promise(function (resolve, reject) {
+    $.ajax({
+      method: "GET",
+      url: "http://api.giphy.com/v1/gifs/search?q=".concat(searchTerm, "&api_key=").concat("ucNMwJlAaO26alYcDx8mqofeCJ4pp9aD", "&limit=2"),
+      success: function success(data) {
+        resolve(data);
+      },
+      error: function error() {
+        reject("There was a problem getting your gif");
+      }
+    });
+  });
+};
 
 /***/ })
 
