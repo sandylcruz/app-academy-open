@@ -123,7 +123,7 @@ var fetchSearchGiphys = function fetchSearchGiphys(searchTerm) {
 /*!*************************************!*\
   !*** ./components/giphys_index.jsx ***!
   \*************************************/
-/*! no exports provided */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -143,6 +143,8 @@ function GiphysIndex(_ref) {
     });
   }));
 }
+
+/* harmony default export */ __webpack_exports__["default"] = (GiphysIndex);
 
 /***/ }),
 
@@ -164,7 +166,7 @@ function GiphysIndexItem(_ref) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     className: "giphy-li"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    src: giphy.images.fixed_height.url
+    src: giphy.images.url
   }));
 }
 
@@ -210,14 +212,14 @@ var GiphysSearch =
 function (_React$Component) {
   _inherits(GiphysSearch, _React$Component);
 
-  function GiphysSearch(props) {
+  function GiphysSearch() {
     var _this;
 
     _classCallCheck(this, GiphysSearch);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(GiphysSearch).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(GiphysSearch).call(this));
     _this.state = {
-      searchTerm: "cats"
+      searchTerm: "cat"
     };
     _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_assertThisInitialized(_this)));
@@ -235,23 +237,23 @@ function (_React$Component) {
     key: "handleSubmit",
     value: function handleSubmit(event) {
       event.preventDefault();
-      var searchTerm = this.state.searchTerm.split("").join("");
+      var searchTerm = this.state.searchTerm.split(" ").join("+");
       this.props.fetchSearchGiphys(searchTerm);
     }
   }, {
     key: "render",
     value: function render() {
       var giphys = this.props.giphys;
+      console.log("***", giphys);
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-        className: "search-bar"
+        className: "search-bar",
+        onSubmit: this.handleSubmit
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "search",
         value: this.state.searchTerm,
         onChange: this.handleChange
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        type: "submit",
-        onClick: this.handleSubmit
-      }, "Submit!")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_giphys_index__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        type: "submit"
+      }, "Search Giphy")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_giphys_index__WEBPACK_IMPORTED_MODULE_1__["default"], {
         giphys: giphys
       }));
     }
@@ -350,6 +352,7 @@ document.addEventListener("DOMContentLoaded", function () {
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_root__WEBPACK_IMPORTED_MODULE_3__["default"], {
     store: _store_store__WEBPACK_IMPORTED_MODULE_2__["default"]
   }), root);
+  window.store = _store_store__WEBPACK_IMPORTED_MODULE_2__["default"];
 });
 
 /***/ }),
@@ -24065,7 +24068,7 @@ var giphysReducer = function giphysReducer() {
 
   switch (action.type) {
     case _actions_giphy_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_SEARCH_GIPHYS"]:
-      var newState = _toConsumableArray(state).concat(_toConsumableArray(action.giphys));
+      var newState = _toConsumableArray(action.giphys);
 
       return newState;
 

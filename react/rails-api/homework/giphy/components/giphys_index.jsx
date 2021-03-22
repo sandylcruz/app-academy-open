@@ -11,3 +11,5 @@ function GiphysIndex({ giphys }) {
     </ul>
   );
 }
+
+export default GiphysIndex;
