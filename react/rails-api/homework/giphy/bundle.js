@@ -119,14 +119,148 @@ var fetchSearchGiphys = function fetchSearchGiphys(searchTerm) {
 
 /***/ }),
 
+/***/ "./components/giphys_index.jsx":
+/*!*************************************!*\
+  !*** ./components/giphys_index.jsx ***!
+  \*************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/react.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _giphys_index_item__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./giphys_index_item */ "./components/giphys_index_item.jsx");
+
+
+
+function GiphysIndex(_ref) {
+  var giphys = _ref.giphys;
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, giphys.map(function (giphy) {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_giphys_index_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      key: giphy.id,
+      giphy: giphy
+    });
+  }));
+}
+
+/***/ }),
+
+/***/ "./components/giphys_index_item.jsx":
+/*!******************************************!*\
+  !*** ./components/giphys_index_item.jsx ***!
+  \******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/react.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function GiphysIndexItem(_ref) {
+  var giphy = _ref.giphy;
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+    className: "giphy-li"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: giphy.images.fixed_height.url
+  }));
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (GiphysIndexItem);
+
+/***/ }),
+
 /***/ "./components/giphys_search.jsx":
 /*!**************************************!*\
   !*** ./components/giphys_search.jsx ***!
   \**************************************/
 /*! exports provided: default */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /Users/sandylcruz/Code/app-academy-open/react/rails-api/homework/giphy/components/giphys_search.jsx: Unexpected token (32:90)\n\n\u001b[0m \u001b[90m 30 | \u001b[39m      \u001b[33m<\u001b[39m\u001b[33mdiv\u001b[39m className\u001b[33m=\u001b[39m\u001b[32m\"search-bar\"\u001b[39m\u001b[33m>\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 31 | \u001b[39m        \u001b[33m<\u001b[39m\u001b[33mform\u001b[39m className\u001b[33m=\u001b[39m\u001b[32m\"search-bar\"\u001b[39m\u001b[33m>\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 32 | \u001b[39m          \u001b[33m<\u001b[39m\u001b[33minput\u001b[39m type\u001b[33m=\u001b[39m\u001b[32m\"search\"\u001b[39m value\u001b[33m=\u001b[39m{\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mstate\u001b[33m.\u001b[39msearchTerm} onChange\u001b[33m=\u001b[39m{\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mhandleChange \u001b[33m/\u001b[39m}\u001b[33m>\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m    | \u001b[39m                                                                                          \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 33 | \u001b[39m          \u001b[33m<\u001b[39m\u001b[33mbutton\u001b[39m type\u001b[33m=\u001b[39m\u001b[32m\"submit\"\u001b[39m onClick\u001b[33m=\u001b[39m{\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mhandleSubmit}\u001b[33m>\u001b[39m\u001b[33mSubmit\u001b[39m\u001b[33m!\u001b[39m\u001b[33m<\u001b[39m\u001b[33m/\u001b[39m\u001b[33mbutton\u001b[39m\u001b[33m>\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 34 | \u001b[39m        \u001b[33m<\u001b[39m\u001b[33m/\u001b[39m\u001b[33mform\u001b[39m\u001b[33m>\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 35 | \u001b[39m\u001b[0m\n    at _class.raise (/Users/sandylcruz/Code/app-academy-open/react/rails-api/homework/giphy/node_modules/@babel/parser/lib/index.js:3939:15)\n    at _class.unexpected (/Users/sandylcruz/Code/app-academy-open/react/rails-api/homework/giphy/node_modules/@babel/parser/lib/index.js:5248:16)\n    at _class.parseExprAtom (/Users/sandylcruz/Code/app-academy-open/react/rails-api/homework/giphy/node_modules/@babel/parser/lib/index.js:6328:20)\n    at _class.parseExprAtom (/Users/sandylcruz/Code/app-academy-open/react/rails-api/homework/giphy/node_modules/@babel/parser/lib/index.js:3635:52)\n    at _class.parseExprSubscripts (/Users/sandylcruz/Code/app-academy-open/react/rails-api/homework/giphy/node_modules/@babel/parser/lib/index.js:5924:21)\n    at _class.parseMaybeUnary (/Users/sandylcruz/Code/app-academy-open/react/rails-api/homework/giphy/node_modules/@babel/parser/lib/index.js:5903:21)\n    at _class.parseExprOp (/Users/sandylcruz/Code/app-academy-open/react/rails-api/homework/giphy/node_modules/@babel/parser/lib/index.js:5858:46)\n    at _class.parseExprOps (/Users/sandylcruz/Code/app-academy-open/react/rails-api/homework/giphy/node_modules/@babel/parser/lib/index.js:5822:17)\n    at _class.parseMaybeConditional (/Users/sandylcruz/Code/app-academy-open/react/rails-api/homework/giphy/node_modules/@babel/parser/lib/index.js:5784:21)\n    at _class.parseMaybeAssign (/Users/sandylcruz/Code/app-academy-open/react/rails-api/homework/giphy/node_modules/@babel/parser/lib/index.js:5731:21)\n    at _class.parseExpression (/Users/sandylcruz/Code/app-academy-open/react/rails-api/homework/giphy/node_modules/@babel/parser/lib/index.js:5684:21)\n    at _class.jsxParseExpressionContainer (/Users/sandylcruz/Code/app-academy-open/react/rails-api/homework/giphy/node_modules/@babel/parser/lib/index.js:3494:32)\n    at _class.jsxParseAttributeValue (/Users/sandylcruz/Code/app-academy-open/react/rails-api/homework/giphy/node_modules/@babel/parser/lib/index.js:3456:23)\n    at _class.jsxParseAttribute (/Users/sandylcruz/Code/app-academy-open/react/rails-api/homework/giphy/node_modules/@babel/parser/lib/index.js:3512:46)\n    at _class.jsxParseOpeningElementAfterName (/Users/sandylcruz/Code/app-academy-open/react/rails-api/homework/giphy/node_modules/@babel/parser/lib/index.js:3532:30)\n    at _class.jsxParseOpeningElementAt (/Users/sandylcruz/Code/app-academy-open/react/rails-api/homework/giphy/node_modules/@babel/parser/lib/index.js:3525:19)\n    at _class.jsxParseElementAt (/Users/sandylcruz/Code/app-academy-open/react/rails-api/homework/giphy/node_modules/@babel/parser/lib/index.js:3557:33)\n    at _class.jsxParseElementAt (/Users/sandylcruz/Code/app-academy-open/react/rails-api/homework/giphy/node_modules/@babel/parser/lib/index.js:3573:34)\n    at _class.jsxParseElementAt (/Users/sandylcruz/Code/app-academy-open/react/rails-api/homework/giphy/node_modules/@babel/parser/lib/index.js:3573:34)\n    at _class.jsxParseElement (/Users/sandylcruz/Code/app-academy-open/react/rails-api/homework/giphy/node_modules/@babel/parser/lib/index.js:3626:19)\n    at _class.parseExprAtom (/Users/sandylcruz/Code/app-academy-open/react/rails-api/homework/giphy/node_modules/@babel/parser/lib/index.js:3633:21)\n    at _class.parseExprSubscripts (/Users/sandylcruz/Code/app-academy-open/react/rails-api/homework/giphy/node_modules/@babel/parser/lib/index.js:5924:21)\n    at _class.parseMaybeUnary (/Users/sandylcruz/Code/app-academy-open/react/rails-api/homework/giphy/node_modules/@babel/parser/lib/index.js:5903:21)\n    at _class.parseExprOps (/Users/sandylcruz/Code/app-academy-open/react/rails-api/homework/giphy/node_modules/@babel/parser/lib/index.js:5812:21)\n    at _class.parseMaybeConditional (/Users/sandylcruz/Code/app-academy-open/react/rails-api/homework/giphy/node_modules/@babel/parser/lib/index.js:5784:21)\n    at _class.parseMaybeAssign (/Users/sandylcruz/Code/app-academy-open/react/rails-api/homework/giphy/node_modules/@babel/parser/lib/index.js:5731:21)\n    at _class.parseParenAndDistinguishExpression (/Users/sandylcruz/Code/app-academy-open/react/rails-api/homework/giphy/node_modules/@babel/parser/lib/index.js:6482:28)\n    at _class.parseExprAtom (/Users/sandylcruz/Code/app-academy-open/react/rails-api/homework/giphy/node_modules/@babel/parser/lib/index.js:6284:21)\n    at _class.parseExprAtom (/Users/sandylcruz/Code/app-academy-open/react/rails-api/homework/giphy/node_modules/@babel/parser/lib/index.js:3635:52)\n    at _class.parseExprSubscripts (/Users/sandylcruz/Code/app-academy-open/react/rails-api/homework/giphy/node_modules/@babel/parser/lib/index.js:5924:21)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/react.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _giphys_index__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./giphys_index */ "./components/giphys_index.jsx");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+
+
+
+var GiphysSearch =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(GiphysSearch, _React$Component);
+
+  function GiphysSearch(props) {
+    var _this;
+
+    _classCallCheck(this, GiphysSearch);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(GiphysSearch).call(this, props));
+    _this.state = {
+      searchTerm: "cats"
+    };
+    _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    return _this;
+  }
+
+  _createClass(GiphysSearch, [{
+    key: "handleChange",
+    value: function handleChange(event) {
+      this.setState({
+        searchTerm: event.currentTarget.value
+      });
+    }
+  }, {
+    key: "handleSubmit",
+    value: function handleSubmit(event) {
+      event.preventDefault();
+      var searchTerm = this.state.searchTerm.split("").join("");
+      this.props.fetchSearchGiphys(searchTerm);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var giphys = this.props.giphys;
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        className: "search-bar"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "search",
+        value: this.state.searchTerm,
+        onChange: this.handleChange
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "submit",
+        onClick: this.handleSubmit
+      }, "Submit!")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_giphys_index__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        giphys: giphys
+      }));
+    }
+  }]);
+
+  return GiphysSearch;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (GiphysSearch);
 
 /***/ }),
 
