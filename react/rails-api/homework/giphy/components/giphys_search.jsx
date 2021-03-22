@@ -6,16 +6,34 @@ class GiphysSearch extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchTerm: "",
+      searchTerm: "cats",
     };
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({ searchTerm: event.currentTarget.value });
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    const searchTerm = this.state.searchTerm.split("").join("");
+    this.props.fetchSearchGiphys(searchTerm);
   }
 
   render() {
+    let { giphys } = this.props;
+
     return (
-      <div className="giphysSearch">
-        GiphysSearch
-        <input type="search" value={this.props.searchTerm}></input>
-        <button type="submit">Submit!</button>
+      <div className="search-bar">
+        <form className="search-bar">
+          <input type="search" value={this.state.searchTerm} onChange={this.handleChange /}>
+          <button type="submit" onClick={this.handleSubmit}>Submit!</button>
+        </form>
+
+        <GiphysIndex giphys={giphys} />
       </div>
     );
   }
