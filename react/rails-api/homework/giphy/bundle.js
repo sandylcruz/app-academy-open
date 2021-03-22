@@ -187,15 +187,28 @@ function (_React$Component) {
   _inherits(GiphysSearch, _React$Component);
 
   function GiphysSearch(props) {
+    var _this;
+
     _classCallCheck(this, GiphysSearch);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(GiphysSearch).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(GiphysSearch).call(this, props));
+    _this.state = {
+      searchTerm: ""
+    };
+    return _this;
   }
 
   _createClass(GiphysSearch, [{
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "GiphysSearch");
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "giphysSearch"
+      }, "GiphysSearch", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "search",
+        value: this.props.searchTerm
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "submit"
+      }, "Submit!"));
     }
   }]);
 
