@@ -90,14 +90,16 @@
 /*!**********************************!*\
   !*** ./actions/giphy_actions.js ***!
   \**********************************/
-/*! exports provided: receiveSearchGiphys */
+/*! exports provided: RECEIVE_SEARCH_GIPHYS, receiveSearchGiphys */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_SEARCH_GIPHYS", function() { return RECEIVE_SEARCH_GIPHYS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveSearchGiphys", function() { return receiveSearchGiphys; });
 /* harmony import */ var _util_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/api_util */ "./util/api_util.js");
 
+var RECEIVE_SEARCH_GIPHYS = "RECEIVE_SEARCH_GIPHYS";
 var receiveSearchGiphys = function receiveSearchGiphys(giphys) {
   return {
     type: RECEIVE_SEARCH_GIPHYS,
@@ -206,15 +208,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./store/store */ "./store/store.js");
 /* harmony import */ var _components_root__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/root */ "./components/root.jsx");
 /* harmony import */ var _util_api_util_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./util/api_util.js */ "./util/api_util.js");
+/* harmony import */ var _actions_giphy_actions_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./actions/giphy_actions.js */ "./actions/giphy_actions.js");
+
 
 
 
 
 
 document.addEventListener("DOMContentLoaded", function () {
-  console.log("hello world");
-  console.log("ucNMwJlAaO26alYcDx8mqofeCJ4pp9aD");
   window.fetchSearchGiphys = _util_api_util_js__WEBPACK_IMPORTED_MODULE_4__["fetchSearchGiphys"];
+  window.receiveSearchGiphys = _actions_giphy_actions_js__WEBPACK_IMPORTED_MODULE_5__["receiveSearchGiphys"];
+  window.store = _store_store__WEBPACK_IMPORTED_MODULE_2__["default"];
 });
 
 /***/ }),
@@ -23908,12 +23912,20 @@ module.exports = function(originalModule) {
 /*!************************************!*\
   !*** ./reducers/giphys_reducer.js ***!
   \************************************/
-/*! no exports provided */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_giphy_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/giphy_actions */ "./actions/giphy_actions.js");
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+
 
 
 var giphysReducer = function giphysReducer() {
@@ -23922,12 +23934,16 @@ var giphysReducer = function giphysReducer() {
 
   switch (action.type) {
     case _actions_giphy_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_SEARCH_GIPHYS"]:
-      return action.giphys;
+      var newState = _toConsumableArray(state).concat(_toConsumableArray(action.giphys));
+
+      return newState;
 
     default:
       return state;
   }
 };
+
+/* harmony default export */ __webpack_exports__["default"] = (giphysReducer);
 
 /***/ }),
 
@@ -23954,7 +23970,7 @@ __webpack_require__.r(__webpack_exports__);
 /*!************************!*\
   !*** ./store/store.js ***!
   \************************/
-/*! no exports provided */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -23965,6 +23981,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+var configureStore = function configureStore() {
+  return Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(_reducers_root_reducer__WEBPACK_IMPORTED_MODULE_2__["default"]);
+};
+
+var store = configureStore();
+/* harmony default export */ __webpack_exports__["default"] = (store);
 
 /***/ }),
 
@@ -23983,8 +24006,8 @@ var fetchSearchGiphys = function fetchSearchGiphys(searchTerm) {
     $.ajax({
       method: "GET",
       url: "http://api.giphy.com/v1/gifs/search?q=".concat(searchTerm, "&api_key=").concat("ucNMwJlAaO26alYcDx8mqofeCJ4pp9aD", "&limit=2"),
-      success: function success(data) {
-        resolve(data);
+      success: function success(response) {
+        resolve(response.data);
       },
       error: function error() {
         reject("There was a problem getting your gif");
