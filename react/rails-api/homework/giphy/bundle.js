@@ -221,7 +221,22 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(null, null)(_giphys_search__WEBPACK_IMPORTED_MODULE_1__["default"]));
+
+var mapStateToProps = function mapStateToProps(state) {
+  return {
+    giphys: state.giphys
+  };
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    fetchSearchGiphys: function fetchSearchGiphys(searchTerm) {
+      return dispatch(Object(_actions_giphy_actions__WEBPACK_IMPORTED_MODULE_2__["fetchSearchGiphys"])(searchTerm));
+    }
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_giphys_search__WEBPACK_IMPORTED_MODULE_1__["default"]));
 
 /***/ }),
 
