@@ -29,7 +29,5 @@ class Pokemon < ApplicationRecord # rubocop:todo Style/Documentation
 
   has_many :poke_moves # rubocop:todo Rails/HasManyOrHasOneDependent
 
-  has_many :moves,
-           through: :poke_moves,
-           source: :move
+  has_many :moves, through: :poke_moves, source: :move
 end
