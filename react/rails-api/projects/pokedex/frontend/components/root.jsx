@@ -5,7 +5,6 @@ import PokemonIndexContainer from "./pokemon/pokemon_index_container.js";
 
 const Root = ({ store }) => (
   <Provider store={store}>
-    {/* <div>Hello, world!</div> */}
     <PokemonIndexContainer />
   </Provider>
 );
