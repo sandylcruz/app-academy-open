@@ -19,7 +19,17 @@ class PokemonDetail extends React.Component {
   }
 
   render() {
-    return <div>hi</div>;
+    console.log(this.props);
+
+    if (!this.props.pokemon) {
+      return <h1>Loading</h1>;
+    }
+
+    return (
+      <div>
+        <h1>{this.props.pokemon.name}</h1>
+      </div>
+    );
   }
 }
 
