@@ -19,6 +19,7 @@ export const fetchPokemon = (id) => {
       method: "GET",
       url: `api/pokemon/${id}`,
       success: (data) => {
+        console.log(data);
         resolve(data);
       },
       error: () => {

@@ -1,7 +1,5 @@
-const movesReducer = (state = {}, action) {
+// const movesReducer = (state = {}, action) {
 
+// }
 
-
-}
-
-export default movesReducer
+// export default movesReducer;
