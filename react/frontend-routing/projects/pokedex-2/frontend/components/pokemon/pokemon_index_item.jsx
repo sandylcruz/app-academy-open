@@ -7,14 +7,12 @@ class PokemonIndexItem extends React.Component {
   }
 
   render() {
-    const pokemonItems = pokemon.map((poke) => (
-      <PokemonIndexItem key={poke.id} pokemon={poke} />
-    ));
-
     return (
       <li className="pokemon-index-item">
         <Link to={`/pokemon/${this.props.pokemon.id}`}>
-          <ul key={pokemonItems.id}>{pokemonItems}</ul>
+          <span>{this.props.pokemon.id}</span>
+          <img src={this.props.pokemon.imageUrl} />
+          <span>{this.props.pokemon.name}</span>
         </Link>
       </li>
     );
