@@ -41,11 +41,13 @@ class PokemonDetail extends React.Component {
           <li>Defense: {this.props.pokemon.defense} </li>
           <li className="text">Moves: {this.props.moves.join(", ")}</li>
 
-          <li>Items:</li>
-          {this.props.items.map((item) => (
-            <ItemDetail item={item} />
-          ))}
+          <section className="toys">
+            {this.props.items.map((item) => (
+              <ItemDetail item={item} />
+            ))}
+          </section>
         </ul>
+
         <Route
           path="/pokemon/:pokemonId/items/:itemId"
           component={ItemDetailContainer}

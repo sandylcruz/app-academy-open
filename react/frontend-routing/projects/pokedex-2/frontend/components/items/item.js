@@ -4,7 +4,9 @@ const Item = ({ item }) => {
   return (
     <ul className="toy-list">
       <li>
-        <img src={item.imageUrl} />
+        <Link to={`/pokemon/${item.pokemonId}/item/${item.id}`}>
+          <img src={item.imageUrl} alt={item.name} />
+        </Link>
       </li>
     </ul>
   );

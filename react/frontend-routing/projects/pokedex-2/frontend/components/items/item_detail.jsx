@@ -10,11 +10,6 @@ const ItemDetail = ({ item }) => {
       <li>Price: {item.price}</li>
       <section className="toys">
         <h3>Items</h3>
-        <ul className="toy-list">
-          <li>
-            <img src={item.imageUrl} />
-          </li>
-        </ul>
       </section>
     </ul>
   );
