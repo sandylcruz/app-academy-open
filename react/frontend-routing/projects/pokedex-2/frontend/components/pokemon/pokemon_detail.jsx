@@ -1,4 +1,5 @@
 import React from "react";
+// import ItemDetailContainer from "./../items/item_detail_container";
 
 class PokemonDetail extends React.Component {
   constructor(props) {
@@ -26,7 +27,7 @@ class PokemonDetail extends React.Component {
     }
 
     return (
-      <div class="pokemon-detail">
+      <div className="pokemon-detail">
         <figure>
           <img src={this.props.pokemon.imageUrl}></img>
         </figure>
@@ -35,8 +36,12 @@ class PokemonDetail extends React.Component {
           <li>Type: {this.props.pokemon.pokeType}</li>
           <li>Attack: {this.props.pokemon.attack}</li>
           <li>Defense: {this.props.pokemon.defense} </li>
-          <li class="text">Moves: {this.props.moves.join(", ")}</li>
-          <li>Items: {this.props.pokemon.items}</li>
+          <li className="text">Moves: {this.props.moves.join(", ")}</li>
+
+          <li>Items:</li>
+          {this.props.items.map((item) => {
+            <li>{item}</li>;
+          })}
         </ul>
       </div>
     );
