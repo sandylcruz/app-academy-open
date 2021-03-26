@@ -22,3 +22,8 @@ export const selectPokemonItems = (state, id) => {
 
   return pokemonItems;
 };
+
+export const selectItem = (state, id) => {
+  const item = state.entities.items[id];
+  return item;
+};

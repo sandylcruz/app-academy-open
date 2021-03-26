@@ -32,24 +32,27 @@ class PokemonDetail extends React.Component {
         <figure>
           <img src={this.props.pokemon.imageUrl}></img>
         </figure>
-        <h2>{this.props.pokemon.name}</h2>
-        <ul>
-          <li>Type: {this.props.pokemon.pokeType}</li>
-          <li>Attack: {this.props.pokemon.attack}</li>
-          <li>Defense: {this.props.pokemon.defense} </li>
-          <li className="text">Moves: {this.props.moves.join(", ")}</li>
+        <section className="pokemon-information">
+          <h1>{this.props.pokemon.name}</h1>
+          <ul>
+            <li>Type: {this.props.pokemon.pokeType}</li>
+            <li>Attack: {this.props.pokemon.attack}</li>
+            <li>Defense: {this.props.pokemon.defense} </li>
+            <li className="text">Moves: {this.props.moves.join(", ")}</li>
+          </ul>
+        </section>
 
-          <section className="toys">
+        <section className="toys">
+          <ul className="toy-list">
             {this.props.items.map((item) => (
               <Item key={item.name} item={item} />
             ))}
-
-            <Route
-              path="/pokemon/:pokemonId/items/:itemId"
-              component={ItemDetailContainer}
-            />
-          </section>
-        </ul>
+          </ul>
+        </section>
+        <Route
+          path="/pokemon/:pokemonId/item/:itemId"
+          component={ItemDetailContainer}
+        />
       </div>
     );
   }
