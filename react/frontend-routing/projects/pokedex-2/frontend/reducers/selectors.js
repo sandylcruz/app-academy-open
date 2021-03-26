@@ -4,9 +4,14 @@ export const selectAllPokemon = (state) => {
 // array of objects
 
 export const selectPokemonMoveNames = (state, id) => {
-  const allMoves = Object.values(state.entities.moves);
+  const allMoves = Object.values(state.entities.moves); // array of objects
+  console.log("***", allMoves, id);
   const pokemonMoves = allMoves.filter((item) => {
-    return moveBy.pokemonId === id;
+    return item.pokemonId === id;
+  });
+
+  return pokemonMoves.map((move) => {
+    return move.name;
   });
 };
 
