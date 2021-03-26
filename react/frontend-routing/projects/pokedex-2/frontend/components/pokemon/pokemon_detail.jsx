@@ -21,8 +21,6 @@ class PokemonDetail extends React.Component {
   }
 
   render() {
-    console.log(this.props);
-
     if (!this.props.pokemon) {
       return <h1>Loading</h1>;
     }
