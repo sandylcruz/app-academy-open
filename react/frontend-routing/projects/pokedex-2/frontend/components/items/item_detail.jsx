@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const ItemDetail = ({ item }) => {
   return (
@@ -8,9 +9,6 @@ const ItemDetail = ({ item }) => {
       </li>
       <li>Happiness: {item.happiness}</li>
       <li>Price: {item.price}</li>
-      <section className="toys">
-        <h3>Items</h3>
-      </section>
     </ul>
   );
 };

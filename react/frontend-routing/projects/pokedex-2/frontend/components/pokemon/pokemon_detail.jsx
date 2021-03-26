@@ -1,6 +1,6 @@
 import React from "react";
 import { Route } from "react-router-dom";
-
+import Item from "../items/item.js";
 import ItemDetailContainer from "./../items/item_detail_container";
 import ItemDetail from "../items/item_detail.jsx";
 
@@ -23,8 +23,6 @@ class PokemonDetail extends React.Component {
   }
 
   render() {
-    console.log(this.props);
-
     if (!this.props.pokemon) {
       return <h1>Loading</h1>;
     }
@@ -43,15 +41,15 @@ class PokemonDetail extends React.Component {
 
           <section className="toys">
             {this.props.items.map((item) => (
-              <ItemDetail item={item} />
+              <Item key={item.name} item={item} />
             ))}
+
+            <Route
+              path="/pokemon/:pokemonId/items/:itemId"
+              component={ItemDetailContainer}
+            />
           </section>
         </ul>
-
-        <Route
-          path="/pokemon/:pokemonId/items/:itemId"
-          component={ItemDetailContainer}
-        />
       </div>
     );
   }
