@@ -1,7 +1,10 @@
 import { connect } from "react-redux";
 import PokemonDetail from "./pokemon_detail.jsx";
 import { requestSinglePokemon } from "./../../actions/pokemon_actions";
-import { selectPokemonItems } from "../../reducers/selectors.js";
+import {
+  selectPokemonItems,
+  selectPokemonMoveNames,
+} from "../../reducers/selectors.js";
 
 // state is the store state and how you read in the react world
 const mapStateToProps = (state, ownProps) => {
@@ -10,6 +13,7 @@ const mapStateToProps = (state, ownProps) => {
   return {
     pokemon: state.entities.pokemon[id],
     items: selectPokemonItems(state, Number(id)),
+    moves: selectPokemonMoveNames(state, Number(id)),
   }; // passing prop called pokemon
 };
 

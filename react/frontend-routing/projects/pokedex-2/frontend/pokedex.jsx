@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import configureStore from "./store/store";
 import Root from "./components/root";
 import { HashRouter } from "react-router-dom";
+import { selectPokemonMoveNames } from "./reducers/selectors.js";
 import {
   receiveSinglePokemon,
   requestSinglePokemon,
@@ -17,6 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.actions = {
     receiveSinglePokemon,
     requestSinglePokemon,
+    selectPokemonMoveNames,
   };
 
   ReactDOM.render(<Root store={store} />, rootEl);

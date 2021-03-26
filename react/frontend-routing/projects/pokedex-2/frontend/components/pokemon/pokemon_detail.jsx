@@ -26,8 +26,11 @@ class PokemonDetail extends React.Component {
     }
 
     return (
-      <div>
-        <h1>{this.props.pokemon.name}</h1>
+      <div class="pokemon-detail">
+        <h2>{this.props.pokemon.name}</h2>
+        <h2>Attack: </h2>
+        <h2>Defense: </h2>
+        <h1>Moves: {this.props.pokemon.moves}</h1>
       </div>
     );
   }
