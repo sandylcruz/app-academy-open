@@ -1,8 +1,6 @@
 import { connect } from "react-redux";
-import {
-  selectPokemonItems,
-  selectPokemonMoveNames,
-} from "../../reducers/selectors";
+import ItemDetail from "./item_detail.jsx";
+import { selectPokemonItems } from "../../reducers/selectors";
 
 const mapStateToProps = (state, ownProps) => {
   const id = ownProps.match.params.pokemonId;
@@ -12,4 +10,4 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-export default connect(mapStateToProps)(Item);
+export default connect(mapStateToProps)(ItemDetail);

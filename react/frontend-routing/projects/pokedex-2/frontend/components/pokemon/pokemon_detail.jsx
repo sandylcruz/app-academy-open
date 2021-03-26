@@ -1,5 +1,6 @@
 import React from "react";
-// import ItemDetailContainer from "./../items/item_detail_container";
+import ItemDetailContainer from "./../items/item_detail_container";
+import ItemDetail from "../items/item_detail.jsx";
 
 class PokemonDetail extends React.Component {
   constructor(props) {
@@ -39,9 +40,9 @@ class PokemonDetail extends React.Component {
           <li className="text">Moves: {this.props.moves.join(", ")}</li>
 
           <li>Items:</li>
-          {this.props.items.map((item) => {
-            <li>{item}</li>;
-          })}
+          {this.props.items.map((item) => (
+            <ItemDetail item={item} />
+          ))}
         </ul>
       </div>
     );
