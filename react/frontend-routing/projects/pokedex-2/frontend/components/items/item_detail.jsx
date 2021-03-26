@@ -8,6 +8,14 @@ const ItemDetail = ({ item }) => {
       </li>
       <li>Happiness: {item.happiness}</li>
       <li>Price: {item.price}</li>
+      <section className="toys">
+        <h3>Items</h3>
+        <ul className="toy-list">
+          <li>
+            <img src={item.imageUrl} />
+          </li>
+        </ul>
+      </section>
     </ul>
   );
 };

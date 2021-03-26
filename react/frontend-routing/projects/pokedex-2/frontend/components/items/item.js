@@ -2,9 +2,11 @@ import React from "react";
 
 const Item = ({ item }) => {
   return (
-    <li>
-      <img src={item.imageUrl} />
-    </li>
+    <ul className="toy-list">
+      <li>
+        <img src={item.imageUrl} />
+      </li>
+    </ul>
   );
 };
 

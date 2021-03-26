@@ -1,4 +1,6 @@
 import React from "react";
+import { Route } from "react-router-dom";
+
 import ItemDetailContainer from "./../items/item_detail_container";
 import ItemDetail from "../items/item_detail.jsx";
 
@@ -44,6 +46,10 @@ class PokemonDetail extends React.Component {
             <ItemDetail item={item} />
           ))}
         </ul>
+        <Route
+          path="/pokemon/:pokemonId/items/:itemId"
+          component={ItemDetailContainer}
+        />
       </div>
     );
   }
