@@ -36,7 +36,7 @@ class PokemonDetail extends React.Component {
           <li>Attack: {this.props.pokemon.attack}</li>
           <li>Defense: {this.props.pokemon.defense} </li>
           <li class="text">Moves: {this.props.moves.join(", ")}</li>
-          <li>Items: </li>
+          <li>Items: {this.props.pokemon.items}</li>
         </ul>
       </div>
     );
