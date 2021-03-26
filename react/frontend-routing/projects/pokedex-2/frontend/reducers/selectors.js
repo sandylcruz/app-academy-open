@@ -5,7 +5,6 @@ export const selectAllPokemon = (state) => {
 
 export const selectPokemonMoveNames = (state, id) => {
   const allMoves = Object.values(state.entities.moves); // array of objects
-  console.log("***", allMoves, id);
   const pokemonMoves = allMoves.filter((item) => {
     return item.pokemonId === id;
   });
@@ -22,4 +21,9 @@ export const selectPokemonItems = (state, id) => {
   });
 
   return pokemonItems;
+};
+
+export const selectItem = (state, id) => {
+  const item = state.entities.items[id];
+  return item;
 };

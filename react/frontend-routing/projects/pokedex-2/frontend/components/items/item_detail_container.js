@@ -1,12 +1,12 @@
 import { connect } from "react-redux";
 import ItemDetail from "./item_detail.jsx";
-import { selectPokemonItems } from "../../reducers/selectors";
+import { selectItem } from "../../reducers/selectors";
 
 const mapStateToProps = (state, ownProps) => {
-  const id = ownProps.match.params.pokemonId;
+  const id = ownProps.match.params.itemId;
 
   return {
-    items: selectPokemonItems(state, id),
+    item: selectItem(state, id),
   };
 };
 

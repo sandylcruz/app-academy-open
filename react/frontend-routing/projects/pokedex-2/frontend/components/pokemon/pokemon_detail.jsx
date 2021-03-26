@@ -1,4 +1,6 @@
 import React from "react";
+import { Route } from "react-router-dom";
+import Item from "../items/item.js";
 import ItemDetailContainer from "./../items/item_detail_container";
 import ItemDetail from "../items/item_detail.jsx";
 
@@ -21,8 +23,6 @@ class PokemonDetail extends React.Component {
   }
 
   render() {
-    console.log(this.props);
-
     if (!this.props.pokemon) {
       return <h1>Loading</h1>;
     }
@@ -32,18 +32,27 @@ class PokemonDetail extends React.Component {
         <figure>
           <img src={this.props.pokemon.imageUrl}></img>
         </figure>
-        <h2>{this.props.pokemon.name}</h2>
-        <ul>
-          <li>Type: {this.props.pokemon.pokeType}</li>
-          <li>Attack: {this.props.pokemon.attack}</li>
-          <li>Defense: {this.props.pokemon.defense} </li>
-          <li className="text">Moves: {this.props.moves.join(", ")}</li>
+        <section className="pokemon-information">
+          <h1>{this.props.pokemon.name}</h1>
+          <ul>
+            <li>Type: {this.props.pokemon.pokeType}</li>
+            <li>Attack: {this.props.pokemon.attack}</li>
+            <li>Defense: {this.props.pokemon.defense} </li>
+            <li className="text">Moves: {this.props.moves.join(", ")}</li>
+          </ul>
+        </section>
 
-          <li>Items:</li>
-          {this.props.items.map((item) => (
-            <ItemDetail item={item} />
-          ))}
-        </ul>
+        <section className="toys">
+          <ul className="toy-list">
+            {this.props.items.map((item) => (
+              <Item key={item.name} item={item} />
+            ))}
+          </ul>
+        </section>
+        <Route
+          path="/pokemon/:pokemonId/item/:itemId"
+          component={ItemDetailContainer}
+        />
       </div>
     );
   }
