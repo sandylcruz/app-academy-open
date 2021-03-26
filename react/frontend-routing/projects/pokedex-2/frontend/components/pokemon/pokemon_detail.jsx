@@ -27,13 +27,16 @@ class PokemonDetail extends React.Component {
 
     return (
       <div class="pokemon-detail">
+        <figure>
+          <img src={this.props.pokemon.imageUrl}></img>
+        </figure>
         <h2>{this.props.pokemon.name}</h2>
         <ul>
           <li>Type: {this.props.pokemon.pokeType}</li>
           <li>Attack: {this.props.pokemon.attack}</li>
           <li>Defense: {this.props.pokemon.defense} </li>
-          <li>Moves: {this.props.moves}</li>
-          <li>Items:</li>
+          <li class="text">Moves: {this.props.moves.join(", ")}</li>
+          <li>Items: </li>
         </ul>
       </div>
     );
