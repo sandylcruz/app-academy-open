@@ -10,7 +10,8 @@ end
 json.moves do 
   @pokemon.moves.each do |move|
     json.set! move.id do
-      json.extract! move, :id, :name 
+      json.extract! move, :id, :name
+      json.pokemon_id @pokemon.id
     end
   end
 end
