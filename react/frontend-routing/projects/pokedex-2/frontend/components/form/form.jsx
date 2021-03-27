@@ -26,72 +26,58 @@ class Form extends React.Component {
 
   render() {
     return (
-      <section className="pokemon-form-section">
+      <section className="pokemon-detail">
         <img src={window.images.pokeLogo} alt="Copyright of Nintendo Pokemon" />
 
         <form className="pokemon-form" onSubmit={this.handleSubmit}>
-          <label>
-            Name
-            <input
-              type="text"
-              onChange={this.update("name")}
-              value={this.state.name}
-            ></input>
-          </label>
+          <input
+            type="text"
+            onChange={this.update("name")}
+            placeholder="Name"
+            value={this.state.name}
+          ></input>
 
-          <label>
-            Image url
-            <input
-              type="text"
-              onChange={this.update("image_url")}
-              value={this.state.image_url}
-            ></input>
-          </label>
+          <input
+            type="text"
+            onChange={this.update("image_url")}
+            placeholder="Image url"
+            value={this.state.image_url}
+          ></input>
 
-          <label>
-            Type
-            <input
-              type="dropdown"
-              onChange={this.update("type")}
-              value={this.state.type}
-            ></input>
-          </label>
+          <input
+            type="dropdown"
+            onChange={this.update("type")}
+            placeholder="Type"
+            value={this.state.type}
+          ></input>
 
-          <label>
-            Attack
-            <input
-              type="text"
-              onChange={this.update("attack")}
-              value={this.state.attack}
-            ></input>
-          </label>
+          <input
+            type="number"
+            onChange={this.update("attack")}
+            placeholder="Attack"
+            value={this.state.attack}
+          ></input>
 
-          <label>
-            Defense
-            <input
-              type="text"
-              onChange={this.update("defense")}
-              value={this.state.defense}
-            ></input>
-          </label>
+          <input
+            type="number"
+            onChange={this.update("defense")}
+            placeholder="Defense"
+            value={this.state.defense}
+          ></input>
 
-          <label>
-            Move 1
-            <input
-              type="text"
-              onChange={this.update("move1")}
-              value={this.state.move1}
-            ></input>
-          </label>
+          <input
+            type="text"
+            onChange={this.update("move1")}
+            value={this.state.move1}
+            placeholder="Move 1"
+          ></input>
 
-          <label>
-            Move 2
-            <input
-              type="text"
-              onChange={this.update("move2")}
-              value={this.state.move2}
-            ></input>
-          </label>
+          <input
+            type="text"
+            onChange={this.update("move2")}
+            value={this.state.move2}
+            placeholder="Move 2"
+          ></input>
 
           <button type="submit">Create Pokemon</button>
         </form>
