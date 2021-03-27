@@ -27,3 +27,19 @@ export const fetchPokemon = (id) => {
     });
   });
 };
+
+export const createPokemon = () => {
+  return new Promise((resolve, reject) => {
+    $.ajax({
+      method: "POST",
+      url: `api/pokemon/`,
+      data: { pokemon },
+      success: (data) => {
+        resolve(data);
+      },
+      error: () => {
+        reject();
+      },
+    });
+  });
+};
