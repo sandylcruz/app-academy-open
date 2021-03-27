@@ -1,5 +1,9 @@
+import loadingReducer from "./loading_reducer.js";
+
 const uiReducer = () => {
-  return {};
+  return {
+    loading: loadingReducer,
+  };
 };
 
 export default uiReducer;
