@@ -9,4 +9,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapDispatchToProps)(Form);
+export default connect(undefined, mapDispatchToProps)(Form);

@@ -16,8 +16,7 @@ class Api::PokemonController < ApplicationController
     @pokemon = Pokemon.new(pokemon_params)
 
     if @pokemon.save
-      @pokemon.create!
-      redict_to pokemon_url(@pokemon)
+      render :show
     else
       render @pokemon.errors.full_messages
     end
@@ -26,6 +25,6 @@ class Api::PokemonController < ApplicationController
   private
 
   def pokemon_params
-    params.require(:pokemon).permit(:name, :image_url, :poke_type, :attack, :defense, :move1, :move2)
+    params.require(:pokemon).permit(:name, :image_url, :poke_type, :attack, :defense, :moves)
   end
 end

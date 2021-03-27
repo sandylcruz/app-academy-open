@@ -5,8 +5,8 @@ class Form extends React.Component {
     super(props);
     this.state = {
       name: "",
-      image_url: "",
-      type: "",
+      imageUrl: "",
+      pokeType: "",
       attack: "",
       defense: "",
       move1: "",
@@ -19,9 +19,11 @@ class Form extends React.Component {
     return (event) => this.setState({ [property]: event.target.value });
   }
 
-  handleSubmit(event) {
-    event.preventDefault();
-    this.props.createPokemon(this.state);
+  handleSubmit(e) {
+    e.preventDefault();
+    this.props.createPokemon(this.state).then((newPokemon) => {
+      this.props.history.push(`pokemon/${newPokemon.id}`);
+    });
   }
 
   render() {
@@ -39,16 +41,16 @@ class Form extends React.Component {
 
           <input
             type="text"
-            onChange={this.update("image_url")}
+            onChange={this.update("imageUrl")}
             placeholder="Image url"
-            value={this.state.image_url}
+            value={this.state.imageUrl}
           ></input>
 
           <input
             type="dropdown"
-            onChange={this.update("type")}
+            onChange={this.update("pokeType")}
             placeholder="Type"
-            value={this.state.type}
+            value={this.state.pokeType}
           ></input>
 
           <input

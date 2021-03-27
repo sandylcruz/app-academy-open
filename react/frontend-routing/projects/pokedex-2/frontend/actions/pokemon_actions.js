@@ -27,9 +27,14 @@ export const requestSinglePokemon = (id) => (dispatch) =>
     )
   );
 
+// export const createPokemon = (pokemon) => (dispatch) =>
+//   APIUtil.createPokemon(pokemon).then((response) =>
+//     dispatch(
+//       receiveSinglePokemon(response.pokemon, response.items, response.moves)
+//     )
+//   );
 export const createPokemon = (pokemon) => (dispatch) =>
-  APIUtil.createPokemon(pokemon).then((pokemon) =>
-    dispatch(
-      receiveSinglePokemon(response.pokemon, response.items, response.moves)
-    )
-  );
+  APIUtil.createPokemon(pokemon).then((payload) => {
+    dispatch(receiveSinglePokemon(payload));
+    return payload.pokemon;
+  });

@@ -28,12 +28,20 @@ export const fetchPokemon = (id) => {
   });
 };
 
-export const createPokemon = () => {
+export const createPokemon = (pokemon) => {
   return new Promise((resolve, reject) => {
     $.ajax({
       method: "POST",
       url: `api/pokemon/`,
-      data: { pokemon },
+      data: {
+        pokemon: {
+          name: pokemon.name,
+          image_url: pokemon.imageUrl,
+          poke_type: pokemon.pokeType,
+          attack: pokemon.attack,
+          defense: pokemon.defense,
+        },
+      },
       success: (data) => {
         resolve(data);
       },
