@@ -14,6 +14,7 @@ const mapStateToProps = (state, ownProps) => {
     pokemon: state.entities.pokemon[id],
     items: selectPokemonItems(state, Number(id)),
     moves: selectPokemonMoveNames(state, Number(id)),
+    loading: state.loading,
   }; // passing prop called pokemon
 };
 

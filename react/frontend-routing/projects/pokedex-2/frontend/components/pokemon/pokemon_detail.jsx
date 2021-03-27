@@ -3,6 +3,7 @@ import { Route } from "react-router-dom";
 import Item from "../items/item.js";
 import ItemDetailContainer from "./../items/item_detail_container";
 import ItemDetail from "../items/item_detail.jsx";
+import LoadingIcon from "./loading_icon.jsx";
 
 class PokemonDetail extends React.Component {
   constructor(props) {
@@ -23,8 +24,20 @@ class PokemonDetail extends React.Component {
   }
 
   render() {
+    if (this.props.loading) {
+      return (
+        <section className="pokemon-detail">
+          <LoadingIcon />
+        </section>
+      );
+    }
+
     if (!this.props.pokemon) {
-      return <h1>Loading</h1>;
+      return (
+        <section className="pokemon-detail">
+          <LoadingIcon />
+        </section>
+      );
     }
 
     return (
