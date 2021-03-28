@@ -291,6 +291,8 @@ var _signup_container = __webpack_require__(/*! ./session/signup_container.js */
 
 var _signup_container2 = _interopRequireDefault(_signup_container);
 
+var _route_utils = __webpack_require__(/*! ../utils/route_utils.jsx */ "./frontend/utils/route_utils.jsx");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = function () {
@@ -299,8 +301,8 @@ exports.default = function () {
     null,
     _react2.default.createElement(_reactRouterDom.Route, { path: "/", component: _nav_bar_container2.default }),
     _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: "/", component: _home2.default }),
-    _react2.default.createElement(_reactRouterDom.Route, { path: "/signup", component: _signup_container2.default }),
-    _react2.default.createElement(_reactRouterDom.Route, { path: "/chirps", component: _chirp_index_container2.default })
+    _react2.default.createElement(_route_utils.AuthRoute, { path: "/signup", component: _signup_container2.default }),
+    _react2.default.createElement(_route_utils.ProtectedRoute, { path: "/chirps", component: _chirp_index_container2.default })
   );
 };
 
@@ -566,31 +568,46 @@ exports.default = function (_ref) {
   var currentUser = _ref.currentUser,
       logout = _ref.logout;
 
-  var display = _react2.default.createElement(
-    'div',
+  var display = currentUser ? _react2.default.createElement(
+    "div",
+    null,
+    _react2.default.createElement(
+      "p",
+      null,
+      "Hello, ",
+      currentUser.username,
+      " "
+    ),
+    _react2.default.createElement(
+      "button",
+      { onClick: logout },
+      "Logout"
+    )
+  ) : _react2.default.createElement(
+    "div",
     null,
     _react2.default.createElement(
       _reactRouterDom.Link,
-      { className: 'btn', to: '/signup' },
-      'Sign Up'
+      { className: "btn", to: "/signup" },
+      "Sign Up"
     ),
     _react2.default.createElement(
       _reactRouterDom.Link,
-      { className: 'btn', to: '/login' },
-      'Log In'
+      { className: "btn", to: "/login" },
+      "Log In"
     )
   );
 
   return _react2.default.createElement(
-    'header',
-    { className: 'nav-bar' },
+    "header",
+    { className: "nav-bar" },
     _react2.default.createElement(
-      'h1',
-      { className: 'logo' },
-      'BLUEBIRD'
+      "h1",
+      { className: "logo" },
+      "BLUEBIRD"
     ),
     _react2.default.createElement(
-      'div',
+      "div",
       null,
       display
     )
@@ -623,24 +640,29 @@ var _nav_bar = __webpack_require__(/*! ./nav_bar */ "./frontend/components/nav_b
 
 var _nav_bar2 = _interopRequireDefault(_nav_bar);
 
+var _session = __webpack_require__(/*! ../../actions/session */ "./frontend/actions/session.js");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var mapStateToProps = function mapStateToProps(state) {
+  return {
+    currentUser: state.session.currentUser
+  };
+};
 
 // Comment this back in after you have built the login functionality
 
-// import { logout } from '../../actions/session';
-
-// const mapStateToProps = state => ({
-//   currentUser: state.session.currentUser,
-// });
-
-// const mapDispatchToProps = dispatch => ({
-//   logout: () => dispatch(logout()),
-// });
-
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    logout: function logout() {
+      return dispatch((0, _session.logout)());
+    }
+  };
+};
 
 // Comment this out when you have built the login functionality
-var mapStateToProps = null;
-var mapDispatchToProps = null;
+// const mapStateToProps = null;
+// const mapDispatchToProps = null;
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_nav_bar2.default);
 
@@ -1177,6 +1199,66 @@ var deleteLikeFromChirp = exports.deleteLikeFromChirp = function deleteLikeFromC
 
 /***/ }),
 
+/***/ "./frontend/utils/route_utils.jsx":
+/*!****************************************!*\
+  !*** ./frontend/utils/route_utils.jsx ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.ProtectedRoute = exports.AuthRoute = undefined;
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/react.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRedux = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+
+var _reactRouterDom = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var mapStateToProps = function mapStateToProps(state) {
+  return {
+    loggedIn: Boolean(state.session.currentUser)
+  };
+};
+
+var Auth = function Auth(_ref) {
+  var Component = _ref.component,
+      path = _ref.path,
+      loggedIn = _ref.loggedIn;
+  return _react2.default.createElement(_reactRouterDom.Route, {
+    path: path,
+    render: function render(props) {
+      return loggedIn ? _react2.default.createElement(_reactRouterDom.Redirect, { to: "/" }) : _react2.default.createElement(Component, props);
+    }
+  });
+};
+
+var Protected = function Protected(_ref2) {
+  var Component = _ref2.component,
+      path = _ref2.path,
+      loggedIn = _ref2.loggedIn;
+  return _react2.default.createElement(_reactRouterDom.Route, {
+    path: path,
+    render: function render(props) {
+      return loggedIn ? _react2.default.createElement(Component, props) : _react2.default.createElement(_reactRouterDom.Redirect, { to: "/signup" });
+    }
+  });
+};
+
+var AuthRoute = exports.AuthRoute = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps)(Auth));
+var ProtectedRoute = exports.ProtectedRoute = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps)(Protected));
+
+/***/ }),
+
 /***/ "./frontend/utils/session.js":
 /*!***********************************!*\
   !*** ./frontend/utils/session.js ***!
@@ -1207,17 +1289,33 @@ var postUser = exports.postUser = function postUser(user) {
 };
 
 var postSession = exports.postSession = function postSession(user) {
-  $.ajax({
-    url: "/api/session",
-    method: "POST",
-    data: { user: user }
+  return new Promise(function (resolve, reject) {
+    $.ajax({
+      url: "/api/session",
+      method: "POST",
+      data: { user: user },
+      success: function success(user) {
+        resolve(user);
+      },
+      error: function error() {
+        reject();
+      }
+    });
   });
 };
 
 var deleteSession = exports.deleteSession = function deleteSession() {
-  $.ajax({
-    url: "/api/session",
-    method: "DELETE"
+  return new Promise(function (resolve, reject) {
+    $.ajax({
+      url: "/api/session",
+      method: "DELETE",
+      success: function success() {
+        resolve();
+      },
+      error: function error() {
+        reject();
+      }
+    });
   });
 };
 

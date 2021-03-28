@@ -15,16 +15,32 @@ export const postUser = (user) => {
 };
 
 export const postSession = (user) => {
-  $.ajax({
-    url: "/api/session",
-    method: "POST",
-    data: { user },
+  return new Promise((resolve, reject) => {
+    $.ajax({
+      url: "/api/session",
+      method: "POST",
+      data: { user },
+      success: (user) => {
+        resolve(user);
+      },
+      error: () => {
+        reject();
+      },
+    });
   });
 };
 
 export const deleteSession = () => {
-  $.ajax({
-    url: "/api/session",
-    method: "DELETE",
+  return new Promise((resolve, reject) => {
+    $.ajax({
+      url: "/api/session",
+      method: "DELETE",
+      success: () => {
+        resolve();
+      },
+      error: () => {
+        reject();
+      },
+    });
   });
 };
