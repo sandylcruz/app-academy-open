@@ -21,6 +21,4 @@ class ApplicationController < ActionController::Base
       render json: ["Not logged in"], status: 401
     end
   end
-
-
 end
