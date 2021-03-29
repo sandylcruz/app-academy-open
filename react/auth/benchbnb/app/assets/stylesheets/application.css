@@ -13,3 +13,19 @@
  *= require_tree .
  *= require_self
  */
+
+html,
+body,
+section,
+a,
+li,
+ul,
+p,
+a {
+  font-family: helvetica;
+  margin: 0;
+  padding: 0;
+  border: none;
+  font-size: inherit;
+  background: transparent;
+}
