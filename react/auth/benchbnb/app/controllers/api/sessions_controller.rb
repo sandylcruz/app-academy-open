@@ -1,4 +1,7 @@
-class SessionsController < ApplicationController
+
+class Api::SessionsController < ApplicationController
+  skip_before_action :verify_authenticity_token ##, except: [:create, :update, :destroy]
+
   def new
     render :new
   end
@@ -10,7 +13,7 @@ class SessionsController < ApplicationController
       render json: ["Invalid username or password"], status: 401
     else
       login(@user)
-      render json: "logged in"
+      render "api/users/show"
     end
   end
 

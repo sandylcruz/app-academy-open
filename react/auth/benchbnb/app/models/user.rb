@@ -23,6 +23,8 @@ class User < ApplicationRecord
   end
   
   def is_password?(password)
+    puts "*************"
+    puts password
     BCrypt::Password.new(self.password_digest).is_password?(password)
   end
 
