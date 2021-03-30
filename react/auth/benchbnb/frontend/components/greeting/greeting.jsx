@@ -9,7 +9,7 @@ const Greeting = ({ currentUser, logout }) => {
           <Link className="button" to="/login">
             Log in
           </Link>
-          or
+          {" or "}
           <Link className="button" to="/signup">
             Sign up
           </Link>

@@ -1,4 +1,4 @@
-export const signup = () => {
+export const signup = (user) => {
   return new Promise((resolve, reject) => {
     $.ajax({
       type: "POST",

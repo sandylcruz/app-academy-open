@@ -41,8 +41,9 @@ class SessionForm extends React.Component {
       <div className="login-form-container">
         <form className="login-form-box" onSubmit={this.handleSubmit}>
           <p>
-            Welcome to Bench Bnb. Please signup or <Link to="/signup"></Link>log
-            in instead
+            Welcome to Bench Bnb. Please <Link to="/login">log in</Link>
+            {" or "}
+            <Link to="/signup">sign up</Link>
           </p>
 
           <div className="login-form">
