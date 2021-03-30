@@ -18,14 +18,14 @@ export const signup = (user) => (dispatch) =>
   );
 
 const receiveCurrentUser = (currentUser) => ({
-  type: receiveCurrentUser,
+  type: RECEIVE_CURRENT_USER,
   currentUser,
 });
 const logoutCurrentUser = () => ({
-  type: logoutCurrentUser,
+  type: LOGOUT_CURRENT_USER,
 });
 
 const receiveSessionErrors = (errors) => ({
-  type: receiveSessionErrors,
+  type: RECEIVE_SESSION_ERRORS,
   errors,
 });
