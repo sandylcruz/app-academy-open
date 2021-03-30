@@ -2,6 +2,81 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./frontend/util/session_api_util.js":
+/*!*******************************************!*\
+  !*** ./frontend/util/session_api_util.js ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "signup": () => (/* binding */ signup),
+/* harmony export */   "login": () => (/* binding */ login),
+/* harmony export */   "logout": () => (/* binding */ logout)
+/* harmony export */ });
+var signup = function signup() {
+  return new Promise(function (resolve, reject) {
+    $.ajax({
+      type: "POST",
+      url: "/api/users",
+      data: {
+        user: user
+      },
+      success: function success(user) {
+        resolve(user);
+      },
+      error: function error() {
+        reject();
+      }
+    });
+  });
+}; // test in window:
+//  $.ajax({
+//    type: "POST",
+//    url: "/api/users",
+//    data: { user: { username: "squeakfreak", password: "password" } },
+//    success: (user) => {
+//      console.log(user);
+//    },
+//    error: () => {
+//      console.log("fail");
+//    },
+//  });
+
+var login = function login() {
+  return new Promise(function (resolve, reject) {
+    $.ajax({
+      type: "POST",
+      url: "/api/sessions/create",
+      data: {
+        user: user
+      },
+      success: function success(user) {
+        resolve(user);
+      },
+      error: function error() {
+        reject();
+      }
+    });
+  });
+};
+var logout = function logout() {
+  return new Promise(function (resolve, reject) {
+    $.ajax({
+      type: "DESTROY",
+      url: "api/sessions/".concat(id),
+      success: function success() {
+        resolve();
+      },
+      error: function error() {
+        reject();
+      }
+    });
+  });
+};
+
+/***/ }),
+
 /***/ "./node_modules/object-assign/index.js":
 /*!*********************************************!*\
   !*** ./node_modules/object-assign/index.js ***!
@@ -29840,6 +29915,23 @@ if (false) {} else {
 /******/ 	}
 /******/ 	
 /************************************************************************/
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
@@ -29861,11 +29953,16 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var _util_session_api_util_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./util/session_api_util.js */ "./frontend/util/session_api_util.js");
+
 
 
 document.addEventListener("DOMContentLoaded", function () {
   var root = document.getElementById("root");
   react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Welcome to BenchBnb"));
+  window.login = _util_session_api_util_js__WEBPACK_IMPORTED_MODULE_2__.login;
+  window.signup = _util_session_api_util_js__WEBPACK_IMPORTED_MODULE_2__.signup;
+  window.logout = _util_session_api_util_js__WEBPACK_IMPORTED_MODULE_2__.logout;
 });
 })();
 
