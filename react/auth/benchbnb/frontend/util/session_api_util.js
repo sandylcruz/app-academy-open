@@ -27,16 +27,19 @@ export const signup = () => {
 //    },
 //  });
 
-export const login = () => {
+export const login = (user) => {
   return new Promise((resolve, reject) => {
+    console.log("before ajax");
     $.ajax({
       type: "POST",
-      url: "/api/sessions/create",
+      url: "/api/sessions",
       data: { user },
       success: (user) => {
+        console.log("success");
         resolve(user);
       },
       error: () => {
+        console.log("error");
         reject();
       },
     });
@@ -46,8 +49,8 @@ export const login = () => {
 export const logout = () => {
   return new Promise((resolve, reject) => {
     $.ajax({
-      type: "DESTROY",
-      url: `api/sessions/${id}`,
+      type: "DELETE",
+      url: `api/sessions/:id`,
       success: () => {
         resolve();
       },

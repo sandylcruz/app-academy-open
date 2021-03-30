@@ -4,13 +4,18 @@ export const LOGOUT_CURRENT_USER = "LOGOUT_CURRENT_USER";
 export const RECEIVE_SESSION_ERRORS = "RECEIVE_SESSION_ERRORS";
 
 export const login = (user) => (dispatch) =>
-  SessionAPIUtil.login(user).then(() => dispatch(receiveCurrentUser));
+  SessionAPIUtil.login(user).then((user) => dispatch(receiveCurrentUser(user)));
+
+// test in window
+// dispatch(login({ username: "squeakfreak", password: "password" }));
 
 export const logout = () => (dispatch) =>
-  SessionAPIUtil.logout().then(() => dispatch(logoutCurrentUser));
+  SessionAPIUtil.logout().then(() => dispatch(logoutCurrentUser()));
 
 export const signup = (user) => (dispatch) =>
-  SessionAPIUtil.signup(user).then((user) => dispatch(receiveCurrentUser));
+  SessionAPIUtil.signup(user).then((user) =>
+    dispatch(receiveCurrentUser(user))
+  );
 
 const receiveCurrentUser = (currentUser) => ({
   type: receiveCurrentUser,
