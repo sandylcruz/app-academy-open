@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Greeting = ({ currentUser, logout }) => {
-  console.log("CURRENT USER HERE", currentUser);
   return (
     <nav className="nav-group">
       {!currentUser ? (
@@ -10,6 +9,7 @@ const Greeting = ({ currentUser, logout }) => {
           <Link className="button" to="/login">
             Log in
           </Link>
+          or
           <Link className="button" to="/signup">
             Sign up
           </Link>

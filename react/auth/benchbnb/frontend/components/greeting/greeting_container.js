@@ -9,8 +9,6 @@ const selectCurrentUser = (state) => {
     return user.isCurrentUser;
   });
 
-  console.log("lllll", currentUserId);
-
   if (!currentUserId) {
     return null;
   }
