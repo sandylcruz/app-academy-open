@@ -1,17 +1,35 @@
-import { connect } from "react-redux";
-import React from "react";
-import SessionForm from "./session_form.jsx";
-import { signup } from "../../actions/session_actions.js";
+import React, { useCallback } from "react";
+import { useSelector, useDispatch } from "react-redux";
 
-const mapStateToProps = (state, ownProps) => {
-  return {
-    errors: state.errors,
-    formType: "signup",
-  };
+import { signup } from "../../actions/session_actions.js";
+import SessionForm from "./session_form.jsx";
+
+// const mapStateToProps = (state, ownProps) => {
+//   return {
+//     errors: state.errors,
+//     formType: "signup",
+//   };
+// };
+
+// const mapDispatchToProps = (dispatch, ownProps) => ({
+//   processForm: (user) => dispatch(signup(user)),
+// });
+
+// export default connect(mapStateToProps, mapDispatchToProps)(SessionForm);
+
+const SignupForm = (props) => {
+  const errors = useSelector((state) => state.errors);
+  const dispatch = useDispatch();
+
+  const processForm = useCallback((user) => dispatch(signup(user)), [dispatch]); // useDispatch
+  return (
+    <SessionForm
+      {...props}
+      formType="signup"
+      errors={errors}
+      processForm={processForm}
+    />
+  );
 };
 
-const mapDispatchToProps = (dispatch, ownProps) => ({
-  processForm: (user) => dispatch(signup(user)),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(SessionForm);
+export default SignupForm;
