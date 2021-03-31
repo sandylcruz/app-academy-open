@@ -3,11 +3,9 @@ import { logout } from "../../actions/session_actions.js";
 import Greeting from "./greeting.jsx";
 
 const selectCurrentUser = (state) => {
-  const currentUserId = Object.keys(state.entities.users).find((key) => {
-    const user = state.entities.users[key];
+  const currentUserId = state.session.id;
 
-    return user.isCurrentUser;
-  });
+  console.log(currentUserId, state.entities.users);
 
   if (!currentUserId) {
     return null;
