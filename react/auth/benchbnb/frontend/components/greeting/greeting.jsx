@@ -2,17 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Greeting = ({ currentUser, logout }) => {
+  console.log(currentUser);
   return (
     <nav className="nav-group">
       {!currentUser ? (
         <>
-          <Link className="button" to="/login">
-            Log in
-          </Link>
+          <Link to="/login">Log in</Link>
           {" or "}
-          <Link className="button" to="/signup">
-            Sign up
-          </Link>
+          <Link to="/signup">Sign up</Link>
         </>
       ) : (
         <>
