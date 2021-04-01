@@ -16,7 +16,13 @@ const App = () => (
     <AuthRoute exact path="/login" component={LoginFormContainer} />
     <AuthRoute exact path="/signup" component={SignupFormContainer} />
 
-    <Route path="/benches/:benchId" component={BenchShowContainer} />
+    <div className="user-pane">
+      <div className="left-half">This is the left half</div>
+
+      <div className="right-half">
+        <Route path="/benches/:benchId" component={BenchShowContainer} />
+      </div>
+    </div>
   </div>
 );
 
