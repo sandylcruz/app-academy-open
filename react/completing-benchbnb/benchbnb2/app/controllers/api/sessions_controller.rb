@@ -1,4 +1,3 @@
-
 class Api::SessionsController < ApplicationController
   skip_before_action :verify_authenticity_token ##, except: [:create, :update, :destroy]
 

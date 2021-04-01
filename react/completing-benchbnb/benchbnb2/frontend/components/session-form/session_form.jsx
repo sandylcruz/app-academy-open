@@ -123,7 +123,9 @@ function SessionForm({ processForm }) {
             ></input>
           </label>
 
-          <button type="submit">Signup</button>
+          <button className="submit-button" type="submit">
+            Submit
+          </button>
         </div>
       </form>
     </div>

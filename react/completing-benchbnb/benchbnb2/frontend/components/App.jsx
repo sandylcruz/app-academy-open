@@ -3,7 +3,7 @@ import GreetingContainer from "./greeting/greeting_container.js";
 import SignupFormContainer from "./session-form/signup_form_container.jsx";
 import LoginFormContainer from "./session-form/login_form_container.jsx";
 import { Route } from "react-router-dom";
-import { AuthRoute } from "../util/route_util.jsx";
+import { AuthRoute } from "../util/route_util.js";
 
 const App = () => (
   <div>
