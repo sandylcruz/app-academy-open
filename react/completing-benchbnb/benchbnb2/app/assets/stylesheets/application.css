@@ -83,6 +83,8 @@ p {
 .user-pane {
   display: flex;
   flex-direction: row;
+  margin: 10px;
+  padding: 10px;
 }
 
 .left-half {
@@ -93,4 +95,9 @@ p {
 .right-half {
   width: 50%;
   border: 1px solid black;
+}
+
+.bench-index-item {
+  margin: 10px;
+  padding: 10px;
 }

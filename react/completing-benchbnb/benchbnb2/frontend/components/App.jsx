@@ -4,7 +4,8 @@ import SignupFormContainer from "./session-form/signup_form_container.jsx";
 import LoginFormContainer from "./session-form/login_form_container.jsx";
 import { Route } from "react-router-dom";
 import { AuthRoute } from "../util/route_util.js";
-import BenchShowContainer from "./bench_show/bench_index_container.js";
+import BenchIndexContainer from "./bench_index/bench_index_container.js";
+import BenchIndexItem from "./bench_index/bench_index_item.jsx";
 
 const App = () => (
   <div>
@@ -17,10 +18,11 @@ const App = () => (
     <AuthRoute exact path="/signup" component={SignupFormContainer} />
 
     <div className="user-pane">
-      <div className="left-half">This is the left half</div>
+      <div className="left-half">This is the left half (map) </div>
 
       <div className="right-half">
-        <Route path="/benches/:benchId" component={BenchShowContainer} />
+        <Route exact path="/" component={BenchIndexContainer} />
+        <Route exact path="/benches/:id" component={BenchIndexItem} />
       </div>
     </div>
   </div>
