@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import BenchIndexContainer from "./bench_index_container.js";
+import BenchIndexItem from "./bench_index_item.jsx";
 
 function BenchIndex({ benches, fetchBenches }) {
   useEffect(() => {
@@ -11,7 +12,9 @@ function BenchIndex({ benches, fetchBenches }) {
   return (
     <div className="bench-index">
       <h1>Benches:</h1>
-      {benches.map((bench) => console.log(bench))}
+      {benches.map((bench) => (
+        <li key={bench.id}>{bench.description}</li>
+      ))}
     </div>
   );
 }
