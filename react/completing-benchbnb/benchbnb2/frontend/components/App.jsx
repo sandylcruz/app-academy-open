@@ -6,6 +6,7 @@ import { Route } from "react-router-dom";
 import { AuthRoute } from "../util/route_util.js";
 import BenchIndexContainer from "./bench_index/bench_index_container.js";
 import BenchIndexItem from "./bench_index/bench_index_item.jsx";
+import SearchContainer from "./search/search_container.js";
 
 const App = () => (
   <div>
@@ -21,7 +22,7 @@ const App = () => (
       <div className="left-half">This is the left half (map) </div>
 
       <div className="right-half">
-        <Route exact path="/" component={BenchIndexContainer} />
+        <Route exact path="/" component={SearchContainer} />
         <Route exact path="/benches/:id" component={BenchIndexItem} />
       </div>
     </div>

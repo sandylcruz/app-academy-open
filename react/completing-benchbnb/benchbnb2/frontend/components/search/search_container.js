@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import BenchIndex from "./bench_index.jsx";
+import BenchIndex from "../bench_index/bench_index.jsx";
 import { fetchBenches as fetchBenchesAction } from "../../actions/bench_actions.js";
 
 const benchesSelector = (state) => {
@@ -9,7 +9,8 @@ const benchesSelector = (state) => {
     return state.entities.benches[key];
   });
 };
-const BenchIndexContainer = (props) => {
+
+const SearchContainer = (props) => {
   const benches = useSelector(benchesSelector);
   const dispatch = useDispatch();
 
@@ -22,10 +23,9 @@ const BenchIndexContainer = (props) => {
   );
 };
 
-export default BenchIndexContainer;
+export default SearchContainer;
 
 // Class Component Version
-
 // const mapDispatchToProps = (dispatch) => ({
 //   fetchBenches: () => dispatch(fetchBenches()),
 // });
