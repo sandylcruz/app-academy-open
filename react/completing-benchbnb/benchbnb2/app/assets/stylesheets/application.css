@@ -132,3 +132,8 @@ p {
 .index-item-copy {
   margin-left: 15px;
 }
+
+.map-container {
+  width: 500px;
+  height: 500px;
+}
