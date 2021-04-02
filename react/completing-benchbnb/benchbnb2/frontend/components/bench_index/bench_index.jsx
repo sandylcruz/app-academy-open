@@ -13,7 +13,9 @@ function BenchIndex({ benches, fetchBenches }) {
     <div className="bench-index">
       <h1>Benches:</h1>
       {benches.map((bench) => (
-        <li key={bench.id}>{bench.description}</li>
+        <div className="bench-index-item">
+          <li key={bench.id}>Description: {bench.description}</li>
+        </div>
       ))}
     </div>
   );
