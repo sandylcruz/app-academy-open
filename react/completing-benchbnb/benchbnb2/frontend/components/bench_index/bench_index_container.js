@@ -1,7 +1,8 @@
-import React from "react";
-import { connect } from "react-redux";
+import React, { useCallback } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
 import BenchIndex from "./bench_index.jsx";
-import { fetchBenches } from "../../actions/bench_actions.js";
+import { fetchBenches as fetchBenchesAction } from "../../actions/bench_actions.js";
 
 const benchesSelector = (state) => {
   return Object.keys(state.entities.benches).map((key) => {
@@ -9,22 +10,27 @@ const benchesSelector = (state) => {
   });
 };
 
-const mapStateToProps = (state) => {
-  const benches = benchesSelector(state);
+// const mapDispatchToProps = (dispatch) => ({
+//   fetchBenches: () => dispatch(fetchBenches()),
+// });
 
-  return {
-    benches,
-  };
+// const render = () => {
+//   const benches = state.entities;
+// };
+
+// export default connect(mapStateToProps, mapDispatchToProps)(BenchIndex);
+
+const BenchIndexContainer = (props) => {
+  const benches = useSelector(benchesSelector);
+  const dispatch = useDispatch();
+
+  const fetchBenches = useCallback(() => dispatch(fetchBenchesAction()), [
+    dispatch,
+  ]);
+
+  return (
+    <BenchIndex {...props} fetchBenches={fetchBenches} benches={benches} />
+  );
 };
 
-const mapDispatchToProps = (dispatch) => ({
-  fetchBenches: () => dispatch(fetchBenches()),
-});
-
-const render = () => {
-  const benches = state.entities;
-
-  return <BenchIndex benches={benches} />;
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(BenchIndex);
+export default BenchIndexContainer;
