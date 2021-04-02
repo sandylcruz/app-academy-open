@@ -11,10 +11,10 @@ function BenchIndex({ benches, fetchBenches }) {
 
   return (
     <div className="bench-index">
-      <h1>Benches:</h1>
       {benches.map((bench) => (
         <div className="index-item-info">
           <span className="index-item-category">Rating:</span>
+          <span className="index-item-copy">0</span>
           <span className="index-item-category">Description:</span>
           <span className="index-item-copy">{bench.description}</span>
         </div>
