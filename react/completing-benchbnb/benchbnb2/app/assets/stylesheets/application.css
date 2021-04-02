@@ -78,6 +78,7 @@ p {
 
 .bench-index {
   width: 400px;
+  margin-left: 20px;
 }
 
 .user-pane {
@@ -89,15 +90,15 @@ p {
 
 .left-half {
   width: 50%;
-  border: 1px solid black;
+  border: 1px dotted black;
 }
 
 .right-half {
   width: 50%;
-  border: 1px solid black;
+  border: 1px dotted black;
 }
 
 .bench-index-item {
-  margin: 10px;
+  margin-left: 20px;
   padding: 10px;
 }

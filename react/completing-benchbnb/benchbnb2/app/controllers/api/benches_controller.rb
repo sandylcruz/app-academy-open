@@ -3,7 +3,6 @@ class Api::BenchesController < ApplicationController
     @bench = Bench.find_by(id: params[:id])
     
     if @bench
-      console.log(@bench)
       render :show
     else
       render json: ["bench not found"]
@@ -12,6 +11,7 @@ class Api::BenchesController < ApplicationController
 
   def index
     @benches = Bench.all
+    render "api/benches/index"
   end
 
   def create

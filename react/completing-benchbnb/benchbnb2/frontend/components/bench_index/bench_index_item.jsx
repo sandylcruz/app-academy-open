@@ -3,6 +3,7 @@ import React from "react";
 const BenchIndexItem = () => {
   return (
     <div className="bench-index-item">
+      <h1>Bench Description:</h1>
       <ul>
         <li>Rating</li>
         <li>Description</li>
