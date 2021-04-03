@@ -89,14 +89,11 @@ p {
 }
 
 .left-half {
-  width: 50%;
-  border: 1px dotted black;
 }
 
 .right-half {
-  width: 50%;
   height: 500px;
-  border: 1px dotted black;
+  margin-left: 30px;
 }
 
 .bench-index-item {
@@ -134,6 +131,8 @@ p {
 }
 
 .map-container {
-  width: 500px;
-  height: 500px;
+  width: 450px;
+  height: 450px;
+  overflow: hidden;
+  float: left;
 }

@@ -10,6 +10,8 @@ const Search = ({ fetchBenches, benches }) => {
       </div>
 
       <div className="right-half">
+        <h1>Benches:</h1>
+
         <BenchIndex fetchBenches={fetchBenches} benches={benches} />
       </div>
     </div>
