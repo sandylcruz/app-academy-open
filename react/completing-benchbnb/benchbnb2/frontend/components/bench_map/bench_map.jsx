@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import MarkerManager from "../utils/marker_manager.js";
+import MarkerManager from "../../util/marker_manager.js";
 
 const BenchMap = () => {
   const mapNodeRef = useRef();
@@ -13,6 +13,7 @@ const BenchMap = () => {
     };
 
     mapRef.current = new google.maps.Map(mapNodeRef.current, mapOptions);
+    const MarkerManager = new MarkerManager(mapRef.current);
   }, []);
 
   return <div className="map-container" ref={mapNodeRef} />;

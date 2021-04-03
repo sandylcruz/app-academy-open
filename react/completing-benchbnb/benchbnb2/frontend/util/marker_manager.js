@@ -2,6 +2,8 @@ class MarkerManager {
   constructor(map) {
     this.map = map;
     this.markers = {};
+
+    this.updateMarkers = this.updateMarkers.bind(this);
   }
 
   updateMarkers(benches) {
@@ -9,9 +11,4 @@ class MarkerManager {
   }
 }
 
-// function MarketManager(map) {
-//   const [map, setMap] = useState(map);
-//   const [markers, setMarkers] = useState({});
-// }
-
-export default MarketManager;
+export default MarkerManager;
