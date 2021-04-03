@@ -18,12 +18,6 @@ const BenchMap = ({ benches }) => {
   }, []); // only run on mount if it's []
 
   useEffect(() => {
-    console.log(benches);
-    if (!window.allBenches) {
-      window.allBenches = [benches];
-    } else {
-      window.allBenches.push(benches);
-    }
     // run anytime benches change and on mount
     markerManagerRef.current.updateMarkers();
   }, [benches]); // referential equality check

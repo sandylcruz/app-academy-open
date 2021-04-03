@@ -6,13 +6,13 @@ import BenchIndexItem from "./bench_index_item.jsx";
 function BenchIndex({ benches, fetchBenches }) {
   useEffect(() => {
     // component did mount
-    // fetchBenches();
+    fetchBenches();
   }, []); // effect will only run on initial render
 
   return (
     <div className="bench-index">
       {benches.map((bench) => (
-        <div className="index-item-info">
+        <div key={bench.id} className="index-item-info">
           <span className="index-item-category">Rating:</span>
           <span className="index-item-copy">0</span>
           <span className="index-item-category">Description:</span>
