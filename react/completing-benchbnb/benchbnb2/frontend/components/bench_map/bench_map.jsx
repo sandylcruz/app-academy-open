@@ -19,7 +19,7 @@ const BenchMap = ({ benches }) => {
 
   useEffect(() => {
     // run anytime benches change and on mount
-    markerManagerRef.current.updateMarkers();
+    markerManagerRef.current.updateMarkers(benches);
   }, [benches]); // referential equality check
 
   return <div className="map-container" ref={mapNodeRef} />;
