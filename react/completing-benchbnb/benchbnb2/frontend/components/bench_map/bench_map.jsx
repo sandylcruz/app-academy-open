@@ -1,8 +1,10 @@
 import React, { useEffect, useRef } from "react";
+import MarkerManager from "../utils/marker_manager.js";
 
 const BenchMap = () => {
   const mapNodeRef = useRef();
   const mapRef = useRef();
+  const MarkerManager = MarkerManager(mapRef.current);
 
   useEffect(() => {
     const mapOptions = {
