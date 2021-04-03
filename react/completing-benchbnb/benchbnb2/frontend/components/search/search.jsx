@@ -4,9 +4,14 @@ import React from "react";
 
 const Search = ({ fetchBenches, benches }) => {
   return (
-    <div>
-      <BenchMap />
-      <BenchIndex fetchBenches={fetchBenches} benches={benches} />
+    <div className="user-pane">
+      <div className="left-half">
+        <BenchMap benches={benches} />
+      </div>
+
+      <div className="right-half">
+        <BenchIndex fetchBenches={fetchBenches} benches={benches} />
+      </div>
     </div>
   );
 };

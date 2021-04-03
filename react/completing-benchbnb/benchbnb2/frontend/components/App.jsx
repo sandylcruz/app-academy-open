@@ -17,14 +17,8 @@ const App = () => (
     <AuthRoute exact path="/login" component={LoginFormContainer} />
     <AuthRoute exact path="/signup" component={SignupFormContainer} />
 
-    <div className="user-pane">
-      <div className="left-half">This is the left half (map) </div>
-
-      <div className="right-half">
-        <Route exact path="/" component={SearchContainer} />
-        <Route exact path="/benches/:id" component={BenchIndexItem} />
-      </div>
-    </div>
+    <Route exact path="/" component={SearchContainer} />
+    <Route exact path="/benches/:id" component={BenchIndexItem} />
   </div>
 );
 
