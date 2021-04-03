@@ -9,3 +9,5 @@ class BenchMap extends React.Component {
     return <div id="map-container" ref="map"></div>;
   }
 }
+
+export default BenchMap;

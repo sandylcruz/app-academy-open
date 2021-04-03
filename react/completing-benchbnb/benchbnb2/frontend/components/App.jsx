@@ -4,7 +4,6 @@ import SignupFormContainer from "./session-form/signup_form_container.jsx";
 import LoginFormContainer from "./session-form/login_form_container.jsx";
 import { Route } from "react-router-dom";
 import { AuthRoute } from "../util/route_util.js";
-import BenchIndexContainer from "./bench_index/bench_index_container.js";
 import BenchIndexItem from "./bench_index/bench_index_item.jsx";
 import SearchContainer from "./search/search_container.js";
 

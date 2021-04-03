@@ -1,28 +1,28 @@
-import React, { useCallback } from "react";
-import { useDispatch, useSelector } from "react-redux";
+// import React, { useCallback } from "react";
+// import { useDispatch, useSelector } from "react-redux";
 
-import BenchIndex from "./bench_index.jsx";
-import { fetchBenches as fetchBenchesAction } from "../../actions/bench_actions.js";
+// import BenchIndex from "./bench_index.jsx";
+// import { fetchBenches as fetchBenchesAction } from "../../actions/bench_actions.js";
 
-const benchesSelector = (state) => {
-  return Object.keys(state.entities.benches).map((key) => {
-    return state.entities.benches[key];
-  });
-};
-const BenchIndexContainer = (props) => {
-  const benches = useSelector(benchesSelector);
-  const dispatch = useDispatch();
+// const benchesSelector = (state) => {
+//   return Object.keys(state.entities.benches).map((key) => {
+//     return state.entities.benches[key];
+//   });
+// };
+// const BenchIndexContainer = (props) => {
+//   const benches = useSelector(benchesSelector);
+//   const dispatch = useDispatch();
 
-  const fetchBenches = useCallback(() => dispatch(fetchBenchesAction()), [
-    dispatch,
-  ]);
+//   const fetchBenches = useCallback(() => dispatch(fetchBenchesAction()), [
+//     dispatch,
+//   ]);
 
-  return (
-    <BenchIndex {...props} fetchBenches={fetchBenches} benches={benches} />
-  );
-};
+//   return (
+//     <BenchIndex {...props} fetchBenches={fetchBenches} benches={benches} />
+//   );
+// };
 
-export default BenchIndexContainer;
+// export default BenchIndexContainer;
 
 // Class Component Version
 

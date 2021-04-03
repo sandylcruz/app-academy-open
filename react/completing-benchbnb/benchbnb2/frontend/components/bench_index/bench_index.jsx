@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import BenchIndexContainer from "./bench_index_container.js";
+// import BenchIndexContainer from "./bench_index_container.js";
 import BenchIndexItem from "./bench_index_item.jsx";
 
 function BenchIndex({ benches, fetchBenches }) {
