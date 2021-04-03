@@ -1,19 +1,18 @@
 import React, { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
-
 import BenchIndex from "../bench_index/bench_index.jsx";
 import BenchMap from "../bench_map/bench_map.jsx";
 import { fetchBenches as fetchBenchesAction } from "../../actions/bench_actions.js";
 import Search from "./search.jsx";
-
-const benchesSelector = (state) => {
-  return Object.keys(state.entities.benches).map((key) => {
-    return state.entities.benches[key];
-  });
-};
+import { benchesSelector } from "../../reducers/selectors.js";
 
 const SearchContainer = (props) => {
-  const benches = useSelector(benchesSelector);
+  // const benches = useSelector(benchesSelector);
+
+  const benches = useSelector((state) => {
+    return benchesSelector(state);
+  });
+  // useSelector supplies state to callback. Takes redux store state and passes it through.
   const dispatch = useDispatch();
 
   const fetchBenches = useCallback(() => dispatch(fetchBenchesAction()), [

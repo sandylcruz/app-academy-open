@@ -6,7 +6,7 @@ import BenchIndexItem from "./bench_index_item.jsx";
 function BenchIndex({ benches, fetchBenches }) {
   useEffect(() => {
     // component did mount
-    fetchBenches();
+    // fetchBenches();
   }, []); // effect will only run on initial render
 
   return (
