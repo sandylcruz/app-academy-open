@@ -1,22 +1,19 @@
-import React, { useEffect } from "react";
-import ReactDOM from "react-dom";
+import React, { useEffect, useRef } from "react";
 
-class BenchMap extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-  // componentDidMount() {
-  //   const mapOptions = {
-  //     center: { lat: 37.7758, lng: -122.435 }, // this is SF
-  //     zoom: 13,
-  //   };
+const BenchMap = () => {
+  const mapNodeRef = useRef();
+  const mapRef = useRef();
 
-  //   this.map = new google.maps.Map(this.mapNode, mapOptions);
-  // }
+  useEffect(() => {
+    const mapOptions = {
+      center: { lat: 37.7758, lng: -122.435 },
+      zoom: 13,
+    };
 
-  render() {
-    return <div>This is the map</div>;
-  }
-}
+    mapRef.current = new google.maps.Map(mapNodeRef.current, mapOptions);
+  }, []);
+
+  return <div className="map-container" ref={mapNodeRef} />;
+};
 
 export default BenchMap;
