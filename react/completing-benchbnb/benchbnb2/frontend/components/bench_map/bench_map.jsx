@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import MarkerManager from "../../util/marker_manager.js";
 
-const BenchMap = ({ benches }) => {
+const BenchMap = ({ benches, updateBounds }) => {
   const mapNodeRef = useRef();
   const mapRef = useRef();
   const markerManagerRef = useRef();
@@ -12,7 +12,8 @@ const BenchMap = ({ benches }) => {
       zoom: 13,
     };
 
-    mapRef.current = new google.maps.Map(mapNodeRef.current, mapOptions);
+    const map = new google.maps.Map(mapNodeRef.current, mapOptions);
+    mapRef.current = map;
     markerManagerRef.current = new MarkerManager(mapRef.current);
     // reassigning the ref's current property to an instance of the MarkerManager class
   }, []); // only run on mount if it's []
@@ -21,6 +22,27 @@ const BenchMap = ({ benches }) => {
     // run anytime benches change and on mount
     markerManagerRef.current.updateMarkers(benches);
   }, [benches]); // referential equality check
+
+  useEffect(() => {
+    const map = mapRef.current;
+    map.addListener("idle", () => {
+      const bounds = map.getBounds();
+      const northEast = bounds.getNorthEast();
+      const southWest = bounds.getSouthWest();
+      const boundsObject = {
+        northEast: {
+          lat: northEast.lat(),
+          lng: northEast.lng(),
+        },
+        southWest: {
+          lat: southWest.lat(),
+          lng: southWest.lng(),
+        },
+      };
+
+      updateBounds(boundsObject);
+    });
+  }, [updateBounds]);
 
   return <div className="map-container" ref={mapNodeRef} />;
 };

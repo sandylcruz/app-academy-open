@@ -2,11 +2,11 @@ import BenchMap from "../bench_map/bench_map.jsx";
 import BenchIndex from "../bench_index/bench_index.jsx";
 import React from "react";
 
-const Search = ({ fetchBenches, benches }) => {
+const Search = ({ benches, fetchBenches, updateBounds }) => {
   return (
     <div className="user-pane">
       <div className="left-half">
-        <BenchMap benches={benches} />
+        <BenchMap benches={benches} updateBounds={updateBounds} />
       </div>
 
       <div className="right-half">
