@@ -7,9 +7,6 @@ export const RECEIVE_SESSION_ERRORS = "RECEIVE_SESSION_ERRORS";
 export const login = (user) => (dispatch) =>
   SessionAPIUtil.login(user).then((user) => dispatch(receiveCurrentUser(user)));
 
-// test in window
-// dispatch(login({ username: "squeakfreak", password: "password" }));
-
 export const logout = () => (dispatch) =>
   SessionAPIUtil.logout().then(() => dispatch(logoutCurrentUser()));
 
@@ -31,3 +28,6 @@ const receiveSessionErrors = (errors) => ({
   type: RECEIVE_SESSION_ERRORS,
   errors,
 });
+
+// test in window
+// dispatch(login({ username: "squeakfreak", password: "password" }));
