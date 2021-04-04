@@ -28,7 +28,6 @@ export const signup = (user) =>
 
 export const login = (user) =>
   new Promise((resolve, reject) => {
-    console.log("before ajax");
     $.ajax({
       type: "POST",
       url: "/api/sessions",
