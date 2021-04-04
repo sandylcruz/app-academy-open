@@ -1,5 +1,6 @@
-export const RECEIVE_BENCHES = "RECEIVE_BENCHES";
 import * as BenchAPIUtil from "../util/bench_api_util.js";
+
+export const RECEIVE_BENCHES = "RECEIVE_BENCHES";
 
 const receiveBenches = (benches) => ({
   type: RECEIVE_BENCHES,
@@ -7,13 +8,12 @@ const receiveBenches = (benches) => ({
 });
 // dispatch accepts object or function
 
-// implicit return
-export const fetchBenches = () => (dispatch) =>
-  BenchAPIUtil.fetchBenches().then((benches) =>
+export const fetchBenches = (filters) => (dispatch) =>
+  BenchAPIUtil.fetchBenches(filters).then((benches) =>
     dispatch(receiveBenches(benches))
   );
 
-// Thunk is a function that accept
+// Thunk is a function that accepts
 
 // thunk middleware checks if it is a function
 // if it is a function, it NOT send it to the reducer

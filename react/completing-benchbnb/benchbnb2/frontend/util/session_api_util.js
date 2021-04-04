@@ -1,5 +1,5 @@
-export const signup = (user) => {
-  return new Promise((resolve, reject) => {
+export const signup = (user) =>
+  new Promise((resolve, reject) => {
     $.ajax({
       type: "POST",
       url: "/api/users",
@@ -12,7 +12,6 @@ export const signup = (user) => {
       },
     });
   });
-};
 
 // test in window:
 //  $.ajax({
@@ -27,9 +26,8 @@ export const signup = (user) => {
 //    },
 //  });
 
-export const login = (user) => {
-  return new Promise((resolve, reject) => {
-    console.log("before ajax");
+export const login = (user) =>
+  new Promise((resolve, reject) => {
     $.ajax({
       type: "POST",
       url: "/api/sessions",
@@ -44,10 +42,9 @@ export const login = (user) => {
       },
     });
   });
-};
 
-export const logout = () => {
-  return new Promise((resolve, reject) => {
+export const logout = () =>
+  new Promise((resolve, reject) => {
     $.ajax({
       type: "DELETE",
       url: `api/sessions/:id`,
@@ -59,4 +56,3 @@ export const logout = () => {
       },
     });
   });
-};

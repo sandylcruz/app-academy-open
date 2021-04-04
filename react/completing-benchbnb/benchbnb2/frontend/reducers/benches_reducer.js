@@ -8,11 +8,6 @@ const benchesReducer = (state = defaultState, action) => {
   switch (action.type) {
     case RECEIVE_BENCHES:
       return action.benches;
-    // case RECEIVE_BENCH:
-    //   return {
-    //     ...state,
-    //     [action.bench.id]: action.bench,
-    //   };
     default:
       return state;
   }

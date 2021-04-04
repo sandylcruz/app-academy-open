@@ -1,20 +1,22 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
+import { useSelector } from "react-redux";
 import { withRouter } from "react-router";
 import { Route, Redirect } from "react-router-dom";
 
-const Auth = ({ component: Component, path, loggedIn, exact }) => (
-  <Route
-    path={path}
-    exact={exact}
-    render={(props) =>
-      !loggedIn ? <Component {...props} /> : <Redirect to="/" />
-    }
-  />
-);
+import { selectCurrentUser } from "../reducers/selectors.js";
 
-const mapStateToProps = (state) => {
-  return { loggedIn: Boolean(state.session.id) };
+const Auth = ({ component: Component, path, exact }) => {
+  const currentUser = useSelector(selectCurrentUser);
+
+  return (
+    <Route
+      path={path}
+      exact={exact}
+      render={(props) =>
+        !currentUser ? <Component {...props} /> : <Redirect to="/" />
+      }
+    />
+  );
 };
 
-export const AuthRoute = withRouter(connect(mapStateToProps)(Auth));
+export const AuthRoute = withRouter(Auth);

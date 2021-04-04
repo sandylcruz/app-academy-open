@@ -7,6 +7,21 @@ class MarkerManager {
   }
 
   updateMarkers(benches) {
+    // Remove markers for benches no longer on screen
+    const benchesObject = {};
+
+    benches.forEach((bench) => {
+      benchesObject[bench.id] = bench;
+    });
+
+    Object.keys(this.markers).forEach((key) => {
+      const marker = this.markers[key];
+      if (!benchesObject[marker.id]) {
+        delete this.markers[marker.id];
+      }
+    });
+
+    // Add markers for benches not in markers
     benches.forEach((bench) => {
       if (!this.markers.hasOwnProperty(bench.id)) {
         const newMarker = this.createMarkerFromBench(bench);
@@ -20,7 +35,7 @@ class MarkerManager {
     const marker = new google.maps.Marker({
       position: myLatLng,
       map: this.map,
-      benchId: bench.id,
+      id: bench.id,
     });
 
     return marker;
