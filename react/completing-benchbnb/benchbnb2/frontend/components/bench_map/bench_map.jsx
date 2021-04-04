@@ -1,7 +1,8 @@
 import React, { useEffect, useRef } from "react";
+
 import MarkerManager from "../../util/marker_manager.js";
 
-const BenchMap = ({ benches, updateBounds }) => {
+const BenchMap = ({ benches, updateBoundsAndFetchBenches }) => {
   const mapNodeRef = useRef();
   const mapRef = useRef();
   const markerManagerRef = useRef();
@@ -40,9 +41,9 @@ const BenchMap = ({ benches, updateBounds }) => {
         },
       };
 
-      updateBounds(boundsObject);
+      updateBoundsAndFetchBenches(boundsObject);
     });
-  }, [updateBounds]);
+  }, [updateBoundsAndFetchBenches]);
 
   return <div className="map-container" ref={mapNodeRef} />;
 };

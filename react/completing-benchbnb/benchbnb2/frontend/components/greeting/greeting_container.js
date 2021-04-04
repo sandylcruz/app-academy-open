@@ -1,25 +1,17 @@
-import { connect } from "react-redux";
-import { logout } from "../../actions/session_actions.js";
+import React, { useCallback } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
+import { logout as logoutAction } from "../../actions/session_actions.js";
 import Greeting from "./greeting.jsx";
+import { selectCurrentUser } from "../../reducers/selectors.js";
 
-const selectCurrentUser = (state) => {
-  const currentUserId = state.session.id;
+const GreetingContainer = (props) => {
+  const currentUser = useSelector(selectCurrentUser);
+  const dispatch = useDispatch();
 
-  if (!currentUserId) {
-    return null;
-  }
+  const logout = useCallback(() => dispatch(logoutAction()), [dispatch]);
 
-  return state.entities.users[currentUserId];
+  return <Greeting {...props} currentUser={currentUser} logout={logout} />;
 };
 
-const mapStateToProps = (state) => {
-  return {
-    currentUser: selectCurrentUser(state),
-  };
-};
-
-const mapDispatchToProps = (dispatch) => ({
-  logout: () => dispatch(logout()),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Greeting);
+export default GreetingContainer;

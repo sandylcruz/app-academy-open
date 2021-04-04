@@ -1,40 +1,17 @@
 import React, { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import BenchIndex from "../bench_index/bench_index.jsx";
-import BenchMap from "../bench_map/bench_map.jsx";
-import { fetchBenches as fetchBenchesAction } from "../../actions/bench_actions.js";
-import { updateBounds as updateBoundsAction } from "../../actions/filter_actions.js";
+
+import { updateBoundsAndFetchBenches as updateBoundsAndFetchBenchesAction } from "../../actions/filter_actions.js";
 import Search from "./search.jsx";
 import { benchesSelector } from "../../reducers/selectors.js";
 
-const mockFilters = {
-  bounds: {
-    northEast: {
-      lat: 37.80971,
-      lng: -122.39208,
-    },
-    southWest: {
-      lat: 37.74187,
-      lng: -122.47791,
-    },
-  },
-};
 const SearchContainer = (props) => {
-  // const benches = useSelector(benchesSelector);
-
-  const benches = useSelector((state) => {
-    return benchesSelector(state);
-  });
+  const benches = useSelector(benchesSelector);
   // useSelector supplies state to callback. Takes redux store state and passes it through.
   const dispatch = useDispatch();
 
-  const fetchBenches = useCallback(
-    () => dispatch(fetchBenchesAction(mockFilters)),
-    [dispatch]
-  );
-
-  const updateBounds = useCallback(
-    (bounds) => dispatch(updateBoundsAction(bounds)),
+  const updateBoundsAndFetchBenches = useCallback(
+    (bounds) => dispatch(updateBoundsAndFetchBenchesAction(bounds)),
     [dispatch]
   );
 
@@ -43,20 +20,9 @@ const SearchContainer = (props) => {
       {...props}
       benches={benches}
       fetchBenches={fetchBenches}
-      updateBounds={updateBounds}
+      updateBoundsAndFetchBenches={updateBoundsAndFetchBenches}
     />
   );
 };
 
 export default SearchContainer;
-
-// Class Component Version
-// const mapDispatchToProps = (dispatch) => ({
-//   fetchBenches: () => dispatch(fetchBenches()),
-// });
-
-// const render = () => {
-//   const benches = state.entities;
-// };
-
-// export default connect(mapStateToProps, mapDispatchToProps)(BenchIndex);

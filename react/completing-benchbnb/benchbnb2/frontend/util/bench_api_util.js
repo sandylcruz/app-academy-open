@@ -5,12 +5,8 @@ export const fetchBenches = (filters) => {
     $.ajax({
       method: "GET",
       url: `/api/benches?${boundsParameters}`,
-      success: (bench) => {
-        resolve(bench);
-      },
-      reject: (error) => {
-        console.log(error);
-      },
+      success: resolve,
+      error: reject,
     });
   });
 };
