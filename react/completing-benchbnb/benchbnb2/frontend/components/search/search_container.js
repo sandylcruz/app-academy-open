@@ -19,7 +19,6 @@ const SearchContainer = (props) => {
     <Search
       {...props}
       benches={benches}
-      fetchBenches={fetchBenches}
       updateBoundsAndFetchBenches={updateBoundsAndFetchBenches}
     />
   );
