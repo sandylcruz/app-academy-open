@@ -62,22 +62,24 @@ containing all of the common divisors shared among the
 arguments. For example, the common divisors of 50 and 
 30 are 1, 2, 5, 10. You can assume that all of the arguments 
 are positive integers.
-
-Examples
-
-p mutual_factors(50, 30)            # [1, 2, 5, 10]
-p mutual_factors(50, 30, 45, 105)   # [1, 5]
-p mutual_factors(8, 4)              # [1, 2, 4]
-p mutual_factors(8, 4, 10)          # [1, 2]
-p mutual_factors(12, 24)            # [1, 2, 3, 4, 6, 12]
-p mutual_factors(12, 24, 64)        # [1, 2, 4]
-p mutual_factors(22, 44)            # [1, 2, 11, 22]
-p mutual_factors(22, 44, 11)        # [1, 11]
-p mutual_factors(7)                 # [1, 7]
-p mutual_factors(7, 9)              # [1]
 */
 
-function mutualFactors() {}
+function mutualFactors() {
+  const factors = [];
+
+  return factors;
+}
+
+console.log(mutual_factors(50, 30)); // [1, 2, 5, 10]
+console.log(mutual_factors(50, 30, 45, 105)); // [1, 5]
+console.log(mutual_factors(8, 4)); // [1, 2, 4]
+console.log(mutual_factors(8, 4, 10)); // [1, 2]
+console.log(mutual_factors(12, 24)); // [1, 2, 3, 4, 6, 12]
+console.log(mutual_factors(12, 24, 64)); // [1, 2, 4]
+console.log(mutual_factors(22, 44)); // [1, 2, 11, 22]
+console.log(mutual_factors(22, 44, 11)); // [1, 11]
+console.log(mutual_factors(7)); // [1, 7]
+console.log(mutual_factors(7, 9)); // [1]
 
 /*
 The tribonacci sequence is similar to that of Fibonacci. 
@@ -91,14 +93,25 @@ Write a method tribonacci_number that accepts a number
 argument, n, and returns the n-th number of the tribonacci 
 sequence.
 
-p tribonacci_number(1)  # 1
-p tribonacci_number(2)  # 1
-p tribonacci_number(3)  # 2
-p tribonacci_number(4)  # 4
-p tribonacci_number(5)  # 7
-p tribonacci_number(6)  # 13
-p tribonacci_number(7)  # 24
-p tribonacci_number(11) # 274
 */
 
-function tribonacciNumber() {}
+function tribonacciNumber(num) {
+  if (num === 1) return 1;
+  if (num === 2) return 1;
+  if (num === 3) return 2;
+
+  return (
+    tribonacciNumber(num - 1) +
+    tribonacciNumber(num - 2) +
+    tribonacciNumber(num - 3)
+  );
+}
+
+console.log(tribonacciNumber(1)); // 1
+console.log(tribonacciNumber(2)); // 1
+console.log(tribonacciNumber(3)); // 2
+console.log(tribonacciNumber(4)); // 4
+console.log(tribonacciNumber(5)); // 7
+console.log(tribonacciNumber(6)); // 13
+console.log(tribonacciNumber(7)); // 24
+console.log(tribonacciNumber(11)); // 274
