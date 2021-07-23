@@ -68,7 +68,27 @@ p rampant_repeats('misispi', {'s'=>2, 'p'=>2})          # 'mississppi'
 p rampant_repeats('faarm', {'e'=>3, 'a'=>2})
 */
 
-function rampantRepeats(string, hash) {}
+function rampant_repeats(string, object) {
+  let newString = '';
+
+  string.split('').forEach((char) => {
+    if (char in object) {
+      let numTimes = object[char];
+      for (let i = 0; i < numTimes; i++) {
+        newString += char;
+      }
+    } else {
+      newString += char;
+    }
+  });
+
+  return newString;
+}
+
+console.log(rampant_repeats('taco', { a: 3, c: 2 })); // 'taaacco'
+console.log(rampant_repeats('feverish', { e: 2, f: 4, s: 3 })); // 'ffffeeveerisssh'
+console.log(rampant_repeats('misispi', { s: 2, p: 2 })); // 'mississppi'
+console.log(rampant_repeats('faarm', { e: 3, a: 2 }));
 
 /*
 Write a method perfect_square? that accepts a number as an 
@@ -79,21 +99,18 @@ multiplied by itself. For example, since 64 = 8 * 8 and
 144 = 12 * 12, 64 and 144 are perfect squares; 
 35 is not a perfect square.
 
-Examples
-
-
 */
 
 function perfect_square(num) {
   return Math.sqrt(num) * Math.sqrt(num) === num;
 }
 
-console.log(perfect_square(1)); // true
-console.log(perfect_square(4)); // true
-console.log(perfect_square(64)); // true
-console.log(perfect_square(100)); // true
-console.log(perfect_square(169)); // true
-console.log(perfect_square(2)); // false
-console.log(perfect_square(40)); // false
-console.log(perfect_square(32)); // false
-console.log(perfect_square(50)); // false
+// console.log(perfect_square(1)); // true
+// console.log(perfect_square(4)); // true
+// console.log(perfect_square(64)); // true
+// console.log(perfect_square(100)); // true
+// console.log(perfect_square(169)); // true
+// console.log(perfect_square(2)); // false
+// console.log(perfect_square(40)); // false
+// console.log(perfect_square(32)); // false
+// console.log(perfect_square(50)); // false
