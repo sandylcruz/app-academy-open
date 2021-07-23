@@ -13,7 +13,25 @@ p strange_sums([19, 6, -3, -20])      # 0
 p strange_sums([9])                   # 0
 */
 
-function strangeSums() {}
+function strange_sums(array) {
+  let count = 0;
+
+  for (let i = 0; i < array.length; i++) {
+    for (let j = i + 1; j < array.length; j++) {
+      if (array[i] + array[j] === 0) {
+        count += 1;
+      }
+    }
+  }
+
+  return count;
+}
+
+console.log(strange_sums([2, -3, 3, 4, -2])); // 2
+console.log(strange_sums([42, 3, -1, -42])); // 1
+console.log(strange_sums([-5, 5])); // 1
+console.log(strange_sums([19, 6, -3, -20])); // 0
+console.log(strange_sums([9])); // 0
 
 /*
 Write a method pair_product that accepts an array of numbers 
