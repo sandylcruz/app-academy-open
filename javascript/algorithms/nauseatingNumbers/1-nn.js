@@ -19,11 +19,11 @@ function strange_sums(array) {
   return count;
 }
 
-console.log(strange_sums([2, -3, 3, 4, -2])); // 2
-console.log(strange_sums([42, 3, -1, -42])); // 1
-console.log(strange_sums([-5, 5])); // 1
-console.log(strange_sums([19, 6, -3, -20])); // 0
-console.log(strange_sums([9])); // 0
+// console.log(strange_sums([2, -3, 3, 4, -2])); // 2
+// console.log(strange_sums([42, 3, -1, -42])); // 1
+// console.log(strange_sums([-5, 5])); // 1
+// console.log(strange_sums([19, 6, -3, -20])); // 0
+// console.log(strange_sums([9])); // 0
 
 /*
 Write a method pair_product that accepts an array of numbers 
@@ -45,13 +45,13 @@ function pairProduct(array, target) {
   return false;
 }
 
-console.log(pairProduct([4, 2, 5, 8], 16)); // true
-console.log(pairProduct([8, 1, 9, 3], 8)); // true
-console.log(pairProduct([3, 4], 12)); // true
-console.log(pairProduct([3, 4, 6, 2, 5], 12)); // true
-console.log(pairProduct([4, 2, 5, 7], 16)); // false
-console.log(pairProduct([8, 4, 9, 3], 8)); // false
-console.log(pairProduct([3], 12)); // false
+// console.log(pairProduct([4, 2, 5, 8], 16)); // true
+// console.log(pairProduct([8, 1, 9, 3], 8)); // true
+// console.log(pairProduct([3, 4], 12)); // true
+// console.log(pairProduct([3, 4, 6, 2, 5], 12)); // true
+// console.log(pairProduct([4, 2, 5, 7], 16)); // false
+// console.log(pairProduct([8, 4, 9, 3], 8)); // false
+// console.log(pairProduct([3], 12)); // false
 
 /*
 Write a method rampant_repeats that accepts a string and a 
@@ -68,7 +68,7 @@ p rampant_repeats('misispi', {'s'=>2, 'p'=>2})          # 'mississppi'
 p rampant_repeats('faarm', {'e'=>3, 'a'=>2})
 */
 
-function rampantRepeats() {}
+function rampantRepeats(string, hash) {}
 
 /*
 Write a method perfect_square? that accepts a number as an 
@@ -81,17 +81,19 @@ multiplied by itself. For example, since 64 = 8 * 8 and
 
 Examples
 
-p perfect_square(1)     # true
-p perfect_square(4)     # true
-p perfect_square(64)    # true
-p perfect_square(100)   # true
-p perfect_square(169)   # true
-p perfect_square(2)     # false
-p perfect_square(40)    # false
-p perfect_square(32)    # false
-p perfect_square(50)    # false
+
 */
 
-function isPerfectSquare() {}
+function perfect_square(num) {
+  return Math.sqrt(num) * Math.sqrt(num) === num;
+}
 
-/////
+console.log(perfect_square(1)); // true
+console.log(perfect_square(4)); // true
+console.log(perfect_square(64)); // true
+console.log(perfect_square(100)); // true
+console.log(perfect_square(169)); // true
+console.log(perfect_square(2)); // false
+console.log(perfect_square(40)); // false
+console.log(perfect_square(32)); // false
+console.log(perfect_square(50)); // false
