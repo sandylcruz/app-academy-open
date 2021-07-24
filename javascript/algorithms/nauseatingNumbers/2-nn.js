@@ -9,19 +9,50 @@ as highly composite numbers.
 
 Examples
 
-p anti_prime?(24)   # true
-p anti_prime?(36)   # true
-p anti_prime?(48)   # true
-p anti_prime?(360)  # true
-p anti_prime?(1260) # true
-p anti_prime?(27)   # false
-p anti_prime?(5)    # false
-p anti_prime?(100)  # false
-p anti_prime?(136)  # false
-p anti_prime?(1024) # false
 */
 
-function isAntiPrime() {}
+function isAntiPrime(number) {
+  let numberFactorsCount = 0;
+  let evenNumbers = [];
+  let greatestFactorsCount = 0;
+
+  for (let i = 0; i <= number; i++) {
+    if (number % i === 0) {
+      numberFactorsCount += 1;
+    }
+  }
+
+  for (let i = 1; i < number; i++) {
+    if (i % 2 === 0) {
+      evenNumbers.push(i);
+    }
+  }
+
+  evenNumbers.forEach((num) => {
+    currentFactorsCount = 0;
+
+    for (let i = 1; i < num; i++) {
+      if (num % i === 0) {
+        currentFactorsCount += 1;
+      }
+      if (currentFactorsCount > greatestFactorsCount) {
+        greatestFactorsCount = currentFactorsCount;
+      }
+    }
+  });
+  return numberFactorsCount > greatestFactorsCount;
+}
+
+console.log(isAntiPrime(24)); // true
+console.log(isAntiPrime(36)); // true
+console.log(isAntiPrime(48)); // true
+console.log(isAntiPrime(360)); // true
+console.log(isAntiPrime(1260)); // true
+console.log(isAntiPrime(27)); // false
+console.log(isAntiPrime(5)); // false
+console.log(isAntiPrime(100)); // false
+console.log(isAntiPrime(136)); // false
+console.log(isAntiPrime(1024)); // false
 
 /*
 Let a 2-dimensional array be known as a "matrix". Write a 
@@ -70,16 +101,16 @@ function mutualFactors() {
   return factors;
 }
 
-console.log(mutual_factors(50, 30)); // [1, 2, 5, 10]
-console.log(mutual_factors(50, 30, 45, 105)); // [1, 5]
-console.log(mutual_factors(8, 4)); // [1, 2, 4]
-console.log(mutual_factors(8, 4, 10)); // [1, 2]
-console.log(mutual_factors(12, 24)); // [1, 2, 3, 4, 6, 12]
-console.log(mutual_factors(12, 24, 64)); // [1, 2, 4]
-console.log(mutual_factors(22, 44)); // [1, 2, 11, 22]
-console.log(mutual_factors(22, 44, 11)); // [1, 11]
-console.log(mutual_factors(7)); // [1, 7]
-console.log(mutual_factors(7, 9)); // [1]
+// console.log(mutual_factors(50, 30)); // [1, 2, 5, 10]
+// console.log(mutual_factors(50, 30, 45, 105)); // [1, 5]
+// console.log(mutual_factors(8, 4)); // [1, 2, 4]
+// console.log(mutual_factors(8, 4, 10)); // [1, 2]
+// console.log(mutual_factors(12, 24)); // [1, 2, 3, 4, 6, 12]
+// console.log(mutual_factors(12, 24, 64)); // [1, 2, 4]
+// console.log(mutual_factors(22, 44)); // [1, 2, 11, 22]
+// console.log(mutual_factors(22, 44, 11)); // [1, 11]
+// console.log(mutual_factors(7)); // [1, 7]
+// console.log(mutual_factors(7, 9)); // [1]
 
 /*
 The tribonacci sequence is similar to that of Fibonacci. 
@@ -107,11 +138,11 @@ function tribonacciNumber(num) {
   );
 }
 
-console.log(tribonacciNumber(1)); // 1
-console.log(tribonacciNumber(2)); // 1
-console.log(tribonacciNumber(3)); // 2
-console.log(tribonacciNumber(4)); // 4
-console.log(tribonacciNumber(5)); // 7
-console.log(tribonacciNumber(6)); // 13
-console.log(tribonacciNumber(7)); // 24
-console.log(tribonacciNumber(11)); // 274
+// console.log(tribonacciNumber(1)); // 1
+// console.log(tribonacciNumber(2)); // 1
+// console.log(tribonacciNumber(3)); // 2
+// console.log(tribonacciNumber(4)); // 4
+// console.log(tribonacciNumber(5)); // 7
+// console.log(tribonacciNumber(6)); // 13
+// console.log(tribonacciNumber(7)); // 24
+// console.log(tribonacciNumber(11)); // 274
