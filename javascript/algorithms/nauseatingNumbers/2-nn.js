@@ -6,15 +6,12 @@ given number. For example, 24 is an anti-prime because
 it has more divisors than any positive number less than 24. 
 Math Fact: Numbers that meet this criteria are also known 
 as highly composite numbers.
-
-Examples
-
 */
 
 function isAntiPrime(number) {
   let numberFactorsCount = 0;
-  let evenNumbers = [];
   let greatestFactorsCount = 0;
+  let lesserNumbers = [];
 
   for (let i = 0; i <= number; i++) {
     if (number % i === 0) {
@@ -23,23 +20,23 @@ function isAntiPrime(number) {
   }
 
   for (let i = 1; i < number; i++) {
-    if (i % 2 === 0) {
-      evenNumbers.push(i);
-    }
+    lesserNumbers.push(i);
   }
 
-  evenNumbers.forEach((num) => {
-    currentFactorsCount = 0;
+  lesserNumbers.forEach((num) => {
+    let currentFactorsCount = 0;
 
     for (let i = 1; i < num; i++) {
       if (num % i === 0) {
         currentFactorsCount += 1;
       }
+
       if (currentFactorsCount > greatestFactorsCount) {
         greatestFactorsCount = currentFactorsCount;
       }
     }
   });
+
   return numberFactorsCount > greatestFactorsCount;
 }
 
