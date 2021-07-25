@@ -124,74 +124,61 @@ arguments. For example, the common divisors of 50 and
 are positive integers.
 */
 
-const occurMoreThanOnce = (array) => {
+const occurMoreThanOnce = (array, numTimes) => {
   let alreadySeen = [];
-  let duplicates = [];
+  let duplicates = {};
 
-  for (let i = 0; i < array.length; i++) {
-    let currentItem = array[i];
-    if (
-      alreadySeen.includes(currentItem) &&
-      !duplicates.includes(currentItem)
-    ) {
-      duplicates.push(currentItem);
+  array.forEach((num) => {
+    let currentItem = num;
+
+    if (num in duplicates) {
+      duplicates[num] += 1;
     } else {
-      alreadySeen.push(currentItem);
+      duplicates[num] = 1;
     }
-  }
+  });
 
   return duplicates;
 };
 
-console.log(occurMoreThanOnce([1, 1, 2, 3, 4, 5, 6, 6, 6]));
+// console.log(occurMoreThanOnce([1, 1, 1, 2, 3, 4, 4, 5, 5], 1));
 
 function mutual_factors(...args) {
-  let num1Factors = [];
-  let num2Factors = [];
   const sharedFactors = [];
   const numberOfArgs = args.length;
+  let arrayToReturn = [];
 
   args.forEach((arg) => {
-    for (let i = 0; i < arg; i++) {
+    for (let i = 0; i <= arg; i++) {
       if (arg % i === 0) {
         sharedFactors.push(i);
       }
     }
   });
 
-  // sharedFactors.filter();
+  let sortedValues = occurMoreThanOnce(sharedFactors);
 
-  // console.log(sharedFactors);
-  // for (let i = 0; i <= num1; i++) {
-  //   if (num1 % i === 0) {
-  //     num1Factors.push(i);
-  //   }
-  // }
+  for (key in sortedValues) {
+    if (sortedValues[key] >= numberOfArgs) {
+      arrayToReturn.push(Number(key));
+    }
+  }
 
-  // for (let j = 0; j <= num2; j++) {
-  //   if (num2 % j === 0) {
-  //     num2Factors.push(j);
-  //   }
-  // }
-
-  // num1Factors.forEach((num) => {
-  //   if (num2Factors.includes(num)) {
-  //     sharedFactors.push(num);
-  //   }
-  // });
-
-  return sharedFactors;
+  return arrayToReturn;
+  // console.log(arrayToReturn);
+  // console.log(sortedValues);
+  // return sharedFactors;
 }
 
-// console.log(mutual_factors(50, 30)); // [1, 2, 5, 10] console.log(mutual_factors(50, 30, 45, 105)); // [1, 5]
-// console.log(mutual_factors(8, 4)); // [1, 2, 4]
-// console.log(mutual_factors(8, 4, 10)); // [1, 2]
-// console.log(mutual_factors(12, 24)); // [1, 2, 3, 4, 6, 12]
-// console.log(mutual_factors(12, 24, 64)); // [1, 2, 4]
-// console.log(mutual_factors(22, 44)); // [1, 2, 11, 22]
-// console.log(mutual_factors(22, 44, 11)); // [1, 11]
-// console.log(mutual_factors(7)); // [1, 7]
-// console.log(mutual_factors(7, 9)); // [1]
+console.log(mutual_factors(50, 30)); // [1, 2, 5, 10] console.log(mutual_factors(50, 30, 45, 105)); // [1, 5]
+console.log(mutual_factors(8, 4)); // [1, 2, 4]
+console.log(mutual_factors(8, 4, 10)); // [1, 2]
+console.log(mutual_factors(12, 24)); // [1, 2, 3, 4, 6, 12]
+console.log(mutual_factors(12, 24, 64)); // [1, 2, 4]
+console.log(mutual_factors(22, 44)); // [1, 2, 11, 22]
+console.log(mutual_factors(22, 44, 11)); // [1, 11]
+console.log(mutual_factors(7)); // [1, 7]
+console.log(mutual_factors(7, 9)); // [1]
 
 /*
 The tribonacci sequence is similar to that of Fibonacci. 
