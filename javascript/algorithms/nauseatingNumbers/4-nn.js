@@ -10,16 +10,31 @@ does not have the form 2^x - 1
 The first three Mersenne primes are 3, 7, and 31. Write a 
 method mersenne_prime that accepts a number, n, as an 
 argument and returns the n-th Mersenne prime.
-
-p mersenne_prime(1) # 3
-p mersenne_prime(2) # 7
-p mersenne_prime(3) # 31
-p mersenne_prime(4) # 127
-p mersenne_prime(6) # 131071
 */
 
-function mersennePrime(num) {}
+const isPrime = (num) => {
+  for (let i = 2; i < num - 1; i++) {
+    if (num % i === 0) {
+      return false;
+    }
+  }
 
+  return true;
+};
+
+console.log(isPrime(3));
+console.log(isPrime(11));
+console.log(isPrime(2));
+console.log(isPrime(20));
+console.log(isPrime(200));
+
+function mersenne_prime(num) {}
+
+console.log(mersenne_prime(1)); // 3
+console.log(mersenne_prime(2)); // 7
+console.log(mersenne_prime(3)); // 31
+console.log(mersenne_prime(4)); // 127
+console.log(mersenne_prime(6)); // 131071
 /*
 A triangular number is a number of the form (i * (i + 1)) / 2 
 where i is some positive integer. Substituting i with 
