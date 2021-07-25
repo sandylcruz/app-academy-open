@@ -141,8 +141,6 @@ const occurMoreThanOnce = (array, numTimes) => {
   return duplicates;
 };
 
-// console.log(occurMoreThanOnce([1, 1, 1, 2, 3, 4, 4, 5, 5], 1));
-
 function mutual_factors(...args) {
   const sharedFactors = [];
   const numberOfArgs = args.length;
@@ -165,12 +163,10 @@ function mutual_factors(...args) {
   }
 
   return arrayToReturn;
-  // console.log(arrayToReturn);
-  // console.log(sortedValues);
-  // return sharedFactors;
 }
 
-console.log(mutual_factors(50, 30)); // [1, 2, 5, 10] console.log(mutual_factors(50, 30, 45, 105)); // [1, 5]
+console.log(mutual_factors(50, 30)); // [1, 2, 5, 10]
+console.log(mutual_factors(50, 30, 45, 105)); // [1, 5]
 console.log(mutual_factors(8, 4)); // [1, 2, 4]
 console.log(mutual_factors(8, 4, 10)); // [1, 2]
 console.log(mutual_factors(12, 24)); // [1, 2, 3, 4, 6, 12]
