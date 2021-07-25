@@ -7,7 +7,45 @@ dimensions, so if all of the given matrices do not have the
 same "height" and "width", then return nil.
 */
 
-function matrixAdditionReloaded() {}
+matrix_a = [
+  [2, 5],
+  [4, 7],
+];
+matrix_b = [
+  [9, 1],
+  [3, 0],
+];
+matrix_c = [
+  [-1, 0],
+  [0, -1],
+];
+matrix_d = [
+  [2, -5],
+  [7, 10],
+  [0, 1],
+];
+matrix_e = [
+  [0, 0],
+  [12, 4],
+  [6, 3],
+];
+
+function matrix_addition_reloaded(...args) {
+  args.forEach((arg) => {
+    let currentLength = arg.length;
+    console.log(currentLength);
+    if (arg.length !== currentLength) {
+      return null;
+    }
+  });
+}
+
+// console.log(matrix_addition_reloaded(matrix_a, matrix_b)); // [[11, 6], [7, 7]]
+// console.log(matrix_addition_reloaded(matrix_a, matrix_b, matrix_c))    // [[10, 6], [7, 6]]
+// console.log(matrix_addition_reloaded(matrix_e))                        // [[0, 0], [12, 4], [6, 3]]
+// console.log(matrix_addition_reloaded(matrix_d, matrix_e))              // [[2, -5], [19, 14], [6, 4]]
+// console.log(matrix_addition_reloaded(matrix_a, matrix_b, matrix_e))    // nil
+console.log(matrix_addition_reloaded(matrix_d, matrix_e, matrix_c)); // nil
 
 /*
 Write a method squarocol? that accepts a 2-dimensional array 

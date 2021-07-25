@@ -104,15 +104,17 @@ function matrix_addition(array1, array2) {
 
   for (let i = 0; i < array1.length; i++) {
     for (let j = 0; j < array2.length; j++) {
+      const temp = [];
       sum = array1[i][j] + array2[i][j];
-      result.push(sum);
+      temp.push(sum);
+      result.push(temp);
     }
   }
 
   return result;
 }
 
-// console.log(matrix_addition(matrix_a, matrix_b)); // [[11, 6], [7, 7]]
+console.log(matrix_addition(matrix_a, matrix_b)); // [[11, 6], [7, 7]]
 
 /*
 mutual_factors
@@ -165,16 +167,16 @@ function mutual_factors(...args) {
   return arrayToReturn;
 }
 
-console.log(mutual_factors(50, 30)); // [1, 2, 5, 10]
-console.log(mutual_factors(50, 30, 45, 105)); // [1, 5]
-console.log(mutual_factors(8, 4)); // [1, 2, 4]
-console.log(mutual_factors(8, 4, 10)); // [1, 2]
-console.log(mutual_factors(12, 24)); // [1, 2, 3, 4, 6, 12]
-console.log(mutual_factors(12, 24, 64)); // [1, 2, 4]
-console.log(mutual_factors(22, 44)); // [1, 2, 11, 22]
-console.log(mutual_factors(22, 44, 11)); // [1, 11]
-console.log(mutual_factors(7)); // [1, 7]
-console.log(mutual_factors(7, 9)); // [1]
+// console.log(mutual_factors(50, 30)); // [1, 2, 5, 10]
+// console.log(mutual_factors(50, 30, 45, 105)); // [1, 5]
+// console.log(mutual_factors(8, 4)); // [1, 2, 4]
+// console.log(mutual_factors(8, 4, 10)); // [1, 2]
+// console.log(mutual_factors(12, 24)); // [1, 2, 3, 4, 6, 12]
+// console.log(mutual_factors(12, 24, 64)); // [1, 2, 4]
+// console.log(mutual_factors(22, 44)); // [1, 2, 11, 22]
+// console.log(mutual_factors(22, 44, 11)); // [1, 11]
+// console.log(mutual_factors(7)); // [1, 7]
+// console.log(mutual_factors(7, 9)); // [1]
 
 /*
 The tribonacci sequence is similar to that of Fibonacci. 

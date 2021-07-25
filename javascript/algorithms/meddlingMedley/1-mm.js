@@ -10,7 +10,23 @@ p duos('dinosaurs')     # 0
 p duos('e')             # 0
 */
 
-function duos(string) {}
+function duos(string) {
+  const chars = string.split('');
+  let count = 0;
+
+  for (let i = 0; i < chars.length; i++) {
+    if (chars[i] === chars[i + 1]) {
+      count += 1;
+    }
+  }
+
+  return count;
+}
+console.log(duos('bootcamp')); // 1
+console.log(duos('wxxyzz')); // 2
+console.log(duos('hoooraay')); // 3
+console.log(duos('dinosaurs')); // 0
+console.log(duos('e')); // 0
 
 /*
 Write a method sentence_swap that accepts a sentence and 

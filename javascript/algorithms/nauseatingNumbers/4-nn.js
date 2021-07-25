@@ -22,13 +22,21 @@ const isPrime = (num) => {
   return true;
 };
 
-console.log(isPrime(3));
-console.log(isPrime(11));
-console.log(isPrime(2));
-console.log(isPrime(20));
-console.log(isPrime(200));
+const isPowerOfTwo = (num) => {
+  return Math.pow(2, num);
+};
 
-function mersenne_prime(num) {}
+function isMersennePrime(num) {
+  if (isPrime(num) && isPowerOfTwo(num)) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+const mersenne_prime = (num) => {
+  count = 0;
+};
 
 console.log(mersenne_prime(1)); // 3
 console.log(mersenne_prime(2)); // 7
@@ -64,7 +72,11 @@ p triangular_word?('cat')       # false
 p triangular_word?('sink')      # false
 */
 
-function isTriangularWord() {}
+function isTriangularWord(word) {
+  word.split('').forEach((char) => {
+    let wordCount = 0;
+  });
+}
 
 /*
 Write a method consecutive_collapse that accepts an array of 
@@ -88,7 +100,7 @@ can remove them
 # p consecutive_collapse([13, 11, 12, 12])              # []
 */
 
-function consecutiveCollapse() {}
+function consecutiveCollapse(array) {}
 
 /*
 Write a method pretentious_primes that takes accepts an 
