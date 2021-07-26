@@ -22,16 +22,16 @@ function duos(string) {
 
   return count;
 }
-console.log(duos('bootcamp')); // 1
-console.log(duos('wxxyzz')); // 2
-console.log(duos('hoooraay')); // 3
-console.log(duos('dinosaurs')); // 0
-console.log(duos('e')); // 0
+// console.log(duos('bootcamp')); // 1
+// console.log(duos('wxxyzz')); // 2
+// console.log(duos('hoooraay')); // 3
+// console.log(duos('dinosaurs')); // 0
+// console.log(duos('e')); // 0
 
 /*
 Write a method sentence_swap that accepts a sentence and 
 a hash as arguments. The method should return a new sentence 
-where every word is replaced with it's corresponding value 
+where every word is replaced with its corresponding value 
 in the hash. If a word does not exist as a key of the hash, 
 then it should remain unchanged.
 
@@ -48,7 +48,36 @@ p sentence_swap('keep coding okay',
 ) # 'keep running okay'
 */
 
-function sentenceSwap() {}
+function sentence_swap(sentence, hash) {
+  const words = sentence.split(' ');
+  const array = [];
+
+  words.forEach((word) => {
+    if (word in hash) {
+      array.push(hash[word]);
+    } else {
+      array.push(word);
+    }
+  });
+
+  return array.join(' ');
+}
+
+console.log(
+  sentence_swap('anything you can do I can do', {
+    anything: 'nothing',
+    do: 'drink',
+    can: 'shall',
+  })
+); // 'nothing you shall drink I shall drink'
+
+console.log(
+  sentence_swap('what a sad ad', { cat: 'dog', sad: 'happy', what: 'make' })
+); // 'make a happy ad'
+
+console.log(
+  sentence_swap('keep coding okay', { coding: 'running', kay: 'pen' })
+); // 'keep running okay'
 
 /*
 Write a method hash_mapped that accepts a hash, a proc, 
