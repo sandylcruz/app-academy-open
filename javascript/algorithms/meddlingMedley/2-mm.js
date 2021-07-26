@@ -53,8 +53,6 @@ const getPrefix = (string) => {
   return stringToReturn.join('');
 };
 
-console.log(getPrefix('scratch'));
-
 function convert_pig_latin(sentence) {
   const words = sentence.split(' ');
   let stringToReturn = [];
@@ -72,18 +70,21 @@ function convert_pig_latin(sentence) {
       const newWord = (word += 'yay');
       stringToReturn.push(newWord);
     } else {
-      let prefix = '';
+      let prefix = getPrefix(word);
+      const endOfWord = word.slice(prefix.length);
+      const newWord = endOfWord;
+      stringToReturn.push(newWord + prefix + 'ay');
     }
   });
 
-  console.log(stringToReturn);
+  return stringToReturn.join(' ');
 }
 
-// console.log(convert_pig_latin('We like to eat bananas')); // "We ikelay to eatyay ananasbay"
-// console.log(convert_pig_latin('I cannot find the trash')); // "I annotcay indfay ethay ashtray"
-// console.log(convert_pig_latin('What an interesting problem')); // "Atwhay an interestingyay oblempray"
-// console.log(convert_pig_latin('Her family flew to France')); // "Erhay amilyfay ewflay to Ancefray"
-// console.log(convert_pig_latin('Our family flew to France')); // "Ouryay amilyfay ewflay to Ancefray"
+console.log(convert_pig_latin('We like to eat bananas')); // "We ikelay to eatyay ananasbay"
+console.log(convert_pig_latin('I cannot find the trash')); // "I annotcay indfay ethay ashtray"
+console.log(convert_pig_latin('What an interesting problem')); // "Atwhay an interestingyay oblempray"
+console.log(convert_pig_latin('Her family flew to France')); // "Erhay amilyfay ewflay to Ancefray"
+console.log(convert_pig_latin('Our family flew to France')); // "Ouryay amilyfay ewflay to Ancefray"
 
 /*
 Write a method reverberate that accepts a sentence as an 
