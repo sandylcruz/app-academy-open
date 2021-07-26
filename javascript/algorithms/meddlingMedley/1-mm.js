@@ -192,21 +192,19 @@ function energetic_encoding(string, object) {
   return newStringArray.join('');
 }
 
-console.log(
-  energetic_encoding('sent sea', {
-    e: 'i',
-    s: 'z',
-    n: 'm',
-    t: 'p',
-    a: 'u',
-  })
-); // 'zimp ziu'
+// console.log(
+//   energetic_encoding('sent sea', {
+//     e: 'i',
+//     s: 'z',
+//     n: 'm',
+//     t: 'p',
+//     a: 'u',
+//   })
+// ); // 'zimp ziu'
 
-console.log(energetic_encoding('cat', { a: 'o', c: 'k' })); // 'ko?'
-
-console.log(energetic_encoding('hello world', { o: 'i', l: 'r', e: 'a' })); // '?arri ?i?r?'
-
-console.log(energetic_encoding('bike', {})); // '????'
+// console.log(energetic_encoding('cat', { a: 'o', c: 'k' })); // 'ko?'
+// console.log(energetic_encoding('hello world', { o: 'i', l: 'r', e: 'a' })); // '?arri ?i?r?'
+// console.log(energetic_encoding('bike', {})); // '????'
 
 /*
 Write a method uncompress that accepts a string as an argument. 
@@ -216,7 +214,27 @@ of the string where every letter is repeated multiple times
 given based on the number that appears directly after the 
 letter.
 
-uncompress('a2b4c1') # 'aabbbbc'
-uncompress('b1o2t1') # 'boot'
-uncompress('x3y1x2z4') # 'xxxyxxzzzz'
 */
+
+const uncompress = (string) => {
+  let segments = [];
+  let stringToReturn = [];
+
+  for (let i = 0; i < string.length; i += 2) {
+    segments.push(string.substring(i, i + 2));
+  }
+
+  segments.forEach((segment) => {
+    const char = segment[0];
+    const numTimes = segment[1];
+    const repetition = char.repeat(numTimes);
+
+    stringToReturn.push(repetition);
+  });
+
+  return stringToReturn.join('');
+};
+
+console.log(uncompress('a2b4c1')); // 'aabbbbc'
+console.log(uncompress('b1o2t1')); // 'boot'
+console.log(uncompress('x3y1x2z4')); // 'xxxyxxzzzz'
