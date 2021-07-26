@@ -63,21 +63,21 @@ function sentence_swap(sentence, hash) {
   return array.join(' ');
 }
 
-console.log(
-  sentence_swap('anything you can do I can do', {
-    anything: 'nothing',
-    do: 'drink',
-    can: 'shall',
-  })
-); // 'nothing you shall drink I shall drink'
+// console.log(
+//   sentence_swap('anything you can do I can do', {
+//     anything: 'nothing',
+//     do: 'drink',
+//     can: 'shall',
+//   })
+// ); // 'nothing you shall drink I shall drink'
 
-console.log(
-  sentence_swap('what a sad ad', { cat: 'dog', sad: 'happy', what: 'make' })
-); // 'make a happy ad'
+// console.log(
+//   sentence_swap('what a sad ad', { cat: 'dog', sad: 'happy', what: 'make' })
+// ); // 'make a happy ad'
 
-console.log(
-  sentence_swap('keep coding okay', { coding: 'running', kay: 'pen' })
-); // 'keep running okay'
+// console.log(
+//   sentence_swap('keep coding okay', { coding: 'running', kay: 'pen' })
+// ); // 'keep running okay'
 
 /*
 Write a method hash_mapped that accepts a hash, a proc, 
@@ -104,16 +104,30 @@ argument. The method should return an array containing the
 characters of the string that appeared more than twice. The 
 characters in the output array should appear in the same 
 order they occur in the input string.
-
-Examples
-
-p counted_characters("that's alright folks") # ["t"]
-p counted_characters("mississippi") # ["i", "s"]
-p counted_characters("hot potato soup please") # ["o", "t", " ", "p"]
-p counted_characters("runtime") # []
 */
 
-function countedCharacters() {}
+function counted_characters(string) {
+  const chars = string.split('');
+  const counter = {};
+  const duplicates = [];
+
+  chars.forEach((char) => {
+    if (char in counter) {
+      counter[char] += 1;
+    } else {
+      counter[char] = 1;
+    }
+  });
+
+  // console.log(counter);
+
+  return Object.keys(counter).filter((el) => counter[el] > 2);
+}
+
+console.log(counted_characters("that's alright folks")); // ["t"]
+console.log(counted_characters('mississippi')); // ["i", "s"]
+console.log(counted_characters('hot potato soup please')); // ["o", "t", " ", "p"]
+console.log(counted_characters('runtime')); // []
 
 /*
 Write a method triplet_true? that accepts a string as an 
