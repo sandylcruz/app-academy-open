@@ -159,11 +159,11 @@ function triplet_true(string) {
   return false;
 }
 
-console.log(triplet_true('caaabb')); // true
-console.log(triplet_true('terrrrrible')); // true
-console.log(triplet_true('runninggg')); // true
-console.log(triplet_true('bootcamp')); // false
-console.log(triplet_true('e')); // false
+// console.log(triplet_true('caaabb')); // true
+// console.log(triplet_true('terrrrrible')); // true
+// console.log(triplet_true('runninggg')); // true
+// console.log(triplet_true('bootcamp')); // false
+// console.log(triplet_true('e')); // false
 
 /*
 Write a method energetic_encoding that accepts a string and a 
@@ -173,22 +173,40 @@ the corresponding values in the hash. If a character is not
 a key of the hash, then it should be replaced with a question 
 mark ('?'). Space characters (' ') should remain unchanged.
 
-p energetic_encoding('sent sea',
-    'e'=>'i', 's'=>'z', 'n'=>'m', 't'=>'p', 'a'=>'u'
-) # 'zimp ziu'
-
-p energetic_encoding('cat',
-    'a'=>'o', 'c'=>'k'
-) # 'ko?'
-
-p energetic_encoding('hello world',
-    'o'=>'i', 'l'=>'r', 'e'=>'a'
-) # '?arri ?i?r?'
-
-p energetic_encoding('bike', {}) # '????'
 */
 
-function energeticEncoding() {}
+function energetic_encoding(string, object) {
+  const chars = string.split('');
+  let newStringArray = [];
+
+  chars.forEach((char) => {
+    if (char in object) {
+      newStringArray.push(object[char]);
+    } else if (char === ' ') {
+      newStringArray.push(' ');
+    } else {
+      newStringArray.push('?');
+    }
+  });
+
+  return newStringArray.join('');
+}
+
+console.log(
+  energetic_encoding('sent sea', {
+    e: 'i',
+    s: 'z',
+    n: 'm',
+    t: 'p',
+    a: 'u',
+  })
+); // 'zimp ziu'
+
+console.log(energetic_encoding('cat', { a: 'o', c: 'k' })); // 'ko?'
+
+console.log(energetic_encoding('hello world', { o: 'i', l: 'r', e: 'a' })); // '?arri ?i?r?'
+
+console.log(energetic_encoding('bike', {})); // '????'
 
 /*
 Write a method uncompress that accepts a string as an argument. 
