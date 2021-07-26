@@ -30,15 +30,60 @@ if the word begins with a non-vowel, move all letters that
 come before the word's first vowel to the end of the word 
 and add 'ay' (example: 'trash'->'ashtray')
 
-p convert_pig_latin('We like to eat bananas') # "We ikelay to eatyay ananasbay"
-p convert_pig_latin('I cannot find the trash') # "I annotcay indfay ethay ashtray"
-p convert_pig_latin('What an interesting problem') # "Atwhay an interestingyay oblempray"
-p convert_pig_latin('Her family flew to France') # "Erhay amilyfay ewflay to Ancefray"
-p convert_pig_latin('Our family flew to France') # "Ouryay amilyfay ewflay to Ancefray"
 
 */
 
-function convertPigLatin(sentence) {}
+const getPrefix = (string) => {
+  let stringToReturn = [];
+
+  for (let i = 0; i < string.length; i++) {
+    let currentChar = string[i];
+    if (
+      currentChar !== 'a' &&
+      currentChar !== 'e' &&
+      currentChar !== 'i' &&
+      currentChar !== 'o' &&
+      currentChar !== 'u'
+    ) {
+      stringToReturn.push(currentChar);
+    } else {
+      return stringToReturn.join('');
+    }
+  }
+  return stringToReturn.join('');
+};
+
+console.log(getPrefix('scratch'));
+
+function convert_pig_latin(sentence) {
+  const words = sentence.split(' ');
+  let stringToReturn = [];
+
+  words.forEach((word) => {
+    if (word.length < 3) {
+      stringToReturn.push(word);
+    } else if (
+      word[0] === 'a' ||
+      word[0] === 'e' ||
+      word[0] === 'i' ||
+      word[0] === 'o' ||
+      word[0] === 'u'
+    ) {
+      const newWord = (word += 'yay');
+      stringToReturn.push(newWord);
+    } else {
+      let prefix = '';
+    }
+  });
+
+  console.log(stringToReturn);
+}
+
+// console.log(convert_pig_latin('We like to eat bananas')); // "We ikelay to eatyay ananasbay"
+// console.log(convert_pig_latin('I cannot find the trash')); // "I annotcay indfay ethay ashtray"
+// console.log(convert_pig_latin('What an interesting problem')); // "Atwhay an interestingyay oblempray"
+// console.log(convert_pig_latin('Her family flew to France')); // "Erhay amilyfay ewflay to Ancefray"
+// console.log(convert_pig_latin('Our family flew to France')); // "Ouryay amilyfay ewflay to Ancefray"
 
 /*
 Write a method reverberate that accepts a sentence as an 

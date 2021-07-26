@@ -86,17 +86,28 @@ each key is the result of the original key when given to
 the block. Each value of the new hash should be the result 
 of the original values when passed into the proc.
 
-double = Proc.new { |n| n * 2 }
-p hash_mapped({'a'=>4, 'x'=>7, 'c'=>-3}, double) { |k| k.upcase + '!!' }
-# {"A!!"=>8, "X!!"=>14, "C!!"=>-6}
 
-first = Proc.new { |a| a[0] }
-p hash_mapped({-5=>['q', 'r', 's'], 6=>['w', 'x']}, first) { |n| n * n }
-# {25=>"q", 36=>"w"}
+
 
 */
 
-function hashMapped() {}
+const double = (n) => {
+  n * 2;
+};
+const first = (a) => {
+  a[0];
+};
+
+const upcase = (char) => {char.upcase + "!!"}
+
+function hashMapped() { }
+
+console.log(hash_mapped({'a': 4, 'x': 7, 'c': -3}, double)
+// {"A!!": 8, "X!!": 14, "C!!": -6}
+
+
+console.log(hash_mapped({-5: ['q', 'r', 's'], 6: ['w', 'x']}, first) { |n| n * n })
+// {25: "q", 36: "w"}
 
 /*
 Write a method counted_characters that accepts a string as an 
