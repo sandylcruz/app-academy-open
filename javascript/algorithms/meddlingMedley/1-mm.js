@@ -124,26 +124,46 @@ function counted_characters(string) {
   return Object.keys(counter).filter((el) => counter[el] > 2);
 }
 
-console.log(counted_characters("that's alright folks")); // ["t"]
-console.log(counted_characters('mississippi')); // ["i", "s"]
-console.log(counted_characters('hot potato soup please')); // ["o", "t", " ", "p"]
-console.log(counted_characters('runtime')); // []
+// console.log(counted_characters("that's alright folks")); // ["t"]
+// console.log(counted_characters('mississippi')); // ["i", "s"]
+// console.log(counted_characters('hot potato soup please')); // ["o", "t", " ", "p"]
+// console.log(counted_characters('runtime')); // []
 
 /*
 Write a method triplet_true? that accepts a string as an 
 argument and returns a boolean indicating whether or not the 
 string contains three of the same character consecutively.
 
-Examples
-
-p triplet_true('caaabb')        # true
-p triplet_true('terrrrrible')   # true
-p triplet_true('runninggg')     # true
-p triplet_true('bootcamp')      # false
-p triplet_true('e')             # false
 */
 
-function isTripletTrue() {}
+function triplet_true(string) {
+  let counter = {};
+  const chars = string.split('');
+
+  for (let i = 0; i < chars.length; i++) {
+    let currentChar = chars[i];
+    let nextChar = chars[i + 1];
+
+    if (currentChar === nextChar && currentChar in counter) {
+      counter[currentChar] += 1;
+    } else if (currentChar === nextChar && !(currentChar in counter)) {
+      counter[currentChar] = 2;
+    }
+  }
+
+  for (char in counter) {
+    if (counter[char] >= 3) {
+      return true;
+    }
+  }
+  return false;
+}
+
+console.log(triplet_true('caaabb')); // true
+console.log(triplet_true('terrrrrible')); // true
+console.log(triplet_true('runninggg')); // true
+console.log(triplet_true('bootcamp')); // false
+console.log(triplet_true('e')); // false
 
 /*
 Write a method energetic_encoding that accepts a string and a 
