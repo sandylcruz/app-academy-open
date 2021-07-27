@@ -80,11 +80,11 @@ function convert_pig_latin(sentence) {
   return stringToReturn.join(' ');
 }
 
-console.log(convert_pig_latin('We like to eat bananas')); // "We ikelay to eatyay ananasbay"
-console.log(convert_pig_latin('I cannot find the trash')); // "I annotcay indfay ethay ashtray"
-console.log(convert_pig_latin('What an interesting problem')); // "Atwhay an interestingyay oblempray"
-console.log(convert_pig_latin('Her family flew to France')); // "Erhay amilyfay ewflay to Ancefray"
-console.log(convert_pig_latin('Our family flew to France')); // "Ouryay amilyfay ewflay to Ancefray"
+// console.log(convert_pig_latin('We like to eat bananas')); // "We ikelay to eatyay ananasbay"
+// console.log(convert_pig_latin('I cannot find the trash')); // "I annotcay indfay ethay ashtray"
+// console.log(convert_pig_latin('What an interesting problem')); // "Atwhay an interestingyay oblempray"
+// console.log(convert_pig_latin('Her family flew to France')); // "Erhay amilyfay ewflay to Ancefray"
+// console.log(convert_pig_latin('Our family flew to France')); // "Ouryay amilyfay ewflay to Ancefray"
 
 /*
 Write a method reverberate that accepts a sentence as an 
@@ -100,14 +100,60 @@ if the word ends with a non-vowel, repeat all letters that
 come after the word's last vowel, including the last vowel 
 itself (example: 'trash'->'trashash')
 
-p reverberate('We like to go running fast') # "We likelike to go runninging fastast"
-p reverberate('He cannot find the trash') # "He cannotot findind thethe trashash"
-p reverberate('Pasta is my favorite dish') # "Pastapasta is my favoritefavorite dishish"
-p reverberate('Her family flew to France') # "Herer familyily flewew to Francefrance"
+
 
 */
 
-function reverberate() {}
+const getLastVowelIndex = (word) => {
+  let lastVowelIndex = null;
+
+  for (let i = 0; i < word.length; i++) {
+    let currentChar = word[i];
+
+    if (
+      currentChar === 'a' ||
+      currentChar === 'e' ||
+      currentChar === 'i' ||
+      currentChar === 'o' ||
+      currentChar === 'u'
+    ) {
+      lastVowelIndex = i;
+    }
+  }
+
+  return lastVowelIndex;
+};
+
+function reverberate(sentence) {
+  const words = sentence.split(' ');
+
+  const sentenceToReturn = [];
+
+  words.forEach((word) => {
+    if (word.length < 3) {
+      sentenceToReturn.push(word);
+    } else if (
+      word[word.length - 1] === 'a' ||
+      word[word.length - 1] === 'e' ||
+      word[word.length - 1] === 'i' ||
+      word[word.length - 1] === 'o' ||
+      word[word.length - 1] === 'u'
+    ) {
+      sentenceToReturn.push(word + word);
+    } else {
+      const lastVowelIndex = getLastVowelIndex(word);
+      let suffix = word.slice(lastVowelIndex);
+      sentenceToReturn.push(word + suffix);
+    }
+  });
+
+  return sentenceToReturn.join(' ');
+}
+
+console.log(reverberate('We like to go running fast')); // "We likelike to go runninging fastast"
+console.log(reverberate('He cannot find the trash')); // "He cannotot findind thethe trashash"
+console.log(reverberate('Pasta is my favorite dish')); // "Pastapasta is my favoritefavorite dishish"
+console.log(reverberate('Her family flew to France')); // "Herer familyily flewew to Francefrance"
 
 /*
 Write a method disjunct_select that accepts an array and 
