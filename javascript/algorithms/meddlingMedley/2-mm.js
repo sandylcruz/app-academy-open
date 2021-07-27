@@ -225,21 +225,36 @@ const getFirstVowelIndex = (word) => {
 // console.log(getFirstVowelIndex('csdfat'));
 
 function alternating_vowel(sentence) {
+  const sentenceToReturn = [];
   const words = sentence.split(' ');
 
   for (let i = 0; i < words.length; i++) {
+    let currentWord = words[i];
     if (i % 2 === 0) {
-      console.log('even');
+      const firstVowelIndex = getFirstVowelIndex(currentWord);
+      const prefix = currentWord.slice(0, firstVowelIndex);
+      const suffix = currentWord.slice(firstVowelIndex + 1);
+      // console.log(`${currentWord}`, `${firstVowelIndex}`);
+
+      if (firstVowelIndex === undefined) {
+        sentenceToReturn.push(currentWord);
+      } else {
+        sentenceToReturn.push(prefix + suffix);
+      }
     } else {
-      console.log('odd');
+      const lastVowelIndex = getLastVowelIndex(currentWord);
+      const prefix = currentWord.slice(0, lastVowelIndex);
+      const suffix = currentWord.slice(lastVowelIndex + 1);
+      sentenceToReturn.push(prefix + suffix);
     }
   }
+  return sentenceToReturn.join(' ');
 }
 
-// console.log(alternating_vowel('panthers are great animals')); // "pnthers ar grat animls"
-// console.log(alternating_vowel('running panthers are epic')); // "rnning panthrs re epc"
-// console.log(alternating_vowel('code properly please')); // "cde proprly plase"
-// console.log(alternating_vowel('my forecast predicts rain today')); // "my forecst prdicts ran tday"
+console.log(alternating_vowel('panthers are great animals')); // "pnthers ar grat animls"
+console.log(alternating_vowel('running panthers are epic')); // "rnning panthrs re epc"
+console.log(alternating_vowel('code properly please')); // "cde proprly plase"
+console.log(alternating_vowel('my forecast predicts rain today')); // "my forecst prdicts ran tday"
 
 /*
 Write a method silly_talk that accepts a sentence as an 
