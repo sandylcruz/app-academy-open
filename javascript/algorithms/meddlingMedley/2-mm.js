@@ -110,8 +110,6 @@ if the word ends with a non-vowel, repeat all letters that
 come after the word's last vowel, including the last vowel 
 itself (example: 'trash'->'trashash')
 
-
-
 */
 
 const getLastVowelIndex = (word) => {
@@ -206,14 +204,42 @@ the 3rd word should be missing its first vowel
 the 4th word should be missing its last vowel
 ... and so on
 
-p alternating_vowel('panthers are great animals') # "pnthers ar grat animls"
-p alternating_vowel('running panthers are epic') # "rnning panthrs re epc"
-p alternating_vowel('code properly please') # "cde proprly plase"
-p alternating_vowel('my forecast predicts rain today') # "my forecst prdicts ran tday"
+
 
 */
 
-function alternatingVowel(sentence) {}
+const getFirstVowelIndex = (word) => {
+  for (let i = 0; i < word.length; i++) {
+    if (
+      word[i] === 'a' ||
+      word[i] === 'e' ||
+      word[i] === 'i' ||
+      word[i] === 'o' ||
+      word[i] === 'u'
+    ) {
+      return i;
+    }
+  }
+};
+
+// console.log(getFirstVowelIndex('csdfat'));
+
+function alternating_vowel(sentence) {
+  const words = sentence.split(' ');
+
+  for (let i = 0; i < words.length; i++) {
+    if (i % 2 === 0) {
+      console.log('even');
+    } else {
+      console.log('odd');
+    }
+  }
+}
+
+// console.log(alternating_vowel('panthers are great animals')); // "pnthers ar grat animls"
+// console.log(alternating_vowel('running panthers are epic')); // "rnning panthrs re epc"
+// console.log(alternating_vowel('code properly please')); // "cde proprly plase"
+// console.log(alternating_vowel('my forecast predicts rain today')); // "my forecst prdicts ran tday"
 
 /*
 Write a method silly_talk that accepts a sentence as an 
