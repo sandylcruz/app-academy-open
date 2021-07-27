@@ -284,7 +284,6 @@ const getVowelIndices = (word) => {
 
   return indices;
 };
-console.log(getVowelIndices('like'));
 
 function silly_talk(sentence) {
   let sentenceToReturn = [];
@@ -292,11 +291,21 @@ function silly_talk(sentence) {
 
   words.forEach((word) => {
     const lastCharOfWord = word[word.length - 1];
-    console.log(lastCharOfWord);
     if (vowels.has(lastCharOfWord)) {
       sentenceToReturn.push(word + lastCharOfWord);
     } else {
-      const vowelIndices = getVowelIndices(word);
+      // const vowelIndices = getVowelIndices(word);
+      const chars = word.split('');
+      let newWord = [];
+
+      chars.forEach((char) => {
+        if (vowels.has(char)) {
+          newWord.push(char + 'b' + char);
+        } else {
+          newWord.push(char);
+        }
+      });
+      sentenceToReturn.push(newWord.join(''));
     }
   });
 
