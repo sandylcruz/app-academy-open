@@ -251,10 +251,10 @@ function alternating_vowel(sentence) {
   return sentenceToReturn.join(' ');
 }
 
-console.log(alternating_vowel('panthers are great animals')); // "pnthers ar grat animls"
-console.log(alternating_vowel('running panthers are epic')); // "rnning panthrs re epc"
-console.log(alternating_vowel('code properly please')); // "cde proprly plase"
-console.log(alternating_vowel('my forecast predicts rain today')); // "my forecst prdicts ran tday"
+// console.log(alternating_vowel('panthers are great animals')); // "pnthers ar grat animls"
+// console.log(alternating_vowel('running panthers are epic')); // "rnning panthrs re epc"
+// console.log(alternating_vowel('code properly please')); // "cde proprly plase"
+// console.log(alternating_vowel('my forecast predicts rain today')); // "my forecst prdicts ran tday"
 
 /*
 Write a method silly_talk that accepts a sentence as an 
@@ -267,14 +267,46 @@ if the word ends with a non-vowel, every vowel of the word
 should be followed by 'b' and that same vowel 
 (example: 'siren'->'sibireben')
 
-p silly_talk('Kids like cats and dogs') # "Kibids likee cabats aband dobogs"
-p silly_talk('Stop that scooter') # "Stobop thabat scobooboteber"
-p silly_talk('They can code') # "Thebey caban codee"
-p silly_talk('He flew to Italy') # "Hee flebew too Ibitabaly"
 
 */
+const vowels = new Set(['a', 'e', 'i', 'o', 'u']);
 
-function sillyTalk() {}
+const getVowelIndices = (word) => {
+  const chars = word.split('');
+  let indices = [];
+
+  for (let i = 0; i < chars.length; i++) {
+    const currentChar = chars[i];
+    if (vowels.has(currentChar)) {
+      indices.push(i);
+    }
+  }
+
+  return indices;
+};
+console.log(getVowelIndices('like'));
+
+function silly_talk(sentence) {
+  let sentenceToReturn = [];
+  const words = sentence.split(' ');
+
+  words.forEach((word) => {
+    const lastCharOfWord = word[word.length - 1];
+    console.log(lastCharOfWord);
+    if (vowels.has(lastCharOfWord)) {
+      sentenceToReturn.push(word + lastCharOfWord);
+    } else {
+      const vowelIndices = getVowelIndices(word);
+    }
+  });
+
+  return sentenceToReturn.join(' ');
+}
+
+// console.log(silly_talk('Kids like cats and dogs')); // "Kibids likee cabats aband dobogs"
+// console.log(silly_talk('Stop that scooter')); // "Stobop thabat scobooboteber"
+// console.log(silly_talk('They can code')); // "Thebey caban codee"
+// console.log(silly_talk('He flew to Italy')); // "Hee flebew too Ibitabaly"
 
 /*
 Write a method compress that accepts a string as an argument. 
