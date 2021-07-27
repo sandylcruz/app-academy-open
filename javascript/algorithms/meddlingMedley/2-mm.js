@@ -139,7 +139,7 @@ function reverberate(sentence) {
       word[word.length - 1] === 'o' ||
       word[word.length - 1] === 'u'
     ) {
-      sentenceToReturn.push(word + word);
+      sentenceToReturn.push(word + word.toLowerCase());
     } else {
       const lastVowelIndex = getLastVowelIndex(word);
       let suffix = word.slice(lastVowelIndex);
@@ -150,10 +150,10 @@ function reverberate(sentence) {
   return sentenceToReturn.join(' ');
 }
 
-console.log(reverberate('We like to go running fast')); // "We likelike to go runninging fastast"
-console.log(reverberate('He cannot find the trash')); // "He cannotot findind thethe trashash"
-console.log(reverberate('Pasta is my favorite dish')); // "Pastapasta is my favoritefavorite dishish"
-console.log(reverberate('Her family flew to France')); // "Herer familyily flewew to Francefrance"
+// console.log(reverberate('We like to go running fast')); // "We likelike to go runninging fastast"
+// console.log(reverberate('He cannot find the trash')); // "He cannotot findind thethe trashash"
+// console.log(reverberate('Pasta is my favorite dish')); // "Pastapasta is my favoritefavorite dishish"
+// console.log(reverberate('Her family flew to France')); // "Herer familyily flewew to Francefrance"
 
 /*
 Write a method disjunct_select that accepts an array and 
@@ -203,7 +203,7 @@ p alternating_vowel('my forecast predicts rain today') # "my forecst prdicts ran
 
 */
 
-function alternatingVowel() {}
+function alternatingVowel(sentence) {}
 
 /*
 Write a method silly_talk that accepts a sentence as an 
