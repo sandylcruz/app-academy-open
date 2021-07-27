@@ -69,16 +69,26 @@ function convert_pig_latin(sentence) {
     ) {
       const newWord = (word += 'yay');
       stringToReturn.push(newWord);
+    } else if (word[0] === word[0].toUpperCase()) {
+      let prefix = getPrefix(word);
+      const endOfWord = word.slice(prefix.length);
+      const newWord = endOfWord;
+      const newWordWithCapitalization =
+        newWord[0].toUpperCase() + newWord.slice(1);
+      stringToReturn.push(
+        newWordWithCapitalization + prefix.toLowerCase() + 'ay'
+      );
     } else {
       let prefix = getPrefix(word);
       const endOfWord = word.slice(prefix.length);
       const newWord = endOfWord;
-      stringToReturn.push(newWord + prefix + 'ay');
+      stringToReturn.push(newWord + prefix.toLowerCase() + 'ay');
     }
   });
 
   return stringToReturn.join(' ');
 }
+// handle two vowels in a row
 
 // console.log(convert_pig_latin('We like to eat bananas')); // "We ikelay to eatyay ananasbay"
 // console.log(convert_pig_latin('I cannot find the trash')); // "I annotcay indfay ethay ashtray"
