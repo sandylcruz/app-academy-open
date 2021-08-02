@@ -52,3 +52,18 @@ const lib = (n) => {
   lib(n - 2);
   lib(n - 2);
 };
+
+const iterativeFib = (number) => {
+  if (number <= 2) return 1;
+
+  let previousValue = 1;
+  let value = 2;
+
+  for (let i = 1; i < number; i++) {
+    const nextValue = previousValue + value;
+    previousValue = value;
+    value = nextValue;
+  }
+
+  return value;
+};
