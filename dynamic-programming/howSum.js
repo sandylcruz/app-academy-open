@@ -43,7 +43,8 @@ time: O(n * m * m) => O(n *m^2)
 space: O(m^2) 
 -- (m keys with at word m elements)
 -- keys are all unique values. the space increases because of the memo
--- 
+-- no longer exponential
+-- takes up more space than brute force, but the time complexity 
 */
 
 const howSum = (targetSum, numbers, memo = {}) => {
