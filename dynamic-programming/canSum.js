@@ -8,7 +8,21 @@ You may use an element of the array as many times as needed
 You may assume that all input numbers are nonnegative
 
 */
-const canSum = (targetSum, numbers) => {
+
+// brute force
+/*
+m = target sum
+n = array length, root of tree
+
+height: m (number of levels)
+branching / number of nodes change from one level to the next: m
+space = height of tree;
+
+O(n^m) exponential time
+O(m) space
+*/
+
+const canSumSlow = (targetSum, numbers) => {
   if (targetSum === 0) return true;
   if (targetSum < 0) return false;
 
@@ -21,6 +35,33 @@ const canSum = (targetSum, numbers) => {
     }
   }
 
+  return false;
+};
+
+/*
+m = target sum
+n = array length
+
+O(m * n) time
+O(m) space
+*/
+
+const canSum = (targetSum, numbers, memo = {}) => {
+  if (targetSum in memo) return memo[targetSum];
+  if (targetSum === 0) return true;
+  if (targetSum < 0) return false;
+
+  for (let i = 0; i < numbers.length; i++) {
+    const num = numbers[i];
+    const remainder = targetSum - num;
+
+    if (canSum(remainder, numbers, memo) === true) {
+      memo[targetSum] = true;
+      return true;
+    }
+  }
+
+  memo[targetSum] = false;
   return false;
 };
 
