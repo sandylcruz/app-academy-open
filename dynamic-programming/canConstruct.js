@@ -37,6 +37,15 @@ const canConstructBruteForce = (target, wordBank) => {
   return false;
 };
 
+/*
+m = target.length
+n = wordBank.length
+
+Time: O(n * m^2) - don't have to fully explore duplicate subtrees. short circuit and fetch stored results
+Space: O(m^2) space - still have to do slice
+Have removed exponential time complexity
+*/
+
 const canConstruct = (target, wordBank, memo = {}) => {
   if (target in memo) return memo[target];
   if (target.length === 0) return true;
