@@ -10,6 +10,8 @@ If there are multiple combinations possible, you may return any single one
 
 /*
 
+// Combinatoric problem
+
 m = target sum
 n = numbers.length
 

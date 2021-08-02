@@ -9,6 +9,8 @@ You may assume that all input numbers are nonnegative
 
 */
 
+// Decision problem
+
 // brute force
 /*
 m = target sum
