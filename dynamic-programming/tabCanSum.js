@@ -37,7 +37,7 @@ space: O(m) - based on table
 
 */
 
-const canSum = (targetSum, numbers) => {
+const canSum1 = (targetSum, numbers) => {
   const table = new Array(targetSum + 1).fill(false);
 
   table[0] = true;
@@ -54,6 +54,58 @@ const canSum = (targetSum, numbers) => {
       });
     }
   }
+  return table[targetSum];
+};
+
+const canSum2 = (targetSum, numbers) => {
+  const table = new Array(targetSum + 1).fill(false);
+
+  table[0] = true;
+
+  for (let i = 0; i <= table.length; i++) {
+    if (table[i] === true) {
+      numbers.forEach((num) => {
+        if (table[i + num] <= table.length) {
+          table[i + num] = true;
+        }
+      });
+    }
+  }
+  return table[targetSum];
+};
+
+const canSum3 = (targetSum, numbers) => {
+  const table = new Array(targetSum + 1).fill(false);
+  table[0] = true;
+
+  for (let i = 0; i <= table.length; i++) {
+    if (table[i] === true) {
+      numbers.forEach((num) => {
+        if (table[i + num] <= table.length) {
+          table[i + num] = true;
+        }
+      });
+    }
+  }
+  // console.log(table);
+  return table[targetSum];
+};
+
+const canSum = (targetSum, numbers) => {
+  const table = new Array(targetSum + 1).fill(false);
+
+  table[0] = true;
+
+  for (let i = 0; i <= table.length; i++) {
+    if (table[i] === true) {
+      numbers.forEach((num) => {
+        if (table[i + num] <= table.length) {
+          table[i + num] = true;
+        }
+      });
+    }
+  }
+
   return table[targetSum];
 };
 console.log(canSum(7, [2, 3])); // true
