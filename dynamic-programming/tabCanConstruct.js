@@ -3,6 +3,9 @@ table length is based off target string not word bank
 because we're never removing els from word bank
 
 table[0] is the empty string
+
+time: O(m^2)
+space: O(m)
 */
 
 const canConstruct = (target, wordBank) => {
