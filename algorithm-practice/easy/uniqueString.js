@@ -16,5 +16,6 @@ function uniqueString(string) {
 
   return true;
 }
-console.log(uniqueString("callie"));
-console.log(uniqueString("squeak"));
+
+console.log(uniqueString('callie'));
+console.log(uniqueString('squeak'));
